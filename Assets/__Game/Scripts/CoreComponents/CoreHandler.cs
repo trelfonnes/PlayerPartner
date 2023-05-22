@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+//test for git change pickup
 public class CoreHandler : MonoBehaviour
 {
     private readonly List<CoreComponent> CoreComponents = new List<CoreComponent>();
