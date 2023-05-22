@@ -1,0 +1,4 @@
+repository "PlayerPartner@TrelBootcampProjects@cloud"
+  path "/"
+    br "/main"
+    co "/main"
