@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 99c5cce8d47a2624382f6bfbd10e0e60
+guid: efd6143a94f562c4a87c685310c25172
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stage 3 Dino_0
+      name: spr_Stage 3 Dino_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,20 +125,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad2b4468a88a68c4a9804d4da4f4d2e4
-      internalID: -486735632
+      spriteID: 219eb98c53fa56c4eb97e314ba65c30e
+      internalID: 1651125410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_1
+      name: spr_Stage 3 Dino_1
       rect:
         serializedVersion: 2
         x: 120
@@ -146,20 +146,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05188a3fb5e72f648ba28d97027f5ded
-      internalID: -1087920341
+      spriteID: d61e0ae6c6443a149a6f450d00df837e
+      internalID: -2077228696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_2
+      name: spr_Stage 3 Dino_2
       rect:
         serializedVersion: 2
         x: 240
@@ -167,20 +167,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c84a08aac623864bb663775620e601b
-      internalID: 1299796575
+      spriteID: 4d9303815a50b104db7eedffb15bb2fb
+      internalID: 1022087819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_3
+      name: spr_Stage 3 Dino_3
       rect:
         serializedVersion: 2
         x: 360
@@ -188,20 +188,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3ca6d8f861e79040844b8851d06481d
-      internalID: 858719102
+      spriteID: 0774ee79fce56694da2f084b2f63deb4
+      internalID: -552872140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_4
+      name: spr_Stage 3 Dino_4
       rect:
         serializedVersion: 2
         x: 0
@@ -209,20 +209,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f135f140a7133d4d9e5aac043036137
-      internalID: 1656074814
+      spriteID: d599d1ad66230a845969b4eb30c83bc1
+      internalID: -1441847539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_5
+      name: spr_Stage 3 Dino_5
       rect:
         serializedVersion: 2
         x: 120
@@ -230,20 +230,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ebf442d787166e429168d20ef421dfb
-      internalID: 1487583467
+      spriteID: 25519c752b2e28f439b37829b146f66a
+      internalID: 1207671988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_6
+      name: spr_Stage 3 Dino_6
       rect:
         serializedVersion: 2
         x: 240
@@ -251,20 +251,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 496500198be435c47a10b6c35d0c8c75
-      internalID: -1572821766
+      spriteID: bdc04015adb642442890b9861ed92c9f
+      internalID: -1545112378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_7
+      name: spr_Stage 3 Dino_7
       rect:
         serializedVersion: 2
         x: 360
@@ -272,20 +272,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e65e6c288bf434d478ce8f01aaf876fe
-      internalID: 1100832951
+      spriteID: 9e625282909b6c04aa46fa8f5530b2f1
+      internalID: 1995950619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_8
+      name: spr_Stage 3 Dino_8
       rect:
         serializedVersion: 2
         x: 0
@@ -293,20 +293,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: beb3b0f4dc69e3544bb130cc5a24c947
-      internalID: -1660052077
+      spriteID: 0551adb3791fe074887d5aaccd569317
+      internalID: 59534571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_9
+      name: spr_Stage 3 Dino_9
       rect:
         serializedVersion: 2
         x: 120
@@ -314,20 +314,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60129fdb06426a54886a97b2f28476c5
-      internalID: -1563571351
+      spriteID: dc2d7e8f77ed637428b23e86648e8172
+      internalID: -2041323022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_10
+      name: spr_Stage 3 Dino_10
       rect:
         serializedVersion: 2
         x: 240
@@ -335,20 +335,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b5e0b0d0673adf488cb699acf00d132
-      internalID: 1206574017
+      spriteID: 6c3fc2a6b600221478624b3b001faced
+      internalID: 255714286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_11
+      name: spr_Stage 3 Dino_11
       rect:
         serializedVersion: 2
         x: 360
@@ -356,20 +356,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f15ea18ac448187468265c3b358c75e0
-      internalID: -2116562942
+      spriteID: b22255e225650214492e0bea9bf717f6
+      internalID: -247981488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_12
+      name: spr_Stage 3 Dino_12
       rect:
         serializedVersion: 2
         x: 0
@@ -377,20 +377,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a295b0f723dab1d4ea770cc3d5c669be
-      internalID: -1424711877
+      spriteID: 036a186edb6e89d489f3c8631c6019d6
+      internalID: -1008222724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_13
+      name: spr_Stage 3 Dino_13
       rect:
         serializedVersion: 2
         x: 120
@@ -398,20 +398,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b69296d08c25824c9b992c994067fb6
-      internalID: 1289121871
+      spriteID: d398938c272690f4680ff9a285203557
+      internalID: -272159731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_14
+      name: spr_Stage 3 Dino_14
       rect:
         serializedVersion: 2
         x: 240
@@ -419,20 +419,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7288cfec83ed83f489646c1f75b90bcd
-      internalID: 1321831588
+      spriteID: cd3dd598b4566884f96af38a736e3b15
+      internalID: 814581731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_15
+      name: spr_Stage 3 Dino_15
       rect:
         serializedVersion: 2
         x: 360
@@ -440,20 +440,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f77db8b653f40e40995150385c19eaf
-      internalID: 203392758
+      spriteID: d1c45a2ac5509314db040d9777b7680f
+      internalID: 2145824219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_16
+      name: spr_Stage 3 Dino_16
       rect:
         serializedVersion: 2
         x: 0
@@ -461,20 +461,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fb6ca1fdf12dde458da412636a2fc9c
-      internalID: -407032925
+      spriteID: b4c735c4440e8b2499294f4dd55b43ba
+      internalID: 46373571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_17
+      name: spr_Stage 3 Dino_17
       rect:
         serializedVersion: 2
         x: 120
@@ -482,20 +482,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 416d0723c3f97084da256411a91050b5
-      internalID: 2042154731
+      spriteID: 6e3b757783396f84b8dc272435846915
+      internalID: -691195454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_18
+      name: spr_Stage 3 Dino_18
       rect:
         serializedVersion: 2
         x: 240
@@ -503,20 +503,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06d80af2734cf37458c8682beb1c2197
-      internalID: -1554344280
+      spriteID: 6203386e7b0f084498420945ff8b5507
+      internalID: 529074659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_19
+      name: spr_Stage 3 Dino_19
       rect:
         serializedVersion: 2
         x: 0
@@ -524,20 +524,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c82fa3e13aad4743a44e4fd5bc91a77
-      internalID: 1104673538
+      spriteID: bd3ebea663cd7c54db41cc98a20671e2
+      internalID: 1373807778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_20
+      name: spr_Stage 3 Dino_20
       rect:
         serializedVersion: 2
         x: 120
@@ -545,20 +545,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58fe29eb19e3fc944896a2a6c993945f
-      internalID: 1287971480
+      spriteID: fb467f66923303941b77f1be30b60630
+      internalID: -1576687868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_21
+      name: spr_Stage 3 Dino_21
       rect:
         serializedVersion: 2
         x: 240
@@ -566,20 +566,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15ca234daafc0474d9c8e1b4324186f5
-      internalID: 1900841725
+      spriteID: bde62b8a8822acc47933d4bc4c923772
+      internalID: 678986696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_22
+      name: spr_Stage 3 Dino_22
       rect:
         serializedVersion: 2
         x: 0
@@ -587,20 +587,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d12559b79649bc45a3f6009a66617fa
-      internalID: -1072917190
+      spriteID: 67f6150f1ce8d5146a58c1150565f9d6
+      internalID: -1879211071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_23
+      name: spr_Stage 3 Dino_23
       rect:
         serializedVersion: 2
         x: 120
@@ -608,20 +608,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8947dee9f263b7d41acdee8646c66282
-      internalID: -442670746
+      spriteID: 74e48405dddd0654b9b0c8e918b121aa
+      internalID: 77153680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_24
+      name: spr_Stage 3 Dino_24
       rect:
         serializedVersion: 2
         x: 240
@@ -629,20 +629,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58d30db522e84564b9961cc56e30995b
-      internalID: 1434420618
+      spriteID: 4ffcf8082499fc54093c78819f718eb4
+      internalID: -268371041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_25
+      name: spr_Stage 3 Dino_25
       rect:
         serializedVersion: 2
         x: 0
@@ -650,20 +650,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c324783755566ef44aba8fe3777f367c
-      internalID: -1606452262
+      spriteID: 23914160a12f0904fa9ead3471c5e851
+      internalID: 970208612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_26
+      name: spr_Stage 3 Dino_26
       rect:
         serializedVersion: 2
         x: 120
@@ -671,20 +671,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f807af57d3efb5e4999e02979f78b748
-      internalID: 1367555594
+      spriteID: 1d940c96f33656d4eb7beb106d907596
+      internalID: 901909218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage 3 Dino_27
+      name: spr_Stage 3 Dino_27
       rect:
         serializedVersion: 2
         x: 240
@@ -692,14 +692,14 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7954e788680e764c85efcded486fa18
-      internalID: -891152656
+      spriteID: 44dc66a70f02eba43b58e2fb3ebfea7c
+      internalID: -1071613384
       vertices: []
       indices: 
       edges: []
@@ -715,34 +715,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Stage 3 Dino_0: -486735632
-      Stage 3 Dino_1: -1087920341
-      Stage 3 Dino_10: 1206574017
-      Stage 3 Dino_11: -2116562942
-      Stage 3 Dino_12: -1424711877
-      Stage 3 Dino_13: 1289121871
-      Stage 3 Dino_14: 1321831588
-      Stage 3 Dino_15: 203392758
-      Stage 3 Dino_16: -407032925
-      Stage 3 Dino_17: 2042154731
-      Stage 3 Dino_18: -1554344280
-      Stage 3 Dino_19: 1104673538
-      Stage 3 Dino_2: 1299796575
-      Stage 3 Dino_20: 1287971480
-      Stage 3 Dino_21: 1900841725
-      Stage 3 Dino_22: -1072917190
-      Stage 3 Dino_23: -442670746
-      Stage 3 Dino_24: 1434420618
-      Stage 3 Dino_25: -1606452262
-      Stage 3 Dino_26: 1367555594
-      Stage 3 Dino_27: -891152656
-      Stage 3 Dino_3: 858719102
-      Stage 3 Dino_4: 1656074814
-      Stage 3 Dino_5: 1487583467
-      Stage 3 Dino_6: -1572821766
-      Stage 3 Dino_7: 1100832951
-      Stage 3 Dino_8: -1660052077
-      Stage 3 Dino_9: -1563571351
+      spr_Stage 3 Dino_0: 1651125410
+      spr_Stage 3 Dino_1: -2077228696
+      spr_Stage 3 Dino_10: 255714286
+      spr_Stage 3 Dino_11: -247981488
+      spr_Stage 3 Dino_12: -1008222724
+      spr_Stage 3 Dino_13: -272159731
+      spr_Stage 3 Dino_14: 814581731
+      spr_Stage 3 Dino_15: 2145824219
+      spr_Stage 3 Dino_16: 46373571
+      spr_Stage 3 Dino_17: -691195454
+      spr_Stage 3 Dino_18: 529074659
+      spr_Stage 3 Dino_19: 1373807778
+      spr_Stage 3 Dino_2: 1022087819
+      spr_Stage 3 Dino_20: -1576687868
+      spr_Stage 3 Dino_21: 678986696
+      spr_Stage 3 Dino_22: -1879211071
+      spr_Stage 3 Dino_23: 77153680
+      spr_Stage 3 Dino_24: -268371041
+      spr_Stage 3 Dino_25: 970208612
+      spr_Stage 3 Dino_26: 901909218
+      spr_Stage 3 Dino_27: -1071613384
+      spr_Stage 3 Dino_3: -552872140
+      spr_Stage 3 Dino_4: -1441847539
+      spr_Stage 3 Dino_5: 1207671988
+      spr_Stage 3 Dino_6: -1545112378
+      spr_Stage 3 Dino_7: 1995950619
+      spr_Stage 3 Dino_8: 59534571
+      spr_Stage 3 Dino_9: -2041323022
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

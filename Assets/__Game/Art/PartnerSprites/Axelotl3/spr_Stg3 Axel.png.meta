@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2942769029c0ee84b90ec2f9e0748e06
+guid: 778a3e19543613f4a94327e2915a2a45
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stg3 Axel_0
+      name: spr_Stg3 Axel_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,20 +125,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e70eba55e1c59404b8ac73ecce8d82c0
-      internalID: 1392526875
+      spriteID: 5178ec2d880514248bf1ca64cf2cd309
+      internalID: 1501282597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_1
+      name: spr_Stg3 Axel_1
       rect:
         serializedVersion: 2
         x: 120
@@ -146,20 +146,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c1c0031d973cd84a818437b7c1577d4
-      internalID: -425045990
+      spriteID: 72881abc4796ccb4b8692f041e629e43
+      internalID: 1027175113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_2
+      name: spr_Stg3 Axel_2
       rect:
         serializedVersion: 2
         x: 240
@@ -167,20 +167,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be322bc56cce0ae4cafd1670793fd213
-      internalID: -786620558
+      spriteID: 899fccb77a90a2e44b12a47f4567fb49
+      internalID: 1513992367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_3
+      name: spr_Stg3 Axel_3
       rect:
         serializedVersion: 2
         x: 360
@@ -188,20 +188,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ea0456e930fccd4fb6a912689e3bbcc
-      internalID: 1669783782
+      spriteID: 44239304f280b514ca9d107b016d4411
+      internalID: -628854649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_4
+      name: spr_Stg3 Axel_4
       rect:
         serializedVersion: 2
         x: 0
@@ -209,20 +209,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e47ae9ed4c4854c4fba4f9bce03c78db
-      internalID: -1852309697
+      spriteID: e35c110634bd45f45bc1e6e9af41ee1e
+      internalID: 705863166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_5
+      name: spr_Stg3 Axel_5
       rect:
         serializedVersion: 2
         x: 120
@@ -230,20 +230,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cacdbf86df1a9544ab5155d3c7065a2
-      internalID: 1785755712
+      spriteID: 394718d6de0a5ae4bb0830c5f22becc9
+      internalID: 1195655802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_6
+      name: spr_Stg3 Axel_6
       rect:
         serializedVersion: 2
         x: 240
@@ -251,20 +251,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c394f17c8c984c4f8de11c57a8913e1
-      internalID: 365808329
+      spriteID: 6da5ae5475660b143a10d5d7b5b8664a
+      internalID: 34700933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_7
+      name: spr_Stg3 Axel_7
       rect:
         serializedVersion: 2
         x: 360
@@ -272,20 +272,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a51144abb404fe348beed98ef7b40054
-      internalID: 687298534
+      spriteID: 97ba522466c117c43b26ea4a4537f508
+      internalID: 1430834576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_8
+      name: spr_Stg3 Axel_8
       rect:
         serializedVersion: 2
         x: 0
@@ -293,20 +293,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ba0a37f0279392438a60f9e26a20bd7
-      internalID: 803563471
+      spriteID: ed130616dc46f894e9c8bd780fd43126
+      internalID: 466804653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_9
+      name: spr_Stg3 Axel_9
       rect:
         serializedVersion: 2
         x: 120
@@ -314,20 +314,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9df69adb24d83114895e3b6b1eb619ec
-      internalID: -1963254714
+      spriteID: 2803979996830ea429784a8324531624
+      internalID: 1899245635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_10
+      name: spr_Stg3 Axel_10
       rect:
         serializedVersion: 2
         x: 240
@@ -335,20 +335,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 608633eb4acd86c48ad46bd74fb1f117
-      internalID: 1387995958
+      spriteID: 685d2c9cfcb0be945b711dabf4a35362
+      internalID: -454202473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_11
+      name: spr_Stg3 Axel_11
       rect:
         serializedVersion: 2
         x: 360
@@ -356,20 +356,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e204f6b697368ab4eb63f8705ab92558
-      internalID: -1374557796
+      spriteID: d474651f1b88de94fb67337a61c16ab6
+      internalID: -716484595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_12
+      name: spr_Stg3 Axel_12
       rect:
         serializedVersion: 2
         x: 0
@@ -377,20 +377,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75e505c7541e2804990468abf29f21ef
-      internalID: -1664917076
+      spriteID: b9d4f822cedf9ad499abbebccd194f6e
+      internalID: -619324054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_13
+      name: spr_Stg3 Axel_13
       rect:
         serializedVersion: 2
         x: 120
@@ -398,20 +398,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 456e5a382803d13449bf3f1b0162352f
-      internalID: -1019399998
+      spriteID: 178ab4725e7b7194fb569dde50e45d16
+      internalID: -1203645666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_14
+      name: spr_Stg3 Axel_14
       rect:
         serializedVersion: 2
         x: 240
@@ -419,20 +419,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86dcb36c0cea13948b43679633ba7788
-      internalID: -487895773
+      spriteID: a2402ea4cb44ea44493961b18f8578a2
+      internalID: 2101090194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_15
+      name: spr_Stg3 Axel_15
       rect:
         serializedVersion: 2
         x: 360
@@ -440,20 +440,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7db888348f535b4b86a4d1fdcb4cb6b
-      internalID: 813688444
+      spriteID: dbeeb0501d152a84ab449bcfe5791337
+      internalID: 689346868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_16
+      name: spr_Stg3 Axel_16
       rect:
         serializedVersion: 2
         x: 0
@@ -461,20 +461,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5e8d9c2e61fc224dac18ab0f5dd949c
-      internalID: 2132904145
+      spriteID: 9c1727bba0f911e44a4eadba7ccb954e
+      internalID: 1524170220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_17
+      name: spr_Stg3 Axel_17
       rect:
         serializedVersion: 2
         x: 120
@@ -482,20 +482,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 004fce7df63a00d43b745ad0845d2d69
-      internalID: 1749813784
+      spriteID: b0eec4ac9951b1441965062dfd504875
+      internalID: -1894256996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_18
+      name: spr_Stg3 Axel_18
       rect:
         serializedVersion: 2
         x: 240
@@ -503,20 +503,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44747058645e06141b1667438eb06a5c
-      internalID: 254472599
+      spriteID: 017a5623adae5c442a4992edef88f4f9
+      internalID: 1800001886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_19
+      name: spr_Stg3 Axel_19
       rect:
         serializedVersion: 2
         x: 360
@@ -524,20 +524,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0951ac40048029542b041c78129a0674
-      internalID: 2022502107
+      spriteID: 36bea3133ff5bf749ac69f389bde23c5
+      internalID: -66900784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_20
+      name: spr_Stg3 Axel_20
       rect:
         serializedVersion: 2
         x: 0
@@ -545,20 +545,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b5f6af7f62cf8d44bc60d7530eeb068
-      internalID: 1064692630
+      spriteID: 43c82855e6ce45f4f90ec2c3c87025e9
+      internalID: -629973963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_21
+      name: spr_Stg3 Axel_21
       rect:
         serializedVersion: 2
         x: 120
@@ -566,20 +566,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f7f97b4112d93f409f1cc5ffaf4cccc
-      internalID: 1525300878
+      spriteID: 767edd798a33c954eb7662729ed23ec4
+      internalID: 1069344092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_22
+      name: spr_Stg3 Axel_22
       rect:
         serializedVersion: 2
         x: 240
@@ -587,20 +587,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0037249a2e1d74b418f5721e6c460c1e
-      internalID: -649152263
+      spriteID: c5034122fd4164c4795b358b4cc60fba
+      internalID: -1622918652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_23
+      name: spr_Stg3 Axel_23
       rect:
         serializedVersion: 2
         x: 360
@@ -608,20 +608,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 296d04a30a17e504caea29847b233684
-      internalID: -848651359
+      spriteID: 96c02056709518944b5a28ec4efe76f4
+      internalID: -1548427166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_24
+      name: spr_Stg3 Axel_24
       rect:
         serializedVersion: 2
         x: 0
@@ -629,20 +629,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8abc2ae32701ee459f5966e2abf5613
-      internalID: -236418566
+      spriteID: 71374e48ebbf35b409afe7fdceb352a4
+      internalID: 887969633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_25
+      name: spr_Stg3 Axel_25
       rect:
         serializedVersion: 2
         x: 120
@@ -650,20 +650,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2245350f6c9d76f4f89619fa51c6d7df
-      internalID: 366546546
+      spriteID: 7f6b09225527818469a41a80e9b2660d
+      internalID: -86251122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_26
+      name: spr_Stg3 Axel_26
       rect:
         serializedVersion: 2
         x: 240
@@ -671,20 +671,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be04a54972d631349b9b483a4b2471b4
-      internalID: 1983420905
+      spriteID: 4497b22af9f07ae499a1ad3c335afae1
+      internalID: 12198221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_27
+      name: spr_Stg3 Axel_27
       rect:
         serializedVersion: 2
         x: 360
@@ -692,20 +692,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4634dfb08e5bc2f498b59b7e90be8da4
-      internalID: 1440515592
+      spriteID: 7cf2f6f9e54a88e408548bf2cf153f84
+      internalID: 1550777201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_28
+      name: spr_Stg3 Axel_28
       rect:
         serializedVersion: 2
         x: 0
@@ -713,20 +713,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d41ea3285e72e3499085955642ecd92
-      internalID: -400245964
+      spriteID: 4e43fec0491b0314980dcea8064cb328
+      internalID: -362480619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_29
+      name: spr_Stg3 Axel_29
       rect:
         serializedVersion: 2
         x: 120
@@ -734,20 +734,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 564342adbe1d4574db637f820788c54a
-      internalID: -2092047997
+      spriteID: 305db0203dd51dd4fad9ce552a69a237
+      internalID: -88091411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_30
+      name: spr_Stg3 Axel_30
       rect:
         serializedVersion: 2
         x: 240
@@ -755,20 +755,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 196fb03879f30d14e8837f1f3b2e9059
-      internalID: -935898513
+      spriteID: 87820d0a6d729924db1334b58f180c8e
+      internalID: -2099620297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_31
+      name: spr_Stg3 Axel_31
       rect:
         serializedVersion: 2
         x: 360
@@ -776,20 +776,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3082ed35c428c2f49aa486edcca4ff2d
-      internalID: -1502694974
+      spriteID: d1e9637c4da9cef4c97290edc4cf3537
+      internalID: -2040358499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_32
+      name: spr_Stg3 Axel_32
       rect:
         serializedVersion: 2
         x: 0
@@ -797,20 +797,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 489f509a2546181478a1ffd78a90511e
-      internalID: 1498442557
+      spriteID: 942f7a1ca5ab40646aa4fbcdf57898f0
+      internalID: -1049648610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_33
+      name: spr_Stg3 Axel_33
       rect:
         serializedVersion: 2
         x: 120
@@ -818,20 +818,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58368fe2c6dd71649a8be802db97f46c
-      internalID: -1441342371
+      spriteID: 5d579b1c593a45c4fba6dce2f6674218
+      internalID: -443749600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_34
+      name: spr_Stg3 Axel_34
       rect:
         serializedVersion: 2
         x: 240
@@ -839,20 +839,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 303f62dfffe84d844b0013af5609381a
-      internalID: -767700679
+      spriteID: cbd2ad9e2ea767c4094ae0266a8aa763
+      internalID: -1475236376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_35
+      name: spr_Stg3 Axel_35
       rect:
         serializedVersion: 2
         x: 360
@@ -860,20 +860,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d9c13ef6d681ff4aa422f1f01f513f1
-      internalID: -1083559545
+      spriteID: 700b9d518b60f9449bffbdb1b8700a69
+      internalID: -868665939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3 Axel_36
+      name: spr_Stg3 Axel_36
       rect:
         serializedVersion: 2
         x: 480
@@ -881,14 +881,14 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fecf2d5d6a1a22e439f9c7062b93c1d4
-      internalID: 107379096
+      spriteID: cb8b72a0822518744ba9c87dc2666256
+      internalID: -1185597876
       vertices: []
       indices: 
       edges: []
@@ -904,43 +904,43 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Stg3 Axel_0: 1392526875
-      Stg3 Axel_1: -425045990
-      Stg3 Axel_10: 1387995958
-      Stg3 Axel_11: -1374557796
-      Stg3 Axel_12: -1664917076
-      Stg3 Axel_13: -1019399998
-      Stg3 Axel_14: -487895773
-      Stg3 Axel_15: 813688444
-      Stg3 Axel_16: 2132904145
-      Stg3 Axel_17: 1749813784
-      Stg3 Axel_18: 254472599
-      Stg3 Axel_19: 2022502107
-      Stg3 Axel_2: -786620558
-      Stg3 Axel_20: 1064692630
-      Stg3 Axel_21: 1525300878
-      Stg3 Axel_22: -649152263
-      Stg3 Axel_23: -848651359
-      Stg3 Axel_24: -236418566
-      Stg3 Axel_25: 366546546
-      Stg3 Axel_26: 1983420905
-      Stg3 Axel_27: 1440515592
-      Stg3 Axel_28: -400245964
-      Stg3 Axel_29: -2092047997
-      Stg3 Axel_3: 1669783782
-      Stg3 Axel_30: -935898513
-      Stg3 Axel_31: -1502694974
-      Stg3 Axel_32: 1498442557
-      Stg3 Axel_33: -1441342371
-      Stg3 Axel_34: -767700679
-      Stg3 Axel_35: -1083559545
-      Stg3 Axel_36: 107379096
-      Stg3 Axel_4: -1852309697
-      Stg3 Axel_5: 1785755712
-      Stg3 Axel_6: 365808329
-      Stg3 Axel_7: 687298534
-      Stg3 Axel_8: 803563471
-      Stg3 Axel_9: -1963254714
+      spr_Stg3 Axel_0: 1501282597
+      spr_Stg3 Axel_1: 1027175113
+      spr_Stg3 Axel_10: -454202473
+      spr_Stg3 Axel_11: -716484595
+      spr_Stg3 Axel_12: -619324054
+      spr_Stg3 Axel_13: -1203645666
+      spr_Stg3 Axel_14: 2101090194
+      spr_Stg3 Axel_15: 689346868
+      spr_Stg3 Axel_16: 1524170220
+      spr_Stg3 Axel_17: -1894256996
+      spr_Stg3 Axel_18: 1800001886
+      spr_Stg3 Axel_19: -66900784
+      spr_Stg3 Axel_2: 1513992367
+      spr_Stg3 Axel_20: -629973963
+      spr_Stg3 Axel_21: 1069344092
+      spr_Stg3 Axel_22: -1622918652
+      spr_Stg3 Axel_23: -1548427166
+      spr_Stg3 Axel_24: 887969633
+      spr_Stg3 Axel_25: -86251122
+      spr_Stg3 Axel_26: 12198221
+      spr_Stg3 Axel_27: 1550777201
+      spr_Stg3 Axel_28: -362480619
+      spr_Stg3 Axel_29: -88091411
+      spr_Stg3 Axel_3: -628854649
+      spr_Stg3 Axel_30: -2099620297
+      spr_Stg3 Axel_31: -2040358499
+      spr_Stg3 Axel_32: -1049648610
+      spr_Stg3 Axel_33: -443749600
+      spr_Stg3 Axel_34: -1475236376
+      spr_Stg3 Axel_35: -868665939
+      spr_Stg3 Axel_36: -1185597876
+      spr_Stg3 Axel_4: 705863166
+      spr_Stg3 Axel_5: 1195655802
+      spr_Stg3 Axel_6: 34700933
+      spr_Stg3 Axel_7: 1430834576
+      spr_Stg3 Axel_8: 466804653
+      spr_Stg3 Axel_9: 1899245635
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

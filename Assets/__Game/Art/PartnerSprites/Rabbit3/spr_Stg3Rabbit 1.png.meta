@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e49556c3b387db64cad76cfe2c593d34
+guid: 3b11a3e797ef1064ebcf96c0759d6f71
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stg3Rabbit_0
+      name: spr_Stg3Rabbit 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,20 +125,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a8c80e2babb8f428e00ecd42ed2b63
-      internalID: -264597525
+      spriteID: ba759e437578b3c4994991dd2ead8c64
+      internalID: -753740817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_1
+      name: spr_Stg3Rabbit 1_1
       rect:
         serializedVersion: 2
         x: 120
@@ -146,20 +146,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f73208cab907a5e409f78a90498ee319
-      internalID: 1303349612
+      spriteID: 17260c00c145ce045b38e0b009ad772b
+      internalID: -1977224152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_2
+      name: spr_Stg3Rabbit 1_2
       rect:
         serializedVersion: 2
         x: 240
@@ -167,20 +167,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7736bd2fcdf49d34dae0acd436555ecc
-      internalID: 1689129453
+      spriteID: 67071598e2736d74a9d3d4cfd1c35847
+      internalID: -464144993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_3
+      name: spr_Stg3Rabbit 1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -188,20 +188,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4802f99f98b54ae4ab5b0ce5fbeba50d
-      internalID: -1205920520
+      spriteID: 02ba82b6f2675144abd3e96c4f10dda3
+      internalID: 931579985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_4
+      name: spr_Stg3Rabbit 1_4
       rect:
         serializedVersion: 2
         x: 120
@@ -209,20 +209,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b8a5371149a443409b3e32f1002cf67
-      internalID: -1476359984
+      spriteID: 20298570b77d6414d83d941d4e98fa44
+      internalID: -1712884860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_5
+      name: spr_Stg3Rabbit 1_5
       rect:
         serializedVersion: 2
         x: 240
@@ -230,20 +230,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1671b94c4022bb849aa42eb76927ae3c
-      internalID: -469748262
+      spriteID: 1484c82d2b945f7488c316f2ce2fc9b2
+      internalID: 1747128659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_6
+      name: spr_Stg3Rabbit 1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -251,20 +251,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df3280811e33b4f4ebc74c987b70af8c
-      internalID: -1504611815
+      spriteID: 40409c91f2995e94aa11781d4115070f
+      internalID: 640611173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_7
+      name: spr_Stg3Rabbit 1_7
       rect:
         serializedVersion: 2
         x: 120
@@ -272,20 +272,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 263db8c095f86104a85e0f54093c6a37
-      internalID: -1439469319
+      spriteID: e61f01bbf3eed4842a830477ebf0a2ab
+      internalID: 966200693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_8
+      name: spr_Stg3Rabbit 1_8
       rect:
         serializedVersion: 2
         x: 240
@@ -293,20 +293,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f81301bb94d73b84da392f1f9e4a090c
-      internalID: -1032073846
+      spriteID: dee1deb90c5cb384783614544c5542c8
+      internalID: -81855538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_9
+      name: spr_Stg3Rabbit 1_9
       rect:
         serializedVersion: 2
         x: 0
@@ -314,20 +314,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4f9a094c7396a649b1e8ea47faa49e2
-      internalID: -439730911
+      spriteID: 82bca915109f88647b8c814d839aa1b2
+      internalID: -1795366302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_10
+      name: spr_Stg3Rabbit 1_10
       rect:
         serializedVersion: 2
         x: 120
@@ -335,20 +335,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca3f77fd678dbe243b2d12955710529b
-      internalID: 706040008
+      spriteID: ac91fdbfb19e8c74e9b5cda4b010d0bc
+      internalID: -663189676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_11
+      name: spr_Stg3Rabbit 1_11
       rect:
         serializedVersion: 2
         x: 240
@@ -356,20 +356,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd3885f3839a30f4c8b8ba529f365c23
-      internalID: -316210690
+      spriteID: f9e0e329df53e564794b692abbbe4ba5
+      internalID: -1753298122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_12
+      name: spr_Stg3Rabbit 1_12
       rect:
         serializedVersion: 2
         x: 0
@@ -377,20 +377,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eb62d0ce4ec7274fabc62f508e30714
-      internalID: -1439715684
+      spriteID: c50594696a3fb034e908c747fae0a7ac
+      internalID: -539169341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_13
+      name: spr_Stg3Rabbit 1_13
       rect:
         serializedVersion: 2
         x: 120
@@ -398,20 +398,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 817a94174ea36f649a1484f788657fe7
-      internalID: -1020843319
+      spriteID: a2a6b2474c2227445aac28ee80a3f73f
+      internalID: 175712775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_14
+      name: spr_Stg3Rabbit 1_14
       rect:
         serializedVersion: 2
         x: 240
@@ -419,20 +419,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c73765eb76931643b99b6caa717deed
-      internalID: -617986221
+      spriteID: 49d86564e877f56478ff63e4d1a5afaa
+      internalID: -2030924580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_15
+      name: spr_Stg3Rabbit 1_15
       rect:
         serializedVersion: 2
         x: 0
@@ -440,20 +440,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d8f9dff6b6720a41918d2a7ec5af4a8
-      internalID: -2133791384
+      spriteID: 26d79105c057efc43900b798c5fcb9fc
+      internalID: -299279659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_16
+      name: spr_Stg3Rabbit 1_16
       rect:
         serializedVersion: 2
         x: 120
@@ -461,20 +461,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bca521599d6fd446a1115c026ff85ee
-      internalID: 399548251
+      spriteID: bacd2cfe82a61a04293e3cc4848a0575
+      internalID: 938393469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_17
+      name: spr_Stg3Rabbit 1_17
       rect:
         serializedVersion: 2
         x: 240
@@ -482,20 +482,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab4155dcdf566864aaefee3ded347e33
-      internalID: 401581323
+      spriteID: 0b3048b14dbef464a83bfcffb55e21a7
+      internalID: -1125038947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_18
+      name: spr_Stg3Rabbit 1_18
       rect:
         serializedVersion: 2
         x: 0
@@ -503,20 +503,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a0bea56472f30246a0f0ba8b071ab4f
-      internalID: 116879899
+      spriteID: b2cd699586e677a46a39f6d9ce1864be
+      internalID: -2024548235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_19
+      name: spr_Stg3Rabbit 1_19
       rect:
         serializedVersion: 2
         x: 120
@@ -524,20 +524,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c5b40478a363ed418d0f563c9547a8b
-      internalID: -2101101180
+      spriteID: db33547e749fe2e49959317588f2f652
+      internalID: -52379173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_20
+      name: spr_Stg3Rabbit 1_20
       rect:
         serializedVersion: 2
         x: 240
@@ -545,20 +545,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5e5a654de95d554fbb55fb33fade231
-      internalID: -2132736733
+      spriteID: 2a4ef7278fabf604894379487eec83e0
+      internalID: -764021315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_21
+      name: spr_Stg3Rabbit 1_21
       rect:
         serializedVersion: 2
         x: 0
@@ -566,20 +566,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2b7f03a967d23244acb86eb03fe0fd9
-      internalID: -518316961
+      spriteID: d1523ac4759723a409f6b230ab8d2102
+      internalID: 1754671668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_22
+      name: spr_Stg3Rabbit 1_22
       rect:
         serializedVersion: 2
         x: 120
@@ -587,20 +587,20 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b1904c464bf91742b9ee2320709e2ae
-      internalID: -779162727
+      spriteID: b398af7543c98694495e1da1f793ce50
+      internalID: -1749074464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stg3Rabbit_23
+      name: spr_Stg3Rabbit 1_23
       rect:
         serializedVersion: 2
         x: 240
@@ -608,14 +608,14 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d5fb90284fe94347bb218b7b1671b8f
-      internalID: 1442704239
+      spriteID: 5be78125eb488f54bb5a990d5fb37366
+      internalID: 717866861
       vertices: []
       indices: 
       edges: []
@@ -631,30 +631,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Stg3Rabbit_0: -264597525
-      Stg3Rabbit_1: 1303349612
-      Stg3Rabbit_10: 706040008
-      Stg3Rabbit_11: -316210690
-      Stg3Rabbit_12: -1439715684
-      Stg3Rabbit_13: -1020843319
-      Stg3Rabbit_14: -617986221
-      Stg3Rabbit_15: -2133791384
-      Stg3Rabbit_16: 399548251
-      Stg3Rabbit_17: 401581323
-      Stg3Rabbit_18: 116879899
-      Stg3Rabbit_19: -2101101180
-      Stg3Rabbit_2: 1689129453
-      Stg3Rabbit_20: -2132736733
-      Stg3Rabbit_21: -518316961
-      Stg3Rabbit_22: -779162727
-      Stg3Rabbit_23: 1442704239
-      Stg3Rabbit_3: -1205920520
-      Stg3Rabbit_4: -1476359984
-      Stg3Rabbit_5: -469748262
-      Stg3Rabbit_6: -1504611815
-      Stg3Rabbit_7: -1439469319
-      Stg3Rabbit_8: -1032073846
-      Stg3Rabbit_9: -439730911
+      spr_Stg3Rabbit 1_0: -753740817
+      spr_Stg3Rabbit 1_1: -1977224152
+      spr_Stg3Rabbit 1_10: -663189676
+      spr_Stg3Rabbit 1_11: -1753298122
+      spr_Stg3Rabbit 1_12: -539169341
+      spr_Stg3Rabbit 1_13: 175712775
+      spr_Stg3Rabbit 1_14: -2030924580
+      spr_Stg3Rabbit 1_15: -299279659
+      spr_Stg3Rabbit 1_16: 938393469
+      spr_Stg3Rabbit 1_17: -1125038947
+      spr_Stg3Rabbit 1_18: -2024548235
+      spr_Stg3Rabbit 1_19: -52379173
+      spr_Stg3Rabbit 1_2: -464144993
+      spr_Stg3Rabbit 1_20: -764021315
+      spr_Stg3Rabbit 1_21: 1754671668
+      spr_Stg3Rabbit 1_22: -1749074464
+      spr_Stg3Rabbit 1_23: 717866861
+      spr_Stg3Rabbit 1_3: 931579985
+      spr_Stg3Rabbit 1_4: -1712884860
+      spr_Stg3Rabbit 1_5: 1747128659
+      spr_Stg3Rabbit 1_6: 640611173
+      spr_Stg3Rabbit 1_7: 966200693
+      spr_Stg3Rabbit 1_8: -81855538
+      spr_Stg3Rabbit 1_9: -1795366302
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

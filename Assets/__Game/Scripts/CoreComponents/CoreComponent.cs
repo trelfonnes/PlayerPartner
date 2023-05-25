@@ -6,7 +6,7 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
     //the interface gives all inheriting components access
 {
     protected CoreHandler core;
-    private void Awake()
+    protected virtual void Awake()
     {
         core = transform.parent.GetComponent<CoreHandler>();
         if(core == null) { Debug.LogError("There is no CoreHandler on the Parent"); }

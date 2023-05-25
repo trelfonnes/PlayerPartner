@@ -2,9 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement : CoreComponent
 {
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+    private Vector2 workspace;
+    public int facingDirection { get; private set; }
+    public Vector2 CurrentVelocity { get; private set; }
+    public bool canSetVelocity { get; set; }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        rb = GetComponentInParent<Rigidbody2D>();
+        facingDirection = 1;
+        canSetVelocity = true;
+    }
     void Start()
     {
         
