@@ -8,6 +8,7 @@ public class PlayerState
     protected PlayerBasicData playerData;
     protected Player player;
     protected PlayerStateMachine PSM;
+    protected bool isExitingState;
     string animBoolName;
     //Constructor    
     public PlayerState(Player player, PlayerStateMachine PSM, PlayerBasicData playerData, string animBoolName)

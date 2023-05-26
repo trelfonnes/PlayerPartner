@@ -9,6 +9,11 @@ public class PlayerInputHandler : MonoBehaviour
     public Vector2 RawMovementInput { get; private set; }
     public int NormInputX { get; private set; }
     public int NormInputY { get; private set; }
+    public bool[] AttackInputs { get; private set; }
+    public bool MenuInput { get; private set; }
+    public bool SwitchPlayerInput { get; private set; }
+    public bool SpecialInput { get; private set; }
+    public bool InteractInput { get; private set; }
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -18,14 +23,17 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
-        Debug.Log(RawMovementInput);
+        NormInputX = Mathf.RoundToInt(RawMovementInput.x);
+        NormInputY = Mathf.RoundToInt(RawMovementInput.y);
+        Debug.Log(NormInputX);
     }
     public void OnAttackInput(InputAction.CallbackContext context)
     {
+       // TODO: example of how to get a more custom and accurate input reading than the three events
+       // _playerInput.actions["Attack"].ReadValue<float>() > 0
         if (context.started)
         {
-            Debug.Log("Attack pushed down now");
-
+            // TODO add attackinputs
         }
         if (context.performed)
         {

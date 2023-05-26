@@ -4,20 +4,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Animator anim { get; private set; }
+    #region StateVariables
+    public PlayerStateMachine StateMachine { get; private set; }
+    public PlayerIdleState IdleState { get; private set; }
+    public PlayerMoveState MoveState { get; private set; }
+
+
+    #endregion
     
+    #region Components on Player GO
+    [SerializeField] private PlayerBasicData playerData;//Data for states add data for stats
+    public Animator anim { get; private set; }
     //this script accesses the playerstate script and its functions through this, which has a reference to it called CurrentState
-    public PlayerStateMachine StateMachine { get; private set;} 
+    public PlayerInputHandler InputHandler { get; private set; }
+    #endregion
+
+    #region Unity Callback Functions Initialized in Awake Method
 
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
+        IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
+        MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
+        
     }
+    #endregion
+
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        //CurrentState.Initialize(IdleState); //for when states are referenced in awake.
+        InputHandler = GetComponent<PlayerInputHandler>();
+        StateMachine.Initialize(IdleState); //for when states are referenced in awake.
     }
 
     void Update()
