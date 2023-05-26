@@ -5,6 +5,6 @@ using UnityEngine;
 
 public class PlayerBasicData : ScriptableObject
 {
-    
+    public float moveSpeed = 5;
     
 }

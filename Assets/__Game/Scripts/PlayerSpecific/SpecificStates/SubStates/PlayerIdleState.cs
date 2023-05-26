@@ -28,7 +28,7 @@ public class PlayerIdleState : PlayerBasicState
         base.LogicUpdate();
         if(xInput != 0 || yInput != 0)
         {
-            // TODO PSM.ChangeState(player.MoveState);
+            PSM.ChangeState(player.MoveState);
         }
     }
 

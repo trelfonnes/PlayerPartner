@@ -7,8 +7,12 @@ public class PlayerBasicState : PlayerState
     protected int yInput;
     protected int xInput;
 
-
-public PlayerBasicState(Player player, PlayerStateMachine PSM, PlayerBasicData playerData, string animBoolName) : base(player, PSM, playerData, animBoolName)
+    //protected Movement Movement
+    //{
+    //    get => movement ?? core.GetCoreComponent(ref movement);
+    //}
+    //private Movement movement;
+    public PlayerBasicState(Player player, PlayerStateMachine PSM, PlayerBasicData playerData, string animBoolName) : base(player, PSM, playerData, animBoolName)
     {
     }
 

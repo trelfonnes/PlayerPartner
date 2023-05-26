@@ -26,7 +26,9 @@ public class PlayerMoveState : PlayerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        //access core to get movement and set velocity, passing in Speed * x and y input
+        Movement?.CheckIfShouldFlip(xInput, yInput);
+        Movement?.SetVelocity(playerData.moveSpeed * xInput, playerData.moveSpeed * yInput);
+      
         if(!isExitingState)
         {
             if(xInput == 0 && yInput == 0)

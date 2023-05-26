@@ -4,27 +4,81 @@ using UnityEngine;
 
 public class Movement : CoreComponent
 {
-    Rigidbody2D rb;
+    public Rigidbody2D rb { get; private set; }
     private Vector2 workspace;
-    public int facingDirection { get; private set; }
+    public int facingDirectionX { get; private set; }
+    public int facingDirectionY { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
-    public bool canSetVelocity { get; set; }
+    public bool CanSetVelocity { get; set; }
 
     protected override void Awake()
     {
         base.Awake();
         rb = GetComponentInParent<Rigidbody2D>();
-        facingDirection = 1;
-        canSetVelocity = true;
+        facingDirectionX = 1;
+        facingDirectionY = -1;
+
+        CanSetVelocity = true;
     }
-    void Start()
+    public override void LogicUpdate()
     {
-        
+        CurrentVelocity = rb.velocity;
+    }
+    public void FlipX()
+    {
+        facingDirectionX *= -1;
+        rb.transform.Rotate(0.0f, 180.0f, 0.0f);
+
+    }
+    public void FlipY()
+    {
+        //facingDirectionX *= -1;
+        //rb.transform.Rotate(180.0f, 0.0f, 0.0f);
+
+    }
+    public void CheckIfShouldFlip(int xInput, int yInput)
+    {
+        if(xInput != 0 && xInput != facingDirectionX)
+        {
+            FlipX();
+        }
+        if(yInput != 0 && yInput != facingDirectionY)
+        {
+            FlipY();
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetVelocityZero()
     {
-        
+        workspace = Vector2.zero;
+        SetFinalVelocity();
     }
+    public void SetVelocityX(float velocity)
+    {
+        workspace.Set(velocity, CurrentVelocity.y);
+        SetFinalVelocity();
+    }
+    public void SetVelocityY(float velocity)
+    {
+        workspace.Set(CurrentVelocity.x, velocity);
+        SetFinalVelocity();
+    }
+    public void SetVelocity(float velocityX, float velocityY)
+    {
+        Debug.Log("settingVelocity");
+        //workspace = direction * velocity;
+        workspace.Set(velocityX, velocityY);
+        SetFinalVelocity();
+    }
+
+    private void SetFinalVelocity()
+    {
+        if (CanSetVelocity)
+        {
+            rb.velocity = workspace;
+            CurrentVelocity = workspace;
+        }
+    }
+
 }

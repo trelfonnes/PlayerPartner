@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     #endregion
     
     #region Components on Player GO
+
+    public CoreHandler core { get; private set; }
     [SerializeField] private PlayerBasicData playerData;//Data for states add data for stats
     public Animator anim { get; private set; }
     //this script accesses the playerstate script and its functions through this, which has a reference to it called CurrentState
@@ -23,10 +25,10 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        core = GetComponentInChildren<CoreHandler>();
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
-        
     }
     #endregion
 

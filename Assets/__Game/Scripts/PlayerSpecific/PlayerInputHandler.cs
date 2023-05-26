@@ -25,7 +25,6 @@ public class PlayerInputHandler : MonoBehaviour
         RawMovementInput = context.ReadValue<Vector2>();
         NormInputX = Mathf.RoundToInt(RawMovementInput.x);
         NormInputY = Mathf.RoundToInt(RawMovementInput.y);
-        Debug.Log(NormInputX);
     }
     public void OnAttackInput(InputAction.CallbackContext context)
     {
