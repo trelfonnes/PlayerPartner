@@ -41,7 +41,7 @@ public class PlayerState
 
     public virtual void Exit()
     {
-        player.anim.SetBool(animBoolName, true);
+        player.anim.SetBool(animBoolName, false);
         isExitingState = true;
 
     }

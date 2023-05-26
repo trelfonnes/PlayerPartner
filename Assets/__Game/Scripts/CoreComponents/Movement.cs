@@ -64,11 +64,11 @@ public class Movement : CoreComponent
         workspace.Set(CurrentVelocity.x, velocity);
         SetFinalVelocity();
     }
-    public void SetVelocity(float velocityX, float velocityY)
+    public void SetVelocity(Vector2 velocity)
     {
         Debug.Log("settingVelocity");
         //workspace = direction * velocity;
-        workspace.Set(velocityX, velocityY);
+        workspace = velocity;
         SetFinalVelocity();
     }
 

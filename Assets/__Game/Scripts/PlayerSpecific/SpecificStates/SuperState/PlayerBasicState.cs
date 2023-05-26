@@ -37,6 +37,7 @@ public class PlayerBasicState : PlayerState
         base.LogicUpdate();
         xInput = player.InputHandler.NormInputX;
         yInput = player.InputHandler.NormInputY;
+       
 
     }
 

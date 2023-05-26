@@ -26,6 +26,7 @@ public class PlayerIdleState : PlayerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        
         if(xInput != 0 || yInput != 0)
         {
             PSM.ChangeState(player.MoveState);

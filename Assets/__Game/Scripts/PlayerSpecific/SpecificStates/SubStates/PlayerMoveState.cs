@@ -26,12 +26,19 @@ public class PlayerMoveState : PlayerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
         Movement?.CheckIfShouldFlip(xInput, yInput);
-        Movement?.SetVelocity(playerData.moveSpeed * xInput, playerData.moveSpeed * yInput);
-      
-        if(!isExitingState)
+        Movement?.SetVelocity(playerData.moveSpeed * (new Vector2(xInput,  yInput).normalized));
+       if(Movement.CurrentVelocity != Vector2.zero)
         {
-            if(xInput == 0 && yInput == 0)
+            player.anim.SetFloat("moveY", Movement.CurrentVelocity.y);
+            player.anim.SetFloat("moveX", Movement.CurrentVelocity.x);
+        }
+
+        if (!isExitingState)
+        {
+            
+            if (xInput == 0 && yInput == 0)
             {
                 PSM.ChangeState(player.IdleState);
             }
