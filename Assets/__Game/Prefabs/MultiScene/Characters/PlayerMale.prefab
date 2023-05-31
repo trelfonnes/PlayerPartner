@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3963916744730356114}
   - component: {fileID: 3963916744730356115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CollisionSenses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3963916744843280178}
   - component: {fileID: 3963916744843280179}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CoreHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3963916744851059632}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CollisionsCheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3963916745355562005}
   - component: {fileID: 3963916745355562006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,8 +196,7 @@ GameObject:
   - component: {fileID: 3963916745617885426}
   - component: {fileID: 3963916745617885428}
   - component: {fileID: 3963916745617885427}
-  - component: {fileID: 3770231169755836828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerMale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,20 +529,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3770231169755836828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3963916745617885419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088759ac452e50e46be1157a911b7029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  mp: 10
 --- !u!1 &3963916746401700929
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3963916746401700930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'GroundCheckPoint '
   m_TagString: Untagged
   m_Icon: {fileID: 0}

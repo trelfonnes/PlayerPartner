@@ -79,24 +79,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 238660879, guid: 3a7a4f7f47767b840921479dc964bed6, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3770231169755836828, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
---- !u!1 &6006863238922283264 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
-  m_PrefabInstance: {fileID: 7232221406100349419}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1606345553499873299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6006863238922283264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088759ac452e50e46be1157a911b7029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  mp: 10

@@ -31,14 +31,22 @@ public class GameManager : MonoBehaviour
         inputManager.onPlayerJoined += HandlePlayerJoined;
         SceneManager.sceneLoaded += HandleSceneLoaded;
         player = inputManager.playerPrefab.GetComponent<Player>();
-        playerData = inputManager.playerPrefab.GetComponent<PlayerData>();
+        playerData = new PlayerData();   //GetComponent<PlayerData>();
         player.Bind(playerData);
         GetStartingPlayerData();
         inputManager.playerPrefab = player2Prefab;
     }
     // TODO: if Player1 joins on button click and event shoots off when entering first level.
     //adjust the code to not do it on awake, but just to player1 within the function triggered onPlayerjoined
+    void HandlePlayerJoined(PlayerInput playerInput)
+    {
 
+        Debug.Log("HandlePlayerJoined " + playerInput);
+        player = inputManager.playerPrefab.GetComponent<Player>();
+        playerData = new PlayerData();
+        player.Bind(playerData);
+        GetPlayerData();
+    }
     private void HandleSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         if(arg0.name == "Menu")
@@ -50,17 +58,17 @@ public class GameManager : MonoBehaviour
             inputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
 
         }
+
+        SaveGame();
     }
 
-    void HandlePlayerJoined(PlayerInput playerInput)
-   {
-        
-          Debug.Log("HandlePlayerJoined " + playerInput);
-        player = inputManager.playerPrefab.GetComponent<Player>();
-        playerData = inputManager.playerPrefab.GetComponent<PlayerData>();
-        player.Bind(playerData);
-        GetPlayerData();
+    private void SaveGame()
+    {
+        string text = JsonUtility.ToJson(gameData);
+        Debug.Log(text);
     }
+
+  
 
 
 
