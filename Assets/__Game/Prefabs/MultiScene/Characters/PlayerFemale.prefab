@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 634711713344598446, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 914087315960023675, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_Name
       value: PlayerFemale
@@ -79,6 +87,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 238660879, guid: 3a7a4f7f47767b840921479dc964bed6, type: 3}
+    - target: {fileID: 5734887494813309247, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6021811241757672676, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3770231169755836828, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}

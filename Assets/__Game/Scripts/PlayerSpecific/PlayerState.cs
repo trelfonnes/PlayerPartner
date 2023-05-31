@@ -16,9 +16,15 @@ public class PlayerState
 
     protected Movement Movement {get => movement ?? core.GetCoreComponent(ref movement);}
     protected CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+    protected Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
+    protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
+    protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
 
     private Movement movement;
     private CollisionSenses collisionSenses;
+    private Stats stats;
+    private Defeated defeated;
+    private Particles particles;
 
     //Constructor    
     public PlayerState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName)

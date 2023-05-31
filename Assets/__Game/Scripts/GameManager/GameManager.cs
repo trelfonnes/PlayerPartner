@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    public List<string> AllGameNames = new List<string>();
 
     [SerializeField] GameData gameData;
     [SerializeField] private GameObject player1Prefab;
@@ -35,7 +38,11 @@ public class GameManager : MonoBehaviour
         player.Bind(playerData);
         GetStartingPlayerData();
         inputManager.playerPrefab = player2Prefab;
-    }
+        string commaSeparatedList = PlayerPrefs.GetString("AllGameNames");
+        Debug.Log(commaSeparatedList);
+        AllGameNames = commaSeparatedList.Split(",").ToList();
+    
+        }
     // TODO: if Player1 joins on button click and event shoots off when entering first level.
     //adjust the code to not do it on awake, but just to player1 within the function triggered onPlayerjoined
     void HandlePlayerJoined(PlayerInput playerInput)
@@ -56,18 +63,34 @@ public class GameManager : MonoBehaviour
         else
         {
             inputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
-
+            SaveGame();
         }
 
-        SaveGame();
     }
 
-    private void SaveGame()
-    {
+    void SaveGame()
+    {//gameData
         string text = JsonUtility.ToJson(gameData);
         Debug.Log(text);
+
+        if (AllGameNames.Contains(gameData.GameName) == false) 
+        { 
+            AllGameNames.Add(gameData.GameName); 
+        }
+        //gamenames
+        string commaSeparatedGameNames = string.Join(",", AllGameNames);
+
+        PlayerPrefs.SetString("AllGameNames", commaSeparatedGameNames);
+        PlayerPrefs.SetString(gameData.GameName, text);
+        PlayerPrefs.Save();
     }
 
+    public void LoadGame()
+    {
+        string text = PlayerPrefs.GetString("Game1");
+        gameData = JsonUtility.FromJson<GameData>(text);
+        SceneManager.LoadScene("level 1");
+    }
   
 
 
@@ -97,6 +120,7 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         gameData = new GameData();
+        gameData.GameName = DateTime.Now.ToString("G");
         SceneManager.LoadScene("Level 1");
     }
 

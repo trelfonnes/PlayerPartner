@@ -2,17 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Defeated : MonoBehaviour
+public class Defeated : CoreComponent
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject[] defeatedParticles;
+
+  
+    public override void LogicUpdate()
     {
-        
+        base.LogicUpdate();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Awake()
     {
-        
+        base.Awake();
+       
     }
+    protected override void Start()
+    {
+        base.Start();
+        Stats.onCurrentHealthZero += EntityDefeated;//called here to prevent being subscribed before reference in corehandler is made
+
+    }
+    public virtual void EntityDefeated() //child classes will override this function to implement specific behavior
+                                     //for their death components. e.g. PlayerDefeated, partnerdefeated, enemydefeated
+        {
+        foreach (var particle in defeatedParticles)
+        {
+            Particles.StartParticles(particle);
+        }
+
+        core.transform.parent.gameObject.SetActive(false);
+        }
+
+    private void OnEnable()
+    {
+    }
+    private void OnDisable()
+    {
+        Stats.onCurrentHealthZero -= EntityDefeated;
+    }
+
 }
