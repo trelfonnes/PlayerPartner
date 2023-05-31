@@ -66,7 +66,6 @@ public class Movement : CoreComponent
     }
     public void SetVelocity(Vector2 velocity)
     {
-        Debug.Log("settingVelocity");
         //workspace = direction * velocity;
         workspace = velocity;
         SetFinalVelocity();

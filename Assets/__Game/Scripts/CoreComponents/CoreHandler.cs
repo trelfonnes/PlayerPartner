@@ -33,8 +33,6 @@ public class CoreHandler : MonoBehaviour
     {
         var comp = CoreComponents.OfType<T>().FirstOrDefault();//takes the first element of the collection passed in as type T. or returns default value(null) if nothing is found
         if (comp)
-         
-
         return comp;
         {
             Debug.LogWarning($"{typeof(T)} not found on {transform.parent.name}");
@@ -46,7 +44,6 @@ public class CoreHandler : MonoBehaviour
     {
 
         value = GetCoreComponent<T>();
-        Debug.Log(value);
         return value;
     }
 

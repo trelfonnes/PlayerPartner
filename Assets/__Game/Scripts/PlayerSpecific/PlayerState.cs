@@ -4,30 +4,32 @@ using UnityEngine;
 
 public class PlayerState 
 {
-    protected PlayerBasicData playerData;
+    protected PlayerSOData playerSOData;
     protected CoreHandler core;
     protected Player player;
     protected PlayerStateMachine PSM;
+    protected PlayerData playerData;
     protected bool isExitingState;
     protected bool isAnimationFinished;
     protected float startTime;
     string animBoolName;
 
     protected Movement Movement {get => movement ?? core.GetCoreComponent(ref movement);}
-   
-    private Movement movement;
+    protected CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
 
+    private Movement movement;
+    private CollisionSenses collisionSenses;
 
     //Constructor    
-    public PlayerState(Player player, PlayerStateMachine PSM, PlayerBasicData playerData, string animBoolName)
+    public PlayerState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName)
     {
         this.player = player;
         this.PSM = PSM;
+        this.playerSOData = playerSOData;
         this.playerData = playerData;
         this.animBoolName = animBoolName;
         core = player.core;
 
-        Debug.Log(core.name);
     }
 
     public virtual void Enter()

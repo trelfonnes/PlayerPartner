@@ -7,19 +7,30 @@ public class PlayerBasicState : PlayerState
     protected int yInput;
     protected int xInput;
 
+    protected bool isTouchingWall;
+    protected bool isTouchingCarryable;
+    protected bool isTouchingGround;
+
+    public PlayerBasicState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
+    {
+    }
+
+
+
     //protected Movement Movement
     //{
     //    get => movement ?? core.GetCoreComponent(ref movement);
     //}
     //private Movement movement;
-    public PlayerBasicState(Player player, PlayerStateMachine PSM, PlayerBasicData playerData, string animBoolName) : base(player, PSM, playerData, animBoolName)
-    {
-    }
+
 
     public override void DoChecks()
     {
         base.DoChecks();
         // TODO add references to collision senses
+        isTouchingWall = CollisionSenses.WallCheck;
+        isTouchingCarryable = CollisionSenses.CarryableCheck;
+        isTouchingGround = CollisionSenses.GroundCheck;
     }
 
     public override void Enter()

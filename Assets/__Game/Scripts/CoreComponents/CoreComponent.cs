@@ -10,8 +10,14 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
     protected SpriteRenderer SR;
 
     protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+    protected CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+
 
     private Movement movement;
+
+    private CollisionSenses collisionSenses;
+
+
     // TODO set references to other CoreComponents
     protected virtual void Awake()
     {
