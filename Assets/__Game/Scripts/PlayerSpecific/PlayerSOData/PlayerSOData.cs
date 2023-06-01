@@ -6,5 +6,6 @@ using UnityEngine;
 public class PlayerSOData : ScriptableObject
 {
     public float moveSpeed = 5;
+    public float watchSpeed = 0;
     
 }

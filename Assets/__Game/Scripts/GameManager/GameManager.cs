@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         inputManager.onPlayerJoined += HandlePlayerJoined;
         SceneManager.sceneLoaded += HandleSceneLoaded;
         player = inputManager.playerPrefab.GetComponent<Player>();
-        playerData = new PlayerData();   //GetComponent<PlayerData>();
+        playerData = new PlayerData();   
         player.Bind(playerData);
         GetStartingPlayerData();
         inputManager.playerPrefab = player2Prefab;

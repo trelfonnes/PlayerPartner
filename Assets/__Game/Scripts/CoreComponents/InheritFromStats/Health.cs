@@ -10,27 +10,27 @@ public class Health : Stats //interfaces for decreasing health and increasing
     protected override void Awake()
     {
         base.Awake();
-        playerData.currentHealth = playerData.maxHealth;
-        Debug.Log(playerData.currentHealth);
+        playerData.CurrentHealth = playerData.MaxHealth;
+        Debug.Log(playerData.CurrentHealth);
 
     }
     public void DecreaseHealth(float amount)
     {
-        playerData.currentHealth -= amount;
-        if (playerData.currentHealth <= 0)
+        playerData.CurrentHealth -= amount;
+        if (playerData.CurrentHealth <= 0)
         {
-            playerData.currentHealth = 0;
+            playerData.CurrentHealth = 0;
             // OnCurrentHealthZero?.Invoke();
             base.CurrentHealthZero();
         }
     }
     public void IncreaseHealth(float amount)
     {
-        playerData.currentHealth = Mathf.Clamp(playerData.currentHealth + amount, 0, playerData.maxHealth);
+        playerData.CurrentHealth = Mathf.Clamp(playerData.CurrentHealth + amount, 0, playerData.MaxHealth);
     }
     public void IncreaseMaxHealth(float amount)
     {
-        playerData.maxHealth = +amount;
+        playerData.MaxHealth = +amount;
     }
 
 }

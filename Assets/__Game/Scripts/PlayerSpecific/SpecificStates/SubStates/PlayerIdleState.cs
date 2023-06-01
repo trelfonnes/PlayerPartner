@@ -16,6 +16,9 @@ public class PlayerIdleState : PlayerBasicState
     public override void Enter()
     {
         base.Enter();
+        canExitState = false;
+        Debug.Log("inIdle");
+
     }
 
     public override void Exit()
@@ -26,10 +29,26 @@ public class PlayerIdleState : PlayerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
-        if(xInput != 0 || yInput != 0)
+
+        if (xInput != 0 || yInput != 0)
         {
             PSM.ChangeState(player.MoveState);
+        }
+
+        if (!switchInput && !interactInput)
+        {
+            canExitState = true;
+        }
+        if (canExitState)
+        {
+            if (switchInput)
+            {
+                PSM.ChangeState(player.WatchState);
+            }
+            if (interactInput && isTouchingCarryable)
+            {
+                PSM.ChangeState(player.HoldItemState);
+            }
         }
     }
 

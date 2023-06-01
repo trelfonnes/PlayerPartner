@@ -7,9 +7,14 @@ public class PlayerBasicState : PlayerState
     protected int yInput;
     protected int xInput;
 
+    protected bool switchInput;
+    protected bool interactInput;
+
     protected bool isTouchingWall;
     protected bool isTouchingCarryable;
     protected bool isTouchingGround;
+    protected bool canExitState;
+
 
     public PlayerBasicState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
@@ -48,7 +53,8 @@ public class PlayerBasicState : PlayerState
         base.LogicUpdate();
         xInput = player.InputHandler.NormInputX;
         yInput = player.InputHandler.NormInputY;
-       
+        switchInput = player.InputHandler.SwitchPlayerInput;
+        interactInput = player.InputHandler.InteractInput;
 
     }
 

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveState : PlayerBasicState
+public class PlayerCarryItemState : PlayerBasicState
 {
-    public PlayerMoveState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
+    public PlayerCarryItemState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }
 
@@ -27,10 +27,9 @@ public class PlayerMoveState : PlayerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
         Movement?.CheckIfShouldFlip(xInput, yInput);
-        Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput,  yInput).normalized));
-       if(Movement.CurrentVelocity != Vector2.zero)
+        Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput, yInput).normalized));
+        if (Movement.CurrentVelocity != Vector2.zero)
         {
             player.playerDirection = Movement.CurrentVelocity;
             player.anim.SetFloat("moveY", player.playerDirection.y);
@@ -39,10 +38,10 @@ public class PlayerMoveState : PlayerBasicState
 
         if (!isExitingState)
         {
-            
+
             if (xInput == 0 && yInput == 0)
             {
-                PSM.ChangeState(player.IdleState);
+                PSM.ChangeState(player.HoldItemState);
             }
         }
         if (!interactInput)
@@ -51,12 +50,14 @@ public class PlayerMoveState : PlayerBasicState
         }
         if (canExitState)
         {
-            if (interactInput && isTouchingCarryable)
+            if (interactInput)
             {
-                PSM.ChangeState(player.CarryItemState);
+                //TODO ThrowObject
+                PSM.ChangeState(player.MoveState);
             }
         }
     }
+
 
     public override void PhysicsUpdate()
     {

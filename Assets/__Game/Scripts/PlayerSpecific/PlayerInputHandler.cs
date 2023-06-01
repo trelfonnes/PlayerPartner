@@ -49,7 +49,18 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnInteractInput(InputAction.CallbackContext context)
     {
+        if (context.ReadValueAsButton())
+        {
+            InteractInput = true;
+            Debug.Log(InteractInput);
 
+        }
+        else
+        {
+            InteractInput = false;
+            Debug.Log(InteractInput);
+
+        }
     }
     public void OnMenuInput(InputAction.CallbackContext context)
     {
@@ -57,6 +68,16 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnPlayerSwitchInput(InputAction.CallbackContext context)
     {
+       if (context.ReadValueAsButton())
+        {
+                SwitchPlayerInput = true;
+        }
+        else
+        {
+            SwitchPlayerInput = false;
+        }
+
+            
 
     }
 }
