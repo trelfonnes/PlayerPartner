@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EvolutionPower : Stats, IEvolutionPower
 {
-    private bool startEvolutionTimer = false;
+    [SerializeField] private bool startEvolutionTimer = false;
 
     protected override void Awake()
     {
@@ -31,7 +31,7 @@ public class EvolutionPower : Stats, IEvolutionPower
     private void EvolutionPowerCountDown()
     {
         playerData.EP = Mathf.Clamp(playerData.EP - Time.deltaTime, 0, playerData.MaxEP);
-        Debug.Log(playerData.EP);
+        Debug.Log(Math.Round(playerData.EP));//use this Math.round to display the number on the UI
         if(playerData.EP <= 0)
         {
             startEvolutionTimer = false;

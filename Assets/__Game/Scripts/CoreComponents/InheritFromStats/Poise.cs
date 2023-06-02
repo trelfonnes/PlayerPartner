@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Poise : Stats, IPoise
 {
-    private bool regeneratePoise = false;
+    [SerializeField] private bool regeneratePoise = false;
     
     protected override void Awake()
     {

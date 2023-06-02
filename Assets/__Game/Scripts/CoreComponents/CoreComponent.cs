@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CoreComponent : MonoBehaviour, ILogicUpdate
-    //the interface gives all inheriting components access
+//the interface gives all inheriting components access
 {
     protected CoreHandler core;
     protected Player player;
@@ -28,12 +28,19 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
         player = GetComponentInParent<Player>();
         core = transform.parent.GetComponent<CoreHandler>();
         SR = GetComponentInParent<SpriteRenderer>();
-        if(core == null) { Debug.LogError("There is no CoreHandler on the Parent"); }
+        if (core == null) { Debug.LogError("There is no CoreHandler on the Parent"); }
         core.AddComponent(this);
     }
     protected virtual void Start()
     {
 
     }
+    private void Update()
+    {
+        LogicUpdate();
+    }
+
     public virtual void LogicUpdate() { }
+
+
 }
