@@ -50,5 +50,10 @@ public class Poise : Stats, IPoise
     {
         regeneratePoise = true;
     }
+    private void OnDisable()
+    {
+        Stats.onCurrentHealthZero -= SetRegeneratePoiseTrue;
+
+    }
 
 }

@@ -29,7 +29,7 @@ public class PlayerData
         get { return sp; }
         set { sp = value; }
     }
-    public int EP
+    public float EP
     {
         get { return ep; }
         set { ep = value; }
@@ -45,7 +45,7 @@ public class PlayerData
         set { injured = value; }
     }
 
-    public int MaxEP
+    public float MaxEP
     {
         get { return maxEp; }
         set { maxEp = value; }
@@ -55,6 +55,16 @@ public class PlayerData
     {
         get { return maxSp; }
         set { maxSp = value; }
+    }
+    public int Bytes
+    {
+        get { return bytes; }
+        set { bytes = value; }
+    } 
+    public int MaxBytes
+    {
+        get { return maxBytes; }
+        set { maxBytes = value; }
     }
 
     public float MaxStamina
@@ -85,15 +95,19 @@ public class PlayerData
     [SerializeField]
     float maxPoise = 10f;
     [SerializeField]
-    int maxEp = 5;
+    float maxEp = 50;
     [SerializeField]
-    int ep = 5;
+    float ep = 50;
     [SerializeField]
     int sp = 10;
     [SerializeField]
     int maxSp = 10;
     [SerializeField]
-    bool injured;
+    int bytes = 100;
+    [SerializeField]
+    int maxBytes = 100;
+    [SerializeField]
+    bool injured = true;
     [SerializeField]
     bool sick;
 }
