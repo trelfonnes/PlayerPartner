@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : PlayableCharacters
 {
-    #region StateVariables
+    #region StateVariables for Specific Character
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
@@ -15,25 +15,10 @@ public class Player : MonoBehaviour
     public PlayerHoldItemState HoldItemState { get; private set; }
     public PlayerWatchState WatchState { get; private set; }
     #endregion
-    
-    #region Components on Player GO
-
-    public CoreHandler core { get; private set; }
-    public Animator anim { get; private set; }
-    public PlayerInputHandler InputHandler { get; private set; }
-   
-    private PlayerData _playerData = new PlayerData(); //data for stats refactor might not need it here
-    [SerializeField] 
-    private PlayerSOData playerSOData;//Data for states  
-
-    #endregion
-
     #region Unity Callback Functions Initialized in Awake Method
-
-    private void Awake()
-    {
+    protected override void Awake()
+    {base.Awake();
         playerDirection = Vector2.down;
-        core = GetComponentInChildren<CoreHandler>();
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerSOData, _playerData, "move");
@@ -44,36 +29,30 @@ public class Player : MonoBehaviour
         WatchState = new PlayerWatchState(this, StateMachine, playerSOData, _playerData, "watch");   
     }
     #endregion
-    #region CollisionCheckVariables
-    public Vector2 playerDirection;
-    #endregion
-
-    
-    void Start()
+    protected override void Start()
     {
-        anim = GetComponent<Animator>();
-        InputHandler = GetComponent<PlayerInputHandler>();
+        base.Start();
         StateMachine.Initialize(IdleState); //for when states are referenced in awake.
     }
-
-    void Update()
+    protected override void Update()
     {
-        //connected with logic update in playerstate
+        base.Update();
+        //connected with logic update in playerstate for specific character
         StateMachine.CurrentState.LogicUpdate();
         
     }
-
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
-        //connected physics update
-        StateMachine.CurrentState.PhysicsUpdate();
+        base.FixedUpdate();
+        //connected physics update for specific character
+       StateMachine.CurrentState.PhysicsUpdate();
     }
 
-    #region For Saving Data
+    #region For Saving Data BIND
     internal void Bind(PlayerData playerData)
     {
         _playerData = playerData;
         Debug.Log("binding");
     }
-    #endregion
+    #endregion 
 }
