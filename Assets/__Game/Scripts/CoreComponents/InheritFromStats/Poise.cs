@@ -1,18 +1,54 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Poise : MonoBehaviour
+public class Poise : Stats, IPoise
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool regeneratePoise = false;
+    
+    protected override void Awake()
     {
-        
+        base.Awake();
+    }
+    protected override void Start()
+    {
+        base.Start();
+        Stats.onCurrentHealthZero += SetRegeneratePoiseTrue;
     }
 
-    // Update is called once per frame
-    void Update()
+   
+    public void DecreasePoise(float amount)
     {
-        
+        playerData.Poise -= amount;
+        if(playerData.Poise <= 0)
+        {
+            playerData.Poise = 0;
+            base.CurrentPoiseZero();
+        }
     }
+ 
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+        if (regeneratePoise)
+        {
+            RegeneratePoise();
+        }
+
+
+    }
+    public void RegeneratePoise()
+    {
+        playerData.Poise = Mathf.Clamp(playerData.Poise + Time.deltaTime, 0, playerData.MaxPoise);
+        if(playerData.Poise == playerData.MaxPoise)
+        {
+            regeneratePoise = false;
+        }    
+    }
+    private void SetRegeneratePoiseTrue()
+    {
+        regeneratePoise = true;
+    }
+
 }

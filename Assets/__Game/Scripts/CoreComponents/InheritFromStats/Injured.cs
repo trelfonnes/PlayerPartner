@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Injured : MonoBehaviour
+public class Injured : Stats, IInjured
 {
-    // Start is called before the first frame update
-    void Start()
+
+    protected override void Awake()
     {
-        
+        base.Awake();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InjuredON()
     {
-        
+        playerData.Injured = true;
     }
+    public void InjuredOFF()
+    {
+        playerData.Injured = false;
+    }
+    public void InjuredONandOFF(bool rotate)
+    {
+        playerData.Injured = rotate;
+        if (playerData.Injured)
+        {
+            base.IsInjured();
+        }
+    }
+
 }

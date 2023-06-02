@@ -17,7 +17,6 @@ public class PlayerIdleState : PlayerBasicState
     {
         base.Enter();
         canExitState = false;
-        Debug.Log("inIdle");
 
     }
 

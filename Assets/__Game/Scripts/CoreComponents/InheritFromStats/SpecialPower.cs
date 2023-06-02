@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialPower : MonoBehaviour
+public class SpecialPower : Stats, ISpecialPower
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Awake()
     {
-        
+        base.Awake();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void DecreaseSP(int amount)
     {
-        
+        playerData.SP -= amount;
+        if(playerData.SP <= 0)
+        {
+            playerData.SP = 0;
+        }
+    }
+    public void IncreaseSP(int amount)
+    {
+        playerData.SP = Mathf.Clamp(playerData.SP + amount, 0, playerData.MaxSP);
+    }
+    public void IncreaseMaxSP(int amount)
+    {
+        playerData.MaxSP += amount;
     }
 }
