@@ -14,21 +14,10 @@ public class PlayerBasicState : PlayerState
     protected bool isTouchingCarryable;
     protected bool isTouchingGround;
     protected bool canExitState;
-
-
+    protected bool isTouchingPartner;
     public PlayerBasicState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }
-
-
-
-    //protected Movement Movement
-    //{
-    //    get => movement ?? core.GetCoreComponent(ref movement);
-    //}
-    //private Movement movement;
-
-
     public override void DoChecks()
     {
         base.DoChecks();
@@ -36,6 +25,7 @@ public class PlayerBasicState : PlayerState
         isTouchingWall = CollisionSenses.WallCheck;
         isTouchingCarryable = CollisionSenses.CarryableCheck;
         isTouchingGround = CollisionSenses.GroundCheck;
+        isTouchingPartner = CollisionSenses.PartnerCheck;
     }
 
     public override void Enter()
@@ -55,23 +45,16 @@ public class PlayerBasicState : PlayerState
         yInput = player.InputHandler.NormInputY;
         switchInput = player.InputHandler.SwitchPlayerInput;
         interactInput = player.InputHandler.InteractInput;
-
+       
+        if (isTouchingPartner)
+        {
+            Debug.Log("istouchingPARTNER");
+        }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

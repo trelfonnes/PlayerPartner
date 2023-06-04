@@ -14,7 +14,8 @@ public class Poise : Stats, IPoise
     protected override void Start()
     {
         base.Start();
-        Stats.onCurrentHealthZero += SetRegeneratePoiseTrue;
+      
+        onCurrentPoiseZero += SetRegeneratePoiseTrue;
     }
 
    
@@ -52,7 +53,7 @@ public class Poise : Stats, IPoise
     }
     private void OnDisable()
     {
-        Stats.onCurrentHealthZero -= SetRegeneratePoiseTrue;
+        onCurrentPoiseZero -= SetRegeneratePoiseTrue;
 
     }
 

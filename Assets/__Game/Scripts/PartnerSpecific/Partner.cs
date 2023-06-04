@@ -7,28 +7,33 @@ public class Partner : PlayableCharacters
     #region StateVariables for Specific Character
 
     public PlayerStateMachine StateMachine { get; private set; }
+    public PartnerMoveState MoveState { get; private set; }
+    public PartnerIdleState IdleState { get; private set; }
+
     #endregion
     protected override void Awake()
     {
         base.Awake();
+        StateMachine = new PlayerStateMachine();
+        playerDirection = Vector2.down;
+        MoveState = new PartnerMoveState(this, StateMachine, playerSOData, _playerData, "move");
+        IdleState = new PartnerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
     }
     protected override void Start()
     {
         base.Start();
-     //   StateMachine.Initialize(FollowState); //for when states are referenced in awake.
+      StateMachine.InitializePartner(IdleState); //for when states are referenced in awake.
     }
     protected override void Update()
     {
         base.Update();
-        //connected with logic update in playerstate for specific character
-        StateMachine.CurrentState.LogicUpdate();
+        StateMachine.CurrentPartnerState.LogicUpdate();
 
     }
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        //connected physics update for specific character
-        StateMachine.CurrentState.PhysicsUpdate();
+        StateMachine.CurrentPartnerState.PhysicsUpdate();
     }
 
     #region For Saving Data BIND

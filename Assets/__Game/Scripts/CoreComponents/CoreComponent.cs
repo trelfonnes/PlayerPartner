@@ -7,6 +7,7 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
 {
     protected CoreHandler core;
     protected Player player;
+    protected Partner partner;
     protected SpriteRenderer SR;
     //?? is coalescing operator. if left is null, returns right.
     protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
@@ -26,6 +27,7 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
     protected virtual void Awake()
     {
         player = GetComponentInParent<Player>();
+        partner = GetComponentInParent<Partner>();
         core = transform.parent.GetComponent<CoreHandler>();
         SR = GetComponentInParent<SpriteRenderer>();
         if (core == null) { Debug.LogError("There is no CoreHandler on the Parent"); }
