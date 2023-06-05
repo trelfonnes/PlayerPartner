@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  partnerCamera: {fileID: 1430772121038100519, guid: d7843f503562cac4aa72ff2b8ac8adcf, type: 3}
   playerDirection: {x: 0, y: 0}
 --- !u!212 &3096751259281156567
 SpriteRenderer:
@@ -836,7 +837,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
-  playerCheckRadius: 2
+  playerCheckRadius: 1
   wallCheckFollowRadius: 0.5
 --- !u!1 &7337572960134393174
 GameObject:

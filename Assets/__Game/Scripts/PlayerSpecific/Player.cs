@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class Player : MonoBehaviour
 
 {
@@ -18,18 +18,31 @@ public class Player : MonoBehaviour
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
+    public CinemachineVirtualCamera PlayerCamera
+    {
+        get { return playerCamera; }
+        set { playerCamera = value; }
+    }
+
     public PlayerInputHandler InputHandler { get; private set; }
     protected PlayerData _playerData = new PlayerData(); //data for stats refactor might not need it here
     [SerializeField]
     protected PlayerSOData playerSOData;//Data for states  
+    [SerializeField] CinemachineVirtualCamera playerCamera;
+
     public Vector2 playerDirection;
 
 
 
 
     #region Unity Callback Functions Initialized in Awake Method
+    private void OnEnable()
+    {
+        CameraSwitcher.Register(playerCamera);
+    }
     protected virtual void Awake()
     {
+        
         playerDirection = Vector2.down;
         StateMachine = new PlayerStateMachine();
         core = GetComponentInChildren<CoreHandler>();
@@ -63,12 +76,16 @@ public class Player : MonoBehaviour
         //connected physics update for specific character
        StateMachine.CurrentState.PhysicsUpdate();
     }
-
+    private void OnDisable()
+    {
+        CameraSwitcher.UnRegister(playerCamera);
+    }
     #region For Saving Data BIND
     internal void Bind(PlayerData playerData)
     {
         _playerData = playerData;
         Debug.Log("binding");
     }
+    
     #endregion 
 }

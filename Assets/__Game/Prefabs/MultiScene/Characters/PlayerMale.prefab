@@ -211,7 +211,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   partnerCheckArea: {fileID: 2121437962378263932}
-  partnerDistanceFromPlayerRadius: 0
+  partnerDistanceFromPlayerRadius: 2
   whatIsPartner:
     serializedVersion: 2
     m_Bits: 1024
@@ -399,6 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
+  playerCamera: {fileID: 9092451983866453120, guid: 42d40967be1a44a47b2a1180c493fcd5, type: 3}
   playerDirection: {x: 0, y: 0}
 --- !u!50 &3963916745617885422
 Rigidbody2D:

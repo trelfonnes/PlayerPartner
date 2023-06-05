@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Partner : MonoBehaviour
 {
@@ -15,13 +16,22 @@ public class Partner : MonoBehaviour
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
+    public CinemachineVirtualCamera PartnerCamera
+    {
+        get { return partnerCamera; }
+        set { partnerCamera = value; }
+    }
     public PlayerInputHandler InputHandler { get; private set; }
     protected PlayerData _playerData = new PlayerData(); //data for stats refactor might not need it here
     [SerializeField]
     protected PlayerSOData playerSOData;//Data for states  
+    [SerializeField] CinemachineVirtualCamera partnerCamera;
     public Vector2 playerDirection;
 
-
+    private void OnEnable()
+    {
+        CameraSwitcher.Register(partnerCamera);
+    }
 
     protected virtual void Awake()
     {
@@ -53,6 +63,12 @@ public class Partner : MonoBehaviour
         StateMachine.CurrentPartnerState.PhysicsUpdate();
     }
 
+    private void OnDisable()
+    {
+        CameraSwitcher.UnRegister(partnerCamera);
+    }
+
+
     #region For Saving Data BIND
     internal void Bind(PlayerData playerData)
     {
@@ -60,4 +76,6 @@ public class Partner : MonoBehaviour
         Debug.Log("binding");
     }
     #endregion
+
+
 }

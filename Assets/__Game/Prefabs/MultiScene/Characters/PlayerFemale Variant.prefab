@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_Name
-      value: PlayerFemale Variant
+      value: PlayerFemale
       objectReference: {fileID: 0}
     - target: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_IsActive

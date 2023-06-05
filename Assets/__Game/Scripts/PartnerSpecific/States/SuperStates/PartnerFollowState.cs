@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerBasicState : PartnerState
+public class PartnerFollowState : PartnerState
 {
     protected int yInput;
     protected int xInput;
@@ -16,7 +16,7 @@ public class PartnerBasicState : PartnerState
     protected bool canExitState;
     protected bool isTouchingPlayer;
     protected Transform player;
-    public PartnerBasicState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
+    public PartnerFollowState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
 
@@ -43,13 +43,13 @@ public class PartnerBasicState : PartnerState
     public override void Enter()
     {
         base.Enter();
-        CameraSwitcher.SwitchCamera(partner.PartnerCamera);
 
     }
 
     public override void Exit()
     {
         base.Exit();
+
     }
 
     public override void LogicUpdate()
@@ -60,8 +60,6 @@ public class PartnerBasicState : PartnerState
         switchInput = partner.InputHandler.SwitchPlayerInput;
         interactInput = partner.InputHandler.InteractInput;
 
-
-        
     }
 
     public override void PhysicsUpdate()
@@ -69,3 +67,4 @@ public class PartnerBasicState : PartnerState
         base.PhysicsUpdate();
     }
 }
+

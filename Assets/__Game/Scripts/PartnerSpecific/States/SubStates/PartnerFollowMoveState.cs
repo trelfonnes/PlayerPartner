@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerFollowMoveState : PartnerBasicState
+public class PartnerFollowMoveState : PartnerFollowState
 {
-    public Vector3 velocity;
     public PartnerFollowMoveState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
+
     public override void DoChecks()
     {
         base.DoChecks();
+        
     }
 
     public override void Enter()

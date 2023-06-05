@@ -19,11 +19,15 @@ public class PlayerWatchState : PlayerBasicState
         Debug.Log("enteredWatch");
         canExitState = false;
         Movement?.SetVelocity(playerSOData.watchSpeed * (new Vector2(xInput, yInput)));
+
+        
     }
 
     public override void Exit()
     {
         base.Exit();
+        CameraSwitcher.SwitchCamera(player.PlayerCamera);
+
     }
 
     public override void LogicUpdate()

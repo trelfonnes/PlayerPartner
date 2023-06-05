@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerFollowIdleState : PartnerBasicState
+public class PartnerFollowIdleState : PartnerFollowState
 {
     public PartnerFollowIdleState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
