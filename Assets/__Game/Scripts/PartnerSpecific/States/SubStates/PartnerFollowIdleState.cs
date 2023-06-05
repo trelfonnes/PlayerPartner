@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerIdleState : PartnerBasicState
+public class PartnerFollowIdleState : PartnerBasicState
 {
-    public PartnerIdleState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
+    public PartnerFollowIdleState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
 
@@ -17,7 +17,6 @@ public class PartnerIdleState : PartnerBasicState
     {
         base.Enter();
         canExitState = false;
-
     }
 
     public override void Exit()
@@ -28,22 +27,21 @@ public class PartnerIdleState : PartnerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (xInput != 0 || yInput != 0)
+        if (!isTouchingPlayer && !isTouchingWallFollowing)
         {
-            PSM.ChangePartnerState(partner.MoveState);
+            PSM.ChangePartnerState(partner.FollowMoveState);
         }
         if(!switchInput && !interactInput)
         {
             canExitState = true;
         }
-       
+        
         if (canExitState)
         {
             if (switchInput)
             {
-                PSM.ChangePartnerState(partner.FollowIdleState);
+                PSM.ChangePartnerState(partner.IdleState);
             }
-            //TODO behavior to interact input conditions
         }
     }
 

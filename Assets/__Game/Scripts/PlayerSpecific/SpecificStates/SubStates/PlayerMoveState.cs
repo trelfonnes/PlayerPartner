@@ -51,11 +51,16 @@ public class PlayerMoveState : PlayerBasicState
         }
         if (canExitState)
         {
+            if (switchInput)
+            {
+                PSM.ChangeState(player.WatchState);
+            }
             if (interactInput && isTouchingCarryable)
             {
                 PSM.ChangeState(player.CarryItemState);
             }
         }
+
     }
 
     public override void PhysicsUpdate()

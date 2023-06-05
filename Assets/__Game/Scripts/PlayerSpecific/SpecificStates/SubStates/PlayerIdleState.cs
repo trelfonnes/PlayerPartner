@@ -56,15 +56,5 @@ public class PlayerIdleState : PlayerBasicState
         base.PhysicsUpdate();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 }

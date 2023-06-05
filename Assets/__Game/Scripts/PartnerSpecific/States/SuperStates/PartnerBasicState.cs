@@ -11,9 +11,11 @@ public class PartnerBasicState : PartnerState
     protected bool interactInput;
 
     protected bool isTouchingWall;
+    protected bool isTouchingWallFollowing;
     protected bool isTouchingGround;
     protected bool canExitState;
     protected bool isTouchingPlayer;
+    protected Transform player;
     public PartnerBasicState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
@@ -31,10 +33,11 @@ public class PartnerBasicState : PartnerState
     public override void DoChecks()
     {
         base.DoChecks();
+        isTouchingWallFollowing = CollisionSenses.WallCheckFollowing;
         isTouchingWall = CollisionSenses.WallCheckPartner;
         isTouchingGround = CollisionSenses.GroundCheck;
         isTouchingPlayer = CollisionSenses.PlayerCheck;
-
+        player = CollisionSenses.followPoint;
     }
 
     public override void Enter()
@@ -56,10 +59,7 @@ public class PartnerBasicState : PartnerState
         interactInput = partner.InputHandler.InteractInput;
 
 
-        if (isTouchingPlayer)
-        {
-            Debug.Log("istouchingPLAYER");
-        }
+        
     }
 
     public override void PhysicsUpdate()

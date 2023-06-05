@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6887f46d125531b4b9da6341b792f198, type: 3}
   m_Name: Dino1BasicSOData
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   watchSpeed: 0
+  followSpeed: 4.5

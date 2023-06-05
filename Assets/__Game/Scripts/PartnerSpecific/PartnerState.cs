@@ -15,13 +15,14 @@ public class PartnerState
     string animBoolName;
 
     protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
-    protected CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+    protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
     protected Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
 
+    
     private Movement movement;
-    private CollisionSenses collisionSenses;
+    private PartnerCollisionSenses collisionSenses;
     private Stats stats;
     private Defeated defeated;
     private Particles particles;

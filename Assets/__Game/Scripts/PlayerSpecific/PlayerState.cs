@@ -15,13 +15,23 @@ public class PlayerState
     string animBoolName;
 
     protected Movement Movement {get => movement ?? core.GetCoreComponent(ref movement);}
-    protected CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+    protected PlayerCollisionSenses PlayerCollisionSenses
+    {
+        get
+        {
+            if (playerCollisionSenses == null)
+            {
+                playerCollisionSenses = core.GetCoreComponent(ref playerCollisionSenses);
+            }
+            return playerCollisionSenses;
+        }
+    }
     protected Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
 
     private Movement movement;
-    private CollisionSenses collisionSenses;
+    private PlayerCollisionSenses playerCollisionSenses;
     private Stats stats;
     private Defeated defeated;
     private Particles particles;
@@ -56,11 +66,11 @@ public class PlayerState
     }
     public virtual void LogicUpdate()
     {
-
     }
     public virtual void PhysicsUpdate()
     {
         DoChecks();
+
     }
     void Start()
     {

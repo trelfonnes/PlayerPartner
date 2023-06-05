@@ -22,10 +22,10 @@ public class PlayerBasicState : PlayerState
     {
         base.DoChecks();
         // TODO add references to collision senses
-        isTouchingWall = CollisionSenses.WallCheck;
-        isTouchingCarryable = CollisionSenses.CarryableCheck;
-        isTouchingGround = CollisionSenses.GroundCheck;
-        isTouchingPartner = CollisionSenses.PartnerCheck;
+          isTouchingWall = PlayerCollisionSenses.WallCheck;
+         isTouchingCarryable = PlayerCollisionSenses.CarryableCheck;
+         isTouchingGround = PlayerCollisionSenses.GroundCheck;
+        isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
     }
 
     public override void Enter()
@@ -46,10 +46,7 @@ public class PlayerBasicState : PlayerState
         switchInput = player.InputHandler.SwitchPlayerInput;
         interactInput = player.InputHandler.InteractInput;
        
-        if (isTouchingPartner)
-        {
-            Debug.Log("istouchingPARTNER");
-        }
+        
     }
 
     public override void PhysicsUpdate()

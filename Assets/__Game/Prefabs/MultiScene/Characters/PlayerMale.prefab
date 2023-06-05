@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1600163994}
   m_Layer: 9
-  m_Name: PartnerCheckPoint
+  m_Name: PartnerFollowPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3963916744730356114}
-  - component: {fileID: 3963916744730356115}
+  - component: {fileID: 2638291573643422366}
   m_Layer: 9
   m_Name: CollisionSenses
   m_TagString: Untagged
@@ -184,10 +184,11 @@ Transform:
   - {fileID: 3963916744851059632}
   - {fileID: 3963916746401700930}
   - {fileID: 1600163994}
+  - {fileID: 2121437962378263932}
   m_Father: {fileID: 3963916744843280178}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3963916744730356115
+--- !u!114 &2638291573643422366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,31 +197,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 3963916744730356113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81840e6bd8c40554cb343879c19a1ff9, type: 3}
+  m_Script: {fileID: 11500000, guid: c649b003ecc278c4688b675f575e72b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   collisionsCheckPoint: {fileID: 3963916744851059632}
   groundCheckPoint: {fileID: 3963916746401700930}
-  partnerFollowPoint: {fileID: 1600163994}
   collisionCheckDistance: 1.5
   groundCheckRadius: 0.3
-  partnerDistanceFromPlayer: 1.5
-  playerDistanceFromPartner: 1.5
   whatIsWall:
     serializedVersion: 2
     m_Bits: 64
-  whatIsCarryable:
-    serializedVersion: 2
-    m_Bits: 128
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  partnerCheckArea: {fileID: 2121437962378263932}
+  partnerDistanceFromPlayerRadius: 0
   whatIsPartner:
     serializedVersion: 2
     m_Bits: 1024
-  whatIsPlayer:
+  whatIsCarryable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1 &3963916744843280177
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +417,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -950,3 +947,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad30bccbc6e68540b6d1683069aedf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7759988393125100095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2121437962378263932}
+  m_Layer: 9
+  m_Name: PartnerCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2121437962378263932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759988393125100095}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3963916744730356114}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

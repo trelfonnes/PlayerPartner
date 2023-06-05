@@ -11,13 +11,25 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
     protected SpriteRenderer SR;
     //?? is coalescing operator. if left is null, returns right.
     protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
-    protected CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+    protected PlayerCollisionSenses PlayerCollisionSenses
+    {
+        get
+        {
+            if (playerCollisionSenses == null)
+            {
+                playerCollisionSenses = core.GetCoreComponent(ref playerCollisionSenses);
+            }
+            return playerCollisionSenses;
+        }
+    }
+    protected PartnerCollisionSenses PartnerCollisionSenses { get => partnerCollisionSenses ?? core.GetCoreComponent(ref partnerCollisionSenses); }
     protected Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
 
     private Movement movement;
-    private CollisionSenses collisionSenses;
+    private PlayerCollisionSenses playerCollisionSenses;
+    private PartnerCollisionSenses partnerCollisionSenses;
     private Stats stats;
     private Defeated defeated;
     private Particles particles;

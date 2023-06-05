@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : PlayableCharacters
+public class Player : MonoBehaviour
+
 {
     #region StateVariables for Specific Character
     public PlayerStateMachine StateMachine { get; private set; }
@@ -15,35 +16,50 @@ public class Player : PlayableCharacters
     public PlayerHoldItemState HoldItemState { get; private set; }
     public PlayerWatchState WatchState { get; private set; }
     #endregion
+    public CoreHandler core { get; private set; }
+    public Animator anim { get; private set; }
+    public PlayerInputHandler InputHandler { get; private set; }
+    protected PlayerData _playerData = new PlayerData(); //data for stats refactor might not need it here
+    [SerializeField]
+    protected PlayerSOData playerSOData;//Data for states  
+    public Vector2 playerDirection;
+
+
+
+
     #region Unity Callback Functions Initialized in Awake Method
-    protected override void Awake()
-    {base.Awake();
+    protected virtual void Awake()
+    {
         playerDirection = Vector2.down;
         StateMachine = new PlayerStateMachine();
+        core = GetComponentInChildren<CoreHandler>();
         IdleState = new PlayerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerSOData, _playerData, "move");
         AttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack");
         SpecialState = new PlayerSpecialState(this, StateMachine, playerSOData, _playerData, "special");
         CarryItemState = new PlayerCarryItemState(this, StateMachine, playerSOData, _playerData, "carryItem");
         HoldItemState = new PlayerHoldItemState(this, StateMachine, playerSOData, _playerData, "holdItem");
-        WatchState = new PlayerWatchState(this, StateMachine, playerSOData, _playerData, "watch");   
+        WatchState = new PlayerWatchState(this, StateMachine, playerSOData, _playerData, "watch");
+
+
     }
     #endregion
-    protected override void Start()
+    protected virtual void Start()
     {
-        base.Start();
+        anim = GetComponent<Animator>();
+        InputHandler = GetComponent<PlayerInputHandler>();
         StateMachine.Initialize(IdleState); //for when states are referenced in awake.
     }
-    protected override void Update()
+    protected virtual void Update()
     {
-        base.Update();
+       
         //connected with logic update in playerstate for specific character
         StateMachine.CurrentState.LogicUpdate();
         
     }
-    protected override void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-        base.FixedUpdate();
+        
         //connected physics update for specific character
        StateMachine.CurrentState.PhysicsUpdate();
     }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1647114017
+--- !u!1 &885020787
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1647114018}
-  m_Layer: 9
-  m_Name: PartnerFollowPoint
+  - component: {fileID: 885020788}
+  m_Layer: 10
+  m_Name: PlayerCheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1647114018
+--- !u!4 &885020788
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647114017}
+  m_GameObject: {fileID: 885020787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8935392856149811619}
   - component: {fileID: 582847465035024305}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8419083692026662668}
   - component: {fileID: 1235854926919083641}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: CoreHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4685517001726892456}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: 'GroundCheckPoint '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6577248297001127075}
   - component: {fileID: 813953972154848909}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4827484632822918497}
   - component: {fileID: 7472095014903256249}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Injured
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4095878820750523769}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: CollisionsCheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 3096751259281156560}
   - component: {fileID: 3096751259281156563}
   - component: {fileID: 1931418030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PartnerDino1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,7 +636,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -650,7 +650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1320883038040628364}
   - component: {fileID: 8603951853176871710}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Defeated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7472653594763690246}
   - component: {fileID: 4984900039003140835}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3217434597543646192}
   - component: {fileID: 3569845725399091521}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Poise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,8 +783,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3737765852121119572}
-  - component: {fileID: 42682950134648572}
-  m_Layer: 9
+  - component: {fileID: 3096751257916962951}
+  m_Layer: 10
   m_Name: CollisionSenses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,11 +805,11 @@ Transform:
   m_Children:
   - {fileID: 4095878820750523769}
   - {fileID: 4685517001726892456}
-  - {fileID: 1647114018}
+  - {fileID: 885020788}
   m_Father: {fileID: 8419083692026662668}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &42682950134648572
+--- !u!114 &3096751257916962951
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -818,31 +818,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 6776230274729689275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81840e6bd8c40554cb343879c19a1ff9, type: 3}
+  m_Script: {fileID: 11500000, guid: 75d83bf9a123e5549a862ce5d616ab1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   collisionsCheckPoint: {fileID: 4095878820750523769}
   groundCheckPoint: {fileID: 4685517001726892456}
-  partnerFollowPoint: {fileID: 1647114018}
   collisionCheckDistance: 1.5
   groundCheckRadius: 0.3
-  partnerDistanceFromPlayer: 1.5
-  playerDistanceFromPartner: 1.5
   whatIsWall:
     serializedVersion: 2
     m_Bits: 64
-  whatIsCarryable:
-    serializedVersion: 2
-    m_Bits: 128
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  whatIsPartner:
-    serializedVersion: 2
-    m_Bits: 0
+  followPoint: {fileID: 0}
+  playerCheckArea: {fileID: 885020788}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
+  playerCheckRadius: 2
+  wallCheckFollowRadius: 0.5
 --- !u!1 &7337572960134393174
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5017513304947420130}
   - component: {fileID: 311144030224995445}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7414337217242271694}
   - component: {fileID: 7201974324662115658}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpecialPower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3097320183363153403}
   - component: {fileID: 2324048287371154591}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,7 +980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1817622230118650420}
   - component: {fileID: 1438894323629767702}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EvolutionPower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8808582686983000767}
   - component: {fileID: 6031825892502314675}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}

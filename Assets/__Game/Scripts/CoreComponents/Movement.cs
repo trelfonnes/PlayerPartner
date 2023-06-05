@@ -48,6 +48,16 @@ public class Movement : CoreComponent
         }
 
     }
+    public void CheckIfShouldFlipFollowing(Vector2 vector2)
+    {
+        vector2.x = Mathf.Round(vector2.x);
+        if(vector2.x != 0 && vector2.x != facingDirectionX)
+        {
+            FlipX();
+        }
+        
+
+    }
 
     public void SetVelocityZero()
     {
