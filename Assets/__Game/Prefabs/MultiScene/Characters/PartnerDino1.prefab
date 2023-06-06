@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 1931418030}
   m_Layer: 10
   m_Name: PartnerDino1
-  m_TagString: Untagged
+  m_TagString: Partner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
-  partnerCamera: {fileID: 1430772121038100519, guid: d7843f503562cac4aa72ff2b8ac8adcf, type: 3}
+  partnerCamera: {fileID: 0}
   playerDirection: {x: 0, y: 0}
 --- !u!212 &3096751259281156567
 SpriteRenderer:
