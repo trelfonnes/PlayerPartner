@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
     public List<string> AllGameNames = new List<string>();
 
     [SerializeField] GameData gameData;
-    [SerializeField] private GameObject player1Prefab;
-    [SerializeField] private GameObject player2Prefab;
-
+    [SerializeField] protected GameObject player1Prefab;
+    [SerializeField] protected GameObject player2Prefab;
+    [SerializeField] protected GameObject partner1Prefab;
 
     private PlayerInputManager inputManager;
     private PlayerData playerData;
@@ -110,7 +110,6 @@ public class GameManager : MonoBehaviour
         //{
         if (gameData.PlayerDatas.Count <= 0)
         {
-            Debug.Log("here");
             //  var playerData = new PlayerData();
             gameData.PlayerDatas.Add(playerData);
         }

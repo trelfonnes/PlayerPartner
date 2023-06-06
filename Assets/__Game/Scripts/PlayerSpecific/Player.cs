@@ -84,7 +84,6 @@ public class Player : MonoBehaviour
     internal void Bind(PlayerData playerData)
     {
         _playerData = playerData;
-        Debug.Log("binding");
     }
     
     #endregion 

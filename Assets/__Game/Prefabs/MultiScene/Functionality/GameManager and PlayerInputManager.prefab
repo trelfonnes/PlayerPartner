@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &369117927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369117928}
+  - component: {fileID: 369117929}
+  m_Layer: 0
+  m_Name: ClockManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &369117928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369117927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 186643528631398210}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &369117929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369117927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ed742d26bb4ba4a8a21c887c85b0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllGameNames: []
+  gameData:
+    PlayerDatas: []
+    GameName: 
+  player1Prefab: {fileID: 0}
+  player2Prefab: {fileID: 0}
+  partner1Prefab: {fileID: 0}
+  minutes: 0
 --- !u!1 &186643528631398211
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +81,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 369117928}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,9 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fc53f7b638e7046a85f06d302ba191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerDatas: []
+  AllGameNames: []
+  gameData:
+    PlayerDatas: []
+    GameName: 
   player1Prefab: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
-  player2Prefab: {fileID: 6006863238922283264, guid: b7dc47d938d54cd4d9854bfe5977c09a, type: 3}
+  player2Prefab: {fileID: 0}
+  partner1Prefab: {fileID: 0}
 --- !u!114 &186643528631398236
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,43 +34,48 @@ public class Stats : CoreComponent
     #region Events for stat changes
     protected virtual void CurrentHealthZero()
     {
+        if(onCurrentHealthZero != null)
         onCurrentHealthZero?.Invoke();
     }
 
     protected virtual void CurrentHealthFull()
-    {
+    {   if(onCurrentHealthFull != null)
         onCurrentHealthFull.Invoke();
     }
     protected virtual void CurrentEPZero()
     {
-        onCurrentEPZero.Invoke();
+        if (onCurrentEPZero != null)
+            onCurrentEPZero.Invoke();
     }
     protected virtual void IsInjured()
     {
+        if(onInjured != null)
         onInjured.Invoke();
 
     }
     protected virtual void IsSick()
     {
-        onSick.Invoke();
+        if (onSick != null)
+            onSick.Invoke();
     }
 
     protected virtual void CurrentStaminaFull()
     {
+        if (onCurrentStaminaFull != null)
         onCurrentStaminaFull.Invoke();
     }
     protected virtual void CurrentStaminaZero()
     {
+        if(onCurrentStaminaZero != null)
         onCurrentStaminaZero.Invoke();
     }
     protected virtual void CurrentPoiseZero()
     {
+        if(onCurrentPoiseZero != null)
         onCurrentPoiseZero.Invoke();
     }
     #endregion
 
 
-    #region Interface required functions
-
-    #endregion
+    
 }

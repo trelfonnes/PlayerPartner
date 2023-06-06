@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &397500415 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
-  m_PrefabInstance: {fileID: 3963916745244065920}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &446085942 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5216152300117457001, guid: 01e752c02bae6df4dbaa56b09dc2f4e1, type: 3}
@@ -139,6 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &517371795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+  m_PrefabInstance: {fileID: 3096751257916962946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &519420032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5216152300048186335, guid: 01e752c02bae6df4dbaa56b09dc2f4e1, type: 3}
@@ -420,6 +420,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &950328077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8430108973224999087, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
+  m_PrefabInstance: {fileID: 944650179748297854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1017950249
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +644,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 369117929, guid: 3a4695ff7acaa8d4fbf26beab07c8a71, type: 3}
+      propertyPath: partner1Prefab
+      value: 
+      objectReference: {fileID: 517371795}
     - target: {fileID: 186643528631398210, guid: 3a4695ff7acaa8d4fbf26beab07c8a71, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -690,7 +699,15 @@ PrefabInstance:
     - target: {fileID: 186643528631398236, guid: 3a4695ff7acaa8d4fbf26beab07c8a71, type: 3}
       propertyPath: m_PlayerPrefab
       value: 
-      objectReference: {fileID: 397500415}
+      objectReference: {fileID: 950328077}
+    - target: {fileID: 186643528631398237, guid: 3a4695ff7acaa8d4fbf26beab07c8a71, type: 3}
+      propertyPath: player2Prefab
+      value: 
+      objectReference: {fileID: 950328077}
+    - target: {fileID: 186643528631398237, guid: 3a4695ff7acaa8d4fbf26beab07c8a71, type: 3}
+      propertyPath: gameData.GameName
+      value: Game1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a4695ff7acaa8d4fbf26beab07c8a71, type: 3}
 --- !u!1001 &944650179748297854
