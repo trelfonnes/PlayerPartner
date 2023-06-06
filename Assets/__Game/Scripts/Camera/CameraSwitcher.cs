@@ -2,17 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollowOptions : MonoBehaviour
+using Cinemachine;
+
+public static class CameraSwitcher
 {
-    // Start is called before the first frame update
-    void Start()
+    static List<CinemachineVirtualCamera> cameras = new List<CinemachineVirtualCamera>();
+    public static CinemachineVirtualCamera ActiveCamera = null;
+    
+    public static bool IsActiveCamera(CinemachineVirtualCamera camera)
     {
-        
+        return camera == ActiveCamera;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void SwitchCamera(CinemachineVirtualCamera camera)
     {
-        
+        camera.Priority = 10;
+        ActiveCamera = camera;
+        foreach (CinemachineVirtualCamera c  in cameras)
+        {
+            if(c != camera)
+            {
+                c.Priority = 0;
+            }
+        }
     }
+
+    public static void Register(CinemachineVirtualCamera cameraInUse)
+    {
+        cameras.Add(cameraInUse);
+        Debug.Log("Camera Registered" + cameraInUse);
+    }
+    public static void UnRegister(CinemachineVirtualCamera cameraNotInUse)
+    {
+
+    }
+    
+   
 }

@@ -36,7 +36,7 @@ public class ClockManager : GameManager
             minutes -= RealSecondsPerGameHour;
             gameHour++;
             if (OnTick != null) OnTick(this, new OnTickEventArgs { gameHour = gameHour });
-            Debug.Log(gameHour);
+           // Debug.Log(gameHour);
             if(gameHour % 6 ==0)//this is fancy syntax for if game hour is a mulitple of 6 i.e. 12, 18, 24
             {
                 if (OnTick_6 != null) OnTick_6(this, new OnTickEventArgs { gameHour = gameHour });

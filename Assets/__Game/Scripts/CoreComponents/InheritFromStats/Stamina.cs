@@ -17,13 +17,12 @@ public class Stamina : Stats, IStaminaChange
         };
         ClockManager.OnTick_6 += delegate (object sender, ClockManager.OnTickEventArgs e)
         {
-            Debug.Log("1/4 day passed!");
+           // Debug.Log("1/4 day passed!");
         };
     }
     public void DecreaseStamina(float amount)
     {
         playerData.Stamina -= amount;
-        Debug.Log(playerData.Stamina);
         if(playerData.Stamina <= 0)
         {
             playerData.Stamina = 0;
