@@ -31,6 +31,8 @@ public class PlayerBasicState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        CameraSwitcher.SwitchCamera(player.PlayerCamera);
+
     }
 
     public override void Exit()

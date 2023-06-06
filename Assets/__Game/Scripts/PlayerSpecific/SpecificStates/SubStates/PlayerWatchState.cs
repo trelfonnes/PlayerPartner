@@ -26,7 +26,6 @@ public class PlayerWatchState : PlayerBasicState
     public override void Exit()
     {
         base.Exit();
-        CameraSwitcher.SwitchCamera(player.PlayerCamera);
 
     }
 

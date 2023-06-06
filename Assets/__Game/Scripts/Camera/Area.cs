@@ -8,12 +8,15 @@ public class Area : MonoBehaviour
     public GameObject partnerCamera;
     private CinemachineVirtualCamera playerVC;
     private CinemachineVirtualCamera partnerVC;
-
-
+   
     private void Awake()
     {
+
         playerVC = playerCamera.GetComponent<CinemachineVirtualCamera>();        
         partnerVC = partnerCamera.GetComponent<CinemachineVirtualCamera>();        
+       CameraSwitcher.Register(playerVC);
+        CameraSwitcher.Register(partnerVC);
+
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -42,5 +45,11 @@ public class Area : MonoBehaviour
             partnerCamera.SetActive(false);
 
         }
+    }
+    private void OnDisable()
+    {
+        CameraSwitcher.UnRegister(playerVC);
+        CameraSwitcher.UnRegister(partnerVC);
+
     }
 }

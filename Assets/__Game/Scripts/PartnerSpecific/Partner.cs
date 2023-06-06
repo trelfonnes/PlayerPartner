@@ -28,10 +28,7 @@ public class Partner : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera partnerCamera;
     public Vector2 playerDirection;
 
-    private void OnEnable()
-    {
-        CameraSwitcher.Register(partnerCamera);
-    }
+ 
 
     protected virtual void Awake()
     {
@@ -63,10 +60,7 @@ public class Partner : MonoBehaviour
         StateMachine.CurrentPartnerState.PhysicsUpdate();
     }
 
-    private void OnDisable()
-    {
-        CameraSwitcher.UnRegister(partnerCamera);
-    }
+    
 
 
     #region For Saving Data BIND

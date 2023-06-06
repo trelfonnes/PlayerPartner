@@ -36,10 +36,7 @@ public class Player : MonoBehaviour
 
 
     #region Unity Callback Functions Initialized in Awake Method
-    private void OnEnable()
-    {
-        CameraSwitcher.Register(playerCamera);
-    }
+    
     protected virtual void Awake()
     {
         
@@ -76,10 +73,7 @@ public class Player : MonoBehaviour
         //connected physics update for specific character
        StateMachine.CurrentState.PhysicsUpdate();
     }
-    private void OnDisable()
-    {
-        CameraSwitcher.UnRegister(playerCamera);
-    }
+   
     #region For Saving Data BIND
     internal void Bind(PlayerData playerData)
     {
