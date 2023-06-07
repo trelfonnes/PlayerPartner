@@ -60,14 +60,15 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
 
     public void Throw(Vector2 direction)
     {
-        if(direction == Vector2.right || direction == Vector2.left)
+        if(direction == new Vector2(5,0) || direction == new Vector2(-5,0))
         {
             modifiedDirection = direction + Vector2.down * throwDownwardForceMultiplier;
+            Debug.Log(modifiedDirection);
         }
         else
-        {
-            modifiedDirection = direction;
-        }
+       {
+         modifiedDirection = direction;
+       }
         if (!isThrown && rb != null)
         {
             rb.velocity = Vector2.zero;

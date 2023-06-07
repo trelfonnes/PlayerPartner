@@ -51,6 +51,12 @@ public class PlayerHoldItemState : PlayerBasicState
 
                 }
             }
+            if (switchInput)
+            {
+                HeldItemHit.collider.GetComponent<IThrow>().SetDown(player.playerDirection);
+                currentlyCarrying = false;
+                PSM.ChangeState(player.WatchState);
+            }
         }
 
     }
