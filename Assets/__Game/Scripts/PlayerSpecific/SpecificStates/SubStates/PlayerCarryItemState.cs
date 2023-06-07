@@ -17,6 +17,9 @@ public class PlayerCarryItemState : PlayerBasicState
     {
         base.Enter();
         canExitState = false;
+        
+        
+            
     }
 
     public override void Exit()
@@ -27,6 +30,7 @@ public class PlayerCarryItemState : PlayerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
         Movement?.CheckIfShouldFlip(xInput, yInput);
         Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput, yInput).normalized));
         if (Movement.CurrentVelocity != Vector2.zero)

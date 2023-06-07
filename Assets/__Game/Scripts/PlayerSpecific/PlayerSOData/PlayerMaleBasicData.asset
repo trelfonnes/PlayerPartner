@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: PlayerMaleBasicData
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  watchSpeed: 0
+  followSpeed: 5

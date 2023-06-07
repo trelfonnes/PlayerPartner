@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 731194688}
   - component: {fileID: 731194687}
   - component: {fileID: 731194686}
+  - component: {fileID: 731194690}
   m_Layer: 7
   m_Name: TestingCarryableItem
   m_TagString: Untagged
@@ -471,7 +472,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731194685}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -483,7 +484,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &731194688
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -525,6 +526,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731194690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731194685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9edfa05b7bde44898e44e4d8b688ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &950328077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8430108973224999087, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
@@ -732,6 +745,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2104199522 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3938561055844868905, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+  m_PrefabInstance: {fileID: 3963916745244065920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &186643527039960205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1121,6 +1139,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2638291573643422366, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: carryPoint
+      value: 
+      objectReference: {fileID: 2104199522}
     - target: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_Name
       value: PlayerMale

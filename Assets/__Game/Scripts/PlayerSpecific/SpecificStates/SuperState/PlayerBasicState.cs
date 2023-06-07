@@ -15,6 +15,8 @@ public class PlayerBasicState : PlayerState
     protected bool isTouchingGround;
     protected bool canExitState;
     protected bool isTouchingPartner;
+    protected RaycastHit2D Hits;
+    protected Transform carryPoint;
     public PlayerBasicState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }
@@ -22,6 +24,8 @@ public class PlayerBasicState : PlayerState
     {
         base.DoChecks();
         // TODO add references to collision senses
+        carryPoint = PlayerCollisionSenses.carryPoint;
+        Hits = PlayerCollisionSenses.Hits;
           isTouchingWall = PlayerCollisionSenses.WallCheck;
          isTouchingCarryable = PlayerCollisionSenses.CarryableCheck;
          isTouchingGround = PlayerCollisionSenses.GroundCheck;

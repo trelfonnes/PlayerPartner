@@ -52,13 +52,11 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.ReadValueAsButton())
         {
             InteractInput = true;
-            Debug.Log(InteractInput);
 
         }
         else
         {
             InteractInput = false;
-            Debug.Log(InteractInput);
 
         }
     }

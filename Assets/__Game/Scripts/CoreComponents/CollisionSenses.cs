@@ -20,6 +20,7 @@ public class CollisionSenses : CoreComponent
     protected Transform collisionsCheckPoint; 
     [SerializeField]
     private Transform groundCheckPoint;
+  
    
 
     #endregion

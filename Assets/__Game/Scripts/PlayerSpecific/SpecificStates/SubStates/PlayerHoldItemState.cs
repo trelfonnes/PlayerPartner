@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHoldItemState : PlayerBasicState
 {
+    bool currentlyCarrying = false;
     public PlayerHoldItemState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }
@@ -17,6 +18,12 @@ public class PlayerHoldItemState : PlayerBasicState
     {
         base.Enter();
         canExitState = false;
+        if (Hits && !currentlyCarrying)
+        {
+            Debug.Log(Hits.transform.name);
+            Hits.collider.GetComponent<ICarry>().Carry(carryPoint);
+            currentlyCarrying = true;
+        }
     }
 
     public override void Exit()
