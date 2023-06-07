@@ -35,6 +35,7 @@ public class PlayerMoveState : PlayerBasicState
             player.playerDirection = Movement.CurrentVelocity;
             player.anim.SetFloat("moveY", player.playerDirection.y);
             player.anim.SetFloat("moveX", player.playerDirection.x);
+            
         }
 
         if (!isExitingState)
@@ -57,7 +58,15 @@ public class PlayerMoveState : PlayerBasicState
             }
             if (interactInput && isTouchingCarryable)
             {
-                PSM.ChangeState(player.CarryItemState);
+                if (Hits )//&& !currentlyCarrying)
+                {
+                    Debug.Log(Hits.transform.name);
+                    Hits.collider.GetComponent<ICarry>().Carry(carryPoint);
+                    currentlyCarrying = true;
+                    PSM.ChangeState(player.CarryItemState);
+
+                }
+                                 
             }
         }
 

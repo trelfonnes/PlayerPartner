@@ -8,6 +8,9 @@ public class PlayerCollisionSenses : CollisionSenses
     private Transform partnerCheckArea;
     [SerializeField]
     public Transform carryPoint;
+    [SerializeField]
+    float heldItemCheckDistance;
+   
     public RaycastHit2D Hits
     {
         get
@@ -17,8 +20,18 @@ public class PlayerCollisionSenses : CollisionSenses
             return hits;
         }
     }
-    private RaycastHit2D hits;
+    public RaycastHit2D HeldItemHit
+    {
+        get
+        {
+            heldItemHit = Physics2D.Raycast(carryPoint.position, Vector2.up, heldItemCheckDistance, whatIsCarryable);
+            return heldItemHit;
+        }
 
+    }
+
+    private RaycastHit2D hits;
+    private RaycastHit2D heldItemHit;
     public float PartnerDistanceFromPlayer { get => partnerDistanceFromPlayerRadius; set => partnerDistanceFromPlayerRadius = value; }
     [SerializeField] private float partnerDistanceFromPlayerRadius = 1.5f;
 

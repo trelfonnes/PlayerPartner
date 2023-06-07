@@ -17,7 +17,7 @@ public class PlayerCarryItemState : PlayerBasicState
     {
         base.Enter();
         canExitState = false;
-        
+        currentlyCarrying = true;
         
             
     }
@@ -30,7 +30,6 @@ public class PlayerCarryItemState : PlayerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
         Movement?.CheckIfShouldFlip(xInput, yInput);
         Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput, yInput).normalized));
         if (Movement.CurrentVelocity != Vector2.zero)
@@ -43,7 +42,7 @@ public class PlayerCarryItemState : PlayerBasicState
         if (!isExitingState)
         {
 
-            if (xInput == 0 && yInput == 0)
+            if (Movement.CurrentVelocity == Vector2.zero)
             {
                 PSM.ChangeState(player.HoldItemState);
             }
@@ -54,10 +53,15 @@ public class PlayerCarryItemState : PlayerBasicState
         }
         if (canExitState)
         {
-            if (interactInput)
+            if (interactInput )
             {
-                //TODO ThrowObject
-                PSM.ChangeState(player.MoveState);
+                if (currentlyCarrying)
+                {
+                    HeldItemHit.collider.GetComponent<IThrow>().Throw(player.playerDirection); ;
+                    currentlyCarrying = false;
+                    PSM.ChangeState(player.MoveState);
+
+                }
             }
         }
     }

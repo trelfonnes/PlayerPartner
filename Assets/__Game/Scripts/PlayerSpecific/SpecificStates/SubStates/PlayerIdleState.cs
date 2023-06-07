@@ -11,7 +11,7 @@ public class PlayerIdleState : PlayerBasicState
     public override void DoChecks()
     {
         base.DoChecks();
-    }
+    } 
 
     public override void Enter()
     {
@@ -46,7 +46,14 @@ public class PlayerIdleState : PlayerBasicState
             }
             if (interactInput && isTouchingCarryable)
             {
-                PSM.ChangeState(player.HoldItemState);
+                if (Hits)//&& !currentlyCarrying)
+                {
+                    Debug.Log(Hits.transform.name);
+                    Hits.collider.GetComponent<ICarry>().Carry(carryPoint);
+                    currentlyCarrying = true;
+                    PSM.ChangeState(player.HoldItemState);
+
+                }
             }
         }
     }
