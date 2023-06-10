@@ -64,6 +64,7 @@ public class Partner : MonoBehaviour
 
 
     #region For Saving Data BIND
+    //TODO Implement a save system for writing SO Data
     internal void Bind(PlayerData playerData)
     {
         _playerData = playerData;

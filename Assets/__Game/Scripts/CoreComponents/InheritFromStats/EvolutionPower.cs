@@ -30,9 +30,9 @@ public class EvolutionPower : Stats, IEvolutionPower
 
     private void EvolutionPowerCountDown()
     {
-        playerData.EP = Mathf.Clamp(playerData.EP - Time.deltaTime, 0, playerData.MaxEP);
-        Debug.Log(Math.Round(playerData.EP));//use this Math.round to display the number on the UI
-        if(playerData.EP <= 0)
+        SOData.EP = Mathf.Clamp(SOData.EP - Time.deltaTime, 0, SOData.MaxEP);
+        Debug.Log(Math.Round(SOData.EP));//use this Math.round to display the number on the UI
+        if(SOData.EP <= 0)
         {
             startEvolutionTimer = false;
             base.CurrentEPZero();
@@ -41,22 +41,22 @@ public class EvolutionPower : Stats, IEvolutionPower
 
     public void DecreaseEP(int amount)
     {
-        playerData.EP -= amount;
-        if(playerData.EP <= 0)
+        SOData.EP -= amount;
+        if(SOData.EP <= 0)
         {
-            playerData.EP = 0;
+            SOData.EP = 0;
             base.CurrentEPZero(); 
         }
     }
 
     public void IncreaseEP(int amount)
     {
-        playerData.EP = Mathf.Clamp(playerData.EP + amount, 0, playerData.MaxEP);
+        SOData.EP = Mathf.Clamp(SOData.EP + amount, 0, SOData.MaxEP);
 
     }
     public void IncreaseMaxEP(int amount)
     {
-        playerData.MaxEP += amount;
+        SOData.MaxEP += amount;
     }
     public void StartEvolutionTimer()
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Injured : Stats, IInjured
 {
+   
+
 
     protected override void Awake()
     {
@@ -12,16 +14,16 @@ public class Injured : Stats, IInjured
 
     public void InjuredON()
     {
-        playerData.Injured = true;
+        SOData.Injured = true;
     }
     public void InjuredOFF()
     {
-        playerData.Injured = false;
+        SOData.Injured = false;
     }
     public void InjuredONandOFF(bool rotate)
     {
-        playerData.Injured = rotate;
-        if (playerData.Injured)
+        SOData.Injured = rotate;
+        if (SOData.Injured)
         {
             base.IsInjured();
         }

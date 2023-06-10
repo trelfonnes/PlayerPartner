@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Poise : Stats, IPoise
 {
+  
+
     [SerializeField] private bool regeneratePoise = false;
     
     protected override void Awake()
@@ -21,10 +23,10 @@ public class Poise : Stats, IPoise
    
     public void DecreasePoise(float amount)
     {
-        playerData.Poise -= amount;
-        if(playerData.Poise <= 0)
+        SOData.Poise -= amount;
+        if(SOData.Poise <= 0)
         {
-            playerData.Poise = 0;
+            SOData.Poise = 0;
             base.CurrentPoiseZero();
         }
     }
@@ -41,8 +43,8 @@ public class Poise : Stats, IPoise
     }
     public void RegeneratePoise()
     {
-        playerData.Poise = Mathf.Clamp(playerData.Poise + Time.deltaTime, 0, playerData.MaxPoise);
-        if(playerData.Poise == playerData.MaxPoise)
+        SOData.Poise = Mathf.Clamp(SOData.Poise + Time.deltaTime, 0, SOData.MaxPoise);
+        if(SOData.Poise == SOData.MaxPoise)
         {
             regeneratePoise = false;
         }    

@@ -8,6 +8,10 @@ public class Stats : CoreComponent
  //it is the script connected to all other corecomponents
  //PlayerData can only be changed via this Stats script.
  //use Interfaces within the inheriting components to change elsewhere.
+    
+
+
+
     public event Action onCurrentHealthZero;
     public event Action onCurrentHealthFull;
     public event Action onCurrentEPZero;
@@ -17,14 +21,16 @@ public class Stats : CoreComponent
     public event Action onCurrentStaminaFull;
     public event Action onCurrentPoiseZero;
 
-    protected PlayerData playerData;
+    //protected PlayerData playerData;
+    [SerializeField]
+    protected PlayerSOData SOData;//Data for states  
 
-   
+    
 
     protected override void Awake()
     {
-        playerData = new PlayerData();
-
+        //playerData = new PlayerData();
+        
     }
     public override void LogicUpdate()
     {

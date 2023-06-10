@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Sick : Stats, ISick
 {
+    
+
     protected override void Awake()
     {
         base.Awake();
@@ -11,16 +13,16 @@ public class Sick : Stats, ISick
 
     public void SickON()
     {
-        playerData.Sick = true;
+        SOData.Sick = true;
     }
     public void SickOFF()
     {
-        playerData.Sick = false;
+        SOData.Sick = false;
     }
     public void SickONandOFF(bool rotate)
     {
-        playerData.Sick = rotate;
-        if (playerData.Sick)
+        SOData.Sick = rotate;
+        if (SOData.Sick)
         {
             base.IsSick();
         }

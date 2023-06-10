@@ -13,7 +13,7 @@ public class ClockManager : GameManager
     public static event EventHandler<OnTickEventArgs> OnTick;
     public static event EventHandler<OnTickEventArgs> OnTick_6;
     private const float HoursInADay = 24f;
-    private const float RealSecondsPerGameHour = 1f;
+    private const float RealSecondsPerGameHour = 60f;
     [SerializeField] private float minutes;
     private int gameHour;
     private int daysInGame;

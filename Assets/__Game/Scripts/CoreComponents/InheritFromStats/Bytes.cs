@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bytes : Stats, IBytes
 {
+   
     protected override void Awake()
     {
         base.Awake();
@@ -11,20 +12,20 @@ public class Bytes : Stats, IBytes
 
     public void IncreaseBytes(int amount)
     {
-        playerData.Bytes = Mathf.Clamp(playerData.Bytes + amount, 0, playerData.MaxBytes);
+        SOData.Bytes = Mathf.Clamp(SOData.Bytes + amount, 0, SOData.MaxBytes);
 
     }
     public void DecreaseBytes(int amount)
     {
-        playerData.Bytes -= amount;
-        if (playerData.Bytes <= 0)
+        SOData.Bytes -= amount;
+        if (SOData.Bytes <= 0)
         {
-            playerData.Bytes = 0;
+            SOData.Bytes = 0;
         }
     }
     public void IncreaseMaxBytes(int amount)
     {
-        playerData.MaxBytes += amount;
+        SOData.MaxBytes += amount;
     }
 
 }
