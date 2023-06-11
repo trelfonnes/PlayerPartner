@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerInputManager inputManager;
     private PlayerData playerData;
+   
     private Player player;
     void Awake()
     {
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         player = inputManager.playerPrefab.GetComponent<Player>();
         playerData = new PlayerData();
         player.Bind(playerData);
-        GetPlayerData();
+        GetPlayerData(); 
     }
     private void HandleSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {

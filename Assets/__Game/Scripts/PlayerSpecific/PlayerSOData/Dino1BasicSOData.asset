@@ -15,16 +15,16 @@ MonoBehaviour:
   moveSpeed: 4
   watchSpeed: 0
   followSpeed: 4.5
-  MaxHealth: 5
-  CurrentHealth: 5
+  MaxHealth: 4
+  CurrentHealth: 4
   Stamina: 50
   MaxStamina: 50
-  Poise: 0
-  MaxPoise: 0
-  SP: 0
-  MaxSP: 25
+  Poise: 30
+  MaxPoise: 30
+  SP: 20
+  MaxSP: 20
   EP: 0
-  MaxEP: 25
+  MaxEP: 15
   Injured: 0
   Sick: 0
   Bytes: 0
