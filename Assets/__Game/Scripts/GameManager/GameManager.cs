@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
         GetStartingPlayerData();
         inputManager.playerPrefab = player2Prefab;
         string commaSeparatedList = PlayerPrefs.GetString("AllGameNames");
-        Debug.Log(commaSeparatedList);
         AllGameNames = commaSeparatedList.Split(",").ToList();
     
         }
@@ -49,7 +48,7 @@ public class GameManager : MonoBehaviour
     void HandlePlayerJoined(PlayerInput playerInput)
     {
 
-        Debug.Log("HandlePlayerJoined " + playerInput);
+      
         player = inputManager.playerPrefab.GetComponent<Player>();
         playerData = new PlayerData();
         player.Bind(playerData);
@@ -64,15 +63,14 @@ public class GameManager : MonoBehaviour
         else
         {
             inputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
-            SaveGame();
+            SaveGameOld();
         }
 
     }
 
-    void SaveGame()
+    void SaveGameOld()
     {//gameData
         string text = JsonUtility.ToJson(gameData);
-        Debug.Log(text);
 
         if (AllGameNames.Contains(gameData.GameName) == false) 
         { 
@@ -86,7 +84,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void LoadGame()
+    public void LoadGameOld()
     {
         string text = PlayerPrefs.GetString("Game1");
         gameData = JsonUtility.FromJson<GameData>(text);
@@ -100,7 +98,6 @@ public class GameManager : MonoBehaviour
     {
         if(gameData.PlayerDatas.Count <= 1)
         {
-            Debug.Log("here");
             gameData.PlayerDatas.Add(playerData);
         }
         return gameData.PlayerDatas[1];

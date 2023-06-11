@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1118141020, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: SOData
       value: 
-      objectReference: {fileID: 11400000, guid: 597f2dd501e2d51418ac05747def8d71, type: 2}
+      objectReference: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
     - target: {fileID: 1600163994, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -22,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 3414641316636900619, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: SOData
       value: 
-      objectReference: {fileID: 11400000, guid: 597f2dd501e2d51418ac05747def8d71, type: 2}
+      objectReference: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
     - target: {fileID: 3963916744730356115, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: partnerFollowPoint
       value: 
@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_Name
-      value: PlayerFemale Variant
+      value: PlayerFemale
       objectReference: {fileID: 0}
     - target: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_IsActive
@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 3963916745617885424, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: playerSOData
       value: 
-      objectReference: {fileID: 11400000, guid: 597f2dd501e2d51418ac05747def8d71, type: 2}
+      objectReference: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
     - target: {fileID: 3963916745617885425, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -98,7 +98,7 @@ PrefabInstance:
     - target: {fileID: 4939632409917062855, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: SOData
       value: 
-      objectReference: {fileID: 11400000, guid: 597f2dd501e2d51418ac05747def8d71, type: 2}
+      objectReference: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
     m_RemovedComponents:
     - {fileID: 1441244230639045271, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
@@ -119,4 +119,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227918e585949ab4ea287253ea404203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SOData: {fileID: 11400000, guid: 597f2dd501e2d51418ac05747def8d71, type: 2}
+  SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}

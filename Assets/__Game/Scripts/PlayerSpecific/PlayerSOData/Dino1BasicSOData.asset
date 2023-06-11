@@ -17,13 +17,13 @@ MonoBehaviour:
   followSpeed: 4.5
   MaxHealth: 4
   CurrentHealth: 4
+  SP: 20
+  MaxSP: 20
   Stamina: 50
   MaxStamina: 50
   Poise: 30
   MaxPoise: 30
-  SP: 20
-  MaxSP: 20
-  EP: 0
+  EP: 15
   MaxEP: 15
   Injured: 0
   Sick: 0

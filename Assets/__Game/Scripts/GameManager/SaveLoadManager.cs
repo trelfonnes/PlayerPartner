@@ -56,11 +56,34 @@ public class SaveLoadManager : GameManager
         var json2 = JsonUtility.ToJson(partnerSOData);
         bf.Serialize(filePartner, json2);
         filePartner.Close();
+
     }
 
     public void LoadGame()
     {
-        Debug.Log("Hello");
+        if (!Directory.Exists(Application.persistentDataPath + "/game_save/Player_Data"))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/game_save/Player_Data");
+        }
+        if (!Directory.Exists(Application.persistentDataPath + "/game_save/Partner_Data"))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/game_save/Partner_Data");
+        }
+        BinaryFormatter bf = new BinaryFormatter();
+        if(File.Exists(Application.persistentDataPath + "/game_save/Player_Data/Player_Data_SaveFile"))
+        {
+            FileStream file = File.Open(Application.persistentDataPath + "/game_save/Player_Data/Player_Data_SaveFile", FileMode.Open);
+            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), playerSOData);
+            file.Close();
+        }
+        if (File.Exists(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFile"))
+        {
+            FileStream file = File.Open(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFile", FileMode.Open);
+            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), partnerSOData);
+            file.Close();
+
+        }
+
     }
 
 
