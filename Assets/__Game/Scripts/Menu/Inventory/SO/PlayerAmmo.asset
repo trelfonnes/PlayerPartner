@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef08ef81b100d6f4b89fa3dd22452fe1, type: 3}
-  m_Name: EvolutionPower
+  m_Name: PlayerAmmo
   m_EditorClassIdentifier: 
-  itemName: Evolution Orb
-  itemDescription: A strange power emanates from this orb... Better hold onto it.
-  itemImage: {fileID: -757102037, guid: 53cdcada1346fd7489e33d26e8c0ec1d, type: 3}
-  numberHeld: 15
+  itemName: Bolt
+  itemDescription: Use these projectiles to stun enemies.
+  itemImage: {fileID: 2045597391, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  numberHeld: 1
   usable: 0
   unique: 1
   thisEvent:

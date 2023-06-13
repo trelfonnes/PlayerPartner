@@ -48,4 +48,5 @@ public class InventoryMediator: MonoBehaviour
         }
     }
    
+   
 }

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef08ef81b100d6f4b89fa3dd22452fe1, type: 3}
-  m_Name: SpecialAmmo
+  m_Name: Bytes
   m_EditorClassIdentifier: 
-  itemName: Special Power (SP)
-  itemDescription: SP is needed for your partner to use SPECIAL attacks
-  itemImage: {fileID: 275192371, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  numberHeld: 25
+  itemName: Bytes
+  itemDescription: This world's currency. Be sure to save it up!
+  itemImage: {fileID: -361035632, guid: 53cdcada1346fd7489e33d26e8c0ec1d, type: 3}
+  numberHeld: 1
   usable: 0
   unique: 1
   thisEvent:

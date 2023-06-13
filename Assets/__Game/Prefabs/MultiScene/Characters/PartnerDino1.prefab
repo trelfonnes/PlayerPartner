@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  playerInventory: {fileID: 0}
 --- !u!1 &1825631742397934376
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  playerInventory: {fileID: 0}
 --- !u!1 &2973850023705336087
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +593,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5fafd3a6-f231-4348-8a15-e033948819a9
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 64d52d4e-cecd-4897-b64c-f54441989afc
+    m_ActionName: UI/Menu[/Keyboard/z]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -733,6 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  playerInventory: {fileID: 0}
 --- !u!1 &6015545633308158202
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  playerInventory: {fileID: 0}
   regeneratePoise: 0
 --- !u!1 &6776230274729689275
 GameObject:
@@ -888,6 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
 --- !u!1 &8460978843648797258
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +942,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
+  inventoryData: {fileID: 11400000, guid: 763d9c73757b6274e906b2a98d384c86, type: 2}
 --- !u!1 &8615240597578919871
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  playerInventory: {fileID: 0}
 --- !u!1 &8628484195028216845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +1035,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   startEvolutionTimer: 0
+  inventoryData: {fileID: 11400000, guid: 1bb5dc5f34eaaa64493f9653df3fb390, type: 2}
 --- !u!1 &8928211653619389193
 GameObject:
   m_ObjectHideFlags: 0

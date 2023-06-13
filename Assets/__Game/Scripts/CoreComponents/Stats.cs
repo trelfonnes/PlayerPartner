@@ -3,15 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Stats : CoreComponent
-{//this Stats class hold all events for single responsiblity.
- //it is the script connected to all other corecomponents
- //PlayerData can only be changed via this Stats script.
- //use Interfaces within the inheriting components to change elsewhere.
-    
-
-
-
+public class Stats : CoreComponent, IInventory
+{
     public event Action onCurrentHealthZero;
     public event Action onCurrentHealthFull;
     public event Action onCurrentEPZero;
@@ -21,11 +14,9 @@ public class Stats : CoreComponent
     public event Action onCurrentStaminaFull;
     public event Action onCurrentPoiseZero;
 
-    //protected PlayerData playerData;
     [SerializeField]
     protected PlayerSOData SOData;//Data for states  
-
-    
+    [SerializeField]  PlayerInventory playerInventory;
 
     protected override void Awake()
     {
@@ -35,6 +26,25 @@ public class Stats : CoreComponent
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+    }
+    public void AddItemToInventory(inventoryItems item)
+    {
+        Debug.Log(playerInventory);
+        if (playerInventory)
+        {
+            Debug.Log("Inside add function");
+
+            if (playerInventory.myInventory.Contains(item))
+            {
+
+                return;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(item);
+                Debug.Log("AddingItem");
+            }
+        }
     }
 
     #region Events for stat changes

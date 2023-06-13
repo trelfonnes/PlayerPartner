@@ -63,6 +63,9 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnMenuInput(InputAction.CallbackContext context)
     {
 
+
+        MenuInput = context.ReadValue<float>() >= .5f;      
+
     }
     public void OnPlayerSwitchInput(InputAction.CallbackContext context)
     {

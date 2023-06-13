@@ -31,22 +31,26 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < playerInventory.myInventory.Count; i++)
             {
-                GameObject temp =
-                    Instantiate(blankInventorySlot, inventoryContentPanel.transform.position, Quaternion.identity);
-                temp.transform.SetParent(inventoryContentPanel.transform);
-
-                InventorySlot newSlot = temp.GetComponent<InventorySlot>();
-                if (newSlot)
+                if (playerInventory.myInventory[i].numberHeld > 0)// || it is equal to "bottle" meaning mimicing zelda empty bottle
                 {
-                    newSlot.Setup(playerInventory.myInventory[i], this);
+                    GameObject temp =
+                        Instantiate(blankInventorySlot, inventoryContentPanel.transform.position, Quaternion.identity);
+                    temp.transform.SetParent(inventoryContentPanel.transform);
+
+                    InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+                    if (newSlot)
+                    {
+                        newSlot.Setup(playerInventory.myInventory[i], this);
+                    }
                 }
-                }
+            }
 
         }
     }
 
-    void Start()
+    void OnEnable()
     {
+        ClearInventorySlots();
         MakeInventorySlots();
         SetTextAndButton("", false);
         
@@ -60,11 +64,22 @@ public class InventoryManager : MonoBehaviour
         useButton.SetActive(isButtonActive);
     }
 
+    void ClearInventorySlots()
+    {
+        for (int i = 0; i < inventoryContentPanel.transform.childCount; i++)
+        {
+            Destroy(inventoryContentPanel.transform.GetChild(i).gameObject);
+
+        }
+    }
     public void UseButtonPressed()
     {
         if (currentItem)
         {
             currentItem.Use();
+            ClearInventorySlots();
+            MakeInventorySlots();
+            SetTextAndButton("", false);
         }
     }
 

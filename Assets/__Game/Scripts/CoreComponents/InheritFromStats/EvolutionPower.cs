@@ -6,6 +6,8 @@ using UnityEngine;
 public class EvolutionPower : Stats, IEvolutionPower
 {
     [SerializeField] private bool startEvolutionTimer = false;
+    [SerializeField] inventoryItems inventoryData;
+
 
     protected override void Awake()
     {
@@ -42,9 +44,11 @@ public class EvolutionPower : Stats, IEvolutionPower
     public void DecreaseEP(int amount)
     {
         SOData.EP -= amount;
+        inventoryData.numberHeld -= amount;
         if(SOData.EP <= 0)
         {
             SOData.EP = 0;
+            inventoryData.numberHeld = 0;
             base.CurrentEPZero(); 
         }
     }
@@ -52,6 +56,8 @@ public class EvolutionPower : Stats, IEvolutionPower
     public void IncreaseEP(int amount)
     {
         SOData.EP = Mathf.Clamp(SOData.EP + amount, 0, SOData.MaxEP);
+        inventoryData.numberHeld = Mathf.Clamp(inventoryData.numberHeld + amount, 0, (int)SOData.MaxEP);
+        AddItemToInventory(inventoryData);
 
     }
     public void IncreaseMaxEP(int amount)
