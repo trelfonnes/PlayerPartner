@@ -9,7 +9,7 @@ public class PauseScreen : MonoBehaviour
     PlayerInput _playerInput;
     bool MenuInput;
     [SerializeField] GameObject PauseMenuScreen;
-    public  bool isOn = false;
+    public  bool isOn = true;
     private bool canToggle = true;
     private bool canCloseMenu;
     public float inputCoolDown = .2f;
@@ -33,13 +33,7 @@ public class PauseScreen : MonoBehaviour
             TogglePauseMenu();
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-       
-
-
-    }
+   
     private void TogglePauseMenu()
     {
         PauseMenuScreen.SetActive(isOn);

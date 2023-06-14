@@ -9,6 +9,7 @@ public class PartnerFollowState : PartnerState
 
     protected bool switchInput;
     protected bool interactInput;
+    protected bool evolveInput;
 
     protected bool isTouchingWall;
     protected bool isTouchingWallFollowing;
@@ -59,7 +60,7 @@ public class PartnerFollowState : PartnerState
         yInput = partner.InputHandler.NormInputY;
         switchInput = partner.InputHandler.SwitchPlayerInput;
         interactInput = partner.InputHandler.InteractInput;
-
+        evolveInput = partner.InputHandler.EvolveInput;
     }
 
     public override void PhysicsUpdate()

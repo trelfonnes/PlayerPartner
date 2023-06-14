@@ -12,7 +12,7 @@ public class Partner : MonoBehaviour
     public PartnerIdleState IdleState { get; private set; }
     public PartnerFollowIdleState FollowIdleState {get; private set;}
     public PartnerFollowMoveState FollowMoveState { get; private set; }
-
+    public PartnerEvolutionState EvolutionState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -42,6 +42,7 @@ public class Partner : MonoBehaviour
         IdleState = new PartnerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         FollowIdleState = new PartnerFollowIdleState(this, StateMachine, playerSOData, _playerData, "followIdle");
         FollowMoveState = new PartnerFollowMoveState(this, StateMachine, playerSOData, _playerData, "followMove");
+        EvolutionState = new PartnerEvolutionState(this, StateMachine, playerSOData, _playerData, "evolve");
     }
     protected virtual void Start()
     {

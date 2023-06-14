@@ -9,6 +9,7 @@ public class PartnerBasicState : PartnerState
 
     protected bool switchInput;
     protected bool interactInput;
+    protected bool evolveInput;
 
     protected bool isTouchingWall;
     protected bool isTouchingWallFollowing;
@@ -59,7 +60,7 @@ public class PartnerBasicState : PartnerState
         yInput = partner.InputHandler.NormInputY;
         switchInput = partner.InputHandler.SwitchPlayerInput;
         interactInput = partner.InputHandler.InteractInput;
-
+        evolveInput = partner.InputHandler.EvolveInput;
 
         
     }

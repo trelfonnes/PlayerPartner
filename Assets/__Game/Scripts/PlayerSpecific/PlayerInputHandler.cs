@@ -14,6 +14,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool SwitchPlayerInput { get; private set; }
     public bool SpecialInput { get; private set; }
     public bool InteractInput { get; private set; }
+    public bool EvolveInput { get; private set; }
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -80,5 +81,18 @@ public class PlayerInputHandler : MonoBehaviour
 
             
 
+    }
+    public void OnEvolveInput(InputAction.CallbackContext context)
+    {
+       
+        if (context.ReadValueAsButton())
+        {
+            EvolveInput = true;
+        }
+        else
+        {
+            EvolveInput = false;
+
+        }
     }
 }

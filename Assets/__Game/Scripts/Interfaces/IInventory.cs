@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IInventory 
 {
+
     void AddItemToInventory(inventoryItems item)
     {
 

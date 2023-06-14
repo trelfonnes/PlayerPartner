@@ -43,6 +43,12 @@ public class PartnerFollowIdleState : PartnerFollowState
                 PSM.ChangePartnerState(partner.IdleState);
             }
         }
+        if(evolveInput && playerSOData.stage2 && playerSOData.EP >= 25)
+        {
+            PSM.ChangePartnerState(partner.EvolutionState);
+            Debug.Log("StateToEvolve");
+        }
+        
     }
 
     public override void PhysicsUpdate()
