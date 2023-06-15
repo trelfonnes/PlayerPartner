@@ -17,6 +17,7 @@ public class PartnerFollowIdleState : PartnerFollowState
     {
         base.Enter();
         canExitState = false;
+        
     }
 
     public override void Exit()
@@ -43,16 +44,17 @@ public class PartnerFollowIdleState : PartnerFollowState
                 PSM.ChangePartnerState(partner.IdleState);
             }
         }
-        if(evolveInput && playerSOData.stage2 && playerSOData.EP >= 25)
+        if(evolveInput && !playerSOData.stage3 && playerData.ep >= 25f)
         {
             PSM.ChangePartnerState(partner.EvolutionState);
-            Debug.Log("StateToEvolve");
         }
         
+
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
+    
 }

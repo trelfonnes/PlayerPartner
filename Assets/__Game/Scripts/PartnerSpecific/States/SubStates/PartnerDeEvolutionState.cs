@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerAbilityState : PartnerState
+public class PartnerDeEvolutionState : PartnerAbilityState
 {
-    protected bool isAbilityDone;
-    
-    public PartnerAbilityState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
+    public PartnerDeEvolutionState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
-    
+
     public override void AnimationFinishTrigger()
     {
         base.AnimationFinishTrigger();
@@ -28,6 +26,9 @@ public class PartnerAbilityState : PartnerState
     public override void Enter()
     {
         base.Enter();
+        epAtZero = false;
+        isAbilityDone = true;
+        
     }
 
     public override void Exit()
@@ -38,16 +39,12 @@ public class PartnerAbilityState : PartnerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if (isAbilityDone)
-        {
-            Debug.Log("Change to followIdle");
-            PSM.ChangePartnerState(partner.FollowIdleState);
-        }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
+
+    
 }

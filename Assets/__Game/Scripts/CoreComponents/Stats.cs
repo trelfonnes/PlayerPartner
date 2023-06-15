@@ -17,10 +17,12 @@ public class Stats : CoreComponent, IInventory
     [SerializeField]
     protected PlayerSOData SOData;//Data for states  
     [SerializeField]  PlayerInventory playerInventory;
+    [SerializeField] StatEvents statEvents;
+   // protected PlayerData _playerData = PlayerData.Instance;
 
     protected override void Awake()
     {
-        //playerData = new PlayerData();
+      
         
     }
     public override void LogicUpdate()
@@ -50,45 +52,38 @@ public class Stats : CoreComponent, IInventory
     #region Events for stat changes
     protected virtual void CurrentHealthZero()
     {
-        if(onCurrentHealthZero != null)
-        onCurrentHealthZero?.Invoke();
+        statEvents.CurrentHealthZero();
     }
 
     protected virtual void CurrentHealthFull()
-    {   if(onCurrentHealthFull != null)
-        onCurrentHealthFull.Invoke();
+    {
+        statEvents.CurrentHealthFull();
     }
     protected virtual void CurrentEPZero()
     {
-        if (onCurrentEPZero != null)
-            onCurrentEPZero.Invoke();
+        statEvents.CurrentEPZero();
     }
     protected virtual void IsInjured()
     {
-        if(onInjured != null)
-        onInjured.Invoke();
+        statEvents.IsInjured();
 
     }
     protected virtual void IsSick()
     {
-        if (onSick != null)
-            onSick.Invoke();
+        statEvents.IsSick();
     }
 
     protected virtual void CurrentStaminaFull()
     {
-        if (onCurrentStaminaFull != null)
-        onCurrentStaminaFull.Invoke();
+        statEvents.CurrentStaminaFull();
     }
     protected virtual void CurrentStaminaZero()
     {
-        if(onCurrentStaminaZero != null)
-        onCurrentStaminaZero.Invoke();
+        statEvents.CurrentStaminaZero();
     }
     protected virtual void CurrentPoiseZero()
     {
-        if(onCurrentPoiseZero != null)
-        onCurrentPoiseZero.Invoke();
+        statEvents.CurrentPoiseZero();
     }
     #endregion
 

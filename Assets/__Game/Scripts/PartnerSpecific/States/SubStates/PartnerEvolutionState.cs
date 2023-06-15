@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +29,11 @@ public class PartnerEvolutionState : PartnerAbilityState
     {
         base.Enter();
         isAbilityDone = true;
+        partner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
+        
     }
+
+   
 
     public override void Exit()
     {
@@ -44,4 +49,6 @@ public class PartnerEvolutionState : PartnerAbilityState
     {
         base.PhysicsUpdate();
     }
+
+    
 }

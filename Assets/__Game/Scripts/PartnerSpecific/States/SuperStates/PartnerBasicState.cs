@@ -45,7 +45,7 @@ public class PartnerBasicState : PartnerState
     {
         base.Enter();
         CameraSwitcher.SwitchCamera(partner.PartnerCamera);
-
+        
     }
 
     public override void Exit()
@@ -61,8 +61,12 @@ public class PartnerBasicState : PartnerState
         switchInput = partner.InputHandler.SwitchPlayerInput;
         interactInput = partner.InputHandler.InteractInput;
         evolveInput = partner.InputHandler.EvolveInput;
+        if (epAtZero && !playerSOData.stage1)
+        {
+            Debug.Log("Switchtodevolvestate");
+            PSM.ChangePartnerState(partner.DevolveState);
+        }
 
-        
     }
 
     public override void PhysicsUpdate()

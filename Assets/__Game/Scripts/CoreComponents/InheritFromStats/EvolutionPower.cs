@@ -7,18 +7,18 @@ public class EvolutionPower : Stats, IEvolutionPower
 {
     [SerializeField] private bool startEvolutionTimer = false;
     [SerializeField] inventoryItems inventoryData;
-
+    PlayerData _playerData;
 
     protected override void Awake()
     {
         base.Awake();
-        
+        _playerData = PlayerData.Instance;
+
     }
     protected override void Start()
     {
         base.Start();
-        //TODO: subscribe to event located in animator?? player.anim.onEvolved += StartEvolutionTimer;
-        // dont forget to unsubscribe!!
+       
     }
     public override void LogicUpdate()
     {
@@ -32,40 +32,45 @@ public class EvolutionPower : Stats, IEvolutionPower
 
     private void EvolutionPowerCountDown()
     {
-        SOData.EP = Mathf.Clamp(SOData.EP - Time.deltaTime, 0, SOData.MaxEP);
-        Debug.Log(Math.Round(SOData.EP));//use this Math.round to display the number on the UI
-        if(SOData.EP <= 0)
+        _playerData.ep = Mathf.Clamp(_playerData.ep - Time.deltaTime, 0, _playerData.maxEp);
+      //  Debug.Log(Math.Round(_playerData.ep));//use this Math.round to display the number on the UI
+        if(_playerData.ep <= 0)
         {
-            startEvolutionTimer = false;
+            StopEvolutionTimer();
             base.CurrentEPZero();
         }
     }
 
     public void DecreaseEP(int amount)
     {
-        SOData.EP -= amount;
+        _playerData.ep -= amount;
         inventoryData.numberHeld -= amount;
-        if(SOData.EP <= 0)
+        if(_playerData.ep <= 0)
         {
-            SOData.EP = 0;
+            _playerData.ep = 0;
             inventoryData.numberHeld = 0;
-            base.CurrentEPZero(); 
+            base.CurrentEPZero();
+            StopEvolutionTimer();
         }
     }
 
     public void IncreaseEP(int amount)
     {
-        SOData.EP = Mathf.Clamp(SOData.EP + amount, 0, SOData.MaxEP);
-        inventoryData.numberHeld = Mathf.Clamp(inventoryData.numberHeld + amount, 0, (int)SOData.MaxEP);
+        _playerData.ep = Mathf.Clamp(_playerData.ep + amount, 0, _playerData.maxEp);
+        inventoryData.numberHeld = Mathf.Clamp(inventoryData.numberHeld + amount, 0, (int)_playerData.maxEp);
         AddItemToInventory(inventoryData);
 
     }
     public void IncreaseMaxEP(int amount)
     {
-        SOData.MaxEP += amount;
+        _playerData.maxEp += amount;
     }
     public void StartEvolutionTimer()
     {
         startEvolutionTimer = true;
+    }
+    public void StopEvolutionTimer()
+    {
+        startEvolutionTimer = false;
     }
 }

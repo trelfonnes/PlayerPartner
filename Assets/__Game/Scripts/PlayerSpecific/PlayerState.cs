@@ -9,6 +9,7 @@ public class PlayerState
     protected Player player;
     protected PlayerStateMachine PSM;
     protected PlayerData playerData;
+    protected StatEvents statEvents;
     protected bool isExitingState;
     protected bool isAnimationFinished;
     protected float startTime;
@@ -45,6 +46,7 @@ public class PlayerState
         this.playerData = playerData;
         this.animBoolName = animBoolName;
         core = player.core;
+        statEvents = player.statEvents;
 
     }
 

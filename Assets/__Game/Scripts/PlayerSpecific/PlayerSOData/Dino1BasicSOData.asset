@@ -27,7 +27,8 @@ MonoBehaviour:
   MaxEP: 25
   Injured: 0
   Sick: 0
-  stage2: 1
+  stage1: 1
+  stage2: 0
   stage3: 0
   Bytes: 0
   MaxBytes: 50

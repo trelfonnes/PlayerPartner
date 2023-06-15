@@ -9,8 +9,10 @@ public class PartnerState
     protected Partner partner;
     protected PlayerStateMachine PSM;
     protected PlayerData playerData;
+    protected StatEvents statEvents;
     protected bool isExitingState;
     protected bool isAnimationFinished;
+    protected bool epAtZero;
     protected float startTime;
     string animBoolName;
 
@@ -36,6 +38,7 @@ public class PartnerState
         this.playerData = playerData;
         this.animBoolName = animBoolName;
         core = partner.core;
+        statEvents = partner.statEvents; //refactor to fit in constructor if it works
 
     }
 

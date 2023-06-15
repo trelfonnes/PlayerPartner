@@ -13,6 +13,7 @@ public class Partner : MonoBehaviour
     public PartnerFollowIdleState FollowIdleState {get; private set;}
     public PartnerFollowMoveState FollowMoveState { get; private set; }
     public PartnerEvolutionState EvolutionState { get; private set; }
+    public PartnerDeEvolutionState DevolveState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -22,9 +23,10 @@ public class Partner : MonoBehaviour
         set { partnerCamera = value; }
     }
     public PlayerInputHandler InputHandler { get; private set; }
-    protected PlayerData _playerData = new PlayerData(); //data for stats refactor might not need it here
+    protected PlayerData _playerData; //data for stats refactor might not need it here
     [SerializeField]
-    protected PlayerSOData playerSOData;//Data for states  
+    protected PlayerSOData playerSOData;//Data for states
+    [SerializeField] public StatEvents statEvents;
     [SerializeField] CinemachineVirtualCamera partnerCamera;
     public Vector2 playerDirection;
 
@@ -36,6 +38,7 @@ public class Partner : MonoBehaviour
         core = GetComponentInChildren<CoreHandler>();
         anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
+        _playerData = PlayerData.Instance;
         StateMachine = new PlayerStateMachine();
         playerDirection = Vector2.down;
         MoveState = new PartnerMoveState(this, StateMachine, playerSOData, _playerData, "move");
@@ -43,6 +46,7 @@ public class Partner : MonoBehaviour
         FollowIdleState = new PartnerFollowIdleState(this, StateMachine, playerSOData, _playerData, "followIdle");
         FollowMoveState = new PartnerFollowMoveState(this, StateMachine, playerSOData, _playerData, "followMove");
         EvolutionState = new PartnerEvolutionState(this, StateMachine, playerSOData, _playerData, "evolve");
+        DevolveState = new PartnerDeEvolutionState(this, StateMachine, playerSOData, _playerData, "devolve");
     }
     protected virtual void Start()
     {

@@ -25,6 +25,7 @@ public class PlayerSOData : ScriptableObject
     public float MaxEP = 25;
     public bool Injured = false;
     public bool Sick = false;
+    public bool stage1 = false;
     public bool stage2 = false;
     public bool stage3 = false;
 

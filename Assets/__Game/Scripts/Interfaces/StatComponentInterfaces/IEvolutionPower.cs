@@ -8,4 +8,12 @@ public interface IEvolutionPower
     public void IncreaseEP(int amount) { }
 
     public void IncreaseMaxEP(int amount) { }
+    public void StartEvolutionTimer()
+    {
+
+    }
+    public void StopEvolutionTimer()
+    {
+
+    }
 }
