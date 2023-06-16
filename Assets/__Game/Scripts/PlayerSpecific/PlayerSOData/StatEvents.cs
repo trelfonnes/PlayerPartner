@@ -8,7 +8,8 @@ public class StatEvents : ScriptableObject
 {
     public event Action onCurrentHealthZero;
     public event Action onCurrentHealthFull;
-    public event Action onCurrentEPZero;
+    public event Action onCurrentEPZero2;
+    public event Action onCurrentEPZero3;
     public event Action onInjured;
     public event Action onSick;
     public event Action onCurrentStaminaZero;
@@ -26,14 +27,22 @@ public class StatEvents : ScriptableObject
         if (onCurrentHealthFull != null)
             onCurrentHealthFull.Invoke();
     }
-     public void CurrentEPZero()
+     public void CurrentEPZero2()
     {
-        if (onCurrentEPZero != null)
+        if (onCurrentEPZero2 != null)
         {
             Debug.Log("event triggered");
-            onCurrentEPZero.Invoke();
+            onCurrentEPZero2.Invoke();
         }
     }
+    public void CurrentEPZero3()
+    {
+        if (onCurrentEPZero3 != null)
+        {
+            onCurrentEPZero3.Invoke();
+        }
+    }
+
      public void IsInjured()
     {
         if (onInjured != null)

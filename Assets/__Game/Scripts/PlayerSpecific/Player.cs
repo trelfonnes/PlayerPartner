@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public PlayerCarryItemState CarryItemState { get; private set; }
     public PlayerHoldItemState HoldItemState { get; private set; }
     public PlayerWatchState WatchState { get; private set; }
+    public PlayerEvolutionState EvolutionState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
     }
 
     public PlayerInputHandler InputHandler { get; private set; }
-    protected PlayerData _playerData = PlayerData.Instance; //data for stats refactor might not need it here
+    protected PlayerData _playerData; //data for stats refactor might not need it here
     [SerializeField] public StatEvents statEvents;// TODO make protected and add to constructor of player state
 
     [SerializeField]
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
         playerDirection = Vector2.down;
         StateMachine = new PlayerStateMachine();
         core = GetComponentInChildren<CoreHandler>();
+        _playerData = PlayerData.Instance;
         IdleState = new PlayerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerSOData, _playerData, "move");
         AttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack");
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
         CarryItemState = new PlayerCarryItemState(this, StateMachine, playerSOData, _playerData, "carryItem");
         HoldItemState = new PlayerHoldItemState(this, StateMachine, playerSOData, _playerData, "holdItem");
         WatchState = new PlayerWatchState(this, StateMachine, playerSOData, _playerData, "watch");
-
+        EvolutionState = new PlayerEvolutionState(this, StateMachine, playerSOData, _playerData, "evolve");
 
     }
     #endregion

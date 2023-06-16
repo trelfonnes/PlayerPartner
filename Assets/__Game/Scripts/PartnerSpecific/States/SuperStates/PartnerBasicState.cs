@@ -16,6 +16,7 @@ public class PartnerBasicState : PartnerState
     protected bool isTouchingGround;
     protected bool canExitState;
     protected bool isTouchingPlayer;
+    protected bool inBasicStates;
     protected Transform player;
     public PartnerBasicState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
@@ -45,12 +46,14 @@ public class PartnerBasicState : PartnerState
     {
         base.Enter();
         CameraSwitcher.SwitchCamera(partner.PartnerCamera);
+        inBasicStates = true;
         
     }
 
     public override void Exit()
     {
         base.Exit();
+        inBasicStates = false;
     }
 
     public override void LogicUpdate()
@@ -61,12 +64,7 @@ public class PartnerBasicState : PartnerState
         switchInput = partner.InputHandler.SwitchPlayerInput;
         interactInput = partner.InputHandler.InteractInput;
         evolveInput = partner.InputHandler.EvolveInput;
-        if (epAtZero && !playerSOData.stage1)
-        {
-            Debug.Log("Switchtodevolvestate");
-            PSM.ChangePartnerState(partner.DevolveState);
-        }
-
+        
     }
 
     public override void PhysicsUpdate()

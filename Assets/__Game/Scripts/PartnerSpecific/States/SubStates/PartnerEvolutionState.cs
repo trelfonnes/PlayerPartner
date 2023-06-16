@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerEvolutionState : PartnerAbilityState
+public class PartnerEvolutionState : PartnerBasicState
 {
-
+    private bool isEvolving;
     public PartnerEvolutionState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
@@ -28,12 +28,16 @@ public class PartnerEvolutionState : PartnerAbilityState
     public override void Enter()
     {
         base.Enter();
-        isAbilityDone = true;
-        partner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
-        
+        isEvolving = true;
+        Movement?.SetVelocity(playerSOData.watchSpeed * (new Vector2(1, 1)));
+        EvolveBehavior.OnEndEvolution += delegate (object sender, EvolveBehavior.OnEvolutionEventArgs e)
+        {
+           isEvolving = e.isEvolving;
+        };
+
     }
 
-   
+
 
     public override void Exit()
     {
@@ -43,6 +47,11 @@ public class PartnerEvolutionState : PartnerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if (!isEvolving)
+        {
+            PSM.ChangePartnerState(partner.FollowIdleState);
+        }
+        
     }
 
     public override void PhysicsUpdate()

@@ -46,7 +46,6 @@ public class PartnerFollowState : PartnerState
         base.Enter();
         
         
-            statEvents.onCurrentEPZero += TimeToDevolve;
 
         
 
@@ -66,23 +65,14 @@ public class PartnerFollowState : PartnerState
         switchInput = partner.InputHandler.SwitchPlayerInput;
         interactInput = partner.InputHandler.InteractInput;
         evolveInput = partner.InputHandler.EvolveInput;
-        if (epAtZero && !playerSOData.stage1)
-        {
-            Debug.Log("Switchtodevolvestate");
-            PSM.ChangePartnerState(partner.DevolveState);
-            statEvents.onCurrentEPZero -= TimeToDevolve;
-        }
+        
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
-    public virtual void TimeToDevolve()
-    {
-        epAtZero = true;
-        Debug.Log("time to devolve");
-    }
+    
 
 }
 

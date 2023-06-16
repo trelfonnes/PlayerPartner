@@ -12,7 +12,7 @@ public class PartnerState
     protected StatEvents statEvents;
     protected bool isExitingState;
     protected bool isAnimationFinished;
-    protected bool epAtZero;
+    //protected bool epAtZero = false;
     protected float startTime;
     string animBoolName;
 
@@ -39,7 +39,6 @@ public class PartnerState
         this.animBoolName = animBoolName;
         core = partner.core;
         statEvents = partner.statEvents; //refactor to fit in constructor if it works
-
     }
 
     public virtual void Enter()
@@ -49,6 +48,7 @@ public class PartnerState
         partner.anim.SetBool(animBoolName, true);
         isAnimationFinished = false;
         isExitingState = false;
+        
 
     }
 
@@ -60,7 +60,7 @@ public class PartnerState
     }
     public virtual void LogicUpdate()
     {
-
+        
     }
     public virtual void PhysicsUpdate()
     {
@@ -82,5 +82,14 @@ public class PartnerState
     {
         isAnimationFinished = true;
     }
+    public virtual void TimeToDevolve()
+    {
+     
+        if (!playerSOData.stage1)
+        {
+            PSM.ChangePartnerState(partner.DevolveState);
 
+        }
+
+    }
 }

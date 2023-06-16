@@ -9,6 +9,7 @@ public class PlayerBasicState : PlayerState
 
     protected bool switchInput;
     protected bool interactInput;
+    protected bool evolveInput;
 
     protected bool isTouchingWall;
     protected bool isTouchingCarryable;
@@ -29,9 +30,9 @@ public class PlayerBasicState : PlayerState
         carryPoint = PlayerCollisionSenses.carryPoint;
         Hits = PlayerCollisionSenses.Hits;
         HeldItemHit = PlayerCollisionSenses.HeldItemHit;
-          isTouchingWall = PlayerCollisionSenses.WallCheck;
-         isTouchingCarryable = PlayerCollisionSenses.CarryableCheck;
-         isTouchingGround = PlayerCollisionSenses.GroundCheck;
+        isTouchingWall = PlayerCollisionSenses.WallCheck;
+        isTouchingCarryable = PlayerCollisionSenses.CarryableCheck;
+        isTouchingGround = PlayerCollisionSenses.GroundCheck;
         isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
     }
 
@@ -39,7 +40,13 @@ public class PlayerBasicState : PlayerState
     {
         base.Enter();
         CameraSwitcher.SwitchCamera(player.PlayerCamera);
+        statEvents.onCurrentEPZero2 += TimeToDevolve;
+        statEvents.onCurrentEPZero3 += TimeToDevolve;
+        EvolveBehavior.OnStartEvolution += delegate (object sender, EvolveBehavior.OnEvolutionEventArgs e)
+        {
+            PSM.ChangeState(player.EvolutionState);
 
+        };
     }
 
     public override void Exit()
@@ -54,7 +61,7 @@ public class PlayerBasicState : PlayerState
         yInput = player.InputHandler.NormInputY;
         switchInput = player.InputHandler.SwitchPlayerInput;
         interactInput = player.InputHandler.InteractInput;
-       
+        evolveInput = player.InputHandler.EvolveInput;
         
     }
 

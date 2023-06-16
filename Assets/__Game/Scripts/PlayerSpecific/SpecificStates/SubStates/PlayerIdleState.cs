@@ -56,6 +56,8 @@ public class PlayerIdleState : PlayerBasicState
                 }
             }
         }
+        
+        
     }
 
     public override void PhysicsUpdate()

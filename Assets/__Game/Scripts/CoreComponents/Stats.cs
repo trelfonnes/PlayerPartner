@@ -5,19 +5,12 @@ using System;
 
 public class Stats : CoreComponent, IInventory
 {
-    public event Action onCurrentHealthZero;
-    public event Action onCurrentHealthFull;
-    public event Action onCurrentEPZero;
-    public event Action onInjured;
-    public event Action onSick;
-    public event Action onCurrentStaminaZero;
-    public event Action onCurrentStaminaFull;
-    public event Action onCurrentPoiseZero;
+   
 
     [SerializeField]
     protected PlayerSOData SOData;//Data for states  
     [SerializeField]  PlayerInventory playerInventory;
-    [SerializeField] StatEvents statEvents;
+    [SerializeField] public StatEvents statEvents;
    // protected PlayerData _playerData = PlayerData.Instance;
 
     protected override void Awake()
@@ -61,7 +54,16 @@ public class Stats : CoreComponent, IInventory
     }
     protected virtual void CurrentEPZero()
     {
-        statEvents.CurrentEPZero();
+        if (SOData.stage2)
+        {
+            statEvents.CurrentEPZero2();
+        }
+        else if (SOData.stage3)
+        {
+            statEvents.CurrentEPZero3();
+        }
+        else
+            return;
     }
     protected virtual void IsInjured()
     {

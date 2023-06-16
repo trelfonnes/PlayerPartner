@@ -12,6 +12,7 @@ public class PlayerState
     protected StatEvents statEvents;
     protected bool isExitingState;
     protected bool isAnimationFinished;
+    
     protected float startTime;
     string animBoolName;
 
@@ -53,8 +54,12 @@ public class PlayerState
     public virtual void Enter()
     {
         DoChecks();
+        
+        
+
+
         startTime = Time.time; //might need changed
-        player.anim.SetBool(animBoolName, true);
+                player.anim.SetBool(animBoolName, true);
         isAnimationFinished = false;
         isExitingState = false;
         
@@ -90,5 +95,8 @@ public class PlayerState
     {
         isAnimationFinished = true;
     }
-    
+    public virtual void TimeToDevolve()
+    {
+        PSM.ChangeState(player.EvolutionState);
+    }
 }

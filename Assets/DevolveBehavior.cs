@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class EvolveBehavior : StateMachineBehaviour
+public class DevolveBehavior : StateMachineBehaviour
 {
-    public class OnEvolutionEventArgs : EventArgs 
+    public class OnDeEvolutionEventArgs : EventArgs
     {
-        public int evolutionStage;
-        public bool isEvolving;
+        public bool isDevolving;
     }
-    public static event EventHandler<OnEvolutionEventArgs> OnStartEvolution;
-    public int evolutionStage = 2;
-    public bool isEvolving = false;
-    public static event EventHandler<OnEvolutionEventArgs> OnEndEvolution;
+    public bool isDevolving = false;
+    public static event EventHandler<OnDeEvolutionEventArgs> OnDeEvolution;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-   override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if(OnStartEvolution != null) OnStartEvolution(this, new OnEvolutionEventArgs{ evolutionStage = evolutionStage});
-    }
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -26,10 +23,11 @@ public class EvolveBehavior : StateMachineBehaviour
     //    
     //}
 
-    //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (OnEndEvolution != null) OnEndEvolution(this, new OnEvolutionEventArgs { evolutionStage = evolutionStage, isEvolving = isEvolving });
+        if (OnDeEvolution != null) OnDeEvolution(this, new OnDeEvolutionEventArgs { isDevolving = isDevolving });
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

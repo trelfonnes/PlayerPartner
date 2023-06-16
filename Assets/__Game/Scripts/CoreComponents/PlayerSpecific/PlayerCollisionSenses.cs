@@ -38,9 +38,13 @@ public class PlayerCollisionSenses : CollisionSenses
     [SerializeField] private LayerMask whatIsPartner;
 
     [SerializeField] private LayerMask whatIsCarryable;
+    [SerializeField] float partnerCheckRadius = .5f;
+
     public bool PartnerCheck
     {
-        get => Physics2D.Raycast(partnerCheckArea.position, player.playerDirection, partnerDistanceFromPlayerRadius, whatIsPartner);
+        get => Physics2D.OverlapCircle(partnerCheckArea.position, partnerCheckRadius, whatIsPartner);
+
+       // get => Physics2D.Raycast(partnerCheckArea.position, player.playerDirection, partnerDistanceFromPlayerRadius, whatIsPartner);
     }
     public bool CarryableCheck
     {

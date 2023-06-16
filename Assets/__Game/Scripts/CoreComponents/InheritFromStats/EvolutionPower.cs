@@ -36,6 +36,7 @@ public class EvolutionPower : Stats, IEvolutionPower
       //  Debug.Log(Math.Round(_playerData.ep));//use this Math.round to display the number on the UI
         if(_playerData.ep <= 0)
         {
+
             StopEvolutionTimer();
             base.CurrentEPZero();
         }
@@ -47,7 +48,6 @@ public class EvolutionPower : Stats, IEvolutionPower
         inventoryData.numberHeld -= amount;
         if(_playerData.ep <= 0)
         {
-            _playerData.ep = 0;
             inventoryData.numberHeld = 0;
             base.CurrentEPZero();
             StopEvolutionTimer();

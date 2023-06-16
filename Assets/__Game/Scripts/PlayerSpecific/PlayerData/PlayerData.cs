@@ -6,6 +6,8 @@ public class PlayerData : MonoBehaviour
 {
     public float ep;
     public float maxEp;
+    public bool deviceOneCollected;
+    public bool deviceTwoCollected;
 
     private static PlayerData instance;
 

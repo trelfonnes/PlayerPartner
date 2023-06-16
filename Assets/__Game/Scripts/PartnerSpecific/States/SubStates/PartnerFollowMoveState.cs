@@ -67,6 +67,7 @@ public class PartnerFollowMoveState : PartnerFollowState
             }
         }
         
+
     }
 
     public override void PhysicsUpdate()

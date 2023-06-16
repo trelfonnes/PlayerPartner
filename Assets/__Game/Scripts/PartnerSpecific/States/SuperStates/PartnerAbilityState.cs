@@ -41,7 +41,6 @@ public class PartnerAbilityState : PartnerState
 
         if (isAbilityDone)
         {
-            Debug.Log("Change to followIdle");
             PSM.ChangePartnerState(partner.FollowIdleState);
         }
     }
