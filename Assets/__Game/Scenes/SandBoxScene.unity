@@ -214,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7067817040340299636, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7067817040340299637, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
       propertyPath: evolutionEvents
@@ -404,7 +404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &519420029
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2589,11 +2589,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7470835155404570980, guid: 16d394d8081ea6840a0209add15be924, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8392074537919305355, guid: 16d394d8081ea6840a0209add15be924, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8392074538503067612, guid: 16d394d8081ea6840a0209add15be924, type: 3}
       propertyPath: m_Name

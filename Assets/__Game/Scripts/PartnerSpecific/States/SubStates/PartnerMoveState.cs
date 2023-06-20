@@ -16,11 +16,21 @@ public class PartnerMoveState : PartnerBasicState
     public override void Enter()
     {
         base.Enter();
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero += TimeToDevolve;
+
+        }
     }
 
     public override void Exit()
     {
         base.Exit();
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero -= TimeToDevolve;
+
+        }
     }
 
     public override void LogicUpdate()
