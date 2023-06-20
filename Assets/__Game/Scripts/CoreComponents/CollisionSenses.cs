@@ -42,19 +42,34 @@ public class CollisionSenses : CoreComponent
     #region Public CollisionCheck Functions
     public bool WallCheck
     {
-        get => Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsWall);
-    } 
+        get
+        {
+            RaycastHit2D[] results = new RaycastHit2D[50];
+            int hits = Physics2D.RaycastNonAlloc(collisionsCheckPoint.position, player.playerDirection, results, collisionCheckDistance, whatIsWall);
+            return hits > 0;
+        }
+    }
     public bool WallCheckPartner
     {
-        get => Physics2D.Raycast(collisionsCheckPoint.position, partner.playerDirection, collisionCheckDistance, whatIsWall);
-    }
-   
+        get
+        {
+            RaycastHit2D[] results = new RaycastHit2D[50];
+            int hits = Physics2D.RaycastNonAlloc(collisionsCheckPoint.position, partner.playerDirection, results, collisionCheckDistance, whatIsWall);
+            return hits > 0;
+        }
+        }
+
     public bool GroundCheck
     {
-        get => Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, whatIsGround);
+        get
+        {
+            Collider2D[] results = new Collider2D[50];
+            int count = Physics2D.OverlapCircleNonAlloc(groundCheckPoint.position, groundCheckRadius, results, whatIsGround);
+            return count > 0;
+        }
     }
-  
-    
+
+
     #endregion
 
 

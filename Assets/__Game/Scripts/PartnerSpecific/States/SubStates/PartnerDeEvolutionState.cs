@@ -30,16 +30,14 @@ public class PartnerDeEvolutionState : PartnerBasicState
         base.Enter();
         isDevolving = true;
         Movement?.SetVelocity(playerSOData.watchSpeed * (new Vector2(1, 1)));
-        DevolveBehavior.OnDeEvolution += delegate (object sender, DevolveBehavior.OnDeEvolutionEventArgs e)
-        {
-            isDevolving = e.isDevolving; 
-        };
+        partner.evolutionEvents.OnDevolve += DevolveOver;
+
     }
 
     public override void Exit()
     {
         base.Exit();
-      
+        partner.evolutionEvents.OnDevolve -= DevolveOver;
 
     }
 
@@ -58,6 +56,9 @@ public class PartnerDeEvolutionState : PartnerBasicState
     {
         base.PhysicsUpdate();
     }
+    void DevolveOver(EvolutionEvents.EvolutionEventData e)
+    {
+        isDevolving = e.isDevolving;
+    }
 
-    
 }

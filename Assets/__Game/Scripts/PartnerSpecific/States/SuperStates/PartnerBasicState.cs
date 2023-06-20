@@ -48,12 +48,14 @@ public class PartnerBasicState : PartnerState
         CameraSwitcher.SwitchCamera(partner.PartnerCamera);
         inBasicStates = true;
         
+
     }
 
     public override void Exit()
     {
         base.Exit();
         inBasicStates = false;
+        
     }
 
     public override void LogicUpdate()

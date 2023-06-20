@@ -18,11 +18,23 @@ public class PartnerFollowMoveState : PartnerFollowState
     {
         base.Enter();
         canExitState = false;
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero += TimeToDevolve;
+
+        }
+
+
     }
 
     public override void Exit()
     {
         base.Exit();
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero -= TimeToDevolve;
+
+        }
     }
 
     public override void LogicUpdate()

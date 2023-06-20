@@ -40,18 +40,16 @@ public class PlayerBasicState : PlayerState
     {
         base.Enter();
         CameraSwitcher.SwitchCamera(player.PlayerCamera);
-        statEvents.onCurrentEPZero2 += TimeToDevolve;
-        statEvents.onCurrentEPZero3 += TimeToDevolve;
-        EvolveBehavior.OnStartEvolution += delegate (object sender, EvolveBehavior.OnEvolutionEventArgs e)
-        {
-            PSM.ChangeState(player.EvolutionState);
-
-        };
+        statEvents.onCurrentEPZero += TimeToDevolve;
+        player.evolutionEvents.OnStopForEvolution += StartEvolution;
     }
 
     public override void Exit()
     {
         base.Exit();
+        statEvents.onCurrentEPZero -= TimeToDevolve;
+        player.evolutionEvents.OnStopForEvolution -= StartEvolution;
+
     }
 
     public override void LogicUpdate()
@@ -70,4 +68,9 @@ public class PlayerBasicState : PlayerState
         base.PhysicsUpdate();
     }
     
+
+    void StartEvolution()
+    {
+        PSM.ChangeState(player.EvolutionState);
+    }
 }

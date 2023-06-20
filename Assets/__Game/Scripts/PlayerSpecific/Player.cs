@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     protected PlayerData _playerData; //data for stats refactor might not need it here
     [SerializeField] public StatEvents statEvents;// TODO make protected and add to constructor of player state
-
+    [SerializeField]
+    public EvolutionEvents evolutionEvents;
     [SerializeField]
     protected PlayerSOData playerSOData;//Data for states  
     [SerializeField] CinemachineVirtualCamera playerCamera;

@@ -44,16 +44,17 @@ public class PartnerFollowState : PartnerState
     public override void Enter()
     {
         base.Enter();
-        
-        
 
-        
+       
+
+
 
     }
 
     public override void Exit()
     {
         base.Exit();
+        
 
     }
 

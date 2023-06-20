@@ -17,19 +17,14 @@ public class PlayerEvolutionState : PlayerBasicState
     {
         base.Enter();
         Movement?.SetVelocityZero();
-        EvolveBehavior.OnEndEvolution += delegate (object sender, EvolveBehavior.OnEvolutionEventArgs e)
-        {
-            PSM.ChangeState(player.IdleState);
-        };
-        DevolveBehavior.OnDeEvolution += delegate (object sender, DevolveBehavior.OnDeEvolutionEventArgs e)
-        {
-            PSM.ChangeState(player.IdleState);
-        };
+        player.evolutionEvents.OnReturnFromEvolution += StopEvolution;
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.evolutionEvents.OnReturnFromEvolution -= StopEvolution;
+
     }
 
     public override void LogicUpdate()
@@ -40,5 +35,11 @@ public class PlayerEvolutionState : PlayerBasicState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    
+       void StopEvolution()
+    {
+        PSM.ChangeState(player.IdleState);
     }
 }

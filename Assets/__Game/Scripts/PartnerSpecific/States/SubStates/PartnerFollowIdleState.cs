@@ -6,16 +6,8 @@ public class PartnerFollowIdleState : PartnerFollowState
 {
     public PartnerFollowIdleState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
-        if (playerSOData.stage2)
-        {
-            statEvents.onCurrentEPZero2 += TimeToDevolve;
-
-        }
-        else if (playerSOData.stage3)
-        {
-            statEvents.onCurrentEPZero3 += TimeToDevolve;
-
-        }
+        
+        
     }
 
     public override void DoChecks()
@@ -27,12 +19,23 @@ public class PartnerFollowIdleState : PartnerFollowState
     {
         base.Enter();
         canExitState = false;
-        
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero += TimeToDevolve;
+
+        }
+
+
     }
 
     public override void Exit()
     {
         base.Exit();
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero -= TimeToDevolve;
+
+        }
     }
 
     public override void LogicUpdate()
@@ -54,13 +57,13 @@ public class PartnerFollowIdleState : PartnerFollowState
                 PSM.ChangePartnerState(partner.IdleState);
             }
         }
-        if(evolveInput && isTouchingPlayer && !playerSOData.stage3 && playerData.ep >= 25f)
+        if(evolveInput && isTouchingPlayer && !playerSOData.stage3 )
         {
-            if (playerSOData.stage1 && playerData.deviceOneCollected)
+            if (playerSOData.stage1 && playerData.deviceOneCollected && playerData.ep >= 25f)
             {
                 PSM.ChangePartnerState(partner.EvolutionState);
             }
-            else if(playerSOData.stage2 && playerData.deviceTwoCollected)
+            else if(playerSOData.stage2 && playerData.deviceTwoCollected && playerData.ep >= 50f)
             {
                 PSM.ChangePartnerState(partner.EvolutionState);
 

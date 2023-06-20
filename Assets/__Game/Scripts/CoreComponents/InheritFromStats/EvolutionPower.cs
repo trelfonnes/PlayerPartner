@@ -20,27 +20,6 @@ public class EvolutionPower : Stats, IEvolutionPower
         base.Start();
        
     }
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-        if (startEvolutionTimer)
-        {
-            EvolutionPowerCountDown();
-        }
-
-    }
-
-    private void EvolutionPowerCountDown()
-    {
-        _playerData.ep = Mathf.Clamp(_playerData.ep - Time.deltaTime, 0, _playerData.maxEp);
-      //  Debug.Log(Math.Round(_playerData.ep));//use this Math.round to display the number on the UI
-        if(_playerData.ep <= 0)
-        {
-
-            StopEvolutionTimer();
-            base.CurrentEPZero();
-        }
-    }
 
     public void DecreaseEP(int amount)
     {
@@ -49,7 +28,7 @@ public class EvolutionPower : Stats, IEvolutionPower
         if(_playerData.ep <= 0)
         {
             inventoryData.numberHeld = 0;
-            base.CurrentEPZero();
+            
             StopEvolutionTimer();
         }
     }
@@ -67,10 +46,10 @@ public class EvolutionPower : Stats, IEvolutionPower
     }
     public void StartEvolutionTimer()
     {
-        startEvolutionTimer = true;
+        _playerData.StartEPTimer = true;
     }
     public void StopEvolutionTimer()
     {
-        startEvolutionTimer = false;
+        _playerData.StartEPTimer = false;
     }
 }

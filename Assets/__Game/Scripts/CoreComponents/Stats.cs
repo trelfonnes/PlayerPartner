@@ -52,19 +52,7 @@ public class Stats : CoreComponent, IInventory
     {
         statEvents.CurrentHealthFull();
     }
-    protected virtual void CurrentEPZero()
-    {
-        if (SOData.stage2)
-        {
-            statEvents.CurrentEPZero2();
-        }
-        else if (SOData.stage3)
-        {
-            statEvents.CurrentEPZero3();
-        }
-        else
-            return;
-    }
+    
     protected virtual void IsInjured()
     {
         statEvents.IsInjured();

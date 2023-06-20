@@ -30,10 +30,8 @@ public class PartnerEvolutionState : PartnerBasicState
         base.Enter();
         isEvolving = true;
         Movement?.SetVelocity(playerSOData.watchSpeed * (new Vector2(1, 1)));
-        EvolveBehavior.OnEndEvolution += delegate (object sender, EvolveBehavior.OnEvolutionEventArgs e)
-        {
-           isEvolving = e.isEvolving;
-        };
+        partner.evolutionEvents.OnEvolveToThirdStage += EvolveCheck;
+        partner.evolutionEvents.OnEvolveToSecondStage += EvolveCheck;
 
     }
 
@@ -42,6 +40,9 @@ public class PartnerEvolutionState : PartnerBasicState
     public override void Exit()
     {
         base.Exit();
+        
+        partner.evolutionEvents.OnEvolveToThirdStage -= EvolveCheck;
+        partner.evolutionEvents.OnEvolveToSecondStage -= EvolveCheck;
     }
 
     public override void LogicUpdate()
@@ -59,5 +60,9 @@ public class PartnerEvolutionState : PartnerBasicState
         base.PhysicsUpdate();
     }
 
-    
+    void EvolveCheck( EvolutionEvents.EvolutionEventData e)
+    {
+        isEvolving = e.isEvolving;
+
+    }
 }

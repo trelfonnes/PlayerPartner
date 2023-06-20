@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PartnerManager : MonoBehaviour
 {
+    private static PartnerManager instance;
+    public static PartnerManager Instance => instance;
+
     [SerializeField] GameObject dinoOne;
     [SerializeField] GameObject dinoTwo;
     [SerializeField] GameObject dinoThree;
@@ -11,56 +14,83 @@ public class PartnerManager : MonoBehaviour
     
     [SerializeField] Transform inactiveTransform;
     [SerializeField]Transform workingTransform;
+    [SerializeField] EvolutionEvents evolutionEvents;
 
     bool isEvolving;
+    bool isDevolving;
 
+    private void OnEnable()
+    {
+        evolutionEvents.OnEvolveToSecondStage += OnStartEvolutionHandler;
+        evolutionEvents.OnEvolveToThirdStage += OnStartEvolutionHandler;
+        evolutionEvents.OnDevolve += OnStartEvolutionHandler;
+
+    }
+    private void OnDisable()
+    {
+        evolutionEvents.OnEvolveToSecondStage -= OnStartEvolutionHandler;
+        evolutionEvents.OnEvolveToThirdStage -= OnStartEvolutionHandler;
+        evolutionEvents.OnDevolve -= OnStartEvolutionHandler; 
+
+    }
     private void Awake()
     {
+        if(instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
         currentPartner = dinoOne;
         workingTransform.position = currentPartner.transform.position;
     }
-    private void Start()
+ 
+    private void OnStartEvolutionHandler(EvolutionEvents.EvolutionEventData e)
     {
-        EvolveBehavior.OnEndEvolution += delegate (object sender, EvolveBehavior.OnEvolutionEventArgs e)
-        {
-            SwitchStage(e.evolutionStage);
-            isEvolving = e.isEvolving;
-        };
+
+        SwitchStage(e.evolutionStage);
     }
+
     public void SwitchStage(int stage)
     {
         workingTransform.position = currentPartner.transform.position;
         currentPartner.transform.position = inactiveTransform.position;
-
+        
+            currentPartner.GetComponentInChildren<IEvolutionPower>().StopEvolutionTimer();
+        
         if (stage == 1)
         {
             dinoOne.gameObject.SetActive(true);
             currentPartner = dinoOne;
-            currentPartner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
             currentPartner.transform.position = workingTransform.position;
             dinoTwo.gameObject.SetActive(false);
             dinoThree.gameObject.SetActive(false);
         }
-        else if(stage == 2)
+        else if (stage == 2)
         {
             dinoTwo.gameObject.SetActive(true);
             currentPartner = dinoTwo;
-            currentPartner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
             currentPartner.transform.position = workingTransform.position;
             dinoOne.gameObject.SetActive(false);
             dinoThree.gameObject.SetActive(false);
+            
+                currentPartner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
         }
-        else if(stage == 3)
+        else if (stage == 3)
         {
             dinoThree.gameObject.SetActive(true);
 
             currentPartner = dinoThree;
-            currentPartner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
             currentPartner.transform.position = workingTransform.position;
             dinoOne.gameObject.SetActive(false);
             dinoTwo.gameObject.SetActive(false);
+            
+                currentPartner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
 
         }
+
     }
     
+
 }

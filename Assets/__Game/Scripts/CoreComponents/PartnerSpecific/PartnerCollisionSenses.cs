@@ -17,10 +17,21 @@ public class PartnerCollisionSenses : CollisionSenses
 
     public bool PlayerCheck
     {
-        get => Physics2D.OverlapCircle(playerCheckArea.position, playerCheckRadius, whatIsPlayer);
+        get 
+        {
+            Collider2D[] results = new Collider2D[50];
+            int count = Physics2D.OverlapCircleNonAlloc(playerCheckArea.position, playerCheckRadius, results, whatIsPlayer);
+            return count > 0;
+       
+        }
     }
     public bool WallCheckFollowing
     {
-        get => Physics2D.OverlapCircle(playerCheckArea.position, wallCheckFollowRadius, whatIsWall);
+        get
+        {
+            Collider2D[] results = new Collider2D[50];
+            int count = Physics2D.OverlapCircleNonAlloc(playerCheckArea.position, wallCheckFollowRadius, results, whatIsWall);
+            return count > 0;
+        }
     }
 }

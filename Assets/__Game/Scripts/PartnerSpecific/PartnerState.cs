@@ -88,7 +88,6 @@ public class PartnerState
         if (!playerSOData.stage1)
         {
             PSM.ChangePartnerState(partner.DevolveState);
-
         }
 
     }

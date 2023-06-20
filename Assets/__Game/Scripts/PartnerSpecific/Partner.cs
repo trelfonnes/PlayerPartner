@@ -25,7 +25,9 @@ public class Partner : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     protected PlayerData _playerData; //data for stats refactor might not need it here
     [SerializeField]
-    protected PlayerSOData playerSOData;//Data for states
+    protected PlayerSOData playerSOData; 
+    [SerializeField]
+    public EvolutionEvents evolutionEvents;//can refactor to put these in constructor
     [SerializeField] public StatEvents statEvents;
     [SerializeField] CinemachineVirtualCamera partnerCamera;
     public Vector2 playerDirection;
@@ -65,7 +67,32 @@ public class Partner : MonoBehaviour
         StateMachine.CurrentPartnerState.PhysicsUpdate();
     }
 
-    
+
+
+    #region PartnerEvolutionEventsForAnimEvents
+    void EvolveToSecondStage()
+    {
+        evolutionEvents.EvolveToSecondStage();
+    }
+
+    void EvolveToThirdStage()
+    {
+        evolutionEvents.EvolveToFinalStage();
+    }
+    void StopForEvolution()
+    {
+        evolutionEvents.StopForEvolution();
+    }
+    void ReturnFromEvolution()
+    {
+        evolutionEvents.ReturnFromEvolution();
+    }
+    void Devolve()
+    {
+        evolutionEvents.Devolve();
+    }
+
+    #endregion
 
 
     #region For Saving Data BIND
