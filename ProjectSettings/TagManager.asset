@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ParticleContainer
   - Partner
+  - Boulder
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Items
   - Container
   - Interactable
-  - 
+  - Hazards
   - 
   - 
   - 

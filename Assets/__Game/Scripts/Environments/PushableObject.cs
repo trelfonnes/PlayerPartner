@@ -11,8 +11,8 @@ public class PushableObject : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Static;
-
-    }
+        //Switching with the rigidbody types to allow it to be moved, then stopped and then able to be detected by colliders
+    } //I'm sure theres a better way to do this.
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -45,6 +45,7 @@ public class PushableObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Partner"))
         {
             rb.bodyType = RigidbodyType2D.Static;
+            rb.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 

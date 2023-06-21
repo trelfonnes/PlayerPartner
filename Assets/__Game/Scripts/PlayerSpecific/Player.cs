@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     protected PlayerSOData playerSOData;//Data for states  
     [SerializeField] CinemachineVirtualCamera playerCamera;
-
+   
     public Vector2 playerDirection;
 
 
