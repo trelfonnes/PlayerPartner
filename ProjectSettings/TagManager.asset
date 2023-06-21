@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Wall
-  - CarryableItem
+  - CarryableItems
   - Ground
   - Player
   - Partner
@@ -49,6 +49,9 @@ TagManager:
   - name: Environment
     uniqueID: 3565876073
     locked: 0
+  - name: Hazard
+    uniqueID: 2320783581
+    locked: 0
   - name: Item
     uniqueID: 1867026265
     locked: 0
@@ -60,4 +63,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1644454151
+    locked: 0
+  - name: CarryableItem
+    uniqueID: 2744829381
     locked: 0

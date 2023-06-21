@@ -22,6 +22,10 @@ public class Partner : MonoBehaviour
         get { return partnerCamera; }
         set { partnerCamera = value; }
     }
+
+    public bool stageOne;
+    public bool stageTwo;
+    public bool stageThree;
     public PlayerInputHandler InputHandler { get; private set; }
     protected PlayerData _playerData; //data for stats refactor might not need it here
     [SerializeField]

@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  evolutionEvents: {fileID: 11400000, guid: cea042e38e7e2db44bb9d1b3d982c775, type: 2}
   playerSOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerCamera: {fileID: 0}
   playerDirection: {x: 0, y: 0}
@@ -551,8 +552,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1644454151
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: -768828791, guid: 22668a252c2956849bc44ff79a662785, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

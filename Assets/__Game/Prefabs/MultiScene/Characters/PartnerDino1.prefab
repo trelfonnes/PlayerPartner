@@ -338,7 +338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413b4f46f500c6a4c9638c6bc56e5fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageOne: 1
+  stageTwo: 0
+  stageThree: 0
   playerSOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  evolutionEvents: {fileID: 11400000, guid: cea042e38e7e2db44bb9d1b3d982c775, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
   partnerCamera: {fileID: 0}
   playerDirection: {x: 0, y: 0}
@@ -380,8 +384,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -66653793
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 238660879, guid: ee5b0b9450ee4ba4197a50c6752d6d8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
