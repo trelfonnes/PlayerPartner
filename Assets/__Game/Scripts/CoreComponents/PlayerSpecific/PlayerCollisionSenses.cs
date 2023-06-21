@@ -11,13 +11,21 @@ public class PlayerCollisionSenses : CollisionSenses
     [SerializeField]
     float heldItemCheckDistance;
    
-    public RaycastHit2D Hits
+    public RaycastHit2D HitsToCarry
     {
         get
         {
-            hits = Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsCarryable);
+            hitsToCarry = Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsCarryable);
 
-            return hits;
+            return hitsToCarry;
+        }
+    }public RaycastHit2D HitsToInteract
+    {
+        get
+        {
+            hitsToInteract = Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsInteractable);
+
+            return hitsToInteract;
         }
     }
     public RaycastHit2D HeldItemHit
@@ -30,13 +38,14 @@ public class PlayerCollisionSenses : CollisionSenses
 
     }
 
-    private RaycastHit2D hits;
+    private RaycastHit2D hitsToCarry;
+    private RaycastHit2D hitsToInteract;
     private RaycastHit2D heldItemHit;
     public float PartnerDistanceFromPlayer { get => partnerDistanceFromPlayerRadius; set => partnerDistanceFromPlayerRadius = value; }
     [SerializeField] private float partnerDistanceFromPlayerRadius = 1.5f;
 
     [SerializeField] private LayerMask whatIsPartner;
-
+    [SerializeField] private LayerMask whatIsInteractable;
     [SerializeField] private LayerMask whatIsCarryable;
     [SerializeField] float partnerCheckRadius = .5f;
 
@@ -50,6 +59,12 @@ public class PlayerCollisionSenses : CollisionSenses
     {
             
         get => Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsCarryable);
+          
+    } 
+    public bool InteractableCheck
+    {
+            
+        get => Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsInteractable);
           
     }
    

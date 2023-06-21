@@ -46,14 +46,22 @@ public class PlayerIdleState : PlayerBasicState
             }
             if (interactInput && isTouchingCarryable)
             {
-                if (Hits)//&& !currentlyCarrying)
+                if (HitsToCarry)//&& !currentlyCarrying)
                 {
-                    Debug.Log(Hits.transform.name);
-                    Hits.collider.GetComponent<ICarry>().Carry(carryPoint);
+                    Debug.Log(HitsToCarry.transform.name);
+                    HitsToCarry.collider.GetComponent<ICarry>().Carry(carryPoint);
                     currentlyCarrying = true;
                     PSM.ChangeState(player.HoldItemState);
 
                 }
+            }
+            if (interactInput && isTouchingInteractable)
+            {
+                if (HitsToInteract) 
+                {
+                  HitsToInteract.collider.GetComponent<IInteractable>().Interact();
+                    canExitState = false;
+                } 
             }
         }
         

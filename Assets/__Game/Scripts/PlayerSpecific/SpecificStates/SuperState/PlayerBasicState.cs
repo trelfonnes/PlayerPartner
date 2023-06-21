@@ -13,10 +13,12 @@ public class PlayerBasicState : PlayerState
 
     protected bool isTouchingWall;
     protected bool isTouchingCarryable;
+    protected bool isTouchingInteractable;
     protected bool isTouchingGround;
     protected bool canExitState;
     protected bool isTouchingPartner;
-    protected RaycastHit2D Hits;
+    protected RaycastHit2D HitsToCarry;
+    protected RaycastHit2D HitsToInteract;
     protected RaycastHit2D HeldItemHit;
     protected Transform carryPoint;
     protected bool currentlyCarrying = false;
@@ -28,12 +30,14 @@ public class PlayerBasicState : PlayerState
         base.DoChecks();
         // TODO add references to collision senses
         carryPoint = PlayerCollisionSenses.carryPoint;
-        Hits = PlayerCollisionSenses.Hits;
+        HitsToCarry = PlayerCollisionSenses.HitsToCarry;
+        HitsToInteract = PlayerCollisionSenses.HitsToInteract;
         HeldItemHit = PlayerCollisionSenses.HeldItemHit;
         isTouchingWall = PlayerCollisionSenses.WallCheck;
         isTouchingCarryable = PlayerCollisionSenses.CarryableCheck;
         isTouchingGround = PlayerCollisionSenses.GroundCheck;
         isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
+        isTouchingInteractable = PlayerCollisionSenses.InteractableCheck;
     }
 
     public override void Enter()
