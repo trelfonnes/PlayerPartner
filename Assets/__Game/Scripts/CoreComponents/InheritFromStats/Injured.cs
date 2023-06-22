@@ -14,16 +14,16 @@ public class Injured : Stats, IInjured
 
     public void InjuredON()
     {
-        SOData.Injured = true;
+        SOData.IsInjured = true;
     }
     public void InjuredOFF()
     {
-        SOData.Injured = false;
+        SOData.IsInjured = false;
     }
     public void InjuredONandOFF(bool rotate)
     {
-        SOData.Injured = rotate;
-        if (SOData.Injured)
+        SOData.IsInjured = rotate;
+        if (SOData.IsInjured)
         {
             base.IsInjured();
         }

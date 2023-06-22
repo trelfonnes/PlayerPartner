@@ -20,7 +20,7 @@ public class TestingMakeSickandInjured : MonoBehaviour
     {
         if (collision.CompareTag("Partner"))
         {
-            //collision.GetComponentInChildren<ISick>().SickONandOFF(makeSickandInjured);
+            collision.GetComponentInChildren<ISick>().SickONandOFF(makeSickandInjured);
             collision.GetComponentInChildren<IInjured>().InjuredONandOFF(makeSickandInjured);
         }
     }

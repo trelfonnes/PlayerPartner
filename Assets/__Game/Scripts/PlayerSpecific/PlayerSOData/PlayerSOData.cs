@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player Data/Base Data")]
 
-public class PlayerSOData : ScriptableObject
+public class PlayerSOData : BaseSOPlayerData
 {
     [Header("Player and Partner Movement Speeds")]
     public float moveSpeed = 5;
@@ -21,10 +21,10 @@ public class PlayerSOData : ScriptableObject
     public float MaxStamina = 50;
     public float Poise;
     public float MaxPoise;
-    public float EP = 0;
-    public float MaxEP = 25;
-    public bool Injured = false;
-    public bool Sick = false;
+    //public float EP = 0;
+    //public float MaxEP = 25;
+    //public bool Injured = false;
+   // public bool Sick = false;
     public bool stage1 = false;
     public bool stage2 = false;
     public bool stage3 = false;

@@ -13,16 +13,16 @@ public class Sick : Stats, ISick
 
     public void SickON()
     {
-        SOData.Sick = true;
+        SOData.IsSick = true;
     }
     public void SickOFF()
     {
-        SOData.Sick = false;
+        SOData.IsSick = false;
     }
     public void SickONandOFF(bool rotate)
     {
-        SOData.Sick = rotate;
-        if (SOData.Sick)
+        SOData.IsSick = rotate;
+        if (SOData.IsSick)
         {
             base.IsSick();
         }

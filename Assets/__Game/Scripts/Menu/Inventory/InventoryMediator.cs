@@ -48,18 +48,18 @@ public class InventoryMediator: MonoBehaviour
 
         if (partner1)
         {
-            partner1.Sick = sick;
-            partner2.Sick = sick;
-            partner3.Sick = sick;
+            partner1.IsSick = sick;
+            partner2.IsSick = sick;
+            partner3.IsSick = sick;
         }
     }
     public void HealInjured(bool injured)
     {
         if (partner1)
         {
-            partner1.Injured = injured;    
-            partner2.Injured = injured;    
-            partner3.Injured = injured;    
+            partner1.IsInjured = injured;    
+            partner2.IsInjured = injured;    
+            partner3.IsInjured = injured;    
         }
     }
    
