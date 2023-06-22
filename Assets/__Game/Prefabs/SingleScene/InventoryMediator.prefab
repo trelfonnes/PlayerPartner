@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
-  partner: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  partner1: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  partner2: {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
+  partner3: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}

@@ -269,6 +269,9 @@ MonoBehaviour:
   whatIsPartner:
     serializedVersion: 2
     m_Bits: 1024
+  whatIsInteractable:
+    serializedVersion: 2
+    m_Bits: 16384
   whatIsCarryable:
     serializedVersion: 2
     m_Bits: 128

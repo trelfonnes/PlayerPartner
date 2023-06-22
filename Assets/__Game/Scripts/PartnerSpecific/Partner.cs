@@ -29,7 +29,7 @@ public class Partner : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     protected PlayerData _playerData; //data for stats refactor might not need it here
     [SerializeField]
-    protected PlayerSOData playerSOData; 
+    public PlayerSOData playerSOData; 
     [SerializeField]
     public EvolutionEvents evolutionEvents;//can refactor to put these in constructor
     [SerializeField] public StatEvents statEvents;

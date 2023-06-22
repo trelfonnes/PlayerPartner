@@ -26,7 +26,8 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
     protected Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
-
+    
+   
     private Movement movement;
     private PlayerCollisionSenses playerCollisionSenses;
     private PartnerCollisionSenses partnerCollisionSenses;

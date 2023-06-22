@@ -5,7 +5,7 @@ using System;
 
 public class Stats : CoreComponent, IInventory
 {
-   
+   protected PlayerData playerData;
 
     [SerializeField]
     protected PlayerSOData SOData;//Data for states  
@@ -15,8 +15,8 @@ public class Stats : CoreComponent, IInventory
 
     protected override void Awake()
     {
-      
-        
+
+        playerData = PlayerData.Instance;
     }
     public override void LogicUpdate()
     {

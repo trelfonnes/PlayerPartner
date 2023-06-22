@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,17 +16,22 @@ public class PartnerManager : MonoBehaviour
     [SerializeField] Transform inactiveTransform;
     [SerializeField]Transform workingTransform;
     [SerializeField] EvolutionEvents evolutionEvents;
+ 
 
     bool isEvolving;
     bool isDevolving;
+ 
 
     private void OnEnable()
     {
         evolutionEvents.OnEvolveToSecondStage += OnStartEvolutionHandler;
         evolutionEvents.OnEvolveToThirdStage += OnStartEvolutionHandler;
         evolutionEvents.OnDevolve += OnStartEvolutionHandler;
+       
 
     }
+
+
     private void OnDisable()
     {
         evolutionEvents.OnEvolveToSecondStage -= OnStartEvolutionHandler;

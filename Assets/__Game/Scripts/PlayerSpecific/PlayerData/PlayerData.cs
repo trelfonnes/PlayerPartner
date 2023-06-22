@@ -11,6 +11,7 @@ public class PlayerData : MonoBehaviour
     public bool deviceOneCollected;
     public bool deviceTwoCollected;
     public bool StartEPTimer;
+  
 
     private static PlayerData instance;
 
@@ -53,4 +54,6 @@ public class PlayerData : MonoBehaviour
            }
         
     }
+
+    
 }

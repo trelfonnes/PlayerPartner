@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bolt
   itemDescription: Use these projectiles to stun enemies.
-  itemImage: {fileID: 2045597391, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  numberHeld: 1
+  itemImage: {fileID: 498902438, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  numberHeld: 3
   usable: 0
   unique: 1
   thisEvent:

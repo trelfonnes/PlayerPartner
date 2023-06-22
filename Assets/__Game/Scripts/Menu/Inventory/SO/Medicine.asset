@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Medicine
   itemDescription: Follow the correct dosage! Heals your partner from sickness.
   itemImage: {fileID: 1373765893, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  numberHeld: 1
+  numberHeld: 0
   usable: 1
   unique: 0
   thisEvent:

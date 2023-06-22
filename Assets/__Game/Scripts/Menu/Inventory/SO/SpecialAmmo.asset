@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Special Power (SP)
   itemDescription: SP is needed for your partner to use SPECIAL attacks
-  itemImage: {fileID: 275192371, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  numberHeld: 1
+  itemImage: {fileID: 812940171, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  numberHeld: 3
   usable: 0
   unique: 1
   thisEvent:

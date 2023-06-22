@@ -8,7 +8,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class SaveLoadManager : GameManager
 {
     [SerializeField] protected PlayerSOData playerSOData;
-    [SerializeField] protected PlayerSOData partnerSOData;
+    [SerializeField] protected PlayerSOData partner1SOData;
+    [SerializeField] protected PlayerSOData partner2SOData;
+    [SerializeField] protected PlayerSOData partner3SOData;
 
     public static SaveLoadManager InstanceSLM { get; private set; }
    
@@ -46,16 +48,24 @@ public class SaveLoadManager : GameManager
 
         BinaryFormatter bf = new BinaryFormatter();
         //for Player
-        FileStream filePlayer = File.Create(Application.persistentDataPath + "/game_save/Player_Data/Player_Data_SaveFile");
+        FileStream filePlayer = File.Create(Application.persistentDataPath + "/game_save/Player_Data/Player_Data_SaveFilePlayer");
         //convert data here:
         var json = JsonUtility.ToJson(playerSOData);
         bf.Serialize(filePlayer, json);
         filePlayer.Close();
         //ForPartner
-        FileStream filePartner = File.Create(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFile");
-        var json2 = JsonUtility.ToJson(partnerSOData);
-        bf.Serialize(filePartner, json2);
-        filePartner.Close();
+        FileStream filePartner1 = File.Create(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFilePartner1");
+        var json2 = JsonUtility.ToJson(partner1SOData);
+        bf.Serialize(filePartner1, json2);
+        filePartner1.Close();
+        FileStream filePartner2 = File.Create(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFilePartner2");
+        var json3 = JsonUtility.ToJson(partner2SOData);
+        bf.Serialize(filePartner1, json2);
+        filePartner1.Close(); 
+        FileStream filePartner3 = File.Create(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFilePartner3");
+        var json4 = JsonUtility.ToJson(partner3SOData);
+        bf.Serialize(filePartner1, json2);
+        filePartner1.Close();
 
     }
 
@@ -70,16 +80,30 @@ public class SaveLoadManager : GameManager
             Directory.CreateDirectory(Application.persistentDataPath + "/game_save/Partner_Data");
         }
         BinaryFormatter bf = new BinaryFormatter();
-        if(File.Exists(Application.persistentDataPath + "/game_save/Player_Data/Player_Data_SaveFile"))
+        if(File.Exists(Application.persistentDataPath + "/game_save/Player_Data/Player_Data_SaveFilePlayer"))
         {
-            FileStream file = File.Open(Application.persistentDataPath + "/game_save/Player_Data/Player_Data_SaveFile", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/game_save/Player_Data/Player_Data_SaveFilePlayer", FileMode.Open);
             JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), playerSOData);
             file.Close();
         }
-        if (File.Exists(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFile"))
+        if (File.Exists(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFilePartner1"))
         {
-            FileStream file = File.Open(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFile", FileMode.Open);
-            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), partnerSOData);
+            FileStream file = File.Open(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFilePartner1", FileMode.Open);
+            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), partner1SOData);
+            file.Close();
+
+        }
+        if (File.Exists(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFilePartner2"))
+        {
+            FileStream file = File.Open(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFilePartner2", FileMode.Open);
+            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), partner2SOData);
+            file.Close();
+
+        }
+        if (File.Exists(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFilePartner3"))
+        {
+            FileStream file = File.Open(Application.persistentDataPath + "/game_save/Partner_Data/Partner_Data_SaveFilePartner3", FileMode.Open);
+            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), partner3SOData);
             file.Close();
 
         }
