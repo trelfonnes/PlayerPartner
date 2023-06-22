@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6887f46d125531b4b9da6341b792f198, type: 3}
   m_Name: PlayerBasicData
   m_EditorClassIdentifier: 
+  isSick: 0
+  isInjured: 0
   moveSpeed: 5
   watchSpeed: 0
   followSpeed: 5
   MaxHealth: 6
-  CurrentHealth: 5
+  CurrentHealth: 6
   SP: 1
   MaxSP: 25
   Stamina: 50
   MaxStamina: 50
   Poise: 0
   MaxPoise: 0
-  EP: 0
-  MaxEP: 25
-  Injured: 0
-  Sick: 0
+  stage1: 0
+  stage2: 0
+  stage3: 0
   Bytes: 1
   MaxBytes: 50

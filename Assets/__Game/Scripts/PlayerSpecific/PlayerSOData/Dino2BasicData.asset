@@ -12,21 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6887f46d125531b4b9da6341b792f198, type: 3}
   m_Name: Dino2BasicData
   m_EditorClassIdentifier: 
+  isSick: 0
+  isInjured: 0
   moveSpeed: 5
   watchSpeed: 0
   followSpeed: 4.5
   MaxHealth: 9
-  CurrentHealth: 7
+  CurrentHealth: 9
   SP: 2
   MaxSP: 25
   Stamina: 50
   MaxStamina: 50
   Poise: 40
   MaxPoise: 40
-  EP: 25
-  MaxEP: 25
-  Injured: 0
-  Sick: 0
   stage1: 0
   stage2: 1
   stage3: 0
