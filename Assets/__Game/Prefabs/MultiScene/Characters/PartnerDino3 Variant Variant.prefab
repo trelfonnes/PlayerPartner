@@ -96,6 +96,10 @@ PrefabInstance:
       value: PartnerDino3 Variant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1353452548656069657, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: stageTwo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1353452548656069657, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: stageThree
       value: 1
       objectReference: {fileID: 0}

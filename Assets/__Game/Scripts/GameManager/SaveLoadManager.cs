@@ -5,25 +5,20 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 
-public class SaveLoadManager : GameManager
+public class SaveLoadManager : DataReferenceInheritor
 {
-    [SerializeField] protected PlayerSOData playerSOData;
-    [SerializeField] protected PlayerSOData partner1SOData;
-    [SerializeField] protected PlayerSOData partner2SOData;
-    [SerializeField] protected PlayerSOData partner3SOData;
+  
 
     public static SaveLoadManager InstanceSLM { get; private set; }
    
-    private void Awake()
+    protected override void Awake()
     {
-        if (InstanceSLM != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        InstanceSLM = this;
-        DontDestroyOnLoad(gameObject);
-    
+        base.Awake();
+       
+
+        
+
+        
     }
     public bool IsSaveFile()
     {

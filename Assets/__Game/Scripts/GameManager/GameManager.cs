@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : DataReferenceInheritor
 {
     public static GameManager Instance { get; private set; }
 
@@ -21,8 +21,9 @@ public class GameManager : MonoBehaviour
     private PlayerData playerData;
    
     private Player player;
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if(Instance != null)
         {
             Destroy(gameObject);
@@ -34,13 +35,13 @@ public class GameManager : MonoBehaviour
         inputManager = GetComponent<PlayerInputManager>();
       //  inputManager.onPlayerJoined += HandlePlayerJoined;
      //   SceneManager.sceneLoaded += HandleSceneLoaded;
-        player = inputManager.playerPrefab.GetComponent<Player>();
+      //  player = inputManager.playerPrefab.GetComponent<Player>();
         //playerData = new PlayerData();   
-        player.Bind(playerData);
+       // player.Bind(playerData);
         //GetStartingPlayerData();
-        inputManager.playerPrefab = player2Prefab;
-        string commaSeparatedList = PlayerPrefs.GetString("AllGameNames");
-        AllGameNames = commaSeparatedList.Split(",").ToList();
+        //inputManager.playerPrefab = player2Prefab;
+       // string commaSeparatedList = PlayerPrefs.GetString("AllGameNames");
+        //AllGameNames = commaSeparatedList.Split(",").ToList();
     
         }
     // TODO: if Player1 joins on button click and event shoots off when entering first level.

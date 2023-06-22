@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class ClockManager : GameManager
+public class ClockManager : DataReferenceInheritor
 {
     public class OnTickEventArgs : EventArgs
     {
@@ -23,8 +23,9 @@ public class ClockManager : GameManager
     public static bool isNight { get; private set; }
 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         gameHour = 0;
     }
     private void Update()
