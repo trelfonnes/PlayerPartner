@@ -10,9 +10,10 @@ public class PartnerBasicState : PartnerState
     protected bool switchInput;
     protected bool interactInput;
     protected bool evolveInput;
+   
 
     protected bool isTouchingWall;
-    protected bool isTouchingWallFollowing;
+    protected bool isTouchingWallFollowing; 
     protected bool isTouchingGround;
     protected bool canExitState;
     protected bool isTouchingPlayer;
@@ -66,6 +67,11 @@ public class PartnerBasicState : PartnerState
         switchInput = partner.InputHandler.SwitchPlayerInput;
         interactInput = partner.InputHandler.InteractInput;
         evolveInput = partner.InputHandler.EvolveInput;
+
+        if(interactInput && partner.JumpState.CanJump()) //might need to change input to make it a hold or a double tap??
+        {
+            PSM.ChangePartnerState(partner.JumpState);
+        }
         
     }
 

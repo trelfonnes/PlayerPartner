@@ -21,6 +21,9 @@ public class PlayerSOData : BaseSOPlayerData
     public float MaxStamina = 50;
     public float Poise;
     public float MaxPoise;
+    public int numberOfJumps = 1;
+    public float jumpForce = 1f;
+    public float jumpDistance = 1f;
     //public float EP = 0;
     //public float MaxEP = 25;
     //public bool Injured = false;

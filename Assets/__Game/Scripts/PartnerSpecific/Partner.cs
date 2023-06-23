@@ -14,6 +14,7 @@ public class Partner : MonoBehaviour
     public PartnerFollowMoveState FollowMoveState { get; private set; }
     public PartnerEvolutionState EvolutionState { get; private set; }
     public PartnerDeEvolutionState DevolveState { get; private set; }
+    public PartnerJumpState JumpState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -53,6 +54,7 @@ public class Partner : MonoBehaviour
         FollowMoveState = new PartnerFollowMoveState(this, StateMachine, playerSOData, _playerData, "followMove");
         EvolutionState = new PartnerEvolutionState(this, StateMachine, playerSOData, _playerData, "evolve");
         DevolveState = new PartnerDeEvolutionState(this, StateMachine, playerSOData, _playerData, "devolve");
+        JumpState = new PartnerJumpState(this, StateMachine, playerSOData, _playerData, "jump");
     }
     protected virtual void Start()
     {

@@ -81,6 +81,8 @@ public class Movement : CoreComponent
         SetFinalVelocity();
     }
 
+    
+
     private void SetFinalVelocity()
     {
         if (CanSetVelocity)

@@ -34,4 +34,16 @@ public class PartnerCollisionSenses : CollisionSenses
             return count > 0;
         }
     }
+
+    public void DisableHazardDetection()
+    {
+        Physics2D.IgnoreLayerCollision(10, 15, true); // 10 = partner, 15 = hazards
+    }
+    public void EnableHazardDetection()
+    {
+        Physics2D.IgnoreLayerCollision(10, 15, false);
+
+    }
+
+
 }

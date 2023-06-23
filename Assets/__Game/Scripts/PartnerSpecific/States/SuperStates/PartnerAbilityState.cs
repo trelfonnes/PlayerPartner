@@ -41,7 +41,7 @@ public class PartnerAbilityState : PartnerState
 
         if (isAbilityDone)
         {
-            PSM.ChangePartnerState(partner.FollowIdleState);
+            PSM.ChangePartnerState(partner.IdleState);
         }
     }
 
