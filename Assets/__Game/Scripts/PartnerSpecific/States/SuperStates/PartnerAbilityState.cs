@@ -39,10 +39,10 @@ public class PartnerAbilityState : PartnerState
     {
         base.LogicUpdate();
 
-        if (isAbilityDone)
-        {
-            PSM.ChangePartnerState(partner.IdleState);
-        }
+        //if (isAbilityDone)
+       // {
+        //    PSM.ChangePartnerState(partner.IdleState);
+       // }
     }
 
     public override void PhysicsUpdate()

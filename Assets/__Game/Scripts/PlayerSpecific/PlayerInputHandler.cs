@@ -15,6 +15,16 @@ public class PlayerInputHandler : MonoBehaviour
     public bool SpecialInput { get; private set; }
     public bool InteractInput { get; private set; }
     public bool EvolveInput { get; private set; }
+    public bool DashInput { get; private set; }
+
+    //Variables just for dash's double tap input because new input system is trash
+    private bool dashInputDown = false;
+    private bool isDoubleTap = false;
+    private float doubleTapTimeThreshold = 0.3f;
+    private float lastTapTime;
+    private bool isResettingDash = false;
+    private float resetDelay = .01f;
+
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -95,4 +105,49 @@ public class PlayerInputHandler : MonoBehaviour
 
         }
     }
+    public void OnDashInput(InputAction.CallbackContext context)
+    {
+
+        if (context.started)
+        {
+            float currentTime = Time.time;
+
+            if (currentTime - lastTapTime <= doubleTapTimeThreshold)
+            {
+                isDoubleTap = true;
+            }
+            else
+            {
+                isDoubleTap = false;
+            }
+
+            lastTapTime = currentTime;
+
+            dashInputDown = true;
+        }
+
+        if (context.started && isDoubleTap)
+        {
+            dashInputDown = false;
+            DashInput = true;
+            isDoubleTap = false;
+
+            if (!isResettingDash)
+            {
+                StartCoroutine(ResetDashInput());
+            }
+        }
+    }
+
+    private IEnumerator ResetDashInput()
+    {
+        isResettingDash = true;
+        yield return new WaitForSeconds(resetDelay);
+        DashInput = false;
+        isResettingDash = false;
+    }
+
 }
+    
+    
+

@@ -37,6 +37,7 @@ public class PartnerIdleState : PartnerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
         if (xInput != 0 || yInput != 0)
         {
             PSM.ChangePartnerState(partner.MoveState);

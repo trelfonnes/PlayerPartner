@@ -7,10 +7,11 @@ public class PartnerBasicState : PartnerState
     protected int yInput;
     protected int xInput;
 
+
     protected bool switchInput;
     protected bool interactInput;
     protected bool evolveInput;
-   
+    protected bool dashInput;
 
     protected bool isTouchingWall;
     protected bool isTouchingWallFollowing; 
@@ -48,7 +49,7 @@ public class PartnerBasicState : PartnerState
         base.Enter();
         CameraSwitcher.SwitchCamera(partner.PartnerCamera);
         inBasicStates = true;
-        
+
 
     }
 
@@ -67,11 +68,18 @@ public class PartnerBasicState : PartnerState
         switchInput = partner.InputHandler.SwitchPlayerInput;
         interactInput = partner.InputHandler.InteractInput;
         evolveInput = partner.InputHandler.EvolveInput;
-
-        if(interactInput && partner.JumpState.CanJump()) //might need to change input to make it a hold or a double tap??
+        dashInput = partner.InputHandler.DashInput;
+        if(interactInput && partner.JumpState.CanJump() && playerSOData.canJump) //might need to change input to make it a hold or a double tap??
         {
             PSM.ChangePartnerState(partner.JumpState);
         }
+        
+        if (partner.AbilityCooldownTimer.IsFinished() && dashInput && partner.DashState.CanDash() && playerSOData.canDash) // and can dash 
+        {
+                PSM.ChangePartnerState(partner.DashState);
+             //   partner.AbilityCooldownTimer.Reset();
+        }
+        
         
     }
 

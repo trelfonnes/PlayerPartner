@@ -17,17 +17,22 @@ MonoBehaviour:
   moveSpeed: 4
   watchSpeed: 0
   followSpeed: 4.5
-  MaxHealth: 9
+  MaxHealth: 11
   CurrentHealth: 0
-  SP: 2
+  SP: 10
   MaxSP: 20
-  Stamina: 55
-  MaxStamina: 60
+  Stamina: 51
+  MaxStamina: 75
   Poise: 30
   MaxPoise: 30
+  canJump: 1
   numberOfJumps: 1
   jumpForce: 1
   jumpDistance: 2
+  canDash: 1
+  dashTime: 0.15
+  numberOfDashes: 1
+  dashForce: 4
   stage1: 1
   stage2: 0
   stage3: 0

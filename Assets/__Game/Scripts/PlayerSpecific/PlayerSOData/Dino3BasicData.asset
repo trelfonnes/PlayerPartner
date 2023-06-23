@@ -25,6 +25,14 @@ MonoBehaviour:
   MaxStamina: 100
   Poise: 60
   MaxPoise: 60
+  canJump: 1
+  numberOfJumps: 1
+  jumpForce: 1
+  jumpDistance: 3
+  canDash: 1
+  dashTime: 0.15
+  numberOfDashes: 1
+  dashForce: 5
   stage1: 0
   stage2: 0
   stage3: 1

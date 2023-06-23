@@ -9,6 +9,7 @@ public class Movement : CoreComponent
     public int facingDirectionX { get; private set; }
     public int facingDirectionY { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
+    public Vector2 latestMovingVelocity { get; private set; }
     public bool CanSetVelocity { get; set; }
 
     protected override void Awake()
@@ -81,7 +82,10 @@ public class Movement : CoreComponent
         SetFinalVelocity();
     }
 
-    
+    public void SetLatestVelocity(Vector2 velocity)
+    {
+        latestMovingVelocity = velocity;
+    }
 
     private void SetFinalVelocity()
     {

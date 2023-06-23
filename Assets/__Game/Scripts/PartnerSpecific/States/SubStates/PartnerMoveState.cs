@@ -40,6 +40,7 @@ public class PartnerMoveState : PartnerBasicState
         Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput, yInput).normalized));
         if (Movement.CurrentVelocity != Vector2.zero)
         {
+            Movement.SetLatestVelocity(Movement.CurrentVelocity);
             partner.playerDirection = Movement.CurrentVelocity;
             partner.anim.SetFloat("moveY", partner.playerDirection.y);
             partner.anim.SetFloat("moveX", partner.playerDirection.x);

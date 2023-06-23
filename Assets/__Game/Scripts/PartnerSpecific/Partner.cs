@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System;
 
 public class Partner : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Partner : MonoBehaviour
     public PartnerEvolutionState EvolutionState { get; private set; }
     public PartnerDeEvolutionState DevolveState { get; private set; }
     public PartnerJumpState JumpState { get; private set; }
+    public PartnerDashState DashState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -23,10 +25,12 @@ public class Partner : MonoBehaviour
         get { return partnerCamera; }
         set { partnerCamera = value; }
     }
+   public Timer AbilityCooldownTimer;
 
     public bool stageOne;
     public bool stageTwo;
     public bool stageThree;
+    public float abilityCooldown = 2f;
     public PlayerInputHandler InputHandler { get; private set; }
     protected PlayerData _playerData; //data for stats refactor might not need it here
     [SerializeField]
@@ -55,18 +59,23 @@ public class Partner : MonoBehaviour
         EvolutionState = new PartnerEvolutionState(this, StateMachine, playerSOData, _playerData, "evolve");
         DevolveState = new PartnerDeEvolutionState(this, StateMachine, playerSOData, _playerData, "devolve");
         JumpState = new PartnerJumpState(this, StateMachine, playerSOData, _playerData, "jump");
+        DashState = new PartnerDashState(this, StateMachine, playerSOData, _playerData, "dash");
     }
     protected virtual void Start()
     {
-        
-      StateMachine.InitializePartner(FollowIdleState); //for when states are referenced in awake.
+        AbilityCooldownTimer = new Timer(abilityCooldown);
+        StateMachine.InitializePartner(FollowIdleState); //for when states are referenced in awake.
+       // 
     }
     protected virtual void Update()
     {
-       
+        AbilityCooldownTimer.Update(Time.deltaTime);
         StateMachine.CurrentPartnerState.LogicUpdate();
+        //
 
     }
+
+   
     protected virtual void FixedUpdate()
     {
         
