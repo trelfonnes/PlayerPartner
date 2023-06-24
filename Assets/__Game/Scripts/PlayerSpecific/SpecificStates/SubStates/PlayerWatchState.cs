@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,13 +20,17 @@ public class PlayerWatchState : PlayerBasicState
         Debug.Log("enteredWatch");
         canExitState = false;
         Movement?.SetVelocity(playerSOData.watchSpeed * (new Vector2(xInput, yInput)));
+        player.evolutionEvents.OnSwitchToPlayer += BackToIdle;
 
         
     }
 
+   
+
     public override void Exit()
     {
         base.Exit();
+        player.evolutionEvents.OnSwitchToPlayer -= BackToIdle;
 
     }
 
@@ -34,17 +39,8 @@ public class PlayerWatchState : PlayerBasicState
         base.LogicUpdate();//Event where camera already has access to player
         //TODO logic for switching camera from player to partner.. perhaps on entry
         // Within partner: logic for switching camera from partner to player. or switch back to player on exit.
-        if (!switchInput)
-        {
-            canExitState = true;
-        }
-        if (canExitState)
-        {
-            if (switchInput)
-            {
-                PSM.ChangeState(player.IdleState);
-            }
-        }
+       
+        
         
         
     }
@@ -52,5 +48,11 @@ public class PlayerWatchState : PlayerBasicState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    private void BackToIdle()
+    {
+        PSM.ChangeState(player.IdleState);
+        Debug.Log("event was triggered");
     }
 }

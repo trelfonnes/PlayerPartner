@@ -14,12 +14,31 @@ public class EvolutionEvents : ScriptableObject
     public event Action OnStopForEvolution;
     public event Action OnReturnFromEvolution;
 
+    // for switching character control
+    public event Action OnSwitchToPartner;
+    public event Action OnSwitchToPlayer;
+
     public int Stage1 = 1;
     public int Stage2 = 2;
     public int Stage3 = 3;
     public int devolveStage = 1;
     public bool isEvolving = false;
     public bool isDevolving = false;
+
+    public void SwitchToPlayer()
+    {
+        if(OnSwitchToPlayer != null)
+        {
+            OnSwitchToPlayer.Invoke();
+        }
+    }
+    public void SwitchToPartner()
+    {
+        if(OnSwitchToPartner != null)
+        {
+            OnSwitchToPartner.Invoke();
+        }
+    }
     public void EvolveToSecondStage()
     {
         if (OnEvolveToSecondStage != null)

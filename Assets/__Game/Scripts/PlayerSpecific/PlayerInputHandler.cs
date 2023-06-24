@@ -17,10 +17,12 @@ public class PlayerInputHandler : MonoBehaviour
     public bool EvolveInput { get; private set; }
     public bool DashInput { get; private set; }
 
+    
+
     //Variables just for dash's double tap input because new input system is trash
     private bool dashInputDown = false;
     private bool isDoubleTap = false;
-    private float doubleTapTimeThreshold = 0.3f;
+    private float doubleTapTimeThreshold = 0.2f;
     private float lastTapTime;
     private bool isResettingDash = false;
     private float resetDelay = .01f;
@@ -28,6 +30,8 @@ public class PlayerInputHandler : MonoBehaviour
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
+        
+
     }
     //write function to assign to the unity events found in the playerinput on Player GO
 
@@ -80,14 +84,17 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnPlayerSwitchInput(InputAction.CallbackContext context)
     {
-       if (context.ReadValueAsButton())
-        {
+        
+        
+            if (context.ReadValueAsButton())
+            {
                 SwitchPlayerInput = true;
-        }
-        else
-        {
-            SwitchPlayerInput = false;
-        }
+            }
+            else
+            {
+                SwitchPlayerInput = false;
+            }
+        
 
             
 

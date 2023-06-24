@@ -43,11 +43,14 @@ public class PartnerJumpState : PartnerAbilityState
     public override void Enter()
     {
         base.Enter();
+        Vector2 direction = new Vector2(partner.InputHandler.NormInputX, partner.InputHandler.NormInputY);
         initialPosition = partner.transform.position;
         DecreaseAmountOfJumpsLeft();
         Movement?.SetVelocityZero();
         CollisionSenses?.DisableHazardDetection();
-        Movement?.SetVelocity(partner.playerDirection * playerSOData.jumpForce);
+        Debug.Log(direction);
+
+        Movement?.SetVelocity(direction * playerSOData.jumpForce);
         timer = 0f;
     }
 
@@ -64,13 +67,14 @@ public class PartnerJumpState : PartnerAbilityState
         float distance = Vector2.Distance(initialPosition, partner.transform.position);
         timer += Time.deltaTime;
 
-        if(distance >= playerSOData.jumpDistance && !hasMovedJumpUnits)
+        if (distance >= playerSOData.jumpDistance && !hasMovedJumpUnits)
         {
-            Debug.Log("DIstance has been reached");
             hasMovedJumpUnits = true;
             Movement?.SetVelocityZero();
             CollisionSenses?.EnableHazardDetection();
             PSM.ChangePartnerState(partner.IdleState);
+            partner.JumpCooldownTimer.Reset();
+
         }
         else if(timer >= jumpTimeout)
         {
@@ -78,7 +82,10 @@ public class PartnerJumpState : PartnerAbilityState
             Movement?.SetVelocityZero();
             CollisionSenses?.EnableHazardDetection();
             PSM.ChangePartnerState(partner.IdleState);
+            partner.JumpCooldownTimer.Reset();
+
         }
+       
     }
 
     public override void PhysicsUpdate()

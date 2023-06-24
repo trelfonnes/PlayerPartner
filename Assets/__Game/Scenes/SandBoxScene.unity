@@ -2059,6 +2059,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2193247598617188902, guid: d4d029c15b653144cb469274227f23f0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193247598617188902, guid: d4d029c15b653144cb469274227f23f0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2193247598617188952, guid: d4d029c15b653144cb469274227f23f0, type: 3}
       propertyPath: areaSpawnPoint
       value: 

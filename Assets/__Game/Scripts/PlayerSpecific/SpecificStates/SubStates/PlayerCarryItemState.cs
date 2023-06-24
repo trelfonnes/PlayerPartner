@@ -25,6 +25,7 @@ public class PlayerCarryItemState : PlayerBasicState
     public override void Exit()
     {
         base.Exit();
+
     }
 
     public override void LogicUpdate()
@@ -53,7 +54,7 @@ public class PlayerCarryItemState : PlayerBasicState
         }
         if (canExitState)
         {
-            if (interactInput )
+            if (interactInput)
             {
                 if (currentlyCarrying)
                 {
@@ -61,15 +62,9 @@ public class PlayerCarryItemState : PlayerBasicState
                     currentlyCarrying = false;
                     PSM.ChangeState(player.MoveState);
 
-                   
+
 
                 }
-            }
-            if (switchInput)
-            {
-                HeldItemHit.collider.GetComponent<IThrow>().SetDown(player.playerDirection);
-                currentlyCarrying = false;
-                PSM.ChangeState(player.WatchState);
             }
         }
     }

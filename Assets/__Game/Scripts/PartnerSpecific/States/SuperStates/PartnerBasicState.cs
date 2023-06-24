@@ -69,15 +69,15 @@ public class PartnerBasicState : PartnerState
         interactInput = partner.InputHandler.InteractInput;
         evolveInput = partner.InputHandler.EvolveInput;
         dashInput = partner.InputHandler.DashInput;
-        if(interactInput && partner.JumpState.CanJump() && playerSOData.canJump) //might need to change input to make it a hold or a double tap??
+        if(partner.JumpCooldownTimer.IsFinished() && interactInput && partner.JumpState.CanJump() && playerSOData.canJump) //might need to change input to make it a hold or a double tap??
         {
             PSM.ChangePartnerState(partner.JumpState);
         }
         
-        if (partner.AbilityCooldownTimer.IsFinished() && dashInput && partner.DashState.CanDash() && playerSOData.canDash) // and can dash 
+        if (partner.DashCooldownTimer.IsFinished() && dashInput && partner.DashState.CanDash() && playerSOData.canDash) // and can dash 
         {
                 PSM.ChangePartnerState(partner.DashState);
-             //   partner.AbilityCooldownTimer.Reset();
+             
         }
         
         

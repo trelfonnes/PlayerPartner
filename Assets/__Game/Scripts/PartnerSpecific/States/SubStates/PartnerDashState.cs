@@ -15,7 +15,6 @@ public class PartnerDashState : PartnerAbilityState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Dash state entered");
         amountOfDashesLeft--;
         timer = 0f;
         Movement?.SetVelocity(Movement.latestMovingVelocity * playerSOData.dashForce);
@@ -25,7 +24,6 @@ public class PartnerDashState : PartnerAbilityState
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Dash state exited");
 
         ResetAmountOfDashesLeft();
     }
@@ -57,17 +55,16 @@ public class PartnerDashState : PartnerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        Debug.Log("In update for dash");
-
-        Movement?.SetVelocity(Movement.latestMovingVelocity * playerSOData.dashForce);
+        Movement?.SetVelocity(partner.playerDirection * playerSOData.dashForce);
         timer += Time.deltaTime;
 
         if (timer >= playerSOData.dashTime)
         {
             Movement?.SetVelocityZero();
             PSM.ChangePartnerState(partner.IdleState);
-            partner.AbilityCooldownTimer.Reset();
+            partner.DashCooldownTimer.Reset();
         }
+        
     }
 
     public override void PhysicsUpdate()

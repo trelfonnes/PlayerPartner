@@ -52,10 +52,7 @@ public class PlayerMoveState : PlayerBasicState
         }
         if (canExitState)
         {
-            if (switchInput)
-            {
-                PSM.ChangeState(player.WatchState);
-            }
+            
             if (interactInput && isTouchingCarryable)
             {
                 if (HitsToCarry )//&& !currentlyCarrying)

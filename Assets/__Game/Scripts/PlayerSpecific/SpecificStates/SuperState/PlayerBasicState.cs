@@ -46,6 +46,7 @@ public class PlayerBasicState : PlayerState
         CameraSwitcher.SwitchCamera(player.PlayerCamera);
         statEvents.onCurrentEPZero += TimeToDevolve;
         player.evolutionEvents.OnStopForEvolution += StartEvolution;
+        
     }
 
     public override void Exit()

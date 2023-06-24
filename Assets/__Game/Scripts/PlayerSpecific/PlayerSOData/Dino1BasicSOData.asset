@@ -21,13 +21,13 @@ MonoBehaviour:
   CurrentHealth: 0
   SP: 10
   MaxSP: 20
-  Stamina: 51
-  MaxStamina: 75
+  Stamina: 46
+  MaxStamina: 80
   Poise: 30
   MaxPoise: 30
   canJump: 1
   numberOfJumps: 1
-  jumpForce: 1
+  jumpForce: 1.5
   jumpDistance: 2
   canDash: 1
   dashTime: 0.15

@@ -50,13 +50,9 @@ public class PlayerHoldItemState : PlayerBasicState
                     PSM.ChangeState(player.IdleState);
 
                 }
+               
             }
-            if (switchInput)
-            {
-                HeldItemHit.collider.GetComponent<IThrow>().SetDown(player.playerDirection);
-                currentlyCarrying = false;
-                PSM.ChangeState(player.WatchState);
-            }
+            
         }
 
     }

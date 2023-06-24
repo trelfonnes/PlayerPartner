@@ -25,12 +25,14 @@ public class Partner : MonoBehaviour
         get { return partnerCamera; }
         set { partnerCamera = value; }
     }
-   public Timer AbilityCooldownTimer;
+   public Timer DashCooldownTimer;
+   public Timer JumpCooldownTimer;
 
     public bool stageOne;
     public bool stageTwo;
     public bool stageThree;
-    public float abilityCooldown = 2f;
+    public float dashCooldown = 1.5f;
+    public float jumpCooldown = .5f;
     public PlayerInputHandler InputHandler { get; private set; }
     protected PlayerData _playerData; //data for stats refactor might not need it here
     [SerializeField]
@@ -63,13 +65,21 @@ public class Partner : MonoBehaviour
     }
     protected virtual void Start()
     {
-        AbilityCooldownTimer = new Timer(abilityCooldown);
+        DashCooldownTimer = new Timer(dashCooldown);
+        JumpCooldownTimer = new Timer(jumpCooldown);
         StateMachine.InitializePartner(FollowIdleState); //for when states are referenced in awake.
        // 
     }
     protected virtual void Update()
     {
-        AbilityCooldownTimer.Update(Time.deltaTime);
+        if (playerSOData.canDash)
+        {
+            DashCooldownTimer.Update(Time.deltaTime);
+        }
+        if (playerSOData.canJump)
+        {
+            JumpCooldownTimer.Update(Time.deltaTime);
+        }
         StateMachine.CurrentPartnerState.LogicUpdate();
         //
 

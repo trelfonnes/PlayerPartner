@@ -46,12 +46,15 @@ public class PartnerIdleState : PartnerBasicState
         {
             canExitState = true;
         }
-       
+
+
         if (canExitState)
         {
             if (switchInput)
             {
+                Debug.Log("inside switch INput from partneridle");
                 PSM.ChangePartnerState(partner.FollowIdleState);
+                partner.evolutionEvents.SwitchToPlayer();
             }
             //TODO behavior to interact input conditions
         }

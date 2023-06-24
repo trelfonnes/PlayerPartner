@@ -18,6 +18,7 @@ public class PlayerIdleState : PlayerBasicState
         base.Enter();
         canExitState = false;
 
+
     }
 
     public override void Exit()
@@ -42,7 +43,9 @@ public class PlayerIdleState : PlayerBasicState
         {
             if (switchInput)
             {
+                player.evolutionEvents.SwitchToPartner();
                 PSM.ChangeState(player.WatchState);
+
             }
             if (interactInput && isTouchingCarryable)
             {

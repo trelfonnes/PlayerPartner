@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class PartnerFollowIdleState : PartnerFollowState
     {
         base.Enter();
         canExitState = false;
+        partner.evolutionEvents.OnSwitchToPartner += BackToIdle;
         if (playerSOData.stage2 || playerSOData.stage3)
         {
             statEvents.onCurrentEPZero += TimeToDevolve;
@@ -31,11 +33,17 @@ public class PartnerFollowIdleState : PartnerFollowState
     public override void Exit()
     {
         base.Exit();
+        partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
         if (playerSOData.stage2 || playerSOData.stage3)
         {
             statEvents.onCurrentEPZero -= TimeToDevolve;
 
         }
+    }
+
+    private void BackToIdle()
+    {
+        PSM.ChangePartnerState(partner.IdleState);
     }
 
     public override void LogicUpdate()
@@ -52,10 +60,10 @@ public class PartnerFollowIdleState : PartnerFollowState
         
         if (canExitState)
         {
-            if (switchInput)
-            {
-                PSM.ChangePartnerState(partner.IdleState);
-            }
+            
+            
+               
+            
         }
         if(evolveInput && isTouchingPlayer && !playerSOData.stage3 )
         {
