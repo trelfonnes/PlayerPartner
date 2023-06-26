@@ -60,7 +60,10 @@ public class InventoryMediator: MonoBehaviour
 
             foreach (PlayerSOData item in Datas)
             {
-                item.IsSick = sick;
+                if (item != null)
+                {
+                    item.IsSick = sick;
+                }
             }
         }
     }
@@ -70,7 +73,10 @@ public class InventoryMediator: MonoBehaviour
         {
             foreach (PlayerSOData item in Datas)
             {
-                item.IsInjured = injured;
+                if (item != null)
+                {
+                    item.IsInjured = injured;
+                }
             }
 
         }

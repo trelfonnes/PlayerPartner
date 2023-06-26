@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class ClockManager : DataReferenceInheritor
+public class ClockManager : MonoBehaviour
 {
     public class OnTickEventArgs : EventArgs
     {
@@ -13,7 +13,7 @@ public class ClockManager : DataReferenceInheritor
     public static event EventHandler<OnTickEventArgs> OnTick;
     public static event EventHandler<OnTickEventArgs> OnTick_6;
     private const float HoursInADay = 24f;
-    private const float RealSecondsPerGameHour = 60f;
+    private const float RealSecondsPerGameHour = 20f;
     [SerializeField] private float minutes;
     private int gameHour;
     private int daysInGame;
@@ -23,9 +23,8 @@ public class ClockManager : DataReferenceInheritor
     public static bool isNight { get; private set; }
 
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         gameHour = 0;
     }
     private void Update()

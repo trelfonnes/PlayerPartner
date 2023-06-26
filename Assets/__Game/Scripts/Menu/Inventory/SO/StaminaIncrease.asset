@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: StaminaIncrease
   m_EditorClassIdentifier: 
   itemName: Energy Boost
-  itemDescription: Refuel your partner. Satiate their hunger for longer with an Energy
-    Boost.
+  itemDescription: A quick and easy stamina refill. The artificial flavors may not
+    have the same effects as eating natual foods.
   itemImage: {fileID: -1238290935, guid: 53cdcada1346fd7489e33d26e8c0ec1d, type: 3}
-  numberHeld: 1
+  numberHeld: 0
   usable: 1
   unique: 0
   thisEvent:

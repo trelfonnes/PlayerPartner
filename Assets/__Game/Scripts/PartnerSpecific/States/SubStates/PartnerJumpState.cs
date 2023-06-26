@@ -7,7 +7,7 @@ public class PartnerJumpState : PartnerAbilityState
     int amountofJumpsLeft;
     Vector2 initialPosition;
     bool hasMovedJumpUnits = false;
-    float jumpTimeout = 1.5f;
+    float jumpTimeout = .85f;
     float timer = 0f;
 
     public PartnerJumpState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)

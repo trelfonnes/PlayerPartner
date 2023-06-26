@@ -13,12 +13,14 @@ public class PlayerSOData : BaseSOPlayerData
     [Header("Player and Partner SharedData")]
     public float MaxHealth = 5;
     public float CurrentHealth = 5;
+    public float HealthLimit;
     public int SP = 0;
     public int MaxSP = 25;
 
     [Header("Partner exclusive Data")]
     public float Stamina = 50;
     public float MaxStamina = 50;
+    public float StaminaLimit;
     public float Poise;
     public float MaxPoise;
     public bool canJump;
@@ -29,10 +31,8 @@ public class PlayerSOData : BaseSOPlayerData
     public float dashTime;
     public int numberOfDashes = 1;
     public float dashForce = 3f;
-    //public float EP = 0;
-    //public float MaxEP = 25;
-    //public bool Injured = false;
-   // public bool Sick = false;
+
+    [Header("Stage Identifier")]
     public bool stage1 = false;
     public bool stage2 = false;
     public bool stage3 = false;
@@ -40,4 +40,5 @@ public class PlayerSOData : BaseSOPlayerData
     [Header("Player exclusive Data")]
     public int Bytes = 0;
     public int MaxBytes = 50;
+
 }

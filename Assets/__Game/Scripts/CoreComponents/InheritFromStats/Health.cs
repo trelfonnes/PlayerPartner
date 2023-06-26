@@ -12,32 +12,57 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
     protected override void Awake()
     {
         base.Awake();
-      //  playerData.CurrentHealth = playerData.MaxHealth;
 
     }
+    
     public void DecreaseHealth(float amount)
     {
         SOData.CurrentHealth -= amount;
         if (SOData.CurrentHealth <= 0)
         {
             SOData.CurrentHealth = 0;
-            // OnCurrentHealthZero?.Invoke();
             base.CurrentHealthZero();
         }
     }
     public void IncreaseHealth(float amount)
     {
-        SOData.CurrentHealth = Mathf.Clamp(SOData.CurrentHealth + amount, 0, SOData.MaxHealth);
-        Debug.Log(SOData.CurrentHealth);
-        if (SOData.CurrentHealth == SOData.MaxHealth)
+        if (!SOData.IsInjured)
         {
-            base.CurrentHealthFull();
+            SOData.CurrentHealth = Mathf.Clamp(SOData.CurrentHealth + amount, 0, SOData.MaxHealth);
+            Debug.Log(SOData.CurrentHealth);
+            if (SOData.CurrentHealth == SOData.MaxHealth)
+            {
+                base.CurrentHealthFull();
+            }
         }
     }
     public void IncreaseMaxHealth(float amount)
     {
-        SOData.MaxHealth += amount;
+        SOData.MaxHealth = Mathf.Clamp(SOData.MaxHealth + amount, 0, SOData.HealthLimit);
 
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        ClockManager.OnTick += delegate (object sender, ClockManager.OnTickEventArgs e)
+        {
+           
+             if (SOData.IsInjured && SOData.CurrentHealth >= 2)
+            {
+                DecreaseHealth(2);
+            }
+        };
+    }
+    private void OnDisable()
+    {
+        ClockManager.OnTick -= delegate (object sender, ClockManager.OnTickEventArgs e)
+        {
+
+            if (SOData.IsInjured && SOData.CurrentHealth <= 2)
+            {
+                DecreaseHealth(2);
+            }
+        };
+    }
 }

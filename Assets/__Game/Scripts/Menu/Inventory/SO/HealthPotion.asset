@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
   itemName: Health Potion
-  itemDescription: Replenishes one heart... Yuck, grape flavor!
+  itemDescription: 'Replenishes your partner''s health. '
   itemImage: {fileID: -460473219, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  numberHeld: 1
+  numberHeld: 0
   usable: 1
   unique: 0
   thisEvent:

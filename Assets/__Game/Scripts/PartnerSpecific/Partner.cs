@@ -31,8 +31,8 @@ public class Partner : MonoBehaviour
     public bool stageOne;
     public bool stageTwo;
     public bool stageThree;
-    public float dashCooldown = 1.5f;
-    public float jumpCooldown = .5f;
+    public float dashCooldown = 3f;
+    public float jumpCooldown = 0f;
     public PlayerInputHandler InputHandler { get; private set; }
     protected PlayerData _playerData; //data for stats refactor might not need it here
     [SerializeField]

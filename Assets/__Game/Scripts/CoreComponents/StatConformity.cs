@@ -14,7 +14,8 @@ public class StatConformity: DataReferenceInheritor
         // if 1 is injured, already can't evolve, therefore 2 and 3 dont need to know.
         // if 2 or 3 is injured, only 1 needs to know. Once devolved, only 1 must recover from it
         partner2SOData.isSickChanged.AddListener(OnDataIsSickChanged);
-        partner3SOData.isSickChanged.AddListener(OnDataIsSickChanged);    
+        partner3SOData.isSickChanged.AddListener(OnDataIsSickChanged);
+        partner1SOData.isInjuredChanged.AddListener(OnDataIsInjuredChanged);
         partner2SOData.isInjuredChanged.AddListener(OnDataIsInjuredChanged);
         partner3SOData.isInjuredChanged.AddListener(OnDataIsInjuredChanged);
     }
@@ -23,6 +24,7 @@ public class StatConformity: DataReferenceInheritor
         partner1SOData.isSickChanged.RemoveListener(OnDataIsSickChanged);
         partner2SOData.isSickChanged.RemoveListener(OnDataIsSickChanged);
         partner3SOData.isSickChanged.RemoveListener(OnDataIsSickChanged);
+        partner1SOData.isInjuredChanged.RemoveListener(OnDataIsInjuredChanged);
         partner2SOData.isInjuredChanged.RemoveListener(OnDataIsInjuredChanged);
         partner3SOData.isInjuredChanged.RemoveListener(OnDataIsInjuredChanged);
 
@@ -37,6 +39,8 @@ public class StatConformity: DataReferenceInheritor
     void OnDataIsInjuredChanged(bool isInjured)
     {
         partner1SOData.IsInjured = isInjured;
+        partner2SOData.IsInjured = isInjured;
+        partner3SOData.IsInjured = isInjured;
     }
 
 }

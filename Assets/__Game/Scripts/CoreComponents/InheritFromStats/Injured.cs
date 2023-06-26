@@ -15,6 +15,7 @@ public class Injured : Stats, IInjured
     public void InjuredON()
     {
         SOData.IsInjured = true;
+        
     }
     public void InjuredOFF()
     {
@@ -25,6 +26,7 @@ public class Injured : Stats, IInjured
         SOData.IsInjured = rotate;
         if (SOData.IsInjured)
         {
+            playerData.ep = 1f;
             base.IsInjured();
         }
     }

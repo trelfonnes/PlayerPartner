@@ -26,6 +26,7 @@ public class DataReferenceInheritor : MonoBehaviour
             else
             {
                 //TODO create some logic that dictates which partnerDatas to match up with
+                // like, if user got a int 3 outcome in their questions, partner1SOdata = dino1 etc.
                 playerSOData = partnerDatas.playerSOData;
                 partner1SOData = partnerDatas.Dino1SOData;
                 partner2SOData = partnerDatas.Dino2SOData;
