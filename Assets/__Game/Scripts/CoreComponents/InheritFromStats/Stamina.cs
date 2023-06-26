@@ -43,11 +43,11 @@ public class Stamina : Stats, IStaminaChange
             //TODO: make reference to attack data when created... Maybe just an addition to the playerSOData to prevent multiple saves and issues with coordinating more SO data containers.    
             //base.CurrentStaminaZero();
             }
-        else if (SOData.Stamina > 0 && SOData.Stamina < SOData.MaxStamina)
-        {
-            Debug.Log("Current attack is at base attack levels.");
-        }
-
+             else if( SOData.Stamina > 0 && SOData.Stamina < SOData.MaxStamina)
+            {
+                Debug.Log("Current attack is at base attack levels.");
+            }
+        
     }
     public void IncreaseStamina(float amount)
     {
