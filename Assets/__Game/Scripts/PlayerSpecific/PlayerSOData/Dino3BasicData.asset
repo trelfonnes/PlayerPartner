@@ -17,12 +17,12 @@ MonoBehaviour:
   moveSpeed: 6
   watchSpeed: 0
   followSpeed: 4.5
-  MaxHealth: 20
-  CurrentHealth: 20
-  HealthLimit: 0
+  MaxHealth: 10
+  CurrentHealth: 10
+  HealthLimit: 13
   SP: 50
   MaxSP: 50
-  Stamina: 80
+  Stamina: 78
   MaxStamina: 80
   StaminaLimit: 100
   Poise: 60
