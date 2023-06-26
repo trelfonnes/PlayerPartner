@@ -58,7 +58,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
         ClockManager.OnTick += delegate (object sender, ClockManager.OnTickEventArgs e)
         {
            
-             if (SOData.IsInjured && SOData.CurrentHealth >= 2)
+             if (SOData.IsInjured && SOData.CurrentHealth > 2)
             {
                 DecreaseHealth(2);
             }

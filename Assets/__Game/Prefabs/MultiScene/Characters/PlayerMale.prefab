@@ -961,6 +961,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  heartDisplayUI: {fileID: 0}
 --- !u!1 &7759988393125100095
 GameObject:
   m_ObjectHideFlags: 0

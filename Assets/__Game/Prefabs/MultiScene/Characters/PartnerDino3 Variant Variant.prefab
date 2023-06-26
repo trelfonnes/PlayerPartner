@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 701172811918711957, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
     - target: {fileID: 1353452548656069634, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: m_Controller
       value: 
@@ -111,5 +115,33 @@ PrefabInstance:
       propertyPath: evolutionEvents
       value: 
       objectReference: {fileID: 11400000, guid: cea042e38e7e2db44bb9d1b3d982c775, type: 2}
+    - target: {fileID: 1761222645851046219, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
+    - target: {fileID: 3154289898732169666, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
+    - target: {fileID: 3709292515392832345, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
+    - target: {fileID: 4350711333780767137, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
+    - target: {fileID: 6612197180343552158, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
+    - target: {fileID: 6882491866135724397, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
+    - target: {fileID: 9015185129031821111, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}

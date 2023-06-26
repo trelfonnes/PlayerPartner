@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Stamina : Stats, IStaminaChange
 {
-   
 
+    [SerializeField] StaminaDisplayUI staminaDisplay;
     protected override void Awake()
     {
         base.Awake();
+        UpdateUI();
+    }
+    private void OnEnable()
+    {
+        UpdateUI();
     }
     protected override void Start()
     {
@@ -47,7 +52,9 @@ public class Stamina : Stats, IStaminaChange
             {
                 Debug.Log("Current attack is at base attack levels.");
             }
-        
+        UpdateUI();
+
+
     }
     public void IncreaseStamina(float amount)
     {
@@ -65,15 +72,18 @@ public class Stamina : Stats, IStaminaChange
             {
                 Debug.Log("Current attack is at base attack levels.");
             }
+            UpdateUI();
         }
     }
     public void IncreaseMaxStamina(float amount)
     {
 
         SOData.MaxStamina = Mathf.Clamp(SOData.MaxStamina + amount, 0, SOData.StaminaLimit);
-        
-            
-        
+        SOData.Stamina = SOData.MaxStamina;
+        UpdateUI();
+
+
+
     }
     private void OnDisable()
     {
@@ -92,6 +102,11 @@ public class Stamina : Stats, IStaminaChange
         {
             // Debug.Log("1/4 day passed!");
         };
+
+    }
+    void UpdateUI()
+    {
+        staminaDisplay.UpdateStaminaDisplay(SOData.Stamina, SOData.MaxStamina);
 
     }
 
