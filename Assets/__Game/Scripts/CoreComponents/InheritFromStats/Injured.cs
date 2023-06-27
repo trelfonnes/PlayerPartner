@@ -29,6 +29,7 @@ public class Injured : Stats, IInjured
             playerData.ep = 1f;
             base.IsInjured();
         }
+        UpdateConditionUI();
     }
 
 }

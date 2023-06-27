@@ -45,10 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  UIForEP: {fileID: 0}
   ep: 55
   maxEp: 55
   deviceOneCollected: 0
   deviceTwoCollected: 0
   StartEPTimer: 0
-  isSick: 0
-  isInjured: 0

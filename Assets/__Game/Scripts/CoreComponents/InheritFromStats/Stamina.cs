@@ -14,6 +14,8 @@ public class Stamina : Stats, IStaminaChange
     private void OnEnable()
     {
         UpdateUI();
+        UpdateConditionUI();
+
     }
     protected override void Start()
     {
@@ -44,6 +46,7 @@ public class Stamina : Stats, IStaminaChange
             if (SOData.Stamina <= 0)
             {
                 SOData.Stamina = 0;
+            UpdateConditionUI();
             Debug.Log("Current attack power is .75%");
             //TODO: make reference to attack data when created... Maybe just an addition to the playerSOData to prevent multiple saves and issues with coordinating more SO data containers.    
             //base.CurrentStaminaZero();
@@ -73,14 +76,19 @@ public class Stamina : Stats, IStaminaChange
                 Debug.Log("Current attack is at base attack levels.");
             }
             UpdateUI();
+            UpdateConditionUI();
         }
     }
     public void IncreaseMaxStamina(float amount)
     {
 
         SOData.MaxStamina = Mathf.Clamp(SOData.MaxStamina + amount, 0, SOData.StaminaLimit);
-        SOData.Stamina = SOData.MaxStamina;
+        if (!SOData.IsSick)
+        {
+            SOData.Stamina = SOData.MaxStamina;
+        }
         UpdateUI();
+        UpdateConditionUI();
 
 
 

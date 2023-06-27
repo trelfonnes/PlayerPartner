@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3f37ef9c34b2044b8aad5b2090a245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conditionDisplay: {fileID: 0}
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
   inventoryData: {fileID: 11400000, guid: f83a3ae31199b3249940664089cbee36, type: 2}
+  BytesDisplay: {fileID: 0}
 --- !u!1 &1600163993
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227918e585949ab4ea287253ea404203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conditionDisplay: {fileID: 0}
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
@@ -866,9 +869,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79c914afbe772d46b1f28eb2e0374ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conditionDisplay: {fileID: 0}
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  SPDisplay: {fileID: 0}
   inventoryData: {fileID: 11400000, guid: ced34d72727e671458b7e2ac7d4ba444, type: 2}
 --- !u!1 &4867193511025852559
 GameObject:
@@ -958,6 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad30bccbc6e68540b6d1683069aedf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conditionDisplay: {fileID: 0}
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}

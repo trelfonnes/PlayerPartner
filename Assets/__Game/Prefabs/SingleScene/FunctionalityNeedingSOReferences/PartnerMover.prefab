@@ -52,6 +52,7 @@ MonoBehaviour:
   dinoThree: {fileID: 0}
   inactiveTransform: {fileID: 688379086248300171}
   workingTransform: {fileID: 688379085552768648}
+  evolutionEvents: {fileID: 11400000, guid: cea042e38e7e2db44bb9d1b3d982c775, type: 2}
 --- !u!1 &688379085552768649
 GameObject:
   m_ObjectHideFlags: 0

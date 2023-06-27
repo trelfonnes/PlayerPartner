@@ -5,13 +5,13 @@ using System.Collections;
 public class PlayerData : MonoBehaviour
 {
     [SerializeField] public StatEvents statEvents;
-
+    [SerializeField] EPDisplayUI UIForEP;
     public float ep;
     public float maxEp;
     public bool deviceOneCollected;
     public bool deviceTwoCollected;
     public bool StartEPTimer;
-  
+    int roundedAmount;
 
     private static PlayerData instance;
 
@@ -32,7 +32,8 @@ public class PlayerData : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+        roundedAmount = Mathf.RoundToInt(ep);
+        UIForEP.UpdateEPDisplayUI(roundedAmount);
     }
      void Update()
     {
@@ -45,6 +46,8 @@ public class PlayerData : MonoBehaviour
      void CountDownEPTimer()
     {
             ep = Mathf.Clamp(ep - Time.deltaTime, 0, maxEp);
+         roundedAmount = Mathf.RoundToInt(ep);
+        UIForEP.UpdateEPDisplayUI(roundedAmount);
             if (ep <= 0)
             {
                 ep = 0;

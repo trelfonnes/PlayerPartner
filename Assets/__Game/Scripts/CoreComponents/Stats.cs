@@ -5,8 +5,10 @@ using System;
 
 public class Stats : CoreComponent, IInventory
 {
+    List<int> conditionIndices = new List<int>();
    protected PlayerData playerData;
-
+    [SerializeField]
+    protected ConditionDisplayUI conditionDisplay;
     [SerializeField]
     protected PlayerSOData SOData;//Data for states  
     [SerializeField]  PlayerInventory playerInventory;
@@ -17,10 +19,41 @@ public class Stats : CoreComponent, IInventory
     {
 
         playerData = PlayerData.Instance;
+        UpdateConditionUI();
     }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+    }
+    protected void UpdateConditionUI()
+    {
+        if (conditionDisplay != null)
+        {
+            Dictionary<int, bool> conditionData = new Dictionary<int, bool>();
+
+            // Add conditions to the dictionary based on their corresponding checks
+            conditionData.Add(0, SOData.CurrentHealth > 2 && !SOData.IsSick && !SOData.IsInjured);
+            conditionData.Add(1, SOData.IsSick);
+            conditionData.Add(2, SOData.IsInjured);
+            conditionData.Add(3, SOData.Stamina == 0);
+            conditionData.Add(4, SOData.CurrentHealth <= 2);
+
+            // Create a list to store the condition indices to be passed to the UpdateConditionUI method
+            List<int> conditionIndices = new List<int>();
+
+            // Iterate over the condition data and add the condition indices to the list
+            foreach (KeyValuePair<int, bool> condition in conditionData)
+            {
+                if (condition.Value)
+                {
+                    conditionIndices.Add(condition.Key);
+                }
+            }
+
+            // Update the condition display UI
+            conditionDisplay.UpdateConditionUI(conditionIndices);
+        }
+
     }
     public void AddItemToInventory(inventoryItems item)
     {

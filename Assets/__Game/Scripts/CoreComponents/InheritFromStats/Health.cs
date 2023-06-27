@@ -29,6 +29,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
             base.CurrentHealthZero();
         }
         UpdateUI();
+        UpdateConditionUI();
     }
 
     
@@ -43,6 +44,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
                 base.CurrentHealthFull();
             }
             UpdateUI();
+            UpdateConditionUI();
         }
     }
     public void IncreaseMaxHealth(float amount)
@@ -50,6 +52,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
         SOData.MaxHealth = Mathf.Clamp(SOData.MaxHealth + amount, 0, SOData.HealthLimit);
         SOData.CurrentHealth = SOData.MaxHealth;
         UpdateUI();
+        UpdateConditionUI();
     }
 
     protected override void Start()

@@ -44,12 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ed742d26bb4ba4a8a21c887c85b0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSOData: {fileID: 0}
-  partner1SOData: {fileID: 0}
-  partner2SOData: {fileID: 0}
-  partner3SOData: {fileID: 0}
-  AllGameNames: []
-  player1Prefab: {fileID: 0}
-  player2Prefab: {fileID: 0}
-  partner1Prefab: {fileID: 0}
   minutes: 0

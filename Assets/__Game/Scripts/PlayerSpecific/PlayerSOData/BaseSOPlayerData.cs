@@ -7,7 +7,7 @@ public class BaseSOPlayerData : ScriptableObject
 {
     public BoolEvent isSickChanged = new BoolEvent();
     public BoolEvent isInjuredChanged = new BoolEvent();
-
+    
     [SerializeField] bool isSick;
     public bool IsSick
     {

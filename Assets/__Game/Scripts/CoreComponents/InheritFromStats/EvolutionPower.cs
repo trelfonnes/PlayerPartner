@@ -7,6 +7,8 @@ public class EvolutionPower : Stats, IEvolutionPower
 {
     [SerializeField] private bool startEvolutionTimer = false;
     [SerializeField] inventoryItems inventoryData;
+    [SerializeField] EPDisplayUI EPDisplay;
+    int roundedAmount;
 
     protected override void Awake()
     {
@@ -29,6 +31,8 @@ public class EvolutionPower : Stats, IEvolutionPower
             
             StopEvolutionTimer();
         }
+        roundedAmount = Mathf.RoundToInt(playerData.ep);
+        EPDisplay.UpdateEPDisplayUI(roundedAmount);
     }
 
     public void IncreaseEP(int amount)
@@ -36,7 +40,8 @@ public class EvolutionPower : Stats, IEvolutionPower
         playerData.ep = Mathf.Clamp(playerData.ep + amount, 0, playerData.maxEp);
         inventoryData.numberHeld = Mathf.Clamp(inventoryData.numberHeld + amount, 0, (int)playerData.maxEp);
         AddItemToInventory(inventoryData);
-
+        roundedAmount = Mathf.RoundToInt(playerData.ep);
+        EPDisplay.UpdateEPDisplayUI(roundedAmount);
     }
     public void IncreaseMaxEP(int amount)
     {

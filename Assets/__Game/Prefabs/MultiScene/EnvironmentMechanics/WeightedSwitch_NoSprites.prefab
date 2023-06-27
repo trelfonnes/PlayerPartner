@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchPressed: {fileID: 1615465951, guid: 9eb3a29dcec80f54387dab4353144779, type: 3}
   switchUnPressed: {fileID: -363286437, guid: 9eb3a29dcec80f54387dab4353144779, type: 3}
+  doorToOpen: {fileID: 0}
 --- !u!212 &662951681542431226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,8 +87,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1535005951
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -363286437, guid: 9eb3a29dcec80f54387dab4353144779, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

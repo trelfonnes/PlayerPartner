@@ -11,9 +11,10 @@ public class StaminaDisplayUI : MonoBehaviour
     public void UpdateStaminaDisplay(float currentStamina, float maxStamina)
     {
         float fillAmount = currentStamina / maxStamina;
-
-        staminaMeter.fillAmount = fillAmount;
-
+        if (staminaMeter != null)
+        {
+            staminaMeter.fillAmount = fillAmount;
+        }
     }
 
 }

@@ -26,6 +26,7 @@ public class Sick : Stats, ISick
         {
             base.IsSick();
         }
+        UpdateConditionUI();
     }
 
 }
