@@ -3,11 +3,11 @@ using TMPro;
 
 public class SPDisplayUI : MonoBehaviour
 {
-    TextMeshProUGUI numberAmount;
+   [SerializeField] TextMeshProUGUI numberAmount;
 
-    void Awake()
+    private void Awake()
     {
-        numberAmount = GetComponent<TextMeshProUGUI>();
+       // numberAmount = GetComponent<TextMeshProUGUI>();
     }
     public void ChangeSPDisplay(int amount)
     {

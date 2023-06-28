@@ -13,7 +13,10 @@ public class SpecialPower : Stats, ISpecialPower
     }
     private void OnEnable()
     {
-        UpdateUI();
+        if (SPDisplay != null)
+        {
+            UpdateUI();
+        }
     }
 
 
@@ -43,10 +46,9 @@ public class SpecialPower : Stats, ISpecialPower
     }
     private void UpdateUI()
     {
-        if (SPDisplay != null)
-        {
+       
             SPDisplay.ChangeSPDisplay(SOData.SP);
-        }
+        
     }
 
 }

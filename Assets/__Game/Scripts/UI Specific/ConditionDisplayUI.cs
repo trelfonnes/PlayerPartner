@@ -13,12 +13,37 @@ public class ConditionDisplayUI : DataReferenceInheritor
     // [1] Sick
     // [2] Injured
     // [3] Hungry
-    // [4] lowHP or multiple at once
+    // [4] lowHP
     protected override void Awake()
     {
         base.Awake();
         partner1SOData.isInjuredChanged.AddListener(UpdateConditionUIInjured);
         partner1SOData.isSickChanged.AddListener(UpdateConditionUISick);
+        partner1SOData.OnCurrentHealthValueChanged += UpdateHealthDisplayFromInventory;
+        partner2SOData.OnCurrentHealthValueChanged += UpdateHealthDisplayFromInventory;
+        partner3SOData.OnCurrentHealthValueChanged += UpdateHealthDisplayFromInventory;
+        partner1SOData.OnStaminaValueChanged += UpdateStaminaDisplayFromInventory;
+        partner2SOData.OnStaminaValueChanged += UpdateStaminaDisplayFromInventory;
+        partner3SOData.OnStaminaValueChanged += UpdateStaminaDisplayFromInventory;
+
+    }
+
+    private void UpdateStaminaDisplayFromInventory(float stamina)
+    {
+        if(stamina > 0f)
+        {
+            conditions[3].gameObject.SetActive(false);
+        }
+    }
+
+    private void UpdateHealthDisplayFromInventory(float currentHealth)
+    {
+        if(currentHealth > 2)
+        {
+            conditions[0].gameObject.SetActive(true);
+            conditions[4].gameObject.SetActive(false);
+        }
+        
     }
 
     private void UpdateConditionUISick(bool sick)
@@ -32,6 +57,7 @@ public class ConditionDisplayUI : DataReferenceInheritor
             else
             {
                 conditions[1].gameObject.SetActive(false);
+                
             }
         }
     }
@@ -68,6 +94,18 @@ public class ConditionDisplayUI : DataReferenceInheritor
                 conditions[conditionIndex].gameObject.SetActive(true);
             }
         }
+    }
+    private void OnDisable()
+    {
+        partner1SOData.isInjuredChanged.RemoveListener(UpdateConditionUIInjured);
+        partner1SOData.isSickChanged.RemoveListener(UpdateConditionUISick);
+        partner1SOData.OnCurrentHealthValueChanged -= UpdateHealthDisplayFromInventory;
+        partner2SOData.OnCurrentHealthValueChanged -= UpdateHealthDisplayFromInventory;
+        partner3SOData.OnCurrentHealthValueChanged -= UpdateHealthDisplayFromInventory;
+        partner1SOData.OnStaminaValueChanged -= UpdateStaminaDisplayFromInventory;
+        partner2SOData.OnStaminaValueChanged -= UpdateStaminaDisplayFromInventory;
+        partner3SOData.OnStaminaValueChanged -= UpdateStaminaDisplayFromInventory;
+
     }
 
 }

@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6887f46d125531b4b9da6341b792f198, type: 3}
   m_Name: Dino3BasicData
   m_EditorClassIdentifier: 
-  isSick: 0
-  isInjured: 0
+  isSick: 1
+  currentHealth: 10
+  stamina: 70
+  isInjured: 1
   moveSpeed: 6
   watchSpeed: 0
   followSpeed: 4.5
   MaxHealth: 10
-  CurrentHealth: 10
   HealthLimit: 13
   SP: 50
   MaxSP: 50
-  Stamina: 69
-  MaxStamina: 80
-  StaminaLimit: 100
+  MaxStamina: 70
+  StaminaLimit: 70
   Poise: 60
   MaxPoise: 60
   canJump: 1

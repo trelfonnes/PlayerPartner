@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Dino2BasicData
   m_EditorClassIdentifier: 
   isSick: 1
+  currentHealth: 7
+  stamina: 60
   isInjured: 1
   moveSpeed: 5
   watchSpeed: 0
   followSpeed: 4.5
   MaxHealth: 7
-  CurrentHealth: 7
   HealthLimit: 10
   SP: 4
   MaxSP: 25
-  Stamina: 55
-  MaxStamina: 55
-  StaminaLimit: 80
+  MaxStamina: 60
+  StaminaLimit: 70
   Poise: 40
   MaxPoise: 40
   canJump: 1

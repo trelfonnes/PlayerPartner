@@ -10,7 +10,11 @@ public class Bytes : Stats, IBytes
     protected override void Awake()
     {
         base.Awake();
+    }
+    private void OnEnable()
+    {
         UpdateUI();
+
     }
 
 

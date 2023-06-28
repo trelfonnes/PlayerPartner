@@ -2,13 +2,16 @@ using UnityEngine;
 using TMPro;
 public class BytesDisplayUI : MonoBehaviour
 {
-     TextMeshProUGUI numberAmount;
+    [SerializeField] TextMeshProUGUI numberAmount;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        numberAmount = GetComponent<TextMeshProUGUI>();
+       // numberAmount = GetComponent<TextMeshProUGUI>();
+
     }
+   
+   
     public void ChangeByteDisplay(int amount)
     {
         string number = amount.ToString();

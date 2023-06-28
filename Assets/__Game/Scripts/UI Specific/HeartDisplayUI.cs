@@ -1,12 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeartDisplayUI : MonoBehaviour
+public class HeartDisplayUI : DataReferenceInheritor
 {
-    [SerializeField] List<Image> heartsFull = new List<Image>();
+    [SerializeField] protected List<Image> heartsFull = new List<Image>();
     [SerializeField] List<Image> heartsEmpty = new List<Image>();
+    protected override void Awake()
+    {
+        base.Awake();
+        
+    }
+
+   
 
     public void UpdateHeartDisplay(float currentHealth, float maxHealth)
     {
@@ -38,5 +46,6 @@ public class HeartDisplayUI : MonoBehaviour
         }
 
     }
+   
 
 }

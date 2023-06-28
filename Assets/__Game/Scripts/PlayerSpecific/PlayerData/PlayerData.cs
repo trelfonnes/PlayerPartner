@@ -33,9 +33,13 @@ public class PlayerData : MonoBehaviour
             Destroy(gameObject);
         }
         roundedAmount = Mathf.RoundToInt(ep);
-        UIForEP.UpdateEPDisplayUI(roundedAmount);
     }
-     void Update()
+    private void OnEnable()
+    {
+        UIForEP.UpdateEPDisplayUI(roundedAmount);
+
+    }
+    void Update()
     {
         if (StartEPTimer)
         {
@@ -56,6 +60,12 @@ public class PlayerData : MonoBehaviour
                 
            }
         
+    }
+    public void LowerEPOnInjury()
+    {
+        ep = 1;
+        roundedAmount = Mathf.RoundToInt(ep);
+        UIForEP.UpdateEPDisplayUI(roundedAmount);
     }
 
     

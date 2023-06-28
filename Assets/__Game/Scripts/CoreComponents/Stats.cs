@@ -32,7 +32,7 @@ public class Stats : CoreComponent, IInventory
             Dictionary<int, bool> conditionData = new Dictionary<int, bool>();
 
             // Add conditions to the dictionary based on their corresponding checks
-            conditionData.Add(0, SOData.CurrentHealth > 2 && !SOData.IsSick && !SOData.IsInjured);
+            conditionData.Add(0, SOData.CurrentHealth == SOData.MaxHealth && !SOData.IsSick && !SOData.IsInjured);
             conditionData.Add(1, SOData.IsSick);
             conditionData.Add(2, SOData.IsInjured);
             conditionData.Add(3, SOData.Stamina == 0);

@@ -12,13 +12,13 @@ public class PlayerSOData : BaseSOPlayerData
 
     [Header("Player and Partner SharedData")]
     public float MaxHealth = 5;
-    public float CurrentHealth = 5;
+    //public float CurrentHealth = 5;
     public float HealthLimit;
     public int SP = 0;
     public int MaxSP = 25;
 
     [Header("Partner exclusive Data")]
-    public float Stamina = 50;
+    //public float Stamina = 50;
     public float MaxStamina = 50;
     public float StaminaLimit;
     public float Poise;
