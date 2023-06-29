@@ -7,20 +7,29 @@ public class PlayerAttackState : PlayerAbilityState
     private int xInput;
     private int yInput;
 
-
-    public PlayerAttackState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
+    Weapon weapon;
+    public PlayerAttackState(Player player, 
+        PlayerStateMachine PSM, 
+        PlayerSOData playerSOData, 
+        PlayerData playerData, 
+        string animBoolName, 
+        Weapon weapon)
+        : base(player, PSM, playerSOData, playerData, animBoolName)
     {
+        this.weapon = weapon;
     }
 
     
     public override void DoChecks()
     {
         base.DoChecks();
+
     }
 
     public override void Enter()
     {
         base.Enter();
+        weapon.Enter();
     }
 
     public override void Exit()

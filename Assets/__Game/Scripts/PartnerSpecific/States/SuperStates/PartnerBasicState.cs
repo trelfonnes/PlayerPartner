@@ -12,6 +12,8 @@ public class PartnerBasicState : PartnerState
     protected bool interactInput;
     protected bool evolveInput;
     protected bool dashInput;
+    protected bool primaryAttackInput;
+    protected bool secondaryAttackInput;
 
     protected bool isTouchingWall;
     protected bool isTouchingWallFollowing; 
@@ -69,6 +71,8 @@ public class PartnerBasicState : PartnerState
         interactInput = partner.InputHandler.InteractInput;
         evolveInput = partner.InputHandler.EvolveInput;
         dashInput = partner.InputHandler.DashInput;
+        primaryAttackInput = partner.InputHandler.AttackInputs[(int)CombatInputs.primary];
+        secondaryAttackInput = partner.InputHandler.AttackInputs[(int)CombatInputs.secondary];
         if(partner.JumpCooldownTimer.IsFinished() && interactInput && partner.JumpState.CanJump() && playerSOData.canJump) //might need to change input to make it a hold or a double tap??
         {
             PSM.ChangePartnerState(partner.JumpState);
@@ -79,8 +83,16 @@ public class PartnerBasicState : PartnerState
                 PSM.ChangePartnerState(partner.DashState);
              
         }
-        
-        
+        if (primaryAttackInput)
+        {
+            PSM.ChangePartnerState(partner.PrimaryAttackState);
+        }
+        if (secondaryAttackInput)
+        {
+            PSM.ChangePartnerState(partner.SecondaryAttackState);
+
+        }
+
     }
 
     public override void PhysicsUpdate()

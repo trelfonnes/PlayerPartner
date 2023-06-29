@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: SOData
       value: 
       objectReference: {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
+    - target: {fileID: 2783422548460997316, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Name
       value: PartnerDino2 Variant
@@ -112,6 +116,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1826283489, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
     - target: {fileID: 3096751259281156567, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096751259281156567, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
@@ -131,6 +139,10 @@ PrefabInstance:
       propertyPath: SOData
       value: 
       objectReference: {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
+    - target: {fileID: 5784541043429851520, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0bfa9543277a8af46bf9151f3c65e96f, type: 2}
     - target: {fileID: 7201974324662115658, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SOData
       value: 

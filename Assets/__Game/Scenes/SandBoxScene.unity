@@ -213,6 +213,10 @@ PrefabInstance:
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 2670796561949907037, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
+      propertyPath: m_Name
+      value: SecondaryWeapon
+      objectReference: {fileID: 0}
     - target: {fileID: 3107129183724493810, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
       propertyPath: SPDisplay
       value: 
@@ -396,6 +400,10 @@ PrefabInstance:
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 6182616109045877553, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_Name
+      value: SecondaryWeapon
+      objectReference: {fileID: 0}
     - target: {fileID: 6612197180343552158, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: SPDisplay
       value: 
@@ -2092,6 +2100,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1950540334760021476, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3c2b469f755f79442900b9762711df57, type: 2}
+    - target: {fileID: 6028625586064826487, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3c2b469f755f79442900b9762711df57, type: 2}
+    - target: {fileID: 7221562749691807364, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3c2b469f755f79442900b9762711df57, type: 2}
     - target: {fileID: 8430108973224999087, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
       propertyPath: m_Name
       value: PlayerFemale
@@ -2813,6 +2833,10 @@ PrefabInstance:
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 7925389389495410405, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_Name
+      value: SecondaryWeapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e59075285719fb1469c9501c19ad3641, type: 3}
 --- !u!1001 &3307293009101895787

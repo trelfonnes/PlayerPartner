@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
-    public PlayerAttackState AttackState { get; private set; }
+    public PlayerAttackState PrimaryAttackState { get; private set; }
+    public PlayerAttackState SecondaryAttackState { get; private set; }
     public PlayerSpecialState SpecialState { get; private set; }
     public PlayerCarryItemState CarryItemState { get; private set; }
     public PlayerHoldItemState HoldItemState { get; private set; }
@@ -35,22 +36,28 @@ public class Player : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera playerCamera;
    
     public Vector2 playerDirection;
-
+    public Vector2 lastDirection;
+    Weapon primaryWeapon;
+    Weapon secondaryWeapon;
 
 
 
     #region Unity Callback Functions Initialized in Awake Method
-    
+
     protected virtual void Awake()
     {
         
         playerDirection = Vector2.down;
         StateMachine = new PlayerStateMachine();
         core = GetComponentInChildren<CoreHandler>();
+        primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<Weapon>();
+        secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<Weapon>();
+
         _playerData = PlayerData.Instance;
         IdleState = new PlayerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerSOData, _playerData, "move");
-        AttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack");
+        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon);
+        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack", secondaryWeapon);
         SpecialState = new PlayerSpecialState(this, StateMachine, playerSOData, _playerData, "special");
         CarryItemState = new PlayerCarryItemState(this, StateMachine, playerSOData, _playerData, "carryItem");
         HoldItemState = new PlayerHoldItemState(this, StateMachine, playerSOData, _playerData, "holdItem");

@@ -17,6 +17,8 @@ public class Partner : MonoBehaviour
     public PartnerDeEvolutionState DevolveState { get; private set; }
     public PartnerJumpState JumpState { get; private set; }
     public PartnerDashState DashState { get; private set; }
+    public PartnerAttackState PrimaryAttackState { get; private set; }
+    public PartnerAttackState SecondaryAttackState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -42,6 +44,9 @@ public class Partner : MonoBehaviour
     [SerializeField] public StatEvents statEvents;
     [SerializeField] CinemachineVirtualCamera partnerCamera;
     public Vector2 playerDirection;
+    public Vector2 lastDirection;
+    PartnerWeapon primaryWeapon;
+    PartnerWeapon secondaryWeapon;
 
  
 
@@ -49,11 +54,16 @@ public class Partner : MonoBehaviour
     {
         
         core = GetComponentInChildren<CoreHandler>();
+        primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<PartnerWeapon>();
+        secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<PartnerWeapon>();
         anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         _playerData = PlayerData.Instance;
         StateMachine = new PlayerStateMachine();
         playerDirection = Vector2.down;
+
+        PrimaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon);
+        SecondaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", secondaryWeapon);
         MoveState = new PartnerMoveState(this, StateMachine, playerSOData, _playerData, "move");
         IdleState = new PartnerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         FollowIdleState = new PartnerFollowIdleState(this, StateMachine, playerSOData, _playerData, "followIdle");

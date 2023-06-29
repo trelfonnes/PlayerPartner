@@ -10,7 +10,9 @@ public class PlayerBasicState : PlayerState
     protected bool switchInput;
     protected bool interactInput;
     protected bool evolveInput;
-
+    protected bool primaryAttackInput;
+    protected bool secondaryAttackInput;
+    protected bool isWatching;
     protected bool isTouchingWall;
     protected bool isTouchingCarryable;
     protected bool isTouchingInteractable;
@@ -65,7 +67,19 @@ public class PlayerBasicState : PlayerState
         switchInput = player.InputHandler.SwitchPlayerInput;
         interactInput = player.InputHandler.InteractInput;
         evolveInput = player.InputHandler.EvolveInput;
-        
+        primaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.primary];
+        secondaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.secondary];
+
+
+        if (primaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.PrimaryAttackState);
+        }
+        if (secondaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.SecondaryAttackState);
+
+        }
     }
 
     public override void PhysicsUpdate()

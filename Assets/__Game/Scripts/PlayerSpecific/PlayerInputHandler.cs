@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class PlayerInputHandler : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool[] AttackInputs { get; private set; }
     public bool MenuInput { get; private set; }
     public bool SwitchPlayerInput { get; private set; }
-    public bool SpecialInput { get; private set; }
+    //public bool SpecialInput { get; private set; }
     public bool InteractInput { get; private set; }
     public bool EvolveInput { get; private set; }
     public bool DashInput { get; private set; }
@@ -33,34 +34,46 @@ public class PlayerInputHandler : MonoBehaviour
         
 
     }
-    //write function to assign to the unity events found in the playerinput on Player GO
-
+    private void Start()
+    {
+        int count = Enum.GetValues(typeof(CombatInputs)).Length;
+        AttackInputs = new bool[count];
+    }
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
         NormInputX = Mathf.RoundToInt(RawMovementInput.x);
         NormInputY = Mathf.RoundToInt(RawMovementInput.y);
     }
-    public void OnAttackInput(InputAction.CallbackContext context)
+    public void OnAttackInput(InputAction.CallbackContext context)//primary
     {
        // TODO: example of how to get a more custom and accurate input reading than the three events
        // _playerInput.actions["Attack"].ReadValue<float>() > 0
         if (context.started)
         {
-            // TODO add attackinputs
+            AttackInputs[(int)CombatInputs.primary] = true;        
         }
         if (context.performed)
         {
-            Debug.Log("Attack is held down");
         }
         if(context.canceled)
         {
-            Debug.Log("Attack is released");
+            AttackInputs[(int)CombatInputs.primary] = false;
         }
     }
     public void OnSpecialInput(InputAction.CallbackContext context)
     {
-
+        if (context.started)
+        {
+            AttackInputs[(int)CombatInputs.secondary] = true;
+        }
+        if (context.performed)
+        {
+        }
+        if (context.canceled)
+        {
+            AttackInputs[(int)CombatInputs.secondary] = false;
+        }
     }
     public void OnInteractInput(InputAction.CallbackContext context)
     {
@@ -153,8 +166,14 @@ public class PlayerInputHandler : MonoBehaviour
         DashInput = false;
         isResettingDash = false;
     }
+    
 
 }
-    
-    
+
+public enum CombatInputs
+{
+    primary,
+    secondary
+}
+
 

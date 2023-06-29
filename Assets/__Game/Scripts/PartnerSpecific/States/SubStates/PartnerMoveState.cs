@@ -44,6 +44,7 @@ public class PartnerMoveState : PartnerBasicState
             partner.playerDirection = Movement.CurrentVelocity;
             partner.anim.SetFloat("moveY", partner.playerDirection.y);
             partner.anim.SetFloat("moveX", partner.playerDirection.x);
+            partner.lastDirection = partner.playerDirection;
         }
         if (!isExitingState)
         {

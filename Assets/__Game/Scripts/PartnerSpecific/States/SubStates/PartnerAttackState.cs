@@ -2,17 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerAttackState : MonoBehaviour
+public class PartnerAttackState : PartnerAbilityState
 {
-    // Start is called before the first frame update
-    void Start()
+    PartnerWeapon weapon;
+    public PartnerAttackState(Partner partner, 
+        PlayerStateMachine PSM, 
+        PlayerSOData playerSOData, 
+        PlayerData playerData, 
+        string animBoolName,
+        PartnerWeapon weapon) 
+        : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
-        
+        this.weapon = weapon;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void DoChecks()
     {
-        
+        base.DoChecks();
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        weapon.Enter();
+
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
     }
 }

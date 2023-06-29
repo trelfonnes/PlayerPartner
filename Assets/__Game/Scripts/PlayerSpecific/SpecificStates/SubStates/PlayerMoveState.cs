@@ -35,6 +35,7 @@ public class PlayerMoveState : PlayerBasicState
             player.playerDirection = Movement.CurrentVelocity;
             player.anim.SetFloat("moveY", player.playerDirection.y);
             player.anim.SetFloat("moveX", player.playerDirection.x);
+            player.lastDirection = player.playerDirection;
             
         }
 
