@@ -17,6 +17,7 @@ public class PlayerAttackState : PlayerAbilityState
         : base(player, PSM, playerSOData, playerData, animBoolName)
     {
         this.weapon = weapon;
+        weapon.onExit += ExitHandler;  //DO I need to unsub??
     }
 
     
@@ -57,5 +58,9 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.AnimationTrigger();
     }
-
+    void ExitHandler()
+    {
+        AnimationFinishTrigger();
+        isAbilityDone = true;
+    }
 }

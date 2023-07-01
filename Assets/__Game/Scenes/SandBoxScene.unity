@@ -213,6 +213,18 @@ PrefabInstance:
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 2177257923782733500, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
+      propertyPath: m_Size.x
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177257923782733500, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
+      propertyPath: m_Size.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177257923782733500, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2670796561949907037, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
       propertyPath: m_Name
       value: SecondaryWeapon
@@ -412,6 +424,10 @@ PrefabInstance:
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 7992393184567836112, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9015185129031821111, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: conditionDisplay
       value: 
@@ -2104,6 +2120,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3c2b469f755f79442900b9762711df57, type: 2}
+    - target: {fileID: 4631878489478574127, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6028625586064826487, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
       propertyPath: m_Controller
       value: 
@@ -2825,6 +2845,10 @@ PrefabInstance:
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 6258627381479909380, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7201974324662115658, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SPDisplay
       value: 
@@ -2917,6 +2941,10 @@ PrefabInstance:
       propertyPath: BytesDisplay
       value: 
       objectReference: {fileID: 5441495952303462420}
+    - target: {fileID: 268200328066416747, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3414641316636900619, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: heartDisplayUI
       value: 
@@ -2984,6 +3012,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1600163994, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
   m_PrefabInstance: {fileID: 3963916745244065920}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3963916745244065922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6684593722917559598, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+  m_PrefabInstance: {fileID: 3963916745244065920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3963916745244065923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3963916745244065922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac3f0535536e284a82705b534d8fb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4357927886842178456
 PrefabInstance:
   m_ObjectHideFlags: 0

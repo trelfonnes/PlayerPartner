@@ -14,6 +14,7 @@ public class PartnerAttackState : PartnerAbilityState
         : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
         this.weapon = weapon;
+        weapon.onExit += ExitHandler; //DO I need to unsub??
     }
 
     public override void DoChecks()
@@ -41,5 +42,10 @@ public class PartnerAttackState : PartnerAbilityState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+    void ExitHandler()
+    {
+        AnimationFinishTrigger();
+        isAbilityDone = true;
     }
 }

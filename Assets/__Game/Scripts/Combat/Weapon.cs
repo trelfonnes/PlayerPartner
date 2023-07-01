@@ -5,10 +5,12 @@ using System;
 
 public class Weapon : MonoBehaviour
 {
-
+    public event Action onExit;
     Animator anim;
     GameObject baseGO;
     Player player;
+    AnimationEventHandler eventHandler;
+
   public void Enter()
     {
         print($"{transform.name} enter");
@@ -18,12 +20,27 @@ public class Weapon : MonoBehaviour
 
     }
 
+    void Exit()
+    {
+        anim.SetBool("active", false);
+        onExit?.Invoke();
+    }
+
     private void Awake()
     {
         baseGO = transform.Find("Base").gameObject;
         player = GetComponentInParent<Player>();
         anim = baseGO.GetComponent<Animator>();
+        eventHandler = baseGO.GetComponent<AnimationEventHandler>();
 
         
+    }
+    private void OnEnable()
+    {
+        eventHandler.OnFinish += Exit;
+    }
+    private void OnDisable()
+    {
+        eventHandler.OnFinish -= Exit;
     }
 }

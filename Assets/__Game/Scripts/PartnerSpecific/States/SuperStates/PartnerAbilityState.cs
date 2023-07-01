@@ -30,6 +30,7 @@ public class PartnerAbilityState : PartnerState
     public override void Enter()
     {
         base.Enter();
+        isAbilityDone = false;
     }
 
     public override void Exit()
@@ -43,10 +44,13 @@ public class PartnerAbilityState : PartnerState
         switchInput = partner.InputHandler.SwitchPlayerInput;
 
 
-        //if (isAbilityDone)
-        // {
-        //    PSM.ChangePartnerState(partner.IdleState);
-        // }
+        if (isAbilityDone)
+         {
+            if (Movement?.CurrentVelocity.x < .01 && Movement?.CurrentVelocity.y < .01)
+            {
+                PSM.ChangePartnerState(partner.IdleState);
+            }
+         }
     }
 
     public override void PhysicsUpdate()

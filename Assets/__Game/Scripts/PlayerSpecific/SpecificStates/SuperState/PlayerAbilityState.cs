@@ -32,7 +32,7 @@ public class PlayerAbilityState : PlayerState
         base.LogicUpdate();
         if (isAbilityDone)
         {
-            if(Movement.CurrentVelocity.x < .01 && Movement.CurrentVelocity.y < .01)
+            if(Movement?.CurrentVelocity.x < .01 && Movement?.CurrentVelocity.y < .01)
             {
                 PSM.ChangeState(player.IdleState);
             }
