@@ -15,10 +15,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1177287998788063283, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3c2b469f755f79442900b9762711df57, type: 2}
     - target: {fileID: 2121437962378263932, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2866346799339976384, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3c2b469f755f79442900b9762711df57, type: 2}
     - target: {fileID: 3414641316636900619, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: SOData
       value: 
@@ -123,5 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227918e585949ab4ea287253ea404203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conditionDisplay: {fileID: 0}
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
+  statEvents: {fileID: 0}

@@ -151,6 +151,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2039c6ea1c37277448d024d261fc9867, type: 2}
+    - target: {fileID: 7992393184567836112, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_Size.x
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992393184567836112, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_Size.y
+      value: 3.75
+      objectReference: {fileID: 0}
     - target: {fileID: 9015185129031821111, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: SOData
       value: 
