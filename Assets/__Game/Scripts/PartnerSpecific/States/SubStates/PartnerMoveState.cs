@@ -38,9 +38,9 @@ public class PartnerMoveState : PartnerBasicState
         base.LogicUpdate();
         Movement?.CheckIfShouldFlip(xInput, yInput);
         Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput, yInput).normalized));
-        if (Movement.CurrentVelocity != Vector2.zero)
+        if (Movement?.CurrentVelocity != Vector2.zero)
         {
-            Movement.SetLatestVelocity(Movement.CurrentVelocity);
+            Movement?.SetLatestVelocity(Movement.CurrentVelocity);
             partner.playerDirection = Movement.CurrentVelocity;
             partner.anim.SetFloat("moveY", partner.playerDirection.y);
             partner.anim.SetFloat("moveX", partner.playerDirection.x);

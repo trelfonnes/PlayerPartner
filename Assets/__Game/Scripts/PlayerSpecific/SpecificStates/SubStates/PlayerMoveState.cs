@@ -30,7 +30,7 @@ public class PlayerMoveState : PlayerBasicState
         
         Movement?.CheckIfShouldFlip(xInput, yInput);
         Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput,  yInput).normalized));
-       if(Movement.CurrentVelocity != Vector2.zero)
+       if(Movement?.CurrentVelocity != Vector2.zero)
         {
             player.playerDirection = Movement.CurrentVelocity;
             player.anim.SetFloat("moveY", player.playerDirection.y);

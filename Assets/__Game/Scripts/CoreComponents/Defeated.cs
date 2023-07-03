@@ -28,7 +28,7 @@ public class Defeated : CoreComponent
         {
         foreach (var particle in defeatedParticles)
         {
-            Particles.StartParticles(particle);
+            Particles?.StartParticles(particle);
         }
 
         core.transform.parent.gameObject.SetActive(false);

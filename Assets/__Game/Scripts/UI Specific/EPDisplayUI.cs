@@ -17,6 +17,5 @@ public class EPDisplayUI : MonoBehaviour
     {
         string number = amount.ToString();
         EPAmount.text = number;
-        Debug.Log(amount);
     }
 }

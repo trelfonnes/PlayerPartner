@@ -127,6 +127,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2556178062691424939, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575684325174878636, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: weaponSprites.Array.data[0].<Sprites>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: -57562604, guid: 220cb46c3c067494ea2ebb09c79c7d01, type: 3}
+    - target: {fileID: 2575684325174878636, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: weaponSprites.Array.data[0].<Sprites>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: -2076007643, guid: 220cb46c3c067494ea2ebb09c79c7d01, type: 3}
     - target: {fileID: 3154289898732169666, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: SOData
       value: 

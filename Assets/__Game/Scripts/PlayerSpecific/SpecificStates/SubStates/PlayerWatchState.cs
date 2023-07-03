@@ -20,7 +20,7 @@ public class PlayerWatchState : PlayerBasicState
         Debug.Log("enteredWatch");
         isWatching = true;
         canExitState = false;
-        Movement?.SetVelocity(playerSOData.watchSpeed * (new Vector2(xInput, yInput)));
+        Movement.SetVelocity(playerSOData.watchSpeed * (new Vector2(xInput, yInput)));
         player.evolutionEvents.OnSwitchToPlayer += BackToIdle;
 
         

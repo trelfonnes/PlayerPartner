@@ -6,7 +6,8 @@ public abstract class WeaponComponent : MonoBehaviour
 {
     protected Weapon weapon;
     protected PartnerWeapon partnerWeapon;
-
+    protected Partner partner;
+    protected Player player;
     protected bool isAttackActive;
     protected bool isPartnerAttackActive;
 
@@ -14,6 +15,14 @@ public abstract class WeaponComponent : MonoBehaviour
     {
         weapon = GetComponent<Weapon>();
         partnerWeapon = GetComponent<PartnerWeapon>();
+        if(weapon != null)
+        {
+            player = GetComponentInParent<Player>();
+        }
+        if(partnerWeapon != null)
+        {
+            partner = GetComponentInParent<Partner>();
+        }
     }
 
     protected virtual void HandleEnter()

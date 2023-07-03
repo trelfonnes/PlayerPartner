@@ -1277,6 +1277,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1047706342680383730, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989388053292830388, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2607447855836341977, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: numberOfAttacks
       value: 1
@@ -1324,9 +1332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSprites:
   - <Sprites>k__BackingField:
-    - {fileID: -1024236966, guid: 514e8f04196fcc84d9d080982770253f, type: 3}
-    - {fileID: -1055215216, guid: 514e8f04196fcc84d9d080982770253f, type: 3}
-    - {fileID: -447970652, guid: 514e8f04196fcc84d9d080982770253f, type: 3}
+    - {fileID: -396325562, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
+    - {fileID: -1071569395, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
 --- !u!1001 &3096751257990633546
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -66,7 +66,7 @@ public class PartnerFollowMoveState : PartnerFollowState
 
         if (isTouchingPlayer || isTouchingWallFollowing)
         {
-            Movement.SetVelocityZero();
+            Movement?.SetVelocityZero();
             PSM.ChangePartnerState(partner.FollowIdleState);
         }
         

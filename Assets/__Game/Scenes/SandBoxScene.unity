@@ -372,6 +372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PartnerDino2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1353452548656069656, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1353452550487928147, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: followPoint
       value: 
@@ -384,6 +388,10 @@ PrefabInstance:
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 2556178062691424939, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3154289898732169666, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: EPDisplay
       value: 

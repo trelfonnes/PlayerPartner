@@ -25,9 +25,13 @@ public class PartnerWeaponSprite : WeaponComponent
         var currentAttackSprites = weaponSprites[partnerWeapon.CurrentAttackCounter].Sprites;
             if(currentWeaponSpriteIndex >= currentAttackSprites.Length)
         {
-            Debug.LogWarning($"{weapon.name} weapon Sprites length mismatch");
+           // Debug.LogWarning($"{weapon.name} weapon Sprites length mismatch");
             return;
         }
+
+        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, partner.lastDirection);
+        partnerWeaponsSpriteRenderer.transform.rotation = targetRotation;
+
         partnerWeaponsSpriteRenderer.sprite = currentAttackSprites[currentWeaponSpriteIndex];
         currentWeaponSpriteIndex++;
     }
@@ -57,4 +61,6 @@ public class PartnerWeaponSprite : WeaponComponent
         partnerWeapon.onEnter -= HandlePartnerEnter;
 
     }
+
+
 }
