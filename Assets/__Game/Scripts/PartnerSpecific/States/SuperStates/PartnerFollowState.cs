@@ -34,11 +34,14 @@ public class PartnerFollowState : PartnerState
     public override void DoChecks()
     {
         base.DoChecks();
-        isTouchingWallFollowing = CollisionSenses.WallCheckFollowing;
-        isTouchingWall = CollisionSenses.WallCheckPartner;
-        isTouchingGround = CollisionSenses.GroundCheck;
-        isTouchingPlayer = CollisionSenses.PlayerCheck;
-        player = CollisionSenses.followPoint;
+        if (CollisionSenses)
+        {
+            isTouchingWallFollowing = CollisionSenses.WallCheckFollowing;
+            isTouchingWall = CollisionSenses.WallCheckPartner;
+            isTouchingGround = CollisionSenses.GroundCheck;
+            isTouchingPlayer = CollisionSenses.PlayerCheck;
+            player = CollisionSenses.followPoint;
+        }
     }
 
     public override void Enter()

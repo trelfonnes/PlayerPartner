@@ -31,15 +31,18 @@ public class PlayerBasicState : PlayerState
     {
         base.DoChecks();
         // TODO add references to collision senses
-        carryPoint = PlayerCollisionSenses.carryPoint;
-        HitsToCarry = PlayerCollisionSenses.HitsToCarry;
-        HitsToInteract = PlayerCollisionSenses.HitsToInteract;
-        HeldItemHit = PlayerCollisionSenses.HeldItemHit;
-        isTouchingWall = PlayerCollisionSenses.WallCheck;
-        isTouchingCarryable = PlayerCollisionSenses.CarryableCheck;
-        isTouchingGround = PlayerCollisionSenses.GroundCheck;
-        isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
-        isTouchingInteractable = PlayerCollisionSenses.InteractableCheck;
+        if (PlayerCollisionSenses)
+        {
+            carryPoint = PlayerCollisionSenses.carryPoint;
+            HitsToCarry = PlayerCollisionSenses.HitsToCarry;
+            HitsToInteract = PlayerCollisionSenses.HitsToInteract;
+            HeldItemHit = PlayerCollisionSenses.HeldItemHit;
+            isTouchingWall = PlayerCollisionSenses.WallCheck;
+            isTouchingCarryable = PlayerCollisionSenses.CarryableCheck;
+            isTouchingGround = PlayerCollisionSenses.GroundCheck;
+            isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
+            isTouchingInteractable = PlayerCollisionSenses.InteractableCheck;
+        }
     }
 
     public override void Enter()

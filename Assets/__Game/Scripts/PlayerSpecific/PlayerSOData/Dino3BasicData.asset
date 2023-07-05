@@ -16,7 +16,7 @@ MonoBehaviour:
   currentHealth: 10
   stamina: 70
   isInjured: 1
-  moveSpeed: 6
+  moveSpeed: 5.5
   watchSpeed: 0
   followSpeed: 4.5
   MaxHealth: 10
@@ -24,7 +24,7 @@ MonoBehaviour:
   SP: 50
   MaxSP: 50
   MaxStamina: 70
-  StaminaLimit: 70
+  StaminaLimit: 80
   Poise: 60
   MaxPoise: 60
   canJump: 1

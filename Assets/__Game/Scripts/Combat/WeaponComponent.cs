@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public abstract class WeaponComponent : MonoBehaviour
 {
@@ -11,18 +12,26 @@ public abstract class WeaponComponent : MonoBehaviour
     protected bool isAttackActive;
     protected bool isPartnerAttackActive;
 
+    // protected AnimationEventHandler PlayerEventHandler => weapon.EventHandler;
+    // protected AnimationEventHandler PartnerEventHandler => partnerWeapon.EventHandler;
+
+    //TODO: switch these below to top and remove from awake Once ready.
+
+    protected AnimationEventHandler PartnerEventHandler;
+    protected AnimationEventHandler PlayerEventHandler;
+    protected CoreHandler PlayerCore => weapon?.Core;
+    protected CoreHandler PartnerCore => partnerWeapon?.Core;
+
     protected virtual void Awake()
     {
-        weapon = GetComponent<Weapon>();
-        partnerWeapon = GetComponent<PartnerWeapon>();
-        if(weapon != null)
-        {
-            player = GetComponentInParent<Player>();
-        }
-        if(partnerWeapon != null)
-        {
+            
+            partnerWeapon = GetComponent<PartnerWeapon>();
             partner = GetComponentInParent<Partner>();
-        }
+            PartnerEventHandler = GetComponentInChildren<AnimationEventHandler>();
+        weapon = GetComponent<Weapon>();
+        player = GetComponentInParent<Player>();
+        PlayerEventHandler = GetComponentInChildren<AnimationEventHandler>();
+
     }
 
     protected virtual void HandleEnter()

@@ -5,5 +5,15 @@ using System;
 public class AnimationEventHandler : MonoBehaviour
 {
     public event Action OnFinish;
+    public event Action OnStartMovement;
+    public event Action OnStopMovement;
+
     void AnimationFinishedTrigger() => OnFinish?.Invoke();
+
+    void StartMovementTrigger() => OnStartMovement?.Invoke();
+    void StopMovementTrigger()
+    {
+        
+        OnStopMovement?.Invoke();
+    }
 }

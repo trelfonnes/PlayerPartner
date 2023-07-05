@@ -20,31 +20,35 @@ public class HeartDisplayUI : DataReferenceInheritor
     {
         int fullHeartsCount = Mathf.CeilToInt(currentHealth);
         int emptyHeartsCount = Mathf.CeilToInt(maxHealth);
-
-        for (int i = 0; i < heartsFull.Count; i++)
+        if (heartsFull != null)
         {
-            if(i < fullHeartsCount)
+            for (int i = 0; i < heartsFull.Count; i++)
             {
-                heartsFull[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                heartsFull[i].gameObject.SetActive(false);
-            }
+                if (i < fullHeartsCount)
+                {
+                    heartsFull[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    heartsFull[i].gameObject.SetActive(false);
+                }
 
-        }
-        for (int i = 0; i < heartsEmpty.Count; i++)
-        {
-            if(i < emptyHeartsCount)
-            {
-                heartsEmpty[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                heartsEmpty[i].gameObject.SetActive(false);
             }
         }
-
+        if (heartsEmpty != null)
+        {
+            for (int i = 0; i < heartsEmpty.Count; i++)
+            {
+                if (i < emptyHeartsCount)
+                {
+                    heartsEmpty[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    heartsEmpty[i].gameObject.SetActive(false);
+                }
+            }
+        }
     }
    
 

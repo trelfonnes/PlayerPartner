@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Dino1BasicSOData
   m_EditorClassIdentifier: 
   isSick: 0
-  currentHealth: 4
-  stamina: 43
+  currentHealth: 5
+  stamina: 48
   isInjured: 0
   moveSpeed: 4
   watchSpeed: 0
   followSpeed: 4.5
-  MaxHealth: 4
+  MaxHealth: 5
   HealthLimit: 7
-  SP: 13
+  SP: 15
   MaxSP: 20
   MaxStamina: 50
   StaminaLimit: 60

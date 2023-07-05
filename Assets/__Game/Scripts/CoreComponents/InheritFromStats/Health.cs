@@ -22,14 +22,21 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
 
     public void DecreaseHealth(float amount)
     {
-        SOData.CurrentHealth -= amount;
-        if (SOData.CurrentHealth <= 0)
+        if (gameObject.transform.parent.parent.gameObject.activeSelf)//even if only UPdateUI on active, event in stats still triggers and changes UI
         {
-            SOData.CurrentHealth = 0;
-            base.CurrentHealthZero();
+            SOData.CurrentHealth -= amount;
+            Debug.Log("decreasingHealth.. hopefully once");
+            if (SOData.CurrentHealth <= 0)
+            {
+
+                SOData.CurrentHealth = 0;
+                base.CurrentHealthZero();
+            }
+
+            UpdateUI();
+            UpdateConditionUI();
         }
-        UpdateUI();
-        UpdateConditionUI();
+        
     }
 
     
@@ -72,16 +79,18 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
         ClockManager.OnTick -= delegate (object sender, ClockManager.OnTickEventArgs e)
         {
 
-            if (SOData.IsInjured && SOData.CurrentHealth <= 2)
-            {
-                DecreaseHealth(2);
-            }
+
         };
     }
 
     private void UpdateUI()
     {
-        heartDisplayUI.UpdateHeartDisplay(SOData.CurrentHealth, SOData.MaxHealth);
+        if (gameObject.transform.parent.parent.gameObject.activeSelf)
+        {
+            
+            if (heartDisplayUI != null)
+                heartDisplayUI.UpdateHeartDisplay(SOData.CurrentHealth, SOData.MaxHealth);
+        }
     }
 
 }

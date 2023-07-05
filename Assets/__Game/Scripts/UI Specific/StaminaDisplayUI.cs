@@ -11,17 +11,19 @@ public class StaminaDisplayUI : DataReferenceInheritor
     protected override void Awake()
     {
         base.Awake();
-        partner1SOData.OnStaminaValueChanged += UpdateDisplayViaInventory;
         partner2SOData.OnStaminaValueChanged += UpdateDisplayViaInventory;
         partner3SOData.OnStaminaValueChanged += UpdateDisplayViaInventory;
-            
+        partner1SOData.OnStaminaValueChanged += UpdateDisplayViaInventory;
+
     }
 
     private void UpdateDisplayViaInventory(float amount)
     {
-        float fillAmount = amount/MaxStamina;//using this variable because Idk how else and i'm sick and tired of this inventory system
-        if(staminaMeter != null)
+        if (staminaMeter != null)
         {
+            Debug.Log("updating via data, not through stats");
+            float fillAmount = amount/MaxStamina;//using this variable because Idk how else and i'm sick and tired of this inventory system
+        
             staminaMeter.fillAmount = fillAmount;
         }
     
@@ -29,19 +31,20 @@ public class StaminaDisplayUI : DataReferenceInheritor
 
     public void UpdateStaminaDisplay(float currentStamina, float maxStamina)
     {
-        MaxStamina = maxStamina;
-        float fillAmount = currentStamina / maxStamina;
         if (staminaMeter != null)
         {
+            MaxStamina = maxStamina;
+        float fillAmount = currentStamina / maxStamina;
+        
             staminaMeter.fillAmount = fillAmount;
         }
     }
 
     private void OnDisable()
     {
-        partner1SOData.OnStaminaValueChanged -= UpdateDisplayViaInventory;
         partner2SOData.OnStaminaValueChanged -= UpdateDisplayViaInventory;
         partner3SOData.OnStaminaValueChanged -= UpdateDisplayViaInventory;
+        partner1SOData.OnStaminaValueChanged -= UpdateDisplayViaInventory;
 
     }
 }

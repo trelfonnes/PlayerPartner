@@ -16,7 +16,7 @@ public class PlayerEvolutionState : PlayerBasicState
     public override void Enter()
     {
         base.Enter();
-        Movement.SetVelocityZero();
+        Movement?.SetVelocityZero();
         player.evolutionEvents.OnReturnFromEvolution += StopEvolution;
     }
 

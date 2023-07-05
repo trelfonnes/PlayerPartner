@@ -7,7 +7,8 @@ public class PartnerWeaponSprite : WeaponComponent
     SpriteRenderer partnerBaseSpriteRenderer;
     SpriteRenderer partnerWeaponsSpriteRenderer;
 
-    [SerializeField] WeaponsSprites[] weaponSprites;
+    WeaponSpriteData data;
+ 
     int currentWeaponSpriteIndex;
     protected override void HandlePartnerEnter()
     {
@@ -22,7 +23,7 @@ public class PartnerWeaponSprite : WeaponComponent
             return;
         }
 
-        var currentAttackSprites = weaponSprites[partnerWeapon.CurrentAttackCounter].Sprites;
+        var currentAttackSprites = data.AttackData[partnerWeapon.CurrentAttackCounter].Sprites;
             if(currentWeaponSpriteIndex >= currentAttackSprites.Length)
         {
            // Debug.LogWarning($"{weapon.name} weapon Sprites length mismatch");
@@ -30,6 +31,7 @@ public class PartnerWeaponSprite : WeaponComponent
         }
 
         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, partner.lastDirection);
+        //do something with last direction to see if sprite should flip on the x axis??
         partnerWeaponsSpriteRenderer.transform.rotation = targetRotation;
 
         partnerWeaponsSpriteRenderer.sprite = currentAttackSprites[currentWeaponSpriteIndex];
@@ -41,6 +43,9 @@ public class PartnerWeaponSprite : WeaponComponent
         base.Awake();
         partnerBaseSpriteRenderer = transform.Find("Base").GetComponent<SpriteRenderer>();
         partnerWeaponsSpriteRenderer = transform.Find("WeaponSprite").GetComponent<SpriteRenderer>();
+
+        data = partnerWeapon.Data.GetData<WeaponSpriteData>();
+
 
         // TODO: fix this when creating weapon data
 

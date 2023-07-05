@@ -5,16 +5,12 @@ using System;
 public class PartnerWeapon : MonoBehaviour
 {
     [SerializeField] float attackCounterResetCooldown;
-    [SerializeField] private int numberOfAttacks;
+    [field: SerializeField] public WeaponDataSO Data { get; private set; }
     public int CurrentAttackCounter
     {
         get => currentAttackCounter;
-        private set
-        {
-            if (value >= numberOfAttacks)
-            { currentAttackCounter = 0; }
-            else { currentAttackCounter = value; }
-        }
+        private set => currentAttackCounter = value >= Data.NumberOfAttacks ? 0 : value;
+
     }
 
     public event Action onExit;
@@ -24,7 +20,9 @@ public class PartnerWeapon : MonoBehaviour
     public GameObject WeaponSpriteGO { get; private set; }
 
     Partner partner;
-    AnimationEventHandler eventHandler;
+    public AnimationEventHandler EventHandler { get; private set; }
+    public CoreHandler Core { get; private set; }
+
     int currentAttackCounter;
     private Timer attackCounterResetTimer;
     public void Enter()
@@ -50,7 +48,7 @@ public class PartnerWeapon : MonoBehaviour
         WeaponSpriteGO = transform.Find("WeaponSprite").gameObject;
         partner = GetComponentInParent<Partner>();
         anim = BaseGO.GetComponent<Animator>();
-        eventHandler = BaseGO.GetComponent<AnimationEventHandler>();
+        EventHandler = BaseGO.GetComponent<AnimationEventHandler>();
         attackCounterResetTimer = new Timer(attackCounterResetCooldown);
 
 
@@ -65,14 +63,18 @@ public class PartnerWeapon : MonoBehaviour
     }
     private void OnEnable()
     {
-        eventHandler.OnFinish += Exit;
+        EventHandler.OnFinish += Exit;
         attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
 
     }
     private void OnDisable()
     {
-        eventHandler.OnFinish -= Exit;
+        EventHandler.OnFinish -= Exit;
         attackCounterResetTimer.OnTimerDone -= ResetAttackCounter;
 
+    }
+    public void SetCore(CoreHandler core)
+    {
+        Core = core;
     }
 }

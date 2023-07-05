@@ -5,17 +5,14 @@ using System;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private int numberOfAttacks;
-     [SerializeField]  float attackCounterResetCooldown;
+    [field: SerializeField] public WeaponDataSO Data { get; private set; }
+
+    [SerializeField]  float attackCounterResetCooldown;
      public int CurrentAttackCounter
     {
         get => currentAttackCounter;
-        private set
-        {
-            if (value >= numberOfAttacks)
-            { currentAttackCounter = 0; }
-            else { currentAttackCounter = value; }
-        }
+        private set => currentAttackCounter = value >= Data.NumberOfAttacks ? 0 : value;
+        
     }
 
     public event Action onExit;
@@ -24,7 +21,8 @@ public class Weapon : MonoBehaviour
     public GameObject BaseGO { get; private set; }
     public GameObject WeaponSpriteGO { get; private set; }
     Player player;
-    AnimationEventHandler eventHandler;
+    public AnimationEventHandler EventHandler { get; private set; }
+    public CoreHandler Core { get; private set; }
 
     int currentAttackCounter;
      private Timer attackCounterResetTimer;
@@ -54,7 +52,7 @@ public class Weapon : MonoBehaviour
         WeaponSpriteGO = transform.Find("WeaponSprite").gameObject;
         player = GetComponentInParent<Player>();
         anim = BaseGO.GetComponent<Animator>();
-        eventHandler = BaseGO.GetComponent<AnimationEventHandler>();
+        EventHandler = BaseGO.GetComponent<AnimationEventHandler>();
          attackCounterResetTimer = new Timer(attackCounterResetCooldown);
         
     }
@@ -70,13 +68,17 @@ public class Weapon : MonoBehaviour
 
     private void OnEnable()
     {
-        eventHandler.OnFinish += Exit;
+        EventHandler.OnFinish += Exit;
          attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
     }
     private void OnDisable()
     {
-        eventHandler.OnFinish -= Exit;
+        EventHandler.OnFinish -= Exit;
          attackCounterResetTimer.OnTimerDone -= ResetAttackCounter;
 
+    }
+    public void SetCore(CoreHandler core)
+    {
+        Core = core;
     }
 }

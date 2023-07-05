@@ -56,6 +56,8 @@ public class Partner : MonoBehaviour
         core = GetComponentInChildren<CoreHandler>();
         primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<PartnerWeapon>();
         secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<PartnerWeapon>();
+        primaryWeapon.SetCore(core);
+        secondaryWeapon.SetCore(core);
         anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         _playerData = PlayerData.Instance;

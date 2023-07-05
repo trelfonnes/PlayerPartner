@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: SOData
       value: 
       objectReference: {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
+    - target: {fileID: 1966082196348456831, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2324048287371154591, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SOData
       value: 
@@ -131,10 +135,18 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -81584303
       objectReference: {fileID: 0}
+    - target: {fileID: 3351323679572738871, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: <Data>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: bc8dcae0a24754545bbf73e55cfa4539, type: 2}
     - target: {fileID: 3569845725399091521, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SOData
       value: 
       objectReference: {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
+    - target: {fileID: 3597630684682271060, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: <Data>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f0382bd97a31a84c8af7a4fe97d4e65, type: 2}
     - target: {fileID: 4984900039003140835, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SOData
       value: 

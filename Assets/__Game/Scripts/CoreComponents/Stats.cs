@@ -27,31 +27,34 @@ public class Stats : CoreComponent, IInventory
     }
     protected void UpdateConditionUI()
     {
-        if (conditionDisplay != null)
+        if (gameObject.activeSelf)
         {
-            Dictionary<int, bool> conditionData = new Dictionary<int, bool>();
-
-            // Add conditions to the dictionary based on their corresponding checks
-            conditionData.Add(0, SOData.CurrentHealth == SOData.MaxHealth && !SOData.IsSick && !SOData.IsInjured);
-            conditionData.Add(1, SOData.IsSick);
-            conditionData.Add(2, SOData.IsInjured);
-            conditionData.Add(3, SOData.Stamina == 0);
-            conditionData.Add(4, SOData.CurrentHealth <= 2);
-
-            // Create a list to store the condition indices to be passed to the UpdateConditionUI method
-            List<int> conditionIndices = new List<int>();
-
-            // Iterate over the condition data and add the condition indices to the list
-            foreach (KeyValuePair<int, bool> condition in conditionData)
+            if (conditionDisplay != null)
             {
-                if (condition.Value)
-                {
-                    conditionIndices.Add(condition.Key);
-                }
-            }
+                Dictionary<int, bool> conditionData = new Dictionary<int, bool>();
 
-            // Update the condition display UI
-            conditionDisplay.UpdateConditionUI(conditionIndices);
+                // Add conditions to the dictionary based on their corresponding checks
+                conditionData.Add(0, SOData.CurrentHealth == SOData.MaxHealth && !SOData.IsSick && !SOData.IsInjured);
+                conditionData.Add(1, SOData.IsSick);
+                conditionData.Add(2, SOData.IsInjured);
+                conditionData.Add(3, SOData.Stamina == 0);
+                conditionData.Add(4, SOData.CurrentHealth <= 2);
+
+                // Create a list to store the condition indices to be passed to the UpdateConditionUI method
+                List<int> conditionIndices = new List<int>();
+
+                // Iterate over the condition data and add the condition indices to the list
+                foreach (KeyValuePair<int, bool> condition in conditionData)
+                {
+                    if (condition.Value)
+                    {
+                        conditionIndices.Add(condition.Key);
+                    }
+                }
+
+                // Update the condition display UI
+                conditionDisplay.UpdateConditionUI(conditionIndices);
+            }
         }
 
     }
