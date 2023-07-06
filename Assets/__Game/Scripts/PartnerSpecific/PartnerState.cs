@@ -12,6 +12,7 @@ public class PartnerState
     protected StatEvents statEvents;
     protected bool isExitingState;
     protected bool isAnimationFinished;
+    protected bool isDevolvingAbilityCancel;
     //protected bool epAtZero = false;
     protected float startTime;
     string animBoolName;
@@ -21,6 +22,7 @@ public class PartnerState
     //protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
    
     protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<PartnerCollisionSenses>(); }
+    
     protected Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }

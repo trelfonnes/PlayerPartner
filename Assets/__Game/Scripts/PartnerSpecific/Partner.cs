@@ -82,6 +82,10 @@ public class Partner : MonoBehaviour
         StateMachine.InitializePartner(FollowIdleState); //for when states are referenced in awake.
        // 
     }
+    private void OnEnable()
+    {
+       // StateMachine.InitializePartner(FollowIdleState);
+    }
     protected virtual void Update()
     {
         if (playerSOData.canDash)

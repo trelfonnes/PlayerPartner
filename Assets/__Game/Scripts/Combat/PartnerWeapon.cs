@@ -15,6 +15,7 @@ public class PartnerWeapon : MonoBehaviour
 
     public event Action onExit;
     public event Action onEnter;
+    public event Action onDevolve;
     Animator anim;
     public GameObject BaseGO { get; private set; }
     public GameObject WeaponSpriteGO { get; private set; }
@@ -22,7 +23,7 @@ public class PartnerWeapon : MonoBehaviour
     Partner partner;
     public AnimationEventHandler EventHandler { get; private set; }
     public CoreHandler Core { get; private set; }
-
+    bool devolve;
     int currentAttackCounter;
     private Timer attackCounterResetTimer;
     public void Enter()
@@ -64,13 +65,23 @@ public class PartnerWeapon : MonoBehaviour
     private void OnEnable()
     {
         EventHandler.OnFinish += Exit;
+        partner.statEvents.onCurrentEPZero += Devolve;
         attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
 
     }
     private void OnDisable()
     {
         EventHandler.OnFinish -= Exit;
+        partner.statEvents.onCurrentEPZero -= Devolve;
+
         attackCounterResetTimer.OnTimerDone -= ResetAttackCounter;
+
+    }
+    void Devolve()
+    {
+        anim.SetBool("attack", false);
+        attackCounterResetTimer.StartTimer();
+        onDevolve.Invoke();
 
     }
     public void SetCore(CoreHandler core)

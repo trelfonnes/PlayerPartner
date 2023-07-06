@@ -67,6 +67,15 @@ public class PlayerMoveState : PlayerBasicState
                                  
             }
         }
+        if (primaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.PrimaryAttackState);
+        }
+        if (secondaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.SecondaryAttackState);
+
+        }
 
     }
 

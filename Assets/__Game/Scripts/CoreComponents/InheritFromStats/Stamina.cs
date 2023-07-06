@@ -23,19 +23,23 @@ public class Stamina : Stats, IStaminaChange
             base.Start();
             ClockManager.OnTick += delegate (object sender, ClockManager.OnTickEventArgs e)
             {
-                if (SOData.Stamina > 0)
+                if (gameObject.transform.parent.parent.gameObject.activeSelf)
                 {
-                    if (!SOData.IsSick)
+
+                    if (SOData.Stamina > 0)
                     {
-                        DecreaseStamina(1);
+                        if (!SOData.IsSick)
+                        {
+                            DecreaseStamina(1);
+                        }
+                        else if (SOData.IsSick)
+                        {
+                            DecreaseStamina(10);
+                        }
                     }
-                    else if (SOData.IsSick)
-                    {
-                        DecreaseStamina(10);
-                    }
+                    else
+                        return;
                 }
-                else
-                return;
             };
             ClockManager.OnTick_6 += delegate (object sender, ClockManager.OnTickEventArgs e)
             {

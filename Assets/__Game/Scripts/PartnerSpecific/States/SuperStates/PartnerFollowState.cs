@@ -34,6 +34,7 @@ public class PartnerFollowState : PartnerState
     public override void DoChecks()
     {
         base.DoChecks();
+        
         if (CollisionSenses)
         {
             isTouchingWallFollowing = CollisionSenses.WallCheckFollowing;

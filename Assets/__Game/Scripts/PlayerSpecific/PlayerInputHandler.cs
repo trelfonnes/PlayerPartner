@@ -18,7 +18,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool EvolveInput { get; private set; }
     public bool DashInput { get; private set; }
 
-    
+    Coroutine primaryAttackInputCoroutine;
+    Coroutine secondaryAttackInputCoroutine;
 
     //Variables just for dash's double tap input because new input system is trash
     private bool dashInputDown = false;
@@ -47,31 +48,48 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnAttackInput(InputAction.CallbackContext context)//primary
     {
-       // TODO: example of how to get a more custom and accurate input reading than the three events
-       // _playerInput.actions["Attack"].ReadValue<float>() > 0
-        if (context.started)
+        Debug.Log(AttackInputs[(int)CombatInputs.primary] + "for primary attack input");
+
+        if (context.action.triggered)
         {
-            AttackInputs[(int)CombatInputs.primary] = true;        
+
+            // Start the coroutine to handle the input duration
+            primaryAttackInputCoroutine = StartCoroutine(HandleAttackInputDuration());
+            AttackInputs[(int)CombatInputs.primary] = true;
         }
-        if (context.performed)
+        else if (context.action.phase == InputActionPhase.Canceled)
         {
-        }
-        if(context.canceled)
-        {
+            // Stop the coroutine if the input is released
+            if (primaryAttackInputCoroutine != null)
+            {
+                StopCoroutine(primaryAttackInputCoroutine);
+                primaryAttackInputCoroutine = null;
+            }
             AttackInputs[(int)CombatInputs.primary] = false;
         }
+    }
+    private IEnumerator HandleAttackInputDuration()
+    {
+        yield return new WaitForSeconds(0.25f);
+        AttackInputs[(int)CombatInputs.primary] = false;
+        AttackInputs[(int)CombatInputs.secondary] = false;
     }
     public void OnSpecialInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
+            // Start the coroutine to handle the input duration
+            secondaryAttackInputCoroutine = StartCoroutine(HandleAttackInputDuration());
             AttackInputs[(int)CombatInputs.secondary] = true;
         }
-        if (context.performed)
+        else if (context.canceled)
         {
-        }
-        if (context.canceled)
-        {
+            // Stop the coroutine if the input is released
+            if (secondaryAttackInputCoroutine != null)
+            {
+                StopCoroutine(secondaryAttackInputCoroutine);
+                secondaryAttackInputCoroutine = null;
+            }
             AttackInputs[(int)CombatInputs.secondary] = false;
         }
     }

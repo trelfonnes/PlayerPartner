@@ -37,6 +37,7 @@ public class PartnerDeEvolutionState : PartnerBasicState
     public override void Exit()
     {
         base.Exit();
+        isDevolvingAbilityCancel = false;
         partner.evolutionEvents.OnDevolve -= DevolveOver;
 
     }

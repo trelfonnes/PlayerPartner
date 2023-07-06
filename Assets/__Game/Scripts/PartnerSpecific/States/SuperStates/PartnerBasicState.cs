@@ -68,14 +68,15 @@ public class PartnerBasicState : PartnerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        primaryAttackInput = partner.InputHandler.AttackInputs[(int)CombatInputs.primary];
+        secondaryAttackInput = partner.InputHandler.AttackInputs[(int)CombatInputs.secondary];
         xInput = partner.InputHandler.NormInputX;
         yInput = partner.InputHandler.NormInputY;
         switchInput = partner.InputHandler.SwitchPlayerInput;
         interactInput = partner.InputHandler.InteractInput;
         evolveInput = partner.InputHandler.EvolveInput;
         dashInput = partner.InputHandler.DashInput;
-        primaryAttackInput = partner.InputHandler.AttackInputs[(int)CombatInputs.primary];
-        secondaryAttackInput = partner.InputHandler.AttackInputs[(int)CombatInputs.secondary];
+       
         if(partner.JumpCooldownTimer.IsFinished() && interactInput && partner.JumpState.CanJump() && playerSOData.canJump) //might need to change input to make it a hold or a double tap??
         {
             PSM.ChangePartnerState(partner.JumpState);
@@ -86,15 +87,8 @@ public class PartnerBasicState : PartnerState
                 PSM.ChangePartnerState(partner.DashState);
              
         }
-        if (primaryAttackInput)
-        {
-            PSM.ChangePartnerState(partner.PrimaryAttackState);
-        }
-        if (secondaryAttackInput)
-        {
-            PSM.ChangePartnerState(partner.SecondaryAttackState);
-
-        }
+        
+        
 
     }
 

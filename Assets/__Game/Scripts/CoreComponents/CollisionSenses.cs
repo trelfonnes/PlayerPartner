@@ -53,7 +53,7 @@ public class CollisionSenses : CoreComponent
     {
         get
         {
-            RaycastHit2D[] results = new RaycastHit2D[50];
+            RaycastHit2D[] results = new RaycastHit2D[100];
             int hits = Physics2D.RaycastNonAlloc(collisionsCheckPoint.position, partner.playerDirection, results, collisionCheckDistance, whatIsWall);
             return hits > 0;
         }

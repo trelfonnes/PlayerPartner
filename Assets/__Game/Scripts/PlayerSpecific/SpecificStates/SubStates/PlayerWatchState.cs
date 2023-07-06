@@ -17,7 +17,6 @@ public class PlayerWatchState : PlayerBasicState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("enteredWatch");
         isWatching = true;
         canExitState = false;
         Movement?.SetVelocity(playerSOData.watchSpeed * (new Vector2(xInput, yInput)));

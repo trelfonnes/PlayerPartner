@@ -58,6 +58,15 @@ public class PartnerIdleState : PartnerBasicState
             }
             //TODO behavior to interact input conditions
         }
+        if (primaryAttackInput)
+        {
+            PSM.ChangePartnerState(partner.PrimaryAttackState);
+        }
+        if (secondaryAttackInput)
+        {
+            PSM.ChangePartnerState(partner.SecondaryAttackState);
+
+        }
     }
 
     public override void PhysicsUpdate()

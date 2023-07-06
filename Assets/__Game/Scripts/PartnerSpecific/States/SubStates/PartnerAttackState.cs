@@ -15,6 +15,7 @@ public class PartnerAttackState : PartnerAbilityState
     {
         this.weapon = weapon;
         weapon.onExit += ExitHandler; //DO I need to unsub??
+        weapon.onDevolve += Devolve;
     }
 
     public override void DoChecks()
@@ -26,12 +27,22 @@ public class PartnerAttackState : PartnerAbilityState
     {
         base.Enter();
         weapon.Enter();
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero += Devolve;
+
+        }
 
     }
 
     public override void Exit()
     {
         base.Exit();
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero -= Devolve;
+
+        }
     }
 
     public override void LogicUpdate()
@@ -47,5 +58,16 @@ public class PartnerAttackState : PartnerAbilityState
     {
         AnimationFinishTrigger();
         isAbilityDone = true;
+    }
+    void Devolve()
+    {
+        AnimationFinishTrigger();
+        isAbilityDone = true;
+        isDevolvingAbilityCancel = true;
+        if (!playerSOData.stage1)
+        {
+            Debug.Log("DEVOLVE");
+            PSM.ChangePartnerState(partner.DevolveState);
+        }
     }
 }

@@ -67,8 +67,17 @@ public class PlayerIdleState : PlayerBasicState
                 } 
             }
         }
-        
-        
+        if (primaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.PrimaryAttackState);
+        }
+        if (secondaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.SecondaryAttackState);
+
+        }
+
+
     }
 
     public override void PhysicsUpdate()

@@ -74,15 +74,7 @@ public class PlayerBasicState : PlayerState
         secondaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.secondary];
 
 
-        if (primaryAttackInput && !isWatching)
-        {
-            PSM.ChangeState(player.PrimaryAttackState);
-        }
-        if (secondaryAttackInput && !isWatching)
-        {
-            PSM.ChangeState(player.SecondaryAttackState);
-
-        }
+       
     }
 
     public override void PhysicsUpdate()
