@@ -48,7 +48,6 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnAttackInput(InputAction.CallbackContext context)//primary
     {
-        Debug.Log(AttackInputs[(int)CombatInputs.primary] + "for primary attack input");
 
         if (context.action.triggered)
         {

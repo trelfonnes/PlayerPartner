@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class WeaponSprite : WeaponComponent
+public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
 {
     // looks at base SR, references and listens for changes in sprite.
     SpriteRenderer baseSpriteRenderer;
     SpriteRenderer weaponsSpriteRenderer;
 
-    WeaponSpriteData data;
 
 
     int currentWeaponSpriteIndex;
@@ -25,7 +24,7 @@ public class WeaponSprite : WeaponComponent
             weaponsSpriteRenderer.sprite = null;
             return;
         }
-        var currentAttackSprites = data.AttackData[weapon.CurrentAttackCounter].Sprites;
+        var currentAttackSprites = currentAttackDataPlayer.Sprites;
         if (currentWeaponSpriteIndex >= currentAttackSprites.Length)
         {
             Debug.LogWarning($"{weapon.name} weapon Sprites length mismatch");
@@ -39,8 +38,6 @@ public class WeaponSprite : WeaponComponent
         base.Awake();
         baseSpriteRenderer = transform.Find("Base").GetComponent<SpriteRenderer>();
         weaponsSpriteRenderer = transform.Find("WeaponSprite").GetComponent<SpriteRenderer>();
-
-        data = weapon.Data.GetData<WeaponSpriteData>();
 
         // TODO: fix this when creating weapon data
         //  baseSpriteRenderer = weapon.BaseGO.GetComponent<SpriteRenderer>();

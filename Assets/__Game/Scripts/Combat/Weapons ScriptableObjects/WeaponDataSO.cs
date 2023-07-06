@@ -8,23 +8,23 @@ public class WeaponDataSO : ScriptableObject
 {
     [field: SerializeField] public int NumberOfAttacks { get; private set; }
 
-    [field: SerializeReference] public List<ComponentData> componentData { get; private set; }
+    [field: SerializeReference] public List<ComponentData> ComponentData { get; private set; }
 
     public T GetData<T>()
     {
-        return componentData.OfType<T>().FirstOrDefault();
+        return ComponentData.OfType<T>().FirstOrDefault();
     }
  
+    public void AddData(ComponentData data)
+    {
+        if (ComponentData.FirstOrDefault(t => t.GetType() == data.GetType()) != null)
+            return;
 
-    [ContextMenu("Add Sprite Data")]
-    void AddSpriteData()
-    {
-        componentData.Add(new WeaponSpriteData());
-    }  
-    [ContextMenu("Add Movement Data")]
-    void AddMovementData()
-    {
-        componentData.Add(new MovementData());
+
+        ComponentData.Add(data);
     }
+
+
+   
 
 }

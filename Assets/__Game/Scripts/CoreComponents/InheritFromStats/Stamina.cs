@@ -40,6 +40,8 @@ public class Stamina : Stats, IStaminaChange
                     else
                         return;
                 }
+                else
+                    return;
             };
             ClockManager.OnTick_6 += delegate (object sender, ClockManager.OnTickEventArgs e)
             {

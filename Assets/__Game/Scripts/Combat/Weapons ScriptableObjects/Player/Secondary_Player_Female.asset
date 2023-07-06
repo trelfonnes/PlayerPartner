@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
   m_Name: Secondary_Player_Female
   m_EditorClassIdentifier: 
-  <NumberOfAttacks>k__BackingField: 0
-  <componentData>k__BackingField:
-  - rid: 7917043500263407622
+  <NumberOfAttacks>k__BackingField: 1
+  <ComponentData>k__BackingField:
+  - rid: 7917043528491597835
+  - rid: 7917043528491597836
   references:
     version: 2
     RefIds:
-    - rid: 7917043500263407622
+    - rid: 7917043528491597835
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:
         <AttackData>k__BackingField:
         - <Sprites>k__BackingField:
-          - {fileID: -1625274207, guid: 96cab0f381ab25748817fa676c40e4bd, type: 3}
+          - {fileID: 1615465951, guid: aefee9526cc6be1438fc9d1863e0732e, type: 3}
+    - rid: 7917043528491597836
+      type: {class: MovementData, ns: , asm: Assembly-CSharp}
+      data:
+        <AttackData>k__BackingField:
+        - <Direction>k__BackingField: {x: 0, y: 0}
+          <Velocity>k__BackingField: 0

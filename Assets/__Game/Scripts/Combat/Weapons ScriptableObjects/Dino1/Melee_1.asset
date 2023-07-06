@@ -13,20 +13,21 @@ MonoBehaviour:
   m_Name: Melee_1
   m_EditorClassIdentifier: 
   <NumberOfAttacks>k__BackingField: 1
-  <componentData>k__BackingField:
-  - rid: 7917043500263407617
-  - rid: 7917043504607395840
+  <ComponentData>k__BackingField:
+  - rid: 7917043528491597824
+  - rid: 7917043528491597828
   references:
     version: 2
     RefIds:
-    - rid: 7917043500263407617
+    - rid: 7917043528491597824
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:
         <AttackData>k__BackingField:
         - <Sprites>k__BackingField:
           - {fileID: -396325562, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
           - {fileID: -1071569395, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
-    - rid: 7917043504607395840
+        - <Sprites>k__BackingField: []
+    - rid: 7917043528491597828
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
         <AttackData>k__BackingField:

@@ -24,10 +24,10 @@ public abstract class WeaponComponent : MonoBehaviour
 
     protected virtual void Awake()
     {
-            
-            partnerWeapon = GetComponent<PartnerWeapon>();
-            partner = GetComponentInParent<Partner>();
-            PartnerEventHandler = GetComponentInChildren<AnimationEventHandler>();
+
+        partnerWeapon = GetComponent<PartnerWeapon>();
+        partner = GetComponentInParent<Partner>();
+        PartnerEventHandler = GetComponentInChildren<AnimationEventHandler>();
         weapon = GetComponent<Weapon>();
         player = GetComponentInParent<Player>();
         PlayerEventHandler = GetComponentInChildren<AnimationEventHandler>();
@@ -37,14 +37,16 @@ public abstract class WeaponComponent : MonoBehaviour
     protected virtual void HandleEnter()
     {
         isAttackActive = true;
-    }protected virtual void HandleExit()
+    }
+    protected virtual void HandleExit()
     {
         isAttackActive = false;
     }
     protected virtual void HandlePartnerEnter()
     {
         isPartnerAttackActive = true;
-    }protected virtual void HandlePartnerExit()
+    }
+    protected virtual void HandlePartnerExit()
     {
         isPartnerAttackActive = false;
     }
@@ -74,5 +76,47 @@ public abstract class WeaponComponent : MonoBehaviour
             partnerWeapon.onExit -= HandlePartnerExit;
         }
     }
-
 }
+    public abstract class WeaponComponent<T1, T2> : WeaponComponent where T1 : ComponentData<T2> where T2: AttackData
+    {
+        protected T1 dataPartner;
+        protected T1 dataPlayer;
+    protected T2 currentAttackDataPartner;
+    protected T2 currentAttackDataPlayer;
+
+
+    protected override void HandleEnter()
+    {
+        base.HandleEnter();
+        
+        if (weapon != null)
+        {
+            currentAttackDataPlayer = dataPlayer.AttackData[weapon.CurrentAttackCounter];
+        }
+    }
+    protected override void HandlePartnerEnter()
+    {
+        base.HandlePartnerEnter();
+        if (partnerWeapon != null)
+        {
+            currentAttackDataPartner = dataPartner.AttackData[partnerWeapon.CurrentAttackCounter];
+        }
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (partnerWeapon != null)
+        {
+            dataPartner = partnerWeapon.Data.GetData<T1>();
+        }
+        if(weapon != null)
+        {
+            dataPlayer = weapon.Data.GetData<T1>();
+
+        }
+    }
+
+    }
+
+

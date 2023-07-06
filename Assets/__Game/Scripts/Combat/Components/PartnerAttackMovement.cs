@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerAttackMovement : WeaponComponent
+public class PartnerAttackMovement : WeaponComponent<MovementData, AttackMovementData>
 {
     Movement partnerCoreMovement;
 
@@ -12,13 +12,9 @@ public class PartnerAttackMovement : WeaponComponent
         get => partnerCoreMovement ??= PartnerCore.GetCoreComponent<Movement>();
     }
 
-
-    MovementData data;
-
     private void HandleStartMovement()
     {
-        var partnerCurrentAttackData = data.AttackData[partnerWeapon.CurrentAttackCounter];
-            PartnerCoreMovement.SetVelocity(partnerCurrentAttackData.Direction * partner.lastDirection);
+            PartnerCoreMovement.SetVelocity(currentAttackDataPartner.Direction * partner.lastDirection);
     }
 
     private void HandleStopMovement()
@@ -26,12 +22,7 @@ public class PartnerAttackMovement : WeaponComponent
         PartnerCoreMovement.SetVelocityZero();
     }
 
-    protected override void Awake()
-    {
-        base.Awake();
-        data = partnerWeapon.Data.GetData<MovementData>();
-
-    }
+  
     protected override void OnEnable()
     {
         base.OnEnable();

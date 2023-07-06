@@ -12,16 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
   m_Name: Melee_Dino_2
   m_EditorClassIdentifier: 
-  <NumberOfAttacks>k__BackingField: 0
-  <componentData>k__BackingField:
-  - rid: 7917043500263407618
+  <NumberOfAttacks>k__BackingField: 1
+  <ComponentData>k__BackingField:
+  - rid: 7917043528491597829
+  - rid: 7917043528491597830
   references:
     version: 2
     RefIds:
-    - rid: 7917043500263407618
+    - rid: 7917043528491597829
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:
         <AttackData>k__BackingField:
         - <Sprites>k__BackingField:
           - {fileID: -396325562, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
           - {fileID: -1071569395, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
+    - rid: 7917043528491597830
+      type: {class: MovementData, ns: , asm: Assembly-CSharp}
+      data:
+        <AttackData>k__BackingField:
+        - <Direction>k__BackingField: {x: 0, y: 0}
+          <Velocity>k__BackingField: 0

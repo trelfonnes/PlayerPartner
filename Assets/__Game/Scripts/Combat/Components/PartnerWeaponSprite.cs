@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerWeaponSprite : WeaponComponent
+public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
 {
     SpriteRenderer partnerBaseSpriteRenderer;
     SpriteRenderer partnerWeaponsSpriteRenderer;
 
-    WeaponSpriteData data;
  
     int currentWeaponSpriteIndex;
     protected override void HandlePartnerEnter()
@@ -22,8 +21,9 @@ public class PartnerWeaponSprite : WeaponComponent
             partnerWeaponsSpriteRenderer.sprite = null;
             return;
         }
+        Debug.Log(currentAttackDataPartner.Sprites.Length);
 
-        var currentAttackSprites = data.AttackData[partnerWeapon.CurrentAttackCounter].Sprites;
+        var currentAttackSprites = currentAttackDataPartner.Sprites;
             if(currentWeaponSpriteIndex >= currentAttackSprites.Length)
         {
            // Debug.LogWarning($"{weapon.name} weapon Sprites length mismatch");
@@ -44,8 +44,7 @@ public class PartnerWeaponSprite : WeaponComponent
         partnerBaseSpriteRenderer = transform.Find("Base").GetComponent<SpriteRenderer>();
         partnerWeaponsSpriteRenderer = transform.Find("WeaponSprite").GetComponent<SpriteRenderer>();
 
-        data = partnerWeapon.Data.GetData<WeaponSpriteData>();
-
+        
 
         // TODO: fix this when creating weapon data
 

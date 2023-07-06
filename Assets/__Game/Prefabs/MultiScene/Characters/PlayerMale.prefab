@@ -629,14 +629,6 @@ MonoBehaviour:
     m_ActionId: d8f19ecd-0194-4a38-a3cf-659647cf4fa3
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 281b9340-2695-4b96-8ddd-43b594a37b77
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9387bd9f-0905-4187-8541-4060dba3d881
-    m_ActionName: Player/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3963916745617885428}
         m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
@@ -1201,7 +1193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5cb62351f7ccf49a5932b52a3f019d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerEventHandler: {fileID: 3083817679507412206}
 --- !u!114 &6331929672594413318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,7 +1219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71990ecd791967048a2d38108125279b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerEventHandler: {fileID: 0}
 --- !u!1001 &3963916745480566112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1311,7 +1301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5cb62351f7ccf49a5932b52a3f019d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerEventHandler: {fileID: 0}
 --- !u!114 &7345843354213220129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1649,17 +1638,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5763437075252285755, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}
---- !u!114 &3083817679507412206 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6342483746524928001, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}
-  m_PrefabInstance: {fileID: 8272809643686055151}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6810234947123190107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac3f0535536e284a82705b534d8fb72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6810234947123190107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3191992275423974836, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}

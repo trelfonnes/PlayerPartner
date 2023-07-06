@@ -481,14 +481,6 @@ MonoBehaviour:
     m_ActionId: d8f19ecd-0194-4a38-a3cf-659647cf4fa3
     m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 281b9340-2695-4b96-8ddd-43b594a37b77
-    m_ActionName: Player/Look[/DualShock4GamepadHID/rightStick,/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9387bd9f-0905-4187-8541-4060dba3d881
-    m_ActionName: Player/Fire[/DualShock4GamepadHID/rightTrigger,/Mouse/leftButton]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3096751259281156561}
         m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
