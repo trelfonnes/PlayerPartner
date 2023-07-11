@@ -23,7 +23,7 @@ public class PartnerState
    
     protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<PartnerCollisionSenses>(); }
     
-    protected Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
+    protected Stats Stats { get => stats ??= core.GetCoreComponent<Stats>(); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
 

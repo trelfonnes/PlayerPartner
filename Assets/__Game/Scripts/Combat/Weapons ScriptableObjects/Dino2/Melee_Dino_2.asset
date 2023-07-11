@@ -16,6 +16,7 @@ MonoBehaviour:
   <ComponentData>k__BackingField:
   - rid: 7917043528491597829
   - rid: 7917043528491597830
+  - rid: 7917043543650074626
   references:
     version: 2
     RefIds:
@@ -32,3 +33,17 @@ MonoBehaviour:
         <AttackData>k__BackingField:
         - <Direction>k__BackingField: {x: 0, y: 0}
           <Velocity>k__BackingField: 0
+    - rid: 7917043543650074626
+      type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
+      data:
+        <AttackData>k__BackingField:
+        - Debug: 1
+          <HitBox>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: -1.2
+            width: 1.6
+            height: 2
+        <DetectableLayers>k__BackingField:
+          serializedVersion: 2
+          m_Bits: 65536

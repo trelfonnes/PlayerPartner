@@ -7,6 +7,8 @@ public class Movement : CoreComponent
     public Rigidbody2D rb { get; private set; }
     private Vector2 workspace;
     public int facingDirectionX { get; private set; }
+    public int facingCombatDirectionX { get; private set; }
+    public int facingCombatDirectionY { get; private set; }
     public int facingDirectionY { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
     public Vector2 latestMovingVelocity { get; private set; }
@@ -18,6 +20,8 @@ public class Movement : CoreComponent
         rb = GetComponentInParent<Rigidbody2D>();
         facingDirectionX = 1;
         facingDirectionY = -1;
+        facingCombatDirectionX = 0;
+        facingCombatDirectionY = -1;
 
         CanSetVelocity = true;
     }
@@ -39,13 +43,39 @@ public class Movement : CoreComponent
     }
     public void CheckIfShouldFlip(int xInput, int yInput)
     {
-        if(xInput != 0 && xInput != facingDirectionX)
+        if (xInput != 0 && xInput != facingDirectionX)
         {
             FlipX();
         }
-        if(yInput != 0 && yInput != facingDirectionY)
+    }
+
+    public void CheckCombatHitBoxDirection(int xInput, int yInput) 
         {
-            FlipY();
+        if (xInput > 0)
+        {
+            facingCombatDirectionX = 1;
+        }
+        else if (xInput < 0)
+        {
+            facingCombatDirectionX = -1;
+        }
+        else if (xInput == 0)
+        {
+            facingCombatDirectionX = 0;
+        }
+
+
+        if (yInput > 0)
+        {
+            facingCombatDirectionY = 1;
+        }
+        else if (yInput < 0)
+        {
+            facingCombatDirectionY = -1;
+        }
+        else if( yInput == 0)
+        {
+            facingCombatDirectionY = 0;
         }
 
     }

@@ -16,6 +16,7 @@ MonoBehaviour:
   <ComponentData>k__BackingField:
   - rid: 7917043528491597824
   - rid: 7917043528491597828
+  - rid: 7917043543650074624
   references:
     version: 2
     RefIds:
@@ -33,3 +34,66 @@ MonoBehaviour:
         <AttackData>k__BackingField:
         - <Direction>k__BackingField: {x: 0, y: 0}
           <Velocity>k__BackingField: 0
+    - rid: 7917043543650074624
+      type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
+      data:
+        <AttackData>k__BackingField:
+        - DebugHitBoxNorth: 0
+          <HitBoxNorth>k__BackingField:
+            serializedVersion: 2
+            x: -0.5
+            y: -0.33
+            width: 1
+            height: 1
+          DebugHitBoxSouth: 0
+          <HitBoxSouth>k__BackingField:
+            serializedVersion: 2
+            x: -0.5
+            y: -1.5
+            width: 1
+            height: 1
+          DebugHitBoxEast: 0
+          <HitBoxEast>k__BackingField:
+            serializedVersion: 2
+            x: 0.15
+            y: -0.9
+            width: 1
+            height: 1
+          DebugHitBoxWest: 0
+          <HitBoxWest>k__BackingField:
+            serializedVersion: 2
+            x: -0.13
+            y: -0.9
+            width: 2
+            height: 1
+          DebugHitBoxNorthWest: 0
+          <HitBoxNorthWest>k__BackingField:
+            serializedVersion: 2
+            x: -1.1
+            y: -0.4
+            width: 1
+            height: 1
+          DebugHitBoxSouthWest: 0
+          <HitBoxSouthWest>k__BackingField:
+            serializedVersion: 2
+            x: -1.35
+            y: -1.42
+            width: 1
+            height: 1
+          DebugHitBoxNorthEast: 0
+          <HitBoxNorthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0.06
+            y: -0.4
+            width: 1
+            height: 1
+          DebugHitBoxSouthEast: 0
+          <HitBoxSouthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0.06
+            y: -1.42
+            width: 1
+            height: 1
+        <DetectableLayers>k__BackingField:
+          serializedVersion: 2
+          m_Bits: 65536

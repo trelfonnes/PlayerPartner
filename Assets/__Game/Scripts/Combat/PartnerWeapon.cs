@@ -28,7 +28,6 @@ public class PartnerWeapon : MonoBehaviour
     private Timer attackCounterResetTimer;
     public void Enter()
     {
-        print($"{transform.name} enter");
         anim.SetBool("active", true);
         anim.SetFloat("moveX", partner.lastDirection.x);
         anim.SetFloat("moveY", partner.lastDirection.y);

@@ -41,6 +41,7 @@ public class PartnerMoveState : PartnerBasicState
         if (Movement.CurrentVelocity != Vector2.zero)
         {
             Movement?.SetLatestVelocity(Movement.CurrentVelocity);
+            Movement?.CheckCombatHitBoxDirection(xInput, yInput);
             partner.playerDirection = Movement.CurrentVelocity;
             partner.anim.SetFloat("moveY", partner.playerDirection.y);
             partner.anim.SetFloat("moveX", partner.playerDirection.x);

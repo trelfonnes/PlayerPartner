@@ -21,7 +21,6 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
             partnerWeaponsSpriteRenderer.sprite = null;
             return;
         }
-        Debug.Log(currentAttackDataPartner.Sprites.Length);
 
         var currentAttackSprites = currentAttackDataPartner.Sprites;
             if(currentWeaponSpriteIndex >= currentAttackSprites.Length)
