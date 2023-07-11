@@ -17,28 +17,34 @@ MonoBehaviour:
   - rid: 7917043528491597824
   - rid: 7917043528491597828
   - rid: 7917043543650074624
+  - rid: 7917043640045142016
   references:
     version: 2
     RefIds:
     - rid: 7917043528491597824
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
-        - <Sprites>k__BackingField:
+        name: WeaponSpriteData
+        attackData:
+        - name: Attack1
+          <Sprites>k__BackingField:
           - {fileID: -396325562, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
           - {fileID: -1071569395, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
-        - <Sprites>k__BackingField: []
     - rid: 7917043528491597828
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
-        - <Direction>k__BackingField: {x: 0, y: 0}
+        name: MovementData
+        attackData:
+        - name: Attack1
+          <Direction>k__BackingField: {x: 0, y: 0}
           <Velocity>k__BackingField: 0
     - rid: 7917043543650074624
       type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
-        - DebugHitBoxNorth: 0
+        name: ActionHitBoxData
+        attackData:
+        - name: Attack1
+          DebugHitBoxNorth: 0
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
             x: -0.5
@@ -97,3 +103,10 @@ MonoBehaviour:
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 65536
+    - rid: 7917043640045142016
+      type: {class: DamageData, ns: , asm: Assembly-CSharp}
+      data:
+        name: DamageData
+        attackData:
+        - name: Scratch
+          <Amount>k__BackingField: 1

@@ -5,13 +5,14 @@ using System;
 
 public class PartnerActionHitBox : WeaponComponent<ActionHitBoxData, AttackActionHItBox>
 {
-    private event Action<Collider2D[]> OnDetectedCollider2D;
+    public event Action<Collider2D[]> OnDetectedCollider2D;
 
     CoreComp<Movement> movement;
     Vector2 offset;
     Collider2D[] detected;
     void HandleAttackAction()
     {
+        // refactor with a dictionary to cut down on if statements??
         if(movement.Comp.facingCombatDirectionY > 0 && movement.Comp.facingCombatDirectionX == 0)
         {
             //North
@@ -89,11 +90,7 @@ public class PartnerActionHitBox : WeaponComponent<ActionHitBoxData, AttackActio
 
             OnDetectedCollider2D?.Invoke(detected);
 
-            //loop to make sure things are working without next step components
-            foreach (var item in detected)
-            {
-                Debug.Log(item.name);
-            }
+            
     }
 
     protected override void Start()
@@ -107,14 +104,10 @@ public class PartnerActionHitBox : WeaponComponent<ActionHitBoxData, AttackActio
     {
         base.OnEnable();
         PartnerEventHandler.OnAttackAction += HandleAttackAction;
-        PartnerEventHandler.OnAttackAction += DebugOnactionEvent;
 
     }
 
-    private void DebugOnactionEvent()
-    {
-        Debug.Log("OnActionEvent called");
-    }
+   
 
     protected override void OnDisable()
     {

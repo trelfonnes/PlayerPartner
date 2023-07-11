@@ -17,33 +17,96 @@ MonoBehaviour:
   - rid: 7917043528491597829
   - rid: 7917043528491597830
   - rid: 7917043543650074626
+  - rid: 7917043640045142017
   references:
     version: 2
     RefIds:
     - rid: 7917043528491597829
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
-        - <Sprites>k__BackingField:
+        name: WeaponSpriteData
+        attackData:
+        - name: 
+          <Sprites>k__BackingField:
           - {fileID: -396325562, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
           - {fileID: -1071569395, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
     - rid: 7917043528491597830
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
-        - <Direction>k__BackingField: {x: 0, y: 0}
+        name: MovementData
+        attackData:
+        - name: 
+          <Direction>k__BackingField: {x: 0, y: 0}
           <Velocity>k__BackingField: 0
     - rid: 7917043543650074626
       type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
-        - Debug: 1
-          <HitBox>k__BackingField:
+        name: ActionHitBoxData
+        attackData:
+        - name: 
+          DebugHitBoxNorth: 1
+          <HitBoxNorth>k__BackingField:
+            serializedVersion: 2
+            x: -0.5
+            y: 0.1
+            width: 1
+            height: 1.25
+          DebugHitBoxSouth: 1
+          <HitBoxSouth>k__BackingField:
+            serializedVersion: 2
+            x: -0.5
+            y: -1.75
+            width: 1
+            height: 1.25
+          DebugHitBoxEast: 1
+          <HitBoxEast>k__BackingField:
+            serializedVersion: 2
+            x: 0.3
+            y: -0.7
+            width: 1.25
+            height: 1
+          DebugHitBoxWest: 0
+          <HitBoxWest>k__BackingField:
+            serializedVersion: 2
+            x: -1.55
+            y: -0.7
+            width: 1.25
+            height: 1
+          DebugHitBoxNorthWest: 0
+          <HitBoxNorthWest>k__BackingField:
+            serializedVersion: 2
+            x: 0.3
+            y: 0
+            width: 1.1
+            height: 1.1
+          DebugHitBoxSouthWest: 0
+          <HitBoxSouthWest>k__BackingField:
             serializedVersion: 2
             x: 0
-            y: -1.2
-            width: 1.6
-            height: 2
+            y: 0
+            width: 1.1
+            height: 1.1
+          DebugHitBoxNorthEast: 1
+          <HitBoxNorthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0.3
+            y: 0
+            width: 1.1
+            height: 1.1
+          DebugHitBoxSouthEast: 1
+          <HitBoxSouthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0.3
+            y: -1.5
+            width: 1.1
+            height: 1.1
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 65536
+    - rid: 7917043640045142017
+      type: {class: DamageData, ns: , asm: Assembly-CSharp}
+      data:
+        name: DamageData
+        attackData:
+        - name: Claw
+          <Amount>k__BackingField: 3
