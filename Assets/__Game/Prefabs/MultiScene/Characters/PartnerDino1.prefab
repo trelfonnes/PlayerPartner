@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 415934357402341011}
   - component: {fileID: 8902732269619792106}
   - component: {fileID: 3847617947852443722}
+  - component: {fileID: 3249497752487946633}
   m_Layer: 10
   m_Name: Combat to hold knockbackreceiver and damagereceiver scripts with same collider
   m_TagString: Untagged
@@ -284,6 +285,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 0}
+--- !u!114 &3249497752487946633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173671507260601905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f49fc1c0d5c20f4a8cbbfc07d4e4791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxKnockBackTime: 0.2
 --- !u!1 &1825631742397934376
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class ComponentData 
+public abstract class ComponentData 
 {
     [SerializeField, HideInInspector] private string name;
 
@@ -18,14 +18,17 @@ public class ComponentData
     public ComponentData()
     {
         SetComponentName(); //construction passing in this component on initialization and creating name in inspector
+        SetComponentDependency();
     }
+
+    protected abstract void SetComponentDependency();
     
     public virtual void SetAttackDataNames() { }
     public virtual void InitializeAttackData(int numberOfAttacks) { }
 
 }
 [Serializable]
-public class ComponentData<T> : ComponentData where T : AttackData 
+public abstract class ComponentData<T> : ComponentData where T : AttackData 
 {
     [SerializeField] private T[] attackData;
 

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class DamageData : ComponentData<AttackDamage>
 {
-public DamageData()
+    protected override void SetComponentDependency()
     {
         PlayerComponentDependency = typeof(Damage);
         PartnerComponentDependency = typeof(PartnerDamage);
     }
-
 }

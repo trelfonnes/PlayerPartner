@@ -18,6 +18,7 @@ MonoBehaviour:
   - rid: 7917043528491597828
   - rid: 7917043543650074624
   - rid: 7917043640045142016
+  - rid: 7917043661478035457
   references:
     version: 2
     RefIds:
@@ -110,3 +111,11 @@ MonoBehaviour:
         attackData:
         - name: Scratch
           <Amount>k__BackingField: 1
+    - rid: 7917043661478035457
+      type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
+      data:
+        name: KnockBackData
+        attackData:
+        - name: Scratch
+          <Angle>k__BackingField: {x: 0, y: 0}
+          <Strength>k__BackingField: 2

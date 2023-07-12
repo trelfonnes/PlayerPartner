@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class WeaponSpriteData : ComponentData<AttackSprites>
 {
-    WeaponSpriteData()
+    protected override void SetComponentDependency()
     {
         PlayerComponentDependency = typeof(WeaponSprite);
         PartnerComponentDependency = typeof(PartnerWeaponSprite);
     }
-
 }

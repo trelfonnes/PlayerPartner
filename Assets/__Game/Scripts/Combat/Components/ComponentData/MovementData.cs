@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class MovementData : ComponentData<AttackMovementData>
 {
-    public MovementData()
+    protected override void SetComponentDependency()
     {
         PlayerComponentDependency = typeof(AttackMovement);
         PartnerComponentDependency = typeof(PartnerAttackMovement);
     }
-    
 }

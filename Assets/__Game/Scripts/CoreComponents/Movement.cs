@@ -112,11 +112,15 @@ public class Movement : CoreComponent
         SetFinalVelocity();
     }
 
-    public void SetLatestVelocity(Vector2 velocity)
+    public void SetLatestVelocity(Vector2 velocity)//TODO: create a reference in partner move state as well
     {
         latestMovingVelocity = velocity;
     }
-
+    public void SetKnockBackVelocity(Vector2 angle, float strength, int directionX, int directionY)
+    {
+        workspace.Set(directionX, directionY * strength); //dont thing I need angle for this game but good to have it here just in case
+        SetFinalVelocity();
+    }
     private void SetFinalVelocity()
     {
         if (CanSetVelocity)

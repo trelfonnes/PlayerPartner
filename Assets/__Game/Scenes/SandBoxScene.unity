@@ -1066,37 +1066,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &625228575 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6391170142841076627, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
-  m_PrefabInstance: {fileID: 944650179748297854}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &625228579 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1450407879794272066, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
-  m_PrefabInstance: {fileID: 944650179748297854}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625228575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04d2e17b82ca025409efa15c2da559e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &625228580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625228575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52aabde0338257d41ad6a2567f6d1e80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 625228579}
-  partnerWeapon: {fileID: 0}
-  data: {fileID: 11400000, guid: f07cba7930e49dd48b7f5d2ce3434940, type: 2}
 --- !u!114 &625548306 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 31334550, guid: a73cdc1ee821eb54ba7e0f3a8fcfa23d, type: 3}
@@ -2000,37 +1969,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1299056285 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6391170143406706832, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
-  m_PrefabInstance: {fileID: 944650179748297854}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1299056287 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2742348753332899685, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
-  m_PrefabInstance: {fileID: 944650179748297854}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299056285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04d2e17b82ca025409efa15c2da559e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1299056288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299056285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52aabde0338257d41ad6a2567f6d1e80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 1299056287}
-  partnerWeapon: {fileID: 0}
-  data: {fileID: 11400000, guid: dadc6fb5cf6379d4c8c720de2bdc2e2e, type: 2}
 --- !u!1001 &1339856300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3085,14 +3023,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4899751696271985990, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: dadc6fb5cf6379d4c8c720de2bdc2e2e, type: 2}
-    - target: {fileID: 4899751697479171839, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: f07cba7930e49dd48b7f5d2ce3434940, type: 2}
     - target: {fileID: 8430108973224999087, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
       propertyPath: m_Name
       value: PlayerFemale

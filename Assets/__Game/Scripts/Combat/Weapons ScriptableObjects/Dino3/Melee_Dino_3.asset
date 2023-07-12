@@ -18,6 +18,7 @@ MonoBehaviour:
   - rid: 7917043528491597832
   - rid: 7917043543650074625
   - rid: 7917043640045142018
+  - rid: 7917043661478035459
   references:
     version: 2
     RefIds:
@@ -110,3 +111,11 @@ MonoBehaviour:
         attackData:
         - name: Slash
           <Amount>k__BackingField: 5
+    - rid: 7917043661478035459
+      type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
+      data:
+        name: KnockBackData
+        attackData:
+        - name: Slash
+          <Angle>k__BackingField: {x: 0, y: 0}
+          <Strength>k__BackingField: 10
