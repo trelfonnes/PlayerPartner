@@ -97,21 +97,12 @@ public class PartnerActionHitBox : WeaponComponent<ActionHitBoxData, AttackActio
     {
         base.Start();
         movement = new CoreComp<Movement>(PartnerCore);
-    }
-
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
         PartnerEventHandler.OnAttackAction += HandleAttackAction;
-
     }
 
-   
-
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
-        base.OnDisable();
+        base.OnDestroy();
         PartnerEventHandler.OnAttackAction -= HandleAttackAction;
     }
 

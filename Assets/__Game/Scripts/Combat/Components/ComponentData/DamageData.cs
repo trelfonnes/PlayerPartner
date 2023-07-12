@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DamageData : ComponentData<AttackDamage>
 {
-
+public DamageData()
+    {
+        PlayerComponentDependency = typeof(Damage);
+        PartnerComponentDependency = typeof(PartnerDamage);
+    }
 
 }

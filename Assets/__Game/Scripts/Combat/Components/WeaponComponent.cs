@@ -22,6 +22,11 @@ public abstract class WeaponComponent : MonoBehaviour
     protected CoreHandler PlayerCore => weapon?.Core;
     protected CoreHandler PartnerCore => partnerWeapon?.Core;
 
+    public virtual void Init()
+    {
+
+    }
+
     protected virtual void Awake()
     {
 
@@ -35,7 +40,16 @@ public abstract class WeaponComponent : MonoBehaviour
     }
     protected virtual void Start()
     {
-
+        if (weapon != null)
+        {
+            weapon.onEnter += HandleEnter;
+            weapon.onExit += HandleExit;
+        }
+        if (partnerWeapon != null)
+        {
+            partnerWeapon.onEnter += HandlePartnerEnter;
+            partnerWeapon.onExit += HandlePartnerExit;
+        }
     }
     protected virtual void HandleEnter()
     {
@@ -53,20 +67,8 @@ public abstract class WeaponComponent : MonoBehaviour
     {
         isPartnerAttackActive = false;
     }
-    protected virtual void OnEnable()
-    {
-        if (weapon != null)
-        {
-            weapon.onEnter += HandleEnter;
-            weapon.onExit += HandleExit;
-        }
-        if (partnerWeapon != null)
-        {
-            partnerWeapon.onEnter += HandlePartnerEnter;
-            partnerWeapon.onExit += HandlePartnerExit;
-        }
-    }
-    protected virtual void OnDisable()
+   
+    protected virtual void OnDestroy()
     {
         if (weapon != null)
         {
@@ -106,9 +108,9 @@ public abstract class WeaponComponent : MonoBehaviour
         }
     }
 
-    protected override void Awake()
+    public override void Init()
     {
-        base.Awake();
+        base.Init();
         if (partnerWeapon != null)
         {
             dataPartner = partnerWeapon.Data.GetData<T1>();

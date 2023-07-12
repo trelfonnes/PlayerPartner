@@ -5,7 +5,7 @@ using System;
 
 public class Weapon : MonoBehaviour
 {
-    [field: SerializeField] public WeaponDataSO Data { get; private set; }
+   public WeaponDataSO Data { get; private set; }
 
     [SerializeField]  float attackCounterResetCooldown;
      public int CurrentAttackCounter
@@ -80,5 +80,9 @@ public class Weapon : MonoBehaviour
     public void SetCore(CoreHandler core)
     {
         Core = core;
+    }
+    public void SetData(WeaponDataSO data)
+    {
+        Data = data;
     }
 }

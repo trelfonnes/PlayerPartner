@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 740678868763759213}
   - component: {fileID: 2607447855836341977}
+  - component: {fileID: 8357434848059745963}
   m_Layer: 10
   m_Name: PrimaryWeapon
   m_TagString: Untagged
@@ -47,7 +48,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCounterResetCooldown: 0
-  numberOfAttacks: 0
+--- !u!114 &8357434848059745963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3775677159087896601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52aabde0338257d41ad6a2567f6d1e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  partnerWeapon: {fileID: 2607447855836341977}
+  data: {fileID: 0}
 --- !u!1001 &3410661932727832052
 PrefabInstance:
   m_ObjectHideFlags: 0

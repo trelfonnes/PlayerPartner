@@ -23,15 +23,15 @@ public class PartnerAttackMovement : WeaponComponent<MovementData, AttackMovemen
     }
 
   
-    protected override void OnEnable()
+    protected override void Start()
     {
-        base.OnEnable();
+        base.Start();
         PartnerEventHandler.OnStartMovement += HandleStartMovement;
         PartnerEventHandler.OnStopMovement += HandleStopMovement;
     }
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
-        base.OnDisable();
+        base.OnDestroy();
         PartnerEventHandler.OnStartMovement -= HandleStartMovement;
         PartnerEventHandler.OnStopMovement -= HandleStopMovement;
     }

@@ -37,31 +37,22 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
         currentWeaponSpriteIndex++;
     }
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
-        partnerBaseSpriteRenderer = transform.Find("Base").GetComponent<SpriteRenderer>();
-        partnerWeaponsSpriteRenderer = transform.Find("WeaponSprite").GetComponent<SpriteRenderer>();
-
+        base.Start();
         
+        partnerBaseSpriteRenderer = partnerWeapon.BaseGO.GetComponent<SpriteRenderer>();
+        partnerWeaponsSpriteRenderer = partnerWeapon.WeaponSpriteGO.GetComponent <SpriteRenderer>();
+        dataPartner = partnerWeapon.Data.GetData<WeaponSpriteData>();
 
-        // TODO: fix this when creating weapon data
-
-        //  partnerBaseSpriteRenderer = partnerWeapon.WeaponSpriteGO.GetComponent<SpriteRenderer>();
-        // partnerWeaponsSpriteRenderer = partnerWeapon.WeaponSpriteGO.GetComponent <SpriteRenderer>();
-    }
-    protected override void OnEnable()
-    {
-        base.OnEnable();
         partnerBaseSpriteRenderer.RegisterSpriteChangeCallback(HandleBaseSpriteChange);
-        partnerWeapon.onEnter += HandlePartnerEnter;
 
     }
-    protected override void OnDisable()
+   
+    protected override void OnDestroy()
     {
-        base.OnDisable();
+        base.OnDestroy();
         partnerBaseSpriteRenderer.UnregisterSpriteChangeCallback(HandleBaseSpriteChange);
-        partnerWeapon.onEnter -= HandlePartnerEnter;
 
     }
 

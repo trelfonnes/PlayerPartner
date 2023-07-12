@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3c2b469f755f79442900b9762711df57, type: 2}
+    - target: {fileID: 2873717825280259533, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: f07cba7930e49dd48b7f5d2ce3434940, type: 2}
     - target: {fileID: 3414641316636900619, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: SOData
       value: 
@@ -111,6 +115,10 @@ PrefabInstance:
       propertyPath: SOData
       value: 
       objectReference: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
+    - target: {fileID: 5380454593534553832, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: dadc6fb5cf6379d4c8c720de2bdc2e2e, type: 2}
     - target: {fileID: 6331929672594413318, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: <Data>k__BackingField
       value: 

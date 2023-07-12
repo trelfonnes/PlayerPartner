@@ -5,7 +5,7 @@ using System;
 public class PartnerWeapon : MonoBehaviour
 {
     [SerializeField] float attackCounterResetCooldown;
-    [field: SerializeField] public WeaponDataSO Data { get; private set; }
+    public WeaponDataSO Data { get; private set; }
     public int CurrentAttackCounter
     {
         get => currentAttackCounter;
@@ -51,7 +51,6 @@ public class PartnerWeapon : MonoBehaviour
         EventHandler = BaseGO.GetComponent<AnimationEventHandler>();
         attackCounterResetTimer = new Timer(attackCounterResetCooldown);
 
-
     }
     private void Update()
     {
@@ -86,5 +85,9 @@ public class PartnerWeapon : MonoBehaviour
     public void SetCore(CoreHandler core)
     {
         Core = core;
+    }
+    public void SetData(WeaponDataSO data)
+    {
+        Data = data;
     }
 }

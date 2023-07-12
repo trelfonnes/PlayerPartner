@@ -23,16 +23,16 @@ private void HandleStartMovement()
     }
  
 
-    protected override void OnEnable()
+    protected override void Start()
     {
-        base.OnEnable();
+        base.Start();
             PlayerEventHandler.OnStartMovement += HandleStartMovement;
             PlayerEventHandler.OnStopMovement += HandleStopMovement;
     }
 
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
-        base.OnDisable();
+        base.OnDestroy();
             PlayerEventHandler.OnStartMovement -= HandleStartMovement;
             PlayerEventHandler.OnStopMovement -= HandleStopMovement;
     }

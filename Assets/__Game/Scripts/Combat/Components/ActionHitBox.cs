@@ -97,17 +97,13 @@ public class ActionHitBox : WeaponComponent<ActionHitBoxData, AttackActionHItBox
     {
         base.Start();
         movement = new CoreComp<Movement>(PlayerCore);
-    }
-
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
         PlayerEventHandler.OnAttackAction += HandleAttackAction;
+
     }
-    protected override void OnDisable()
+   
+    protected override void OnDestroy()
     {
-        base.OnDisable();
+        base.OnDestroy();
         PlayerEventHandler.OnAttackAction -= HandleAttackAction;
     }
     private void OnDrawGizmosSelected()

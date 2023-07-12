@@ -9,7 +9,8 @@ public class ComponentData
     [SerializeField, HideInInspector] private string name;
 
 
-    public Type ComponentDependency { get; protected set; }
+    public Type PartnerComponentDependency { get; protected set; }
+    public Type PlayerComponentDependency { get; protected set; }
 
 
     public void SetComponentName() => name = GetType().Name;
