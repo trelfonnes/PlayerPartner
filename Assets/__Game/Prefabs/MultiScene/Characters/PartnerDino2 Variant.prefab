@@ -187,5 +187,24 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3758139163639882425, guid: e59075285719fb1469c9501c19ad3641, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+--- !u!1 &2916093079247938533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1173671507260601905, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+  m_PrefabInstance: {fileID: 4049214562511066580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &870923815494006637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2916093079247938533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4965c979a926fc42ba775b9e371de8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunnedParticles: {fileID: 0}

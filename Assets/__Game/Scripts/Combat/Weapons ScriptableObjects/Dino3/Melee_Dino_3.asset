@@ -19,6 +19,7 @@ MonoBehaviour:
   - rid: 7917043543650074625
   - rid: 7917043640045142018
   - rid: 7917043661478035459
+  - rid: 7917043703839719426
   references:
     version: 2
     RefIds:
@@ -119,3 +120,10 @@ MonoBehaviour:
         - name: Slash
           <Angle>k__BackingField: {x: 0, y: 0}
           <Strength>k__BackingField: 10
+    - rid: 7917043703839719426
+      type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
+      data:
+        name: PoiseDamageData
+        attackData:
+        - name: Slash
+          <amount>k__BackingField: 2

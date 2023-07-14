@@ -8,6 +8,7 @@ public class Poise : Stats, IPoise
   
 
     [SerializeField] private bool regeneratePoise = false;
+    [SerializeField] private float poiseRecoveryRate = 2f;
     
     protected override void Awake()
     {
@@ -26,7 +27,7 @@ public class Poise : Stats, IPoise
         if(SOData.Poise <= 0)
         {
             SOData.Poise = 0;
-            base.CurrentPoiseZero();
+            base.CurrentPoiseZero();  //TODO: make sure to subscribe to this stat event in enemy (andPartner) state machine so they can enter "stun State"
         }
     }
  
@@ -42,7 +43,7 @@ public class Poise : Stats, IPoise
     }
     public void RegeneratePoise()
     {
-        SOData.Poise = Mathf.Clamp(SOData.Poise + Time.deltaTime, 0, SOData.MaxPoise);
+        SOData.Poise = Mathf.Clamp(SOData.Poise + (Time.deltaTime * poiseRecoveryRate), 0, SOData.MaxPoise);
         if(SOData.Poise == SOData.MaxPoise)
         {
             regeneratePoise = false;
