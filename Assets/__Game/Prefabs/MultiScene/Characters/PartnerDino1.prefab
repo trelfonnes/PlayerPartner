@@ -1256,7 +1256,7 @@ PrefabInstance:
     - target: {fileID: 3984207884821035486, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: c0bcf5ea6a4b2d448909993ea595e39e, type: 2}
     - target: {fileID: 4568973121285795885, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: numberOfAttacks
       value: 1

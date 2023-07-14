@@ -15,8 +15,10 @@ public class WeaponAutoGenerator : MonoBehaviour
      private List<WeaponComponent> componentAddedToWeapon = new List<WeaponComponent>();
     private List<Type> componentDependencies = new List<Type>();
     int character; // used to differentiate player or partner components should be added
+    Animator anim;
     private void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         GenerateWeapon(data);
     }
 
@@ -76,7 +78,7 @@ public class WeaponAutoGenerator : MonoBehaviour
             Destroy(weaponComponent);
         }
 
-
+        anim.runtimeAnimatorController = data.AnimatorController;
     }
 
 

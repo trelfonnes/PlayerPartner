@@ -8,9 +8,11 @@ public class AnimationEventHandler : MonoBehaviour
     public event Action OnStartMovement;
     public event Action OnStopMovement;
     public event Action OnAttackAction;
+    public event Action<AttackPhases> OnEnterAttackPhase;
 
     void AnimationFinishedTrigger() => OnFinish?.Invoke();
     void StartMovementTrigger() => OnStartMovement?.Invoke();
     void StopMovementTrigger() => OnStopMovement?.Invoke();
-    void AttackActionTrigger() => OnAttackAction.Invoke();
+    void AttackActionTrigger() => OnAttackAction?.Invoke();
+    void EnterAttackPhase(AttackPhases phase) => OnEnterAttackPhase?.Invoke(phase); 
 }
