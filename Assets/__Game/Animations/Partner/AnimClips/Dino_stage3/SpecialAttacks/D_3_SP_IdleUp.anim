@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: D_2_MeleeUp
+  m_Name: D_3_SP_IdleUp
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1564485909, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
-    - time: 0.13333334
-      value: {fileID: -491204448, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
-    - time: 0.2
-      value: {fileID: -1648440497, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
-    - time: 0.33333334
-      value: {fileID: -1648440497, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
+      value: {fileID: 901909218, guid: efd6143a94f562c4a87c685310c25172, type: 3}
+    - time: 0.06666667
+      value: {fileID: 901909218, guid: efd6143a94f562c4a87c685310c25172, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,16 +42,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1564485909, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
-    - {fileID: -491204448, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
-    - {fileID: -1648440497, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
-    - {fileID: -1648440497, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
+    - {fileID: 901909218, guid: efd6143a94f562c4a87c685310c25172, type: 3}
+    - {fileID: 901909218, guid: efd6143a94f562c4a87c685310c25172, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.4
+    m_StopTime: 0.13333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -76,30 +70,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: StopMovementTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
     functionName: EnterAttackPhase
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 2
-    messageOptions: 0
-  - time: 0.13333334
-    functionName: AttackActionTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.4
-    functionName: AnimationFinishedTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
+    intParameter: 1
     messageOptions: 0

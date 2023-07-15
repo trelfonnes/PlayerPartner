@@ -68,6 +68,11 @@ public class PartnerMoveState : PartnerBasicState
             PSM.ChangePartnerState(partner.SecondaryAttackState);
 
         }
+        else if (xInput != 0 && yInput != 0 && secondaryAttackInput)
+        {
+            Debug.Log("change to attack state");
+            PSM.ChangePartnerState(partner.SecondaryAttackState);
+        }
 
     }
 

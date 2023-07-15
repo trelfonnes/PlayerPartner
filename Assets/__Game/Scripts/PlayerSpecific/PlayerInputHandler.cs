@@ -75,13 +75,13 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnSpecialInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.action.triggered)
         {
             // Start the coroutine to handle the input duration
             secondaryAttackInputCoroutine = StartCoroutine(HandleAttackInputDuration());
             AttackInputs[(int)CombatInputs.secondary] = true;
         }
-        else if (context.canceled)
+        else if (context.action.phase == InputActionPhase.Canceled)
         {
             // Stop the coroutine if the input is released
             if (secondaryAttackInputCoroutine != null)

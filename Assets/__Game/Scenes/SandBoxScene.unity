@@ -547,6 +547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PartnerDino3 Variant Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7067817040340299636, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7067817040563650111, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
       propertyPath: followPoint
       value: 
@@ -559,6 +563,22 @@ PrefabInstance:
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 7552899320217871864, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
+      propertyPath: m_Size.x
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552899320217871864, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
+      propertyPath: m_Size.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552899320217871864, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947873633710984316, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5bfe1d21e249c5f46b3e30349c4393eb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
 --- !u!114 &287807056 stripped
@@ -638,10 +658,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PartnerDino2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1353452548656069656, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1353452550487928147, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: followPoint
       value: 
       objectReference: {fileID: 3963916745244065921}
+    - target: {fileID: 1732982198001366676, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1761222645851046219, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: heartDisplayUI
       value: 
@@ -653,7 +681,7 @@ PrefabInstance:
     - target: {fileID: 2202549661621493520, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: c1b63738e906aa54798d1683e9b5fd36, type: 2}
     - target: {fileID: 3154289898732169666, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: EPDisplay
       value: 
@@ -3683,6 +3711,10 @@ PrefabInstance:
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Name
       value: PartnerDino1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156557, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: partnerCamera

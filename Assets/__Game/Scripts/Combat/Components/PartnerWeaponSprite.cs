@@ -32,7 +32,7 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
             return;
         }
 
-            if(currentWeaponSpriteIndex >= currentPhaseSprites.Length)
+        if (currentWeaponSpriteIndex >= currentPhaseSprites.Length)
         {
            // Debug.LogWarning($"{weapon.name} weapon Sprites length mismatch");
             return;
