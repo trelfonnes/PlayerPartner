@@ -48,6 +48,8 @@ public class WeaponDataSOEditor : Editor
 
 
                     dataSO.AddData(comp);
+
+                    EditorUtility.SetDirty(dataSO);
                 }
             }
 

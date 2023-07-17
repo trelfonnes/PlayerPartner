@@ -16,6 +16,7 @@ public class PartnerWeapon : MonoBehaviour
     public event Action onExit;
     public event Action onEnter;
     public event Action onDevolve;
+    public event Action<bool> OncurrentInputChange;
     Animator anim;
     public GameObject BaseGO { get; private set; }
     public GameObject WeaponSpriteGO { get; private set; }
@@ -24,8 +25,22 @@ public class PartnerWeapon : MonoBehaviour
     public AnimationEventHandler EventHandler { get; private set; }
     public CoreHandler Core { get; private set; }
     bool devolve;
+    bool currentInput;
     int currentAttackCounter;
     private Timer attackCounterResetTimer;
+    
+    public bool CurrentInput
+    {
+        get => currentInput;
+        set
+        {
+            if(currentInput != value)
+            {
+                currentInput = value;
+                OncurrentInputChange?.Invoke(currentInput);
+            }
+        }
+    }
     public void Enter()
     {
         anim.SetBool("active", true);

@@ -14,7 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: c1b63738e906aa54798d1683e9b5fd36, type: 2}
   <NumberOfAttacks>k__BackingField: 0
-  <ComponentData>k__BackingField: []
+  <ComponentData>k__BackingField:
+  - rid: 7917043770508705794
+  - rid: 7917043770508705798
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7917043770508705794
+      type: {class: MovementData, ns: , asm: Assembly-CSharp}
+      data:
+        name: MovementData
+        attackData: []
+    - rid: 7917043770508705798
+      type: {class: InputHoldData, ns: , asm: Assembly-CSharp}
+      data:
+        name: InputHoldData

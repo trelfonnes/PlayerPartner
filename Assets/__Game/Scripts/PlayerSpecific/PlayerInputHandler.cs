@@ -78,17 +78,17 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.action.triggered)
         {
             // Start the coroutine to handle the input duration
-            secondaryAttackInputCoroutine = StartCoroutine(HandleAttackInputDuration());
+       //     secondaryAttackInputCoroutine = StartCoroutine(HandleAttackInputDuration());
             AttackInputs[(int)CombatInputs.secondary] = true;
         }
         else if (context.action.phase == InputActionPhase.Canceled)
         {
             // Stop the coroutine if the input is released
-            if (secondaryAttackInputCoroutine != null)
-            {
-                StopCoroutine(secondaryAttackInputCoroutine);
-                secondaryAttackInputCoroutine = null;
-            }
+          //  if (secondaryAttackInputCoroutine != null)
+         //   {
+          //      StopCoroutine(secondaryAttackInputCoroutine);
+           //     secondaryAttackInputCoroutine = null;
+          //  }
             AttackInputs[(int)CombatInputs.secondary] = false;
         }
     }

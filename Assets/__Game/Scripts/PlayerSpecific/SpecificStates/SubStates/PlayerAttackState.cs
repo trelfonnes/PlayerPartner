@@ -6,18 +6,20 @@ public class PlayerAttackState : PlayerAbilityState
 {
     private int xInput;
     private int yInput;
-
+    int inputIndex;
     Weapon weapon;
     public PlayerAttackState(Player player, 
         PlayerStateMachine PSM, 
         PlayerSOData playerSOData, 
         PlayerData playerData, 
         string animBoolName, 
-        Weapon weapon)
+        Weapon weapon,
+        CombatInputs input)
         : base(player, PSM, playerSOData, playerData, animBoolName)
     {
         this.weapon = weapon;
         weapon.onExit += ExitHandler;  //DO I need to unsub??
+        inputIndex = (int)input;
     }
 
     
@@ -43,6 +45,7 @@ public class PlayerAttackState : PlayerAbilityState
         base.LogicUpdate();
         xInput = player.InputHandler.NormInputX;
         yInput = player.InputHandler.NormInputY;
+        weapon.CurrentInput = player.InputHandler.AttackInputs[inputIndex];
     }
 
     public override void PhysicsUpdate()

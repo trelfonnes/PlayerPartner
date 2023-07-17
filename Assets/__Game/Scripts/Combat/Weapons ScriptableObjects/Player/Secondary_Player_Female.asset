@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
   m_Name: Secondary_Player_Female
   m_EditorClassIdentifier: 
-  <AnimatorController>k__BackingField: {fileID: 9100000, guid: 3c2b469f755f79442900b9762711df57, type: 2}
+  <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8ca8a7396ba7cab46873b142f3e08763, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
   - rid: 7917043528491597835
   - rid: 7917043528491597836
+  - rid: 7917043770508705801
   references:
     version: 2
     RefIds:
@@ -26,8 +27,7 @@ MonoBehaviour:
         name: WeaponSpriteData
         attackData:
         - name: 
-          <Sprites>k__BackingField:
-          - {fileID: 1615465951, guid: aefee9526cc6be1438fc9d1863e0732e, type: 3}
+          <PhaseSprites>k__BackingField: []
     - rid: 7917043528491597836
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
@@ -36,3 +36,7 @@ MonoBehaviour:
         - name: 
           <Direction>k__BackingField: {x: 0, y: 0}
           <Velocity>k__BackingField: 0
+    - rid: 7917043770508705801
+      type: {class: InputHoldData, ns: , asm: Assembly-CSharp}
+      data:
+        name: InputHoldData

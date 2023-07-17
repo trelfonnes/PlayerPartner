@@ -20,6 +20,7 @@ MonoBehaviour:
   - rid: 7917043731285409794
   - rid: 7917043731285409795
   - rid: 7917043731285409796
+  - rid: 7917043770508705797
   references:
     version: 2
     RefIds:
@@ -118,3 +119,7 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <amount>k__BackingField: 0
+    - rid: 7917043770508705797
+      type: {class: InputHoldData, ns: , asm: Assembly-CSharp}
+      data:
+        name: InputHoldData

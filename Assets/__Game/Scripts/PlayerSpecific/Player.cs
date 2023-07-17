@@ -57,8 +57,8 @@ public class Player : MonoBehaviour
         _playerData = PlayerData.Instance;
         IdleState = new PlayerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerSOData, _playerData, "move");
-        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon);
-        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack", secondaryWeapon);
+        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon, CombatInputs.primary);
+        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack", secondaryWeapon, CombatInputs.secondary);
         SpecialState = new PlayerSpecialState(this, StateMachine, playerSOData, _playerData, "special");
         CarryItemState = new PlayerCarryItemState(this, StateMachine, playerSOData, _playerData, "carryItem");
         HoldItemState = new PlayerHoldItemState(this, StateMachine, playerSOData, _playerData, "holdItem");

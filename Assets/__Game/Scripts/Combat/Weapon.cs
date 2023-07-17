@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
 
     public event Action onExit;
     public event Action onEnter;
+    public event Action<bool> OncurrentInputChange;
     Animator anim;
     public GameObject BaseGO { get; private set; }
     public GameObject WeaponSpriteGO { get; private set; }
@@ -26,6 +27,22 @@ public class Weapon : MonoBehaviour
 
     int currentAttackCounter;
      private Timer attackCounterResetTimer;
+    private bool currentInput;
+
+    public bool CurrentInput
+    {
+        get => currentInput;
+        set
+        {
+            if(currentInput != value)
+            {
+                currentInput = value;
+                OncurrentInputChange?.Invoke(currentInput);
+            }
+        }
+    }
+
+
   public void Enter()
     {
         print($"{transform.name} enter");

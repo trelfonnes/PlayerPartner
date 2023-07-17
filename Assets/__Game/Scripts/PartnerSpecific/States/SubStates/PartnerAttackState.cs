@@ -5,17 +5,20 @@ using UnityEngine;
 public class PartnerAttackState : PartnerAbilityState
 {
     PartnerWeapon weapon;
+    int inputIndex;
     public PartnerAttackState(Partner partner, 
         PlayerStateMachine PSM, 
         PlayerSOData playerSOData, 
         PlayerData playerData, 
         string animBoolName,
-        PartnerWeapon weapon) 
+        PartnerWeapon weapon,
+        CombatInputs input) 
         : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
         this.weapon = weapon;
         weapon.onExit += ExitHandler; //DO I need to unsub??
         weapon.onDevolve += Devolve;
+        inputIndex = (int)input;
     }
 
     public override void DoChecks()
@@ -48,6 +51,7 @@ public class PartnerAttackState : PartnerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        weapon.CurrentInput = partner.InputHandler.AttackInputs[inputIndex];
     }
 
     public override void PhysicsUpdate()

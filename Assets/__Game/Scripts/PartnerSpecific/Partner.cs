@@ -64,8 +64,8 @@ public class Partner : MonoBehaviour
         StateMachine = new PlayerStateMachine();
         playerDirection = Vector2.down;
 
-        PrimaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon);
-        SecondaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", secondaryWeapon);
+        PrimaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon, CombatInputs.primary);
+        SecondaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", secondaryWeapon, CombatInputs.secondary);
         MoveState = new PartnerMoveState(this, StateMachine, playerSOData, _playerData, "move");
         IdleState = new PartnerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         FollowIdleState = new PartnerFollowIdleState(this, StateMachine, playerSOData, _playerData, "followIdle");
