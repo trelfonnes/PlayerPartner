@@ -127,6 +127,14 @@ PrefabInstance:
       propertyPath: <Data>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 13ba072588e29f74fb7848bf95383b55, type: 2}
+    - target: {fileID: 1732982198001366676, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_Size.x
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732982198001366676, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_Size.y
+      value: 3.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1761222645851046219, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: SOData
       value: 
@@ -134,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 2202549661621493520, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: 5bfe1d21e249c5f46b3e30349c4393eb, type: 2}
     - target: {fileID: 2556178062691424939, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -194,7 +202,7 @@ PrefabInstance:
     - target: {fileID: 7734564764485414329, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 13ba072588e29f74fb7848bf95383b55, type: 2}
+      objectReference: {fileID: 11400000, guid: b3cf30962a3f4a740ae856151a24282a, type: 2}
     - target: {fileID: 7992393184567836112, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: m_Size.x
       value: 3.75

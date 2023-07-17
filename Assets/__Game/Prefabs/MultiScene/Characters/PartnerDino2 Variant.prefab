@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 2783422548460997316, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: c1b63738e906aa54798d1683e9b5fd36, type: 2}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Name
       value: PartnerDino2 Variant
@@ -158,7 +158,7 @@ PrefabInstance:
     - target: {fileID: 6009775099449210989, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: bc8dcae0a24754545bbf73e55cfa4539, type: 2}
+      objectReference: {fileID: 11400000, guid: 0ae2f06b98cc8b04aaa635285c741996, type: 2}
     - target: {fileID: 7201974324662115658, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SOData
       value: 

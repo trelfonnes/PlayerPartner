@@ -32,11 +32,11 @@ public class PlayerMoveState : PlayerBasicState
         Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput,  yInput).normalized));
        if(Movement.CurrentVelocity != Vector2.zero)
         {
+            Movement?.CheckCombatHitBoxDirection(xInput, yInput);
             player.playerDirection = Movement.CurrentVelocity;
             player.anim.SetFloat("moveY", player.playerDirection.y);
             player.anim.SetFloat("moveX", player.playerDirection.x);
             player.lastDirection = player.playerDirection;
-            
         }
 
         if (!isExitingState)
