@@ -630,7 +630,7 @@ MonoBehaviour:
     projectilePrefab: {fileID: 4194652619202764880, guid: 894a17451fae3e54eba6e5bc41b012bf, type: 3}
   poolSizes:
   - projectileType: 0
-    poolSize: 0
+    poolSize: 5
 --- !u!4 &416384203
 Transform:
   m_ObjectHideFlags: 0

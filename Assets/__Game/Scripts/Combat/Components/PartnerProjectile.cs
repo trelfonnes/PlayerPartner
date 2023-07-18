@@ -6,11 +6,11 @@ public class PartnerProjectile : WeaponComponent<ProjectileData, AttackProjectil
 {
     Movement movement;
     Vector2 direction;// comes from combatfacingdirection in movment ref above 
-
+    SpecialPower specialPower;
 
     public void ShootProjectile() // call this from anim event handler
     {
-        UnPoolProjectile();
+        UnPoolProjectile();// TODO: logic for checking SP and for decreasing SP
     }
     void UnPoolProjectile() //listed to (through Event Handler script) by pooling script
     {
@@ -26,6 +26,7 @@ public class PartnerProjectile : WeaponComponent<ProjectileData, AttackProjectil
     {
         base.Start();
         movement = PartnerCore.GetCoreComponent<Movement>();
+        specialPower = PartnerCore.GetComponent<SpecialPower>();
         PartnerEventHandler.OnShootProjectile += ShootProjectile;//can create event to have a dropdown like Phases that designates which projectile to shoot??
     }
     protected override void OnDestroy()

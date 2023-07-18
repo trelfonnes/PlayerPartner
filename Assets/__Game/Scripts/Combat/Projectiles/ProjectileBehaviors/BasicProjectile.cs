@@ -7,11 +7,17 @@ public class BasicProjectile : MonoBehaviour
     Rigidbody2D rb;
     CircleCollider2D circleCollider;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
-    
     SpriteRenderer sr;
-    [SerializeField] float velocity = 10f;
-    float timeToSpriteSwitch = .2f;
 
+    [SerializeField] private float damage = 1; //how much damage it does
+    [SerializeField] private float knockBackDamage =3; //how much knockback it gives
+    [SerializeField] private float poiseDamage = 1; //how much poise damage it does
+    [SerializeField] float velocity = 10f; // how fast it travels
+    [SerializeField] float activeTime = 2.5f;  //how far it travels
+    float timeToSpriteSwitch = .2f; 
+    bool hasBeenShot;
+
+    Vector2 normalizedDirection;
 
     private void Awake()
     {
@@ -21,14 +27,18 @@ public class BasicProjectile : MonoBehaviour
    
     protected virtual void Shoot(PartnerProjectile component, Vector2 direction)
     {
-        rb.transform.position = component.transform.position;
-        Debug.Log(direction);
-        Vector2 normalizedDirection = direction.normalized;
+        if (!hasBeenShot)
+        {
+            rb.transform.position = component.transform.position;
+            Debug.Log(direction);
+           normalizedDirection = direction.normalized;
 
-        rb.velocity = normalizedDirection * velocity;
-
-        StartCoroutine(SwitchSpriteRoutine());
-
+            rb.velocity = normalizedDirection * velocity;
+            hasBeenShot = true;
+            StartCoroutine(SwitchSpriteRoutine());
+            StartCoroutine(DeactivateAfterTime());
+        
+        }
     }
     IEnumerator SwitchSpriteRoutine()
     {
@@ -45,10 +55,33 @@ public class BasicProjectile : MonoBehaviour
         }
     }
 
+    IEnumerator DeactivateAfterTime()
+    {
+        yield return new WaitForSeconds(activeTime);
+        hasBeenShot = false;
+        gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //apply damage and knockback
-        // return to pool
+        if(collision.CompareTag("Enemy"))
+        {
+            //TODO: add logic for damage and knockback and poise. 
+            if (collision.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.Damage(damage);
+            }
+            if(collision.TryGetComponent(out IKnockBackable knockBackable))
+            {
+                knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
+            }
+            if(collision.TryGetComponent(out IPoise poise))
+            {
+                poise.DecreasePoise(poiseDamage);
+            }
+            hasBeenShot = false;
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnEnable()

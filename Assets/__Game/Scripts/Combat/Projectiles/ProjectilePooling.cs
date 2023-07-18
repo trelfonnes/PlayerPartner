@@ -65,7 +65,7 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
         }
     }
 
-    public GameObject GetPooledObject(ProjectileType projectileType) // iterates over pooled objects of that passed in type and sets to active
+    public GameObject GetPooledObject(ProjectileType projectileType) // iterates over pooled objects of that passed in type and sets reference
     {
         GameObject prefab = GetPrefabFromType(projectileType);
 
@@ -76,6 +76,7 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
             {
                 if (!pooledObjects[i].activeInHierarchy)
                 {
+                    pooledObjects[i].SetActive(true); // this gives desired function over below. Might not need return type.
                     return pooledObjects[i];
                 }
             }

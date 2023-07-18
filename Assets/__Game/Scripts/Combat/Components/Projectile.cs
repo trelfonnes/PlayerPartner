@@ -5,11 +5,12 @@ using UnityEngine;
 public class Projectile : WeaponComponent<ProjectileData, AttackProjectileData>
 {
     Movement movement;
+    SpecialPower specialPower;
     Vector2 direction;
 
     public void ShootProjectile()
     {
-        UnPoolProjectile();
+        UnPoolProjectile(); //TODO: logic for checking SP and for decreasing SP
     }
     void UnPoolProjectile()
     {
@@ -27,6 +28,7 @@ public class Projectile : WeaponComponent<ProjectileData, AttackProjectileData>
     {
         base.Start();
         movement = PlayerCore.GetCoreComponent<Movement>();
+        specialPower = PlayerCore.GetCoreComponent<SpecialPower>();
         PlayerEventHandler.OnShootProjectile += ShootProjectile;
     }
     protected override void OnDestroy()
