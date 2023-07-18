@@ -625,6 +625,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9222a227f5c5a4747b126c0042f1c962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefabs:
+  - projectileType: 0
+    projectilePrefab: {fileID: 0}
+  poolSizes: []
 --- !u!4 &416384203
 Transform:
   m_ObjectHideFlags: 0
