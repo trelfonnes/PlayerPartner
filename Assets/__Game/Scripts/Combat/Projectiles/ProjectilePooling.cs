@@ -24,9 +24,13 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
 
     private Dictionary<GameObject, List<GameObject>> pooledObjectsDictionary = new Dictionary<GameObject, List<GameObject>>();
 
-    private void Start()
+
+    private void Awake()
     {
         InitializeProjectileDictionaries();
+    }
+    private void Start()
+    {
         CreatePools();
         
     }

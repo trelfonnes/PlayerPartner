@@ -627,8 +627,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefabs:
   - projectileType: 0
-    projectilePrefab: {fileID: 0}
-  poolSizes: []
+    projectilePrefab: {fileID: 4194652619202764880, guid: 894a17451fae3e54eba6e5bc41b012bf, type: 3}
+  poolSizes:
+  - projectileType: 0
+    poolSize: 0
 --- !u!4 &416384203
 Transform:
   m_ObjectHideFlags: 0
@@ -3713,6 +3715,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 803601676540134732, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 813953972154848909, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: staminaDisplay
       value: 
@@ -3789,10 +3795,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3831705297487035654, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4984900039003140835, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 6982042588960156678, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7201974324662115658, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SPDisplay
       value: 

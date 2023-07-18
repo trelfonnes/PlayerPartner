@@ -129,5 +129,5 @@ MonoBehaviour:
       data:
         name: ProjectileData
         attackData:
-        - name: ChargeProjectile
-          <TypeOfProjectile>k__BackingField: 1
+        - name: BasicProjectile
+          <TypeOfProjectile>k__BackingField: 0
