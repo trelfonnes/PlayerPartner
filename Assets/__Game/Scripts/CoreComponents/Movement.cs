@@ -7,8 +7,11 @@ public class Movement : CoreComponent
     public Rigidbody2D rb { get; private set; }
     private Vector2 workspace;
     public int facingDirectionX { get; private set; }
+    public int facingCombatDirectionX { get; private set; }
+    public int facingCombatDirectionY { get; private set; }
     public int facingDirectionY { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
+    public Vector2 latestMovingVelocity { get; private set; }
     public bool CanSetVelocity { get; set; }
 
     protected override void Awake()
@@ -17,6 +20,8 @@ public class Movement : CoreComponent
         rb = GetComponentInParent<Rigidbody2D>();
         facingDirectionX = 1;
         facingDirectionY = -1;
+        facingCombatDirectionX = 0;
+        facingCombatDirectionY = -1;
 
         CanSetVelocity = true;
     }
@@ -38,14 +43,50 @@ public class Movement : CoreComponent
     }
     public void CheckIfShouldFlip(int xInput, int yInput)
     {
-        if(xInput != 0 && xInput != facingDirectionX)
+        if (xInput != 0 && xInput != facingDirectionX)
         {
             FlipX();
         }
-        if(yInput != 0 && yInput != facingDirectionY)
+    }
+
+    public void CheckCombatHitBoxDirection(int xInput, int yInput) 
         {
-            FlipY();
+        if (xInput > 0)
+        {
+            facingCombatDirectionX = 1;
         }
+        else if (xInput < 0)
+        {
+            facingCombatDirectionX = -1;
+        }
+        else if (xInput == 0)
+        {
+            facingCombatDirectionX = 0;
+        }
+
+
+        if (yInput > 0)
+        {
+            facingCombatDirectionY = 1;
+        }
+        else if (yInput < 0)
+        {
+            facingCombatDirectionY = -1;
+        }
+        else if( yInput == 0)
+        {
+            facingCombatDirectionY = 0;
+        }
+
+    }
+    public void CheckIfShouldFlipFollowing(Vector2 vector2)
+    {
+        vector2.x = Mathf.Round(vector2.x);
+        if(vector2.x != 0 && vector2.x != facingDirectionX)
+        {
+            FlipX();
+        }
+        
 
     }
 
@@ -71,6 +112,15 @@ public class Movement : CoreComponent
         SetFinalVelocity();
     }
 
+    public void SetLatestVelocity(Vector2 velocity)//TODO: create a reference in partner move state as well
+    {
+        latestMovingVelocity = velocity;
+    }
+    public void SetKnockBackVelocity(Vector2 angle, float strength, int directionX, int directionY)
+    {
+        workspace.Set(directionX, directionY * strength); //dont thing I need angle for this game but good to have it here just in case
+        SetFinalVelocity();
+    }
     private void SetFinalVelocity()
     {
         if (CanSetVelocity)

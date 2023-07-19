@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1328451144473450954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6638716089152140349}
+  - component: {fileID: 8957202859324220801}
+  m_Layer: 0
+  m_Name: ScriptableObjectReferenceHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6638716089152140349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328451144473450954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.2748117, y: 5.180351, z: -0.12873265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8957202859324220801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328451144473450954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a01cadf408f73b84a992d5a89dde2c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
+  Dino1SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  Dino2SOData: {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
+  Dino3SOData: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
+  Bear1SOData: {fileID: 0}
+  Bear2SOData: {fileID: 0}
+  Bear3SOData: {fileID: 0}
+  Rabbit1SOData: {fileID: 0}
+  Rabbit2SOData: {fileID: 0}
+  Rabbit3SOData: {fileID: 0}
+  Axel1SOData: {fileID: 0}
+  Axel2SOData: {fileID: 0}
+  Axel3SOData: {fileID: 0}
+  statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  evolveEvents: {fileID: 11400000, guid: cea042e38e7e2db44bb9d1b3d982c775, type: 2}

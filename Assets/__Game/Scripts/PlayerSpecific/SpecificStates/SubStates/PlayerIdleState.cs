@@ -11,11 +11,14 @@ public class PlayerIdleState : PlayerBasicState
     public override void DoChecks()
     {
         base.DoChecks();
-    }
+    } 
 
     public override void Enter()
     {
         base.Enter();
+        canExitState = false;
+
+
     }
 
     public override void Exit()
@@ -26,11 +29,55 @@ public class PlayerIdleState : PlayerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
-        if(xInput != 0 || yInput != 0)
+
+        if (xInput != 0 || yInput != 0)
         {
             PSM.ChangeState(player.MoveState);
         }
+
+        if (!switchInput && !interactInput)
+        {
+            canExitState = true;
+        }
+        if (canExitState)
+        {
+            if (switchInput)
+            {
+                player.evolutionEvents.SwitchToPartner();
+                PSM.ChangeState(player.WatchState);
+
+            }
+            if (interactInput && isTouchingCarryable)
+            {
+                if (HitsToCarry)//&& !currentlyCarrying)
+                {
+                    Debug.Log(HitsToCarry.transform.name);
+                    HitsToCarry.collider.GetComponent<ICarry>().Carry(carryPoint);
+                    currentlyCarrying = true;
+                    PSM.ChangeState(player.HoldItemState);
+
+                }
+            }
+            if (interactInput && isTouchingInteractable)
+            {
+                if (HitsToInteract) 
+                {
+                  HitsToInteract.collider.GetComponent<IInteractable>().Interact();
+                    canExitState = false;
+                } 
+            }
+        }
+        if (primaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.PrimaryAttackState);
+        }
+        if (secondaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.SecondaryAttackState);
+
+        }
+
+
     }
 
     public override void PhysicsUpdate()
@@ -38,15 +85,5 @@ public class PlayerIdleState : PlayerBasicState
         base.PhysicsUpdate();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 }

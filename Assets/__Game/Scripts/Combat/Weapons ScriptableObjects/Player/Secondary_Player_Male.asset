@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
+  m_Name: Secondary_Player_Male
+  m_EditorClassIdentifier: 
+  <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8951ff8e9747b9f40ada6146dfeb3b09, type: 2}
+  <NumberOfAttacks>k__BackingField: 0
+  <ComponentData>k__BackingField:
+  - rid: 7917043528491597837
+  - rid: 7917043528491597838
+  - rid: 7917043543650074628
+  - rid: 7917043770508705800
+  - rid: 7917043770508705807
+  references:
+    version: 2
+    RefIds:
+    - rid: 7917043528491597837
+      type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
+      data:
+        name: WeaponSpriteData
+        attackData:
+        - name: 
+          <PhaseSprites>k__BackingField: []
+    - rid: 7917043528491597838
+      type: {class: MovementData, ns: , asm: Assembly-CSharp}
+      data:
+        name: MovementData
+        attackData:
+        - name: 
+          <Direction>k__BackingField: {x: 0, y: 0}
+          <Velocity>k__BackingField: 0
+        - name: 
+          <Direction>k__BackingField: {x: 0, y: 0}
+          <Velocity>k__BackingField: 0
+    - rid: 7917043543650074628
+      type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
+      data:
+        name: ActionHitBoxData
+        attackData:
+        - name: 
+          DebugHitBoxNorth: 0
+          <HitBoxNorth>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxSouth: 0
+          <HitBoxSouth>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxEast: 0
+          <HitBoxEast>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxWest: 0
+          <HitBoxWest>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxNorthWest: 0
+          <HitBoxNorthWest>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxSouthWest: 0
+          <HitBoxSouthWest>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxNorthEast: 0
+          <HitBoxNorthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxSouthEast: 0
+          <HitBoxSouthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+        <DetectableLayers>k__BackingField:
+          serializedVersion: 2
+          m_Bits: 0
+    - rid: 7917043770508705800
+      type: {class: InputHoldData, ns: , asm: Assembly-CSharp}
+      data:
+        name: InputHoldData
+    - rid: 7917043770508705807
+      type: {class: ProjectileData, ns: , asm: Assembly-CSharp}
+      data:
+        name: ProjectileData
+        attackData:
+        - name: StunArrow
+          <TypeOfProjectile>k__BackingField: 3

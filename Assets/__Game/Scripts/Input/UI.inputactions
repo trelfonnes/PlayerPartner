@@ -1,0 +1,45 @@
+{
+    "name": "UI",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "441500f3-aa40-47f1-9e71-d668c13d9b0b",
+            "actions": [
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "cb5b4421-1d50-49bc-817f-d28333727f1e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "09bdf5e2-cee5-434b-ac25-f06a8a2cd9c6",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "626e322e-72bc-4848-932f-db2895d7f9ec",
+                    "path": "<DualShockGamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

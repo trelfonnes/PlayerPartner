@@ -16,6 +16,7 @@ public class PlayerMoveState : PlayerBasicState
     public override void Enter()
     {
         base.Enter();
+        canExitState = false;
     }
 
     public override void Exit()
@@ -31,9 +32,11 @@ public class PlayerMoveState : PlayerBasicState
         Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput,  yInput).normalized));
        if(Movement.CurrentVelocity != Vector2.zero)
         {
+            Movement?.CheckCombatHitBoxDirection(xInput, yInput);
             player.playerDirection = Movement.CurrentVelocity;
             player.anim.SetFloat("moveY", player.playerDirection.y);
             player.anim.SetFloat("moveX", player.playerDirection.x);
+            player.lastDirection = player.playerDirection;
         }
 
         if (!isExitingState)
@@ -44,6 +47,36 @@ public class PlayerMoveState : PlayerBasicState
                 PSM.ChangeState(player.IdleState);
             }
         }
+        if (!interactInput)
+        {
+            canExitState = true;
+        }
+        if (canExitState)
+        {
+            
+            if (interactInput && isTouchingCarryable)
+            {
+                if (HitsToCarry )//&& !currentlyCarrying)
+                {
+                    Debug.Log(HitsToCarry.transform.name);
+                    HitsToCarry.collider.GetComponent<ICarry>().Carry(carryPoint);
+                    currentlyCarrying = true;
+                    PSM.ChangeState(player.CarryItemState);
+
+                }
+                                 
+            }
+        }
+        if (primaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.PrimaryAttackState);
+        }
+        if (secondaryAttackInput && !isWatching)
+        {
+            PSM.ChangeState(player.SecondaryAttackState);
+
+        }
+
     }
 
     public override void PhysicsUpdate()

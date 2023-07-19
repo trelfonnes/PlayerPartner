@@ -9,19 +9,22 @@ public class PlayerState
     protected Player player;
     protected PlayerStateMachine PSM;
     protected PlayerData playerData;
+    protected StatEvents statEvents;
     protected bool isExitingState;
     protected bool isAnimationFinished;
+    
     protected float startTime;
     string animBoolName;
 
-    protected Movement Movement {get => movement ?? core.GetCoreComponent(ref movement);}
-    protected CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+    //protected Movement Movement {get => movement ?? core.GetCoreComponent(ref movement);}
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+   
+
     protected Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
 
     private Movement movement;
-    private CollisionSenses collisionSenses;
     private Stats stats;
     private Defeated defeated;
     private Particles particles;
@@ -35,14 +38,19 @@ public class PlayerState
         this.playerData = playerData;
         this.animBoolName = animBoolName;
         core = player.core;
+        statEvents = player.statEvents;
 
     }
 
     public virtual void Enter()
     {
         DoChecks();
+        
+        
+
+
         startTime = Time.time; //might need changed
-        player.anim.SetBool(animBoolName, true);
+                player.anim.SetBool(animBoolName, true);
         isAnimationFinished = false;
         isExitingState = false;
         
@@ -56,11 +64,11 @@ public class PlayerState
     }
     public virtual void LogicUpdate()
     {
-
     }
     public virtual void PhysicsUpdate()
     {
         DoChecks();
+
     }
     void Start()
     {
@@ -78,5 +86,8 @@ public class PlayerState
     {
         isAnimationFinished = true;
     }
-    
+    public virtual void TimeToDevolve()
+    {
+        PSM.ChangeState(player.EvolutionState);
+    }
 }

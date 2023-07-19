@@ -17,9 +17,11 @@ public class CollisionSenses : CoreComponent
 
     #region Serialized Transforms
     [SerializeField]
-    private Transform collisionsCheckPoint; 
+    protected Transform collisionsCheckPoint; 
     [SerializeField]
     private Transform groundCheckPoint;
+  
+   
 
     #endregion
 
@@ -29,11 +31,10 @@ public class CollisionSenses : CoreComponent
     #endregion
 
     #region Size of Checks
-    [SerializeField] private float collisionCheckDistance = 1.5f;
+    [SerializeField] protected float collisionCheckDistance = 1.5f;
     [SerializeField] private float groundCheckRadius = 0.3f;
 
-    [SerializeField] private LayerMask whatIsWall;
-    [SerializeField] private LayerMask whatIsCarryable;
+    [SerializeField] protected LayerMask whatIsWall;
     [SerializeField] private LayerMask whatIsGround;
 
     #endregion
@@ -41,15 +42,34 @@ public class CollisionSenses : CoreComponent
     #region Public CollisionCheck Functions
     public bool WallCheck
     {
-        get => Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsWall);
-    }public bool CarryableCheck
-    {
-        get => Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsCarryable);
+        get
+        {
+            RaycastHit2D[] results = new RaycastHit2D[50];
+            int hits = Physics2D.RaycastNonAlloc(collisionsCheckPoint.position, player.playerDirection, results, collisionCheckDistance, whatIsWall);
+            return hits > 0;
+        }
     }
+    public bool WallCheckPartner
+    {
+        get
+        {
+            RaycastHit2D[] results = new RaycastHit2D[100];
+            int hits = Physics2D.RaycastNonAlloc(collisionsCheckPoint.position, partner.playerDirection, results, collisionCheckDistance, whatIsWall);
+            return hits > 0;
+        }
+        }
+
     public bool GroundCheck
     {
-        get => Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, whatIsGround);
+        get
+        {
+            Collider2D[] results = new Collider2D[50];
+            int count = Physics2D.OverlapCircleNonAlloc(groundCheckPoint.position, groundCheckRadius, results, whatIsGround);
+            return count > 0;
+        }
     }
+
+
     #endregion
 
 

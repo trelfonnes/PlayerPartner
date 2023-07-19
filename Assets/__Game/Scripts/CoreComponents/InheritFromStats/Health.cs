@@ -4,33 +4,93 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Health : Stats //interfaces for decreasing health and increasing
+public class Health : Stats, IHealthChange //interfaces for decreasing health and increasing
 {//CANNOT be a child object of Stats. Has to be a child object of coreHandler or else error is thrown.
-    //hold events in functions within stats and call them where needed in respective scripts 
+ //hold events in functions within stats and call them where needed in respective scripts 
+
+   [SerializeField] private HeartDisplayUI heartDisplayUI;
     protected override void Awake()
     {
         base.Awake();
-        playerData.currentHealth = playerData.maxHealth;
-        Debug.Log(playerData.currentHealth);
+        UpdateUI();
 
     }
+    private void OnEnable()
+    {
+        UpdateUI();
+    }
+
     public void DecreaseHealth(float amount)
     {
-        playerData.currentHealth -= amount;
-        if (playerData.currentHealth <= 0)
+        if (gameObject.transform.parent.parent.gameObject.activeSelf)//even if only UPdateUI on active, event in stats still triggers and changes UI
         {
-            playerData.currentHealth = 0;
-            // OnCurrentHealthZero?.Invoke();
-            base.CurrentHealthZero();
+            SOData.CurrentHealth -= amount;
+            Debug.Log("decreasingHealth.. hopefully once");
+            if (SOData.CurrentHealth <= 0)
+            {
+
+                SOData.CurrentHealth = 0;
+                base.CurrentHealthZero();
+            }
+
+            UpdateUI();
+            UpdateConditionUI();
         }
+        
     }
+
+    
     public void IncreaseHealth(float amount)
     {
-        playerData.currentHealth = Mathf.Clamp(playerData.currentHealth + amount, 0, playerData.maxHealth);
+        if (!SOData.IsInjured)
+        {
+            SOData.CurrentHealth = Mathf.Clamp(SOData.CurrentHealth + amount, 0, SOData.MaxHealth);
+            Debug.Log(SOData.CurrentHealth);
+            if (SOData.CurrentHealth == SOData.MaxHealth)
+            {
+                base.CurrentHealthFull();
+            }
+            UpdateUI();
+            UpdateConditionUI();
+        }
     }
     public void IncreaseMaxHealth(float amount)
     {
-        playerData.maxHealth = +amount;
+        SOData.MaxHealth = Mathf.Clamp(SOData.MaxHealth + amount, 0, SOData.HealthLimit);
+        SOData.CurrentHealth = SOData.MaxHealth;
+        UpdateUI();
+        UpdateConditionUI();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        ClockManager.OnTick += delegate (object sender, ClockManager.OnTickEventArgs e)
+        {
+           
+             if (SOData.IsInjured && SOData.CurrentHealth > 2)
+            {
+                DecreaseHealth(2);
+            }
+        };
+    }
+    private void OnDisable()
+    {
+        ClockManager.OnTick -= delegate (object sender, ClockManager.OnTickEventArgs e)
+        {
+
+
+        };
+    }
+
+    private void UpdateUI()
+    {
+        if (gameObject.transform.parent.parent.gameObject.activeSelf)
+        {
+            
+            if (heartDisplayUI != null)
+                heartDisplayUI.UpdateHeartDisplay(SOData.CurrentHealth, SOData.MaxHealth);
+        }
     }
 
 }

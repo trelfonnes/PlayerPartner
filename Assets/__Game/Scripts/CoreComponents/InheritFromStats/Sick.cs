@@ -2,17 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sick : MonoBehaviour
+public class Sick : Stats, ISick
 {
-    // Start is called before the first frame update
-    void Start()
+    
+
+    protected override void Awake()
     {
-        
+        base.Awake();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SickON()
     {
-        
+        SOData.IsSick = true;
     }
+    public void SickOFF()
+    {
+        SOData.IsSick = false;
+    }
+    public void SickONandOFF(bool rotate)
+    {
+        SOData.IsSick = rotate;
+        if (SOData.IsSick)
+        {
+            base.IsSick();
+        }
+        UpdateConditionUI();
+    }
+
 }

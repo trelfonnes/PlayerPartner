@@ -20,7 +20,7 @@ public class Defeated : CoreComponent
     protected override void Start()
     {
         base.Start();
-        Stats.onCurrentHealthZero += EntityDefeated;//called here to prevent being subscribed before reference in corehandler is made
+        Stats.statEvents.onCurrentHealthZero += EntityDefeated;//called here to prevent being subscribed before reference in corehandler is made
 
     }
     public virtual void EntityDefeated() //child classes will override this function to implement specific behavior
@@ -28,7 +28,7 @@ public class Defeated : CoreComponent
         {
         foreach (var particle in defeatedParticles)
         {
-            Particles.StartParticles(particle);
+            Particles?.StartParticles(particle);
         }
 
         core.transform.parent.gameObject.SetActive(false);
@@ -39,7 +39,7 @@ public class Defeated : CoreComponent
     }
     private void OnDisable()
     {
-        Stats.onCurrentHealthZero -= EntityDefeated;
+        //Stats.statEvents.onCurrentHealthZero -= EntityDefeated;
     }
 
 }

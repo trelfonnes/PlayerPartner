@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - ParticleContainer
+  - Partner
+  - Boulder
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,16 +16,16 @@ TagManager:
   - Water
   - UI
   - Wall
-  - CarryableItem
+  - CarryableItems
   - Ground
   - Player
   - Partner
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Cameras
+  - Items
+  - Container
+  - Interactable
+  - Hazards
+  - Damageable
   - 
   - 
   - 
@@ -39,24 +42,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background_Base
+    uniqueID: 2759961345
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 2759961345
+  - name: MiddleGround
+    uniqueID: 4213382993
     locked: 0
-  - name: Environment
-    uniqueID: 3565876073
-    locked: 0
-  - name: Item
-    uniqueID: 1867026265
-    locked: 0
-  - name: Enemy
-    uniqueID: 609236199
-    locked: 0
-  - name: Partner
-    uniqueID: 4228313503
-    locked: 0
-  - name: Player
-    uniqueID: 1644454151
+  - name: Foreground
+    uniqueID: 1194929251
     locked: 0
