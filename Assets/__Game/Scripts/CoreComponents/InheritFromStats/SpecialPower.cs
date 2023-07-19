@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SpecialPower : Stats, ISpecialPower
 {
+    public bool canShoot = true;
     [SerializeField] SPDisplayUI SPDisplay;
     [SerializeField] inventoryItems inventoryData;
     protected override void Awake()
@@ -26,6 +27,7 @@ public class SpecialPower : Stats, ISpecialPower
         inventoryData.numberHeld -= amount;
         if(SOData.SP <= 0)
         {
+            canShoot = false;
             SOData.SP = 0;
             inventoryData.numberHeld = 0;
         }
@@ -36,6 +38,7 @@ public class SpecialPower : Stats, ISpecialPower
     {
         SOData.SP = Mathf.Clamp(SOData.SP + amount, 0, SOData.MaxSP);
         inventoryData.numberHeld = Mathf.Clamp(inventoryData.numberHeld + amount, 0, SOData.MaxSP);
+        canShoot = true;
         AddItemToInventory(inventoryData);
         UpdateUI();
 

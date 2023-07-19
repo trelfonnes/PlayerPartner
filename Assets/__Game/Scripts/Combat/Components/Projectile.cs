@@ -10,12 +10,18 @@ public class Projectile : WeaponComponent<ProjectileData, AttackProjectileData>
 
     public void ShootProjectile()
     {
-        UnPoolProjectile(); //TODO: logic for checking SP and for decreasing SP
+        if (specialPower.canShoot)
+        {
+            UnPoolProjectile(); //TODO: logic for checking SP and for decreasing SP
+        }
+        else
+            Debug.Log("No more SP!!!"); 
     }
     void UnPoolProjectile()
     {
         ProjectileEventSystem.Instance.RaiseSetProjectileTypeEvent(currentAttackDataPlayer.TypeOfProjectile);
         SetDirection();
+        specialPower.DecreaseSP(currentAttackDataPlayer.SPCost);
     }
     void SetDirection()
     {

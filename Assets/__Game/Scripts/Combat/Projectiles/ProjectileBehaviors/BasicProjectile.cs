@@ -30,6 +30,7 @@ public class BasicProjectile : MonoBehaviour
         if (!hasBeenShot)
         {
             rb.transform.position = component.transform.position;
+            rb.transform.rotation = component.transform.rotation;
             Debug.Log(direction);
            normalizedDirection = direction.normalized;
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerBasicState : PlayerState
 {
+    protected PlayerCollisionSenses PlayerCollisionSenses { get => playerCollisionSenses ??= core.GetCoreComponent<PlayerCollisionSenses>(); }
+    private PlayerCollisionSenses playerCollisionSenses;
+
     protected int yInput;
     protected int xInput;
 

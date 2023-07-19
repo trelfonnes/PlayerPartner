@@ -7,6 +7,7 @@ TagManager:
   - ParticleContainer
   - Partner
   - Boulder
+  - Enemy
   layers:
   - Default
   - TransparentFX

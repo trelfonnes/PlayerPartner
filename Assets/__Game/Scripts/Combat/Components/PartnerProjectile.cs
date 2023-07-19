@@ -10,12 +10,18 @@ public class PartnerProjectile : WeaponComponent<ProjectileData, AttackProjectil
 
     public void ShootProjectile() // call this from anim event handler
     {
-        UnPoolProjectile();// TODO: logic for checking SP and for decreasing SP
+        if (specialPower.canShoot)
+        {
+            UnPoolProjectile();// TODO: logic for checking SP and for decreasing SP
+        }
+        else
+            Debug.Log("No more SP!!!");
     }
     void UnPoolProjectile() //listed to (through Event Handler script) by pooling script
     {
         ProjectileEventSystem.Instance.RaiseSetProjectileTypeEvent(currentAttackDataPartner.TypeOfProjectile);
         SetDirection();
+        specialPower.DecreaseSP(currentAttackDataPartner.SPCost);
     }
     void SetDirection() // listened to by actual projectile game object that is "unpooled"
     {
@@ -26,7 +32,7 @@ public class PartnerProjectile : WeaponComponent<ProjectileData, AttackProjectil
     {
         base.Start();
         movement = PartnerCore.GetCoreComponent<Movement>();
-        specialPower = PartnerCore.GetComponent<SpecialPower>();
+        specialPower = PartnerCore.GetCoreComponent<SpecialPower>();
         PartnerEventHandler.OnShootProjectile += ShootProjectile;//can create event to have a dropdown like Phases that designates which projectile to shoot??
     }
     protected override void OnDestroy()

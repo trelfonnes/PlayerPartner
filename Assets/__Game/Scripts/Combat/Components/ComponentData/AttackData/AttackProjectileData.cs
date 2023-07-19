@@ -7,4 +7,5 @@ using System;
 public class AttackProjectileData : AttackData
 {
     [field: SerializeField] public ProjectileType TypeOfProjectile { get; private set; }
+    [field: SerializeField] public int SPCost { get; private set; }
 }
