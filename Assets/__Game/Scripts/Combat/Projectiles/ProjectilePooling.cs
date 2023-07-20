@@ -24,6 +24,7 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
 
     private Dictionary<GameObject, List<GameObject>> pooledObjectsDictionary = new Dictionary<GameObject, List<GameObject>>();
 
+  
 
     private void Awake()
     {
@@ -32,7 +33,6 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
     private void Start()
     {
         CreatePools();
-        
     }
 
     private void InitializeProjectileDictionaries() // creates the dictionaries via whats dropped into inspector
@@ -72,12 +72,15 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
         if (prefab != null && pooledObjectsDictionary.ContainsKey(prefab))
         {
             List<GameObject> pooledObjects = pooledObjectsDictionary[prefab];
-            for (int i = 0; i < pooledObjects.Count; i++)
+            
             {
-                if (!pooledObjects[i].activeInHierarchy)
+                for (int i = 0; i < pooledObjects.Count; i++)
                 {
-                    pooledObjects[i].SetActive(true); // this gives desired function over below. Might not need return type.
-                    return pooledObjects[i];
+                    if (!pooledObjects[i].activeInHierarchy)
+                    {
+                        pooledObjects[i].SetActive(true);
+                        return pooledObjects[i];
+                    }
                 }
             }
         }

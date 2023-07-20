@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
-  m_Name: Special_Charge_Dino1
+  m_Name: Special_Spread_ChargeAnim_Dino1
   m_EditorClassIdentifier: 
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: c0bcf5ea6a4b2d448909993ea595e39e, type: 2}
   <NumberOfAttacks>k__BackingField: 1
@@ -129,6 +129,6 @@ MonoBehaviour:
       data:
         name: ProjectileData
         attackData:
-        - name: BasicProjectile
-          <TypeOfProjectile>k__BackingField: 0
-          <SPCost>k__BackingField: 1
+        - name: SpreadProjectile
+          <TypeOfProjectile>k__BackingField: 2
+          <SPCost>k__BackingField: 3
