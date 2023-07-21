@@ -5,7 +5,6 @@ using UnityEngine;
 public class BasicProjectile : MonoBehaviour
 {
     Rigidbody2D rb;
-    CircleCollider2D circleCollider;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
     SpriteRenderer sr;
 

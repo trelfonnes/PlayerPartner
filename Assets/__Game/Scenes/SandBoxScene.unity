@@ -634,10 +634,18 @@ MonoBehaviour:
     projectilePrefab: {fileID: 4194652619202764880, guid: 894a17451fae3e54eba6e5bc41b012bf, type: 3}
   - projectileType: 2
     projectilePrefab: {fileID: 8796831687964888355, guid: dc4a2ffb462f6c14a9b4f720c1bf80f2, type: 3}
+  - projectileType: 3
+    projectilePrefab: {fileID: 4194652619202764880, guid: cdec877e9564fe64684e3418ad1842a1, type: 3}
+  - projectileType: 1
+    projectilePrefab: {fileID: 4194652619202764880, guid: c09dd339a29c51e4b849f628a74334de, type: 3}
   poolSizes:
   - projectileType: 0
     poolSize: 5
   - projectileType: 2
+    poolSize: 5
+  - projectileType: 3
+    poolSize: 5
+  - projectileType: 1
     poolSize: 5
 --- !u!4 &416384203
 Transform:
@@ -3743,6 +3751,10 @@ PrefabInstance:
       propertyPath: EPDisplay
       value: 
       objectReference: {fileID: 804917088}
+    - target: {fileID: 2323146094436803392, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2324048287371154591, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: heartDisplayUI
       value: 
@@ -3818,7 +3830,7 @@ PrefabInstance:
     - target: {fileID: 6009775099449210989, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: e6f402bafb9a05c4daffe73fce49f5f0, type: 2}
+      objectReference: {fileID: 11400000, guid: 83060316e3ed66e4e9261188ca3f2004, type: 2}
     - target: {fileID: 6982042588960156678, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.5

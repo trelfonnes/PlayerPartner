@@ -27,7 +27,7 @@ public class Projectile : WeaponComponent<ProjectileData, AttackProjectileData>
     {
        
         direction = new Vector2(movement.facingCombatDirectionX, movement.facingCombatDirectionY);
-        ProjectileEventSystem.Instance.RaisePlayerDirectionSetEvent(this, direction);
+        ProjectileEventSystem.Instance.RaisePlayerDirectionSetEvent(this, direction); //using event handler to send data
     }
 
     protected override void Start()

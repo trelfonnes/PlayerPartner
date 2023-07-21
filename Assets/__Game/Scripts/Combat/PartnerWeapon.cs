@@ -29,7 +29,7 @@ public class PartnerWeapon : MonoBehaviour
     int currentAttackCounter;
     private Timer attackCounterResetTimer;
     
-    public bool CurrentInput
+    public bool CurrentInput // get this from player attack state in logic update
     {
         get => currentInput;
         set

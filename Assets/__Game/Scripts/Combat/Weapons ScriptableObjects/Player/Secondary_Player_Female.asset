@@ -15,20 +15,12 @@ MonoBehaviour:
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8ca8a7396ba7cab46873b142f3e08763, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
-  - rid: 7917043528491597835
   - rid: 7917043528491597836
   - rid: 7917043770508705801
   - rid: 7917043770508705806
   references:
     version: 2
     RefIds:
-    - rid: 7917043528491597835
-      type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
-      data:
-        name: WeaponSpriteData
-        attackData:
-        - name: 
-          <PhaseSprites>k__BackingField: []
     - rid: 7917043528491597836
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
@@ -48,3 +40,4 @@ MonoBehaviour:
         attackData:
         - name: StunArrow
           <TypeOfProjectile>k__BackingField: 3
+          <SPCost>k__BackingField: 1
