@@ -87,7 +87,7 @@ public class PartnerActionHitBox : WeaponComponent<ActionHitBoxData, AttackActio
 
         if (detected.Length == 0)
                 return;
-
+        Debug.Log(detected);
             OnDetectedCollider2D?.Invoke(detected);
 
             
