@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSick: 0
   currentHealth: 4
-  stamina: 50
+  stamina: 43
   isInjured: 0
   moveSpeed: 4
   watchSpeed: 0
   followSpeed: 4.5
   MaxHealth: 4
   HealthLimit: 7
-  SP: 20
+  SP: 19
   MaxSP: 20
   MaxStamina: 50
   StaminaLimit: 60

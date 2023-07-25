@@ -21,7 +21,7 @@ MonoBehaviour:
   followSpeed: 5
   MaxHealth: 3
   HealthLimit: 10
-  SP: 25
+  SP: 21
   MaxSP: 25
   MaxStamina: 0
   StaminaLimit: 0
@@ -38,5 +38,5 @@ MonoBehaviour:
   stage1: 0
   stage2: 0
   stage3: 0
-  Bytes: 27
+  Bytes: 28
   MaxBytes: 50

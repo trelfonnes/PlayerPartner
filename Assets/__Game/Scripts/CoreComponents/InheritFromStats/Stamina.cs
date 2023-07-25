@@ -21,32 +21,11 @@ public class Stamina : Stats, IStaminaChange
     {
         
             base.Start();
-            ClockManager.OnTick += delegate (object sender, ClockManager.OnTickEventArgs e)
-            {
-                if (gameObject.transform.parent.parent.gameObject.activeSelf)
-                {
-
-                    if (SOData.Stamina > 0)
-                    {
-                        if (!SOData.IsSick)
-                        {
-                            DecreaseStamina(1);
-                        }
-                        else if (SOData.IsSick)
-                        {
-                            DecreaseStamina(10);
-                        }
-                    }
-                    else
-                        return;
-                }
-                else
-                    return;
-            };
-            ClockManager.OnTick_6 += delegate (object sender, ClockManager.OnTickEventArgs e)
-            {
-            // Debug.Log("1/4 day passed!");
-        };
+        if (gameObject.transform.parent.parent.gameObject.activeSelf)
+        {
+            SubscribeToHourlyTickEvent();
+            SubscribeToQuarterlyTickEvent();
+        }
         
     }
     public void DecreaseStamina(float amount)
@@ -115,14 +94,9 @@ public class Stamina : Stats, IStaminaChange
     }
     private void OnDisable()
     {
-        ClockManager.OnTick -= delegate (object sender, ClockManager.OnTickEventArgs e)
-        {
-            
-        };
-        ClockManager.OnTick_6 -= delegate (object sender, ClockManager.OnTickEventArgs e)
-        {
-            // Debug.Log("1/4 day passed!");
-        };
+        UnSubscribeToHourlyTickEvent();
+        UnSubscribeToQuarterlyTickEvent();
+       
 
     }
     void UpdateUI()
@@ -133,6 +107,44 @@ public class Stamina : Stats, IStaminaChange
                 staminaDisplay.UpdateStaminaDisplay(SOData.Stamina, SOData.MaxStamina);
 
         }
+    }
+    void HandleHourlyTick(object sender, ClockManager.OnTickEventArgs e)
+    {
+        if (SOData.Stamina > 0)
+        {
+            if (!SOData.IsSick)
+            {
+                DecreaseStamina(1);
+            }
+            else if (SOData.IsSick)
+            {
+                DecreaseStamina(10);
+            }
+        }
+
+    }
+    void HandleQuarterlyTick(object sender, ClockManager.OnTickEventArgs e)
+    {
+        Debug.Log("New cycle in day");
+
+    }
+    void SubscribeToHourlyTickEvent()
+    {
+        ClockManager.OnTick += HandleHourlyTick; 
+
+    }
+    void SubscribeToQuarterlyTickEvent() //probably can be used not in stamina, but is here for testing.
+    {
+        ClockManager.OnTick_6 += HandleHourlyTick;
+        
+    }
+    void UnSubscribeToHourlyTickEvent()
+    {
+        ClockManager.OnTick -= HandleHourlyTick;
+    }
+    void UnSubscribeToQuarterlyTickEvent()//same here, probably put in another class like nightDay cycle
+    {
+        ClockManager.OnTick_6 -= HandleHourlyTick;
     }
 
 }
