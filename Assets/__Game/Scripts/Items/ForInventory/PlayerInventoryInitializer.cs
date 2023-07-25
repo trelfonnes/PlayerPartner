@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInventoryInitializer : MonoBehaviour
 {
-    [SerializeField] PlayerInventory playerInventory;
+    [SerializeField] PlayerInventory playerInventory; //this is used to set the instance of PlayerInventory. It is attached to the GameManager Game Object
 
     private void Awake()
     {

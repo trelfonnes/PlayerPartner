@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LocationTrigger : MonoBehaviour
 {
-    [SerializeField] GameEvent eventToTrigger;
+    public EnterKeyItemEventSO eventToTrigger;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

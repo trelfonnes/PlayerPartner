@@ -1791,7 +1791,7 @@ GameObject:
   - component: {fileID: 1815221131}
   - component: {fileID: 1815221133}
   m_Layer: 0
-  m_Name: LocationTranslatorEventTrigger
+  m_Name: LocationTranslatorEventTrigger(keyItemEventTrigger)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1850,6 +1850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea176feab54d734ea58ae354ffb73b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventToTrigger: {fileID: 11400000, guid: 00954b0bc5e560a4599135d3ef509cb9, type: 2}
 --- !u!114 &1840767541 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1840767541, guid: a73cdc1ee821eb54ba7e0f3a8fcfa23d, type: 3}

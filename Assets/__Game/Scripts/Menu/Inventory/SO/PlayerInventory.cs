@@ -28,6 +28,7 @@ public class PlayerInventory : ScriptableObject
         {
             keyItems.Add(keyItem.Name, keyItem);
         }
+        
     }
 
     public void RemoveKeyItem(KeyItem keyItem)
@@ -49,10 +50,9 @@ public class PlayerInventory : ScriptableObject
 
     private void OnEnable()
     {
-        if (keyItems == null)
-        {
+        // TODO: when done with testing put conditio nto check if doesn't exist already
             keyItems = new Dictionary<string, KeyItem>();
-        }
+        
     }
 
    
