@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public abstract class GameEvent 
 {
     public abstract bool CheckCondition(PlayerInventory inventory);
     public abstract void Trigger();
 }
+
 
 public class KeyItemEvent : GameEvent
 {

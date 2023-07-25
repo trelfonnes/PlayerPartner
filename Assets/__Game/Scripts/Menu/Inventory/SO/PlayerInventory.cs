@@ -11,14 +11,9 @@ public class PlayerInventory : ScriptableObject
     private static PlayerInventory instance;
     public static PlayerInventory Instance
     {
-        get
-        {
-            if(instance == null)
-            {
-                instance = Resources.Load<PlayerInventory>("PlayerInventory");
-            }
-            return instance;
-        }
+        get => instance;
+        set => instance = value;
+                
 
 
     }
@@ -54,7 +49,10 @@ public class PlayerInventory : ScriptableObject
 
     private void OnEnable()
     {
-        keyItems = new Dictionary<string, KeyItem>();
+        if (keyItems == null)
+        {
+            keyItems = new Dictionary<string, KeyItem>();
+        }
     }
 
    
