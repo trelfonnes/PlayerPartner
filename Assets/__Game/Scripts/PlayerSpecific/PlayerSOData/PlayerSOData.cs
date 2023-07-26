@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player Data/Base Data")]
 
+[System.Serializable]
 public class PlayerSOData : BaseSOPlayerData
 {
     [Header("Player and Partner Movement Speeds")]
