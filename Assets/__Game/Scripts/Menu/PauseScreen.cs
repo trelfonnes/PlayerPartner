@@ -8,6 +8,8 @@ public class PauseScreen : MonoBehaviour
 {
     PlayerInput _playerInput;
     bool MenuInput;
+    bool SelectInput;
+    bool CancelInput;
     [SerializeField] GameObject PauseMenuScreen;
     public  bool isOn = true;
     private bool canToggle = true;
@@ -23,7 +25,7 @@ public class PauseScreen : MonoBehaviour
         if (!canToggle)
             return;
 
-        bool MenuInput = context.ReadValue<float>() >= .5f;
+         MenuInput = context.ReadValue<float>() >= .5f;
         if(MenuInput && !isOn)
         {
             TogglePauseMenu();
@@ -33,7 +35,19 @@ public class PauseScreen : MonoBehaviour
             TogglePauseMenu();
         }
     }
-   
+    public void OnSelectInput(InputAction.CallbackContext context)
+    {
+        SelectInput = context.ReadValue<float>() >= .5f;
+        
+
+    }
+
+    public void OnCancelInput(InputAction.CallbackContext context)
+    {
+        CancelInput = context.ReadValue<float>() >= .5f;
+
+    }
+
     private void TogglePauseMenu()
     {
         PauseMenuScreen.SetActive(isOn);

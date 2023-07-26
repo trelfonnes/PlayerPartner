@@ -31,7 +31,6 @@ public class DataReferenceInheritor : MonoBehaviour
                 partner1SOData = partnerDatas.Dino1SOData;
                 partner2SOData = partnerDatas.Dino2SOData;
                 partner3SOData = partnerDatas.Dino3SOData;
-                Debug.Log("this is from DatarefInheritor awake" + playerSOData.name);
 
             }
         }

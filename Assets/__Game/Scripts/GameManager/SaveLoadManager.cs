@@ -12,6 +12,8 @@ public class SaveLoadManager : DataReferenceInheritor
     PlayerSOData partner2BasicData;
     PlayerSOData partner3BasicData;
 
+    [SerializeField] GameObject gameSavedUI;
+
     public static SaveLoadManager Instance;
     
 
@@ -22,7 +24,6 @@ public class SaveLoadManager : DataReferenceInheritor
         partner1BasicData = partner1SOData;
         partner2BasicData = partner2SOData;
         partner3BasicData = partner3SOData;
-        Debug.Log("this is from save load awake" + playerBasicData.name);
 
         if (Instance == null)
         {
@@ -48,7 +49,6 @@ public class SaveLoadManager : DataReferenceInheritor
 
         if (!IsSaveFile())
         {
-            Debug.Log("Save flie path created");
             Directory.CreateDirectory(Application.persistentDataPath + "/game_save");
         }
         //player folder
@@ -88,11 +88,32 @@ public class SaveLoadManager : DataReferenceInheritor
         bf.Serialize(filePartner3, json4);
         filePartner3.Close();
         //ForInventory
+
+
+
+        // TODO make "Game Saved" UI pop up
+        PopUpUI();
+    }
+
+    private void PopUpUI()
+    {
+        if (gameSavedUI)
+        {
+            gameSavedUI.SetActive(true);
+            StartCoroutine(HideGameSavedUI());
+        }
+    }
+    IEnumerator HideGameSavedUI()
+    {
+        yield return new WaitForSeconds(2f);
+        if (gameSavedUI)
+        {
+            gameSavedUI.SetActive(false);
+        }
     }
 
     public void LoadGame()
     {
-        Debug.Log("gameLoaded");
         //add Load PlayerInventory Scriptable Object
         if (!Directory.Exists(Application.persistentDataPath + "/game_save/Player_Data"))
         {
