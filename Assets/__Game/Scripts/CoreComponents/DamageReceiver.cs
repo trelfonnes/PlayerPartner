@@ -18,6 +18,8 @@ public class DamageReceiver : CoreComponent, IDamageable
         particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
     }
 
+   
+
     protected override void Awake()
     {
         base.Awake();

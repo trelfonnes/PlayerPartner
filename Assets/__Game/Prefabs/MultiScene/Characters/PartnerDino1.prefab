@@ -222,9 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 415934357402341011}
   - component: {fileID: 8902732269619792106}
-  - component: {fileID: 3847617947852443722}
-  - component: {fileID: 3249497752487946633}
-  - component: {fileID: 3758139163639882425}
+  - component: {fileID: 484200921}
   m_Layer: 10
   m_Name: Combat to hold knockbackreceiver and damagereceiver scripts with same collider
   m_TagString: Untagged
@@ -273,7 +271,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.57, y: 0.73}
   m_EdgeRadius: 0
---- !u!114 &3847617947852443722
+--- !u!114 &484200921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,36 +280,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1173671507260601905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15028be4712f16643bff24182fa0769f, type: 3}
+  m_Script: {fileID: 11500000, guid: c57b88886a299654b94cacfa15a1cf78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 0}
---- !u!114 &3249497752487946633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173671507260601905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f49fc1c0d5c20f4a8cbbfc07d4e4791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxKnockBackTime: 0.2
---- !u!114 &3758139163639882425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173671507260601905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4965c979a926fc42ba775b9e371de8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   stunnedParticles: {fileID: 0}
+  maxKnockBackTime: 0.2
 --- !u!1 &1825631742397934376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1066,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  canShoot: 1
   SPDisplay: {fileID: 0}
   inventoryData: {fileID: 11400000, guid: 763d9c73757b6274e906b2a98d384c86, type: 2}
 --- !u!1 &8615240597578919871
@@ -1245,6 +1220,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3096751259281156562}
     m_Modifications:
+    - target: {fileID: 2650078468107636252, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3591465576041025626, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -1272,7 +1251,7 @@ PrefabInstance:
     - target: {fileID: 4795499509166476151, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: e6f402bafb9a05c4daffe73fce49f5f0, type: 2}
+      objectReference: {fileID: 11400000, guid: 83060316e3ed66e4e9261188ca3f2004, type: 2}
     - target: {fileID: 8146793231319539484, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1283,7 +1262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8146793231319539484, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8146793231319539484, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1440,7 +1419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2440715338368933126, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2440715338368933126, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}
       propertyPath: m_LocalPosition.z

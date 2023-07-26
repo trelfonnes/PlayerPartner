@@ -56,9 +56,9 @@ public class PlayerProjectile : MonoBehaviour
             {
                 knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
             }
-            if (collision.TryGetComponent(out IPoise poise))
+            if (collision.TryGetComponent(out IPoiseDamageable poise))
             {
-                poise.DecreasePoise(poiseDamage);
+                poise.DamagePoise(poiseDamage);
             }
             hasBeenShot = false;
             gameObject.SetActive(false);

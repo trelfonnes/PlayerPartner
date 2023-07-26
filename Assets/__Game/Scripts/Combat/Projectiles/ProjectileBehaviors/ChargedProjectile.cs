@@ -115,14 +115,14 @@ public class ChargedProjectile : MonoBehaviour
                 else
                     knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
             }
-            if (collision.TryGetComponent(out IPoise poise))
+            if (collision.TryGetComponent(out IPoiseDamageable poise))
             {
                 if (isCharged)
                 {
-                    poise.DecreasePoise(chargedPoiseDamage);
+                    poise.DamagePoise(chargedPoiseDamage);
                 }
                 else
-                    poise.DecreasePoise(poiseDamage);
+                    poise.DamagePoise(poiseDamage);
             }
             hasBeenShot = false;
             isCharged = false;

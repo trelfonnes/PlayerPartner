@@ -60,23 +60,32 @@ public class TimerBomb : MonoBehaviour
     private void Explode(Vector2 direction)
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
-
-        foreach (Collider2D collider in colliders)
+        foreach (var item in colliders)
         {
+
             // Check if the collider has a script or component to take damage and apply knockback.
-            if(collider.TryGetComponent(out IDamageable damageable))
+            if (item.TryGetComponent(out IKnockBackable knockBackable))
             {
-                damageable.Damage(damage);
-            }
-            if(collider.TryGetComponent(out IKnockBackable knockBackable))
-            {
+                Debug.Log("DamagingKnockBack");
                 knockBackable.KnockBack(direction, knockBackDamage, (int)direction.x, (int)direction.y);
             }
-            if(collider.TryGetComponent(out IPoise poise))
+
+            if (item.TryGetComponent(out IPoiseDamageable poise))
             {
-                poise.DecreasePoise(poiseDamage);
+                Debug.Log("DamagingPoise");
+                poise.DamagePoise(poiseDamage);
             }
+            if (item.TryGetComponent(out IDamageable damageable))
+            {
+                Debug.Log(item.gameObject.name);
+
+                Debug.Log("DamagingHealth");
+
+                damageable.Damage(damage);
+            }
+         
             gameObject.SetActive(false);
+           
         }
     }
     private void OnEnable()

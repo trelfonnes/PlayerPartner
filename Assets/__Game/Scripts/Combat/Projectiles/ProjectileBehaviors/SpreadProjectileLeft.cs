@@ -60,9 +60,9 @@ public class SpreadProjectileLeft : MonoBehaviour
             {
                 knockBackable.KnockBack(Direction, knockBackDamage, (int)Direction.x, (int)Direction.y);
             }
-            if (collision.TryGetComponent(out IPoise poise))
+            if (collision.TryGetComponent(out IPoiseDamageable poise))
             {
-                poise.DecreasePoise(poiseDamage);
+                poise.DamagePoise(poiseDamage);
             }
             gameObject.SetActive(false);
         }
