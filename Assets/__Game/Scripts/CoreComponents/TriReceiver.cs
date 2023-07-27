@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDamageable
 {
-    [SerializeField] GameObject damageParticles; //particles or vfx for when taking damage
-    [SerializeField] GameObject stunnedParticles;
+  //  [SerializeField] GameObject damageParticles; //particles or vfx for when taking damage
+  //  [SerializeField] GameObject stunnedParticles;
 
     [SerializeField] float maxKnockBackTime = .2f;
     float KnockBackStartTime;
@@ -22,13 +22,14 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
     public void Damage(float amount)
     {
         health.Comp?.DecreaseHealth(amount);  // needs to send amount to the Health component
-        // need reference to health component
-        particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
+       // particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
     }
     public void DamagePoise(float amount)
     {
-        poise.DecreasePoise(amount);
-        // particles.StartParticlesWithRandomRotation(stunnedParticles); //TODO: might not be best way to set stun particles if any
+        
+            poise?.DecreasePoise(amount);
+            // particles.StartParticlesWithRandomRotation(stunnedParticles); //TODO: might not be best way to set stun particles if any
+        
     }
     public override void LogicUpdate()
     {
@@ -42,13 +43,15 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
         movement.Comp?.SetKnockBackVelocity(angle, strength, directionX, directionY);
         movement.Comp.CanSetVelocity = false;
         isKnockBackActive = true;
+        KnockBackStartTime = Time.time;
 
     }
 
     void CheckKnockBack()
     {
-        if (isKnockBackActive || Time.time >= KnockBackStartTime + maxKnockBackTime) // extra condition for a side scroller to include grounded and no y velocity being applied
+        if (isKnockBackActive && Time.time >= KnockBackStartTime + maxKnockBackTime) // extra condition for a side scroller to include grounded and no y velocity being applied
         {
+            movement.Comp?.SetVelocityZero();
             isKnockBackActive = false;
             movement.Comp.CanSetVelocity = true;
         }

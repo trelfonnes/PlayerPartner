@@ -118,7 +118,7 @@ public class Movement : CoreComponent
     }
     public void SetKnockBackVelocity(Vector2 angle, float strength, int directionX, int directionY)
     {
-        workspace.Set(directionX, directionY * strength); //dont thing I need angle for this game but good to have it here just in case
+        workspace.Set(directionX * strength, directionY * strength); //dont thing I need angle for this game but good to have it here just in case
         SetFinalVelocity();
     }
     private void SetFinalVelocity()
@@ -127,6 +127,10 @@ public class Movement : CoreComponent
         {
             rb.velocity = workspace;
             CurrentVelocity = workspace;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 

@@ -140,7 +140,7 @@ MonoBehaviour:
   - {fileID: 777128407, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
   - {fileID: 58136241, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
   damage: 2
-  knockBackDamage: 10
+  knockBackDamage: 20
   poiseDamage: 10
   setTime: 2.5
   radius: 1.8

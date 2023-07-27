@@ -54,6 +54,5 @@ public class PlayerWatchState : PlayerBasicState
     private void BackToIdle()
     {
         PSM.ChangeState(player.IdleState);
-        Debug.Log("event was triggered");
     }
 }

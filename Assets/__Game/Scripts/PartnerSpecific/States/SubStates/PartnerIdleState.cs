@@ -52,7 +52,6 @@ public class PartnerIdleState : PartnerBasicState
         {
             if (switchInput)
             {
-                Debug.Log("inside switch INput from partneridle");
                 PSM.ChangePartnerState(partner.FollowIdleState);
                 partner.evolutionEvents.SwitchToPlayer();
             }

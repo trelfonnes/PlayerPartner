@@ -397,6 +397,10 @@ PrefabInstance:
       propertyPath: conditionDisplay
       value: 
       objectReference: {fileID: 595725323}
+    - target: {fileID: 4049214562968519693, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: maxKnockBackTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6612197180343552158, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: SPDisplay
       value: 
@@ -2913,6 +2917,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 484200921, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: maxKnockBackTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 813953972154848909, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: staminaDisplay
       value: 
