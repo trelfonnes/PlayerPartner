@@ -37,12 +37,13 @@ public class ItemSpawnSystem : MonoBehaviour
 
     private ItemSpawnData.ItemSpawnCategory DetermineSpawnCategory()
     {
+
         // Add your logic here to determine the category of the item to be spawned
         // based on the spawn chances defined in itemSpawnData.
 
         // For example, you could use randomization to determine the category based on spawn chances.
         // This will make it so every item has a chance to spawn with each enemy. Basic 25%, rare 10%, extra rare 1%
-        
+
         //If I want to do it based on enemy strength, The enemy itself calls this system and passes in the category it has determined
         // in that case, SpawnItem above would ned to have a ItemSpawnData.ItemSpawnCategor categor as an argument
         float randomValue = UnityEngine.Random.Range(0f, 1f);
