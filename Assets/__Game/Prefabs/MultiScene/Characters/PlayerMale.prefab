@@ -500,7 +500,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.45}
+  m_Offset: {x: -0.05, y: -0.65}
   m_Size: {x: 0.75, y: 0.5}
   m_Direction: 0
 --- !u!95 &3963916745617885420
@@ -565,7 +565,7 @@ SpriteRenderer:
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -768828791, guid: 22668a252c2956849bc44ff79a662785, type: 3}
+  m_Sprite: {fileID: 25062996, guid: c544d221eb006a447b2035b7dea922ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -962,7 +962,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
+  m_Offset: {x: -0.03, y: -0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -987,8 +987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b88886a299654b94cacfa15a1cf78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageParticles: {fileID: 0}
-  stunnedParticles: {fileID: 0}
   maxKnockBackTime: 0.2
 --- !u!1 &6397525271055040648
 GameObject:

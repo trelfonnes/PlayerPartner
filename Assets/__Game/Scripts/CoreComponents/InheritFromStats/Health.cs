@@ -25,7 +25,6 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
         if (gameObject.transform.parent.parent.gameObject.activeSelf)//even if only UPdateUI on active, event in stats still triggers and changes UI
         {
             SOData.CurrentHealth -= amount;
-            Debug.Log("decreasingHealth.. hopefully once");
             if (SOData.CurrentHealth <= 0)
             {
 
@@ -65,22 +64,15 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
     protected override void Start()
     {
         base.Start();
-        ClockManager.OnTick += delegate (object sender, ClockManager.OnTickEventArgs e)
+        if (gameObject.transform.parent.parent.gameObject.activeSelf)
         {
-           
-             if (SOData.IsInjured && SOData.CurrentHealth > 2)
-            {
-                DecreaseHealth(2);
-            }
-        };
+            SubscribeToHourlyTickEvent();
+        }
+
     }
-    private void OnDisable()
+        private void OnDisable()
     {
-        ClockManager.OnTick -= delegate (object sender, ClockManager.OnTickEventArgs e)
-        {
-
-
-        };
+        UnSubscribeToHourlyTickEvent();
     }
 
     private void UpdateUI()
@@ -92,5 +84,27 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
                 heartDisplayUI.UpdateHeartDisplay(SOData.CurrentHealth, SOData.MaxHealth);
         }
     }
+    void HandleHourlyTick(object sender, ClockManager.OnTickEventArgs e)
+    {
+        
+            
+            if (SOData.IsInjured)
+            {
+                DecreaseHealth(1);
+            }
+        
 
+    }
+    
+    void SubscribeToHourlyTickEvent()
+    {
+        ClockManager.OnTick += HandleHourlyTick;
+
+    }
+   
+    void UnSubscribeToHourlyTickEvent()
+    {
+        ClockManager.OnTick -= HandleHourlyTick;
+    }
+  
 }

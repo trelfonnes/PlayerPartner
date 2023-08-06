@@ -20,7 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 2024600814, guid: f7e48044adf3c084f9dc4645cd5bad90, type: 3}
+      value: {fileID: 294096734, guid: c544d221eb006a447b2035b7dea922ab, type: 3}
+    - time: 0.06666667
+      value: {fileID: -1268604474, guid: c544d221eb006a447b2035b7dea922ab, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,13 +42,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2024600814, guid: f7e48044adf3c084f9dc4645cd5bad90, type: 3}
+    - {fileID: 294096734, guid: c544d221eb006a447b2035b7dea922ab, type: 3}
+    - {fileID: -1268604474, guid: c544d221eb006a447b2035b7dea922ab, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.26666668
+    m_StopTime: 0.2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -73,14 +76,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.13333334
+  - time: 0.06666667
     functionName: ShootProjectileTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.26666668
+  - time: 0.2
     functionName: AnimationFinishedTrigger
     data: 
     objectReferenceParameter: {fileID: 0}

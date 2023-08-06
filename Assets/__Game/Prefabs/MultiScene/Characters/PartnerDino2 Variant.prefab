@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156557, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: stageOne
@@ -108,8 +108,20 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156563, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096751259281156563, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Offset.y
-      value: -0.55
+      value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096751259281156563, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096751259281156563, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156566, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Controller
@@ -118,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 3096751259281156567, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1826283489, guid: 1beb0be86d22f634790cea5960a5dc7f, type: 3}
+      objectReference: {fileID: 745470269, guid: 36340da728523b64ebfdd390fbc4f84a, type: 3}
     - target: {fileID: 3096751259281156567, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -181,11 +193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8902732269619792106, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Offset.x
-      value: 0.01
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8902732269619792106, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Offset.y
-      value: -0.25
+      value: -0.45
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3758139163639882425, guid: e59075285719fb1469c9501c19ad3641, type: 3}

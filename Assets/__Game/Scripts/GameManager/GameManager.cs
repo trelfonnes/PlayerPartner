@@ -17,13 +17,14 @@ public class GameManager : DataReferenceInheritor
     protected override void Awake()
     {
         base.Awake();
-        if(Instance != null)
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
 
@@ -39,16 +40,16 @@ public class GameManager : DataReferenceInheritor
         ItemSpawnSystem.Instance.SetInitialItemSpawnStrategy(regularStrategy);
     }
 
-    private void SwitchToRegularStrategy()
+    public void SwitchToRegularStrategy()
     {
         ItemSpawnSystem.Instance.ChangeItemSpawnStrategy(regularStrategy);
     }
 
-    private void SwitchToRareStrategy()
+    public void SwitchToRareStrategy()
     {
         ItemSpawnSystem.Instance.ChangeItemSpawnStrategy(rareStrategy);
     }
-    private void SwitchToExtraRareStrategy()
+    public void SwitchToExtraRareStrategy()
     {
         ItemSpawnSystem.Instance.ChangeItemSpawnStrategy(extraRareStrategy);
     }

@@ -22,6 +22,9 @@ public class PartnerBasicState : PartnerState
     protected bool isTouchingPlayer;
     protected bool inBasicStates;
     protected Transform player;
+    protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<PartnerCollisionSenses>(); }
+    private PartnerCollisionSenses collisionSenses;
+
     public PartnerBasicState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }

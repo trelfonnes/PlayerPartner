@@ -22,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 2096271035, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: f07cba7930e49dd48b7f5d2ce3434940, type: 2}
+      objectReference: {fileID: 11400000, guid: 321e43dda98b8b946866c5d4d7f5f5b1, type: 2}
     - target: {fileID: 1177287998788063283, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_Controller
       value: 
@@ -118,7 +118,7 @@ PrefabInstance:
     - target: {fileID: 3963916745617885426, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1561265736, guid: 2fff615cfbc73684c8161075ffd2ab74, type: 3}
+      objectReference: {fileID: -1858302773, guid: 7e2d345d81e2f6842a2b221d1867f0a5, type: 3}
     - target: {fileID: 4939632409917062855, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: SOData
       value: 

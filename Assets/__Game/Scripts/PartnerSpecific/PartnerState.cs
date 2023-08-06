@@ -21,15 +21,14 @@ public class PartnerState
     protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     //protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
    
-    protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<PartnerCollisionSenses>(); }
-    
+ 
+
     protected Stats Stats { get => stats ??= core.GetCoreComponent<Stats>(); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
 
     
     private Movement movement;
-    private PartnerCollisionSenses collisionSenses;
     private Stats stats;
     private Defeated defeated;
     private Particles particles;

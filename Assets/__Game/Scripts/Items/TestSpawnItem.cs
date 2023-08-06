@@ -5,6 +5,10 @@ using UnityEngine;
 public class TestSpawnItem : MonoBehaviour
 {
     [SerializeField] bool on;
+    [SerializeField] bool isRegular;
+    [SerializeField] bool isRare;
+    [SerializeField] bool isExtraRare;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +20,30 @@ public class TestSpawnItem : MonoBehaviour
     {
         if (on)
         {
-            ItemSpawnSystem.Instance.SpawnItem(transform);
-            gameObject.SetActive(false);
+            if (isRegular)
+            {
+                GameManager.Instance.SwitchToRegularStrategy();
+                ItemSpawnSystem.Instance.SpawnItem(transform);
+                gameObject.SetActive(false);
+            }
+            if (isRare)
+            {
+                GameManager.Instance.SwitchToRareStrategy();
+                ItemSpawnSystem.Instance.SpawnItem(transform);
+                gameObject.SetActive(false);
+
+
+            }
+            if (isExtraRare)
+            {
+                GameManager.Instance.SwitchToExtraRareStrategy();
+                ItemSpawnSystem.Instance.SpawnItem(transform);
+                gameObject.SetActive(false);
+
+            }
+
         }
+
         
     }
 }

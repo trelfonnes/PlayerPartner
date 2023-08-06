@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regularItems:
     categoryName: Bytes, Hearts, Meats, SP, EP
-    spawnChance: 0.25
+    spawnChance: 0.5
     items:
     - {fileID: 2453549274097712643, guid: a755fd982215ae64ab39a8fefa96e8f6, type: 3}
     - {fileID: 8576621315769045655, guid: 4c37c77ea36dc5d44b9fc49662fbb49d, type: 3}
@@ -22,9 +22,10 @@ MonoBehaviour:
     - {fileID: 6891495125674711508, guid: 318e37c3d0be59140a0733b262220b60, type: 3}
     - {fileID: 6306797678654281719, guid: 18ead96a6ee389e46afe47e894bcbfa0, type: 3}
     - {fileID: 6790067528742844152, guid: c507ffedd9cfbd64ca28342527c1cd20, type: 3}
+    - {fileID: 4357927886645216211, guid: faccb23e039ad1945b0d22c588122ea8, type: 3}
   rareItems:
     categoryName: Potions, Medicine, Bandaid, MidBytes
-    spawnChance: 0.1
+    spawnChance: 0.3
     items:
     - {fileID: 1907938718644758012, guid: 6cb99c6ed23b7d04c9c5cb336f362c4c, type: 3}
     - {fileID: 5627124265778252860, guid: 61dd8de874cf54d43849ea529b28219e, type: 3}
@@ -33,13 +34,13 @@ MonoBehaviour:
     - {fileID: 25479188622809292, guid: a2900af4f007dee4fb98167d61b9ae26, type: 3}
   extraRareItems:
     categoryName: Big Byte, Steak, Hp refill
-    spawnChance: 0.01
+    spawnChance: 0.1
     items:
     - {fileID: 2227181981697403444, guid: 2d56cd045065de44f914b5e0e9d13365, type: 3}
     - {fileID: 1598467680158666195, guid: 9e3cc8d14696944478021f4748c52de0, type: 3}
     - {fileID: 7850224234289190822, guid: 053bca1fcd219264d8ba325b346f9b73, type: 3}
   noItems:
     categoryName: 
-    spawnChance: 0
+    spawnChance: 1
     items:
     - {fileID: 0}

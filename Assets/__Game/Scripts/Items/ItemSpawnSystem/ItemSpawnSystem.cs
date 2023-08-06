@@ -47,21 +47,27 @@ public class ItemSpawnSystem : MonoBehaviour
         //If I want to do it based on enemy strength, The enemy itself calls this system and passes in the category it has determined
         // in that case, SpawnItem above would ned to have a ItemSpawnData.ItemSpawnCategor categor as an argument
         float randomValue = UnityEngine.Random.Range(0f, 1f);
-        if (randomValue <= itemSpawnData.regularItems.spawnChance)
+         
+         if (randomValue <= itemSpawnData.extraRareItems.spawnChance)
         {
-            return itemSpawnData.regularItems;
-        }
-        else if (randomValue <= itemSpawnData.rareItems.spawnChance)
-        {
-            return itemSpawnData.rareItems;
-        }
-        else if (randomValue <= itemSpawnData.extraRareItems.spawnChance)
-        {
+            Debug.Log("EXTRA RARE ITEM");
             return itemSpawnData.extraRareItems;
         }
+        if (randomValue <= itemSpawnData.rareItems.spawnChance)
+        {
+            Debug.Log("RARE ITEM");
+            return itemSpawnData.rareItems;
+        }
+        if (randomValue <= itemSpawnData.regularItems.spawnChance)
+        {
+            Debug.Log("REGULARiTEM");
+            return itemSpawnData.regularItems;
+        }
         else
+        {
+            Debug.Log("NO ITEM SPAWNED CHANCE");
             return itemSpawnData.noItems;
-            
+        }
     }
     public void ChangeItemSpawnStrategy(IItemSpawnStrategy strategy)
     {
