@@ -19,17 +19,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Byte_Red Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2453549274097712643, guid: a755fd982215ae64ab39a8fefa96e8f6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2453549274097712647, guid: a755fd982215ae64ab39a8fefa96e8f6, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2453549274097712647, guid: a755fd982215ae64ab39a8fefa96e8f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.1643952
       objectReference: {fileID: 0}
     - target: {fileID: 2453549274097712647, guid: a755fd982215ae64ab39a8fefa96e8f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.413728
       objectReference: {fileID: 0}
     - target: {fileID: 2453549274097712647, guid: a755fd982215ae64ab39a8fefa96e8f6, type: 3}
       propertyPath: m_LocalPosition.z

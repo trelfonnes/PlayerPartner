@@ -55,7 +55,7 @@ public class PartnerBasicState : PartnerState
     public override void Enter()
     {
         base.Enter();
-        CameraSwitcher.SwitchCamera(partner.PartnerCamera);
+        CameraSwitcher.SwitchCamera(partner.PartnerCamera, partner.transform);
         inBasicStates = true;
 
 

@@ -31,6 +31,7 @@ public class Area : MonoBehaviour
             var partner = collider.GetComponent<Partner>();
             partner.PartnerCamera = partnerVC;
             partnerCamera.SetActive(true);
+         //   CameraSwitcher.SwitchCamera(partnerVC, collider.transform);
         }
     }
     private void OnTriggerExit2D(Collider2D collider)

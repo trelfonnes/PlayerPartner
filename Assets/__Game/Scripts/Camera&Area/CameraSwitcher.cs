@@ -14,10 +14,11 @@ public static class CameraSwitcher
         return camera == ActiveCamera;
     }
 
-    public static void SwitchCamera(CinemachineVirtualCamera camera)
+    public static void SwitchCamera(CinemachineVirtualCamera camera, Transform newFollowTarget)
     {
         camera.Priority = 10;
         ActiveCamera = camera;
+        camera.Follow = newFollowTarget;
         //Debug.Log("Camera Switched");
         foreach (CinemachineVirtualCamera c  in cameras)
         {
