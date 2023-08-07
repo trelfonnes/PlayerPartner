@@ -49,7 +49,12 @@ public class PartnerJumpState : PartnerAbilityState
         Movement?.SetVelocityZero();
         CollisionSenses?.DisableHazardDetection();
         Debug.Log(direction);
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
 
+            statEvents.onCurrentEPZero += Devolve;
+
+        }
         Movement?.SetVelocity(direction * playerSOData.jumpForce);
         timer = 0f;
     }
@@ -58,7 +63,11 @@ public class PartnerJumpState : PartnerAbilityState
     {
         base.Exit();
         ResetAmountOfJumpsLeft();
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero -= Devolve;
 
+        }
     }
 
     public override void LogicUpdate()
@@ -92,5 +101,15 @@ public class PartnerJumpState : PartnerAbilityState
     {
         base.PhysicsUpdate();
     }
-
+    void Devolve()
+    {
+        AnimationFinishTrigger();
+        isAbilityDone = true;
+        isDevolvingAbilityCancel = true;
+        if (!playerSOData.stage1)
+        {
+            Debug.Log("DEVOLVE YOU LITTLE SHITE");
+            PSM.ChangePartnerState(partner.DevolveState);
+        }
+    }
 }

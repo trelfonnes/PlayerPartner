@@ -49,6 +49,7 @@ public class PartnerDeEvolutionState : PartnerBasicState
 
         if (!isDevolving)
         {
+            Debug.Log("Going to Idle follow before deactivating");
                 PSM.ChangePartnerState(partner.FollowIdleState);
         }
     }

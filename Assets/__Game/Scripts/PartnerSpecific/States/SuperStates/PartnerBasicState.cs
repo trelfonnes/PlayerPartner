@@ -50,13 +50,25 @@ public class PartnerBasicState : PartnerState
             isTouchingPlayer = CollisionSenses.PlayerCheck;
             player = CollisionSenses.followPoint;
         }
+        if(collisionSenses == null)
+        {
+            collisionSenses = core.GetCoreComponent<PartnerCollisionSenses>();
+            Debug.LogError("PartnerCollisionSenses is not assigned or is missing in partner basic state do checks" + collisionSenses);
+            return;
+        }
     }
 
     public override void Enter()
     {
         base.Enter();
-        CameraSwitcher.SwitchCamera(partner.PartnerCamera, partner.transform);
-        inBasicStates = true;
+        if (partner)
+        {
+            if (partner.PartnerCamera != null) 
+            {
+                CameraSwitcher.SwitchCamera(partner.PartnerCamera, partner.transform);
+            }
+        }
+            inBasicStates = true;
 
 
     }

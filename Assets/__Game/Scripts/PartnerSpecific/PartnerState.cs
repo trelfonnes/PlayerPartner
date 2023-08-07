@@ -52,7 +52,7 @@ public class PartnerState
         partner.anim.SetBool(animBoolName, true);
         isAnimationFinished = false;
         isExitingState = false;
-        
+       
 
     }
 
@@ -60,6 +60,7 @@ public class PartnerState
     {
         partner.anim.SetBool(animBoolName, false);
         isExitingState = true;
+       
 
     }
     public virtual void LogicUpdate()
@@ -91,6 +92,7 @@ public class PartnerState
      
         if (!playerSOData.stage1)
         {
+           
             PSM.ChangePartnerState(partner.DevolveState);
         }
 

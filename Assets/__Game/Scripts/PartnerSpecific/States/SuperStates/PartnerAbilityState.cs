@@ -32,11 +32,13 @@ public class PartnerAbilityState : PartnerState
     {
         base.Enter();
         isAbilityDone = false;
+       
     }
 
     public override void Exit()
     {
         base.Exit();
+        
     }
 
     public override void LogicUpdate()
@@ -58,4 +60,5 @@ public class PartnerAbilityState : PartnerState
     {
         base.PhysicsUpdate();
     }
+  
 }

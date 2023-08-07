@@ -46,13 +46,23 @@ public class PlayerBasicState : PlayerState
             isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
             isTouchingInteractable = PlayerCollisionSenses.InteractableCheck;
         }
-    }
+        else if (playerCollisionSenses == null)
+        {
+            playerCollisionSenses = core.GetCoreComponent<PlayerCollisionSenses>();
+
+            Debug.LogError("PlayerCollisionSenses is not assigned or is missing in playerbasic state DO checks." + playerCollisionSenses);
+            return;
+        }
+    } 
 
     public override void Enter()
     {
         base.Enter();
-        CameraSwitcher.SwitchCamera(player.PlayerCamera, player.transform);
-        statEvents.onCurrentEPZero += TimeToDevolve;
+        if (player)
+        {
+            CameraSwitcher.SwitchCamera(player.PlayerCamera, player.transform);
+        }
+            statEvents.onCurrentEPZero += TimeToDevolve;
         player.evolutionEvents.OnStopForEvolution += StartEvolution;
         
     }
