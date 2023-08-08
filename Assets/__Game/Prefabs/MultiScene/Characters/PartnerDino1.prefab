@@ -156,7 +156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729026554317697499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.75, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -258,7 +258,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.36}
+  m_Offset: {x: 0, y: -0.57}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -269,7 +269,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.57, y: 0.73}
+  m_Size: {x: 0.57, y: 0.75}
   m_EdgeRadius: 0
 --- !u!114 &484200921
 MonoBehaviour:
@@ -283,8 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b88886a299654b94cacfa15a1cf78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageParticles: {fileID: 0}
-  stunnedParticles: {fileID: 0}
   maxKnockBackTime: 0.2
 --- !u!1 &1825631742397934376
 GameObject:
@@ -470,7 +468,7 @@ SpriteRenderer:
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 238660879, guid: ee5b0b9450ee4ba4197a50c6752d6d8b, type: 3}
+  m_Sprite: {fileID: -1793039579, guid: 16739d9c0b5fa9f42b230b4402254107, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -729,11 +727,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6}
+  m_Offset: {x: 0.03, y: -0.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

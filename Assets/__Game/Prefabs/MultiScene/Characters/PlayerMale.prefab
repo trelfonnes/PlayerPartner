@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970277185830754713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -356,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963916744851059631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.029, y: -0.309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -814,7 +814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963916746401700929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.75, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1202,7 +1202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2440715338368933126, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2440715338368933126, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 6331929672594413318}
   partnerWeapon: {fileID: 0}
-  data: {fileID: 11400000, guid: acfce5465418d7243b32a5d6c7a6ce3d, type: 2}
+  data: {fileID: 11400000, guid: 4eb0e69dfd8d08f4799dec62c09e8c26, type: 2}
 --- !u!114 &6331929672594413318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,7 +1300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2440715338368933126, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2440715338368933126, guid: 60bde931d6ce47d4e9539ca901f351e1, type: 3}
       propertyPath: m_LocalPosition.z

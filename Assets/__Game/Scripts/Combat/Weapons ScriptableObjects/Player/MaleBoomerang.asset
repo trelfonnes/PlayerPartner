@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
+  m_Name: MaleBoomerang
+  m_EditorClassIdentifier: 
+  <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8951ff8e9747b9f40ada6146dfeb3b09, type: 2}
+  <NumberOfAttacks>k__BackingField: 1
+  <ComponentData>k__BackingField:
+  - rid: 4121996703554863104
+  - rid: 4121996703554863105
+  references:
+    version: 2
+    RefIds:
+    - rid: 4121996703554863104
+      type: {class: ProjectileData, ns: , asm: Assembly-CSharp}
+      data:
+        name: ProjectileData
+        attackData:
+        - name: Attack1
+          <TypeOfProjectile>k__BackingField: 5
+          <SPCost>k__BackingField: 0
+    - rid: 4121996703554863105
+      type: {class: MovementData, ns: , asm: Assembly-CSharp}
+      data:
+        name: MovementData
+        attackData:
+        - name: Attack1
+          <Direction>k__BackingField: {x: 0, y: 0}
+          <Velocity>k__BackingField: 0

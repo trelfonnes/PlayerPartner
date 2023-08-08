@@ -4,5 +4,6 @@
     ChargeProjectile,
     SpreadProjectile,
     PlayerProjectile,
-    PlayerBombProjectile
+    PlayerBombProjectile,
+    PlayerBoomerangProjectile
 }

@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156557, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: stageOne
@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: <Data>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 9f0382bd97a31a84c8af7a4fe97d4e65, type: 2}
+    - target: {fileID: 4685517001726892456, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4984900039003140835, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SOData
       value: 
