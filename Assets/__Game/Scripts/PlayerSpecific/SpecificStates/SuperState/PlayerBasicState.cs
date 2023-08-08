@@ -48,9 +48,15 @@ public class PlayerBasicState : PlayerState
         }
         else if (playerCollisionSenses == null)
         {
-            playerCollisionSenses = core.GetCoreComponent<PlayerCollisionSenses>();
+            if (core != null)
+            {
+                playerCollisionSenses = core.GetCoreComponent<PlayerCollisionSenses>();
+            }
+            else if(core == null)
+            {
+                core = player.core; //reset the core because theres an issue with the multiple instances
 
-            Debug.LogError("PlayerCollisionSenses is not assigned or is missing in playerbasic state DO checks." + playerCollisionSenses);
+            }
             return;
         }
     } 

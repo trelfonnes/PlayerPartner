@@ -9,9 +9,13 @@ public class Damage : WeaponComponent<DamageData, AttackDamage>
     {
         foreach (var item in colliders)
         {
-            if(item.TryGetComponent(out IDamageable damageable))
+            if (item.TryGetComponent(out IDamageable damageable)) //using an output parameter instead of input
             {
-                damageable.Damage(currentAttackDataPlayer.Amount);
+                if (!item.CompareTag("Partner"))
+                {
+                    //if something was found, can call the function from it
+                    damageable.Damage(currentAttackDataPartner.Amount);
+                }
             }
         }
     }

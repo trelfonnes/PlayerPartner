@@ -52,8 +52,15 @@ public class PartnerBasicState : PartnerState
         }
         if(collisionSenses == null)
         {
-            collisionSenses = core.GetCoreComponent<PartnerCollisionSenses>();
-            Debug.LogError("PartnerCollisionSenses is not assigned or is missing in partner basic state do checks" + collisionSenses);
+            if (core != null)
+            {
+                collisionSenses = core.GetCoreComponent<PartnerCollisionSenses>();
+            }
+            else if(core == null)
+            {
+                core = partner.core; //reset the core because theres an issue with the multiple instances
+               
+            }
             return;
         }
     }

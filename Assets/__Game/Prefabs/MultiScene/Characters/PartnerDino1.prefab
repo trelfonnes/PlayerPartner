@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 484200921}
   m_Layer: 10
   m_Name: Combat to hold knockbackreceiver and damagereceiver scripts with same collider
-  m_TagString: Untagged
+  m_TagString: Partner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

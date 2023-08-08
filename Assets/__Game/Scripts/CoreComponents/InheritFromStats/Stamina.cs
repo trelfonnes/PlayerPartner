@@ -110,6 +110,8 @@ public class Stamina : Stats, IStaminaChange
     }
     void HandleHourlyTick(object sender, ClockManager.OnTickEventArgs e)
     {
+        Debug.Log("onTick stamina down");
+
         if (SOData.Stamina > 0)
         {
             if (!SOData.IsSick)
@@ -130,7 +132,8 @@ public class Stamina : Stats, IStaminaChange
     }
     void SubscribeToHourlyTickEvent()
     {
-        ClockManager.OnTick += HandleHourlyTick; 
+        ClockManager.OnTick += HandleHourlyTick;
+        Debug.Log("onTick subbed");
 
     }
     void SubscribeToQuarterlyTickEvent() //probably can be used not in stamina, but is here for testing.
