@@ -13,13 +13,13 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
     [SerializeField] float poiseDamage = 50f;
     [SerializeField] float damage = 0f;
     [SerializeField] float knockBackDamage = 0f;
-    float timeToSpriteSwitch = .2f;
+    float timeToSpriteSwitch = .1f;
     Vector3 initialPosition;
     Vector3 returnPoint;
     Vector2 normalizedDirection;
     bool isReturning = false;
     bool shot;
-
+    private int currentSpriteIndex = 0;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,7 +39,7 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
             initialPosition = component.transform.position;
             // set shoot to true so it can start finding player transform while active for 
             // the return
-            StartCoroutine(SwitchSpriteRoutine());
+            InvokeRepeating("SwitchSprite", 0.0f, timeToSpriteSwitch);
             StartCoroutine(AutoPickUP());
             //apply force and direction
 
@@ -60,12 +60,12 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
 
                 rb.velocity = returnDirection * returnSpeed;
 
-                if (Vector3.Distance(transform.position, returnPoint) < 0.3f)
+                if (Vector3.Distance(transform.position, returnPoint) < 1.0f)
                 {
                     // Boomerang has returned, make it still
                     rb.velocity = new Vector2(0, 0);
                     //stop sprite rotation
-                    StopCoroutine(SwitchSpriteRoutine());
+                    CancelInvoke("SwitchSprite");
                     isReturning = false;
                 }
             }
@@ -108,19 +108,11 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
         shot = false;
         gameObject.SetActive(false);
     }
-    IEnumerator SwitchSpriteRoutine()
+    void SwitchSprite()
     {
-        while (true)
-        {
-            // Loop through the list of sprites
-            for (int i = 0; i < boomerangSprites.Count; i++)
-            {
-                sr.sprite = boomerangSprites[i];
-
-                // Wait for the specified duration
-                yield return new WaitForSeconds(timeToSpriteSwitch);
-            }
-        }
+        // Switch to the next sprite in the list
+        currentSpriteIndex = (currentSpriteIndex + 1) % boomerangSprites.Count;
+        sr.sprite = boomerangSprites[currentSpriteIndex];
     }
     IEnumerator AutoPickUP()
     {

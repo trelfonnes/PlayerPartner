@@ -7,7 +7,7 @@ public class StaminaIncrease : MonoBehaviour
     [SerializeField] private float amountToIncrease = 1f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Partner"))
+        if (collision.CompareTag("Partner") && !collision.isTrigger)
         {
             collision.GetComponentInChildren<IStaminaChange>().IncreaseStamina(amountToIncrease);
             gameObject.SetActive(false);

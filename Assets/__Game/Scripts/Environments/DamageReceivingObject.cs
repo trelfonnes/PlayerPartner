@@ -14,6 +14,7 @@ public class DamageReceivingObject : MonoBehaviour, IDamageable
     [SerializeField] float wiggleDuration = .5f;
     [SerializeField] float wiggleSpeed = 2f;
     Vector3 originalPosition;
+    int currentSpriteIndex = 0;
 
     private void Start()
     {
@@ -28,7 +29,7 @@ public class DamageReceivingObject : MonoBehaviour, IDamageable
         if(currentHealth <= 0)
         {
             // play breaking sprites
-            gameObject.SetActive(false);
+            InvokeRepeating("BreakSprites", 0.0f, .1f);
         }
     }
 
@@ -84,6 +85,20 @@ public class DamageReceivingObject : MonoBehaviour, IDamageable
 
         // Ensure the object is back to its original position
         transform.position = originalPosition;
+    }
+
+    void BreakSprites()
+    {
+       
+        sr.sprite = breakingSprites[currentSpriteIndex];
+        currentSpriteIndex++;
+        if (currentSpriteIndex >= breakingSprites.Count)
+        {
+            CancelInvoke("BreakSprites");
+            gameObject.SetActive(false);
+        }
+
+
     }
 
 }

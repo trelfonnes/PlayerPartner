@@ -48,9 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boomerangSprites:
-  - {fileID: 1847463989, guid: a03c2610221b14940b818fb271b448fa, type: 3}
-  - {fileID: -1347541644, guid: a03c2610221b14940b818fb271b448fa, type: 3}
-  - {fileID: 793172594, guid: a03c2610221b14940b818fb271b448fa, type: 3}
+  - {fileID: -2051281047, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
+  - {fileID: 737139779, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
+  - {fileID: -198556284, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
+  - {fileID: 1929006112, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
   throwSpeed: 10
   returnSpeed: 10
   maxDistance: 5
@@ -119,7 +120,7 @@ SpriteRenderer:
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 793172594, guid: a03c2610221b14940b818fb271b448fa, type: 3}
+  m_Sprite: {fileID: -2051281047, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

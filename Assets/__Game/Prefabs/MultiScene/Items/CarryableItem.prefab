@@ -53,7 +53,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -151,6 +151,7 @@ MonoBehaviour:
   setDownDistance: 5
   throwDownwardForceMultiplier: 1
   setDownwardForceMultiplier: 5
+  setUpwardForceMultiplier: 0
 --- !u!58 &2701611160141834290
 CircleCollider2D:
   m_ObjectHideFlags: 0
