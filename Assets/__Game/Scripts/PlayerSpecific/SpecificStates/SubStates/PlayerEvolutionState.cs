@@ -10,12 +10,12 @@ public class PlayerEvolutionState : PlayerBasicState
 
     public override void DoChecks()
     {
-        base.DoChecks();
+       // base.DoChecks();
     }
 
     public override void Enter()
     {
-        base.Enter();
+       // base.Enter();
         Movement?.SetVelocityZero();
         player.evolutionEvents.OnReturnFromEvolution += StopEvolution;
     }

@@ -15,17 +15,18 @@ public class Stamina : Stats, IStaminaChange
     {
         UpdateUI();
         UpdateConditionUI();
+        if (gameObject.transform.parent.parent.gameObject.activeSelf)
+        {
+            SubscribeToHourlyTickEvent();
+            SubscribeToQuarterlyTickEvent();
+        }
 
     }
     protected override void Start()
     {
         
             base.Start();
-        if (gameObject.transform.parent.parent.gameObject.activeSelf)
-        {
-            SubscribeToHourlyTickEvent();
-            SubscribeToQuarterlyTickEvent();
-        }
+       
         
     }
     public void DecreaseStamina(float amount)
