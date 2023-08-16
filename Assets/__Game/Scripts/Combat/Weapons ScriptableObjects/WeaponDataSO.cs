@@ -11,7 +11,14 @@ public class WeaponDataSO : ScriptableObject
     [field: SerializeField] public int NumberOfAttacks { get; private set; }
 
     [field: SerializeReference] public List<ComponentData> ComponentData { get; private set; }
-
+    
+    [Header("For Weapon Inventory Use:")]
+    public string weaponName;
+    public string weaponDescription;
+    public Sprite weaponImage;
+    public bool isPlayerWeapon;
+    public bool isPartnerWeapon;
+    public bool isPrimary;
     public T GetData<T>()
     {
         return ComponentData.OfType<T>().FirstOrDefault();

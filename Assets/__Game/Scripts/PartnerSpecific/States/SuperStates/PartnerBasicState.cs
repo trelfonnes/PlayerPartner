@@ -22,7 +22,7 @@ public class PartnerBasicState : PartnerState
     protected bool isTouchingPlayer;
     protected bool inBasicStates;
     protected Transform player;
-    protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<PartnerCollisionSenses>(); }
+    protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
     private PartnerCollisionSenses collisionSenses;
 
     public PartnerBasicState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
@@ -42,27 +42,14 @@ public class PartnerBasicState : PartnerState
     public override void DoChecks()
     {
         base.DoChecks();
-        if (CollisionSenses)
-        {
+        
             isTouchingWallFollowing = CollisionSenses.WallCheckFollowing;
             isTouchingWall = CollisionSenses.WallCheckPartner;
             isTouchingGround = CollisionSenses.GroundCheck;
             isTouchingPlayer = CollisionSenses.PlayerCheck;
             player = CollisionSenses.followPoint;
-        }
-        if(collisionSenses == null)
-        {
-            if (core != null)
-            {
-                collisionSenses = core.GetCoreComponent<PartnerCollisionSenses>();
-            }
-            else if(core == null)
-            {
-                core = partner.core; //reset the core because theres an issue with the multiple instances
-               
-            }
-            return;
-        }
+        
+        
     }
 
     public override void Enter()

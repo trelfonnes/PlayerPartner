@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
-  m_Name: FemaleBoomerang
+  m_Name: Bomb_PlayerF
   m_EditorClassIdentifier: 
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8ca8a7396ba7cab46873b142f3e08763, type: 2}
-  <NumberOfAttacks>k__BackingField: 1
+  <NumberOfAttacks>k__BackingField: 0
   <ComponentData>k__BackingField:
-  - rid: 4121996703554863104
-  - rid: 4121996703554863105
+  - rid: 7917043979528962048
+  - rid: 7917043979528962049
   references:
     version: 2
     RefIds:
-    - rid: 4121996703554863104
+    - rid: 7917043979528962048
       type: {class: ProjectileData, ns: , asm: Assembly-CSharp}
       data:
         name: ProjectileData
         attackData:
-        - name: Attack1
-          <TypeOfProjectile>k__BackingField: 5
-          <SPCost>k__BackingField: 0
-    - rid: 4121996703554863105
+        - name: Bomb
+          <TypeOfProjectile>k__BackingField: 4
+          <SPCost>k__BackingField: 10
+    - rid: 7917043979528962049
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
         name: MovementData
         attackData:
-        - name: Attack1
+        - name: 
           <Direction>k__BackingField: {x: 0, y: 0}
           <Velocity>k__BackingField: 0

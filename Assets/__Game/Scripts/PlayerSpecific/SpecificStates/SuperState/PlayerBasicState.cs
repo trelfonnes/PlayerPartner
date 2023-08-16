@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerBasicState : PlayerState
 {
-    protected PlayerCollisionSenses PlayerCollisionSenses { get => playerCollisionSenses ??= core.GetCoreComponent<PlayerCollisionSenses>(); }
+    protected PlayerCollisionSenses PlayerCollisionSenses { get => playerCollisionSenses ?? core.GetCoreComponent(ref playerCollisionSenses); }
     private PlayerCollisionSenses playerCollisionSenses;
+
+
 
     protected int yInput;
     protected int xInput;
@@ -34,8 +36,7 @@ public class PlayerBasicState : PlayerState
     {
         base.DoChecks();
         // TODO add references to collision senses
-        if (PlayerCollisionSenses)
-        {
+        
             carryPoint = PlayerCollisionSenses.carryPoint;
             HitsToCarry = PlayerCollisionSenses.HitsToCarry;
             HitsToInteract = PlayerCollisionSenses.HitsToInteract;
@@ -45,25 +46,14 @@ public class PlayerBasicState : PlayerState
             isTouchingGround = PlayerCollisionSenses.GroundCheck;
             isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
             isTouchingInteractable = PlayerCollisionSenses.InteractableCheck;
-        }
-        else if (playerCollisionSenses == null)
-        {
-            if (core != null)
-            {
-                playerCollisionSenses = core.GetCoreComponent<PlayerCollisionSenses>();
-            }
-            else if(core == null)
-            {
-                core = player.core; //reset the core because theres an issue with the multiple instances
-
-            }
-            return;
-        }
+        
+       
     } 
 
     public override void Enter()
     {
         base.Enter();
+
         if (player)
         {
             CameraSwitcher.SwitchCamera(player.PlayerCamera, player.transform);

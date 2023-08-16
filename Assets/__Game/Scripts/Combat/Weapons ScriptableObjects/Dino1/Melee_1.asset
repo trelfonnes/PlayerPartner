@@ -21,6 +21,12 @@ MonoBehaviour:
   - rid: 7917043640045142016
   - rid: 7917043661478035457
   - rid: 7917043703839719424
+  weaponName: Your basic Melee Attack.
+  weaponDescription: Scratch at foes to damage them.
+  weaponImage: {fileID: 1755547001, guid: 514e8f04196fcc84d9d080982770253f, type: 3}
+  isPlayerWeapon: 0
+  isPartnerWeapon: 1
+  isPrimary: 1
   references:
     version: 2
     RefIds:

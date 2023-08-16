@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerAbilityState : PlayerState
 {
     protected bool isAbilityDone;
+    protected PlayerCollisionSenses PlayerCollisionSenses { get => playerCollisionSenses ?? core.GetCoreComponent(ref playerCollisionSenses); }
+    private PlayerCollisionSenses playerCollisionSenses;
     public PlayerAbilityState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }

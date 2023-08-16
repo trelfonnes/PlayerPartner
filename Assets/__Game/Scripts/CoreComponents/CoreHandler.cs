@@ -9,10 +9,10 @@ public class CoreHandler : MonoBehaviour
   
     private void Awake()
     {
-        
     }
 
-   public void LogicUpdate()
+  
+    public void LogicUpdate()
     {
         foreach (CoreComponent component in CoreComponents)
         {
@@ -25,6 +25,7 @@ public class CoreHandler : MonoBehaviour
         if (!CoreComponents.Contains(component))
         {
             CoreComponents.Add(component);
+
         }
     }
     //service locator pattern
@@ -33,14 +34,16 @@ public class CoreHandler : MonoBehaviour
     {
 
         var comp = CoreComponents.OfType<T>().FirstOrDefault();//takes the first element of the collection passed in as type T. or returns default value(null) if nothing is found
-        
-        if (comp)
-            return comp;
-
-        comp = GetComponentInChildren<T>();
 
         if (comp)
             return comp;
+        else
+        {
+            comp = GetComponentInChildren<T>();
+        }
+        if (comp)
+           return comp;
+       else
         {
             Debug.LogWarning($"{typeof(T)} not found on {transform.parent.name}");
         }

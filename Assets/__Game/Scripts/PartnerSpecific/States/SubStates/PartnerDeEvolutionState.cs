@@ -20,10 +20,7 @@ public class PartnerDeEvolutionState : PartnerBasicState
         base.AnimationTrigger();
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
+  
 
     public override void Enter()
     {

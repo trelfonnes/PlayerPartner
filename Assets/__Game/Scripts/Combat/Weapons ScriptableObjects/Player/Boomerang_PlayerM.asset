@@ -10,13 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
-  m_Name: MaleBoomerang
+  m_Name: Boomerang_PlayerM
   m_EditorClassIdentifier: 
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8951ff8e9747b9f40ada6146dfeb3b09, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
   - rid: 4121996703554863104
   - rid: 4121996703554863105
+  weaponName: Boomerang
+  weaponDescription: Throw it to stun enemies or hit switches. Be sure to pick it
+    up when it comes back.
+  weaponImage: {fileID: -2051281047, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
+  isPlayerWeapon: 1
+  isPartnerWeapon: 0
   references:
     version: 2
     RefIds:
