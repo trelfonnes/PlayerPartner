@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : DataReferenceInheritor
 {
+    public AllWeaponsObjectsReference WeaponsReferenceManager;
+
     public ItemsObjectPool objectPool;
     public static GameManager Instance { get; private set; }
     IItemSpawnStrategy extraRareStrategy;

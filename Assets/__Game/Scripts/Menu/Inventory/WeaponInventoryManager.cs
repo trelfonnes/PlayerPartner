@@ -6,11 +6,7 @@ using System;
 
 public class WeaponInventoryManager : MonoBehaviour
 {
-    [Header("references to player and partner weaponGameObjects")]
-    [SerializeField] Weapon playerPrimaryWeapon;
-    [SerializeField] Weapon playerSecondaryWeapon;
-    [SerializeField] PartnerWeapon partnerPrimaryWeapon;
-    [SerializeField] PartnerWeapon partnerSecondaryWeapon;
+   
 
 
     [Header("Weapon Inventory Information")]
@@ -75,32 +71,12 @@ public class WeaponInventoryManager : MonoBehaviour
 
     public void EquipButtonPressed()
     {//Potential need to create and call a mediator for handling the changing of weapon data. Use UI only here??
-        if (currentWeapon.isPlayerWeapon)
-        {
-            //move this slot to "equipped" space
-            if (currentWeapon.isPrimary)
-            {
-                //TODO change picture in primary equipped slot
-                playerPrimaryWeapon.Data = currentWeapon;
-            }
-            else
-            {
-                //TODO change picture in secondary equipped slot
-                playerSecondaryWeapon.Data = currentWeapon;
-            }
-        }
-        if (currentWeapon.isPartnerWeapon)
-        {
-            if (currentWeapon.isPrimary)
-            {
-                partnerPrimaryWeapon.Data = currentWeapon;
-            }
-            else
-            {
-                partnerSecondaryWeapon.Data = currentWeapon;
-            }
 
-        }
+        Debug.Log("inside WIM equip button pressed");
+        //access WeaponAutoGenerator on the desiredPlayer
+        GameManager.Instance.WeaponsReferenceManager.EquipWeapon(currentWeapon);
+        
+      
         SetTextAndButton("", false);
 
     }

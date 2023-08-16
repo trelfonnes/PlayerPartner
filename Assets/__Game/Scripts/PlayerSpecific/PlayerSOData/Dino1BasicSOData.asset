@@ -23,6 +23,8 @@ MonoBehaviour:
   HealthLimit: 7
   SP: 17
   MaxSP: 20
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
   MaxStamina: 50
   StaminaLimit: 60
   Poise: 30

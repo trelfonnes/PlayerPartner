@@ -35,7 +35,7 @@ public class WeaponAutoGenerator : MonoBehaviour
             weapon.SetData(data);
             character = 1;
         }
-
+        Debug.Log("INside generate weapon function");
         if (partnerWeapon != null)
         {
             partnerWeapon.SetData(data);

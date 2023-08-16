@@ -5,7 +5,7 @@ using System;
 public class PartnerWeapon : MonoBehaviour
 {
     [SerializeField] float attackCounterResetCooldown;
-    public WeaponDataSO Data;
+    public WeaponDataSO Data { get; private set; }
     public int CurrentAttackCounter
     {
         get => currentAttackCounter;
