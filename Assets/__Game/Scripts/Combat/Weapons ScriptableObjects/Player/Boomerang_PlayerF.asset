@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
   m_Name: Boomerang_PlayerF
   m_EditorClassIdentifier: 
+  isPlayerWeapon: 1
+  isPartnerWeapon: 0
+  isPrimary: 0
+  isPartnerOne: 0
+  isPartnerTwo: 0
+  isPartnerThree: 0
+  secondaryType: 3
+  primaryType: 2
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8ca8a7396ba7cab46873b142f3e08763, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:

@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
   m_Name: Special_Basic_Dino1 1
   m_EditorClassIdentifier: 
+  isPlayerWeapon: 0
+  isPartnerWeapon: 1
+  isPrimary: 0
+  isPartnerOne: 1
+  isPartnerTwo: 0
+  isPartnerThree: 0
+  secondaryType: 0
+  primaryType: 2
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: c0bcf5ea6a4b2d448909993ea595e39e, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
@@ -20,11 +28,15 @@ MonoBehaviour:
   - rid: 7917043731285409794
   - rid: 7917043731285409795
   - rid: 7917043731285409796
-  - rid: 7917043770508705797
   - rid: 7917043770508705805
+  - rid: 4121997002277650432
   references:
     version: 2
     RefIds:
+    - rid: 4121997002277650432
+      type: {class: InputHoldData, ns: , asm: Assembly-CSharp}
+      data:
+        name: InputHoldData
     - rid: 7917043731285409792
       type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
       data:
@@ -120,10 +132,6 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <amount>k__BackingField: 0
-    - rid: 7917043770508705797
-      type: {class: InputHoldData, ns: , asm: Assembly-CSharp}
-      data:
-        name: InputHoldData
     - rid: 7917043770508705805
       type: {class: ProjectileData, ns: , asm: Assembly-CSharp}
       data:

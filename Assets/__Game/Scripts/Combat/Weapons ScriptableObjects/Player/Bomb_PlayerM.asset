@@ -12,17 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
   m_Name: Bomb_PlayerM
   m_EditorClassIdentifier: 
+  isPlayerWeapon: 1
+  isPartnerWeapon: 0
+  isPrimary: 0
+  isPartnerOne: 0
+  isPartnerTwo: 0
+  isPartnerThree: 0
+  secondaryType: 3
+  primaryType: 2
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8951ff8e9747b9f40ada6146dfeb3b09, type: 2}
   <NumberOfAttacks>k__BackingField: 0
   <ComponentData>k__BackingField:
   - rid: 7917043979528962048
   - rid: 7917043979528962049
-  weaponName: Bomb
-  weaponDescription: Blow away weak obstacles or damage enemies.
-  weaponImage: {fileID: 777128407, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  isPlayerWeapon: 1
-  isPartnerWeapon: 0
-  isPrimary: 0
   references:
     version: 2
     RefIds:

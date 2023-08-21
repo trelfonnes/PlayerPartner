@@ -47,7 +47,7 @@ public class PartnerState
 
     public virtual void Enter()
     {
-        DoChecks();
+        //DoChecks();
         startTime = Time.time; //might need changed
         partner.anim.SetBool(animBoolName, true);
         isAnimationFinished = false;

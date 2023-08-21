@@ -10,18 +10,16 @@ public class WeaponInventorySlot : MonoBehaviour
     [SerializeField] Image weaponImage;
 
     [Header("Variables from this weapon")]
-    public WeaponDataSO thisWeapon;
     public WeaponInventoryManager thisManager;
+    public WeaponInventoryItemSO thisWeapon;
 
-
-    public void Setup(WeaponDataSO newItem, WeaponInventoryManager newManager)
+    public void Setup(WeaponInventoryItemSO newWeapon, WeaponInventoryManager newManager)
     {
-        Debug.Log(newItem);
-        thisWeapon = newItem;
+        thisWeapon = newWeapon;
         thisManager = newManager;
         if (thisWeapon)
         {
-            weaponImage.sprite = thisWeapon.weaponImage;
+           weaponImage.sprite = thisWeapon.weaponImage;
         }
     }
 

@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PartnerIdleState : PartnerBasicState
 {
+    protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+    private PartnerCollisionSenses collisionSenses;
     public PartnerIdleState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
+   
 
     public override void Enter()
     {

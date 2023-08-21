@@ -44,25 +44,27 @@ public class PartnerFollowMoveState : PartnerFollowState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        var direction = (player.position - partner.transform.position).normalized;
-        //direction.Normalize();
-        Movement?.CheckIfShouldFlipFollowing(direction);
-
-
-        if (!isTouchingPlayer && !isTouchingWallFollowing)
+        if (player != null)
         {
-            partner.transform.position += direction * playerSOData.followSpeed * Time.deltaTime;
-            
-            
+            var direction = (player.position - partner.transform.position).normalized;
+            //direction.Normalize();
+            Movement?.CheckIfShouldFlipFollowing(direction);
+
+
+            if (!isTouchingPlayer && !isTouchingWallFollowing)
+            {
+                partner.transform.position += direction * playerSOData.followSpeed * Time.deltaTime;
+
+
+
+            }
+            if (direction.x != 0 && direction.y != 0)
+            {
+                partner.anim.SetFloat("moveY", Mathf.Round(direction.y));
+                partner.anim.SetFloat("moveX", Mathf.Round(direction.x));
+            }
 
         }
-        if(direction.x != 0 && direction.y != 0)
-        {
-            partner.anim.SetFloat("moveY", Mathf.Round(direction.y));
-            partner.anim.SetFloat("moveX", Mathf.Round(direction.x));
-        }
-
-
 
         if (isTouchingPlayer || isTouchingWallFollowing)
         {

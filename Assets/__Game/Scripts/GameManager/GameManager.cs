@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : DataReferenceInheritor
 {
-    public AllWeaponsObjectsReference WeaponsReferenceManager;
 
     public ItemsObjectPool objectPool;
     public static GameManager Instance { get; private set; }
@@ -19,6 +18,7 @@ public class GameManager : DataReferenceInheritor
     protected override void Awake()
     {
         base.Awake();
+
         if (Instance == null)
         {
             Instance = this;
@@ -27,8 +27,11 @@ public class GameManager : DataReferenceInheritor
         {
             Destroy(gameObject);
         }
-    }
 
+
+
+
+    }
 
 
     private void Start()

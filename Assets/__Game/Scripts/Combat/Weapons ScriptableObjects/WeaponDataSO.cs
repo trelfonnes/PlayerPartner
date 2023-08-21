@@ -7,18 +7,24 @@ using System;
 [CreateAssetMenu(fileName = "newWeaponData", menuName = "Data/Weapon Data/Basic Weapon Data", order = 0)]
 public class WeaponDataSO : ScriptableObject
 {
+    [Header("For Weapon Inventory Use:")]
+    public bool isPlayerWeapon;
+    public bool isPartnerWeapon;
+    public bool isPrimary;
+    public bool isPartnerOne;
+    public bool isPartnerTwo;
+    public bool isPartnerThree;
+    
+    [SerializeField] public SecondaryWeaponState secondaryType;
+    [SerializeField] public PrimaryWeaponState primaryType;
+
+
     [field: SerializeField] public RuntimeAnimatorController AnimatorController { get; private set;}
     [field: SerializeField] public int NumberOfAttacks { get; private set; }
 
     [field: SerializeReference] public List<ComponentData> ComponentData { get; private set; }
     
-    [Header("For Weapon Inventory Use:")]
-    public string weaponName;
-    public string weaponDescription;
-    public Sprite weaponImage;
-    public bool isPlayerWeapon;
-    public bool isPartnerWeapon;
-    public bool isPrimary;
+   
     public T GetData<T>()
     {
         return ComponentData.OfType<T>().FirstOrDefault();
