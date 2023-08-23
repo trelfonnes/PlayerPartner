@@ -14,15 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSick: 0
   currentHealth: 7
-  stamina: 60
+  stamina: 56
   isInjured: 0
   moveSpeed: 5
   watchSpeed: 0
   followSpeed: 4.5
   MaxHealth: 7
   HealthLimit: 10
-  SP: 35
+  SP: 12
   MaxSP: 35
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
   MaxStamina: 60
   StaminaLimit: 70
   Poise: 40

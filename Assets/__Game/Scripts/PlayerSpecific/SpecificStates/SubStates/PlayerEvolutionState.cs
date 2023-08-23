@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEvolutionState : PlayerBasicState
+public class PlayerEvolutionState : PlayerState
 {
     protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
     private PartnerCollisionSenses collisionSenses;

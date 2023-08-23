@@ -11,6 +11,7 @@ public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
     SpriteRenderer weaponsSpriteRenderer;
     int currentWeaponSpriteIndex;
     Sprite[] currentPhaseSprites;
+    Movement movement;
     
     protected override void HandleEnter()
     {
@@ -18,12 +19,45 @@ public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
         currentWeaponSpriteIndex = 0;
     }
 
+    //void HandleEnterAttackPhase(AttackPhases phase)
+    //{
+    //    currentWeaponSpriteIndex = 0;
+    //    currentPhaseSprites = currentAttackDataPlayer.PhaseSprites.FirstOrDefault(dataPlayer => dataPlayer.Phase == phase).Sprites;
+    //}
     void HandleEnterAttackPhase(AttackPhases phase)
     {
         currentWeaponSpriteIndex = 0;
-        currentPhaseSprites = currentAttackDataPlayer.PhaseSprites.FirstOrDefault(dataPlayer => dataPlayer.Phase == phase).Sprites;
-    }
+        PhaseSprites[] filteredPhaseSprites = new PhaseSprites[3]; //default
+        if (movement.facingCombatDirectionX !=0)
+        {
+           filteredPhaseSprites = currentAttackDataPlayer.PhaseSprites
+                    .Where(dataPlayer => dataPlayer.Phase == phase && dataPlayer.PhaseDirection == AttackPhases.EastFace)//checking to match the correct sprites with the player.
+                    .ToArray();
+        }
+        if(movement.facingCombatDirectionX == 0 && movement.facingCombatDirectionY > 0)
+        {
+            filteredPhaseSprites = currentAttackDataPlayer.PhaseSprites
+                   .Where(dataPlayer => dataPlayer.Phase == phase && dataPlayer.PhaseDirection == AttackPhases.NorthFace)
+                   .ToArray();
+        }
+        if(movement.facingCombatDirectionX == 0 && movement.facingCombatDirectionY < 0)
+        {
+            filteredPhaseSprites = currentAttackDataPlayer.PhaseSprites
+                   .Where(dataPlayer => dataPlayer.Phase == phase && dataPlayer.PhaseDirection == AttackPhases.SouthFace)
+                   .ToArray();
+        }
 
+
+        if (filteredPhaseSprites.Length > 0)
+        {
+            currentPhaseSprites = filteredPhaseSprites[0].Sprites;
+        }
+        else
+        {
+            // Handle the case when no matching PhaseSprites array is found
+            // You can set a default value or take appropriate action here
+        }
+    }
     void HandleBaseSpriteChange(SpriteRenderer sr)
     {
         if (!isAttackActive)
@@ -31,6 +65,8 @@ public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
             weaponsSpriteRenderer.sprite = null;
             return;
         }
+        Debug.Log(currentWeaponSpriteIndex);
+        Debug.Log(currentPhaseSprites.Length);
         if (currentWeaponSpriteIndex >= currentPhaseSprites.Length)
         {
             Debug.LogWarning($"{weapon.name} weapon Sprites length mismatch");
@@ -50,7 +86,7 @@ public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
         dataPlayer = weapon.Data.GetData<WeaponSpriteData>();
         baseSpriteRenderer.RegisterSpriteChangeCallback(HandleBaseSpriteChange);
         PlayerEventHandler.OnEnterAttackPhase += HandleEnterAttackPhase;
-
+        movement = PlayerCore.GetCoreComponent<Movement>();
     }
  
     protected override void OnDestroy()

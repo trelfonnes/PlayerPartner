@@ -14,7 +14,8 @@ public class Damage : WeaponComponent<DamageData, AttackDamage>
                 if (!item.CompareTag("Partner"))
                 {
                     //if something was found, can call the function from it
-                    damageable.Damage(currentAttackDataPartner.Amount);
+                    
+                    damageable.Damage(currentAttackDataPlayer.Amount);
                 }
             }
         }
