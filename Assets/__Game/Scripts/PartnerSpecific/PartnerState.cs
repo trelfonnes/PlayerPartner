@@ -17,8 +17,7 @@ public class PartnerState
     protected float startTime;
     string animBoolName;
 
-   // protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
-    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+   // protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     //protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
    
  
@@ -27,8 +26,7 @@ public class PartnerState
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
 
-    
-    private Movement movement;
+
     private Stats stats;
     private Defeated defeated;
     private Particles particles;

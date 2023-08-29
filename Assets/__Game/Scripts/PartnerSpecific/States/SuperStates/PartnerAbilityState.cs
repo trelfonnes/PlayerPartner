@@ -9,7 +9,8 @@ public class PartnerAbilityState : PartnerState
     protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
     private PartnerCollisionSenses collisionSenses;
 
-
+    protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+    private Movement movement;
     public PartnerAbilityState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }

@@ -19,11 +19,7 @@ public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
         currentWeaponSpriteIndex = 0;
     }
 
-    //void HandleEnterAttackPhase(AttackPhases phase)
-    //{
-    //    currentWeaponSpriteIndex = 0;
-    //    currentPhaseSprites = currentAttackDataPlayer.PhaseSprites.FirstOrDefault(dataPlayer => dataPlayer.Phase == phase).Sprites;
-    //}
+  
     void HandleEnterAttackPhase(AttackPhases phase)
     {
         currentWeaponSpriteIndex = 0;

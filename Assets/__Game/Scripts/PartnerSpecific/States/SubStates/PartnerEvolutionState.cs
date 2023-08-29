@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PartnerEvolutionState : PartnerFollowState
 {
+    protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+    private Movement movement;
     private bool isEvolving;
     public PartnerEvolutionState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {

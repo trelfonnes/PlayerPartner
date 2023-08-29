@@ -69,9 +69,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.020541191}
+  m_Offset: {x: -0.05, y: 0.2}
   serializedVersion: 2
-  m_Radius: 0.17755032
+  m_Radius: 0.3
 --- !u!212 &4420845099280679024
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ SpriteRenderer:
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1111492713, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  m_Sprite: {fileID: -4717063445461775682, guid: d6238278334294d9db4a20082dae319c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,9 +137,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -1111492713, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  - {fileID: 1235167746, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  - {fileID: 1549301932, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  - {fileID: -3230184898852940645, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 6026585582234121647, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 8492273320700035503, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: -4736833664331397391, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 7359536130901780644, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: -4717063445461775682, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 7038691086620768331, guid: d6238278334294d9db4a20082dae319c, type: 3}
   damage: 1
   knockBackDamage: 3
   poiseDamage: 1
@@ -214,9 +218,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.020541191}
+  m_Offset: {x: -0.05, y: 0.2}
   serializedVersion: 2
-  m_Radius: 0.17755032
+  m_Radius: 0.3
 --- !u!212 &4413215485953980803
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -258,7 +262,7 @@ SpriteRenderer:
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1111492713, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  m_Sprite: {fileID: -4717063445461775682, guid: d6238278334294d9db4a20082dae319c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -282,9 +286,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -1111492713, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  - {fileID: 1235167746, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  - {fileID: 1549301932, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  - {fileID: -3230184898852940645, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 6026585582234121647, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 8492273320700035503, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: -4736833664331397391, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 7359536130901780644, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: -4717063445461775682, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 7038691086620768331, guid: d6238278334294d9db4a20082dae319c, type: 3}
   damage: 1
   knockBackDamage: 3
   poiseDamage: 1
@@ -361,9 +369,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.020541191}
+  m_Offset: {x: -0.05, y: 0.2}
   serializedVersion: 2
-  m_Radius: 0.17755032
+  m_Radius: 0.3
 --- !u!212 &451531548105918421
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -405,7 +413,7 @@ SpriteRenderer:
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1111492713, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  m_Sprite: {fileID: -4717063445461775682, guid: d6238278334294d9db4a20082dae319c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -429,9 +437,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 1235167746, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  - {fileID: -1111492713, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  - {fileID: 1549301932, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  - {fileID: -3230184898852940645, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 6026585582234121647, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 8492273320700035503, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: -4736833664331397391, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 7359536130901780644, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: -4717063445461775682, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  - {fileID: 7038691086620768331, guid: d6238278334294d9db4a20082dae319c, type: 3}
   damage: 1
   knockBackDamage: 3
   poiseDamage: 1

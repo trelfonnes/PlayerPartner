@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondaryType: 3
   primaryType: 1
-  weaponDescription: Hold and Unleash a powerful blast of energy.
+  weaponDescription: Unleash a powerful blast of energy.
   weaponName: Elemental Blast
-  weaponImage: {fileID: 752315826, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  weaponImage: {fileID: -715509507, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
   isPlayerWeapon: 0
   isPartnerWeapon: 1
   isPrimary: 1

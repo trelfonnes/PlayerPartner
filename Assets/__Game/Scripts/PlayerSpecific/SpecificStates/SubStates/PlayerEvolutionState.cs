@@ -7,8 +7,8 @@ public class PlayerEvolutionState : PlayerState
     protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
     private PartnerCollisionSenses collisionSenses;
 
-    private Movement movement;
-    protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+  //  private Movement movement;
+   // protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
     public PlayerEvolutionState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }

@@ -13,7 +13,7 @@ public class BasicProjectile : MonoBehaviour
     [SerializeField] private float poiseDamage = 1; //how much poise damage it does
     [SerializeField] float velocity = 10f; // how fast it travels
     [SerializeField] float activeTime = 2.5f;  //how far it travels
-    float timeToSpriteSwitch = .2f; 
+    float timeToSpriteSwitch = .1f; 
     bool hasBeenShot;
 
     Vector2 normalizedDirection;

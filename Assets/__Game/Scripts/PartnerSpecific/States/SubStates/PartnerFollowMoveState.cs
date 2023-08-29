@@ -7,7 +7,8 @@ public class PartnerFollowMoveState : PartnerFollowState
     public PartnerFollowMoveState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
-
+    protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+    private Movement movement;
     public override void DoChecks()
     {
         base.DoChecks();

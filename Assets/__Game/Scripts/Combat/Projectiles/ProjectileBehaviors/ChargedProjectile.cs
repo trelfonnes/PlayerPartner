@@ -19,7 +19,7 @@ public class ChargedProjectile : MonoBehaviour
     [SerializeField] private float chargedPoiseDamage = 1; //how much poise damage it does
     [SerializeField] float chargedVelocity = 10f; // how fast it travels
 
-    float timeToSpriteSwitch = .2f;
+    float timeToSpriteSwitch = .1f;
     float scaleFactor = 1.5f;
 
     bool hasBeenShot;
