@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7472142212183952980, guid: ead68803b844c5d4691a650231431934, type: 3}
       propertyPath: m_Name
-      value: DinoBasicProjecitle
+      value: Dino1BasicProjecitle
       objectReference: {fileID: 0}
     - target: {fileID: 7472142212183952984, guid: ead68803b844c5d4691a650231431934, type: 3}
       propertyPath: m_RootOrder
@@ -58,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 7472142212183952986, guid: ead68803b844c5d4691a650231431934, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1549301932, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+      objectReference: {fileID: -272044159, guid: dd3961f5f3380c94ba584335d8eb9007, type: 3}
     - target: {fileID: 7472142212183952987, guid: ead68803b844c5d4691a650231431934, type: 3}
       propertyPath: thisItemsData
       value: 

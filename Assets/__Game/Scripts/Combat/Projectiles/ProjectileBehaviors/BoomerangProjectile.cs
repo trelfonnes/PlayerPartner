@@ -20,6 +20,8 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
     bool isReturning = false;
     bool shot;
     private int currentSpriteIndex = 0;
+    private bool itemsDetached = true;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -67,6 +69,8 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
                     //stop sprite rotation
                     CancelInvoke("SwitchSprite");
                     isReturning = false;
+                    DetatchItem();
+                    
                 }
             }
             else
@@ -101,12 +105,32 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
             // Boomerang has hit an enemy, return it immediately
             isReturning = true;
         }
+        
+        else if (collision.gameObject.CompareTag("Item"))
+        {
+            if (transform.childCount < 1 && itemsDetached)
+            {
+                collision.transform.parent = gameObject.transform;
+                itemsDetached = false;
+            }
+        }
     }
 
     public void Interact() //player has to pick up boomerang to throw again. 
     {
+        DetatchItem();
         shot = false;
-        gameObject.SetActive(false);
+        
+            gameObject.SetActive(false);
+        
+    }
+    void DetatchItem()
+    {
+        if (transform.childCount > 0)
+        {
+                Transform child = transform.GetChild(0);
+                child.SetParent(null);
+        }
     }
     void SwitchSprite()
     {
@@ -121,6 +145,8 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
     }
     private void OnEnable()
     {
+        itemsDetached = true;
+
         ProjectileEventSystem.Instance.OnPlayerDirectionSet += Shoot;
     }
 

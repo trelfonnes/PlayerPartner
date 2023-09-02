@@ -12,7 +12,10 @@ public class PoiseDamage : WeaponComponent<PoiseDamageData, AttackPoiseDamage>
         {
             if(item.TryGetComponent(out IPoiseDamageable poiseDamageable))
             {
-                poiseDamageable.DamagePoise(currentAttackDataPlayer.amount);
+                if (!item.CompareTag("Partner") && !item.CompareTag("Player"))
+                {
+                    poiseDamageable.DamagePoise(currentAttackDataPlayer.amount);
+                }
             }
         }
 

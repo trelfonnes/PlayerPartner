@@ -11,7 +11,7 @@ public class Damage : WeaponComponent<DamageData, AttackDamage>
         {
             if (item.TryGetComponent(out IDamageable damageable)) //using an output parameter instead of input
             {
-                if (!item.CompareTag("Partner") || !item.CompareTag("Player"))
+                if (!item.CompareTag("Partner") && !item.CompareTag("Player"))
                 {
                     //if something was found, can call the function from it
                     

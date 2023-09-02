@@ -18,7 +18,8 @@ public class WeaponInventoryManager : MonoBehaviour
 
     [Header("Weapon Inventory Information")]
     [SerializeField] GameObject blankWeaponInventorySlot;
-    [SerializeField] GameObject weaponInventoryContentPanel;
+    [SerializeField] GameObject playerWeaponInventoryContentPanel;
+    [SerializeField] GameObject partnerWeaponInventoryContentPanel;
     [SerializeField] TextMeshProUGUI weaponDescriptionText;
     [SerializeField] GameObject equipButton;
     public WeaponInventoryItemSO currentWeapon;
@@ -75,9 +76,10 @@ public class WeaponInventoryManager : MonoBehaviour
             for (int i = 0; i < playerWeaponsInInventory.Count; i++)
             {
                 //condition for only if hasn't been made before
+
                     GameObject temp =
-                        Instantiate(blankWeaponInventorySlot, weaponInventoryContentPanel.transform.position, Quaternion.identity);
-                    temp.transform.SetParent(weaponInventoryContentPanel.transform);
+                        Instantiate(blankWeaponInventorySlot, playerWeaponInventoryContentPanel.transform.position, Quaternion.identity);
+                    temp.transform.SetParent(playerWeaponInventoryContentPanel.transform);
 
                     WeaponInventorySlot newSlot = temp.GetComponent<WeaponInventorySlot>();
                     if (newSlot)
@@ -96,8 +98,8 @@ public class WeaponInventoryManager : MonoBehaviour
             {
                 //condition for only if hasn't been made before
                 GameObject temp =
-                    Instantiate(blankWeaponInventorySlot, weaponInventoryContentPanel.transform.position, Quaternion.identity);
-                temp.transform.SetParent(weaponInventoryContentPanel.transform);
+                    Instantiate(blankWeaponInventorySlot, partnerWeaponInventoryContentPanel.transform.position, Quaternion.identity);
+                temp.transform.SetParent(partnerWeaponInventoryContentPanel.transform);
 
                 WeaponInventorySlot newSlot = temp.GetComponent<WeaponInventorySlot>();
                 if (newSlot)
@@ -181,9 +183,14 @@ public class WeaponInventoryManager : MonoBehaviour
 
     void ClearInventorySlots()
     {
-        for (int i = 0; i < weaponInventoryContentPanel.transform.childCount; i++)
+        for (int i = 0; i < partnerWeaponInventoryContentPanel.transform.childCount; i++)
         {
-            Destroy(weaponInventoryContentPanel.transform.GetChild(i).gameObject);
+            Destroy(partnerWeaponInventoryContentPanel.transform.GetChild(i).gameObject);
+
+        }  
+        for (int i = 0; i < playerWeaponInventoryContentPanel.transform.childCount; i++)
+        {
+            Destroy(playerWeaponInventoryContentPanel.transform.GetChild(i).gameObject);
 
         }
     }
@@ -207,14 +214,30 @@ public class WeaponInventoryManager : MonoBehaviour
 
     private void MakeNewInventorySlots(WeaponInventoryItemSO weapon)
     {
-        GameObject temp =
-                        Instantiate(blankWeaponInventorySlot, weaponInventoryContentPanel.transform.position, Quaternion.identity);
-        temp.transform.SetParent(weaponInventoryContentPanel.transform);
-
-        WeaponInventorySlot newSlot = temp.GetComponent<WeaponInventorySlot>();
-        if (newSlot)
+        if (weapon.isPlayerWeapon)
         {
-            newSlot.Setup(weapon, this);
+            GameObject temp =
+                            Instantiate(blankWeaponInventorySlot, playerWeaponInventoryContentPanel.transform.position, Quaternion.identity);
+            temp.transform.SetParent(playerWeaponInventoryContentPanel.transform);
+
+            WeaponInventorySlot newSlot = temp.GetComponent<WeaponInventorySlot>();
+            if (newSlot)
+            {
+                newSlot.Setup(weapon, this);
+            }
         }
+        if (weapon.isPartnerWeapon)
+        {
+            GameObject temp =
+                            Instantiate(blankWeaponInventorySlot, partnerWeaponInventoryContentPanel.transform.position, Quaternion.identity);
+            temp.transform.SetParent(partnerWeaponInventoryContentPanel.transform);
+
+            WeaponInventorySlot newSlot = temp.GetComponent<WeaponInventorySlot>();
+            if (newSlot)
+            {
+                newSlot.Setup(weapon, this);
+            }
+        }
+
     }
 }
