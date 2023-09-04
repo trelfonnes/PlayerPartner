@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef08ef81b100d6f4b89fa3dd22452fe1, type: 3}
-  m_Name: HealthPotion
+  m_Name: HealthPotion 5UP
   m_EditorClassIdentifier: 
   itemName: Health Potion
   itemDescription: 'Replenishes your partner''s health. '

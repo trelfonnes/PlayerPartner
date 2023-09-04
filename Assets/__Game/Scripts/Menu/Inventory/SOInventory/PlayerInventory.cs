@@ -19,7 +19,7 @@ public class PlayerInventory : ScriptableObject
 
     }
 
-    //dictionary to store key items in the player's inventory
+    //dictionary to store key items in the player's inventory, NOT usable items e.g. potions
 
  private Dictionary<string, KeyItem> keyItems = new Dictionary<string, KeyItem>();
 

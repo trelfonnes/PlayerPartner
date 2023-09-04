@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMoveState : PlayerBasicState
 {
+    private Movement movement;
+    protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+
     public PlayerMoveState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }

@@ -12,8 +12,8 @@ public class ClockManager : MonoBehaviour
 
     public static event EventHandler<OnTickEventArgs> OnTick;
     public static event EventHandler<OnTickEventArgs> OnTick_6;
-    private const float HoursInADay = 24f;
-    private const float RealSecondsPerGameHour = 20f;
+    private const float HoursInADay = 16f;
+    private const float RealSecondsPerGameHour = 10f;
     [SerializeField] private float minutes;
     private int gameHour;
     private int daysInGame;
@@ -37,7 +37,7 @@ public class ClockManager : MonoBehaviour
             gameHour++;
             if (OnTick != null) OnTick(this, new OnTickEventArgs { gameHour = gameHour });
            // Debug.Log(gameHour);
-            if(gameHour % 6 ==0)//this is fancy syntax for if game hour is a mulitple of 6 i.e. 12, 18, 24
+            if(gameHour % 4 ==0)//this is fancy syntax for if game hour is a mulitple of 6 i.e. 12, 18, 24
             {
                 if (OnTick_6 != null) OnTick_6(this, new OnTickEventArgs { gameHour = gameHour });
             }            

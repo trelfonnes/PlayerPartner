@@ -683,6 +683,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spr_PlayerFemaleNew_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be7c26587a06afd4dbfe9345e09f0281
+      internalID: -605121505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PlayerFemaleNew_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b9aed3d0b9c874d9df2464adc352d9
+      internalID: -1556742554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PlayerFemaleNew_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0830e49546aa3f941a88b3fcdd4e4e5d
+      internalID: -1111043348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -714,6 +777,9 @@ TextureImporter:
       spr_PlayerFemaleNew_24: -2089210240
       spr_PlayerFemaleNew_25: 1575494128
       spr_PlayerFemaleNew_26: 920808412
+      spr_PlayerFemaleNew_27: -605121505
+      spr_PlayerFemaleNew_28: -1556742554
+      spr_PlayerFemaleNew_29: -1111043348
       spr_PlayerFemaleNew_3: -1650830019
       spr_PlayerFemaleNew_4: -1163262803
       spr_PlayerFemaleNew_5: 593311520

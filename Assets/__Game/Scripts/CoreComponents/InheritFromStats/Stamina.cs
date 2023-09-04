@@ -18,7 +18,7 @@ public class Stamina : Stats, IStaminaChange
         if (gameObject.transform.parent.parent.gameObject.activeSelf)
         {
             SubscribeToHourlyTickEvent();
-            SubscribeToQuarterlyTickEvent();
+            
         }
 
     }
@@ -96,7 +96,7 @@ public class Stamina : Stats, IStaminaChange
     private void OnDisable()
     {
         UnSubscribeToHourlyTickEvent();
-        UnSubscribeToQuarterlyTickEvent();
+       
        
 
     }
@@ -126,29 +126,17 @@ public class Stamina : Stats, IStaminaChange
         }
 
     }
-    void HandleQuarterlyTick(object sender, ClockManager.OnTickEventArgs e)
-    {
-        Debug.Log("New cycle in day");
-
-    }
-    void SubscribeToHourlyTickEvent()
+        void SubscribeToHourlyTickEvent()
     {
         ClockManager.OnTick += HandleHourlyTick;
         Debug.Log("onTick subbed");
 
     }
-    void SubscribeToQuarterlyTickEvent() //probably can be used not in stamina, but is here for testing.
-    {
-        ClockManager.OnTick_6 += HandleHourlyTick;
-        
-    }
+    
     void UnSubscribeToHourlyTickEvent()
     {
         ClockManager.OnTick -= HandleHourlyTick;
     }
-    void UnSubscribeToQuarterlyTickEvent()//same here, probably put in another class like nightDay cycle
-    {
-        ClockManager.OnTick_6 -= HandleHourlyTick;
-    }
+   
 
 }

@@ -16,9 +16,7 @@ public class PlayerState
     protected float startTime;
     string animBoolName;
 
-    private Movement movement;
-    protected Movement Movement {get => movement ?? core.GetCoreComponent(ref movement);}
-    
+   
     //protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
    
 

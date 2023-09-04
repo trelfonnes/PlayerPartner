@@ -683,6 +683,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spr_PlayerMaleNew_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede7fb8fcb4ae5e4cbb7626a0614f445
+      internalID: -1408587050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PlayerMaleNew_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4bc5fe447272b4b9f1244067dba020
+      internalID: 759925116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PlayerMaleNew_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d8ebe82b8acdf4e9256c70363e0c3b
+      internalID: -443583897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -714,6 +777,9 @@ TextureImporter:
       spr_PlayerMaleNew_24: -524749491
       spr_PlayerMaleNew_25: 1043324854
       spr_PlayerMaleNew_26: -622283070
+      spr_PlayerMaleNew_27: -1408587050
+      spr_PlayerMaleNew_28: 759925116
+      spr_PlayerMaleNew_29: -443583897
       spr_PlayerMaleNew_3: 430774141
       spr_PlayerMaleNew_4: -1584284440
       spr_PlayerMaleNew_5: -256158757

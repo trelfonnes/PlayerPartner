@@ -7,7 +7,6 @@ public class SpecialPower : Stats, ISpecialPower
 {
     public bool canShoot = true;
     [SerializeField] SPDisplayUI SPDisplay;
-    [SerializeField] inventoryItems inventoryData;
     protected override void Awake()
     {
         base.Awake();
@@ -24,12 +23,10 @@ public class SpecialPower : Stats, ISpecialPower
     public void DecreaseSP(int amount)
     {
         SOData.SP -= amount;
-        inventoryData.numberHeld -= amount;
         if(SOData.SP <= 0)
         {
             canShoot = false;
             SOData.SP = 0;
-            inventoryData.numberHeld = 0;
         }
         UpdateUI();
 
@@ -37,9 +34,7 @@ public class SpecialPower : Stats, ISpecialPower
     public void IncreaseSP(int amount)
     {
         SOData.SP = Mathf.Clamp(SOData.SP + amount, 0, SOData.MaxSP);
-        inventoryData.numberHeld = Mathf.Clamp(inventoryData.numberHeld + amount, 0, SOData.MaxSP);
         canShoot = true;
-        AddItemToInventory(inventoryData);
         UpdateUI();
 
     }
