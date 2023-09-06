@@ -447,7 +447,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1066,7 +1066,6 @@ MonoBehaviour:
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
   canShoot: 1
   SPDisplay: {fileID: 0}
-  inventoryData: {fileID: 11400000, guid: 763d9c73757b6274e906b2a98d384c86, type: 2}
 --- !u!1 &8615240597578919871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1164,6 @@ MonoBehaviour:
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
   startEvolutionTimer: 0
-  inventoryData: {fileID: 11400000, guid: 1bb5dc5f34eaaa64493f9653df3fb390, type: 2}
   EPDisplay: {fileID: 0}
 --- !u!1 &8928211653619389193
 GameObject:
@@ -1230,18 +1228,38 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -81584303
       objectReference: {fileID: 0}
+    - target: {fileID: 3591465576041025626, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 3984207884821035486, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c0bcf5ea6a4b2d448909993ea595e39e, type: 2}
     - target: {fileID: 4568973121285795885, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+      propertyPath: BasicProjectile
+      value: 
+      objectReference: {fileID: 11400000, guid: ab1900779e92aa04685ed9389ca18824, type: 2}
+    - target: {fileID: 4568973121285795885, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: numberOfAttacks
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4568973121285795885, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+      propertyPath: ChargeProjectile
+      value: 
+      objectReference: {fileID: 11400000, guid: 83060316e3ed66e4e9261188ca3f2004, type: 2}
+    - target: {fileID: 4568973121285795885, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+      propertyPath: SpreadProjectile
+      value: 
+      objectReference: {fileID: 11400000, guid: e6f402bafb9a05c4daffe73fce49f5f0, type: 2}
+    - target: {fileID: 4568973121285795885, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: <Data>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: e6f402bafb9a05c4daffe73fce49f5f0, type: 2}
+    - target: {fileID: 4568973121285795885, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+      propertyPath: thisWeaponsAutoGenerator
+      value: 
+      objectReference: {fileID: 6009775099449210989}
     - target: {fileID: 4568973121285795885, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: attackCounterResetCooldown
       value: 1
@@ -1249,7 +1267,7 @@ PrefabInstance:
     - target: {fileID: 4795499509166476151, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 83060316e3ed66e4e9261188ca3f2004, type: 2}
+      objectReference: {fileID: 11400000, guid: ab1900779e92aa04685ed9389ca18824, type: 2}
     - target: {fileID: 8146793231319539484, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1300,6 +1318,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+--- !u!114 &6009775099449210989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4795499509166476151, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+  m_PrefabInstance: {fileID: 1290857410537583386}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52aabde0338257d41ad6a2567f6d1e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6982042588960156678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8146793231319539484, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
@@ -1365,6 +1394,14 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2607447855836341977, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+      propertyPath: MeleeHold
+      value: 
+      objectReference: {fileID: 11400000, guid: 91e8d0f28f3c29c4a91ffea532176135, type: 2}
+    - target: {fileID: 2607447855836341977, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+      propertyPath: MeleeBasic
+      value: 
+      objectReference: {fileID: 11400000, guid: 75c455d94e8600f4685232fbb90782b2, type: 2}
+    - target: {fileID: 2607447855836341977, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: numberOfAttacks
       value: 1
       objectReference: {fileID: 0}
@@ -1372,6 +1409,10 @@ PrefabInstance:
       propertyPath: <Data>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 75c455d94e8600f4685232fbb90782b2, type: 2}
+    - target: {fileID: 2607447855836341977, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+      propertyPath: thisWeaponsAutoGenerator
+      value: 
+      objectReference: {fileID: 7366003051328502054}
     - target: {fileID: 2607447855836341977, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: attackCounterResetCooldown
       value: 1
@@ -1381,6 +1422,14 @@ PrefabInstance:
       value: PrimaryWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+      propertyPath: m_Size.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1388,10 +1437,18 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -81584303
       objectReference: {fileID: 0}
+    - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 5009145620644978189, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f249ae00ddfe8ed4b899fc45bcba0b9e, type: 2}
     - target: {fileID: 8357434848059745963, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 75c455d94e8600f4685232fbb90782b2, type: 2}
+      objectReference: {fileID: 11400000, guid: 91e8d0f28f3c29c4a91ffea532176135, type: 2}
     m_RemovedComponents:
     - {fileID: 2091487698614593328, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
@@ -1400,6 +1457,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 740678868763759213, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
   m_PrefabInstance: {fileID: 1568059752140939149}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7366003051328502054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8357434848059745963, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
+  m_PrefabInstance: {fileID: 1568059752140939149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52aabde0338257d41ad6a2567f6d1e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3096751257990633546
 PrefabInstance:
   m_ObjectHideFlags: 0
