@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Medicine
   itemDescription: Follow the correct dosage! Heals your partner from sickness.
-  itemImage: {fileID: 1373765893, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
-  numberHeld: 0
+  itemImage: {fileID: 1284169031, guid: d9a7b6463ce608a4aa01c0ea9a9381c6, type: 3}
+  numberHeld: 1
   usable: 1
   unique: 0
   thisEvent:

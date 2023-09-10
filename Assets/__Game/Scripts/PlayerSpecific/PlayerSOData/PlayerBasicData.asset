@@ -21,7 +21,7 @@ MonoBehaviour:
   followSpeed: 5
   MaxHealth: 5
   HealthLimit: 10
-  SP: 2444
+  SP: 2442
   MaxSP: 2500
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
@@ -40,5 +40,5 @@ MonoBehaviour:
   stage1: 0
   stage2: 0
   stage3: 0
-  Bytes: 33
+  Bytes: 50
   MaxBytes: 50

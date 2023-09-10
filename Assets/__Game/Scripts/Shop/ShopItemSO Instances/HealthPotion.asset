@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8cba62308baf3e45b268a8c3a2e9580, type: 3}
+  m_Name: HealthPotion
+  m_EditorClassIdentifier: 
+  itemName: Health Potion
+  itemDescription: Refill 5 partner hearts.
+  confirmPurchaseText: Buy Health Potion for 25 Bytes?
+  itemPrice: 25
+  itemImage: {fileID: 853980874, guid: 53cdcada1346fd7489e33d26e8c0ec1d, type: 3}
+  singlePurchaseItem: 0
+  amountForSale: 50

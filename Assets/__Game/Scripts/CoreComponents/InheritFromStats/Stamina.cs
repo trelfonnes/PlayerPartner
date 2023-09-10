@@ -111,7 +111,6 @@ public class Stamina : Stats, IStaminaChange
     }
     void HandleHourlyTick(object sender, ClockManager.OnTickEventArgs e)
     {
-        Debug.Log("onTick stamina down");
 
         if (SOData.Stamina > 0)
         {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Health Potion
   itemDescription: 'Replenishes your partner''s health. '
-  itemImage: {fileID: -460473219, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
+  itemImage: {fileID: 853980874, guid: 53cdcada1346fd7489e33d26e8c0ec1d, type: 3}
   numberHeld: 0
   usable: 1
   unique: 0

@@ -43,6 +43,7 @@ public class PartnerFollowIdleState : PartnerFollowState
 
     private void BackToIdle()
     {
+        
         PSM.ChangePartnerState(partner.IdleState);
     }
 

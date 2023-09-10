@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSick: 0
   currentHealth: 4
-  stamina: 47
+  stamina: 16
   isInjured: 0
   moveSpeed: 4
   watchSpeed: 0
@@ -41,4 +41,4 @@ MonoBehaviour:
   stage2: 0
   stage3: 0
   Bytes: 0
-  MaxBytes: 50
+  MaxBytes: 0

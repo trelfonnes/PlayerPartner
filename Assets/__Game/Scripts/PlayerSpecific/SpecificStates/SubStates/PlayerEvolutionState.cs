@@ -8,7 +8,8 @@ public class PlayerEvolutionState : PlayerState
     private PlayerCollisionSenses collisionSenses;
 
     private Movement movement;
-    protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    //protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
     public PlayerEvolutionState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }

@@ -53,13 +53,13 @@ public class PlayerBasicState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.evolutionEvents.OnStopForEvolution += StartEvolution;
 
         if (player)
         {
             CameraSwitcher.SwitchCamera(player.PlayerCamera, player.transform);
         }
             statEvents.onCurrentEPZero += TimeToDevolve;
-        player.evolutionEvents.OnStopForEvolution += StartEvolution;
         
     }
 

@@ -25,7 +25,7 @@ public class ClockManager : MonoBehaviour
 
     void Awake()
     {
-        gameHour = 0;
+        gameHour = 2;
     }
     private void Update()
     {

@@ -52,7 +52,6 @@ public class CoreHandler : MonoBehaviour
 
     public T GetCoreComponent<T>(ref T value) where T : CoreComponent
     {
-        Debug.Log("coreHandler second one being accessed");
 
         value = GetCoreComponent<T>();
         return value;

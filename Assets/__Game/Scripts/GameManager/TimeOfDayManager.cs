@@ -12,6 +12,7 @@ public class TimeOfDayManager : MonoBehaviour
     [SerializeField] float transitionDuration = 3f;
     float transitionTimer = 0f;
 
+    public bool isIndoors; //access this and change to true when indoors. When back outdoors, switch to false first, then executetimevisuallogic
 
     public int HoursPassed { get; private set; }
     int nightHour = 14;
@@ -42,9 +43,10 @@ public class TimeOfDayManager : MonoBehaviour
     private void Start()
     {
         globalLight = GetComponent<Light2D>();
-        globalLight.color = new Color(209f / 255f, 234f / 255f, 1, 0f); //refactor to be set at whatever hours is passed in and added
         //then checked and set. e.g. works with entering and exiting indoors and outdoors.
-
+       // This script continues to be subscribed to ontick indoors. However, use flag isIndoors
+       // before RunTimeLogic is executed. That way HoursPassed will increment but lighting wont change
+        ExecuteTimeVisualLogic();
 
     }
     private void Update()
@@ -69,14 +71,22 @@ public class TimeOfDayManager : MonoBehaviour
 
     void HandleTimeTick(object sender, ClockManager.OnTickEventArgs e)
     {
-       
         if (HoursPassed >= 16)
         {
             HoursPassed = 0;
         }
         HoursPassed++;
-        Debug.Log("Hours passed" + HoursPassed);
 
+        if (!isIndoors)
+        {
+            ExecuteTimeVisualLogic();
+        }
+       
+    }
+
+    private void ExecuteTimeVisualLogic()
+    {
+        
         if (HoursPassed >= nightHour || HoursPassed < morningHour) // Night condition
         {//turn dark
             targetIntensity = .7f;
@@ -89,8 +99,8 @@ public class TimeOfDayManager : MonoBehaviour
             //change color to sunrise and return to day intensity
             targetIntensity = 1f;
             transitionTimer = 0f;
-            globalLight.color = new Color(209f/255f, 234f/255f, 1, 0f);
-          
+            globalLight.color = new Color(209f / 255f, 234f / 255f, 1, 0f);
+
         }
 
         else if (HoursPassed >= dayHour && HoursPassed < eveningHour) //daytime condition
@@ -99,22 +109,12 @@ public class TimeOfDayManager : MonoBehaviour
             // change color to white. should already be at correct intensity
             globalLight.color = new Color(1f, 1f, 1f, 0f);
         }
-        else if(HoursPassed >= eveningHour && HoursPassed < nightHour) //evening condition
+        else if (HoursPassed >= eveningHour && HoursPassed < nightHour) //evening condition
         {
             // change color to sunset, should already be correct intensity
-            globalLight.color = new Color(1f, 224f/255f, 204f/255f, 0f);
+            globalLight.color = new Color(1f, 224f / 255f, 204f / 255f, 0f);
         }
-        else
-        {
-            //turn light
-            
-        }
-       
     }
-
-    
-  
-
 
     void SubscribeToTimeTickEvent()
     {

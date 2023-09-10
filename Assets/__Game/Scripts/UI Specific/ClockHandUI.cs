@@ -30,7 +30,6 @@ public class ClockHandUI : MonoBehaviour
 
     void HandleHourlyTick(object sender, ClockManager.OnTickEventArgs e)
     {
-        Debug.Log("onTick 1 hour down ");
         // move clockHandTransform to next point + -22.5 degrees
         totalRotation -= 22.5f; // every 1/4 of a quarter day
 
@@ -43,7 +42,6 @@ public class ClockHandUI : MonoBehaviour
     }
     void HandleQuarterlyTick(object sender, ClockManager.OnTickEventArgs e)
     {
-        Debug.Log("onTick 1/4 day down ");
 
         // Check if the DayCycles list is empty, or if the index is out of bounds
         if (DayCycles.Count == 0 || currentImageIndex < 0 || currentImageIndex >= DayCycles.Count)

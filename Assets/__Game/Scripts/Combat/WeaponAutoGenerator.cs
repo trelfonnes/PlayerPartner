@@ -39,7 +39,6 @@ public class WeaponAutoGenerator : MonoBehaviour
         }
         if (partnerWeapon != null)
         {
-            Debug.Log(data);
             partnerWeapon.SetData(data);
             character = 0;
         }

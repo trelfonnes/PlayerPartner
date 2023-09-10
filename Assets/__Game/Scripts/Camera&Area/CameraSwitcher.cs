@@ -32,7 +32,6 @@ public static class CameraSwitcher
     public static void Register(CinemachineVirtualCamera cameraInUse)
     {
         cameras.Add(cameraInUse);
-        Debug.Log("Camera Registered" + cameraInUse);
     }
     public static void UnRegister(CinemachineVirtualCamera cameraNotInUse)
     {
