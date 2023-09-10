@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerBasicData
   m_EditorClassIdentifier: 
   isSick: 0
-  currentHealth: 4
+  currentHealth: 5
   stamina: 0
   isInjured: 0
   moveSpeed: 5
@@ -21,7 +21,7 @@ MonoBehaviour:
   followSpeed: 5
   MaxHealth: 5
   HealthLimit: 10
-  SP: 2442
+  SP: 2439
   MaxSP: 2500
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
@@ -40,5 +40,5 @@ MonoBehaviour:
   stage1: 0
   stage2: 0
   stage3: 0
-  Bytes: 50
+  Bytes: 0
   MaxBytes: 50

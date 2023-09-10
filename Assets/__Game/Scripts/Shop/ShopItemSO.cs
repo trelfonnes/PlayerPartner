@@ -13,6 +13,7 @@ public class ShopItemSO : ScriptableObject
     public Sprite itemImage;
     public bool singlePurchaseItem;
     public int amountForSale;
+    public GameObject itemPrefab;
 
 
 

@@ -129,6 +129,7 @@ public class ShopBehaviorManager : MonoBehaviour, IInteractable
     void SpawnPurchasedItem()
     {
         // purched item prefab .transform.position = itemSpawnPoint.position;
+        Instantiate(currentItemToPurchase.itemPrefab, itemSpawnPoint.position, Quaternion.identity);
     }
    
 
