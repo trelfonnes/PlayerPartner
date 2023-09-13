@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 617004290, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: dadc6fb5cf6379d4c8c720de2bdc2e2e, type: 2}
+      objectReference: {fileID: 11400000, guid: 06041605795b4f34982ae6e943a8aeb1, type: 2}
     - target: {fileID: 1118141020, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: SOData
       value: 
@@ -22,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 2096271035, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 2abf8e5ee86237545afe3b5e976bcd57, type: 2}
+      objectReference: {fileID: 11400000, guid: f07cba7930e49dd48b7f5d2ce3434940, type: 2}
     - target: {fileID: 1177287998788063283, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_Controller
       value: 
@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963916745617885419, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3963916745617885420, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: m_Controller
@@ -151,14 +151,38 @@ PrefabInstance:
       propertyPath: SOData
       value: 
       objectReference: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
+    - target: {fileID: 5046698363651591916, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: 597f2dd501e2d51418ac05747def8d71, type: 2}
     - target: {fileID: 5380454593534553832, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: dadc6fb5cf6379d4c8c720de2bdc2e2e, type: 2}
     - target: {fileID: 6331929672594413318, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: Whip
+      value: 
+      objectReference: {fileID: 11400000, guid: f07cba7930e49dd48b7f5d2ce3434940, type: 2}
+    - target: {fileID: 6331929672594413318, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: Scythe
+      value: 
+      objectReference: {fileID: 11400000, guid: f07cba7930e49dd48b7f5d2ce3434940, type: 2}
+    - target: {fileID: 6331929672594413318, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: <Data>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: f07cba7930e49dd48b7f5d2ce3434940, type: 2}
+    - target: {fileID: 7345843354213220129, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: Bomb
+      value: 
+      objectReference: {fileID: 11400000, guid: 321e43dda98b8b946866c5d4d7f5f5b1, type: 2}
+    - target: {fileID: 7345843354213220129, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: Dart
+      value: 
+      objectReference: {fileID: 11400000, guid: 06041605795b4f34982ae6e943a8aeb1, type: 2}
+    - target: {fileID: 7345843354213220129, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
+      propertyPath: Boomerang
+      value: 
+      objectReference: {fileID: 11400000, guid: 2abf8e5ee86237545afe3b5e976bcd57, type: 2}
     - target: {fileID: 7345843354213220129, guid: ce7c1aab32d470a46b21b9dd79dfb400, type: 3}
       propertyPath: <Data>k__BackingField
       value: 

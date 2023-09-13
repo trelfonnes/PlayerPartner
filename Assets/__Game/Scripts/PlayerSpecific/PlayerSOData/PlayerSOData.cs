@@ -43,6 +43,8 @@ public class PlayerSOData : BaseSOPlayerData
     [Header("Player exclusive Data")]
     public int Bytes = 0;
     public int MaxBytes = 50;
+    public int Keys;
+    public int BossKeys;
 
 
 
