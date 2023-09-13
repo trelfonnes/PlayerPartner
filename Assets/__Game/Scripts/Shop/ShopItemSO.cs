@@ -12,9 +12,9 @@ public class ShopItemSO : ScriptableObject
     public int itemPrice;
     public Sprite itemImage;
     public bool singlePurchaseItem;
+    public bool purchased;
     public int amountForSale;
     public GameObject itemPrefab;
-
 
 
 }

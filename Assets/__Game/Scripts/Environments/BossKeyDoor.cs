@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyDoor : MonoBehaviour
+public class BossKeyDoor : MonoBehaviour
 {
+    // TODO: Add functionality for loading a new scene where the boss fight takes place??
     bool doorOpened;
     [SerializeField] int costToOpen;
     [SerializeField] BoxCollider2D nonTriggerCollider;
@@ -16,16 +17,16 @@ public class KeyDoor : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && !collision.isTrigger)
+        if (collision.CompareTag("Player") && !collision.isTrigger)
         {
 
-           int keyAmount = collision.GetComponentInChildren<IKeys>().GetKeyAmount();
+            int keyAmount = collision.GetComponentInChildren<IKeys>().GetBossKeyAmount();
 
-            if(keyAmount >= costToOpen && !doorOpened)
+            if (keyAmount >= costToOpen && !doorOpened)
             {
                 OpenDoor();
-                collision.GetComponentInChildren<IKeys>().MinusKey(costToOpen);
-                
+                collision.GetComponentInChildren<IKeys>().MinusBossKey(costToOpen);
+
 
             }
         }
@@ -39,8 +40,8 @@ public class KeyDoor : MonoBehaviour
     }
     public void LockDoor() // may come in handy.
     {
-        doorOpened = false;
         nonTriggerCollider.enabled = true;
+        doorOpened = false;
         sr.sprite = doorClosedSprite;
     }
 }

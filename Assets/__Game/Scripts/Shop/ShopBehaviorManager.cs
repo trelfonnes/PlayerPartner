@@ -47,7 +47,7 @@ public class ShopBehaviorManager : MonoBehaviour, IInteractable
 
             for (int i = 0; i < shopInventory.itemsInInventory.Count; i++)
             {
-                if(shopInventory.itemsInInventory[i].amountForSale > 0)
+                if(shopInventory.itemsInInventory[i].amountForSale > 0 && !shopInventory.itemsInInventory[i].purchased)
                 {
                     GameObject temp = Instantiate(shopItemSlotPrefab, shopInventoryContentPanel.transform.position, Quaternion.identity);
 
@@ -86,6 +86,8 @@ public class ShopBehaviorManager : MonoBehaviour, IInteractable
     {
         if (currentItemToPurchase.singlePurchaseItem)
         {
+            currentItemToPurchase.purchased = true;// setting a flag that it is already purchased and don't make the slot again.
+            currentItemToPurchase.amountForSale--;// lowering the stock
             ClearShopItemSlots();// only clear if its a single purchase item like a keyItem;
             MakeShopItemSlots();
         }
