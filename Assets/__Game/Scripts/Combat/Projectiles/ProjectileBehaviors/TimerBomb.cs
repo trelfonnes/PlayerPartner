@@ -83,6 +83,10 @@ public class TimerBomb : MonoBehaviour
 
                 damageable.Damage(damage);
             }
+            if(item.TryGetComponent(out IBombable bombable))
+            {
+                bombable.Explode();
+            }
          
             gameObject.SetActive(false);
            

@@ -1,41 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+
 
 public class Torch : MonoBehaviour
 {
-    List<Sprite> sprites = new List<Sprite>();
-    SpriteRenderer sr;
-    float timeToSpriteSwitch;
+    Light2D pointLight;
+    [SerializeField] bool isIndoorObject;
 
     private void Start()
     {
-        
+        pointLight = GetComponentInChildren<Light2D>();
+        TimeOfDayManager.Instance.onDay += DimForDaylight;
+        TimeOfDayManager.Instance.onEvening += BrightenForDusk;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out ILightable lightable))
+        if (collision.TryGetComponent(out ILightable lightable))
         {
             lightable.Light(); //TODO create the "Fire" object that will implement this interface and do the lighting behavior.
         }
     }
-
-
-IEnumerator SwitchSprite()
+    void DimForDaylight()
     {
-
-        while (true)
+        if (!isIndoorObject)
         {
-            // Loop through the list of sprites
-            for (int i = 0; i < sprites.Count; i++)
-            {
-                sr.sprite = sprites[i];
-
-                // Wait for the specified duration
-                yield return new WaitForSeconds(timeToSpriteSwitch);
-            }
+            pointLight.intensity = 0f;
         }
     }
+    void BrightenForDusk()
+    {
+        if (!isIndoorObject)
+        {
+            pointLight.intensity = .25f;
+        }
+    }
+    private void OnEnable()
+    {
+        
 
+    }
+    private void OnDisable()
+    {
+        TimeOfDayManager.Instance.onDay -= DimForDaylight;
+        TimeOfDayManager.Instance.onEvening -= BrightenForDusk;
+
+    }
 }
+
