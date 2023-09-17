@@ -18,6 +18,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     [SerializeField]private float throwDownwardForceMultiplier;
     [SerializeField]private float setDownwardForceMultiplier;
     [SerializeField] float setUpwardForceMultiplier;
+    SpriteRenderer sr;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         boxCollider = GetComponent<BoxCollider2D>();
         initialPosition = transform.position;
         wasKinematic = rb.isKinematic;
+        sr = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -44,7 +46,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         rb.isKinematic = wasKinematic;
         Physics2D.IgnoreLayerCollision(7, 10, false);
         Physics2D.IgnoreLayerCollision(7, 9, false);
-
+        sr.sortingOrder = 0;
         // transform.position = initialPosition;
     }
 
@@ -56,6 +58,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
             itemTransform.position = CarryPoint.position;
             itemTransform.parent = CarryPoint;
             Physics2D.IgnoreLayerCollision(7, 10, true);
+        sr.sortingOrder = 1;
         
     }
 

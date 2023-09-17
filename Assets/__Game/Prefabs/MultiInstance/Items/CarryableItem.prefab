@@ -52,7 +52,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.51640093, y: 0.9592309}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -121,8 +121,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -81584303
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1629189709, guid: dd3961f5f3380c94ba584335d8eb9007, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &2701611160141834291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwSpeed: 25
-  setDownDistance: 5
-  throwDownwardForceMultiplier: 1
-  setDownwardForceMultiplier: 5
+  setDownDistance: 10
+  throwDownwardForceMultiplier: 0.7
+  setDownwardForceMultiplier: 1.5
   setUpwardForceMultiplier: 0
 --- !u!58 &2701611160141834290
 CircleCollider2D:
