@@ -79,27 +79,27 @@ MonoBehaviour:
         name: ActionHitBoxData
         attackData:
         - name: Attack1
-          DebugHitBoxNorth: 1
+          DebugHitBoxNorth: 0
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
             x: -1
             y: 0
-            width: 2
-            height: 2
+            width: 1
+            height: 1
           DebugHitBoxSouth: 0
           <HitBoxSouth>k__BackingField:
             serializedVersion: 2
             x: -1
             y: -2
-            width: 2
-            height: 1.75
-          DebugHitBoxEast: 0
+            width: 1
+            height: 1
+          DebugHitBoxEast: 1
           <HitBoxEast>k__BackingField:
             serializedVersion: 2
             x: 0
             y: -1.2
-            width: 2
-            height: 2
+            width: 1.25
+            height: 1.25
           DebugHitBoxWest: 0
           <HitBoxWest>k__BackingField:
             serializedVersion: 2
@@ -137,7 +137,7 @@ MonoBehaviour:
             height: -2
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
-          m_Bits: 196608
+          m_Bits: 131072
     - rid: 7917043661478035456
       type: {class: DamageData, ns: , asm: Assembly-CSharp}
       data:

@@ -20,6 +20,7 @@ public class ShopBehaviorManager : MonoBehaviour, IInteractable
     [SerializeField] GameObject notEnoughBytesMessage;
     public ShopItemSO currentItemToPurchase;
     [SerializeField] Collider2D playerCollider;
+    [SerializeField] Collider2D detectingCollider;
 
     public void SetTextAndButton(string description, bool buttonActive) 
     {
@@ -84,8 +85,11 @@ public class ShopBehaviorManager : MonoBehaviour, IInteractable
 
     public void BuyConfirmedButtonPressed() 
     {
-        if (currentItemToPurchase.singlePurchaseItem)
+        int currentBytes = playerCollider.GetComponentInChildren<IBytes>().GetBytesAmount();
+
+        if (currentItemToPurchase.singlePurchaseItem && currentBytes >= currentItemToPurchase.itemPrice)
         {
+            
             currentItemToPurchase.purchased = true;// setting a flag that it is already purchased and don't make the slot again.
             currentItemToPurchase.amountForSale--;// lowering the stock
             ClearShopItemSlots();// only clear if its a single purchase item like a keyItem;
@@ -111,6 +115,7 @@ public class ShopBehaviorManager : MonoBehaviour, IInteractable
             }
             else 
             {
+                Debug.Log("DIsplay the message");
                DisplayNotEnoughBytesMessage();
             }
         }
@@ -147,7 +152,7 @@ public class ShopBehaviorManager : MonoBehaviour, IInteractable
     {
         if (collision.CompareTag("Player"))
         {
-            playerCollider = null;
+            detectingCollider.enabled = false;
         }
     }
 
@@ -166,6 +171,7 @@ public class ShopBehaviorManager : MonoBehaviour, IInteractable
     public void Interact()
     {
         OpenShopMenu();
+        detectingCollider.enabled = true;
     }
 
     private void OpenShopMenu()

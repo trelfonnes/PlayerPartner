@@ -18,6 +18,6 @@ MonoBehaviour:
   itemPrice: 50
   itemImage: {fileID: 1472493949, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
   singlePurchaseItem: 1
-  purchased: 1
-  amountForSale: 0
+  purchased: 0
+  amountForSale: 1
   itemPrefab: {fileID: 3964641048911851607, guid: 00a2d3fd6ebabec418c7ac48952cd96c, type: 3}
