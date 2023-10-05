@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerWatchState : PlayerBasicState
 {
+    private Movement movement;
+    protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+
     public PlayerWatchState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }
@@ -54,6 +57,5 @@ public class PlayerWatchState : PlayerBasicState
     private void BackToIdle()
     {
         PSM.ChangeState(player.IdleState);
-        Debug.Log("event was triggered");
     }
 }

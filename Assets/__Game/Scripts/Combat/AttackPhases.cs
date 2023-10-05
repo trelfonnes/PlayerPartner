@@ -7,5 +7,8 @@ public enum AttackPhases
     // 3 for now
     Anticipation,
     Idle,
-    Action
+    Action,
+    NorthFace,
+    EastFace,
+    SouthFace
 }

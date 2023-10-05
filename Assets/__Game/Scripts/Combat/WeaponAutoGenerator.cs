@@ -19,7 +19,9 @@ public class WeaponAutoGenerator : MonoBehaviour
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
-        GenerateWeapon(data);
+        
+            GenerateWeapon(data);
+        
     }
 
     [ContextMenu("Test Generate")]
@@ -35,7 +37,6 @@ public class WeaponAutoGenerator : MonoBehaviour
             weapon.SetData(data);
             character = 1;
         }
-
         if (partnerWeapon != null)
         {
             partnerWeapon.SetData(data);
@@ -57,9 +58,9 @@ public class WeaponAutoGenerator : MonoBehaviour
 
             var weaponComponent = componentAlreadyOnWeapon.FirstOrDefault(component => component.GetType() == dependency);
 
-            if(weaponComponent == null)
+            if (weaponComponent == null)
             {
-               
+
                 //add to list that its been added
                 weaponComponent = gameObject.AddComponent(dependency) as WeaponComponent; // cast here
 
@@ -77,8 +78,10 @@ public class WeaponAutoGenerator : MonoBehaviour
         {
             Destroy(weaponComponent);
         }
-
-        anim.runtimeAnimatorController = data.AnimatorController;
+        if (anim != null && anim.runtimeAnimatorController != null)
+        {
+            anim.runtimeAnimatorController = data.AnimatorController;
+        }
     }
 
 

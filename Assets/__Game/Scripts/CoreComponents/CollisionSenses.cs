@@ -31,7 +31,7 @@ public class CollisionSenses : CoreComponent
     #endregion
 
     #region Size of Checks
-    [SerializeField] protected float collisionCheckDistance = 1.5f;
+    [SerializeField] protected float collisionCheckDistance = 1.25f;
     [SerializeField] private float groundCheckRadius = 0.3f;
 
     [SerializeField] protected LayerMask whatIsWall;

@@ -9,7 +9,7 @@ public class AddSpecialAmmo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Partner"))
+        if (collision.CompareTag("Partner") && !collision.isTrigger)
         {
             collision.GetComponentInChildren<ISpecialPower>().IncreaseSP(amount);
             gameObject.SetActive(false);

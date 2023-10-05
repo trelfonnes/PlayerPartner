@@ -11,6 +11,7 @@ public class ProjectileEventSystem : MonoBehaviour
     public event Action<Projectile, Vector2> OnPlayerDirectionSet;
     // create an event for unpooling as well??
     public event Action<ProjectileType> OnSetProjectileType;
+    public event Action<bool> OnPartnerShotIsCharged;
 
     private void Awake()
     {
@@ -30,6 +31,10 @@ public class ProjectileEventSystem : MonoBehaviour
     {
         OnPartnerDirectionSet?.Invoke(projectileComponent, direction); //listened to by Partner specific projectiles
     }    
+    public void RaisePartnerShotIsCharged(bool charged)
+    {
+        OnPartnerShotIsCharged?.Invoke(charged);
+    }
     public void RaisePlayerDirectionSetEvent(Projectile projectileComponent, Vector2 direction)
     {
         OnPlayerDirectionSet?.Invoke(projectileComponent, direction); //listened to by player specific projectiles

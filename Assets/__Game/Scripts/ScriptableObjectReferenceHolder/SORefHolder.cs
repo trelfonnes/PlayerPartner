@@ -20,6 +20,6 @@ public class SORefHolder : MonoBehaviour
     [SerializeField] public PlayerSOData Axel3SOData;
     [SerializeField] public StatEvents statEvents;
     [SerializeField] public EvolutionEvents evolveEvents;
-
+    [SerializeField] public PlayerInventory inventory;
 
 }

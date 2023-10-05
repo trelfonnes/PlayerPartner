@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PartnerIdleState : PartnerBasicState
 {
+    protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+    private PartnerCollisionSenses collisionSenses;
     public PartnerIdleState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
+   
 
     public override void Enter()
     {
@@ -37,9 +36,9 @@ public class PartnerIdleState : PartnerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
         if (xInput != 0 || yInput != 0)
         {
+            Debug.Log("Reading X and Y INput"); 
             PSM.ChangePartnerState(partner.MoveState);
         }
         if(!switchInput && !interactInput)
@@ -52,7 +51,6 @@ public class PartnerIdleState : PartnerBasicState
         {
             if (switchInput)
             {
-                Debug.Log("inside switch INput from partneridle");
                 PSM.ChangePartnerState(partner.FollowIdleState);
                 partner.evolutionEvents.SwitchToPlayer();
             }

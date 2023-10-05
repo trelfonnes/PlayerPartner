@@ -17,16 +17,42 @@ public class PartnerProjectile : WeaponComponent<ProjectileData, AttackProjectil
         else
             Debug.Log("No more SP!!!");
     }
+
+    public void ShootChargedProjectile()
+    {
+        if (specialPower.canShoot)
+        {
+            UnPoolChargedProjectile();
+        }
+
+    }
+
+
+
     void UnPoolProjectile() //listed to (through Event Handler script) by pooling script
     {
         ProjectileEventSystem.Instance.RaiseSetProjectileTypeEvent(currentAttackDataPartner.TypeOfProjectile);
         SetDirection();
         specialPower.DecreaseSP(currentAttackDataPartner.SPCost);
     }
+
+    void UnPoolChargedProjectile()
+    {
+        ProjectileEventSystem.Instance.RaiseSetProjectileTypeEvent(currentAttackDataPartner.TypeOfProjectile);
+        SetCharge();
+        SetDirection();
+        specialPower.DecreaseSP(5);// hard code for now, might not need to change
+    }
+
     void SetDirection() // listened to by actual projectile game object that is "unpooled"
     {
         direction = new Vector2(movement.facingCombatDirectionX, movement.facingCombatDirectionY);
         ProjectileEventSystem.Instance.RaisePartnerDirectionSetEvent(this, direction);
+    }
+    void SetCharge()
+    {
+        bool charged = true;
+        ProjectileEventSystem.Instance.RaisePartnerShotIsCharged(charged);
     }
     protected override void Start()
     {
@@ -34,10 +60,12 @@ public class PartnerProjectile : WeaponComponent<ProjectileData, AttackProjectil
         movement = PartnerCore.GetCoreComponent<Movement>();
         specialPower = PartnerCore.GetCoreComponent<SpecialPower>();
         PartnerEventHandler.OnShootProjectile += ShootProjectile;//can create event to have a dropdown like Phases that designates which projectile to shoot??
+        PartnerEventHandler.OnShootChargedProjectile += ShootChargedProjectile;
     }
     protected override void OnDestroy()
     {
         base.OnDestroy();
         PartnerEventHandler.OnShootProjectile -= ShootProjectile;
+        PartnerEventHandler.OnShootChargedProjectile -= ShootChargedProjectile;
     }
 }

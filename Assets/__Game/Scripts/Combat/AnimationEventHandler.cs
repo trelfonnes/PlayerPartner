@@ -10,15 +10,35 @@ public class AnimationEventHandler : MonoBehaviour
     public event Action OnAttackAction;
     public event Action OnMinHoldPassed;
     public event Action OnShootProjectile;
+    public event Action OnShootChargedProjectile;
     public event Action<AttackPhases> OnEnterAttackPhase;
 
+    bool isCharged = false;
 
     void AnimationFinishedTrigger() => OnFinish?.Invoke();
     void StartMovementTrigger() => OnStartMovement?.Invoke();
     void StopMovementTrigger() => OnStopMovement?.Invoke();
     void AttackActionTrigger() => OnAttackAction?.Invoke();
     void MinHoldPassTrigger() => OnMinHoldPassed?.Invoke();
-    void ShootProjectileTrigger() => OnShootProjectile?.Invoke();//can create event to have a dropdown like Phases that designates which projectile to shoot??
+    void ShootProjectileTrigger()
+    {
+        if (isCharged) //when shot anim event is triggered, it checks if SetChargedState was called
+                        //if so, it invokes shootChargedProjectile instead of onShootProjectile
+        {
+            OnShootChargedProjectile?.Invoke();
+            isCharged = false;
+        }
+        else
+        {
+            OnShootProjectile?.Invoke();//can create event to have a dropdown like Phases that designates which projectile to shoot??
+        }
+
+    }
+        void SetChargedState()// this event is triggered in idle after a duration
+    {
+        isCharged = true;
+
+    }
     void EnterAttackPhase(AttackPhases phase) => OnEnterAttackPhase?.Invoke(phase); 
 
 }

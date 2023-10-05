@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IBytes
 {
+    int GetBytesAmount();
     public void IncreaseBytes(int amount) { }
 
     public void DecreaseBytes(int amount) { }

@@ -15,38 +15,18 @@ public class Stamina : Stats, IStaminaChange
     {
         UpdateUI();
         UpdateConditionUI();
+        if (gameObject.transform.parent.parent.gameObject.activeSelf)
+        {
+            SubscribeToHourlyTickEvent();
+            
+        }
 
     }
     protected override void Start()
     {
         
             base.Start();
-            ClockManager.OnTick += delegate (object sender, ClockManager.OnTickEventArgs e)
-            {
-                if (gameObject.transform.parent.parent.gameObject.activeSelf)
-                {
-
-                    if (SOData.Stamina > 0)
-                    {
-                        if (!SOData.IsSick)
-                        {
-                            DecreaseStamina(1);
-                        }
-                        else if (SOData.IsSick)
-                        {
-                            DecreaseStamina(10);
-                        }
-                    }
-                    else
-                        return;
-                }
-                else
-                    return;
-            };
-            ClockManager.OnTick_6 += delegate (object sender, ClockManager.OnTickEventArgs e)
-            {
-            // Debug.Log("1/4 day passed!");
-        };
+       
         
     }
     public void DecreaseStamina(float amount)
@@ -115,14 +95,9 @@ public class Stamina : Stats, IStaminaChange
     }
     private void OnDisable()
     {
-        ClockManager.OnTick -= delegate (object sender, ClockManager.OnTickEventArgs e)
-        {
-            
-        };
-        ClockManager.OnTick_6 -= delegate (object sender, ClockManager.OnTickEventArgs e)
-        {
-            // Debug.Log("1/4 day passed!");
-        };
+        UnSubscribeToHourlyTickEvent();
+       
+       
 
     }
     void UpdateUI()
@@ -134,5 +109,33 @@ public class Stamina : Stats, IStaminaChange
 
         }
     }
+    void HandleHourlyTick(object sender, ClockManager.OnTickEventArgs e)
+    {
+
+        if (SOData.Stamina > 0)
+        {
+            if (!SOData.IsSick)
+            {
+                DecreaseStamina(1);
+            }
+            else if (SOData.IsSick)
+            {
+                DecreaseStamina(10);
+            }
+        }
+
+    }
+        void SubscribeToHourlyTickEvent()
+    {
+        ClockManager.OnTick += HandleHourlyTick;
+        Debug.Log("onTick subbed");
+
+    }
+    
+    void UnSubscribeToHourlyTickEvent()
+    {
+        ClockManager.OnTick -= HandleHourlyTick;
+    }
+   
 
 }

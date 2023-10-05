@@ -5,9 +5,12 @@ using UnityEngine;
 public class PartnerDeEvolutionState : PartnerBasicState
 {
     public bool isDevolving = true;
-
+    CoreHandler Core;
+     Movement Movement { get => movement ?? Core.GetCoreComponent(ref movement); }
+    private Movement movement;
     public PartnerDeEvolutionState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
+        Core = partner.core;
     }
 
     public override void AnimationFinishTrigger()
@@ -20,16 +23,12 @@ public class PartnerDeEvolutionState : PartnerBasicState
         base.AnimationTrigger();
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
+  
 
     public override void Enter()
     {
         base.Enter();
         isDevolving = true;
-        Movement?.SetVelocity(playerSOData.watchSpeed * (new Vector2(1, 1)));
         partner.evolutionEvents.OnDevolve += DevolveOver;
 
     }
@@ -45,6 +44,7 @@ public class PartnerDeEvolutionState : PartnerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        Movement.SetVelocity(playerSOData.watchSpeed * (new Vector2(1, 1)));
 
 
         if (!isDevolving)

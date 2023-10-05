@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class PlayerEvolutionState : PlayerBasicState
 {
+    protected PlayerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+    private PlayerCollisionSenses collisionSenses;
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+     //Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); } //Service locator pattern not working here
+    private Movement movement;
+
     public PlayerEvolutionState(Player player, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(player, PSM, playerSOData, playerData, animBoolName)
     {
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
+   
 
     public override void Enter()
     {
         base.Enter();
-        Movement?.SetVelocityZero();
         player.evolutionEvents.OnReturnFromEvolution += StopEvolution;
     }
 
@@ -30,6 +32,8 @@ public class PlayerEvolutionState : PlayerBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        Movement?.SetVelocityZero();
+
     }
 
     public override void PhysicsUpdate()

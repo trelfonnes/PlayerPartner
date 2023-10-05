@@ -5,7 +5,18 @@ using System;
 
 public class Weapon : MonoBehaviour
 {
-   public WeaponDataSO Data { get; private set; }
+    [SerializeField] WeaponAutoGenerator thisWeaponsAutoGenerator;
+    [SerializeField] WeaponInventoryManager weaponInventoryManager;
+
+    [SerializeField] WeaponDataSO Whip;
+    [SerializeField] WeaponDataSO Scythe;
+    [SerializeField] WeaponDataSO Dart;
+    [SerializeField] WeaponDataSO Boomerang;
+    [SerializeField] WeaponDataSO Bomb;
+
+
+
+    public WeaponDataSO Data { get; private set; }
 
     [SerializeField]  float attackCounterResetCooldown;
      public int CurrentAttackCounter
@@ -14,7 +25,7 @@ public class Weapon : MonoBehaviour
         private set => currentAttackCounter = value >= Data.NumberOfAttacks ? 0 : value;
         
     }
-
+   
     public event Action onExit;
     public event Action onEnter;
     public event Action<bool> OncurrentInputChange;
@@ -82,18 +93,68 @@ public class Weapon : MonoBehaviour
     {
         CurrentAttackCounter = 0;
     }
+    private void SwapWeapons()
+    {
+        if (Boomerang != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "Boomerang")
+            {
+                //generateboomerang
+                thisWeaponsAutoGenerator.GenerateWeapon(Boomerang);
 
+            }
+        }
+        if (Whip != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "Whip")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(Whip);
+            }
+        }
+        if (Scythe != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "Scythe")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(Scythe);
+
+            }
+        }
+        if (Bomb != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "Bomb")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(Bomb);
+
+            }
+        }
+        if (Dart != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "Dart")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(Dart);
+
+            }
+        }
+
+
+
+    }
     private void OnEnable()
     {
+        weaponInventoryManager.onPlayerWeaponSwapped += SwapWeapons;
         EventHandler.OnFinish += Exit;
          attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
     }
     private void OnDisable()
     {
+        weaponInventoryManager.onPlayerWeaponSwapped -= SwapWeapons;
         EventHandler.OnFinish -= Exit;
          attackCounterResetTimer.OnTimerDone -= ResetAttackCounter;
 
     }
+
+   
+
     public void SetCore(CoreHandler core)
     {
         Core = core;

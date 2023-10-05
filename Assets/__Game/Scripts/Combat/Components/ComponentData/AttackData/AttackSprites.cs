@@ -12,6 +12,8 @@ public class AttackSprites: AttackData
 public struct PhaseSprites
 {
     [field: SerializeField] public AttackPhases Phase { get; private set; }
+    [field: SerializeField] public AttackPhases PhaseDirection { get; private set; }
     [field: SerializeField] public Sprite[] Sprites { get; private set; }
 
 }
+

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448bccf008060be41b4d2f3d250d117c, type: 3}
+  m_Name: WhipMeleePlayer
+  m_EditorClassIdentifier: 
+  secondaryType: 3
+  primaryType: 2
+  weaponDescription: A whip used to ward of enemy creatures.
+  weaponName: Whip
+  weaponImage: {fileID: 3679362, guid: f2eeea435bd8a744f8aa07bcbe455ca6, type: 3}
+  isPlayerWeapon: 1
+  isPartnerWeapon: 0
+  isPrimary: 1
+  isPartnerOne: 0
+  isPartnerTwo: 0
+  isPartnerThree: 0

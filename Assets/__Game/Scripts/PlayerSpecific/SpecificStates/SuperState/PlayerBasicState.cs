@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerBasicState : PlayerState
 {
-    protected PlayerCollisionSenses PlayerCollisionSenses { get => playerCollisionSenses ??= core.GetCoreComponent<PlayerCollisionSenses>(); }
+    protected PlayerCollisionSenses PlayerCollisionSenses { get => playerCollisionSenses ?? core.GetCoreComponent(ref playerCollisionSenses); }
     private PlayerCollisionSenses playerCollisionSenses;
+
+
 
     protected int yInput;
     protected int xInput;
@@ -34,8 +36,7 @@ public class PlayerBasicState : PlayerState
     {
         base.DoChecks();
         // TODO add references to collision senses
-        if (PlayerCollisionSenses)
-        {
+        
             carryPoint = PlayerCollisionSenses.carryPoint;
             HitsToCarry = PlayerCollisionSenses.HitsToCarry;
             HitsToInteract = PlayerCollisionSenses.HitsToInteract;
@@ -45,15 +46,20 @@ public class PlayerBasicState : PlayerState
             isTouchingGround = PlayerCollisionSenses.GroundCheck;
             isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
             isTouchingInteractable = PlayerCollisionSenses.InteractableCheck;
-        }
-    }
+        
+       
+    } 
 
     public override void Enter()
     {
         base.Enter();
-        CameraSwitcher.SwitchCamera(player.PlayerCamera);
-        statEvents.onCurrentEPZero += TimeToDevolve;
         player.evolutionEvents.OnStopForEvolution += StartEvolution;
+
+        if (player)
+        {
+            CameraSwitcher.SwitchCamera(player.PlayerCamera, player.transform);
+        }
+            statEvents.onCurrentEPZero += TimeToDevolve;
         
     }
 

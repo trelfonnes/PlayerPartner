@@ -19,6 +19,7 @@ public class KnockBackReceiver : CoreComponent, IKnockBackable
 
     public void KnockBack(Vector2 angle, float strength, int directionX, int directionY)
     {
+        Debug.Log("KNockback applied on " + gameObject.name);
         movement.Comp?.SetKnockBackVelocity(angle, strength, directionX, directionY);
         movement.Comp.CanSetVelocity = false;
         isKnockBackActive = true;

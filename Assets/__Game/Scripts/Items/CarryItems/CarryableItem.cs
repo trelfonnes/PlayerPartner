@@ -17,6 +17,8 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     private bool wasKinematic;
     [SerializeField]private float throwDownwardForceMultiplier;
     [SerializeField]private float setDownwardForceMultiplier;
+    [SerializeField] float setUpwardForceMultiplier;
+    SpriteRenderer sr;
 
     private void Start()
     {
@@ -25,6 +27,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         boxCollider = GetComponent<BoxCollider2D>();
         initialPosition = transform.position;
         wasKinematic = rb.isKinematic;
+        sr = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -43,7 +46,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         rb.isKinematic = wasKinematic;
         Physics2D.IgnoreLayerCollision(7, 10, false);
         Physics2D.IgnoreLayerCollision(7, 9, false);
-
+        sr.sortingOrder = 0;
         // transform.position = initialPosition;
     }
 
@@ -55,12 +58,15 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
             itemTransform.position = CarryPoint.position;
             itemTransform.parent = CarryPoint;
             Physics2D.IgnoreLayerCollision(7, 10, true);
+        sr.sortingOrder = 1;
         
     }
 
     public void Throw(Vector2 direction)
     {
-        if(direction == new Vector2(5,0) || direction == new Vector2(-5,0))
+        itemTransform.parent = null;
+
+        if (direction == new Vector2(5,0) || direction == new Vector2(-5,0))
         {
             modifiedDirection = direction + Vector2.down * throwDownwardForceMultiplier;
             Debug.Log(modifiedDirection);
@@ -73,7 +79,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         {
             rb.velocity = Vector2.zero;
             Physics2D.IgnoreLayerCollision(7, 10, true);
-            itemTransform.parent = null;
+           
             rb.isKinematic = false;
             rb.AddForce(modifiedDirection * throwSpeed, ForceMode2D.Impulse);
             isThrown = true;
@@ -85,7 +91,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     {
         if (direction == Vector2.up)
         {
-            modifiedDirection = direction;
+            modifiedDirection = direction * setUpwardForceMultiplier;
         }
         else
         {

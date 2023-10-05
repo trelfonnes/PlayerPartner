@@ -63,7 +63,6 @@ public class Stats : CoreComponent, IInventory
         Debug.Log(playerInventory);
         if (playerInventory)
         {
-            Debug.Log("Inside add function");
 
             if (playerInventory.myInventory.Contains(item))
             {

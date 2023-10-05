@@ -7,7 +7,7 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
 {
     SpriteRenderer partnerBaseSpriteRenderer;
     SpriteRenderer partnerWeaponsSpriteRenderer;
-
+    Movement movement;
  
     int currentWeaponSpriteIndex;
     Sprite[] currentPhaseSprites;
@@ -20,8 +20,37 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
     private void HandleEnterAttackPhase(AttackPhases phase)
     {
         currentWeaponSpriteIndex = 0;
-        currentPhaseSprites = currentAttackDataPartner.PhaseSprites.FirstOrDefault(dataPartner => dataPartner.Phase == phase).Sprites;
+        //  currentPhaseSprites = currentAttackDataPartner.PhaseSprites.FirstOrDefault(dataPartner => dataPartner.Phase == phase).Sprites;
+        PhaseSprites[] filteredPhaseSprites = new PhaseSprites[currentAttackDataPartner.PhaseSprites.Length]; //default
+        if (movement.facingCombatDirectionX != 0)
+        {
+            filteredPhaseSprites = currentAttackDataPartner.PhaseSprites
+                     .Where(dataPartner => dataPartner.Phase == phase && dataPartner.PhaseDirection == AttackPhases.EastFace)//checking to match the correct sprites with the partner.
+                     .ToArray();
+        }
+        if (movement.facingCombatDirectionX == 0 && movement.facingCombatDirectionY > 0)
+        {
+            filteredPhaseSprites = currentAttackDataPartner.PhaseSprites
+                   .Where(dataPartner => dataPartner.Phase == phase && dataPartner.PhaseDirection == AttackPhases.NorthFace)
+                   .ToArray();
+        }
+        if (movement.facingCombatDirectionX == 0 && movement.facingCombatDirectionY < 0)
+        {
+            filteredPhaseSprites = currentAttackDataPartner.PhaseSprites
+                   .Where(dataPartner => dataPartner.Phase == phase && dataPartner.PhaseDirection == AttackPhases.SouthFace)
+                   .ToArray();
+        }
 
+
+        if (filteredPhaseSprites.Length > 0)
+        {
+            currentPhaseSprites = filteredPhaseSprites[0].Sprites;
+        }
+        else
+        {
+            // Handle the case when no matching PhaseSprites array is found
+            // You can set a default value or take appropriate action here
+        }
     }
 
         void HandleBaseSpriteChange(SpriteRenderer sr)
@@ -31,6 +60,8 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
             partnerWeaponsSpriteRenderer.sprite = null;
             return;
         }
+        Debug.Log(currentWeaponSpriteIndex);
+        Debug.Log(currentPhaseSprites.Length);
 
         if (currentWeaponSpriteIndex >= currentPhaseSprites.Length)
         {
@@ -38,9 +69,9 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
             return;
         }
 
-        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, partner.lastDirection);
+      //  Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, partner.lastDirection);
         //do something with last direction to see if sprite should flip on the x axis??
-        partnerWeaponsSpriteRenderer.transform.rotation = targetRotation;
+       // partnerWeaponsSpriteRenderer.transform.rotation = targetRotation;
 
         partnerWeaponsSpriteRenderer.sprite = currentPhaseSprites[currentWeaponSpriteIndex];
         currentWeaponSpriteIndex++;
@@ -56,11 +87,13 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
 
         partnerBaseSpriteRenderer.RegisterSpriteChangeCallback(HandleBaseSpriteChange);
         PartnerEventHandler.OnEnterAttackPhase += HandleEnterAttackPhase;
+        movement = PartnerCore.GetCoreComponent<Movement>();
     }
    
     protected override void OnDestroy()
     {
         base.OnDestroy();
+        if(partnerBaseSpriteRenderer)
         partnerBaseSpriteRenderer.UnregisterSpriteChangeCallback(HandleBaseSpriteChange);
         PartnerEventHandler.OnEnterAttackPhase -= HandleEnterAttackPhase;
 

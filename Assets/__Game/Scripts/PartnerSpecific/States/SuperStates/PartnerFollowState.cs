@@ -17,6 +17,10 @@ public class PartnerFollowState : PartnerState
     protected bool canExitState;
     protected bool isTouchingPlayer;
     protected Transform player;
+    protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
+    private PartnerCollisionSenses collisionSenses;
+
+
     public PartnerFollowState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }

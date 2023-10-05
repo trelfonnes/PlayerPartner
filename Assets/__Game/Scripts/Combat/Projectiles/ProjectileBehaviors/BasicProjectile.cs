@@ -5,7 +5,6 @@ using UnityEngine;
 public class BasicProjectile : MonoBehaviour
 {
     Rigidbody2D rb;
-    CircleCollider2D circleCollider;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
     SpriteRenderer sr;
 
@@ -14,7 +13,7 @@ public class BasicProjectile : MonoBehaviour
     [SerializeField] private float poiseDamage = 1; //how much poise damage it does
     [SerializeField] float velocity = 10f; // how fast it travels
     [SerializeField] float activeTime = 2.5f;  //how far it travels
-    float timeToSpriteSwitch = .2f; 
+    float timeToSpriteSwitch = .1f; 
     bool hasBeenShot;
 
     Vector2 normalizedDirection;
@@ -25,13 +24,14 @@ public class BasicProjectile : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
    
-    protected virtual void Shoot(PartnerProjectile component, Vector2 direction)
+     void Shoot(PartnerProjectile component, Vector2 direction)
     {
         if (!hasBeenShot)
         {
+            float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             rb.transform.position = component.transform.position;
-            rb.transform.rotation = component.transform.rotation;
-            Debug.Log(direction);
+            transform.rotation = rotation;
            normalizedDirection = direction.normalized;
 
             rb.velocity = normalizedDirection * velocity;
@@ -76,9 +76,9 @@ public class BasicProjectile : MonoBehaviour
             {
                 knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
             }
-            if(collision.TryGetComponent(out IPoise poise))
+            if(collision.TryGetComponent(out IPoiseDamageable poise))
             {
-                poise.DecreasePoise(poiseDamage);
+                poise.DamagePoise(poiseDamage);
             }
             hasBeenShot = false;
             gameObject.SetActive(false);

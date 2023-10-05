@@ -17,19 +17,16 @@ public class PartnerState
     protected float startTime;
     string animBoolName;
 
-   // protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
-    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+   // protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     //protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
    
-    protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<PartnerCollisionSenses>(); }
-    
+ 
+
     protected Stats Stats { get => stats ??= core.GetCoreComponent<Stats>(); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
 
-    
-    private Movement movement;
-    private PartnerCollisionSenses collisionSenses;
+
     private Stats stats;
     private Defeated defeated;
     private Particles particles;
@@ -48,12 +45,12 @@ public class PartnerState
 
     public virtual void Enter()
     {
-        DoChecks();
+        //DoChecks();
         startTime = Time.time; //might need changed
         partner.anim.SetBool(animBoolName, true);
         isAnimationFinished = false;
         isExitingState = false;
-        
+       
 
     }
 
@@ -61,6 +58,7 @@ public class PartnerState
     {
         partner.anim.SetBool(animBoolName, false);
         isExitingState = true;
+       
 
     }
     public virtual void LogicUpdate()
@@ -92,6 +90,7 @@ public class PartnerState
      
         if (!playerSOData.stage1)
         {
+           
             PSM.ChangePartnerState(partner.DevolveState);
         }
 

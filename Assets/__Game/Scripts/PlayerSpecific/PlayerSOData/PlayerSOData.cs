@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player Data/Base Data")]
 
+[System.Serializable]
 public class PlayerSOData : BaseSOPlayerData
 {
     [Header("Player and Partner Movement Speeds")]
@@ -16,6 +17,8 @@ public class PlayerSOData : BaseSOPlayerData
     public float HealthLimit;
     public int SP = 0;
     public int MaxSP = 25;
+    public GameObject primaryWeapon;
+    public GameObject secondaryWeapon;
 
     [Header("Partner exclusive Data")]
     //public float Stamina = 50;
@@ -40,5 +43,9 @@ public class PlayerSOData : BaseSOPlayerData
     [Header("Player exclusive Data")]
     public int Bytes = 0;
     public int MaxBytes = 50;
+    public int Keys;
+    public int BossKeys;
+
+
 
 }

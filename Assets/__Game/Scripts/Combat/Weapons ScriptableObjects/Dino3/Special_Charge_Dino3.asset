@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
   m_Name: Special_Charge_Dino3
   m_EditorClassIdentifier: 
+  isPlayerWeapon: 0
+  isPartnerWeapon: 1
+  isPrimary: 0
+  isPartnerOne: 0
+  isPartnerTwo: 0
+  isPartnerThree: 1
+  secondaryType: 2
+  primaryType: 2
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 5bfe1d21e249c5f46b3e30349c4393eb, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
@@ -129,6 +137,6 @@ MonoBehaviour:
       data:
         name: ProjectileData
         attackData:
-        - name: BasicProjectile
-          <TypeOfProjectile>k__BackingField: 0
+        - name: ChargedProjectile
+          <TypeOfProjectile>k__BackingField: 1
           <SPCost>k__BackingField: 1

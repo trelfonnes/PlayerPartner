@@ -21,7 +21,6 @@ public class StaminaDisplayUI : DataReferenceInheritor
     {
         if (staminaMeter != null)
         {
-            Debug.Log("updating via data, not through stats");
             float fillAmount = amount/MaxStamina;//using this variable because Idk how else and i'm sick and tired of this inventory system
         
             staminaMeter.fillAmount = fillAmount;

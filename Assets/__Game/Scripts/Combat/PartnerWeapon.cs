@@ -5,6 +5,16 @@ using System;
 public class PartnerWeapon : MonoBehaviour
 {
     [SerializeField] float attackCounterResetCooldown;
+
+    [SerializeField] WeaponAutoGenerator thisWeaponsAutoGenerator;
+    [SerializeField] WeaponInventoryManager weaponInventoryManager;
+    [SerializeField] WeaponDataSO MeleeBasic;
+    [SerializeField] WeaponDataSO MeleeHold;
+    [SerializeField] WeaponDataSO BasicProjectile;
+    [SerializeField] WeaponDataSO ChargeProjectile;
+    [SerializeField] WeaponDataSO SpreadProjectile;
+
+    PartnerWeaponState partnerWeaponStateInstance;
     public WeaponDataSO Data { get; private set; }
     public int CurrentAttackCounter
     {
@@ -29,7 +39,7 @@ public class PartnerWeapon : MonoBehaviour
     int currentAttackCounter;
     private Timer attackCounterResetTimer;
     
-    public bool CurrentInput
+    public bool CurrentInput // get this from player attack state in logic update
     {
         get => currentInput;
         set
@@ -65,6 +75,8 @@ public class PartnerWeapon : MonoBehaviour
         anim = BaseGO.GetComponent<Animator>();
         EventHandler = BaseGO.GetComponent<AnimationEventHandler>();
         attackCounterResetTimer = new Timer(attackCounterResetCooldown);
+        partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
+
 
     }
     private void Update()
@@ -75,15 +87,58 @@ public class PartnerWeapon : MonoBehaviour
     {
         CurrentAttackCounter = 0;
     }
+    void SwapWeapons()
+    {
+        //check the state of the projectile
+
+        PrimaryWeaponState currentPrimaryWeapon = partnerWeaponStateInstance.GetCurrentPrimaryState();
+        SecondaryWeaponState currentSecondaryWeapon = partnerWeaponStateInstance.GetCurrentSecondaryState();
+        if (MeleeBasic != null)
+        {
+            if (currentPrimaryWeapon == PrimaryWeaponState.MeleeBasic)
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(MeleeBasic);
+            }
+            if (currentPrimaryWeapon == PrimaryWeaponState.MeleeHold)
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(MeleeHold);
+            }
+        }
+        if (BasicProjectile != null)
+        {
+            if (currentSecondaryWeapon == SecondaryWeaponState.BasicProjectile)
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(BasicProjectile);
+            }
+            if (currentSecondaryWeapon == SecondaryWeaponState.ChargeProjectile)
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(ChargeProjectile);
+            }
+            if (currentSecondaryWeapon == SecondaryWeaponState.SpreadProjectile)
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(SpreadProjectile);
+            }
+        }
+        else
+            return;
+
+
+    }
     private void OnEnable()
     {
+        weaponInventoryManager.onPartnerWeaponSwapped += SwapWeapons;
         EventHandler.OnFinish += Exit;
         partner.statEvents.onCurrentEPZero += Devolve;
         attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
+        CheckWeaponEquippedState();
 
     }
+
+    
+
     private void OnDisable()
     {
+        weaponInventoryManager.onPartnerWeaponSwapped -= SwapWeapons;
         EventHandler.OnFinish -= Exit;
         partner.statEvents.onCurrentEPZero -= Devolve;
 
@@ -104,5 +159,47 @@ public class PartnerWeapon : MonoBehaviour
     public void SetData(WeaponDataSO data)
     {
         Data = data;
+    }
+    public void CheckWeaponEquippedState()
+    {
+        PrimaryWeaponState currentPrimaryState = partnerWeaponStateInstance.GetCurrentPrimaryState();
+        SecondaryWeaponState currentSecondaryState = partnerWeaponStateInstance.GetCurrentSecondaryState();
+        if (MeleeBasic != null)
+        {
+            if (currentPrimaryState == PrimaryWeaponState.MeleeBasic)
+            {
+
+                thisWeaponsAutoGenerator.GenerateWeapon(MeleeBasic);
+                //generate weapon with Melee BasicData
+
+            }
+            if (currentPrimaryState == PrimaryWeaponState.MeleeHold)
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(MeleeHold);
+            }
+        }
+        if (BasicProjectile != null)
+        {
+            if (currentSecondaryState == SecondaryWeaponState.BasicProjectile)
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(BasicProjectile);
+            }
+            if (currentSecondaryState == SecondaryWeaponState.ChargeProjectile)
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(ChargeProjectile);
+            }
+            if (currentSecondaryState == SecondaryWeaponState.SpreadProjectile)
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(SpreadProjectile);
+            }
+        }
+        else
+            return;
+        //add more if needed.
+       
+        //weapon data for players is sent via object to pick up in 3's(one for each partner)
+        // those 3 are somehow contianed together and stored for reference.
+
+
     }
 }

@@ -17,7 +17,7 @@ public class FloorPit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") || collision.CompareTag("Partner"))
+        if(collision.CompareTag("Player") && !collision.isTrigger || collision.CompareTag("Partner") && !collision.isTrigger)
         {
             spriteRenderer.sprite = pitSprite;
             collision.transform.position = areaSpawnPoint.position;

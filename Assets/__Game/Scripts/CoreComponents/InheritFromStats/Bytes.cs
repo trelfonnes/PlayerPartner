@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Bytes : Stats, IBytes
 {
-    [SerializeField] inventoryItems inventoryData;
     [SerializeField] BytesDisplayUI BytesDisplay;
     protected override void Awake()
     {
@@ -18,25 +17,22 @@ public class Bytes : Stats, IBytes
     }
 
 
-
+    public int GetBytesAmount()
+    {
+        return SOData.Bytes;
+    }
     public void IncreaseBytes(int amount)
     {
         SOData.Bytes = Mathf.Clamp(SOData.Bytes + amount, 0, SOData.MaxBytes);
-        inventoryData.numberHeld = Mathf.Clamp(inventoryData.numberHeld + amount, 0, SOData.MaxBytes);
-        AddItemToInventory(inventoryData);
         UpdateUI();
     }
 
   
     public void DecreaseBytes(int amount)
     {
-        SOData.Bytes -= amount;
-        inventoryData.numberHeld -= amount;
-        if (SOData.Bytes <= 0)
-        {
-            SOData.Bytes = 0;
-            inventoryData.numberHeld = 0;
-        }
+        SOData.Bytes = Mathf.Clamp(SOData.Bytes - amount, 0, SOData.MaxBytes);
+        UpdateUI();
+      
     }
     public void IncreaseMaxBytes(int amount)
     {

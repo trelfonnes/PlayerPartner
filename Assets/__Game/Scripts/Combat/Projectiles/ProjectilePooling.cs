@@ -24,6 +24,7 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
 
     private Dictionary<GameObject, List<GameObject>> pooledObjectsDictionary = new Dictionary<GameObject, List<GameObject>>();
 
+  
 
     private void Awake()
     {
@@ -32,7 +33,6 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
     private void Start()
     {
         CreatePools();
-        
     }
 
     private void InitializeProjectileDictionaries() // creates the dictionaries via whats dropped into inspector
@@ -72,25 +72,34 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
         if (prefab != null && pooledObjectsDictionary.ContainsKey(prefab))
         {
             List<GameObject> pooledObjects = pooledObjectsDictionary[prefab];
+
             for (int i = 0; i < pooledObjects.Count; i++)
             {
                 if (!pooledObjects[i].activeInHierarchy)
                 {
-                    pooledObjects[i].SetActive(true); // this gives desired function over below. Might not need return type.
+                    pooledObjects[i].SetActive(true);
                     return pooledObjects[i];
                 }
             }
         }
 
         // If no inactive objects are found or the prefab is not in the dictionary, create a new object
-        GameObject newObj = Instantiate(prefab);
-        if (!pooledObjectsDictionary.ContainsKey(prefab))
+        if (projectileType == ProjectileType.PlayerBoomerangProjectile)
         {
-            pooledObjectsDictionary.Add(prefab, new List<GameObject>());
+            //return null
+            return null;
         }
-        pooledObjectsDictionary[prefab].Add(newObj);
+        else //make a new one
+        {
+            GameObject newObj = Instantiate(prefab);
+            if (!pooledObjectsDictionary.ContainsKey(prefab))
+            {
+                pooledObjectsDictionary.Add(prefab, new List<GameObject>());
+            }
+            pooledObjectsDictionary[prefab].Add(newObj);
 
-        return newObj;
+            return newObj;
+        }
     }
 
     private GameObject GetPrefabFromType(ProjectileType projectileType) //gets from dictionary based on type

@@ -3,6 +3,7 @@
     BasicProjectile,
     ChargeProjectile,
     SpreadProjectile,
-    PlayerProjectile
-
+    PlayerProjectile,
+    PlayerBombProjectile,
+    PlayerBoomerangProjectile
 }
