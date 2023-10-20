@@ -79,6 +79,10 @@ public class PartnerWeapon : MonoBehaviour
 
 
     }
+    private void Start()
+    {
+        CheckWeaponEquippedState();
+    }
     private void Update()
     {
         attackCounterResetTimer.Tick();

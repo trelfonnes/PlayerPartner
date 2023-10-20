@@ -31,9 +31,21 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Awake()
     {
+        PauseManager.OnPauseStateChanged += HandlePausedStateChanged;
         _playerInput = GetComponent<PlayerInput>();
         
 
+    }
+    void HandlePausedStateChanged(bool isPaused)
+    {
+        if (isPaused)
+        {
+
+        }
+        else
+        {
+
+        }
     }
     private void Start()
     {
@@ -114,8 +126,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnPlayerSwitchInput(InputAction.CallbackContext context)
     {
-        
-        
+     
             if (context.ReadValueAsButton())
             {
                 SwitchPlayerInput = true;
@@ -124,10 +135,7 @@ public class PlayerInputHandler : MonoBehaviour
             {
                 SwitchPlayerInput = false;
             }
-        
-
-            
-
+          
     }
     public void OnEvolveInput(InputAction.CallbackContext context)
     {
@@ -183,8 +191,11 @@ public class PlayerInputHandler : MonoBehaviour
         DashInput = false;
         isResettingDash = false;
     }
-    
 
+    private void OnDisable()
+    {
+        PauseManager.OnPauseStateChanged -= HandlePausedStateChanged;
+    }
 }
 
 public enum CombatInputs
