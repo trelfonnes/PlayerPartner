@@ -29,6 +29,7 @@ MonoBehaviour:
   - rid: 7917043661478035456
   - rid: 7917043661478035461
   - rid: 7917043703839719427
+  <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
@@ -137,6 +138,7 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <Amount>k__BackingField: 1
+          <AttackType>k__BackingField: 0
     - rid: 7917043661478035461
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:

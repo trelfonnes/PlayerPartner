@@ -7,7 +7,7 @@ public class SpreadProjectileRight : MonoBehaviour
     CircleCollider2D circleCollider;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
     SpriteRenderer sr;
-
+    [SerializeField] AttackType attackType;
     [SerializeField] private float damage = 1; //how much damage it does
     [SerializeField] private float knockBackDamage = 3; //how much knockback it gives
     [SerializeField] private float poiseDamage = 1; //how much poise damage it does
@@ -51,7 +51,7 @@ public class SpreadProjectileRight : MonoBehaviour
             //TODO: add logic for damage and knockback and poise. 
             if (collision.TryGetComponent(out IDamageable damageable))
             {
-                damageable.Damage(damage);
+                damageable.Damage(damage, attackType);
             }
             if (collision.TryGetComponent(out IKnockBackable knockBackable))
             {

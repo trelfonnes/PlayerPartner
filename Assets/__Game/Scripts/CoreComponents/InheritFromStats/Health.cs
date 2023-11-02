@@ -7,7 +7,7 @@ using UnityEngine;
 public class Health : Stats, IHealthChange //interfaces for decreasing health and increasing
 {//CANNOT be a child object of Stats. Has to be a child object of coreHandler or else error is thrown.
  //hold events in functions within stats and call them where needed in respective scripts 
-
+   [SerializeField] public DefensiveType defensiveType;
    [SerializeField] private HeartDisplayUI heartDisplayUI;
     protected override void Awake()
     {

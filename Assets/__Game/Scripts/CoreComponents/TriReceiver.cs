@@ -19,8 +19,9 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
 
     // CoreComp<Movement> movement;
     //CoreComp<CollisionSenses> collisionSenses;
-    public void Damage(float amount)
+    public void Damage(float amount, AttackType attackType)
     {
+        //TODO implement concrete interface to handle calculation
         health.Comp?.DecreaseHealth(amount);  // needs to send amount to the Health component
        // particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
     }
@@ -68,5 +69,13 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
         particles = new CoreComp<Particles>(core);
         movement = new CoreComp<Movement>(core);
         collisionSenses = new CoreComp<CollisionSenses>(core);
+        SetDefensiveStrategy(health.Comp.defensiveType);
+    }
+
+    void SetDefensiveStrategy(DefensiveType defensiveType)
+    {
+        IAttackTypeDamageCalculation defensiveStrategy = 
+            DefensiveTypeStrategyFactory.CreateStrategy(defensiveType);
+
     }
 }

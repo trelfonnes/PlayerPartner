@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 737139779, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
   - {fileID: -198556284, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
   - {fileID: 1929006112, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
+  attackType: 5
   throwSpeed: 10
   returnSpeed: 10
   maxDistance: 5

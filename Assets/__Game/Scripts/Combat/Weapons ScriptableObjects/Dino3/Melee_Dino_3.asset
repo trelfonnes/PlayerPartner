@@ -29,6 +29,7 @@ MonoBehaviour:
   - rid: 7917043640045142018
   - rid: 7917043661478035459
   - rid: 7917043703839719426
+  <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
@@ -40,6 +41,7 @@ MonoBehaviour:
         - name: Slash
           <PhaseSprites>k__BackingField:
           - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 0
             <Sprites>k__BackingField:
             - {fileID: -57562604, guid: 220cb46c3c067494ea2ebb09c79c7d01, type: 3}
             - {fileID: -2076007643, guid: 220cb46c3c067494ea2ebb09c79c7d01, type: 3}
@@ -123,6 +125,7 @@ MonoBehaviour:
         attackData:
         - name: Slash
           <Amount>k__BackingField: 5
+          <AttackType>k__BackingField: 0
     - rid: 7917043661478035459
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:

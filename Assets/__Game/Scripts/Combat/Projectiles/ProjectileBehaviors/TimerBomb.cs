@@ -8,8 +8,8 @@ public class TimerBomb : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
     SpriteRenderer sr;
-  
 
+    [SerializeField] AttackType attackType;
     [SerializeField] private float damage = 1; 
     [SerializeField] private float knockBackDamage = 3; 
     [SerializeField] private float poiseDamage = 1;
@@ -81,7 +81,7 @@ public class TimerBomb : MonoBehaviour
 
                 Debug.Log("DamagingHealth");
 
-                damageable.Damage(damage);
+                damageable.Damage(damage, attackType);
             }
             if(item.TryGetComponent(out IBombable bombable))
             {

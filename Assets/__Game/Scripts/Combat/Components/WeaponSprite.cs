@@ -12,19 +12,21 @@ public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
     int currentWeaponSpriteIndex;
     Sprite[] currentPhaseSprites;
     Movement movement;
-    
     protected override void HandleEnter()
     {
         base.HandleEnter();
         currentWeaponSpriteIndex = 0;
+        
     }
 
   
     void HandleEnterAttackPhase(AttackPhases phase)
     {
+      
+        PhaseSprites[] filteredPhaseSprites = new PhaseSprites[3];
         currentWeaponSpriteIndex = 0;
-        PhaseSprites[] filteredPhaseSprites = new PhaseSprites[3]; //default
-        if (movement.facingCombatDirectionX !=0)
+    //default
+        if (movement.facingCombatDirectionX !=0 || movement.facingCombatDirectionX ==0 && movement.facingCombatDirectionY ==0)
         {
            filteredPhaseSprites = currentAttackDataPlayer.PhaseSprites
                     .Where(dataPlayer => dataPlayer.Phase == phase && dataPlayer.PhaseDirection == AttackPhases.EastFace)//checking to match the correct sprites with the player.

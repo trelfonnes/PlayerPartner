@@ -15,6 +15,7 @@ public class BasicProjectile : MonoBehaviour
     [SerializeField] float activeTime = 2.5f;  //how far it travels
     float timeToSpriteSwitch = .1f; 
     bool hasBeenShot;
+    [SerializeField] AttackType attackType;
 
     Vector2 normalizedDirection;
 
@@ -70,7 +71,7 @@ public class BasicProjectile : MonoBehaviour
             //TODO: add logic for damage and knockback and poise. 
             if (collision.TryGetComponent(out IDamageable damageable))
             {
-                damageable.Damage(damage);
+                damageable.Damage(damage, attackType);
             }
             if(collision.TryGetComponent(out IKnockBackable knockBackable))
             {

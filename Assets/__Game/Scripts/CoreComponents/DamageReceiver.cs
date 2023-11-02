@@ -11,8 +11,9 @@ public class DamageReceiver : CoreComponent, IDamageable
     CoreComp<Particles> particles;
    // CoreComp<Movement> movement;
     //CoreComp<CollisionSenses> collisionSenses;
-    public void Damage(float amount)
+    public void Damage(float amount, AttackType attackType)
     {
+        //TODO incoporate damage calculation via concrete interface
         health.Comp?.DecreaseHealth(amount);  // needs to send amount to the Health component
         // need reference to health component
         particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
@@ -28,5 +29,13 @@ public class DamageReceiver : CoreComponent, IDamageable
         //not needed but here to grab when needed elsewhere like knockback and possibly in ones giving me errors
         //movement = new CoreComp<Movement>(core);
         //collisionSenses = new CoreComp<CollisionSenses>(core);
+        SetDefensiveStrategy(health.Comp.defensiveType);
+    }
+
+    void SetDefensiveStrategy(DefensiveType defensiveType)
+    {
+        IAttackTypeDamageCalculation defensiveStrategy =
+            DefensiveTypeStrategyFactory.CreateStrategy(defensiveType);
+
     }
 }

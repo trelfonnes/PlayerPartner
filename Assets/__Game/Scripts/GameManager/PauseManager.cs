@@ -16,11 +16,17 @@ public class PauseManager : MonoBehaviour
             OnPauseStateChanged?.Invoke(isPaused);
         }
     }
-
+    private void Awake()
+    {
+        if (IsPaused)
+        {
+            isPaused = false;
+            IsPaused = false;
+        }
+    }
     public static void TogglePause()
     {
         IsPaused = !IsPaused;
-        Debug.Log("PAUSE" + IsPaused);
         Time.timeScale = IsPaused ? 0 : 1;
     }
 

@@ -29,6 +29,7 @@ MonoBehaviour:
   - rid: 7917043640045142017
   - rid: 7917043661478035458
   - rid: 7917043703839719425
+  <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
@@ -40,6 +41,7 @@ MonoBehaviour:
         - name: Claw
           <PhaseSprites>k__BackingField:
           - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 0
             <Sprites>k__BackingField:
             - {fileID: -396325562, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
             - {fileID: -1071569395, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
@@ -123,6 +125,7 @@ MonoBehaviour:
         attackData:
         - name: Claw
           <Amount>k__BackingField: 3
+          <AttackType>k__BackingField: 0
     - rid: 7917043661478035458
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:

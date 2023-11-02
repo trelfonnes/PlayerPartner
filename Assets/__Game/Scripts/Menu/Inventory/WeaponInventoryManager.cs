@@ -41,21 +41,30 @@ public class WeaponInventoryManager : MonoBehaviour
         partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
 
         
-                SetInitialPlayerWeapon(playerWeaponsInInventory[0]);
-           
+                SetInitialPlayerPrimaryWeapon(playerWeaponsInInventory[0]);
+        SetInitialPlayerSecondaryWeapon(playerWeaponsInInventory[1]);
         
-                SetInitialPartnerWeapon(partnerWeaponsInInventory[0]);
-            
+                SetInitialPartnerPrimaryWeapon(partnerWeaponsInInventory[0]);
+        SetInitialPartnerSecondaryWeapon(partnerWeaponsInInventory[1]);
     }
    
 
-    void SetInitialPartnerWeapon(WeaponInventoryItemSO partnerWeapon)
+    void SetInitialPartnerPrimaryWeapon(WeaponInventoryItemSO partnerWeapon)
     {
       partnerPrimaryEquippedImage.sprite = partnerWeapon.weaponImage;
-    }  void SetInitialPlayerWeapon(WeaponInventoryItemSO playerWeapon)
+    }  void SetInitialPlayerPrimaryWeapon(WeaponInventoryItemSO playerWeapon)
     {
         playerPrimaryEquippedImage.sprite = playerWeapon.weaponImage;
     }
+    void SetInitialPartnerSecondaryWeapon(WeaponInventoryItemSO partnerWeapon)
+    {
+        partnerSecondaryEquippedImage.sprite = partnerWeapon.weaponImage;
+    }
+    void SetInitialPlayerSecondaryWeapon(WeaponInventoryItemSO playerWeapon)
+    {
+        playerSecondaryEquippedImage.sprite = playerWeapon.weaponImage;
+    }
+
     public void SetTextAndButton(string description, bool buttonActive)
     {
         weaponDescriptionText.text = description;

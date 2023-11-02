@@ -61,13 +61,13 @@ public class PauseScreen : MonoBehaviour
         PauseMenuScreen.SetActive(isOn);
         isOn = !isOn;
        // canToggle = false;
-        Invoke(nameof(ResetToggleCooldown), inputCoolDown);
+        //Invoke(nameof(ResetToggleCooldown), inputCoolDown);
         PauseManager.TogglePause();
 
     }
 
-    private void ResetToggleCooldown()
-    {
-        canToggle = true;
-    }
+  //  private void ResetToggleCooldown()
+    //{
+    //    canToggle = true;
+    //}
 }
