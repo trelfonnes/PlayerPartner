@@ -9,5 +9,6 @@ public enum DefensiveType
    Electric,
    Poison,
    Ground,
-   Normal
+   Normal,
+   air
 }

@@ -9,6 +9,7 @@ public enum AttackType
     Poison,
     Electric,
     Ground,
-    Normal
+    Normal,
+    Air
 
 }

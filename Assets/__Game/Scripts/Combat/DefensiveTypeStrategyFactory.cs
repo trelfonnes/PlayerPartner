@@ -10,9 +10,22 @@ public class DefensiveTypeStrategyFactory
         {
             case DefensiveType.Fire:
                 return new FireTypeStrategy();
+            case DefensiveType.Water:
+                return new WaterTypeStrategy();
+            case DefensiveType.air:
+                return new AirTypeStrategy();
+            case DefensiveType.Electric:
+                return new ElectricTypeStrategy();
+            case DefensiveType.Ground:
+                return new GroundTypeStrategy();
+            case DefensiveType.Poison:
+                return new PoisonTypeStrategy();
+            case DefensiveType.Normal:
+                return new NormalTypeStrategy();
+
 
             default:
-                return new FireTypeStrategy(); //TODO: make default normalType strategy
+                return new NormalTypeStrategy(); //TODO: make default normalType strategy
         }
     }
 

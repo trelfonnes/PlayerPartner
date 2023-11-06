@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : CoreComponent
 {
     public Rigidbody2D rb { get; private set; }
-    private Vector2 workspace;
+    protected Vector2 workspace;
     public int facingDirectionX { get; private set; }
     public int facingCombatDirectionX { get; private set; }
     public int facingCombatDirectionY { get; private set; }
@@ -121,7 +121,7 @@ public class Movement : CoreComponent
         workspace.Set(directionX * strength, directionY * strength); //dont thing I need angle for this game but good to have it here just in case
         SetFinalVelocity();
     }
-    private void SetFinalVelocity()
+    protected void SetFinalVelocity()
     {
         if (CanSetVelocity)
         {

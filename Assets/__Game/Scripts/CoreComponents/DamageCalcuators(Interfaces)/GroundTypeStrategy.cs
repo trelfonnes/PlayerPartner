@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireTypeStrategy : IAttackTypeDamageCalculation
+public class GroundTypeStrategy : IAttackTypeDamageCalculation
 {
     public int CalculateDamageModifier(int damageAmount, AttackType attackerType)
     {
-        if(attackerType == AttackType.Water)
+        if (attackerType == AttackType.Poison)
         {
             damageAmount = (damageAmount * 2);
-            return damageAmount; 
-                      
+            return damageAmount;
+
         }
-        if(attackerType == AttackType.Air)
+        if (attackerType == AttackType.Electric)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;

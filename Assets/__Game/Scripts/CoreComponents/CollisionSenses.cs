@@ -19,7 +19,7 @@ public class CollisionSenses : CoreComponent
     [SerializeField]
     protected Transform collisionsCheckPoint; 
     [SerializeField]
-    private Transform groundCheckPoint;
+    protected Transform groundCheckPoint;
   
    
 

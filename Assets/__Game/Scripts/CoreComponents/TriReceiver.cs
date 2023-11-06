@@ -11,24 +11,31 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
     float KnockBackStartTime;
     bool isKnockBackActive;
 
+    IAttackTypeDamageCalculation defensiveStrategy;
+
     private CoreComp<Movement> movement;
     private CoreComp<CollisionSenses> collisionSenses;
     CoreComp<Health> health;
     CoreComp<Particles> particles;
-    Poise poise;
+    CoreComp<Poise> poise;
 
-    // CoreComp<Movement> movement;
-    //CoreComp<CollisionSenses> collisionSenses;
+  
     public void Damage(float amount, AttackType attackType)
-    {
-        //TODO implement concrete interface to handle calculation
-        health.Comp?.DecreaseHealth(amount);  // needs to send amount to the Health component
+    {// casting because I messed up and used int in concrete strategies instead of float.
+        //TODO: make them use float instead of int
+        int amountInt = (int)amount;
+       
+        int calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountInt, attackType);
+
+       float calculatedDamageFloat = (float)calculatedDamage;
+
+        health.Comp?.DecreaseHealth(calculatedDamageFloat);  // needs to send amount to the Health component
        // particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
     }
     public void DamagePoise(float amount)
     {
         
-            poise?.DecreasePoise(amount);
+            poise.Comp?.DamagePoise(amount);
             // particles.StartParticlesWithRandomRotation(stunnedParticles); //TODO: might not be best way to set stun particles if any
         
     }
@@ -64,7 +71,7 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
     protected override void Awake()
     {
         base.Awake();
-        poise = core.GetCoreComponent<Poise>();
+        poise = new CoreComp<Poise>(core);
         health = new CoreComp<Health>(core);
         particles = new CoreComp<Particles>(core);
         movement = new CoreComp<Movement>(core);
@@ -74,8 +81,7 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
 
     void SetDefensiveStrategy(DefensiveType defensiveType)
     {
-        IAttackTypeDamageCalculation defensiveStrategy = 
-            DefensiveTypeStrategyFactory.CreateStrategy(defensiveType);
+      defensiveStrategy = DefensiveTypeStrategyFactory.CreateStrategy(defensiveType);
 
     }
 }

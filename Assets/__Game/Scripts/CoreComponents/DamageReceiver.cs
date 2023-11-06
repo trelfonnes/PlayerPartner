@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamageReceiver : CoreComponent, IDamageable
 {
     [SerializeField] GameObject damageParticles; //particles or vfx for when taking damage
+    IAttackTypeDamageCalculation defensiveStrategy;
 
     CoreComp<Stats> stats;
     CoreComp<Health> health;
@@ -13,9 +14,13 @@ public class DamageReceiver : CoreComponent, IDamageable
     //CoreComp<CollisionSenses> collisionSenses;
     public void Damage(float amount, AttackType attackType)
     {
-        //TODO incoporate damage calculation via concrete interface
-        health.Comp?.DecreaseHealth(amount);  // needs to send amount to the Health component
-        // need reference to health component
+        int amountInt = (int)amount;
+
+        int calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountInt, attackType);
+
+        float calculatedDamageFloat = (float)calculatedDamage;
+
+        health.Comp?.DecreaseHealth(calculatedDamageFloat);
         particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
     }
 
@@ -34,8 +39,7 @@ public class DamageReceiver : CoreComponent, IDamageable
 
     void SetDefensiveStrategy(DefensiveType defensiveType)
     {
-        IAttackTypeDamageCalculation defensiveStrategy =
-            DefensiveTypeStrategyFactory.CreateStrategy(defensiveType);
+        defensiveStrategy = DefensiveTypeStrategyFactory.CreateStrategy(defensiveType);
 
     }
 }
