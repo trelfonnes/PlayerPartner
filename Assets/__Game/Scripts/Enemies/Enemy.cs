@@ -5,17 +5,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    EnemyWeapon meleeWeapon;
+    EnemyWeapon projectileWeapon;
+    public EnemyMeleeAttackState MeleeState { get; private set; }
+    public EnemyProjectileAttackState ProjectileState { get; private set; }
+    public EnemyPlayerDetectedState PlayerDetectedState { get; private set; }
+
 
     public EnemyAttackState AttackState { get; private set; }
     public EnemyIdleState IdleState { get; private set; }
     public EnemyMoveState MoveState { get; private set; }
     public EnemyPatrolState PatrolState { get; private set; }
-    public EnemyPlayerDetectedState PlayerDetectedState { get; private set; }
     public EnemyLowHealthState LowHealthState { get; private set; }
     
     public EnemyStateMachine StateMachine { get; private set;}
     public IEnemyMove moveStrategy { get; protected set; }
     public IEnemyLowHealth lowHealthStrategy { get; protected set; }
+    public IEnemyMelee meleeStrategy { get; protected set; }
+    public IEnemyProjectile projectileStrategy { get; protected set; }
     public CoreHandler core { get; private set;}
     public Animator anim { get; private set; }
     public EnemySOData enemySOData;
@@ -26,15 +33,24 @@ public class Enemy : MonoBehaviour
         StateMachine = new EnemyStateMachine();
         core = GetComponentInChildren<CoreHandler>();
         blackboard["EnemyData"] = enemySOData;
+        meleeWeapon = transform.Find("MeleeAttack").GetComponent<EnemyWeapon>();
+        projectileWeapon = transform.Find("ProjectileAttack").GetComponent<EnemyWeapon>();
         //can add blackboard data as needed if alternate from SO data
         // this can be useful for a single place to save enemy data if needed.
         // can be good for counting intervals for respawning etc. 
         IdleState = new EnemyIdleState(this, StateMachine, enemySOData, "idle");
         MoveState = new EnemyMoveState(this, StateMachine, enemySOData, "move", moveStrategy);
-        AttackState = new EnemyAttackState(this, StateMachine, enemySOData, "attack");
         PatrolState = new EnemyPatrolState(this, StateMachine, enemySOData, "patrol");
-        PlayerDetectedState = new EnemyPlayerDetectedState(this, StateMachine, enemySOData, "playerDetected");
         LowHealthState = new EnemyLowHealthState(this, StateMachine, enemySOData, "lowHealth", lowHealthStrategy);
+        
+        // meleeWeapon.SetCore(core);
+        // projectileWeapon.SetCore(core;
+        PlayerDetectedState = new EnemyPlayerDetectedState(this, StateMachine, enemySOData, "playerDetected");
+
+        //Pass in the matching weapon script for the attack game object
+        MeleeState = new EnemyMeleeAttackState(this, StateMachine, enemySOData, "melee", meleeWeapon, meleeStrategy);
+        ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, "projectile", projectileWeapon, projectileStrategy);
+
     }
 
     //refactor to individual enemy class

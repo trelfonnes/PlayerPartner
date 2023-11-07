@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackState : EnemyBasicState
+public class EnemyMeleeAttackState : EnemyAttackState
 {
-    protected bool attackUsed;
-   
-    public EnemyAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon) : base(enemy, ESM, enemySoData, animBoolName)
+    EnemyWeapon weapon;
+    IEnemyMelee meleeStrategy;
+    public EnemyMeleeAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon, IEnemyMelee meleeStrategy) : base(enemy, ESM, enemySoData, animBoolName, weapon)
     {
-        
+        this.weapon = weapon;
+        this.meleeStrategy = meleeStrategy;
     }
 
     public override void AnimationFinishTrigger()
@@ -40,21 +41,11 @@ public class EnemyAttackState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (attackUsed)
-        {
-            if (isPlayerDetected || isPartnerDetected)
-            {
-                if (Time.time >= startTime + enemySoData.timeBetweenAttacks)
-                {
-                    attackUsed = false;//TODO may need a time between attacks float
-                }
-            }
-            else if (inSightCircle)
-            {
-                ESM.ChangeState(enemy.MoveState);
-            }
+        if (!attackUsed)
+        {//might need to do this from enter??
+            meleeStrategy.Attack(weapon);//now it can communicate with weapon game object and pass any needed data.
+            attackUsed = true;
         }
-       
         
     }
 

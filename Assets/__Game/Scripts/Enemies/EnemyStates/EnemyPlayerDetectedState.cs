@@ -21,15 +21,21 @@ public class EnemyPlayerDetectedState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if(isPlayerDetected || isPartnerDetected)
+
+        if (useMeleeAttack)
         {
-            ESM.ChangeState(enemy.AttackState);
+            ESM.ChangeState(enemy.MeleeState);
         }
-        else if (inSightCircle)
+        if(useRangedAttack && !useMeleeAttack)
+        {
+            ESM.ChangeState(enemy.ProjectileState);
+        }
+
+        if (inSightCircle && !isPlayerDetected && !isPartnerDetected)
         {
             ESM.ChangeState(enemy.MoveState);
         }
-    
+
     }
 
     public override void PhysicsUpdate()

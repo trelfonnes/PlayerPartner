@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyRatOne : Enemy
 {
+ 
+
     protected override void Awake()
     {
         SetStrategies();
         base.Awake();
-    }
+     }
 
     protected override void FixedUpdate()
     {
@@ -29,5 +31,7 @@ public class EnemyRatOne : Enemy
         base.SetStrategies();
         moveStrategy = new EnemyCharge();
         lowHealthStrategy = new EnemyFlee();
+        projectileStrategy = new EnemySingleProjectile();
+        meleeStrategy = new EnemyScratch();
     }
 }
