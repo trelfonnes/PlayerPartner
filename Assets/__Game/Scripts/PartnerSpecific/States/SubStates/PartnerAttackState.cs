@@ -74,4 +74,5 @@ public class PartnerAttackState : PartnerAbilityState
             PSM.ChangePartnerState(partner.DevolveState);
         }
     }
+    
 }

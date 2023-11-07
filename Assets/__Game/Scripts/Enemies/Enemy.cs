@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 {
     EnemyWeapon meleeWeapon;
     EnemyWeapon projectileWeapon;
+    [SerializeField] WeaponDataSO meleeWeaponDetails;
+    [SerializeField] WeaponDataSO projectileWeaponDetails;
     public EnemyMeleeAttackState MeleeState { get; private set; }
     public EnemyProjectileAttackState ProjectileState { get; private set; }
     public EnemyPlayerDetectedState PlayerDetectedState { get; private set; }
@@ -43,13 +45,13 @@ public class Enemy : MonoBehaviour
         PatrolState = new EnemyPatrolState(this, StateMachine, enemySOData, "patrol");
         LowHealthState = new EnemyLowHealthState(this, StateMachine, enemySOData, "lowHealth", lowHealthStrategy);
         
-        // meleeWeapon.SetCore(core);
-        // projectileWeapon.SetCore(core;
+         meleeWeapon.SetCore(core);
+         projectileWeapon.SetCore(core);
         PlayerDetectedState = new EnemyPlayerDetectedState(this, StateMachine, enemySOData, "playerDetected");
 
         //Pass in the matching weapon script for the attack game object
-        MeleeState = new EnemyMeleeAttackState(this, StateMachine, enemySOData, "melee", meleeWeapon, meleeStrategy);
-        ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, "projectile", projectileWeapon, projectileStrategy);
+        MeleeState = new EnemyMeleeAttackState(this, StateMachine, enemySOData, "melee", meleeWeapon, meleeStrategy, meleeWeaponDetails);
+        ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, "projectile", projectileWeapon, projectileStrategy, projectileWeaponDetails );
 
     }
 

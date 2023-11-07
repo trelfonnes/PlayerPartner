@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IEnemyProjectile 
 {
 
-    public void ShootProjectile(EnemyWeapon weapon)
+    public void ShootProjectile(EnemyWeapon weapon, WeaponDataSO weaponData)
     {
 
     }

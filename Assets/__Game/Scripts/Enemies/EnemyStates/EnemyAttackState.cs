@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyBasicState
 {
-    protected bool attackUsed;
+    protected bool isAttackDone;
    
     public EnemyAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon) : base(enemy, ESM, enemySoData, animBoolName)
     {
@@ -29,7 +29,7 @@ public class EnemyAttackState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
-        attackUsed = false;
+        isAttackDone = false;
     }
 
     public override void Exit()
@@ -40,18 +40,16 @@ public class EnemyAttackState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (attackUsed)
+        if (isAttackDone)
         {
-            if (isPlayerDetected || isPartnerDetected)
-            {
-                if (Time.time >= startTime + enemySoData.timeBetweenAttacks)
-                {
-                    attackUsed = false;//TODO may need a time between attacks float
-                }
-            }
-            else if (inSightCircle)
+            
+            if (inSightCircle)
             {
                 ESM.ChangeState(enemy.MoveState);
+            }
+            else
+            {
+                ESM.ChangeState(enemy.IdleState);
             }
         }
        

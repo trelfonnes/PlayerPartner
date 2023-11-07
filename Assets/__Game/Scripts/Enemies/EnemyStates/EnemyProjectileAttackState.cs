@@ -6,12 +6,19 @@ public class EnemyProjectileAttackState : EnemyAttackState
 {
     EnemyWeapon weapon;
     IEnemyProjectile projectileStrategy;
-    public EnemyProjectileAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon, IEnemyProjectile projectileStrategy) : base(enemy, ESM, enemySoData, animBoolName, weapon)
+    WeaponDataSO weaponData;
+    public EnemyProjectileAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon, IEnemyProjectile projectileStrategy, WeaponDataSO weaponData) : base(enemy, ESM, enemySoData, animBoolName, weapon)
     {
         this.weapon = weapon;
         this.projectileStrategy = projectileStrategy;
+        this.weaponData = weaponData;
+        weapon.onExit += ExitHandler;
     }
-
+    void ExitHandler()
+    {
+        AnimationFinishTrigger();
+        isAttackDone = true;
+    }
     public override void AnimationFinishTrigger()
     {
         base.AnimationFinishTrigger();
@@ -30,7 +37,6 @@ public class EnemyProjectileAttackState : EnemyAttackState
     public override void Enter()
     {
         base.Enter();
-        attackUsed = false;
         
     }
 
@@ -42,17 +48,11 @@ public class EnemyProjectileAttackState : EnemyAttackState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        //might need to do this from enter?? //call weapon.enter from concrete strategy
+        if(!isAttackDone)
+            projectileStrategy.ShootProjectile(weapon, weaponData);//now it can communicate with weapon game object and pass any needed data.
 
-        if (!attackUsed)
-        {//might need to do this from enter?? //call weapon.enter from concrete strategy
-            projectileStrategy.ShootProjectile(weapon);//now it can communicate with weapon game object and pass any needed data.
-            attackUsed = true;
-        }
-
-        if (inSightCircle && !isPlayerDetected && !isPartnerDetected)
-        {
-            ESM.ChangeState(enemy.MoveState);
-        }
+       
     }
 
     public override void PhysicsUpdate()

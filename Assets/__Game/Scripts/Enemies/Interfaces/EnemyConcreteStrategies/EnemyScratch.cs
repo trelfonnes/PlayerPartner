@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyScratch : IEnemyMelee
 {
-    public void Attack(EnemyWeapon weapon)
+    public void Attack(EnemyWeapon weapon, WeaponDataSO weaponData)
     {
+        weapon.SetData(weaponData); //Set data first, then enter.
         weapon.Enter();
     }
 }

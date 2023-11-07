@@ -9,6 +9,7 @@ public class WeaponAutoGenerator : MonoBehaviour
     // this class interacts with other classes to change out weapons.
     [SerializeField] Weapon weapon;
     [SerializeField] PartnerWeapon partnerWeapon;  //drag references in inspector
+    
     [SerializeField] WeaponDataSO data; // drag data desired for weapon here for now
                                         // eventually it will be passed by inventory
     private List<WeaponComponent> componentAlreadyOnWeapon = new List<WeaponComponent>();
@@ -42,7 +43,10 @@ public class WeaponAutoGenerator : MonoBehaviour
             partnerWeapon.SetData(data);
             character = 0;
         }
-
+        else//forEnemies. Don't pass data here because no inventory for them
+        {
+           character = 2;
+        }
         componentAlreadyOnWeapon.Clear();
         componentAddedToWeapon.Clear();
         componentDependencies.Clear();

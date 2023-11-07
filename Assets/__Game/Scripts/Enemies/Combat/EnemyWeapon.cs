@@ -5,6 +5,7 @@ using System;
 
 public class EnemyWeapon : MonoBehaviour
 {
+    [SerializeField] WeaponAutoGenerator thisWeaponsAutoGenerator;
     public GameObject BaseGO { get; private set; }
     public GameObject WeaponSpriteGO { get; private set; }
    Enemy enemy;
@@ -14,6 +15,7 @@ public class EnemyWeapon : MonoBehaviour
     public event Action onEnter;
     public event Action<bool> OncurrentInputChange;
     Animator anim;
+    public WeaponDataSO weaponData { get; private set; }
 
     private void Awake()
     {
@@ -30,7 +32,15 @@ public class EnemyWeapon : MonoBehaviour
         anim.SetFloat("moveY", enemy.enemyDirection.y);
         onEnter?.Invoke();
     }
-
+    public void SetCore(CoreHandler core)
+    {
+        Core = core;
+    }
+    public void SetData(WeaponDataSO data)
+    {
+        weaponData = data;
+        thisWeaponsAutoGenerator.GenerateWeapon(weaponData); //taking place of the inventory. works via the concrete interface
+    }
     void Exit()
     {
         anim.SetBool("active", false);
