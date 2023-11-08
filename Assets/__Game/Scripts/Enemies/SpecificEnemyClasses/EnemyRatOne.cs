@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyRatOne : Enemy
 {
- 
+    // VERY IMPORTANT that the weapon SO's are listed in order that I want. Cannot be random.
+    [SerializeField] private List<WeaponDataSO> meleeWeaponDatas;
+    [SerializeField] private List<WeaponDataSO> projectileWeaponDatas;
 
     protected override void Awake()
     {
         SetStrategies();
+        SetMeleeWeaponDatas(meleeWeaponDatas);
+        SetProjectileWeaponDatas(projectileWeaponDatas);
         base.Awake();
      }
 

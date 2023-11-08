@@ -5,15 +5,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private Dictionary<int, WeaponDataSO> MeleeWeaponDatas = new Dictionary<int, WeaponDataSO>();
+    private Dictionary<int, WeaponDataSO> ProjectileWeaponDatas = new Dictionary<int, WeaponDataSO>();
+    private int nextMeleeKey = 0;
+    private int nextProjectileKey = 0;
+
     EnemyWeapon meleeWeapon;
     EnemyWeapon projectileWeapon;
-    [SerializeField] WeaponDataSO meleeWeaponDetails;
-    [SerializeField] WeaponDataSO projectileWeaponDetails;
+    
     public EnemyMeleeAttackState MeleeState { get; private set; }
     public EnemyProjectileAttackState ProjectileState { get; private set; }
     public EnemyPlayerDetectedState PlayerDetectedState { get; private set; }
 
-
+    
     public EnemyAttackState AttackState { get; private set; }
     public EnemyIdleState IdleState { get; private set; }
     public EnemyMoveState MoveState { get; private set; }
@@ -30,6 +34,7 @@ public class Enemy : MonoBehaviour
     public EnemySOData enemySOData;
     public Dictionary<string, object> blackboard = new Dictionary<string, object>();
     public Vector2 enemyDirection;
+
     protected virtual void Awake()
     {
         StateMachine = new EnemyStateMachine();
@@ -50,8 +55,8 @@ public class Enemy : MonoBehaviour
         PlayerDetectedState = new EnemyPlayerDetectedState(this, StateMachine, enemySOData, "playerDetected");
 
         //Pass in the matching weapon script for the attack game object
-        MeleeState = new EnemyMeleeAttackState(this, StateMachine, enemySOData, "melee", meleeWeapon, meleeStrategy, meleeWeaponDetails);
-        ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, "projectile", projectileWeapon, projectileStrategy, projectileWeaponDetails );
+        MeleeState = new EnemyMeleeAttackState(this, StateMachine, enemySOData, "melee", meleeWeapon, meleeStrategy, MeleeWeaponDatas);
+        ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, "projectile", projectileWeapon, projectileStrategy, ProjectileWeaponDatas);
 
     }
 
@@ -74,5 +79,33 @@ public class Enemy : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
+    }
+    protected void SetMeleeWeaponDatas(List<WeaponDataSO> weaponDatas)
+    {
+        MeleeWeaponDatas.Clear(); // Clear the existing data in WeaponDatas
+
+        foreach (WeaponDataSO weaponData in weaponDatas)
+        {
+            int key = GetNextMeleeKey(); // Get a unique key before setting it to key
+            MeleeWeaponDatas[key] = weaponData;
+        }
+    }
+    protected void SetProjectileWeaponDatas(List<WeaponDataSO> weaponDatas)
+    {
+        MeleeWeaponDatas.Clear(); // Clear the existing data in WeaponDatas
+
+        foreach (WeaponDataSO weaponData in weaponDatas)
+        {
+            int key = GetNextProjectileKey(); // Get a unique key before setting it to key
+            ProjectileWeaponDatas[key] = weaponData;
+        }
+    }
+    private int GetNextMeleeKey()
+    {
+        return nextMeleeKey++; // Return the current key and increment for the next use
+    } 
+    private int GetNextProjectileKey()
+    {
+        return nextProjectileKey++; // Return the current key and increment for the next use
     }
 }

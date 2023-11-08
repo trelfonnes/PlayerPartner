@@ -6096,10 +6096,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e94117a57f6fe42ad55dec9dbb7799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeWeaponDetails: {fileID: 0}
-  projectileWeaponDetails: {fileID: 0}
   enemySOData: {fileID: 11400000, guid: a1ed30aaa86fd324d9fc560145f82736, type: 2}
   enemyDirection: {x: 0, y: 0}
+  meleeWeaponDatas: []
+  projectileWeaponDatas: []
 --- !u!4 &665488763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1302910846196772896, guid: 29c61875b36fb36419e4cdd7fb491df5, type: 3}
@@ -6345,6 +6345,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 724283508}
+  - component: {fileID: 724283510}
+  - component: {fileID: 724283509}
   m_Layer: 18
   m_Name: MeleeAttack
   m_TagString: Untagged
@@ -6369,6 +6371,34 @@ Transform:
   m_Father: {fileID: 655837066}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &724283509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724283507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52aabde0338257d41ad6a2567f6d1e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  partnerWeapon: {fileID: 0}
+  data: {fileID: 0}
+--- !u!114 &724283510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724283507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774d1a1987489d141af2da955908d174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeaponsAutoGenerator: {fileID: 0}
 --- !u!1 &743551376
 GameObject:
   m_ObjectHideFlags: 0
@@ -7306,6 +7336,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 952768577}
+  - component: {fileID: 952768579}
+  - component: {fileID: 952768578}
   m_Layer: 18
   m_Name: ProjectileAttack
   m_TagString: Untagged
@@ -7330,6 +7362,34 @@ Transform:
   m_Father: {fileID: 655837066}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &952768578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952768576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52aabde0338257d41ad6a2567f6d1e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  partnerWeapon: {fileID: 0}
+  data: {fileID: 0}
+--- !u!114 &952768579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952768576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774d1a1987489d141af2da955908d174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeaponsAutoGenerator: {fileID: 952768578}
 --- !u!1001 &970757324
 PrefabInstance:
   m_ObjectHideFlags: 0

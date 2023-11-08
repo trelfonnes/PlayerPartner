@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IEnemyMelee  
 {
-   public void Attack(EnemyWeapon weapon, WeaponDataSO weaponData)
+   public void Attack(EnemyWeapon weapon, EnemySOData data, Dictionary<int, WeaponDataSO> weaponDatas)
     {
 
     } 

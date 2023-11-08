@@ -20,5 +20,11 @@ public class EnemySOData : ScriptableObject
     public float minPatrolTime = 1f;
     public float timeBetweenAttacks = .5f;
 
+    public int currentAttack = 1;
+
+    private void OnEnable()
+    { currentAttack = 1; }
 
 }
+
+

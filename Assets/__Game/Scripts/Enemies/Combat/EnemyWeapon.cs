@@ -16,6 +16,13 @@ public class EnemyWeapon : MonoBehaviour
     public event Action<bool> OncurrentInputChange;
     Animator anim;
     public WeaponDataSO weaponData { get; private set; }
+    public int CurrentAttackCounter
+    {
+        get => currentAttackCounter;
+        private set => currentAttackCounter = value >= weaponData.NumberOfAttacks ? 0 : value;
+
+    }
+    int currentAttackCounter;
 
     private void Awake()
     {

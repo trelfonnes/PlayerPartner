@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class EnemySingleProjectile : IEnemyProjectile
 {
-   public void ShootProjectile(EnemyWeapon weapon, WeaponDataSO weaponData)
+   public void ShootProjectile(EnemyWeapon weapon, EnemySOData data, Dictionary<int, WeaponDataSO> weaponDatas)
     {
-        weapon.SetData(weaponData);
+        //weapon.SetData(weaponData);
         //logic for shooting a single projectile
-        weapon.Enter();//what information does it need?
+      
+        if(weaponDatas.ContainsKey(data.currentAttack))
+        {
+            WeaponDataSO attack = weaponDatas[data.currentAttack];
+            weapon.SetData(attack);
+            weapon.Enter();//what information does it need?
+
+        }
+        else
+        {
+            Debug.LogError("Enemysingle projectile current attack not found in WeaponDatas dictionary");
+        }
+
     }
 }

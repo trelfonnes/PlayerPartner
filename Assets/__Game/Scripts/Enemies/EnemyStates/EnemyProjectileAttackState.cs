@@ -6,12 +6,12 @@ public class EnemyProjectileAttackState : EnemyAttackState
 {
     EnemyWeapon weapon;
     IEnemyProjectile projectileStrategy;
-    WeaponDataSO weaponData;
-    public EnemyProjectileAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon, IEnemyProjectile projectileStrategy, WeaponDataSO weaponData) : base(enemy, ESM, enemySoData, animBoolName, weapon)
+    Dictionary<int, WeaponDataSO> weaponDatas;
+    public EnemyProjectileAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon, IEnemyProjectile projectileStrategy, Dictionary<int, WeaponDataSO> weaponDatas) : base(enemy, ESM, enemySoData, animBoolName, weapon)
     {
         this.weapon = weapon;
         this.projectileStrategy = projectileStrategy;
-        this.weaponData = weaponData;
+        this.weaponDatas = weaponDatas;
         weapon.onExit += ExitHandler;
     }
     void ExitHandler()
@@ -50,7 +50,7 @@ public class EnemyProjectileAttackState : EnemyAttackState
         base.LogicUpdate();
         //might need to do this from enter?? //call weapon.enter from concrete strategy
         if(!isAttackDone)
-            projectileStrategy.ShootProjectile(weapon, weaponData);//now it can communicate with weapon game object and pass any needed data.
+            projectileStrategy.ShootProjectile(weapon, enemySoData, weaponDatas);//now it can communicate with weapon game object and pass any needed data.
 
        
     }
