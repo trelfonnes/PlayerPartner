@@ -14,7 +14,7 @@ public class EnemyMovement : Movement
         base.Awake();
         
     }
-
+    // Combat changing is a function in movement that receives to int values for direction x and y
   
 
     public void EnemyCheckIfShouldFlip(int directionX)

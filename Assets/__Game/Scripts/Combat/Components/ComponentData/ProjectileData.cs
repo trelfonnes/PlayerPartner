@@ -8,5 +8,6 @@ public class ProjectileData : ComponentData<AttackProjectileData>
     {
         PlayerComponentDependency = typeof(Projectile);
         PartnerComponentDependency = typeof(PartnerProjectile);
+        EnemyComponentDependency = typeof(EnemyProjectile);
     }
 }

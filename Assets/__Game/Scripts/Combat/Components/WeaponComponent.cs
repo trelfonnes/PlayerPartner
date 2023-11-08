@@ -25,6 +25,7 @@ public abstract class WeaponComponent : MonoBehaviour
     protected AnimationEventHandler EnemyEventHandler;
     protected CoreHandler PlayerCore => weapon?.Core;
     protected CoreHandler PartnerCore => partnerWeapon?.Core;
+    protected CoreHandler EnemyCore => enemyWeapon?.Core;
 
     public virtual void Init()
     {

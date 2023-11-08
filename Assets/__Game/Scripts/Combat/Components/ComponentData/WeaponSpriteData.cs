@@ -8,5 +8,6 @@ public class WeaponSpriteData : ComponentData<AttackSprites>
     {
         PlayerComponentDependency = typeof(WeaponSprite);
         PartnerComponentDependency = typeof(PartnerWeaponSprite);
+        EnemyComponentDependency = typeof(EnemyWeaponSprite);
     }
 }

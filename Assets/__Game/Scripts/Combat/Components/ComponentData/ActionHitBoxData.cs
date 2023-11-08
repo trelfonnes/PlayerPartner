@@ -10,5 +10,6 @@ public class ActionHitBoxData : ComponentData<AttackActionHItBox>
     {
         PlayerComponentDependency = typeof(ActionHitBox);
         PartnerComponentDependency = typeof(PartnerActionHitBox);
+        EnemyComponentDependency = typeof(EnemyActionHitBox);
     }
 }
