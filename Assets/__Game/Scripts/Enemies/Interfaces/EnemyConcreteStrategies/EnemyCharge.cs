@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyCharge : IEnemyMove
 {
-    public void StartMovement(float velocity, EnemyMovement movement)
+    public void StartMovement(float velocity, EnemyMovement movement, EnemyCollisionSenses collisionSenses)
     {
-        movement.ChargePartner(velocity);
+        movement.ChargePartner(velocity, collisionSenses.partnerTransform);
     } 
 }

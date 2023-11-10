@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IEnemyMove 
 {
-   public void StartMovement(float velocity, EnemyMovement movement);
+   public void StartMovement(float velocity, EnemyMovement movement, EnemyCollisionSenses collisionSenses);
 }

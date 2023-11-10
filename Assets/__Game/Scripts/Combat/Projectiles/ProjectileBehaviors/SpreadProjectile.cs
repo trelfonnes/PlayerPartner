@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpreadProjectile : MonoBehaviour
 {
-    ProjectileType spreadProjectile = ProjectileType.SpreadProjectile;
+    ProjectileType spreadProjectile = ProjectileType.SpreadFireProjectile;
 
     Rigidbody2D rb;
     CircleCollider2D circleCollider;

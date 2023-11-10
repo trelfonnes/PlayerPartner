@@ -6,7 +6,9 @@ public class EnemyCollisionSenses : CollisionSenses
 { 
     public float CharacterCheckDistance { get => characterCheckDistance; set => characterCheckDistance = value; }
 
-
+    public Transform playerTransform { get; private set; }
+    public Transform partnerTransform { get; private set; }
+   public Collider2D DetectedTriggerCollider { get; private set; }
 
     [SerializeField] protected float characterCheckDistance = 6f;
     [SerializeField] protected float RangeAttkCheckDistance = 4f;
@@ -59,6 +61,28 @@ public class EnemyCollisionSenses : CollisionSenses
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Partner"))
+        {
+            partnerTransform = collision.transform;
+        }
+        else if (collision.CompareTag("Player"))
+        {
+            playerTransform = collision.transform;
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Partner"))
+        {
+            partnerTransform = null;
+        }
+        else if (collision.CompareTag("Player"))
+        {
+            playerTransform = null;
+        }
+    }
 
-    
 }

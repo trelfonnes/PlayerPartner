@@ -6,6 +6,8 @@ public class EnemyMoveState : EnemyBasicState
 {
     protected EnemyMovement EnemyMovement { get => enemyMovement ?? core.GetCoreComponent(ref enemyMovement); }
     private EnemyMovement enemyMovement;
+    protected EnemyCollisionSenses EnemyCollisionSenses { get => enemyCollisionSenses ?? core.GetCoreComponent(ref enemyCollisionSenses); }
+    private EnemyCollisionSenses enemyCollisionSenses;
     IEnemyMove moveStrategy;
 
     public EnemyMoveState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, IEnemyMove moveStrategy) : base(enemy, ESM, enemySoData, animBoolName)
@@ -43,17 +45,27 @@ public class EnemyMoveState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(EnemyMovement.CurrentVelocity != Vector2.zero)
+        {
+            enemy.anim.SetFloat("moveY", EnemyMovement.LastEnemyDirection.y);
+            enemy.anim.SetFloat("moveX", EnemyMovement.LastEnemyDirection.x);
+            
+        }
+        
         if(isPartnerDetected || isPlayerDetected)
         {
+
             ESM.ChangeState(enemy.PlayerDetectedState);
         }
         else if (inSightCircle)
         {
-            moveStrategy.StartMovement(enemySoData.chargeSpeed, EnemyMovement); //passing in speed and the coreComponent
+            moveStrategy.StartMovement(enemySoData.chargeSpeed, EnemyMovement, EnemyCollisionSenses); //passing in speed and the coreComponent
         }
         if (!inSightCircle)
         {
+            EnemyMovement.SetVelocityZero();
             ESM.ChangeState(enemy.IdleState);
+            
         }
 
     }

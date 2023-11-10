@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyPlayerDetectedState : EnemyBasicState
 {
+    protected EnemyMovement EnemyMovement { get => enemyMovement ?? core.GetCoreComponent(ref enemyMovement); }
+    private EnemyMovement enemyMovement;
     public EnemyPlayerDetectedState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName) : base(enemy, ESM, enemySoData, animBoolName)
     {
     }
@@ -21,7 +23,7 @@ public class EnemyPlayerDetectedState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
+        EnemyMovement.SetVelocityZero();
         if (useMeleeAttack)
         {
             ESM.ChangeState(enemy.MeleeState);

@@ -9,6 +9,8 @@ public class EnemyMovement : Movement
     float directionX;
     float directionY;
     Transform partnerTransform;
+    public Vector2 LastEnemyDirection { get; private set; }
+
     protected override void Awake()
     {
         base.Awake();
@@ -31,14 +33,29 @@ public class EnemyMovement : Movement
         directionX = randomValueX * velocity;
         int RandomValueY = Random.Range(-1, 2);
         directionY = RandomValueY * velocity;
+        UpdateLastDirection(directionX, directionY);
         workspace.Set(directionX, directionY);
         SetFinalVelocity();
     }
 
-    public void ChargePartner(float velocity)
+    public void ChargePartner(float velocity, Transform CharacterTransform)
     {
-        partnerTransform = GameObject.FindGameObjectWithTag("Partner").transform;
-        workspace = Vector2.MoveTowards(this.transform.position, partnerTransform.position, velocity * Time.deltaTime);
+        if (CharacterTransform != null)
+        {
+            workspace = Vector2.MoveTowards(this.transform.position, CharacterTransform.position, velocity * Time.deltaTime);
+            SetFinalVelocity();
+            UpdateLastDirection(CurrentVelocity.x, CurrentVelocity.y);
+        }
+        else
+            return;
+    }
+    public void Chase(float velocity, Transform characterTransform)
+    {
+
+    }
+    public void Patrol()
+    {
+        workspace.Set(LastEnemyDirection.x, LastEnemyDirection.y);
         SetFinalVelocity();
     }
     public void Flee(float velocity)
@@ -47,8 +64,13 @@ public class EnemyMovement : Movement
         directionX = randomValueX * velocity;
         int RandomValueY = Random.Range(-1, 2);
         directionY = RandomValueY * velocity;
+        UpdateLastDirection(directionX, directionY);
         workspace.Set(directionX, directionY);
         SetFinalVelocity();
+    }
+    void UpdateLastDirection(float X, float Y)
+    {
+        LastEnemyDirection = new Vector2(X, Y);
     }
 
 }

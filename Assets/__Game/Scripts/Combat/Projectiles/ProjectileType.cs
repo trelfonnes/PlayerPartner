@@ -1,9 +1,9 @@
 ﻿public enum ProjectileType
 {
-    BasicProjectile,
-    ChargeProjectile,
-    SpreadProjectile,
-    PlayerProjectile,
+    BasicFireProjectile,
+    ChargeFireProjectile,
+    SpreadFireProjectile,
+    PlayerDartProjectile,
     PlayerBombProjectile,
     PlayerBoomerangProjectile
 }

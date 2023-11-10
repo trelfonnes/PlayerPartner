@@ -44,7 +44,14 @@ public class EnemyPatrolState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if(Time.time >= startTime + patrolTime)
+        Movement?.Patrol();
+        if (Movement.CurrentVelocity != Vector2.zero)
+        {
+            enemy.anim.SetFloat("moveY", Movement.LastEnemyDirection.y);
+            enemy.anim.SetFloat("moveX", Movement.LastEnemyDirection.x);
+
+        }
+        if (Time.time >= startTime + patrolTime)
         {
             isPatrolTimeOver = true;
         }
@@ -61,6 +68,7 @@ public class EnemyPatrolState : EnemyBasicState
         }
         else if (isPatrolTimeOver) //cycle between patrol and Idle
         {
+            Movement.SetVelocityZero();
             ESM.ChangeState(enemy.IdleState);
         }
     }
