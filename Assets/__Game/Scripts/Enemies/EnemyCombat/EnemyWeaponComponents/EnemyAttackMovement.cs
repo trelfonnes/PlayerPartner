@@ -8,7 +8,7 @@ public class EnemyAttackMovement : WeaponComponent<MovementData, AttackMovementD
 
     void HandleStartMovement()
     {
-        // TODO create facing directions movement.SetVelocity(currentAttackDataEnemy.Direction * )
+        movement.SetVelocity(currentAttackDataEnemy.Direction * movement.LastEnemyDirection);
     }
 
     void HandleStopMovement()

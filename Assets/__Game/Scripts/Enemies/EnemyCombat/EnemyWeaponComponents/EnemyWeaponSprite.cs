@@ -24,22 +24,22 @@ public class EnemyWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites
         currentWeaponSpriteIndex = 0;
 
         PhaseSprites[] filteredPhaseSprites = new PhaseSprites[currentAttackDataEnemy.PhaseSprites.Length];
-        if (movement.facingCombatDirectionX != 0)
+        if (movement.LastEnemyDirection.x != 0)
         {
-            filteredPhaseSprites = currentAttackDataPartner.PhaseSprites
-                     .Where(dataPartner => dataPartner.Phase == phase && dataPartner.PhaseDirection == AttackPhases.EastFace)//checking to match the correct sprites with the partner.
+            filteredPhaseSprites = currentAttackDataEnemy.PhaseSprites
+                     .Where(dataEnemy => dataEnemy.Phase == phase && dataEnemy.PhaseDirection == AttackPhases.EastFace)//checking to match the correct sprites with the partner.
                      .ToArray();
         }
-        if (movement.facingCombatDirectionX == 0 && movement.facingCombatDirectionY > 0)
+        if (movement.LastEnemyDirection.x == 0 && movement.LastEnemyDirection.y > 0)
         {
-            filteredPhaseSprites = currentAttackDataPartner.PhaseSprites
-                   .Where(dataPartner => dataPartner.Phase == phase && dataPartner.PhaseDirection == AttackPhases.NorthFace)
+            filteredPhaseSprites = currentAttackDataEnemy.PhaseSprites
+                   .Where(dataEnemy => dataEnemy.Phase == phase && dataEnemy.PhaseDirection == AttackPhases.NorthFace)
                    .ToArray();
         }
-        if (movement.facingCombatDirectionX == 0 && movement.facingCombatDirectionY < 0)
+        if (movement.LastEnemyDirection.x == 0 && movement.LastEnemyDirection.y < 0)
         {
-            filteredPhaseSprites = currentAttackDataPartner.PhaseSprites
-                   .Where(dataPartner => dataPartner.Phase == phase && dataPartner.PhaseDirection == AttackPhases.SouthFace)
+            filteredPhaseSprites = currentAttackDataEnemy.PhaseSprites
+                   .Where(dataEnemy => dataEnemy.Phase == phase && dataEnemy.PhaseDirection == AttackPhases.SouthFace)
                    .ToArray();
         }
 

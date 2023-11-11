@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyProjectile : WeaponComponent<ProjectileData, AttackProjectileData>
 {
     EnemyMovement movement;
-    Vector2 direction; //comes from combatfacingdirection in movement ref
+    Vector2 direction; //comes from lastenemydirection in enemymovement ref
 
     public void ShootProjectile() //call this from anim event handler
     {
@@ -20,7 +20,7 @@ public class EnemyProjectile : WeaponComponent<ProjectileData, AttackProjectileD
 
     void SetDirection() // listened to by actual projectile game object that is "unpooled"
     {//make sure combat facing direction works for enemy. 
-        direction = new Vector2(movement.facingCombatDirectionX, movement.facingCombatDirectionY);
+        direction = movement.LastEnemyDirection; //new Vector2(movement.LastEnemyDirection.x, movement.LastEnemyDirection.y);
       ProjectileEventSystem.Instance.RaiseEnemyDirectionSetEvent(this, direction);
     }
 

@@ -19,23 +19,30 @@ public class EnemyMovement : Movement
     // Combat changing is a function in movement that receives to int values for direction x and y
   
 
-    public void EnemyCheckIfShouldFlip(int directionX)
+    public void EnemyCheckIfShouldFlip( Vector2 vector2)
     {
-        if (directionX < 0 && directionX != facingCombatDirectionX)
+        if(CurrentVelocity.x < 0)
         {
-            FlipX();
+            rb.transform.localScale = new Vector3(-1, 1, 1);
+        } 
+        else if(CurrentVelocity.x > 0)
+        {
+            rb.transform.localScale = new Vector3(1, 1, 1);
         }
-
     }
+    
     public void ChangeDirection(float velocity)
     {
         int randomValueX = Random.Range(-1, 2);
         directionX = randomValueX * velocity;
         int RandomValueY = Random.Range(-1, 2);
         directionY = RandomValueY * velocity;
+
         UpdateLastDirection(directionX, directionY);
         workspace.Set(directionX, directionY);
         SetFinalVelocity();
+        EnemyCheckIfShouldFlip(CurrentVelocity);
+
     }
 
     public void ChargePartner(float velocity, Transform CharacterTransform)
@@ -45,6 +52,8 @@ public class EnemyMovement : Movement
             workspace = Vector2.MoveTowards(this.transform.position, CharacterTransform.position, velocity * Time.deltaTime);
             SetFinalVelocity();
             UpdateLastDirection(CurrentVelocity.x, CurrentVelocity.y);
+            EnemyCheckIfShouldFlip(CurrentVelocity);
+
         }
         else
             return;
@@ -67,9 +76,13 @@ public class EnemyMovement : Movement
         UpdateLastDirection(directionX, directionY);
         workspace.Set(directionX, directionY);
         SetFinalVelocity();
+        EnemyCheckIfShouldFlip(CurrentVelocity);
+
     }
     void UpdateLastDirection(float X, float Y)
     {
+        directionX = X;
+        directionY = Y;
         LastEnemyDirection = new Vector2(X, Y);
     }
 

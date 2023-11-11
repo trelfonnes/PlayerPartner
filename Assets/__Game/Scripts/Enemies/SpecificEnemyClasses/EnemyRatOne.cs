@@ -29,6 +29,7 @@ public class EnemyRatOne : Enemy
     protected override void Update()
     {
         base.Update();
+        
     }
     protected override void SetStrategies()
     {
