@@ -43,10 +43,15 @@ public class EnemyWeapon : MonoBehaviour
     {
         Core = core;
     }
-    public void SetData(WeaponDataSO data)
+    public void SetInitialEnemyData(WeaponDataSO data)
+    {
+        weaponData = data;
+    }
+    public void SetNewEnemyData(WeaponDataSO data)
     {
         weaponData = data;
         thisWeaponsAutoGenerator.GenerateWeapon(weaponData); //taking place of the inventory. works via the concrete interface
+
     }
     void Exit()
     {

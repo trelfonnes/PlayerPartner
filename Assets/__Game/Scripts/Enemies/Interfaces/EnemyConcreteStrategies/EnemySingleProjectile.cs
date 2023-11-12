@@ -12,7 +12,7 @@ public class EnemySingleProjectile : IEnemyProjectile
         if(weaponDatas.ContainsKey(data.currentAttack))
         {
             WeaponDataSO attack = weaponDatas[data.currentAttack];
-            weapon.SetData(attack);
+            weapon.SetNewEnemyData(attack);
             weapon.Enter();//what information does it need?
 
         }

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStateMachine : MonoBehaviour
-{
+public class EnemyStateMachine 
+{ 
     public EnemyState CurrentState { get; private set; }
 
     public void Initialize(EnemyState StartingState)
     {
+        CurrentState = StartingState;
+        CurrentState.Enter();
 
     }
     public void ChangeState(EnemyState NewState)

@@ -49,6 +49,8 @@ public class CollisionSenses : CoreComponent
             return hits > 0;
         }
     }
+  
+    
     public bool WallCheckPartner
     {
         get

@@ -64,7 +64,8 @@ public class EnemyMovement : Movement
     }
     public void Patrol()
     {
-        workspace.Set(LastEnemyDirection.x, LastEnemyDirection.y);
+        Vector2 patrolDirection = new Vector2(LastEnemyDirection.x, LastEnemyDirection.y).normalized;
+        workspace.Set(patrolDirection.x, patrolDirection.y);
         SetFinalVelocity();
     }
     public void Flee(float velocity)

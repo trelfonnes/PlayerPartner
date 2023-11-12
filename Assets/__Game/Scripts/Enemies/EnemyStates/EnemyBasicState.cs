@@ -23,7 +23,7 @@ public class EnemyBasicState : EnemyState
     public override void DoChecks()
     {
         base.DoChecks();
-        isTouchingWall = CollisionSenses.WallCheck;
+        isTouchingWall = CollisionSenses.EnemyWallCheck;
         isTouchingGround = CollisionSenses.GroundCheck;
         isPlayerDetected = CollisionSenses.PlayerCheck;
         isPartnerDetected = CollisionSenses.PartnerCheck;
