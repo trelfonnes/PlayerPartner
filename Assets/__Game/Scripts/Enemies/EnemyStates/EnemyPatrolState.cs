@@ -47,6 +47,7 @@ public class EnemyPatrolState : EnemyBasicState
         Movement?.Patrol();
         if (Movement.CurrentVelocity != Vector2.zero)
         {
+            enemy.enemyDirection = Movement.CurrentVelocity;
             enemy.anim.SetFloat("moveY", Movement.LastEnemyDirection.y);
             enemy.anim.SetFloat("moveX", Movement.LastEnemyDirection.x);
 
@@ -56,15 +57,17 @@ public class EnemyPatrolState : EnemyBasicState
             isPatrolTimeOver = true;
         }
 
-        if (isPlayerDetected || isPartnerDetected)
+        if (isPlayerDetected)
         {
-            ESM.ChangeState(enemy.PlayerDetectedState); 
+            ESM.ChangeState(enemy.PlayerDetectedState);
         }
         
        
         if (isTouchingWall)
         {
             Movement?.ChangeDirection(enemySoData.patrolSpeed);
+            ESM.ChangeState(enemy.IdleState);
+
         }
         else if (isPatrolTimeOver) //cycle between patrol and Idle
         {

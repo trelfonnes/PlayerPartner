@@ -161,7 +161,6 @@ public abstract class WeaponComponent : MonoBehaviour
         }
         if(enemyWeapon != null)
         {
-            Debug.Log(enemyWeapon.weaponData + "WeaponData");
             dataEnemy = enemyWeapon.weaponData.GetData<T1>();
         }
     }

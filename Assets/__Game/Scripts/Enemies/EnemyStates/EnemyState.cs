@@ -21,6 +21,7 @@ public class EnemyState
         this.enemy = enemy;
         this.ESM = ESM;
         this.enemySoData = enemySoData;
+        this.animBoolName = animBoolName;
         core = enemy.core;
     }
     public virtual void Enter()

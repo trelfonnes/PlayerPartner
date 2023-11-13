@@ -8,7 +8,7 @@ public class EnemyBasicState : EnemyState
     protected bool isTouchingGround;
     protected bool canExitState;
     protected bool isPlayerDetected;
-    protected bool isPartnerDetected;
+   // protected bool isPartnerDetected;
     protected bool useRangedAttack;
     protected bool useMeleeAttack;
     protected bool inSightCircle;
@@ -26,7 +26,7 @@ public class EnemyBasicState : EnemyState
         isTouchingWall = CollisionSenses.EnemyWallCheck;
         isTouchingGround = CollisionSenses.GroundCheck;
         isPlayerDetected = CollisionSenses.PlayerCheck;
-        isPartnerDetected = CollisionSenses.PartnerCheck;
+       // isPartnerDetected = CollisionSenses.PartnerCheck;
         useRangedAttack = CollisionSenses.RangedAttackCheck;
         useMeleeAttack = CollisionSenses.MeleeAttackCheck;
         inSightCircle = CollisionSenses.SightCircle;

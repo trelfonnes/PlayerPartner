@@ -39,6 +39,8 @@ public class Enemy : MonoBehaviour
     {
         StateMachine = new EnemyStateMachine();
         core = GetComponentInChildren<CoreHandler>();
+        anim = GetComponent<Animator>();
+
         blackboard["EnemyData"] = enemySOData;
         meleeWeapon = transform.Find("MeleeAttack").GetComponent<EnemyWeapon>();
         projectileWeapon = transform.Find("ProjectileAttack").GetComponent<EnemyWeapon>();
@@ -55,8 +57,8 @@ public class Enemy : MonoBehaviour
         PlayerDetectedState = new EnemyPlayerDetectedState(this, StateMachine, enemySOData, "playerDetected");
 
         //Pass in the matching weapon script for the attack game object
-        MeleeState = new EnemyMeleeAttackState(this, StateMachine, enemySOData, "melee", meleeWeapon, meleeStrategy, MeleeWeaponDatas);
-        ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, "projectile", projectileWeapon, projectileStrategy, ProjectileWeaponDatas);
+        MeleeState = new EnemyMeleeAttackState(this, StateMachine, enemySOData, "attack", meleeWeapon, meleeStrategy, MeleeWeaponDatas);
+        ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, "attack", projectileWeapon, projectileStrategy, ProjectileWeaponDatas);
 
     }
 
@@ -67,7 +69,6 @@ public class Enemy : MonoBehaviour
     }
     protected virtual void Start()
     {
-        anim = GetComponent<Animator>();
         StateMachine.Initialize(PatrolState);
         
     }
@@ -89,21 +90,30 @@ public class Enemy : MonoBehaviour
             int key = GetNextMeleeKey(); // Get a unique key before setting it to key
             MeleeWeaponDatas[key] = weaponData;
         }
+        foreach (var kvp in MeleeWeaponDatas)
+        {
+            Debug.Log($"Key: {kvp.Key}, WeaponData: {kvp.Value}");
+        }
     }
     protected void SetProjectileWeaponDatas(List<WeaponDataSO> weaponDatas)
     {
-        MeleeWeaponDatas.Clear(); // Clear the existing data in WeaponDatas
+        ProjectileWeaponDatas.Clear(); // Clear the existing data in WeaponDatas
 
         foreach (WeaponDataSO weaponData in weaponDatas)
         {
             int key = GetNextProjectileKey(); // Get a unique key before setting it to key
             ProjectileWeaponDatas[key] = weaponData;
         }
+        foreach (var kvp in ProjectileWeaponDatas)
+        {
+            Debug.Log($"Key: {kvp.Key}, WeaponData: {kvp.Value}");
+        }
     }
     private int GetNextMeleeKey()
     {
         return nextMeleeKey++; // Return the current key and increment for the next use
-    } 
+
+    }
     private int GetNextProjectileKey()
     {
         return nextProjectileKey++; // Return the current key and increment for the next use

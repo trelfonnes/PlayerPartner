@@ -71,7 +71,6 @@ public class WeaponAutoGenerator : MonoBehaviour
                 weaponComponent = gameObject.AddComponent(dependency) as WeaponComponent; // cast here
 
             }
-            Debug.Log(weaponComponent + "This IS THE WEAPON COMPONENT");
             weaponComponent.Init();
 
             componentAddedToWeapon.Add(weaponComponent); //finally add the weapon to the list!

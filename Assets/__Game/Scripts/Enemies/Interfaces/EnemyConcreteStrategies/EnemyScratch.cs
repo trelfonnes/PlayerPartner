@@ -6,9 +6,9 @@ public class EnemyScratch : IEnemyMelee
 {
     public void Attack(EnemyWeapon weapon, EnemySOData data, Dictionary<int, WeaponDataSO> weaponDatas)
     {
-        if (weaponDatas.ContainsKey(data.currentAttack))
+        if (weaponDatas.ContainsKey(data.currentMeleeAttack))
         {
-            WeaponDataSO attack = weaponDatas[data.currentAttack];
+            WeaponDataSO attack = weaponDatas[data.currentMeleeAttack];
             weapon.SetNewEnemyData(attack);
             weapon.Enter();//what information does it need?
 

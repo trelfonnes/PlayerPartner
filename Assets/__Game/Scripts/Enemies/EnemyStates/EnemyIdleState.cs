@@ -49,8 +49,9 @@ public class EnemyIdleState : EnemyBasicState
             isIdleTimeOver = true;
         }
         
-        if(isPlayerDetected || isPartnerDetected)
+        if(isPlayerDetected)
         {
+            Debug.Log("ENEMY detected Player/Partner In idle State");
             ESM.ChangeState(enemy.PlayerDetectedState);
         }
         else if (isIdleTimeOver)

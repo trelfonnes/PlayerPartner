@@ -23,4 +23,5 @@ MonoBehaviour:
   maxPatrolTime: 4
   minPatrolTime: 1
   timeBetweenAttacks: 0.5
-  currentAttack: 1
+  currentProjectileAttack: 0
+  currentMeleeAttack: 0

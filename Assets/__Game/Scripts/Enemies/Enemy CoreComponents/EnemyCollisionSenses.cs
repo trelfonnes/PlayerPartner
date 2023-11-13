@@ -32,23 +32,49 @@ public class EnemyCollisionSenses : CollisionSenses
 
     public bool PartnerCheck
     {
-        get => Physics2D.Raycast(collisionsCheckPoint.position, enemy.enemyDirection, collisionCheckDistance, whatIsPartner);
+        get
+        {
+            RaycastHit2D[] results = new RaycastHit2D[50];
+            int count = Physics2D.RaycastNonAlloc(collisionsCheckPoint.position, enemy.enemyDirection, results, collisionCheckDistance, whatIsPartner);
+            return count > 0;
 
+        }
     }   
     public bool PlayerCheck
     {
-        get => Physics2D.Raycast(collisionsCheckPoint.position, enemy.enemyDirection, collisionCheckDistance, whatIsPlayer);
+        get
+        {
+            int playerAndPartnerLayerMask = whatIsPartner | whatIsPlayer;
 
+            RaycastHit2D[] results = new RaycastHit2D[50];
+            int hits = Physics2D.RaycastNonAlloc(collisionsCheckPoint.position, enemy.enemyDirection, results, collisionCheckDistance, playerAndPartnerLayerMask);
+            return hits > 0;
+
+        }
     }
     public bool RangedAttackCheck
     {
-        get => Physics2D.Raycast(collisionsCheckPoint.position, enemy.enemyDirection, RangeAttkCheckDistance, whatIsPlayer, whatIsPartner);
+        get
+        {
+            int playerAndPartnerLayerMask = whatIsPartner | whatIsPlayer;
 
+            RaycastHit2D[] results = new RaycastHit2D[50];
+            int hits = Physics2D.RaycastNonAlloc(collisionsCheckPoint.position, enemy.enemyDirection, results, RangeAttkCheckDistance, playerAndPartnerLayerMask);
+            return hits > 0;
+
+        }
     }  
     public bool MeleeAttackCheck
     {
-        get => Physics2D.Raycast(collisionsCheckPoint.position, enemy.enemyDirection, MeleeAttkCheckDistance, whatIsPlayer, whatIsPartner);
+        get
+        {
+            int playerAndPartnerLayerMask = whatIsPartner | whatIsPlayer;
 
+            RaycastHit2D[] results = new RaycastHit2D[50];
+            int hits = Physics2D.RaycastNonAlloc(collisionsCheckPoint.position, enemy.enemyDirection, results, MeleeAttkCheckDistance, playerAndPartnerLayerMask);
+            return hits > 0;
+
+        }
     }
     public bool SightCircle
     {

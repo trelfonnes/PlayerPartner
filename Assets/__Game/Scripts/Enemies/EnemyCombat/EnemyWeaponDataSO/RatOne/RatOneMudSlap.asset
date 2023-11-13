@@ -21,7 +21,7 @@ MonoBehaviour:
   secondaryType: 0
   primaryType: 2
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 9de8d520d83aa5f4ab92e3a7d5cc6332, type: 2}
-  <NumberOfAttacks>k__BackingField: 0
+  <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
   - rid: 139479916541116420
   <AttackType>k__BackingField: 4
@@ -32,4 +32,7 @@ MonoBehaviour:
       type: {class: ProjectileData, ns: , asm: Assembly-CSharp}
       data:
         name: ProjectileData
-        attackData: []
+        attackData:
+        - name: Mud Slap
+          <TypeOfProjectile>k__BackingField: 0
+          <SPCost>k__BackingField: 0

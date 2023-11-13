@@ -24,19 +24,25 @@ public class EnemyPlayerDetectedState : EnemyBasicState
     {
         base.LogicUpdate();
         EnemyMovement.SetVelocityZero();
+        Debug.Log(enemy.enemyDirection);
+
         if (useMeleeAttack)
         {
+            Debug.Log("Melee Attack using");
+
             ESM.ChangeState(enemy.MeleeState);
         }
         if(useRangedAttack && !useMeleeAttack)
         {
+            Debug.Log("Ranged Attack using");
             ESM.ChangeState(enemy.ProjectileState);
         }
 
-        if (inSightCircle && !isPlayerDetected && !isPartnerDetected)
+        if (inSightCircle && !isPlayerDetected)
         {
             ESM.ChangeState(enemy.MoveState);
         }
+       
 
     }
 

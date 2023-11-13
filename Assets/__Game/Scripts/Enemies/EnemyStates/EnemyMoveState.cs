@@ -52,7 +52,7 @@ public class EnemyMoveState : EnemyBasicState
             
         }
         
-        if(isPartnerDetected || isPlayerDetected)
+        if(isPlayerDetected)
         {
 
             ESM.ChangeState(enemy.PlayerDetectedState);

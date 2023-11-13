@@ -8,10 +8,10 @@ public class EnemySingleProjectile : IEnemyProjectile
     {
         //weapon.SetData(weaponData);
         //logic for shooting a single projectile
-      
-        if(weaponDatas.ContainsKey(data.currentAttack))
+
+        if(weaponDatas.ContainsKey(data.currentProjectileAttack))
         {
-            WeaponDataSO attack = weaponDatas[data.currentAttack];
+            WeaponDataSO attack = weaponDatas[data.currentProjectileAttack];
             weapon.SetNewEnemyData(attack);
             weapon.Enter();//what information does it need?
 
