@@ -52,19 +52,19 @@ public class EnemyMoveState : EnemyBasicState
             
         }
         
-        if(isPlayerDetected)
+        if(isPlayerPartnerDetected)
         {
 
             ESM.ChangeState(enemy.PlayerDetectedState);
         }
-        else if (inSightCircle)
-        {
+        
             moveStrategy.StartMovement(enemySoData.chargeSpeed, EnemyMovement, EnemyCollisionSenses); //passing in speed and the coreComponent
-        }
+        
         if (!inSightCircle)
         {
             EnemyMovement.SetVelocityZero();
-            ESM.ChangeState(enemy.IdleState);
+
+            ESM.ChangeState(enemy.ThinkState);
             
         }
 

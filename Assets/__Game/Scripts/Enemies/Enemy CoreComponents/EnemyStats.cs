@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyStats : CoreComponent, IHealthChange, IPoiseDamageable
 {
-    EnemySOData enemyData;
+    [SerializeField] EnemySOData enemyData;
     //[SerializeField] EnemyStatEvents statEvents;
     //[SerializeField] EnemyHealthBar healthBar; // if implementing one.
     bool regeneratePoise = false;
@@ -17,8 +17,12 @@ public class EnemyStats : CoreComponent, IHealthChange, IPoiseDamageable
     }
     public void DecreaseHealth(float amount)
     {
-        amount -= enemyData.health;
-        if(enemyData.health <= 0)
+        Debug.Log("Enemy Health " + enemyData.health);
+
+         enemyData.health -= amount;
+        Debug.Log("Enemy Health " + enemyData.health);
+
+        if (enemyData.health <= 0)
         {
             enemyData.health = 0;
             // statEvents.OnHealthZero();

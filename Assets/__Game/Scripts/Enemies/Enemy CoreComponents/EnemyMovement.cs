@@ -21,11 +21,11 @@ public class EnemyMovement : Movement
 
     public void EnemyCheckIfShouldFlip( Vector2 vector2)
     {
-        if(CurrentVelocity.x < 0)
+        if(vector2.x < 0)
         {
             rb.transform.localScale = new Vector3(-1, 1, 1);
         } 
-        else if(CurrentVelocity.x > 0)
+        else if(vector2.x > 0)
         {
             rb.transform.localScale = new Vector3(1, 1, 1);
         }
@@ -49,14 +49,18 @@ public class EnemyMovement : Movement
     {
         if (CharacterTransform != null)
         {
-            workspace = Vector2.MoveTowards(this.transform.position, CharacterTransform.position, velocity * Time.deltaTime);
-            SetFinalVelocity();
-            UpdateLastDirection(CurrentVelocity.x, CurrentVelocity.y);
-            EnemyCheckIfShouldFlip(CurrentVelocity);
+            Vector2 targetPosition = Vector2.MoveTowards(this.transform.position, CharacterTransform.position, velocity * Time.deltaTime);
+            Vector2 direction = (targetPosition - (Vector2)this.transform.position).normalized;
+            enemy.anim.SetFloat("moveX", direction.x);
+            enemy.anim.SetFloat("moveY", direction.y);
+            rb.transform.position = targetPosition;
+            UpdateLastDirection(direction.x, direction.y);
+            EnemyCheckIfShouldFlip(direction);
 
         }
-        else
-            return;
+        else 
+            Debug.LogWarning("CharacterTransform is null in ChargePartner method");
+        return;
     }
     public void Chase(float velocity, Transform characterTransform)
     {

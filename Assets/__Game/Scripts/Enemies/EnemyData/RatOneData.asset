@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   patrolSpeed: 1
-  chargeSpeed: 5
-  lowHealthSpeed: 6
+  chargeSpeed: 2
+  lowHealthSpeed: 2
   poise: 2
   maxPoise: 2
-  maxIdleTime: 3
-  minIdleTime: 1
+  intelligence: 3
+  maxIdleTime: 1.5
+  minIdleTime: 0.5
   maxPatrolTime: 4
   minPatrolTime: 1
   timeBetweenAttacks: 0.5

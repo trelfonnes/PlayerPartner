@@ -42,15 +42,7 @@ public class EnemyAttackState : EnemyBasicState
         base.LogicUpdate();
         if (isAttackDone)
         {
-            
-            if (inSightCircle)
-            {
-                ESM.ChangeState(enemy.MoveState);
-            }
-            else
-            {
-                ESM.ChangeState(enemy.IdleState);
-            }
+                ESM.ChangeState(enemy.ThinkState);
         }
        
         

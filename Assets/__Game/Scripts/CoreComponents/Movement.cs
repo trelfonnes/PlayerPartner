@@ -127,6 +127,7 @@ public class Movement : CoreComponent
         {
             rb.velocity = workspace;
             CurrentVelocity = workspace;
+            
         }
         else
         {

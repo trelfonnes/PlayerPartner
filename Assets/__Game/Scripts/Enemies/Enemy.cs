@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     public EnemyMoveState MoveState { get; private set; }
     public EnemyPatrolState PatrolState { get; private set; }
     public EnemyLowHealthState LowHealthState { get; private set; }
-    
+    public EnemyThinkState ThinkState { get; private set; }
     public EnemyStateMachine StateMachine { get; private set;}
     public IEnemyMove moveStrategy { get; protected set; }
     public IEnemyLowHealth lowHealthStrategy { get; protected set; }
@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
         MoveState = new EnemyMoveState(this, StateMachine, enemySOData, "move", moveStrategy);
         PatrolState = new EnemyPatrolState(this, StateMachine, enemySOData, "patrol");
         LowHealthState = new EnemyLowHealthState(this, StateMachine, enemySOData, "lowHealth", lowHealthStrategy);
-        
+        ThinkState = new EnemyThinkState(this, StateMachine, enemySOData, "think");
          meleeWeapon.SetCore(core);
          projectileWeapon.SetCore(core);
         PlayerDetectedState = new EnemyPlayerDetectedState(this, StateMachine, enemySOData, "playerDetected");

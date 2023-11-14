@@ -32,16 +32,17 @@ public class EnemyPlayerDetectedState : EnemyBasicState
 
             ESM.ChangeState(enemy.MeleeState);
         }
-        if(useRangedAttack && !useMeleeAttack)
+        if (useRangedAttack && !useMeleeAttack)
         {
             Debug.Log("Ranged Attack using");
             ESM.ChangeState(enemy.ProjectileState);
         }
 
-        if (inSightCircle && !isPlayerDetected)
+        else if (inSightCircle && !isPlayerPartnerDetected)
         {
             ESM.ChangeState(enemy.MoveState);
         }
+       
        
 
     }

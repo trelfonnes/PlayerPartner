@@ -57,7 +57,7 @@ public class EnemyPatrolState : EnemyBasicState
             isPatrolTimeOver = true;
         }
 
-        if (isPlayerDetected)
+        if (isPlayerPartnerDetected)
         {
             ESM.ChangeState(enemy.PlayerDetectedState);
         }
