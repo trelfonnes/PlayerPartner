@@ -39,11 +39,11 @@ public class EnemyState
     }
     public virtual void LogicUpdate()
     {
-
+        DoChecks();
     }
     public virtual void PhysicsUpdate()
     {
-        DoChecks();
+       // DoChecks();
     }
     public virtual void DoChecks()
     {

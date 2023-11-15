@@ -17,8 +17,9 @@ public class EnemyMeleeAttackState : EnemyAttackState
     }
     void ExitHandler()
     {
-        AnimationFinishTrigger();
         isAttackDone = true;
+        AnimationFinishTrigger();
+
     }
     public override void AnimationFinishTrigger()
     {
@@ -38,6 +39,8 @@ public class EnemyMeleeAttackState : EnemyAttackState
     public override void Enter()
     {
         base.Enter();
+        meleeStrategy.Attack(weapon, enemySoData, weaponDatas);//now it can communicate with weapon game object and pass any needed data.
+
     }
 
     public override void Exit()
@@ -50,8 +53,7 @@ public class EnemyMeleeAttackState : EnemyAttackState
         base.LogicUpdate();
 
         //might need to do this from enter??
-        if(!isAttackDone)
-        meleeStrategy.Attack(weapon, enemySoData, weaponDatas);//now it can communicate with weapon game object and pass any needed data.
+        //if(!isAttackDone)
           
         
     }

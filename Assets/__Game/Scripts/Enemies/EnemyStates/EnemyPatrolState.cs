@@ -66,7 +66,7 @@ public class EnemyPatrolState : EnemyBasicState
         if (isTouchingWall)
         {
             Movement?.ChangeDirection(enemySoData.patrolSpeed);
-            ESM.ChangeState(enemy.IdleState);
+          //  ESM.ChangeState(enemy.IdleState);
 
         }
         else if (isPatrolTimeOver) //cycle between patrol and Idle

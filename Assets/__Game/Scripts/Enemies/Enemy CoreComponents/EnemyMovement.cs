@@ -53,6 +53,7 @@ public class EnemyMovement : Movement
             Vector2 direction = (targetPosition - (Vector2)this.transform.position).normalized;
             enemy.anim.SetFloat("moveX", direction.x);
             enemy.anim.SetFloat("moveY", direction.y);
+            enemy.enemyDirection = direction;
             rb.transform.position = targetPosition;
             UpdateLastDirection(direction.x, direction.y);
             EnemyCheckIfShouldFlip(direction);

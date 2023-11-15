@@ -16,8 +16,8 @@ public class EnemyProjectileAttackState : EnemyAttackState
     }
     void ExitHandler()
     {
-        AnimationFinishTrigger();
         isAttackDone = true;
+        AnimationFinishTrigger();
     }
     public override void AnimationFinishTrigger()
     {
@@ -37,7 +37,8 @@ public class EnemyProjectileAttackState : EnemyAttackState
     public override void Enter()
     {
         base.Enter();
-        
+        projectileStrategy.ShootProjectile(weapon, enemySoData, weaponDatas);//now it can communicate with weapon game object and pass any needed data.
+
     }
 
     public override void Exit()
@@ -49,8 +50,7 @@ public class EnemyProjectileAttackState : EnemyAttackState
     {
         base.LogicUpdate();
         //might need to do this from enter?? //call weapon.enter from concrete strategy
-        if(!isAttackDone)
-            projectileStrategy.ShootProjectile(weapon, enemySoData, weaponDatas);//now it can communicate with weapon game object and pass any needed data.
+       // if(!isAttackDone)
 
        
     }

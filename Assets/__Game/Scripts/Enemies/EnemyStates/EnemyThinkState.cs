@@ -23,8 +23,17 @@ public class EnemyThinkState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if(Time.time - startTime >= thinkTime)
+        if (Time.time - startTime >= thinkTime * .5f)
         {
+            if (inSightCircle)
+            {
+                ESM.ChangeState(enemy.MoveState);
+            }
+        }
+        if (Time.time - startTime >= thinkTime)
+        {
+           
+
             ESM.ChangeState(enemy.IdleState);
         }
     }

@@ -13,6 +13,7 @@ public class EnemyPlayerDetectedState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Entered PLayerDetectedState");
     }
 
     public override void Exit()
@@ -24,25 +25,26 @@ public class EnemyPlayerDetectedState : EnemyBasicState
     {
         base.LogicUpdate();
         EnemyMovement.SetVelocityZero();
-        Debug.Log(enemy.enemyDirection);
+        Debug.Log(useMeleeAttack + "Melee bool");
+        Debug.Log(useRangedAttack + "projectile bool");
+        Debug.Log(inSightCircle + "sightcircle bool");
 
-        if (useMeleeAttack)
+       if (useMeleeAttack)
         {
-            Debug.Log("Melee Attack using");
 
             ESM.ChangeState(enemy.MeleeState);
         }
-        if (useRangedAttack && !useMeleeAttack)
+      else if (useRangedAttack && !useMeleeAttack)
         {
-            Debug.Log("Ranged Attack using");
             ESM.ChangeState(enemy.ProjectileState);
         }
 
-        else if (inSightCircle && !isPlayerPartnerDetected)
-        {
-            ESM.ChangeState(enemy.MoveState);
+        
+        else
+       {
+       //     Debug.Log("going straight to think state");
+           ESM.ChangeState(enemy.ThinkState);
         }
-       
        
 
     }

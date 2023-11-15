@@ -34,6 +34,7 @@ public class EnemyWeapon : MonoBehaviour
     }
     public void Enter()
     {
+        Debug.Log("Enter weapon Set anim to True");
         anim.SetBool("active", true);
         anim.SetFloat("moveX", enemy.enemyDirection.x); //might need to store "latest direction" like I did with player
         anim.SetFloat("moveY", enemy.enemyDirection.y);
@@ -55,6 +56,8 @@ public class EnemyWeapon : MonoBehaviour
     }
     void Exit()
     {
+        Debug.Log("Exit weapon Set anim to false");
+
         anim.SetBool("active", false);
         onExit.Invoke();
     }

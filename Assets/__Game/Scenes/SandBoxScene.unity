@@ -504,7 +504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99534210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -536,11 +536,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   characterCheckDistance: 4
-  RangeAttkCheckDistance: 4
-  MeleeAttkCheckDistance: 1
-  CharacterCheckRadius: 8
+  characterCheckRadius: 6
   projAndOverallFOVDistance: 4
-  meleeFOVDistance: 3
+  meleeFOVDistance: 1.5
   fieldOfViewAngle: 45
   whatIsPartner:
     serializedVersion: 2
@@ -6540,7 +6538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781158277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17125,7 +17123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759324780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22896,10 +22894,6 @@ PrefabInstance:
       propertyPath: SPDisplay
       value: 
       objectReference: {fileID: 5}
-    - target: {fileID: 7366003051328502054, guid: e59075285719fb1469c9501c19ad3641, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: 75c455d94e8600f4685232fbb90782b2, type: 2}
     - target: {fileID: 7472095014903256249, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: conditionDisplay
       value: 

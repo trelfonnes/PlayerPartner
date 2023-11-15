@@ -35,6 +35,8 @@ public class EnemyMoveState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Entered PLayerMoveState");
+
     }
 
     public override void Exit()
@@ -45,7 +47,9 @@ public class EnemyMoveState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if(EnemyMovement.CurrentVelocity != Vector2.zero)
+        moveStrategy.StartMovement(enemySoData.chargeSpeed, EnemyMovement, EnemyCollisionSenses); //passing in speed and the coreComponent
+
+        if (EnemyMovement.CurrentVelocity != Vector2.zero)
         {
             enemy.anim.SetFloat("moveY", EnemyMovement.LastEnemyDirection.y);
             enemy.anim.SetFloat("moveX", EnemyMovement.LastEnemyDirection.x);
@@ -58,9 +62,8 @@ public class EnemyMoveState : EnemyBasicState
             ESM.ChangeState(enemy.PlayerDetectedState);
         }
         
-            moveStrategy.StartMovement(enemySoData.chargeSpeed, EnemyMovement, EnemyCollisionSenses); //passing in speed and the coreComponent
         
-        if (!inSightCircle)
+       else if (!inSightCircle)
         {
             EnemyMovement.SetVelocityZero();
 

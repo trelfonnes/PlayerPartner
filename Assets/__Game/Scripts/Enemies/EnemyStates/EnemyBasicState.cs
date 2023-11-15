@@ -24,10 +24,10 @@ public class EnemyBasicState : EnemyState
         base.DoChecks();
         isTouchingWall = CollisionSenses.EnemyWallCheck;
         isTouchingGround = CollisionSenses.GroundCheck;
-        isPlayerPartnerDetected = CollisionSenses.inProjectileFOV;
-        useRangedAttack = CollisionSenses.inProjectileFOV;
-        useMeleeAttack = CollisionSenses.inMeleeFOV;
-        inSightCircle = CollisionSenses.SightCircle;
+        isPlayerPartnerDetected = CollisionSenses.IsPlayerInFieldOfView;
+        useRangedAttack = CollisionSenses.IsPlayerInFieldOfView;
+        useMeleeAttack = CollisionSenses.IsPlayerInCloseRangeFieldOfView;
+        inSightCircle = CollisionSenses.InDetectionCircle;
     }
 
     public override void Enter()

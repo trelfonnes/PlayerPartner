@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 415934357402341011}
   - component: {fileID: 8902732269619792106}
   - component: {fileID: 484200921}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: Combat to hold knockbackreceiver and damagereceiver scripts with same collider
   m_TagString: Partner
   m_Icon: {fileID: 0}
@@ -1114,6 +1114,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  defensiveType: 0
   heartDisplayUI: {fileID: 0}
 --- !u!1 &8628484195028216845
 GameObject:
@@ -1448,7 +1449,7 @@ PrefabInstance:
     - target: {fileID: 8357434848059745963, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 91e8d0f28f3c29c4a91ffea532176135, type: 2}
+      objectReference: {fileID: 11400000, guid: 75c455d94e8600f4685232fbb90782b2, type: 2}
     m_RemovedComponents:
     - {fileID: 2091487698614593328, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
