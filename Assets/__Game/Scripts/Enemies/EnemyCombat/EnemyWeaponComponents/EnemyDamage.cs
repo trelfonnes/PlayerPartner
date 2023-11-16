@@ -14,8 +14,7 @@ public class EnemyDamage : WeaponComponent<DamageData, AttackDamage>
             {
                 if (!item.CompareTag("Enemy"))
                 {
-                    Debug.Log(item.transform.name);
-                    Debug.Log("Damage from enemy" + currentAttackDataEnemy.Amount + currentAttackDataEnemy.AttackType);
+                    
                     damageable.Damage(currentAttackDataEnemy.Amount, currentAttackDataEnemy.AttackType);
                 }
             }

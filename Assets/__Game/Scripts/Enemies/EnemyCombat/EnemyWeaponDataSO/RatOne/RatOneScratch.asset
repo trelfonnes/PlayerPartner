@@ -111,7 +111,7 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 4
+          <Strength>k__BackingField: 5
     - rid: 139479916541116419
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
       data:

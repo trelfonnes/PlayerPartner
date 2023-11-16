@@ -10,9 +10,12 @@ public class EnemyPoiseDamage : WeaponComponent<PoiseDamageData, AttackPoiseDama
     {
         foreach(var item in colliders)
         {
-            if(item.TryGetComponent(out IPoiseDamageable poiseDamageable))
+            if (item.TryGetComponent(out IPoiseDamageable poiseDamageable))
             {
-                poiseDamageable.DamagePoise(currentAttackDataEnemy.amount);
+                if (!item.CompareTag("Enemy"))
+                {
+                    poiseDamageable.DamagePoise(currentAttackDataEnemy.amount);
+                }
             }
 
         }

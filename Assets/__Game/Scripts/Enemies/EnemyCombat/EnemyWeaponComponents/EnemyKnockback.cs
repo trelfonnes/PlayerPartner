@@ -13,8 +13,11 @@ public class EnemyKnockback : WeaponComponent<KnockBackData, AttackKnockBack>
         {
             if (item.TryGetComponent(out IKnockBackable knockBackable))
             {
+                if (!item.CompareTag("Enemy"))
+                {
+                    knockBackable.KnockBack(currentAttackDataEnemy.Angle, currentAttackDataEnemy.Strength, (int)movement.LastEnemyDirection.x, (int)movement.LastEnemyDirection.y);
+                }
                
-                //TODO: pass in movement data for direction of knockback    knockBackable.KnockBack();
                 
             }
         }

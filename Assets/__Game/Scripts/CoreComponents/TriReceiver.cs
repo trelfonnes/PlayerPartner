@@ -7,7 +7,7 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
   //  [SerializeField] GameObject damageParticles; //particles or vfx for when taking damage
   //  [SerializeField] GameObject stunnedParticles;
 
-    [SerializeField] float maxKnockBackTime = .2f;
+    public float maxKnockBackTime = .2f;
     float KnockBackStartTime;
     bool isKnockBackActive;
 
