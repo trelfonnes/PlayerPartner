@@ -35,9 +35,10 @@ public class EnemyWeapon : MonoBehaviour
     public void Enter()
     {
         Debug.Log("Enter weapon Set anim to True");
+        Vector2 roundedDirection = CalculateRoundedDirection();
         anim.SetBool("active", true);
-        anim.SetFloat("moveX", enemy.enemyDirection.x); //might need to store "latest direction" like I did with player
-        anim.SetFloat("moveY", enemy.enemyDirection.y);
+        anim.SetFloat("moveX", roundedDirection.x); //might need to store "latest direction" like I did with player
+        anim.SetFloat("moveY", roundedDirection.y);
         onEnter?.Invoke();
     }
     public void SetCore(CoreHandler core)
@@ -69,5 +70,11 @@ public class EnemyWeapon : MonoBehaviour
     private void OnDisable()
     {
         EventHandler.OnFinish -= Exit;
+    }
+
+Vector2 CalculateRoundedDirection()
+    {
+        Vector2 roundedDirection = new Vector2(Mathf.Round(enemy.enemyDirection.x), Mathf.Round(enemy.enemyDirection.y));
+        return roundedDirection;
     }
 }

@@ -10,9 +10,14 @@ public class EnemyDamage : WeaponComponent<DamageData, AttackDamage>
     {
         foreach (var item in colliders)
         {
-            if(item.TryGetComponent(out IDamageable damageable))
+            if (item.TryGetComponent(out IDamageable damageable))
             {
-                damageable.Damage(currentAttackDataEnemy.Amount, currentAttackDataEnemy.AttackType);
+                if (!item.CompareTag("Enemy"))
+                {
+                    Debug.Log(item.transform.name);
+                    Debug.Log("Damage from enemy" + currentAttackDataEnemy.Amount + currentAttackDataEnemy.AttackType);
+                    damageable.Damage(currentAttackDataEnemy.Amount, currentAttackDataEnemy.AttackType);
+                }
             }
 
         }

@@ -49,12 +49,12 @@ public class EnemyMoveState : EnemyBasicState
         base.LogicUpdate();
         moveStrategy.StartMovement(enemySoData.chargeSpeed, EnemyMovement, EnemyCollisionSenses); //passing in speed and the coreComponent
 
-        if (EnemyMovement.CurrentVelocity != Vector2.zero)
-        {
-            enemy.anim.SetFloat("moveY", EnemyMovement.LastEnemyDirection.y);
-            enemy.anim.SetFloat("moveX", EnemyMovement.LastEnemyDirection.x);
+        //if (EnemyMovement.CurrentVelocity != Vector2.zero) This Is set inside the function called by the concrete strategy.
+       // {
+        //    enemy.anim.SetFloat("moveY", EnemyMovement.LastEnemyDirection.y);
+         //   enemy.anim.SetFloat("moveX", EnemyMovement.LastEnemyDirection.x);
             
-        }
+       // }
         
         if(isPlayerPartnerDetected)
         {

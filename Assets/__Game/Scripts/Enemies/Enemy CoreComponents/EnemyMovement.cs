@@ -51,11 +51,12 @@ public class EnemyMovement : Movement
         {
             Vector2 targetPosition = Vector2.MoveTowards(this.transform.position, CharacterTransform.position, velocity * Time.deltaTime);
             Vector2 direction = (targetPosition - (Vector2)this.transform.position).normalized;
-            enemy.anim.SetFloat("moveX", direction.x);
-            enemy.anim.SetFloat("moveY", direction.y);
-            enemy.enemyDirection = direction;
+            Vector2 roundedDirection = new Vector2(Mathf.Round(direction.x), Mathf.Round(direction.y));
+            enemy.anim.SetFloat("moveX", roundedDirection.x);
+            enemy.anim.SetFloat("moveY", roundedDirection.y);
+            enemy.enemyDirection = roundedDirection;
             rb.transform.position = targetPosition;
-            UpdateLastDirection(direction.x, direction.y);
+            UpdateLastDirection(roundedDirection.x, roundedDirection.y);
             EnemyCheckIfShouldFlip(direction);
 
         }
@@ -71,6 +72,8 @@ public class EnemyMovement : Movement
     {
         Vector2 patrolDirection = new Vector2(LastEnemyDirection.x, LastEnemyDirection.y).normalized;
         workspace.Set(patrolDirection.x, patrolDirection.y);
+        enemy.anim.SetFloat("moveX", patrolDirection.x);
+        enemy.anim.SetFloat("moveY", patrolDirection.y);
         SetFinalVelocity();
     }
     public void Flee(float velocity)

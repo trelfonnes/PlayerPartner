@@ -47,7 +47,34 @@ public class EnemyActionHitBox : WeaponComponent<ActionHitBoxData, AttackActionH
             detected = Physics2D.OverlapBoxAll(offset, currentAttackDataEnemy.HitBoxSouthEast.size, 0f, dataEnemy.DetectableLayers);
 
         }
+        else if (movement.Comp.LastEnemyDirection.x < 0 && movement.Comp.LastEnemyDirection.y == 0)
+        {
+            //West but use Hitbox East because of Flip in movement core
 
+            offset.Set(transform.position.x + (currentAttackDataEnemy.HitBoxEast.center.x * movement.Comp.LastEnemyDirection.x),
+            transform.position.y + currentAttackDataEnemy.HitBoxEast.center.y);
+            detected = Physics2D.OverlapBoxAll(offset, currentAttackDataEnemy.HitBoxEast.size, 0f, dataEnemy.DetectableLayers);
+
+        }
+        else if (movement.Comp.LastEnemyDirection.y < 0 && movement.Comp.LastEnemyDirection.x < 0)
+        {
+            //draw diagonl down left south west
+
+
+            offset.Set(transform.position.x + (currentAttackDataEnemy.HitBoxSouthEast.center.x * movement.Comp.LastEnemyDirection.x),
+            transform.position.y + currentAttackDataEnemy.HitBoxSouthEast.center.y);
+            detected = Physics2D.OverlapBoxAll(offset, currentAttackDataEnemy.HitBoxSouthEast.size, 0f, dataEnemy.DetectableLayers);
+
+        }
+        else if (movement.Comp.LastEnemyDirection.y > 0 && movement.Comp.LastEnemyDirection.x < 0)
+        {
+            // up left North west
+            Debug.Log("northwest");
+            offset.Set(transform.position.x + (currentAttackDataEnemy.HitBoxNorthEast.center.x * movement.Comp.LastEnemyDirection.x),
+          transform.position.y + currentAttackDataEnemy.HitBoxNorthEast.center.y);
+            detected = Physics2D.OverlapBoxAll(offset, currentAttackDataEnemy.HitBoxNorthEast.size, 0f, dataEnemy.DetectableLayers);
+
+        }
         if (detected.Length == 0)
             return;
         OnDetectedCollider2D?.Invoke(detected);

@@ -18,7 +18,11 @@ public class AnimationEventHandler : MonoBehaviour
     void AnimationFinishedTrigger() => OnFinish?.Invoke();
     void StartMovementTrigger() => OnStartMovement?.Invoke();
     void StopMovementTrigger() => OnStopMovement?.Invoke();
-    void AttackActionTrigger() => OnAttackAction?.Invoke();
+    void AttackActionTrigger()
+    {
+        Debug.Log("AttackAnimTrigger");
+        OnAttackAction?.Invoke();
+    }
     void MinHoldPassTrigger() => OnMinHoldPassed?.Invoke();
     void ShootProjectileTrigger()
     {

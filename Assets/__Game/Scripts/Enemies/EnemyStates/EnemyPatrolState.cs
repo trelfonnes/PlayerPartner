@@ -48,8 +48,7 @@ public class EnemyPatrolState : EnemyBasicState
         if (Movement.CurrentVelocity != Vector2.zero)
         {
             enemy.enemyDirection = Movement.CurrentVelocity;
-            enemy.anim.SetFloat("moveY", Movement.LastEnemyDirection.y);
-            enemy.anim.SetFloat("moveX", Movement.LastEnemyDirection.x);
+           
 
         }
         if (Time.time >= startTime + patrolTime)

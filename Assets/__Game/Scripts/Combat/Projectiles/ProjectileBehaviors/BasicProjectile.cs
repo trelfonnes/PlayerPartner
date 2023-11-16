@@ -15,6 +15,8 @@ public class BasicProjectile : MonoBehaviour
     [SerializeField] float activeTime = 2.5f;  //how far it travels
     float timeToSpriteSwitch = .1f; 
     bool hasBeenShot;
+    bool partnerProjectile;
+    bool enemyProjectile;
     [SerializeField] AttackType attackType;
 
     Vector2 normalizedDirection;
@@ -29,6 +31,8 @@ public class BasicProjectile : MonoBehaviour
     {
         if (!hasBeenShot)
         {
+            enemyProjectile = false;
+            partnerProjectile = true;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             rb.transform.position = component.transform.position;
@@ -40,6 +44,26 @@ public class BasicProjectile : MonoBehaviour
             StartCoroutine(SwitchSpriteRoutine());
             StartCoroutine(DeactivateAfterTime());
         
+        }
+
+
+    }
+    void EnemyShoot(EnemyProjectile component, Vector2 direction)
+    {
+        if (!hasBeenShot)
+        {
+            enemyProjectile = true;
+            partnerProjectile = false;
+            float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+            rb.transform.position = component.transform.position;
+            transform.rotation = rotation;
+            normalizedDirection = direction.normalized;
+
+            rb.velocity = normalizedDirection * velocity;
+            hasBeenShot = true;
+            StartCoroutine(SwitchSpriteRoutine());
+            StartCoroutine(DeactivateAfterTime());
         }
     }
     IEnumerator SwitchSpriteRoutine()
@@ -64,37 +88,63 @@ public class BasicProjectile : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Enemy"))
+  private void OnTriggerEnter2D(Collider2D collision)
+{
+        if(partnerProjectile && collision.CompareTag("Enemy"))
         {
-            //TODO: add logic for damage and knockback and poise. 
-            if (collision.TryGetComponent(out IDamageable damageable))
-            {
-                damageable.Damage(damage, attackType);
-            }
-            if(collision.TryGetComponent(out IKnockBackable knockBackable))
-            {
-                knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
-            }
-            if(collision.TryGetComponent(out IPoiseDamageable poise))
-            {
-                poise.DamagePoise(poiseDamage);
-            }
-            hasBeenShot = false;
-            gameObject.SetActive(false);
+            TakeCareOfCollision(collision);
+        }
+
+        if (enemyProjectile && collision.CompareTag("Partner") || enemyProjectile && collision.CompareTag("Player"))
+    {
+            TakeCareOfCollision(collision);
+    }
+    
+}
+    void TakeCareOfCollision(Collider2D collision)
+    {
+        ApplyDamage(collision);
+        ApplyKnockback(collision);
+        ApplyPoiseDamage(collision);
+
+        hasBeenShot = false;
+        gameObject.SetActive(false);
+    }
+    private void ApplyDamage(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IDamageable damageable))
+        {
+            damageable.Damage(damage, attackType);
         }
     }
 
-    private void OnEnable()
+    private void ApplyKnockback(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IKnockBackable knockBackable))
+        {
+            knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
+        }
+    }
+
+    private void ApplyPoiseDamage(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IPoiseDamageable poise))
+        {
+            poise.DamagePoise(poiseDamage);
+        }
+    }
+    private void OnEnable()//subscribe so same prefab can be used for both enemy and partner
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet += Shoot;
+        ProjectileEventSystem.Instance.OnEnemyDirectionSet += EnemyShoot;
     }
 
 
     private void OnDisable()
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet -= Shoot;
+        ProjectileEventSystem.Instance.OnEnemyDirectionSet -= EnemyShoot;
+
     }
 
 }

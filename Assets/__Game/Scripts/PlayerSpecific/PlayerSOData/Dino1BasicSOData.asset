@@ -21,13 +21,13 @@ MonoBehaviour:
   followSpeed: 4.5
   MaxHealth: 4
   HealthLimit: 7
-  SP: 0
+  SP: 20
   MaxSP: 20
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
-  MaxStamina: 50
+  MaxStamina: 55
   StaminaLimit: 60
-  Poise: 30
+  Poise: 21.497335
   MaxPoise: 30
   canJump: 1
   numberOfJumps: 1
@@ -42,3 +42,5 @@ MonoBehaviour:
   stage3: 0
   Bytes: 0
   MaxBytes: 0
+  Keys: 0
+  BossKeys: 0
