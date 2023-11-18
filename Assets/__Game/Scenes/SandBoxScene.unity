@@ -531,7 +531,7 @@ MonoBehaviour:
   groundCheckRadius: 0.3
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 181840
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -4793,6 +4793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: a1ed30aaa86fd324d9fc560145f82736, type: 2}
   defensiveType: 5
+  statEvents: {fileID: 11400000, guid: 2d965b53208f7da429aaebb7bb701d6d, type: 2}
 --- !u!1 &478161458
 GameObject:
   m_ObjectHideFlags: 0
@@ -6187,6 +6188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySOData: {fileID: 11400000, guid: a1ed30aaa86fd324d9fc560145f82736, type: 2}
+  statEvents: {fileID: 11400000, guid: 2d965b53208f7da429aaebb7bb701d6d, type: 2}
   enemyDirection: {x: 0, y: 0}
   meleeWeaponDatas:
   - {fileID: 11400000, guid: dead30ce5c3a6fb4dac1ef9287912122, type: 2}
@@ -21842,6 +21844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Key Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1366056663109551571, guid: f403593ba29265a4c84481de29c7a647, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1366056663109551582, guid: f403593ba29265a4c84481de29c7a647, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -21898,6 +21904,10 @@ PrefabInstance:
     - target: {fileID: 1392386560262231866, guid: a3b150ea912ea234da7e0d9f458bfef2, type: 3}
       propertyPath: m_Name
       value: Boss Key Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392386560262231866, guid: a3b150ea912ea234da7e0d9f458bfef2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1392386560262231871, guid: a3b150ea912ea234da7e0d9f458bfef2, type: 3}
       propertyPath: m_RootOrder

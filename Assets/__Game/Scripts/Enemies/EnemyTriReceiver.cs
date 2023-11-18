@@ -47,7 +47,7 @@ public class EnemyTriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoi
 
     public void KnockBack(Vector2 angle, float strength, int directionX, int directionY)
     {
-        Debug.Log("KNockback applied on " + gameObject.name);
+        movement.Comp?.TurnTowardsAttack(directionX, directionY);
         movement.Comp?.SetKnockBackVelocity(angle, strength, directionX, directionY);
         movement.Comp.CanSetVelocity = false;
         isKnockBackActive = true;

@@ -13,7 +13,6 @@ public class EnemyPlayerDetectedState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered PLayerDetectedState");
     }
 
     public override void Exit()

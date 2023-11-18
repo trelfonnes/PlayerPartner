@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyDefeatedState : EnemyBasicState
+{
+    IEnemyItemSpawn itemSpawnStrategy;
+    float timesEntered = 0;
+    Transform itemSpawnPoint;
+    public EnemyDefeatedState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, IEnemyItemSpawn itemSpawnStrategy, Transform itemSpawnPoint) : base(enemy, ESM, enemySoData, animBoolName)
+    {
+        this.itemSpawnStrategy = itemSpawnStrategy;
+        this.itemSpawnPoint = itemSpawnPoint;
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        itemSpawnStrategy.SpawnItem(itemSpawnPoint);
+        //return to pool and spawn item chance. spawn defeated particles
+       // enemy.gameObject.SetActive(false);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+        Debug.Log("ENEMY DEFEATED, should be set to false");
+
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+    }
+}

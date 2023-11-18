@@ -125,7 +125,7 @@ public class Movement : CoreComponent
     }
     public void SetKnockBackVelocity(Vector2 angle, float strength, int directionX, int directionY)
     {
-        if (!isKnockedback)
+        if (!isKnockedback && this.isActiveAndEnabled)
         {
             isKnockedback = true;
             canReceiveInput = false;

@@ -128,7 +128,6 @@ public class Stamina : Stats, IStaminaChange
         void SubscribeToHourlyTickEvent()
     {
         ClockManager.OnTick += HandleHourlyTick;
-        Debug.Log("onTick subbed");
 
     }
     

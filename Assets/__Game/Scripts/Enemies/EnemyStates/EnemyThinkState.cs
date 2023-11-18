@@ -13,6 +13,7 @@ public class EnemyThinkState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
+
     }
 
     public override void Exit()
@@ -25,10 +26,17 @@ public class EnemyThinkState : EnemyBasicState
         base.LogicUpdate();
         if (Time.time - startTime >= thinkTime * .5f)
         {
-            if (inSightCircle)
+            if (enemySoData.lowHealth && inSightCircle)
+            {
+                Debug.Log("GOING TO LOW HEALTH");
+                ESM.ChangeState(enemy.LowHealthState);
+            }
+           else if (inSightCircle)
             {
                 ESM.ChangeState(enemy.MoveState);
             }
+            
+
         }
         if (Time.time - startTime >= thinkTime)
         {
@@ -42,4 +50,5 @@ public class EnemyThinkState : EnemyBasicState
     {
         base.PhysicsUpdate();
     }
+   
 }

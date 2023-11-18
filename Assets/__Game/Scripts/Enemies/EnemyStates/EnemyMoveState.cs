@@ -35,7 +35,6 @@ public class EnemyMoveState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered PLayerMoveState");
 
     }
 

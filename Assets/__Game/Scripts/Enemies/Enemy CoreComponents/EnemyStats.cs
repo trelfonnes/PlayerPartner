@@ -10,6 +10,8 @@ public class EnemyStats : CoreComponent, IHealthChange, IPoiseDamageable
     bool regeneratePoise = false;
     float poiseRecoveryRate = 2f;
     [SerializeField] public DefensiveType defensiveType;
+    [SerializeField] EnemyStatEvents statEvents;
+    float stunnedTimer = 0;
 
     void UpdateEHealthBar()
     {
@@ -17,17 +19,21 @@ public class EnemyStats : CoreComponent, IHealthChange, IPoiseDamageable
     }
     public void DecreaseHealth(float amount)
     {
-        Debug.Log("Enemy Health " + enemyData.health);
 
          enemyData.health -= amount;
-        Debug.Log("Enemy Health " + enemyData.health);
-
         if (enemyData.health <= 0)
         {
+            statEvents.HealthZero();
             enemyData.health = 0;
             // statEvents.OnHealthZero();
             //TODO: Enemy will need separate tri receiver class
         }
+        else if (enemyData.health <= enemyData.maxHealth * 0.34f)
+        {
+            statEvents.HealthLow();
+        }
+
+        
     }
     public void IncreaseHealth(float amount)
     {
@@ -39,10 +45,12 @@ public class EnemyStats : CoreComponent, IHealthChange, IPoiseDamageable
 
     }
     public void DamagePoise(float amount) 
-    { 
+    {
+        enemyData.poise -= amount;
         if(enemyData.poise <= 0)
         {
-            enemyData.poise = 0;
+            statEvents.PoiseZero();
+            enemyData.poise = enemyData.maxPoise;
             regeneratePoise = true;
             // statEvents.OnPoiseZero(); // This function invokes with SO event
         }
@@ -52,14 +60,17 @@ public class EnemyStats : CoreComponent, IHealthChange, IPoiseDamageable
         base.LogicUpdate();
         if (regeneratePoise)
         {
-            RegeneratePoise();
+            StartStunnedTimer();
         }
     }
-    void RegeneratePoise()
+    void StartStunnedTimer()
     {
-        enemyData.poise = Mathf.Clamp(enemyData.poise + (Time.deltaTime * poiseRecoveryRate), 0, enemyData.maxPoise);
-        if(enemyData.poise == enemyData.maxPoise)
+        stunnedTimer = Mathf.Clamp(stunnedTimer + (Time.deltaTime * poiseRecoveryRate), 0, enemyData.poiseRefillTime);
+        if(stunnedTimer >= enemyData.poiseRefillTime)
         {
+            statEvents.PoiseRefilled();
+            enemyData.poise = enemyData.maxPoise;
+            stunnedTimer = 0;
             regeneratePoise = false;
         }
     }

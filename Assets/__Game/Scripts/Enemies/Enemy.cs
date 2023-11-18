@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     EnemyWeapon meleeWeapon;
     EnemyWeapon projectileWeapon;
+
     
     public EnemyMeleeAttackState MeleeState { get; private set; }
     public EnemyProjectileAttackState ProjectileState { get; private set; }
@@ -19,31 +20,40 @@ public class Enemy : MonoBehaviour
 
     
     public EnemyAttackState AttackState { get; private set; }
+    public EnemyDefeatedState DefeatedState { get; private set; }
     public EnemyIdleState IdleState { get; private set; }
     public EnemyMoveState MoveState { get; private set; }
     public EnemyPatrolState PatrolState { get; private set; }
     public EnemyLowHealthState LowHealthState { get; private set; }
+    public EnemyStunnedState StunnedState { get; private set; }
     public EnemyThinkState ThinkState { get; private set; }
     public EnemyStateMachine StateMachine { get; private set;}
     public IEnemyMove moveStrategy { get; protected set; }
     public IEnemyLowHealth lowHealthStrategy { get; protected set; }
     public IEnemyMelee meleeStrategy { get; protected set; }
     public IEnemyProjectile projectileStrategy { get; protected set; }
+    public IEnemyItemSpawn itemSpawnStrategy { get; protected set; }
     public CoreHandler core { get; private set;}
     public Animator anim { get; private set; }
     public EnemySOData enemySOData;
+    public EnemyStatEvents statEvents;
+
     public Dictionary<string, object> blackboard = new Dictionary<string, object>();
     public Vector2 enemyDirection;
+
+    Transform itemSpawnPoint;
 
     protected virtual void Awake()
     {
         StateMachine = new EnemyStateMachine();
         core = GetComponentInChildren<CoreHandler>();
         anim = GetComponent<Animator>();
+        itemSpawnPoint = GetComponent<Transform>();
 
         blackboard["EnemyData"] = enemySOData;
         meleeWeapon = transform.Find("MeleeAttack").GetComponent<EnemyWeapon>();
         projectileWeapon = transform.Find("ProjectileAttack").GetComponent<EnemyWeapon>();
+        
         //can add blackboard data as needed if alternate from SO data
         // this can be useful for a single place to save enemy data if needed.
         // can be good for counting intervals for respawning etc. 
@@ -52,6 +62,8 @@ public class Enemy : MonoBehaviour
         PatrolState = new EnemyPatrolState(this, StateMachine, enemySOData, "patrol");
         LowHealthState = new EnemyLowHealthState(this, StateMachine, enemySOData, "lowHealth", lowHealthStrategy);
         ThinkState = new EnemyThinkState(this, StateMachine, enemySOData, "think");
+        DefeatedState = new EnemyDefeatedState(this, StateMachine, enemySOData, "defeated", itemSpawnStrategy, itemSpawnPoint);
+        StunnedState = new EnemyStunnedState(this, StateMachine, enemySOData, "stunned");
          meleeWeapon.SetCore(core);
          projectileWeapon.SetCore(core);
         PlayerDetectedState = new EnemyPlayerDetectedState(this, StateMachine, enemySOData, "playerDetected");
@@ -90,10 +102,7 @@ public class Enemy : MonoBehaviour
             int key = GetNextMeleeKey(); // Get a unique key before setting it to key
             MeleeWeaponDatas[key] = weaponData;
         }
-        foreach (var kvp in MeleeWeaponDatas)
-        {
-            Debug.Log($"Key: {kvp.Key}, WeaponData: {kvp.Value}");
-        }
+        
     }
     protected void SetProjectileWeaponDatas(List<WeaponDataSO> weaponDatas)
     {
@@ -104,10 +113,7 @@ public class Enemy : MonoBehaviour
             int key = GetNextProjectileKey(); // Get a unique key before setting it to key
             ProjectileWeaponDatas[key] = weaponData;
         }
-        foreach (var kvp in ProjectileWeaponDatas)
-        {
-            Debug.Log($"Key: {kvp.Key}, WeaponData: {kvp.Value}");
-        }
+        
     }
     private int GetNextMeleeKey()
     {
@@ -117,5 +123,9 @@ public class Enemy : MonoBehaviour
     private int GetNextProjectileKey()
     {
         return nextProjectileKey++; // Return the current key and increment for the next use
+    }
+    private void OnEnable()
+    {
+        enemySOData.ResetData();
     }
 }

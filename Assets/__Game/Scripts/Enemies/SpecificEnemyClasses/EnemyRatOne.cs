@@ -38,5 +38,7 @@ public class EnemyRatOne : Enemy
         lowHealthStrategy = new EnemyFlee();
         projectileStrategy = new EnemySingleProjectile();
         meleeStrategy = new EnemyScratch();
+        itemSpawnStrategy = new EnemyItemRegular();
+        
     }
 }

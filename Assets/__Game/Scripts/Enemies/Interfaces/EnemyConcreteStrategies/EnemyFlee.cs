@@ -6,6 +6,7 @@ public class EnemyFlee : IEnemyLowHealth
 {
     public void StartLowHealthStrategy(float velocity, EnemyMovement movement)
     {
+        movement.Flee(velocity);
 
     }
 }

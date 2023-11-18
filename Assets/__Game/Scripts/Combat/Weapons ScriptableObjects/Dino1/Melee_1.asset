@@ -23,7 +23,6 @@ MonoBehaviour:
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: f2db4695aa8bded44b8cdfe9e40a099b, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
-  - rid: 7917043528491597824
   - rid: 7917043528491597828
   - rid: 7917043543650074624
   - rid: 7917043640045142016
@@ -33,18 +32,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7917043528491597824
-      type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
-      data:
-        name: WeaponSpriteData
-        attackData:
-        - name: Scratch
-          <PhaseSprites>k__BackingField:
-          - <Phase>k__BackingField: 2
-            <PhaseDirection>k__BackingField: 0
-            <Sprites>k__BackingField:
-            - {fileID: -396325562, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
-            - {fileID: -1071569395, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
     - rid: 7917043528491597828
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:

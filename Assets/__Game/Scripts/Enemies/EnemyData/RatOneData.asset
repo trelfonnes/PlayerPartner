@@ -12,17 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072b2ef25359f5948a9971d4d3701a89, type: 3}
   m_Name: RatOneData
   m_EditorClassIdentifier: 
-  health: 3
+  health: 0
+  maxHealth: 4
   patrolSpeed: 1
   chargeSpeed: 2
-  lowHealthSpeed: 2
-  poise: 2
-  maxPoise: 2
+  lowHealthSpeed: 2.5
+  poise: 9
+  maxPoise: 10
+  poiseRefillTime: 10
   intelligence: 3
   maxIdleTime: 1.5
   minIdleTime: 0.5
   maxPatrolTime: 4
   minPatrolTime: 1
   timeBetweenAttacks: 0.5
+  timeInLowHealth: 2.5
   currentProjectileAttack: 0
   currentMeleeAttack: 0
+  lowHealth: 1
