@@ -75,7 +75,7 @@ public class EnemyBasicState : EnemyState
     void PoiseRefilled()
     {
 
-        ESM.ChangeState(enemy.LowHealthState);
+        ESM.ChangeState(enemy.PlayerDetectedState);
     }
     void HealthLow()
     {

@@ -33,6 +33,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     {
         if(isThrown && rb.velocity.magnitude < .1f)
         {
+
             Land();
         }
     }
@@ -46,6 +47,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         rb.isKinematic = wasKinematic;
         Physics2D.IgnoreLayerCollision(7, 10, false);
         Physics2D.IgnoreLayerCollision(7, 9, false);
+        Physics2D.IgnoreLayerCollision(7, 18, false);
         sr.sortingOrder = 0;
         // transform.position = initialPosition;
     }
@@ -69,7 +71,6 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         if (direction == new Vector2(5,0) || direction == new Vector2(-5,0))
         {
             modifiedDirection = direction + Vector2.down * throwDownwardForceMultiplier;
-            Debug.Log(modifiedDirection);
         }
         else
        {
@@ -79,7 +80,8 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         {
             rb.velocity = Vector2.zero;
             Physics2D.IgnoreLayerCollision(7, 10, true);
-           
+            Physics2D.IgnoreLayerCollision(7, 18, true);
+
             rb.isKinematic = false;
             rb.AddForce(modifiedDirection * throwSpeed, ForceMode2D.Impulse);
             isThrown = true;
@@ -103,6 +105,8 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
             rb.velocity = Vector2.zero;
             Physics2D.IgnoreLayerCollision(7, 9, true);
             Physics2D.IgnoreLayerCollision(7, 10, true);
+            Physics2D.IgnoreLayerCollision(7, 18, true);
+
             itemTransform.parent = null;
             rb.isKinematic = false;
             rb.AddForce(modifiedDirection * setDownDistance, ForceMode2D.Impulse);
@@ -112,6 +116,6 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         }
 
     }
-  
 
+  
 }

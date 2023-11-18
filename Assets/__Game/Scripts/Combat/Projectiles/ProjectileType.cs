@@ -5,5 +5,6 @@
     SpreadFireProjectile,
     PlayerDartProjectile,
     PlayerBombProjectile,
-    PlayerBoomerangProjectile
+    PlayerBoomerangProjectile,
+    BasicMudProjectile
 }
