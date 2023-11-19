@@ -7,6 +7,9 @@ public class EnemyStunnedState : EnemyBasicState
 {
     protected EnemyMovement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
     private EnemyMovement movement;
+    protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
+    private Particles particles;
+    int particlesSpawned;
     public EnemyStunnedState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName) : base(enemy, ESM, enemySoData, animBoolName)
     {
 
@@ -20,6 +23,8 @@ public class EnemyStunnedState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
+        particlesSpawned = 0;
+
     }
 
     
@@ -33,6 +38,11 @@ public class EnemyStunnedState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if (particlesSpawned == 0)
+        {
+            Particles?.StartParticles(ParticleType.Stunned, enemy.transform.position, enemy.transform.rotation);
+            particlesSpawned++;
+        }
     }
 
     public override void PhysicsUpdate()

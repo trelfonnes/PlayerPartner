@@ -128,4 +128,8 @@ public class Enemy : MonoBehaviour
     {
         enemySOData.ResetData();
     }
+    public void TurnEnemyOFF()
+    {
+        gameObject.SetActive(false);
+    }
 }

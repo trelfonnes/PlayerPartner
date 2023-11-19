@@ -21,7 +21,7 @@ public class DamageReceiver : CoreComponent, IDamageable
         float calculatedDamageFloat = (float)calculatedDamage;
 
         health.Comp?.DecreaseHealth(calculatedDamageFloat);
-        particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
+        //need to start particles with reference to the particle manager
     }
 
    

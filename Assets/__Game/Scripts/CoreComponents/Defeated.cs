@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Defeated : CoreComponent
 {
-    [SerializeField] GameObject[] defeatedParticles;
-
   
     public override void LogicUpdate()
     {
@@ -26,9 +24,9 @@ public class Defeated : CoreComponent
     public virtual void EntityDefeated() //child classes will override this function to implement specific behavior
                                      //for their death components. e.g. PlayerDefeated, partnerdefeated, enemydefeated
         {
-        foreach (var particle in defeatedParticles)
+       // foreach (var particle in defeatedParticles)
         {
-            Particles?.StartParticles(particle);
+           // Particles?.StartParticles(particle);
         }
 
         core.transform.parent.gameObject.SetActive(false);

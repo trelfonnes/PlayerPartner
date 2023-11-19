@@ -625,7 +625,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &3963916745617885428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,6 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0048fa46fdd2c48b268c3257c4cbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storedParticles: {fileID: 11400000, guid: 5ae8df37656f5f24593b65cd991c2c73, type: 2}
 --- !u!1 &5133961399817514402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1086,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  defensiveType: 5
   heartDisplayUI: {fileID: 0}
 --- !u!1 &7759988393125100095
 GameObject:
@@ -1318,7 +1320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 6331929672594413318}
   partnerWeapon: {fileID: 0}
-  data: {fileID: 11400000, guid: e7f5033298a859241a66f5697be370eb, type: 2}
+  enemyWeapon: {fileID: 0}
+  data: {fileID: 11400000, guid: 602b9638b74e61440a8e906bca645eeb, type: 2}
 --- !u!114 &6331929672594413318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1423,6 +1426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 7345843354213220129}
   partnerWeapon: {fileID: 0}
+  enemyWeapon: {fileID: 0}
   data: {fileID: 11400000, guid: e29a753d990a38d499bd6b21883cd78c, type: 2}
 --- !u!114 &7345843354213220129
 MonoBehaviour:
