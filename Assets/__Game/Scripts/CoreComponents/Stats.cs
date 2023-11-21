@@ -6,14 +6,17 @@ using System;
 public class Stats : CoreComponent, IInventory
 {
     List<int> conditionIndices = new List<int>();
-   protected PlayerData playerData;
+    protected PlayerData playerData;
     [SerializeField]
     protected ConditionDisplayUI conditionDisplay;
     [SerializeField]
     protected PlayerSOData SOData;//Data for states  
-    [SerializeField]  PlayerInventory playerInventory;
+    [SerializeField] PlayerInventory playerInventory;
     [SerializeField] public StatEvents statEvents;
-   // protected PlayerData _playerData = PlayerData.Instance;
+    // protected PlayerData _playerData = PlayerData.Instance;
+    public delegate void RevivedAndRestoredEventHandler();
+    protected event Action onRevivedAndRestored;
+
 
     protected override void Awake()
     {
@@ -76,8 +79,27 @@ public class Stats : CoreComponent, IInventory
             }
         }
     }
+    public void ReviveAndRestore()
+    {
+        //set everything healthy
+        SOData.CurrentHealth = SOData.MaxHealth;
+        PlayerData.Instance.partnerIsDefeated = false;
+        SOData.Stamina = SOData.MaxStamina;
+        SOData.IsInjured = false;
+        SOData.IsSick = false;
+        statEvents?.PartnerRestored();
+        UpdateConditionUI();
+        UpdateHealthAndStaminaUIFromStats();
+        onRevivedAndRestored?.Invoke();
+
+    }
 
     #region Events for stat changes
+    protected virtual void UpdateHealthAndStaminaUIFromStats()
+    {
+
+    }
+
     protected virtual void CurrentHealthZero()
     {
         statEvents.CurrentHealthZero();

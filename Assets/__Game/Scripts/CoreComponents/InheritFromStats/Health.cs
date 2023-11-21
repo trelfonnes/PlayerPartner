@@ -17,6 +17,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
     }
     private void OnEnable()
     {
+        onRevivedAndRestored += UpdateUI;
         UpdateUI();
     }
 
@@ -28,6 +29,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
             if (SOData.CurrentHealth <= 0)
             {
 
+                PlayerData.Instance.ep = .5f;
                 SOData.CurrentHealth = 0;
                 base.CurrentHealthZero();
             }
@@ -72,6 +74,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
     }
         private void OnDisable()
     {
+        onRevivedAndRestored -= UpdateUI;
         UnSubscribeToHourlyTickEvent();
     }
 

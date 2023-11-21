@@ -12,6 +12,7 @@ public class PlayerData : MonoBehaviour
     public bool deviceTwoCollected;
     public bool StartEPTimer;
     int roundedAmount;
+    public bool partnerIsDefeated;
 
     private static PlayerData instance;
 

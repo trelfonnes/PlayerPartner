@@ -14,7 +14,7 @@ public class InventoryMediator: MonoBehaviour
 
     public void IncreaseStamina(float amount)
     {
-        if (Datas != null)
+        if (Datas != null && !PlayerData.Instance.partnerIsDefeated)
         {
             foreach (PlayerSOData item in Datas)
             {
@@ -25,7 +25,7 @@ public class InventoryMediator: MonoBehaviour
     }
     public void IncreasePartnerHealth(float amount)
     {
-        if (Datas != null)
+        if (Datas != null && !PlayerData.Instance.partnerIsDefeated)
         {
 
             for (int i = 0; i < Datas.Count; i++)
@@ -48,14 +48,15 @@ public class InventoryMediator: MonoBehaviour
             {
                 if (i == 0)
                 {
-                    Datas[i].CurrentHealth = Mathf.Clamp(Datas[i].CurrentHealth + amount, 0, Datas[i].MaxHealth);
+                    float adjustedAmount = Mathf.Clamp(Datas[i].CurrentHealth + amount, 0, Datas[i].MaxHealth);
+                    Datas[i].SetPartnerHealthFromItem(adjustedAmount);
                 }
             }
         }
     }
     public void HealSick( bool sick)
     {
-        if (Datas != null)
+        if (Datas != null && !PlayerData.Instance.partnerIsDefeated)
         {
 
             foreach (PlayerSOData item in Datas)
@@ -69,7 +70,7 @@ public class InventoryMediator: MonoBehaviour
     }
     public void HealInjured(bool injured)
     {
-        if (Datas != null)
+        if (Datas != null && !PlayerData.Instance.partnerIsDefeated)
         {
             foreach (PlayerSOData item in Datas)
             {

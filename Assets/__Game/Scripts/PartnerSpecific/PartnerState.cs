@@ -50,6 +50,7 @@ public class PartnerState
         partner.anim.SetBool(animBoolName, true);
         isAnimationFinished = false;
         isExitingState = false;
+        statEvents.onCurrentHealthZero += Partner1Defeated;
        
 
     }
@@ -58,7 +59,8 @@ public class PartnerState
     {
         partner.anim.SetBool(animBoolName, false);
         isExitingState = true;
-       
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
+
 
     }
     public virtual void LogicUpdate()
@@ -69,10 +71,7 @@ public class PartnerState
     {
         DoChecks();
     }
-    void Start()
-    {
-
-    }
+    
     public virtual void DoChecks()
     {
 
@@ -94,5 +93,12 @@ public class PartnerState
             PSM.ChangePartnerState(partner.DevolveState);
         }
 
+    }
+    public virtual void Partner1Defeated()
+    {
+        if (playerSOData.stage1)
+        {
+            PSM.ChangePartnerState(partner.DefeatedState);
+        }
     }
 }

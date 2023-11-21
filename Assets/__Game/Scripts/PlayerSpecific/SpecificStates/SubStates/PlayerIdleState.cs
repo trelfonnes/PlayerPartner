@@ -41,7 +41,7 @@ public class PlayerIdleState : PlayerBasicState
         }
         if (canExitState)
         {
-            if (switchInput)
+            if (switchInput && !PlayerData.Instance.partnerIsDefeated)
             {
                 player.evolutionEvents.SwitchToPartner();
                 PSM.ChangeState(player.WatchState);

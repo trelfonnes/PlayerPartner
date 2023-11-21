@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDamageable
+public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDamageable, IReviveAndRestore
 {
   //  [SerializeField] GameObject damageParticles; //particles or vfx for when taking damage
   //  [SerializeField] GameObject stunnedParticles;
@@ -18,6 +18,7 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
     CoreComp<Health> health;
     CoreComp<Particles> particles;
     CoreComp<Poise> poise;
+    CoreComp<Stats> stats;
 
   
     public void Damage(float amount, AttackType attackType)
@@ -66,6 +67,10 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
 
 
     }
+    public void ReviveAndRestore()
+    {
+        stats.Comp?.ReviveAndRestore();
+    }
 
     protected override void Awake()
     {
@@ -74,6 +79,7 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
         health = new CoreComp<Health>(core);
         particles = new CoreComp<Particles>(core);
         movement = new CoreComp<Movement>(core);
+        stats = new CoreComp<Stats>(core);
         collisionSenses = new CoreComp<CollisionSenses>(core);
         SetDefensiveStrategy(health.Comp.defensiveType);
     }
