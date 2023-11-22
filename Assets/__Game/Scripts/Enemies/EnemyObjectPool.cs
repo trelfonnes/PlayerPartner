@@ -112,12 +112,23 @@ public class EnemyObjectPool : MonoBehaviour
     {
         GetPooledEnemy(type, location);
     }
+    public void ReceiveTypeToPool(EnemyType type)
+    {
+        if (enemyPrefabDictionary.ContainsKey(type))
+        {
+            GameObject enemyObject = enemyPrefabDictionary[type];
+            enemyObject.SetActive(false);
+        }
+    }
     private void OnEnable()
     {
         EnemyPoolManager.Instance.onEnemyTypeAndLocationToSpawn += ReceiveEnemyTypeToUnpool;
+        EnemyPoolManager.Instance.onClearEnemies += ReceiveTypeToPool;
     }
     private void OnDisable()
     {
         EnemyPoolManager.Instance.onEnemyTypeAndLocationToSpawn -= ReceiveEnemyTypeToUnpool;
+        EnemyPoolManager.Instance.onClearEnemies -= ReceiveTypeToPool;
+
     }
 }

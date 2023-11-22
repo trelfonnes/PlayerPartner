@@ -8,6 +8,7 @@ public class EnemyPoolManager : MonoBehaviour
     public static EnemyPoolManager Instance { get; private set; }
 
     public event Action<EnemyType, Transform> onEnemyTypeAndLocationToSpawn;
+    public event Action<EnemyType> onClearEnemies;
     public event Action<Transform> onLocationToSpawnEnemy;
 
     void Awake()
@@ -28,6 +29,9 @@ public class EnemyPoolManager : MonoBehaviour
     {
         onEnemyTypeAndLocationToSpawn?.Invoke(type, location);
     }
-
+    public void RaiseClearEnemies(EnemyType type)
+    {
+        onClearEnemies?.Invoke(type);
+    }
 
 }
