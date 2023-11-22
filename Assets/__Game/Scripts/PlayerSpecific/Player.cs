@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public PlayerHoldItemState HoldItemState { get; private set; }
     public PlayerWatchState WatchState { get; private set; }
     public PlayerEvolutionState EvolutionState { get; private set; }
+    public PlayerDefeatedState DefeatedState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour
         HoldItemState = new PlayerHoldItemState(this, StateMachine, playerSOData, _playerData, "holdItem");
         WatchState = new PlayerWatchState(this, StateMachine, playerSOData, _playerData, "watch");
         EvolutionState = new PlayerEvolutionState(this, StateMachine, playerSOData, _playerData, "evolve");
+        DefeatedState = new PlayerDefeatedState(this, StateMachine, playerSOData, _playerData, "defeated");
 
     }
     #endregion
@@ -86,7 +88,10 @@ public class Player : MonoBehaviour
         //connected physics update for specific character
        StateMachine.CurrentState.PhysicsUpdate();
     }
-   
+   public void PlayerIsDefeated()
+    {
+        //logic for whatever needs to be done. Trigger game over screen
+    }
     #region For Saving Data BIND
     internal void Bind(PlayerData playerData)
     {

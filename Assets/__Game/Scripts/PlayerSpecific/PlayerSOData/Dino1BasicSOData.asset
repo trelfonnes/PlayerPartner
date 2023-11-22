@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSick: 0
   currentHealth: 4
-  stamina: 16
+  stamina: 0
   isInjured: 0
   moveSpeed: 4
   watchSpeed: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
   secondaryWeapon: {fileID: 0}
   MaxStamina: 55
   StaminaLimit: 60
-  Poise: 21.497335
+  Poise: 7.4973354
   MaxPoise: 30
   canJump: 1
   numberOfJumps: 1
@@ -40,6 +40,7 @@ MonoBehaviour:
   stage1: 1
   stage2: 0
   stage3: 0
+  isPlayer: 0
   Bytes: 0
   MaxBytes: 0
   Keys: 0

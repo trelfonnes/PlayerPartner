@@ -104,6 +104,10 @@ public class Stats : CoreComponent, IInventory
     {
         statEvents.CurrentHealthZero();
     }
+    protected virtual void CurrentPlayerHealthZero()
+    {
+        statEvents.CurrentPlayerHealthZero();
+    }
 
     protected virtual void CurrentHealthFull()
     {

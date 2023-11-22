@@ -21725,6 +21725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerFemale
       objectReference: {fileID: 0}
+    - target: {fileID: 8430108973224999087, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8430108973224999093, guid: 13b8b7a1d48a3224f83b0ec75d5185d9, type: 3}
       propertyPath: m_RootOrder
       value: 10

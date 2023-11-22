@@ -28,10 +28,17 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
             SOData.CurrentHealth -= amount;
             if (SOData.CurrentHealth <= 0)
             {
-
-                PlayerData.Instance.ep = .5f;
-                SOData.CurrentHealth = 0;
-                base.CurrentHealthZero();
+                if (SOData.isPlayer)
+                {
+                    SOData.CurrentHealth = 0;
+                    base.CurrentPlayerHealthZero();
+                }
+                else
+                {
+                    PlayerData.Instance.ep = .5f;
+                    SOData.CurrentHealth = 0;
+                    base.CurrentHealthZero();
+                }
             }
 
             UpdateUI();

@@ -15,11 +15,17 @@ public class StatEvents : ScriptableObject
     public event Action onCurrentStaminaFull;
     public event Action onCurrentPoiseZero;
     public event Action onPartnerFullyRestored;
+    public event Action onPlayerHealthZero;
    
      public void CurrentHealthZero()
     {
         if (onCurrentHealthZero != null)
             onCurrentHealthZero?.Invoke();
+    }
+    public void CurrentPlayerHealthZero()
+    {
+        if (onPlayerHealthZero != null)
+            onPlayerHealthZero?.Invoke();
     }
 
      public void CurrentHealthFull()
