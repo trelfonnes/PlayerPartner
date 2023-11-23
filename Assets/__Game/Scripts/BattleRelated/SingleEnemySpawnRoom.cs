@@ -15,24 +15,30 @@ public class SingleEnemySpawnRoom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (enemyCount <= enemiesSpawnInfo.Count)
+        if (collision.CompareTag("Player") || collision.CompareTag("Partner"))
         {
-            foreach (EnemySpawnInformation item in enemiesSpawnInfo)
+            if (enemyCount <= enemiesSpawnInfo.Count)
             {
-                spawnManager.SpawnEnemies(item);
-                enemyCount++;
+                foreach (EnemySpawnInformation item in enemiesSpawnInfo)
+                {
+                    spawnManager.SpawnEnemies(item);
+                    enemyCount++;
+                }
             }
         }
        
         
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-
-        foreach (EnemySpawnInformation item in enemiesSpawnInfo) 
+        if (collision.CompareTag("Player") || collision.CompareTag("Partner"))
         {
-            spawnManager.ClearEnemies(item);
-            enemyCount = 0;
+            foreach (EnemySpawnInformation item in enemiesSpawnInfo)
+            {
+                spawnManager.ClearEnemies(item);
+                enemyCount = 0;
+            }
         }
     }
+   
 }

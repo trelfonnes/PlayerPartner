@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySingleProjectile : IEnemyProjectile
 {
-   public void ShootProjectile(EnemyWeapon weapon, EnemySOData data, Dictionary<int, WeaponDataSO> weaponDatas)
+   public void ShootProjectile(EnemyWeapon weapon, EnemyData data, Dictionary<int, WeaponDataSO> weaponDatas)
     {
         //weapon.SetData(weaponData);
         //logic for shooting a single projectile

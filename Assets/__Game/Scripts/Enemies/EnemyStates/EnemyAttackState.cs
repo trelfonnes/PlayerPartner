@@ -6,7 +6,7 @@ public class EnemyAttackState : EnemyBasicState
 {
     protected bool isAttackDone;
    
-    public EnemyAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon) : base(enemy, ESM, enemySoData, animBoolName)
+    public EnemyAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName, EnemyWeapon weapon) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
         
     }

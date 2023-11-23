@@ -50,6 +50,7 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
         SR = GetComponentInParent<SpriteRenderer>();
         if (core == null) { Debug.LogError("There is no CoreHandler on the Parent"); }
         core.AddComponent(this);
+
     }
     protected virtual void Start()
     {

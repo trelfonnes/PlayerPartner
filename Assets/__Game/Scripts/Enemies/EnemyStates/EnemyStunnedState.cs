@@ -10,7 +10,7 @@ public class EnemyStunnedState : EnemyBasicState
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
     private Particles particles;
     int particlesSpawned;
-    public EnemyStunnedState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName) : base(enemy, ESM, enemySoData, animBoolName)
+    public EnemyStunnedState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
 
     }

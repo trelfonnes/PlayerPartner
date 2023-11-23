@@ -8,7 +8,7 @@ public class EnemyLowHealthState : EnemyBasicState
     IEnemyLowHealth lowHealthStrategy;
     protected EnemyMovement EnemyMovement { get => enemyMovement ?? core.GetCoreComponent(ref enemyMovement); }
     private EnemyMovement enemyMovement;
-    public EnemyLowHealthState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, IEnemyLowHealth lowHealthStrategy) : base(enemy, ESM, enemySoData, animBoolName)
+    public EnemyLowHealthState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName, IEnemyLowHealth lowHealthStrategy) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
         this.lowHealthStrategy = lowHealthStrategy;
         timeInState = enemySoData.timeInLowHealth;

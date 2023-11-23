@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyThinkState : EnemyBasicState
 {
     float thinkTime;
-    public EnemyThinkState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName) : base(enemy, ESM, enemySoData, animBoolName)
+    public EnemyThinkState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
         thinkTime = enemySoData.intelligence;
     }
@@ -26,7 +26,7 @@ public class EnemyThinkState : EnemyBasicState
         base.LogicUpdate();
         if (Time.time - startTime >= thinkTime * .5f)
         {
-            if (enemySoData.lowHealth && inSightCircle)
+            if (data.lowHealth && inSightCircle)
             {
                 Debug.Log("GOING TO LOW HEALTH");
                 ESM.ChangeState(enemy.LowHealthState);

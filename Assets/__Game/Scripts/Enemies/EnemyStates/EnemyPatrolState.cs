@@ -9,7 +9,7 @@ public class EnemyPatrolState : EnemyBasicState
     private EnemyMovement movement;
     private bool isPatrolTimeOver;
 
-    public EnemyPatrolState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName) : base(enemy, ESM, enemySoData, animBoolName)
+    public EnemyPatrolState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
     }
 

@@ -32,7 +32,7 @@ public class EnemyObjectPool : MonoBehaviour
     }
     private void Start()
     {
-        
+        CreatePools();   
     }
     void InitializeProjectileDictionaries()
     {
@@ -111,24 +111,49 @@ public class EnemyObjectPool : MonoBehaviour
     public void ReceiveEnemyTypeToUnpool(EnemyType type, Transform location)
     {
         GetPooledEnemy(type, location);
+
     }
     public void ReceiveTypeToPool(EnemyType type)
     {
         if (enemyPrefabDictionary.ContainsKey(type))
         {
-            GameObject enemyObject = enemyPrefabDictionary[type];
-            enemyObject.SetActive(false);
+
+
+            GameObject enemyPrefab = enemyPrefabDictionary[type];
+            if (pooledEnemyObjectsDictionary.ContainsKey(enemyPrefab))
+            {
+                List<GameObject> pooledObjects = pooledEnemyObjectsDictionary[enemyPrefab];
+                foreach (GameObject obj in pooledObjects)
+                {
+                    if (obj.activeInHierarchy)
+                    {
+                        obj.SetActive(false);
+                    }
+                }
+            }
         }
     }
     private void OnEnable()
     {
-        EnemyPoolManager.Instance.onEnemyTypeAndLocationToSpawn += ReceiveEnemyTypeToUnpool;
-        EnemyPoolManager.Instance.onClearEnemies += ReceiveTypeToPool;
+        if (EnemyPoolManager.Instance != null)
+        {
+            EnemyPoolManager.Instance.onEnemyTypeAndLocationToSpawn += ReceiveEnemyTypeToUnpool;
+            EnemyPoolManager.Instance.onClearEnemies += ReceiveTypeToPool;
+        }
+        else
+        {
+            Debug.LogError("EnemyPoolManager is null");
+        }
     }
     private void OnDisable()
     {
-        EnemyPoolManager.Instance.onEnemyTypeAndLocationToSpawn -= ReceiveEnemyTypeToUnpool;
-        EnemyPoolManager.Instance.onClearEnemies -= ReceiveTypeToPool;
-
+        if (EnemyPoolManager.Instance != null)
+        {
+            EnemyPoolManager.Instance.onEnemyTypeAndLocationToSpawn -= ReceiveEnemyTypeToUnpool;
+            EnemyPoolManager.Instance.onClearEnemies -= ReceiveTypeToPool;
+        }
+       
     }
 }
+
+

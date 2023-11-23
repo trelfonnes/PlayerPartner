@@ -8,7 +8,7 @@ public class EnemyMeleeAttackState : EnemyAttackState
     IEnemyMelee meleeStrategy;
     private Dictionary<int, WeaponDataSO> weaponDatas;
 
-    public EnemyMeleeAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon, IEnemyMelee meleeStrategy, Dictionary<int, WeaponDataSO> weaponDatas) : base(enemy, ESM, enemySoData, animBoolName, weapon)
+    public EnemyMeleeAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName, EnemyWeapon weapon, IEnemyMelee meleeStrategy, Dictionary<int, WeaponDataSO> weaponDatas) : base(enemy, ESM, enemySoData,data, animBoolName, weapon)
     {
         this.weapon = weapon;
         this.meleeStrategy = meleeStrategy;
@@ -39,7 +39,7 @@ public class EnemyMeleeAttackState : EnemyAttackState
     public override void Enter()
     {
         base.Enter();
-        meleeStrategy.Attack(weapon, enemySoData, weaponDatas);//now it can communicate with weapon game object and pass any needed data.
+        meleeStrategy.Attack(weapon, data, weaponDatas);//now it can communicate with weapon game object and pass any needed data.
 
     }
 

@@ -14,7 +14,7 @@ public class EnemyBasicState : EnemyState
     protected EnemyCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
     private EnemyCollisionSenses collisionSenses;
     protected EnemyStatEvents statEvents;
-    public EnemyBasicState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName) : base(enemy, ESM, enemySoData, animBoolName)
+    public EnemyBasicState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
         statEvents = enemy.statEvents;
     }
@@ -65,20 +65,31 @@ public class EnemyBasicState : EnemyState
     void EnemyDefeated()
     {
         Debug.Log("Change to defeated State");
-        ESM.ChangeState(enemy.DefeatedState);
+        if (data.health <= 0)
+        {
+            ESM.ChangeState(enemy.DefeatedState);
+        }
     }
     void PoiseZero()
     {
-
-        ESM.ChangeState(enemy.StunnedState);
+        if (data.poise <= 0)
+        {
+            ESM.ChangeState(enemy.StunnedState);
+        }
     }
     void PoiseRefilled()
     {
-
-        ESM.ChangeState(enemy.PlayerDetectedState);
+        if (data.isStunned)
+        {
+            ESM.ChangeState(enemy.PlayerDetectedState);
+            data.isStunned = false;
+        }
     }
     void HealthLow()
     {
-        enemySoData.lowHealth = true;
+        if (data.health <= enemySoData.maxHealth * 0.34f)
+        {
+            data.lowHealth = true;
+        }
     }
 }

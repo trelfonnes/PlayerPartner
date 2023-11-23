@@ -9,7 +9,7 @@ public class EnemyDefeatedState : EnemyBasicState
     IEnemyItemSpawn itemSpawnStrategy;
     Transform itemSpawnPoint;
     int particlesSpawned;
-    public EnemyDefeatedState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, IEnemyItemSpawn itemSpawnStrategy, Transform itemSpawnPoint) : base(enemy, ESM, enemySoData, animBoolName)
+    public EnemyDefeatedState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName, IEnemyItemSpawn itemSpawnStrategy, Transform itemSpawnPoint) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
         this.itemSpawnStrategy = itemSpawnStrategy;
         this.itemSpawnPoint = itemSpawnPoint;

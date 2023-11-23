@@ -7,7 +7,7 @@ public class EnemyProjectileAttackState : EnemyAttackState
     EnemyWeapon weapon;
     IEnemyProjectile projectileStrategy;
     Dictionary<int, WeaponDataSO> weaponDatas;
-    public EnemyProjectileAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, EnemyWeapon weapon, IEnemyProjectile projectileStrategy, Dictionary<int, WeaponDataSO> weaponDatas) : base(enemy, ESM, enemySoData, animBoolName, weapon)
+    public EnemyProjectileAttackState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName, EnemyWeapon weapon, IEnemyProjectile projectileStrategy, Dictionary<int, WeaponDataSO> weaponDatas) : base(enemy, ESM, enemySoData, data, animBoolName, weapon)
     {
         this.weapon = weapon;
         this.projectileStrategy = projectileStrategy;
@@ -37,7 +37,7 @@ public class EnemyProjectileAttackState : EnemyAttackState
     public override void Enter()
     {
         base.Enter();
-        projectileStrategy.ShootProjectile(weapon, enemySoData, weaponDatas);//now it can communicate with weapon game object and pass any needed data.
+        projectileStrategy.ShootProjectile(weapon, data, weaponDatas);//now it can communicate with weapon game object and pass any needed data.
 
     }
 

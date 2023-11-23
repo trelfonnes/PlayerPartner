@@ -8,7 +8,7 @@ public class EnemyState
     protected CoreHandler core;
     protected Enemy enemy;
     protected EnemyStateMachine ESM;
-
+    protected EnemyData data;
     protected bool isExitingState;
     protected bool isAnimationFinished;
 
@@ -16,11 +16,12 @@ public class EnemyState
     string animBoolName;
 
 
-    public EnemyState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName)
+    public EnemyState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName)
     {
         this.enemy = enemy;
         this.ESM = ESM;
         this.enemySoData = enemySoData;
+        this.data = data;
         this.animBoolName = animBoolName;
         core = enemy.core;
     }

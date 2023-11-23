@@ -46,6 +46,14 @@ public class ActionHitBox : WeaponComponent<ActionHitBoxData, AttackActionHItBox
             transform.position.y + currentAttackDataPlayer.HitBoxSouth.center.y);
             detected = Physics2D.OverlapBoxAll(offset, currentAttackDataPlayer.HitBoxSouth.size, 0f, dataPlayer.DetectableLayers);
 
+        } 
+        else if (movement.Comp.facingCombatDirectionY == 0 && movement.Comp.facingCombatDirectionX == 0)
+        {
+            //South
+            offset.Set(transform.position.x + (currentAttackDataPlayer.HitBoxSouth.center.x * movement.Comp.facingCombatDirectionX),
+            transform.position.y + currentAttackDataPlayer.HitBoxSouth.center.y);
+            detected = Physics2D.OverlapBoxAll(offset, currentAttackDataPlayer.HitBoxSouth.size, 0f, dataPlayer.DetectableLayers);
+
         }
 
         else if (movement.Comp.facingCombatDirectionY < 0 && movement.Comp.facingCombatDirectionX < 0)

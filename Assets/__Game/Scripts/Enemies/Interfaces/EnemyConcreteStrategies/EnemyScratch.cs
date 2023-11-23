@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyScratch : IEnemyMelee
 {
-    public void Attack(EnemyWeapon weapon, EnemySOData data, Dictionary<int, WeaponDataSO> weaponDatas)
+    public void Attack(EnemyWeapon weapon, EnemyData data, Dictionary<int, WeaponDataSO> weaponDatas)
     {
         if (weaponDatas.ContainsKey(data.currentMeleeAttack))
         {

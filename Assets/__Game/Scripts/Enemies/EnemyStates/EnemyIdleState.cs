@@ -9,7 +9,7 @@ public class EnemyIdleState : EnemyBasicState
     bool changeDirAfterIdle;
 
 
-    public EnemyIdleState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName) : base(enemy, ESM, enemySoData, animBoolName)
+    public EnemyIdleState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
     }
 

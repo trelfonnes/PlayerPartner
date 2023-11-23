@@ -27,15 +27,19 @@ public class Enemy : MonoBehaviour
     public EnemyLowHealthState LowHealthState { get; private set; }
     public EnemyStunnedState StunnedState { get; private set; }
     public EnemyThinkState ThinkState { get; private set; }
+
     public EnemyStateMachine StateMachine { get; private set;}
+
     public IEnemyMove moveStrategy { get; protected set; }
     public IEnemyLowHealth lowHealthStrategy { get; protected set; }
     public IEnemyMelee meleeStrategy { get; protected set; }
     public IEnemyProjectile projectileStrategy { get; protected set; }
     public IEnemyItemSpawn itemSpawnStrategy { get; protected set; }
+
     public CoreHandler core { get; private set;}
     public Animator anim { get; private set; }
     public EnemySOData enemySOData;
+    public EnemyData enemyData;
     public EnemyStatEvents statEvents;
 
     public Dictionary<string, object> blackboard = new Dictionary<string, object>();
@@ -49,7 +53,7 @@ public class Enemy : MonoBehaviour
         core = GetComponentInChildren<CoreHandler>();
         anim = GetComponent<Animator>();
         itemSpawnPoint = GetComponent<Transform>();
-
+        enemyData = new EnemyData(enemySOData);
         blackboard["EnemyData"] = enemySOData;
         meleeWeapon = transform.Find("MeleeAttack").GetComponent<EnemyWeapon>();
         projectileWeapon = transform.Find("ProjectileAttack").GetComponent<EnemyWeapon>();
@@ -57,20 +61,20 @@ public class Enemy : MonoBehaviour
         //can add blackboard data as needed if alternate from SO data
         // this can be useful for a single place to save enemy data if needed.
         // can be good for counting intervals for respawning etc. 
-        IdleState = new EnemyIdleState(this, StateMachine, enemySOData, "idle");
-        MoveState = new EnemyMoveState(this, StateMachine, enemySOData, "move", moveStrategy);
-        PatrolState = new EnemyPatrolState(this, StateMachine, enemySOData, "patrol");
-        LowHealthState = new EnemyLowHealthState(this, StateMachine, enemySOData, "lowHealth", lowHealthStrategy);
-        ThinkState = new EnemyThinkState(this, StateMachine, enemySOData, "think");
-        DefeatedState = new EnemyDefeatedState(this, StateMachine, enemySOData, "defeated", itemSpawnStrategy, itemSpawnPoint);
-        StunnedState = new EnemyStunnedState(this, StateMachine, enemySOData, "stunned");
+        IdleState = new EnemyIdleState(this, StateMachine, enemySOData, enemyData, "idle");
+        MoveState = new EnemyMoveState(this, StateMachine, enemySOData, enemyData, "move", moveStrategy);
+        PatrolState = new EnemyPatrolState(this, StateMachine, enemySOData, enemyData, "patrol");
+        LowHealthState = new EnemyLowHealthState(this, StateMachine, enemySOData, enemyData, "lowHealth", lowHealthStrategy);
+        ThinkState = new EnemyThinkState(this, StateMachine, enemySOData, enemyData, "think");
+        DefeatedState = new EnemyDefeatedState(this, StateMachine, enemySOData, enemyData, "defeated", itemSpawnStrategy, itemSpawnPoint);
+        StunnedState = new EnemyStunnedState(this, StateMachine, enemySOData, enemyData, "stunned");
          meleeWeapon.SetCore(core);
          projectileWeapon.SetCore(core);
-        PlayerDetectedState = new EnemyPlayerDetectedState(this, StateMachine, enemySOData, "playerDetected");
+        PlayerDetectedState = new EnemyPlayerDetectedState(this, StateMachine, enemySOData, enemyData, "playerDetected");
 
         //Pass in the matching weapon script for the attack game object
-        MeleeState = new EnemyMeleeAttackState(this, StateMachine, enemySOData, "attack", meleeWeapon, meleeStrategy, MeleeWeaponDatas);
-        ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, "attack", projectileWeapon, projectileStrategy, ProjectileWeaponDatas);
+        MeleeState = new EnemyMeleeAttackState(this, StateMachine, enemySOData, enemyData, "attack", meleeWeapon, meleeStrategy, MeleeWeaponDatas);
+        ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, enemyData, "attack", projectileWeapon, projectileStrategy, ProjectileWeaponDatas);
 
     }
 
@@ -126,7 +130,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
-        enemySOData.ResetData();
+        enemyData.ResetData();
     }
     public void TurnEnemyOFF()
     {

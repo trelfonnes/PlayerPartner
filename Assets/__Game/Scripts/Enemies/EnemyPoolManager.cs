@@ -5,7 +5,7 @@ using System;
 
 public class EnemyPoolManager : MonoBehaviour
 {
-    public static EnemyPoolManager Instance { get; private set; }
+    public static EnemyPoolManager Instance;
 
     public event Action<EnemyType, Transform> onEnemyTypeAndLocationToSpawn;
     public event Action<EnemyType> onClearEnemies;
@@ -17,20 +17,21 @@ public class EnemyPoolManager : MonoBehaviour
         {
             Instance = this;
         }
-        else
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
+
         DontDestroyOnLoad(gameObject);
     }
-
-
+   
     public void RaiseEnemyTypeAndLocationToSpawn(EnemyType type, Transform location)
     {
         onEnemyTypeAndLocationToSpawn?.Invoke(type, location);
     }
     public void RaiseClearEnemies(EnemyType type)
     {
+
         onClearEnemies?.Invoke(type);
     }
 

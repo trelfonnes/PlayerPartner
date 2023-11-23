@@ -10,7 +10,7 @@ public class EnemyMoveState : EnemyBasicState
     private EnemyCollisionSenses enemyCollisionSenses;
     IEnemyMove moveStrategy;
 
-    public EnemyMoveState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, string animBoolName, IEnemyMove moveStrategy) : base(enemy, ESM, enemySoData, animBoolName)
+    public EnemyMoveState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName, IEnemyMove moveStrategy) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
         this.moveStrategy = moveStrategy;
 
