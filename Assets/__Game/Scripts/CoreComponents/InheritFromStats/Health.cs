@@ -17,8 +17,8 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
     }
     private void OnEnable()
     {
-        onRevivedAndRestored += UpdateUI;
         UpdateUI();
+
     }
 
     public void DecreaseHealth(float amount)
@@ -35,7 +35,6 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
                 }
                 else
                 {
-                    PlayerData.Instance.ep = .5f;
                     SOData.CurrentHealth = 0;
                     base.CurrentHealthZero();
                 }
@@ -81,14 +80,15 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
     }
         private void OnDisable()
     {
-        onRevivedAndRestored -= UpdateUI;
+       
         UnSubscribeToHourlyTickEvent();
     }
-
-    private void UpdateUI()
+    
+    public void UpdateUI()
     {
         if (gameObject.transform.parent.parent.gameObject.activeSelf)
         {
+            Debug.Log("update UI");
             
             if (heartDisplayUI != null)
                 heartDisplayUI.UpdateHeartDisplay(SOData.CurrentHealth, SOData.MaxHealth);

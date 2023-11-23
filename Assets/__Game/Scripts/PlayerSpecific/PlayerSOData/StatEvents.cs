@@ -15,6 +15,7 @@ public class StatEvents : ScriptableObject
     public event Action onCurrentStaminaFull;
     public event Action onCurrentPoiseZero;
     public event Action onPartnerFullyRestored;
+    public event Action onPlayerFullyRestored;
     public event Action onPlayerHealthZero;
    
      public void CurrentHealthZero()
@@ -45,6 +46,13 @@ public class StatEvents : ScriptableObject
         if (onPartnerFullyRestored != null)
         {
             onPartnerFullyRestored.Invoke();
+        }
+    }
+    public void PlayerRestored()
+    {
+        if (onPlayerFullyRestored != null)
+        {
+            onPlayerFullyRestored.Invoke();
         }
     }
 

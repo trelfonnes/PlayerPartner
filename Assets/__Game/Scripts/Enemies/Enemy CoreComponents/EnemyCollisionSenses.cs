@@ -73,14 +73,14 @@ private void OnTriggerEnter2D(Collider2D collision)
 
                 if (angleToPlayer < fieldOfViewAngle * 0.5f)
                 {
-                    RaycastHit2D[] results = new RaycastHit2D[10];
-                    int hits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, results, projAndOverallFOVDistance, playerAndPartnerLayerMask);
+                    RaycastHit2D[] playerResults = new RaycastHit2D[50];
+                    int playerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, playerResults, projAndOverallFOVDistance, playerAndPartnerLayerMask);
 
-                    for (int i = 0; i < hits; i++)
+                    for (int i = 0; i < playerHits; i++)
                     {
-                        if (results[i].collider.CompareTag("Player"))
+                        if (playerResults[i].collider.CompareTag("Player"))
                         {
-                            Debug.Log(results[i].collider.name);
+                            Debug.Log("Player is in long range rangeFOV");
                             playerInFOV = true;
                             break; // Exit the loop once player is found
                         }
@@ -94,14 +94,14 @@ private void OnTriggerEnter2D(Collider2D collision)
 
                 if (angleToPartner < fieldOfViewAngle * 0.5f)
                 {
-                    RaycastHit2D[] results = new RaycastHit2D[10];
-                    int hits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, results, projAndOverallFOVDistance, playerAndPartnerLayerMask);
+                    RaycastHit2D[] partnerResults = new RaycastHit2D[10];
+                    int partnerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, partnerResults, projAndOverallFOVDistance, playerAndPartnerLayerMask);
 
-                    for (int i = 0; i < hits; i++)
+                    for (int i = 0; i < partnerHits; i++)
                     {
-                        if (results[i].collider.CompareTag("Partner"))
+                        if (partnerResults[i].collider.CompareTag("Partner"))
                         {
-                            Debug.Log(results[i].collider.name);
+                            Debug.Log(partnerResults[i].collider.name + "Partner is in long rangeFOV");
                             partnerInFOV = true;
                             break; // Exit the loop once partner is found
                         }
@@ -134,14 +134,14 @@ private void OnTriggerEnter2D(Collider2D collision)
 
                 if (angleToPlayer < fieldOfViewAngle * 0.5f)
                 {
-                    RaycastHit2D[] results = new RaycastHit2D[10];
-                    int hits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, results, meleeFOVDistance, playerAndPartnerLayerMask);
+                    RaycastHit2D[] playerResults = new RaycastHit2D[10];
+                    int playerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, playerResults, meleeFOVDistance, playerAndPartnerLayerMask);
 
-                    for (int i = 0; i < hits; i++)
+                    for (int i = 0; i < playerHits; i++)
                     {
-                        if (results[i].collider.CompareTag("Player"))
+                        if (playerResults[i].collider.CompareTag("Player"))
                         {
-                            Debug.Log(results[i].collider.name);
+                            Debug.Log(playerResults[i].collider.name +"Player is in close rangeFOV");
                             playerInFOV = true;
                             break; // Exit the loop once player is found
                         }
@@ -155,14 +155,14 @@ private void OnTriggerEnter2D(Collider2D collision)
 
                 if (angleToPartner < fieldOfViewAngle * 0.5f)
                 {
-                    RaycastHit2D[] results = new RaycastHit2D[10];
-                    int hits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, results, meleeFOVDistance, playerAndPartnerLayerMask);
+                    RaycastHit2D[] partnerResults = new RaycastHit2D[10];
+                    int partnerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, partnerResults, meleeFOVDistance, playerAndPartnerLayerMask);
 
-                    for (int i = 0; i < hits; i++)
+                    for (int i = 0; i < partnerHits; i++)
                     {
-                        if (results[i].collider.CompareTag("Partner"))
+                        if (partnerResults[i].collider.CompareTag("Partner"))
                         {
-                            Debug.Log(results[i].collider.name);
+                            Debug.Log(partnerResults[i].collider.name + "Partner is in close rangeFOV");
                             partnerInFOV = true;
                             break; // Exit the loop once partner is found
                         }

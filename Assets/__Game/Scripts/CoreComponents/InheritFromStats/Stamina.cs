@@ -13,7 +13,6 @@ public class Stamina : Stats, IStaminaChange
     }
     private void OnEnable()
     {
-        onRevivedAndRestored += UpdateUI;
         statEvents.onCurrentHealthZero += Partner1Defeated;
         UpdateUI();
         UpdateConditionUI();
@@ -97,7 +96,6 @@ public class Stamina : Stats, IStaminaChange
     }
     private void OnDisable()
     {
-        onRevivedAndRestored -= UpdateUI;
         statEvents.onCurrentHealthZero -= Partner1Defeated;
         UnSubscribeToHourlyTickEvent();
     }

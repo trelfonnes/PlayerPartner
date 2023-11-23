@@ -14,13 +14,10 @@ public class Stats : CoreComponent, IInventory
     [SerializeField] PlayerInventory playerInventory;
     [SerializeField] public StatEvents statEvents;
     // protected PlayerData _playerData = PlayerData.Instance;
-    public delegate void RevivedAndRestoredEventHandler();
-    protected event Action onRevivedAndRestored;
-
+    [SerializeField] private HeartDisplayUI playerOnlyheartDisplayUI;
 
     protected override void Awake()
     {
-
         playerData = PlayerData.Instance;
         UpdateConditionUI();
     }
@@ -87,19 +84,22 @@ public class Stats : CoreComponent, IInventory
         SOData.Stamina = SOData.MaxStamina;
         SOData.IsInjured = false;
         SOData.IsSick = false;
-        statEvents?.PartnerRestored();
         UpdateConditionUI();
-        UpdateHealthAndStaminaUIFromStats();
-        onRevivedAndRestored?.Invoke();
+        if (SOData.isPlayer)
+        {
+            playerOnlyheartDisplayUI.UpdateHeartDisplay(SOData.CurrentHealth, SOData.MaxHealth);
+
+        }
+        if (SOData.stage1)
+        {
+            statEvents?.PartnerRestored();
+        }
+        
 
     }
 
     #region Events for stat changes
-    protected virtual void UpdateHealthAndStaminaUIFromStats()
-    {
-
-    }
-
+  
     protected virtual void CurrentHealthZero()
     {
         statEvents.CurrentHealthZero();

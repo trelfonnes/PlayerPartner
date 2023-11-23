@@ -70,6 +70,8 @@ public class PartnerFollowIdleState : PartnerFollowState
         {
             if (playerSOData.stage1 && playerData.deviceOneCollected && playerData.ep >= 25f)
             {
+                Debug.Log("EVOLVE" + isTouchingPlayer);
+
                 PSM.ChangePartnerState(partner.EvolutionState);
             }
             else if(playerSOData.stage2 && playerData.deviceTwoCollected && playerData.ep >= 50f)

@@ -45,12 +45,7 @@ public class EnemyPatrolState : EnemyBasicState
     {
         base.LogicUpdate();
         Movement?.Patrol();
-        if (Movement.CurrentVelocity != Vector2.zero)
-        {
-            enemy.enemyDirection = Movement.CurrentVelocity;
-           
-
-        }
+       
         if (Time.time >= startTime + patrolTime)
         {
             isPatrolTimeOver = true;
