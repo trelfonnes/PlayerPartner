@@ -46,6 +46,14 @@ public class PartnerActionHitBox : WeaponComponent<ActionHitBoxData, AttackActio
             detected = Physics2D.OverlapBoxAll(offset, currentAttackDataPartner.HitBoxSouth.size, 0f, dataPartner.DetectableLayers);
 
         }
+        else if(movement.Comp.facingCombatDirectionY == 0 && movement.Comp.facingCombatDirectionX == 0)
+        {
+            //South
+            offset.Set(transform.position.x + (currentAttackDataPartner.HitBoxSouth.center.x * movement.Comp.facingCombatDirectionX),
+            transform.position.y + currentAttackDataPartner.HitBoxSouth.center.y);
+            detected = Physics2D.OverlapBoxAll(offset, currentAttackDataPartner.HitBoxSouth.size, 0f, dataPartner.DetectableLayers);
+
+        }
 
         else if(movement.Comp.facingCombatDirectionY < 0 && movement.Comp.facingCombatDirectionX < 0)
         {
