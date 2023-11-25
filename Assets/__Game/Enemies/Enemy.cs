@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     public EnemyIdleState IdleState { get; private set; }
     public EnemyMoveState MoveState { get; private set; }
     public EnemyPatrolState PatrolState { get; private set; }
-    public EnemyLowHealthState LowHealthState { get; private set; }
+    public EnemyLowHealthState LowHealthState { get; protected set; }
     public EnemyStunnedState StunnedState { get; private set; }
     public EnemyThinkState ThinkState { get; private set; }
 

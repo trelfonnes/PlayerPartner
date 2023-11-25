@@ -17,13 +17,16 @@ public class EnemyLowHealthState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
-        lowHealthStrategy.StartLowHealthStrategy(enemySoData.lowHealthSpeed, EnemyMovement);
-
+        if (!enemySoData.selfDestructor)
+        {
+            lowHealthStrategy.StartLowHealthStrategy(enemySoData, EnemyMovement);
+        }
     }
 
     public override void Exit()
     {
         base.Exit();
+        
     }
 
     public override void LogicUpdate()
@@ -40,7 +43,16 @@ public class EnemyLowHealthState : EnemyBasicState
         }
         else if(Time.time - startTime >= timeInState)
         {
-            ESM.ChangeState(enemy.IdleState);
+            if (enemySoData.selfDestructor)
+            {
+                lowHealthStrategy.StartLowHealthStrategy(enemySoData, EnemyMovement);
+            }
+            else
+            {
+                ESM.ChangeState(enemy.IdleState);
+
+            }
+
         }
     }
 

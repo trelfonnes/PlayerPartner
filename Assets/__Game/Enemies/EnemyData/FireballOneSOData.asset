@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FireballOneSOData
   m_EditorClassIdentifier: 
   maxHealth: 3
-  patrolSpeed: 3
-  chargeSpeed: 3.5
+  patrolSpeed: 2
+  chargeSpeed: 3
   lowHealthSpeed: 0
   maxPoise: 5
   poiseRefillTime: 7.5
@@ -23,5 +23,8 @@ MonoBehaviour:
   minIdleTime: 1
   maxPatrolTime: 3
   minPatrolTime: 1
-  timeBetweenAttacks: 0.5
-  timeInLowHealth: 2.5
+  timeBetweenAttacks: 0.25
+  timeInLowHealth: 1
+  selfDestructor: 1
+  offensiveType: 0
+  defensiveType: 0

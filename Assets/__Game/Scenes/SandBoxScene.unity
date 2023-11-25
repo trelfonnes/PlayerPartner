@@ -136,6 +136,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberAmount: {fileID: 5441495952707126007}
+--- !u!1 &8654532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8654534}
+  - component: {fileID: 8654533}
+  m_Layer: 0
+  m_Name: AreaAttackObjectFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &8654533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2da373b64831c47ae9f274015105f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePrefab: {fileID: 2787000027476738465, guid: e50d461b9b1d2144da0ac74ae0330a7f, type: 3}
+--- !u!4 &8654534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654532}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.962116, y: 2.0516224, z: -0.4568284}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 47
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9601764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7587167532479553836, guid: 334ff3979b6bee548bd5476475de4cce, type: 3}
@@ -21043,7 +21088,7 @@ GameObject:
   - component: {fileID: 1168118097731626703}
   - component: {fileID: 1168118097731626700}
   m_Layer: 16
-  m_Name: TriReceiver(D,K,P)
+  m_Name: FireballTriReceiver(D,K,P)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21595,6 +21640,10 @@ MonoBehaviour:
   enemySOData: {fileID: 11400000, guid: 61dd0775bc936e442a7fb95a45a76efe, type: 2}
   statEvents: {fileID: 11400000, guid: 2d965b53208f7da429aaebb7bb701d6d, type: 2}
   enemyDirection: {x: 0, y: 0}
+  meleeWeaponDatas:
+  - {fileID: 11400000, guid: ffafed44df87ea140b654938236c999f, type: 2}
+  projectileWeaponDatas:
+  - {fileID: 11400000, guid: 5321682c941a4924c96457088c2f824f, type: 2}
 --- !u!114 &1168118098290782752
 MonoBehaviour:
   m_ObjectHideFlags: 0

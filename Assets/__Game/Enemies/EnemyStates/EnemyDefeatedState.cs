@@ -23,8 +23,12 @@ public class EnemyDefeatedState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
-        itemSpawnStrategy.SpawnItem(itemSpawnPoint);
-        particlesSpawned = 0;
+        if (data.health <= 0)
+        {
+            Debug.Log("Try to spawn an item");
+            itemSpawnStrategy.SpawnItem(itemSpawnPoint);
+            particlesSpawned = 0;
+        }
 
         //return to pool and spawn item chance. spawn defeated particles
         // enemy.gameObject.SetActive(false);

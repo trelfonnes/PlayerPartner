@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyFlee : IEnemyLowHealth
 {
-    public void StartLowHealthStrategy(float velocity, EnemyMovement movement)
+    public void StartLowHealthStrategy(EnemySOData data, EnemyMovement movement)
     {
-        movement.Flee(velocity);
+        movement.Flee(data.lowHealthSpeed);
 
     }
 }

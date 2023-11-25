@@ -20,8 +20,10 @@ public class EnemySOData : ScriptableObject
     public float minPatrolTime = 1f;
     public float timeBetweenAttacks = .5f;
     public float timeInLowHealth = 2.5f;
+    public bool selfDestructor;
+    public AttackType offensiveType;
+    public DefensiveType defensiveType;
 
-   
     IItemSpawnStrategy regularStrategy;
     IItemSpawnStrategy rareStrategy;
     IItemSpawnStrategy extraRareStrategy;

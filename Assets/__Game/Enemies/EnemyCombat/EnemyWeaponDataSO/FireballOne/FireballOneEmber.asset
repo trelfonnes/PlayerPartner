@@ -23,29 +23,11 @@ MonoBehaviour:
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 1f82972d6f0e8dc4794803d6eb64c481, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
-  - rid: 139480194757165056
-  - rid: 139480194757165057
   - rid: 139480194757165058
   <AttackType>k__BackingField: 0
   references:
     version: 2
     RefIds:
-    - rid: 139480194757165056
-      type: {class: DamageData, ns: , asm: Assembly-CSharp}
-      data:
-        name: DamageData
-        attackData:
-        - name: Ember
-          <Amount>k__BackingField: 2
-          <AttackType>k__BackingField: 0
-    - rid: 139480194757165057
-      type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
-      data:
-        name: KnockBackData
-        attackData:
-        - name: Ember
-          <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 4
     - rid: 139480194757165058
       type: {class: ProjectileData, ns: , asm: Assembly-CSharp}
       data:

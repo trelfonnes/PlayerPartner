@@ -64,9 +64,10 @@ public class EnemyBasicState : EnemyState
     }
     void EnemyDefeated()
     {
-        Debug.Log("Change to defeated State");
         if (data.health <= 0)
         {
+            Debug.Log("Change to defeated State");
+
             ESM.ChangeState(enemy.DefeatedState);
         }
     }

@@ -6,7 +6,7 @@ public class EnemyItemRegular : IEnemyItemSpawn
 {
     public void SpawnItem(Transform spawnPoint)
     {
-        Debug.Log("Enemy SPawn point: " + spawnPoint);
+        Debug.Log("Enemy SPAWN point: " + spawnPoint);
         GameManager.Instance.SwitchToRegularStrategy();
         ItemSpawnSystem.Instance.SpawnItem(spawnPoint);
 
