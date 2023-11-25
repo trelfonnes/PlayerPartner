@@ -7,20 +7,33 @@ public class AreaAttackObject : MonoBehaviour
 {
     Collider2D[] colliders = new Collider2D[10];
     [SerializeField] protected LayerMask whatIsDamageable;
+    Animator anim;
+    float damage;
+    AttackType attackType;
+    float knockBack;
+    Vector3 location;
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void PerformAreaAttack(Vector3 location, float size, float damage, AttackType attackType, float knockbackStrength)
     {
-
+        this.attackType = attackType;
+        this.damage = damage;
+        knockBack = knockbackStrength;
         transform.position = location;
         
         CreateAndCheckCollider(size, location);
 
+       
+    }
+    public void TriggerDammageAndKnockBack()
+    {
         DealDamage(damage, attackType);
 
-        ApplyKnockback(location, knockbackStrength);
-        AreaAttackObjectFactory.Instance.ResetPooledObjects();
+        ApplyKnockback(location, knockBack);
     }
-
 
     private void CreateAndCheckCollider(float newSize, Vector3 position)
     {
@@ -49,5 +62,10 @@ public class AreaAttackObject : MonoBehaviour
                 knockbackable.KnockBack(position, knockbackStrength, 0, -1);
             }
         }
+    }
+    public void AnimationOver()
+    {
+        AreaAttackObjectFactory.Instance.ResetPooledObjects();
+
     }
 }

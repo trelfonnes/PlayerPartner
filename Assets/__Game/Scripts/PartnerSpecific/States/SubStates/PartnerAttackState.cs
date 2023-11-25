@@ -41,6 +41,7 @@ public class PartnerAttackState : PartnerAbilityState
     public override void Exit()
     {
         base.Exit();
+        weapon.Exit();
         if (playerSOData.stage2 || playerSOData.stage3)
         {
             statEvents.onCurrentEPZero -= Devolve;

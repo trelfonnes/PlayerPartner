@@ -66,14 +66,13 @@ public class EnemyBasicState : EnemyState
     {
         if (data.health <= 0)
         {
-            Debug.Log("Change to defeated State");
 
             ESM.ChangeState(enemy.DefeatedState);
         }
     }
     void PoiseZero()
     {
-        if (data.poise <= 0)
+        if (data.poise <= 0 && !data.isStunned)
         {
             ESM.ChangeState(enemy.StunnedState);
         }
@@ -83,7 +82,6 @@ public class EnemyBasicState : EnemyState
         if (data.isStunned)
         {
             ESM.ChangeState(enemy.PlayerDetectedState);
-            data.isStunned = false;
         }
     }
     void HealthLow()

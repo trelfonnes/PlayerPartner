@@ -8,7 +8,7 @@ public class EnemyDefeatedState : EnemyBasicState
     private Particles particles;
     IEnemyItemSpawn itemSpawnStrategy;
     Transform itemSpawnPoint;
-    int particlesSpawned;
+    int particlesSpawned = 0;
     public EnemyDefeatedState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName, IEnemyItemSpawn itemSpawnStrategy, Transform itemSpawnPoint) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
         this.itemSpawnStrategy = itemSpawnStrategy;
@@ -23,31 +23,32 @@ public class EnemyDefeatedState : EnemyBasicState
     public override void Enter()
     {
         base.Enter();
-        if (data.health <= 0)
-        {
-            Debug.Log("Try to spawn an item");
-            itemSpawnStrategy.SpawnItem(itemSpawnPoint);
-            particlesSpawned = 0;
-        }
-
-        //return to pool and spawn item chance. spawn defeated particles
-        // enemy.gameObject.SetActive(false);
+     if (data.health <= 0)
+      {
+          Debug.Log("Try to spawn an item");
+           itemSpawnStrategy.SpawnItem(itemSpawnPoint);
+            if (particlesSpawned == 0)
+            {
+                Particles?.StartParticles(ParticleType.Defeated, enemy.transform.position, enemy.transform.rotation);
+                particlesSpawned++;
+            }
+           
+       }
+        
+        
     }
 
     public override void Exit()
     {
         base.Exit();
+        
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (particlesSpawned == 0)
-        {
-            Particles?.StartParticles(ParticleType.Defeated, enemy.transform.position, enemy.transform.rotation);
-            particlesSpawned++;
-            Debug.Log("ENEMY DEFEATED, should be set to false");
-        }
+        particlesSpawned = 0;
+       
     }
 
     public override void PhysicsUpdate()

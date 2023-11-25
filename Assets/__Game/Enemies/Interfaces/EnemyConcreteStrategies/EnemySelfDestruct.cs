@@ -9,7 +9,7 @@ public class EnemySelfDestruct : IEnemyLowHealth
     public void StartLowHealthStrategy(EnemySOData data, EnemyMovement movement)
     {
         Vector3 location = movement.transform.position;
-        float size = 10f;
+        float size = 2.5f;
         float damage = data.maxHealth;
         AttackType attackType = data.offensiveType;
         float knockbackStrength = 4f;

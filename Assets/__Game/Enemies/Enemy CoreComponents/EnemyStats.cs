@@ -46,14 +46,16 @@ public class EnemyStats : CoreComponent, IHealthChange, IPoiseDamageable
     }
     public void DamagePoise(float amount) 
     {
-
-        enemy.enemyData.poise -= amount;
-        if(enemy.enemyData.poise <= 0)
+        if (enemy.enemyData.poise > 0)
         {
-            statEvents.PoiseZero();
-            enemy.enemyData.isStunned = true;
-            regeneratePoise = true;
-            // statEvents.OnPoiseZero(); // This function invokes with SO event
+            enemy.enemyData.poise -= amount;
+
+            if (enemy.enemyData.poise <= 0)
+            {
+                statEvents.PoiseZero();
+                regeneratePoise = true;
+                // statEvents.OnPoiseZero(); // This function invokes with SO event
+            }
         }
     }
     public override void LogicUpdate()
@@ -70,6 +72,10 @@ public class EnemyStats : CoreComponent, IHealthChange, IPoiseDamageable
         if(stunnedTimer >= enemySOData.poiseRefillTime)
         {
             enemy.enemyData.poise = enemySOData.maxPoise;
+            if(enemy.enemyData.health > 0)
+            {
+                statEvents.PoiseRefilled();
+            }
             statEvents.PoiseRefilled();
             enemy.enemyData.poise = enemySOData.maxPoise;
             stunnedTimer = 0;

@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class EnemyItemRegular : IEnemyItemSpawn
 {
+    int counter = 0;
     public void SpawnItem(Transform spawnPoint)
     {
-        Debug.Log("Enemy SPAWN point: " + spawnPoint);
-        GameManager.Instance.SwitchToRegularStrategy();
-        ItemSpawnSystem.Instance.SpawnItem(spawnPoint);
+        if (counter < 1)
+        {
 
+
+            Debug.Log("Enemy SPAWN point: " + spawnPoint);
+            GameManager.Instance.SwitchToRegularStrategy();
+            ItemSpawnSystem.Instance.SpawnItem(spawnPoint);
+            counter++;
+        }
     }
 
 }

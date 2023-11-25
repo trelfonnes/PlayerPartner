@@ -24,13 +24,21 @@ public class EnemyStunnedState : EnemyBasicState
     {
         base.Enter();
         particlesSpawned = 0;
+        statEvents.onHealthZero += SwitchToDefeated;
+        enemy.enemyData.isStunned = true;
+
 
     }
-
+    void SwitchToDefeated()
+    {
+        ESM.ChangeState(enemy.DefeatedState);
+    }
     
     public override void Exit()
     {
         base.Exit();
+        statEvents.onHealthZero -= SwitchToDefeated;
+        enemy.enemyData.isStunned = false;
 
 
     }

@@ -134,6 +134,8 @@ public class Enemy : MonoBehaviour
     }
     public void TurnEnemyOFF()
     {
+        StateMachine.ChangeState(PatrolState);
+        enemyData.ResetData();
         gameObject.SetActive(false);
     }
 }

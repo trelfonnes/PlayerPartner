@@ -60,7 +60,7 @@ public class PartnerWeapon : MonoBehaviour
         attackCounterResetTimer.StopTimer();
         onEnter?.Invoke();
     }
-    void Exit()
+    public void Exit()
     {
         anim.SetBool("active", false);
         CurrentAttackCounter++;

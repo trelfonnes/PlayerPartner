@@ -66,7 +66,7 @@ public class Weapon : MonoBehaviour
 
     }
 
-    void Exit()
+   public void Exit()
     {
         anim.SetBool("active", false);
         CurrentAttackCounter++;
