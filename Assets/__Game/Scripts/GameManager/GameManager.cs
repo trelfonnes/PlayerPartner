@@ -9,13 +9,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : DataReferenceInheritor
 {
 
-    public GameObject chosenPartnerCharacter;
-    public GameObject chosenPlayerCharacter;// these are for spawning relations on scene switching
-    public GameObject[] playablePartnerPrefabs; // all creatures
-    public GameObject[] playablePlayerPrefabs; // male and female
-    int chosenPartnerCharacterIndex = 0;
-    int chosenPlayerCharacterIndex = 0;
+   // public GameObject chosenPartnerCharacter;
+  //  public GameObject chosenPlayerCharacter;// these are for spawning relations on scene switching
+   // public GameObject[] playablePartnerPrefabs; // all creatures
+   // public GameObject[] playablePlayerPrefabs; // male and female
+   // int chosenPartnerCharacterIndex = 0;
+    //int chosenPlayerCharacterIndex = 0;
     [SerializeField] PartnerType partnerFirstStageType;// this variable will be passed in by questionairre and set before passed to PartnerManager
+    [SerializeField] PlayerType chosenPlayer;// this variable will be passed in by questionairre and set before passed to PartnerManager
                                                         // only needs to be the first stage of whatever partner.
     public ItemsObjectPool objectPool;
     public static GameManager Instance { get; private set; }
@@ -23,6 +24,7 @@ public class GameManager : DataReferenceInheritor
     IItemSpawnStrategy rareStrategy;
     IItemSpawnStrategy regularStrategy;
     PartnerManager partnerManager;
+    PlayerManager playerManager;
     protected override void Awake()
     {
         base.Awake();
@@ -36,10 +38,12 @@ public class GameManager : DataReferenceInheritor
             Destroy(gameObject);
         }
 
+        playerManager = GetComponentInChildren<PlayerManager>();
+        playerManager.SetPlayerType(chosenPlayer); //this will be passed in via the questionairre
 
         partnerManager = GetComponentInChildren<PartnerManager>();
         partnerManager.SetPartners(partnerFirstStageType);
-
+        
     }
 
 
@@ -68,21 +72,27 @@ public class GameManager : DataReferenceInheritor
     {
         ItemSpawnSystem.Instance.ChangeItemSpawnStrategy(extraRareStrategy);
     }
-
-    public void SetChosenCharacter(int PartnercharacterIndex, int PlayerCharacterIndex)
+    public void SetPlayerAndPartnerType(PlayerType player, PartnerType partner) //call this from questionairre class
     {
-        chosenPartnerCharacterIndex = PartnercharacterIndex;
-        chosenPlayerCharacterIndex = PlayerCharacterIndex;
+        chosenPlayer = player;
+        partnerFirstStageType = partner;
     }
 
-    public GameObject GetChosenPartnerPrefab()
-    {
-        return playablePartnerPrefabs[chosenPartnerCharacterIndex];
-    }
-    public GameObject GetChosenPlayerPrefab()
-    {
-        return playablePlayerPrefabs[chosenPlayerCharacterIndex];
-    }
+    //Refactored these out
+   // public void SetChosenCharacter(int PartnercharacterIndex, int PlayerCharacterIndex)
+    //{
+      //  chosenPartnerCharacterIndex = PartnercharacterIndex;
+        //chosenPlayerCharacterIndex = PlayerCharacterIndex;
+    //}
+    
+  //  public GameObject GetChosenPartnerPrefab()
+  //  {
+  //      return playablePartnerPrefabs[chosenPartnerCharacterIndex];
+   // }
+   // public GameObject GetChosenPlayerPrefab()
+  //  {
+  //      return playablePlayerPrefabs[chosenPlayerCharacterIndex];
+  //  }
 
     //TODO: This will be the activate function found in the player and partner class
     // bool isChosenPlayer =GameManager.Instance.GetChosenPartnerPrefab() == gameObject;

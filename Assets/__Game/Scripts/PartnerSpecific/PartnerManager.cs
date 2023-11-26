@@ -46,7 +46,9 @@ public class PartnerManager : MonoBehaviour
     [SerializeField] Transform inactiveTransform;
     [SerializeField]Transform workingTransform;
     [SerializeField] EvolutionEvents evolutionEvents;
- 
+
+    [SerializeField] Vector2 startingSpawnPoint; //TODO: For testing
+
 
     bool isEvolving;
     bool isDevolving;
@@ -126,7 +128,7 @@ public class PartnerManager : MonoBehaviour
         }
         currentPartner = partnerOne;
         workingTransform.position = currentPartner.transform.position;
-
+        InstantiatePartner(currentPartner);
     }
     public GameObject GetPartnerPrefab(PartnerType partnerType)
     {
@@ -141,7 +143,12 @@ public class PartnerManager : MonoBehaviour
             return null;
         }
     }
-
+    void InstantiatePartner(GameObject partner)
+    {
+        Instantiate(partner);
+        partner.transform.position = startingSpawnPoint;
+        partner.SetActive(true);
+    }
 
     private void OnStartEvolutionHandler(EvolutionEvents.EvolutionEventData e)
     {
