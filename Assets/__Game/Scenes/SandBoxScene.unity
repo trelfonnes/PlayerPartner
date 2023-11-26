@@ -20742,9 +20742,33 @@ PrefabInstance:
       propertyPath: dinoThree
       value: 
       objectReference: {fileID: 1613145328}
+    - target: {fileID: 688379085472264762, guid: 9f4e25c7ef4cd27449f066513422184a, type: 3}
+      propertyPath: partnerMappings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 688379085472264762, guid: 9f4e25c7ef4cd27449f066513422184a, type: 3}
+      propertyPath: partnerMappings.Array.data[1].partnerType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 688379085472264762, guid: 9f4e25c7ef4cd27449f066513422184a, type: 3}
+      propertyPath: partnerMappings.Array.data[2].partnerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 688379085472264762, guid: 9f4e25c7ef4cd27449f066513422184a, type: 3}
+      propertyPath: partnerMappings.Array.data[0].partnerPrefab
+      value: 
+      objectReference: {fileID: 517371795}
+    - target: {fileID: 688379085472264762, guid: 9f4e25c7ef4cd27449f066513422184a, type: 3}
+      propertyPath: partnerMappings.Array.data[1].partnerPrefab
+      value: 
+      objectReference: {fileID: 1760035390}
+    - target: {fileID: 688379085472264762, guid: 9f4e25c7ef4cd27449f066513422184a, type: 3}
+      propertyPath: partnerMappings.Array.data[2].partnerPrefab
+      value: 
+      objectReference: {fileID: 1613145328}
     - target: {fileID: 688379085472264763, guid: 9f4e25c7ef4cd27449f066513422184a, type: 3}
       propertyPath: m_Name
-      value: PartnerMover
+      value: PartnerManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f4e25c7ef4cd27449f066513422184a, type: 3}
