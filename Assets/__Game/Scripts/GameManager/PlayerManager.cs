@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<PlayerPrefabMapping> playerMappings = new List<PlayerPrefabMapping>();
 
     private Dictionary<PlayerType, GameObject> playerPrefabs = new Dictionary<PlayerType, GameObject>();
+    Player playerClass;
+    
 
     GameObject player;
     [SerializeField] Vector2 startingSpawnPoint; //TODO: For testing
@@ -76,8 +78,10 @@ public class PlayerManager : MonoBehaviour
     }
     void InstantiatePlayer(GameObject player)
     {
+        playerClass = player.GetComponent<Player>();
         Instantiate(player);
         player.transform.position = startingSpawnPoint;
+        GameManager.Instance.SetPlayer(playerClass);
         player.SetActive(true);
     }
 }

@@ -18,6 +18,9 @@ public class SaveLoadManager : DataReferenceInheritor
     [SerializeField] WeaponInventoryManager weaponInventoryManager;
    [SerializeField] List<WeaponInventoryItemSO> playerWeapons;
    [SerializeField] List<WeaponInventoryItemSO> partnerWeapons;
+    [SerializeField] Player player;
+    [SerializeField] Partner partner;
+    [SerializeField] Vector2 savedLocations;
 
     public static SaveLoadManager Instance;
     
@@ -42,6 +45,15 @@ public class SaveLoadManager : DataReferenceInheritor
         DontDestroyOnLoad(this);
 
     }
+    public void SetPlayer(Player player)
+    {
+        this.player = player;
+    }
+
+    public void SetPartner(Partner partner)
+    {
+        this.partner = partner;
+    }
     public bool IsSaveFile()
     {
         return Directory.Exists(Application.persistentDataPath + "/game_save");
@@ -53,6 +65,7 @@ public class SaveLoadManager : DataReferenceInheritor
         SaveSharedPartnerData();
         SavePlayerInventoryContents();
         SaveWeaponItems();
+        SavePlayerPartnerLocation();
         PopUpUI();
     }
     public void LoadWithEasySave()
@@ -61,6 +74,7 @@ public class SaveLoadManager : DataReferenceInheritor
         LoadSharedPartnerData();
         LoadPlayerInventoryContents();
         LoadWeaponItems();
+        LoadPlayerPartnerLocation();
     }
     private void SavePlayerPartnerBasicData()
     {
@@ -133,6 +147,28 @@ public class SaveLoadManager : DataReferenceInheritor
         weaponInventoryManager.partnerWeaponsInInventory = partnerWeapons;
         weaponInventoryManager.ClearAndMakeSlots();
     
+    }
+     void SavePlayerPartnerLocation()
+    {
+        savedLocations = player.transform.position; 
+      
+        ES3.Save("playerPartnerLocation", savedLocations);
+
+    }
+    void LoadPlayerPartnerLocation()
+    {
+        if (ES3.KeyExists("playerPartnerLocation"))
+        {
+            savedLocations = ES3.Load<Vector2>("playerPartnerLocation");
+
+            player.transform.position = savedLocations;
+            partner.transform.position = savedLocations;
+        }
+        else
+        {
+            Debug.LogWarning("Key 'playerPartnerLocation' does not exist or data is not loaded.");
+
+        }
     }
     public void SaveGame()
     {// add saving PlayerInventory scriptable object

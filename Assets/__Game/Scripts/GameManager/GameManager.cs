@@ -78,7 +78,14 @@ public class GameManager : DataReferenceInheritor
         chosenPlayer = player;
         partnerFirstStageType = partner;
     }
-
+    public void SetPlayer(Player player)
+    {
+        SaveLoadManager.Instance.SetPlayer(player);
+    }
+    public void SetPartner(Partner partner)
+    {
+        SaveLoadManager.Instance.SetPartner(partner);
+    }
     //Refactored these out
    // public void SetChosenCharacter(int PartnercharacterIndex, int PlayerCharacterIndex)
     //{

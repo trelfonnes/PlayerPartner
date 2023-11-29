@@ -16,6 +16,7 @@ public class PlayerData : MonoBehaviour
     public bool StartEPTimer;
     int roundedAmount;
     public bool partnerIsDefeated;
+    public Vector2 lastPositionsInScene;
 
     private static PlayerData instance;
     

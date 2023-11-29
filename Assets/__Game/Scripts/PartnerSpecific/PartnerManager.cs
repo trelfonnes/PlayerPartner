@@ -145,8 +145,10 @@ public class PartnerManager : MonoBehaviour
     }
     void InstantiatePartner(GameObject partner)
     {
+        Partner partnerClass = partner.GetComponent<Partner>();
         Instantiate(partner);
         partner.transform.position = startingSpawnPoint;
+        GameManager.Instance.SetPartner(partnerClass);
         partner.SetActive(true);
     }
 

@@ -22,7 +22,7 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable
     {
         if (hasBeenActivated)
         {
-            SaveLoadManager.Instance.SaveGame();
+            SaveLoadManager.Instance.SaveWithEasySave();
             //TODO allow game to save and bring up UI
         }
     }

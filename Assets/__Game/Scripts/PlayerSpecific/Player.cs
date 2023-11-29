@@ -88,7 +88,11 @@ public class Player : MonoBehaviour
         //connected physics update for specific character
        StateMachine.CurrentState.PhysicsUpdate();
     }
-   public void PlayerIsDefeated()
+    private void OnDisable()
+    {
+       
+    }
+    public void PlayerIsDefeated()
     {
         //logic for whatever needs to be done. Trigger game over screen
     }
