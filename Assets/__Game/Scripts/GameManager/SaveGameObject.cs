@@ -6,7 +6,7 @@ public class SaveGameObject : MonoBehaviour, IInteractable
 {
     public void Interact()
     {
-        SaveLoadManager.Instance.SaveGame();
+        SaveLoadManager.Instance.SaveWithEasySave();
         Debug.Log("Data Saved");
     }
 }

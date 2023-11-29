@@ -48,6 +48,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
   BytesDisplay: {fileID: 0}
 --- !u!1 &1600163993
 GameObject:
@@ -128,6 +129,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
 --- !u!1 &1555753722857316150
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,8 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3029f4dd63a4aca4a9eb6a014fdbbef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defeatedParticles:
-  - {fileID: 0}
 --- !u!1 &1970277185830754713
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +253,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 0}
+  playerOnlyheartDisplayUI: {fileID: 0}
   keyDisplay: {fileID: 0}
   bossKeyDisplay: {fileID: 0}
 --- !u!1 &3963916744730356113
@@ -488,7 +489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963916745617885419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -919,6 +920,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
   canShoot: 1
   SPDisplay: {fileID: 0}
 --- !u!1 &4867193511025852559
@@ -1086,6 +1088,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
   defensiveType: 5
   heartDisplayUI: {fileID: 0}
 --- !u!1 &7759988393125100095

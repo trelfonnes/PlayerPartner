@@ -89,10 +89,12 @@ public class SpreadProjectile : MonoBehaviour
     }
 
 
-    void Shoot(PartnerProjectile component, Vector2 direction)
+    void Shoot(PartnerProjectile component, Vector2 direction, float damage, float knockBack)
     {
         if (!hasBeenShot)
         {
+            this.damage = damage;
+            knockBackDamage = knockBack;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             transform.rotation = rotation;

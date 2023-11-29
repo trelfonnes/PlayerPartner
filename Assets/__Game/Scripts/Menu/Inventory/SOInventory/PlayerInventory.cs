@@ -21,7 +21,7 @@ public class PlayerInventory : ScriptableObject
 
     //dictionary to store key items in the player's inventory, NOT usable items e.g. potions
 
- private Dictionary<string, KeyItem> keyItems = new Dictionary<string, KeyItem>();
+ public Dictionary<string, KeyItem> keyItems = new Dictionary<string, KeyItem>();
 
     public void AddKeyItem(KeyItem keyItem)
     {
@@ -39,6 +39,7 @@ public class PlayerInventory : ScriptableObject
 
     public bool HasKeyItem(string itemName)
     {
+        
         return keyItems.ContainsKey(itemName);
     }
 

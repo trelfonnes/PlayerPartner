@@ -21,7 +21,7 @@ public class EnemyProjectile : WeaponComponent<ProjectileData, AttackProjectileD
     void SetDirection() // listened to by actual projectile game object that is "unpooled"
     {//make sure combat facing direction works for enemy. 
         direction = movement.LastEnemyDirection; //new Vector2(movement.LastEnemyDirection.x, movement.LastEnemyDirection.y);
-      ProjectileEventSystem.Instance.RaiseEnemyDirectionSetEvent(this, direction);
+      ProjectileEventSystem.Instance.RaiseEnemyDirectionSetEvent(this, direction, currentAttackDataEnemy.damage, currentAttackDataEnemy.knockbackStrength);
     }
 
     protected override void Start()

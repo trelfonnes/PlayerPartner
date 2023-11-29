@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4686357619925224070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.75, y: -0.25, z: 0}
+  m_LocalPosition: {x: 1.5, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -144,6 +144,7 @@ MonoBehaviour:
   - {fileID: 7359536130901780644, guid: d6238278334294d9db4a20082dae319c, type: 3}
   - {fileID: -4717063445461775682, guid: d6238278334294d9db4a20082dae319c, type: 3}
   - {fileID: 7038691086620768331, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  attackType: 0
   damage: 1
   knockBackDamage: 3
   poiseDamage: 1
@@ -177,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4714796324031722357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.75, y: -0.25, z: 0}
+  m_LocalPosition: {x: -1.5, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -293,6 +294,7 @@ MonoBehaviour:
   - {fileID: 7359536130901780644, guid: d6238278334294d9db4a20082dae319c, type: 3}
   - {fileID: -4717063445461775682, guid: d6238278334294d9db4a20082dae319c, type: 3}
   - {fileID: 7038691086620768331, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  attackType: 0
   damage: 1
   knockBackDamage: 3
   poiseDamage: 1
@@ -444,6 +446,7 @@ MonoBehaviour:
   - {fileID: 7359536130901780644, guid: d6238278334294d9db4a20082dae319c, type: 3}
   - {fileID: -4717063445461775682, guid: d6238278334294d9db4a20082dae319c, type: 3}
   - {fileID: 7038691086620768331, guid: d6238278334294d9db4a20082dae319c, type: 3}
+  attackType: 0
   damage: 1
   knockBackDamage: 3
   poiseDamage: 1

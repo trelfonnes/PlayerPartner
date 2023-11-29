@@ -27,10 +27,12 @@ public class BasicProjectile : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
    
-     void Shoot(PartnerProjectile component, Vector2 direction)
+     void Shoot(PartnerProjectile component, Vector2 direction, float damage, float knockBackDamage)
     {
         if (!hasBeenShot)
         {
+            this.damage = damage;
+            this.knockBackDamage = knockBackDamage;
             enemyProjectile = false;
             partnerProjectile = true;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
@@ -48,10 +50,12 @@ public class BasicProjectile : MonoBehaviour
 
 
     }
-    void EnemyShoot(EnemyProjectile component, Vector2 direction)
+    void EnemyShoot(EnemyProjectile component, Vector2 direction, float damage, float knockBackDamage)
     {
         if (!hasBeenShot)
         {
+            this.damage = damage;
+            this.knockBackDamage = knockBackDamage;
             enemyProjectile = true;
             partnerProjectile = false;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;

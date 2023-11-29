@@ -14,7 +14,7 @@ public class ChargedProjectile : MonoBehaviour
     [SerializeField] private float poiseDamage = 1; //how much poise damage it does
     [SerializeField] float velocity = 10f; // how fast it travels
     [SerializeField] float activeTime = 2.5f;
-    [SerializeField] private float chargedDamage = 1; //how much damage it does
+    [SerializeField] private float chargedDamage = 3; //how much damage it does
     [SerializeField] private float chargedKnockBackDamage = 3; //how much knockback it gives
     [SerializeField] private float chargedPoiseDamage = 1; //how much poise damage it does
     [SerializeField] float chargedVelocity = 10f; // how fast it travels
@@ -37,12 +37,14 @@ public class ChargedProjectile : MonoBehaviour
         baseScale = new Vector3(1, 1, 1);
     }
 
-    void Shoot(PartnerProjectile component, Vector2 direction)
+    void Shoot(PartnerProjectile component, Vector2 direction, float damage, float knockback)
     {
         chargedScale = baseScale * scaleFactor;
 
         if (!hasBeenShot)
         {
+            this.damage = damage;
+            knockBackDamage = knockback;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             transform.position = component.transform.position;
@@ -50,6 +52,7 @@ public class ChargedProjectile : MonoBehaviour
             normalizedDirection = direction.normalized;
             if (isCharged)
             {
+                this.damage *= 2;
                 transform.localScale = chargedScale;
                 rb.velocity = normalizedDirection * chargedVelocity;
             }

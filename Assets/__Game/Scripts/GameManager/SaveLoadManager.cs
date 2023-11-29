@@ -11,8 +11,13 @@ public class SaveLoadManager : DataReferenceInheritor
     PlayerSOData partner1BasicData;
     PlayerSOData partner2BasicData;
     PlayerSOData partner3BasicData;
-
+    [SerializeField] PlayerData sharedPartnerData;
+    [SerializeField] PlayerInventory playerInventory;
+    [SerializeField] List<inventoryItems> itemsAmountInInventory;
     [SerializeField] GameObject gameSavedUI;
+    [SerializeField] WeaponInventoryManager weaponInventoryManager;
+   [SerializeField] List<WeaponInventoryItemSO> playerWeapons;
+   [SerializeField] List<WeaponInventoryItemSO> partnerWeapons;
 
     public static SaveLoadManager Instance;
     
@@ -41,6 +46,93 @@ public class SaveLoadManager : DataReferenceInheritor
     {
         return Directory.Exists(Application.persistentDataPath + "/game_save");
         
+    }
+    public void SaveWithEasySave()
+    {
+        SavePlayerPartnerBasicData();
+        SaveSharedPartnerData();
+        SavePlayerInventoryContents();
+        SaveWeaponItems();
+        PopUpUI();
+    }
+    public void LoadWithEasySave()
+    {
+        LoadPlayerPartnerBasicData();
+        LoadSharedPartnerData();
+        LoadPlayerInventoryContents();
+        LoadWeaponItems();
+    }
+    private void SavePlayerPartnerBasicData()
+    {
+        ES3.Save("playerDataSO", playerBasicData);
+        ES3.Save("partner1BasicData", partner1SOData);
+        ES3.Save("partner2BasicData", partner2SOData);
+        ES3.Save("partner3BasicData", partner3SOData);
+        
+
+    }
+    private void LoadPlayerPartnerBasicData()
+    {
+        ES3.Load("playerDataSO");
+        ES3.Load("partner1BasicData", partner1SOData);
+        ES3.Load("partner2BasicData", partner2SOData);
+        ES3.Load("partner3BasicData", partner3SOData);
+    }
+    void SaveSharedPartnerData()
+    {
+        ES3.Save("sharedPartnerData", sharedPartnerData);
+
+    }
+    void LoadSharedPartnerData()
+    {
+        ES3.Load("sharedPartnerData");
+    }
+    void SavePlayerInventoryContents()
+    {
+        ES3.Save("playerInventory", playerInventory);
+        ES3.Save("individualInventoryItems", itemsAmountInInventory);
+    } 
+   
+    void LoadPlayerInventoryContents()
+    {
+        ES3.Load("playerInventory");
+        ES3.Load("individualInventoryItems");
+    }
+    void SaveWeaponItems()
+    {
+        playerWeapons = weaponInventoryManager.playerWeaponsInInventory;
+        partnerWeapons = weaponInventoryManager.partnerWeaponsInInventory;
+
+        ES3.Save("playerWeapons", playerWeapons);
+        ES3.Save("partnerWeapons", partnerWeapons);
+    }
+    void LoadWeaponItems()
+    {
+        if (ES3.KeyExists("playerWeapons"))
+        {
+            // Load playerWeapons data
+            playerWeapons = ES3.Load<List<WeaponInventoryItemSO>>("playerWeapons");
+        }
+        else
+        {
+            // Handle the case when the key doesn't exist or the data is not loaded
+            Debug.LogWarning("Key 'playerWeapons' does not exist or data is not loaded.");
+        }
+        if (ES3.KeyExists("partnerWeapons"))
+        {
+            // Load partnerWeapons data
+            partnerWeapons = ES3.Load<List<WeaponInventoryItemSO>>("partnerWeapons");
+        }
+        else
+        {
+            // Handle the case when the key doesn't exist or the data is not loaded
+            Debug.LogWarning("Key 'partnerWeapons' does not exist or data is not loaded.");
+        }
+       
+        weaponInventoryManager.playerWeaponsInInventory = playerWeapons;
+        weaponInventoryManager.partnerWeaponsInInventory = partnerWeapons;
+        weaponInventoryManager.ClearAndMakeSlots();
+    
     }
     public void SaveGame()
     {// add saving PlayerInventory scriptable object

@@ -25,6 +25,7 @@ public class GameManager : DataReferenceInheritor
     IItemSpawnStrategy regularStrategy;
     PartnerManager partnerManager;
     PlayerManager playerManager;
+    GameData gameData = new GameData();
     protected override void Awake()
     {
         base.Awake();
@@ -39,10 +40,8 @@ public class GameManager : DataReferenceInheritor
         }
 
         playerManager = GetComponentInChildren<PlayerManager>();
-        playerManager.SetPlayerType(chosenPlayer); //this will be passed in via the questionairre
 
         partnerManager = GetComponentInChildren<PartnerManager>();
-        partnerManager.SetPartners(partnerFirstStageType);
         
     }
 
@@ -53,6 +52,8 @@ public class GameManager : DataReferenceInheritor
         regularStrategy = new RegularItemSpawnStrategy(objectPool);
         rareStrategy = new RareItemSpawnStrategy(objectPool);
         extraRareStrategy = new ExtraRareItemSpawnStrategy(objectPool);
+        playerManager.SetPlayerType(chosenPlayer); //this will be passed in via the questionairre
+        partnerManager.SetPartners(partnerFirstStageType);
 
         // Set the desired strategy in the ItemSpawnSystem (you can do this based on game logic).
         // For example, based on the category of defeated enemy or broken object, you can set the strategy.
@@ -118,6 +119,21 @@ public class GameManager : DataReferenceInheritor
     {
         string[] split = s.TrimStart('(').TrimEnd(')').Split(',');
         return new Vector3(float.Parse(split[0]), float.Parse(split[1]), float.Parse(split[2]));
+    }
+
+    public void SaveData(string key, object value)
+    {
+        gameData.AddData(key, value);
+        SaveManager.Save();
+    }
+    public void LoadData()
+    {
+        SaveManager.Load();
+    }
+    public GameData GameData
+    {
+        get { return gameData; }
+        set { gameData = value; }
     }
 
 }

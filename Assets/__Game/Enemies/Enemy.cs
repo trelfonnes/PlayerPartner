@@ -136,6 +136,7 @@ public class Enemy : MonoBehaviour
     {
         StateMachine.ChangeState(PatrolState);
         enemyData.ResetData();
+        PlayerData.Instance.GainExperience(enemySOData.expYield);
         gameObject.SetActive(false);
     }
 }

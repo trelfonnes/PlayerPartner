@@ -124,8 +124,8 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: Slash
-          <Amount>k__BackingField: 5
-          <AttackType>k__BackingField: 0
+          <Amount>k__BackingField: 6
+          <AttackType>k__BackingField: 5
     - rid: 7917043661478035459
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:

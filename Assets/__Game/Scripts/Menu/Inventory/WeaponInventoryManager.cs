@@ -32,8 +32,8 @@ public class WeaponInventoryManager : MonoBehaviour
     [SerializeField] Image partnerSecondaryEquippedImage;
     PartnerWeaponState partnerWeaponStateInstance;
 
-    [SerializeField] List<WeaponInventoryItemSO> playerWeaponsInInventory = new List<WeaponInventoryItemSO>();
-    [SerializeField] List<WeaponInventoryItemSO> partnerWeaponsInInventory = new List<WeaponInventoryItemSO>();
+    [SerializeField] public List<WeaponInventoryItemSO> playerWeaponsInInventory = new List<WeaponInventoryItemSO>();
+    [SerializeField] public List<WeaponInventoryItemSO> partnerWeaponsInInventory = new List<WeaponInventoryItemSO>();
 
 
     private void Start()
@@ -78,7 +78,7 @@ public class WeaponInventoryManager : MonoBehaviour
         }
     }
 
-    void MakeInventorySlots()
+     void MakeInventorySlots()
     {
         if (playerWeaponsInInventory.Count > 0)
         {
@@ -125,12 +125,17 @@ public class WeaponInventoryManager : MonoBehaviour
     public void SetupDescriptionAndButton(string newDescription, bool isButtonActive, WeaponInventoryItemSO newWeapon)
     {
         currentWeapon = newWeapon;
-        Debug.Log("set description for weapon");
         weaponDescriptionText.text = newDescription;
         equipButton.SetActive(isButtonActive);
     }
 
     private void OnEnable()
+    {
+        ClearInventorySlots();
+        MakeInventorySlots();
+        SetTextAndButton("", false);
+    }
+    public void ClearAndMakeSlots()
     {
         ClearInventorySlots();
         MakeInventorySlots();

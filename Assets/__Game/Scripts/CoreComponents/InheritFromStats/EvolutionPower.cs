@@ -28,7 +28,7 @@ public class EvolutionPower : Stats, IEvolutionPower
         playerData.ep -= amount;
         if(playerData.ep <= 0)
         {
-           
+            playerData.ep = 0;
             StopEvolutionTimer();
         }
         roundedAmount = Mathf.RoundToInt(playerData.ep);

@@ -25,5 +25,7 @@ MonoBehaviour:
   minPatrolTime: 1
   timeBetweenAttacks: 0.5
   timeInLowHealth: 2.5
+  selfDestructor: 0
+  expYield: 1
   offensiveType: 5
   defensiveType: 5
