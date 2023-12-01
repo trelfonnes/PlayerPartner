@@ -57,6 +57,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (muteInput)
         {
+            Debug.Log(muteInput);
             NormInputX = 0;
             NormInputY = 0;
             return;
@@ -214,6 +215,10 @@ public class PlayerInputHandler : MonoBehaviour
         yield return new WaitForSeconds(resetDelay);
         DashInput = false;
         isResettingDash = false;
+    }
+    public void ChangeMuteInput(bool muteInput)
+    {
+        this.muteInput = muteInput;
     }
 
     private void OnDisable()

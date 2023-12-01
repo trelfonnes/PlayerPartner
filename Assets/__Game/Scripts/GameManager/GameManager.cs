@@ -82,10 +82,11 @@ public class GameManager : DataReferenceInheritor
     {
         SaveLoadManager.Instance.SetPlayer(player);
     }
-    public void SetPartner(Partner partner)
+    public void SetPartner(GameObject currentPartner)
     {
-        SaveLoadManager.Instance.SetPartner(partner);
+        SaveLoadManager.Instance.SetPartner(currentPartner);
     }
+   
     //Refactored these out
    // public void SetChosenCharacter(int PartnercharacterIndex, int PlayerCharacterIndex)
     //{

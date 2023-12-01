@@ -22,6 +22,8 @@ public class SaveLoadManager : DataReferenceInheritor
     [SerializeField] Partner partner;
     [SerializeField] Vector2 savedLocations;
 
+    [SerializeField] GameObject activePartner;
+
     public static SaveLoadManager Instance;
     
 
@@ -43,6 +45,10 @@ public class SaveLoadManager : DataReferenceInheritor
 
         }
         DontDestroyOnLoad(this);
+    }
+    private void Start()
+    {
+      // LoadWithEasySave();
 
     }
     public void SetPlayer(Player player)
@@ -50,8 +56,10 @@ public class SaveLoadManager : DataReferenceInheritor
         this.player = player;
     }
 
-    public void SetPartner(Partner partner)
+    public void SetPartner(GameObject currentPartner)
     {
+        activePartner = currentPartner;
+        Partner partner = currentPartner.GetComponent<Partner>();
         this.partner = partner;
     }
     public bool IsSaveFile()
@@ -66,6 +74,7 @@ public class SaveLoadManager : DataReferenceInheritor
         SavePlayerInventoryContents();
         SaveWeaponItems();
         SavePlayerPartnerLocation();
+        SaveLastActivePartner();
         PopUpUI();
     }
     public void LoadWithEasySave()
@@ -75,6 +84,7 @@ public class SaveLoadManager : DataReferenceInheritor
         LoadPlayerInventoryContents();
         LoadWeaponItems();
         LoadPlayerPartnerLocation();
+        LoadLastActivePartner();
     }
     private void SavePlayerPartnerBasicData()
     {
@@ -92,7 +102,7 @@ public class SaveLoadManager : DataReferenceInheritor
         ES3.Load("partner2BasicData", partner2SOData);
         ES3.Load("partner3BasicData", partner3SOData);
     }
-    void SaveSharedPartnerData()
+    void SaveSharedPartnerData() //AKA PlayerData
     {
         ES3.Save("sharedPartnerData", sharedPartnerData);
 
@@ -170,6 +180,26 @@ public class SaveLoadManager : DataReferenceInheritor
 
         }
     }
+    void SaveLastActivePartner()
+    {
+        ES3.Save("lastActivePartner", activePartner);
+    }
+    void LoadLastActivePartner()
+    {
+        if (ES3.KeyExists("lastActivePartner"))
+        {
+            activePartner = ES3.Load<GameObject>("lastActivePartner");
+            activePartner.SetActive(true);
+
+            PartnerManager.Instance.SetLastPartnerActive(activePartner);
+            
+        }
+        else
+        {
+            Debug.LogError("lastActivePartner key does not exist");
+        }
+    }
+  
     public void SaveGame()
     {// add saving PlayerInventory scriptable object
      //base folder

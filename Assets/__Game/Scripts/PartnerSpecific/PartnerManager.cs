@@ -145,10 +145,10 @@ public class PartnerManager : MonoBehaviour
     }
     void InstantiatePartner(GameObject partner)
     {
-        Partner partnerClass = partner.GetComponent<Partner>();
+      
         Instantiate(partner);
         partner.transform.position = startingSpawnPoint;
-        GameManager.Instance.SetPartner(partnerClass);
+        GameManager.Instance.SetPartner(partner);
         partner.SetActive(true);
     }
 
@@ -157,6 +157,7 @@ public class PartnerManager : MonoBehaviour
 
         SwitchStage(e.evolutionStage);
     }
+    
 
     public void SwitchStage(int stage)
     {
@@ -195,8 +196,31 @@ public class PartnerManager : MonoBehaviour
                 currentPartner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
 
         }
-
+        GameManager.Instance.SetPartner(currentPartner); // sending the correct reference to be stored in the partner variable in SaveLoadManager
     }
-    
+    public void SetLastPartnerActive(GameObject lastPartner)
+    {
+        Partner partner = lastPartner.GetComponent<Partner>();
+        if (partner)
+        {
+
+
+            if (partner.stageOne)
+            {
+                SwitchStage(1);
+            }
+            else if (partner.stageTwo)
+            {
+                SwitchStage(2);
+
+            }
+            else if (partner.stageThree)
+            {
+                SwitchStage(3);
+
+            }
+        }
+        else Debug.LogError("no Partner component found" + lastPartner.name);
+    }
 
 }

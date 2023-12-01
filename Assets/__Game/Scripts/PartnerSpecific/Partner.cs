@@ -87,7 +87,8 @@ public class Partner : MonoBehaviour
     }
     private void OnEnable()
     {
-       // StateMachine.InitializePartner(FollowIdleState);
+        InputHandler.ChangeMuteInput(false);
+       StateMachine.InitializePartner(FollowIdleState);
     }
     protected virtual void Update()
     {
