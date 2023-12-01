@@ -9,11 +9,13 @@ public class Enemy : MonoBehaviour
     private Dictionary<int, WeaponDataSO> ProjectileWeaponDatas = new Dictionary<int, WeaponDataSO>();
     private int nextMeleeKey = 0;
     private int nextProjectileKey = 0;
-
+    bool needsToInitializeStates;
     EnemyWeapon meleeWeapon;
     EnemyWeapon projectileWeapon;
 
-    
+    public static event Action<AreaType> onEnemyDefeated;
+    [SerializeField] AreaType enemyAreaType;
+
     public EnemyMeleeAttackState MeleeState { get; private set; }
     public EnemyProjectileAttackState ProjectileState { get; private set; }
     public EnemyPlayerDetectedState PlayerDetectedState { get; private set; }
@@ -77,16 +79,20 @@ public class Enemy : MonoBehaviour
         ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, enemyData, "attack", projectileWeapon, projectileStrategy, ProjectileWeaponDatas);
 
     }
-
+   
     //refactor to individual enemy class
     protected virtual void SetStrategies()
     {
       
     }
+    public void InitializeAreaType(AreaType areaType)
+    {
+        enemyAreaType = areaType;
+    }
     protected virtual void Start()
     {
         StateMachine.Initialize(PatrolState);
-        
+
     }
     protected virtual void Update()
     {
@@ -131,12 +137,20 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         enemyData.ResetData();
+        if (needsToInitializeStates)
+        {
+            StateMachine.Initialize(PatrolState);
+
+        }
+
     }
     public void TurnEnemyOFF()
     {
         StateMachine.ChangeState(PatrolState);
         enemyData.ResetData();
         PlayerData.Instance.GainExperience(enemySOData.expYield);
+        onEnemyDefeated?.Invoke(enemyAreaType);
+        needsToInitializeStates = true;
         gameObject.SetActive(false);
     }
 }

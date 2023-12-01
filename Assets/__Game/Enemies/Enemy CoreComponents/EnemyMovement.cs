@@ -116,7 +116,10 @@ public class EnemyMovement : Movement
         directionX = X;
         directionY = Y;
         LastEnemyDirection = new Vector2(X, Y);
-        enemy.enemyDirection = LastEnemyDirection;
+        if (enemy)
+        {
+            enemy.enemyDirection = LastEnemyDirection;
+        }
     }
 }
 

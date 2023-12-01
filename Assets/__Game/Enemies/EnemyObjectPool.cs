@@ -102,6 +102,42 @@ public class EnemyObjectPool : MonoBehaviour
             return newObj;
         }
         return null;
+    } 
+    public GameObject GetPooledEnemyWithArea(EnemyType enemyType, Transform spawnLocation, AreaType area)
+    {
+        GameObject prefab = GetPrefabFromType(enemyType);
+        if(prefab !=null && pooledEnemyObjectsDictionary.ContainsKey(prefab))
+        {
+            List<GameObject> pooledObjects = pooledEnemyObjectsDictionary[prefab];
+
+            for (int i = 0; i < pooledObjects.Count; i++)
+            {
+                if (!pooledObjects[i].activeInHierarchy)
+                {
+                    pooledObjects[i].SetActive(true);
+                    SetEnemyPosition(pooledObjects[i], spawnLocation.position, spawnLocation.rotation);
+                    Enemy enemy = pooledObjects[i].GetComponent<Enemy>();
+                    if(enemy != null)
+                    {
+                        enemy.InitializeAreaType(area);
+                    }
+                    return pooledObjects[i];
+                }
+
+            }
+        }
+        else//make a new one then add it to the dictionary
+        {
+            GameObject newObj = Instantiate(prefab);
+            SetEnemyPosition(newObj, spawnLocation.position, spawnLocation.rotation);
+            if (!pooledEnemyObjectsDictionary.ContainsKey(prefab))
+            {
+                pooledEnemyObjectsDictionary.Add(prefab, new List<GameObject>());
+            }
+            pooledEnemyObjectsDictionary[prefab].Add(newObj);
+            return newObj;
+        }
+        return null;
     }
     private void SetEnemyPosition(GameObject enemy, Vector3 position, Quaternion rotation)
     {
@@ -112,6 +148,10 @@ public class EnemyObjectPool : MonoBehaviour
     {
         GetPooledEnemy(type, location);
 
+    }
+    public void ReceiveEnemyTypeAndArea(EnemyType type, Transform location, AreaType area)
+    {
+        GetPooledEnemyWithArea(type, location, area);
     }
     public void ReceiveTypeToPool(EnemyType type)
     {
@@ -137,6 +177,7 @@ public class EnemyObjectPool : MonoBehaviour
     {
         if (EnemyPoolManager.Instance != null)
         {
+            EnemyPoolManager.Instance.onEnemyTypeLocationAreaToSpawn += ReceiveEnemyTypeAndArea;
             EnemyPoolManager.Instance.onEnemyTypeAndLocationToSpawn += ReceiveEnemyTypeToUnpool;
             EnemyPoolManager.Instance.onClearEnemies += ReceiveTypeToPool;
         }
@@ -149,6 +190,8 @@ public class EnemyObjectPool : MonoBehaviour
     {
         if (EnemyPoolManager.Instance != null)
         {
+            EnemyPoolManager.Instance.onEnemyTypeLocationAreaToSpawn -= ReceiveEnemyTypeAndArea;
+
             EnemyPoolManager.Instance.onEnemyTypeAndLocationToSpawn -= ReceiveEnemyTypeToUnpool;
             EnemyPoolManager.Instance.onClearEnemies -= ReceiveTypeToPool;
         }

@@ -21,6 +21,8 @@ public class SaveLoadManager : DataReferenceInheritor
     [SerializeField] Player player;
     [SerializeField] Partner partner;
     [SerializeField] Vector2 savedLocations;
+    [SerializeField] Transform locationForPartnerLoad;
+    
 
     [SerializeField] GameObject activePartner;
 
@@ -109,6 +111,7 @@ public class SaveLoadManager : DataReferenceInheritor
     }
     void LoadSharedPartnerData()
     {
+        if(ES3.KeyExists("sharedPartnerData"))
         ES3.Load("sharedPartnerData");
     }
     void SavePlayerInventoryContents()
@@ -119,8 +122,14 @@ public class SaveLoadManager : DataReferenceInheritor
    
     void LoadPlayerInventoryContents()
     {
-        ES3.Load("playerInventory");
-        ES3.Load("individualInventoryItems");
+        if (ES3.KeyExists("playerInventory"))
+        {
+            ES3.Load("playerInventory");
+        }
+        if (ES3.KeyExists("individualInventoryItems"))
+        {
+            ES3.Load("individualInventoryItems");
+        }
     }
     void SaveWeaponItems()
     {
@@ -170,7 +179,6 @@ public class SaveLoadManager : DataReferenceInheritor
         if (ES3.KeyExists("playerPartnerLocation"))
         {
             savedLocations = ES3.Load<Vector2>("playerPartnerLocation");
-
             player.transform.position = savedLocations;
             partner.transform.position = savedLocations;
         }

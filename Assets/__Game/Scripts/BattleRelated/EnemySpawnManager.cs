@@ -27,10 +27,19 @@ public class EnemySpawnManager
         
 
     }
+    public void SpawnEnemy(EnemyType enemyType, Transform spawnLocation, AreaType areaType)
+    {
+        EnemyPoolManager.Instance.RaiseEnemyTypeLocationAndArea(enemyType, spawnLocation, areaType);
+    }
 
     public void ClearEnemies(EnemySpawnInformation enemySpawnInfo)
     {
 
         EnemyPoolManager.Instance.RaiseClearEnemies(enemySpawnInfo.enemyType);
+    }
+    public void ClearEnemy(EnemyType enemyType)
+    {
+        EnemyPoolManager.Instance.RaiseClearEnemies(enemyType);
+
     }
 }
