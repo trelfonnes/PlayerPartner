@@ -34,6 +34,8 @@ public class PlayerSOData : BaseSOPlayerData
     public float dashTime;
     public int numberOfDashes = 1;
     public float dashForce = 3f;
+    public int bondToEvolveOne;
+    public int bondToEvolveTwo;
 
     [Header("Stage Identifier")]
     public bool stage1 = false;

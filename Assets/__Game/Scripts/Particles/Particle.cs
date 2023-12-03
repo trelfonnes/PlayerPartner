@@ -8,7 +8,6 @@ public class Particle : MonoBehaviour
     private List<Sprite> spriteList = new List<Sprite>(); // List of sprites to cycle through
 
     [SerializeField]
-
     private bool isPlaying = false; // Flag to determine if the particle is currently playing
 
     private int currentSpriteIndex = 0; // Index of the current sprite in the list

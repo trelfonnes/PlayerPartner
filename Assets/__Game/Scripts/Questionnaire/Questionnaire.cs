@@ -129,7 +129,7 @@ public class Questionnaire : MonoBehaviour
 
 
         Debug.Log("THIS IS PARTNER TYPE" + result);
-
+        ES3.Save("chosenPartner", result);
         // Pass the result to your game manager for initialization
         // GameManager.Instance.Initialize(result);
     }

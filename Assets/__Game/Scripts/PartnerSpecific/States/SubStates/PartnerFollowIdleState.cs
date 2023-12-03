@@ -68,13 +68,13 @@ public class PartnerFollowIdleState : PartnerFollowState
         }
         if(evolveInput && isTouchingPlayer && !playerSOData.stage3 )
         {
-            if (playerSOData.stage1 && playerData.deviceOneCollected && playerData.ep >= 25f)
+            if (playerSOData.stage1 && playerData.deviceOneCollected && playerData.currentBondLevel >= playerSOData.bondToEvolveOne && playerData.ep >= 30)
             {
                 Debug.Log("EVOLVE" + isTouchingPlayer);
 
                 PSM.ChangePartnerState(partner.EvolutionState);
             }
-            else if(playerSOData.stage2 && playerData.deviceTwoCollected && playerData.ep >= 50f)
+            else if(playerSOData.stage2 && playerData.deviceTwoCollected && playerData.currentBondLevel >= playerSOData.bondToEvolveTwo && playerData.ep >=30)
             {
                 PSM.ChangePartnerState(partner.EvolutionState);
 

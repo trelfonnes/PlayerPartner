@@ -9,7 +9,15 @@ public class PartnerMoveState : PartnerBasicState
     }
     protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
     private Movement movement;
-    public override void DoChecks()
+    protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
+    private Particles particles;
+
+    void LevelUp()
+    {
+        Particles.StartParticles(ParticleType.LevelUp, core.transform.position, core.transform.rotation);
+    }
+
+public override void DoChecks()
     {
         base.DoChecks();
     }
@@ -22,6 +30,7 @@ public class PartnerMoveState : PartnerBasicState
             statEvents.onCurrentEPZero += TimeToDevolve;
 
         }
+        statEvents.onLevelUp += LevelUp;
     }
 
     public override void Exit()
@@ -32,6 +41,7 @@ public class PartnerMoveState : PartnerBasicState
             statEvents.onCurrentEPZero -= TimeToDevolve;
 
         }
+        statEvents.onLevelUp -= LevelUp;
     }
 
     public override void LogicUpdate()

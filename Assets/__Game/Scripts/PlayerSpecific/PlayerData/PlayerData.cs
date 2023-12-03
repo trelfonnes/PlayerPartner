@@ -6,6 +6,7 @@ public class PlayerData : MonoBehaviour
 {
     [SerializeField] public StatEvents statEvents;
     [SerializeField] EPDisplayUI UIForEP;
+    [SerializeField] EPDisplayUI UIForBond;
     public float ep;
     public int currentExperience = 0;
     public int experienceToNextLevel = 10;
@@ -42,6 +43,7 @@ public class PlayerData : MonoBehaviour
     private void OnEnable()
     {
         UIForEP.UpdateEPDisplayUI(roundedAmount);
+        UIForBond.UpdateEPDisplayUI(currentBondLevel);
 
     }
     void Update()
@@ -88,6 +90,9 @@ public class PlayerData : MonoBehaviour
         currentBondLevel++;
         currentExperience = 0;
         experienceToNextLevel = CalculateNextLevelExperience();
+        statEvents.LeveledUp();
+        UIForBond.UpdateEPDisplayUI(currentBondLevel);
+
 
     }
     int CalculateNextLevelExperience()

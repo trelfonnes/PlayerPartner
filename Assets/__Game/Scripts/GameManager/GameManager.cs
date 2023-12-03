@@ -52,12 +52,21 @@ public class GameManager : DataReferenceInheritor
         regularStrategy = new RegularItemSpawnStrategy(objectPool);
         rareStrategy = new RareItemSpawnStrategy(objectPool);
         extraRareStrategy = new ExtraRareItemSpawnStrategy(objectPool);
+        InitializeChosenPartner();
         playerManager.SetPlayerType(chosenPlayer); //this will be passed in via the questionairre
         partnerManager.SetPartners(partnerFirstStageType);
 
         // Set the desired strategy in the ItemSpawnSystem (you can do this based on game logic).
         // For example, based on the category of defeated enemy or broken object, you can set the strategy.
         ItemSpawnSystem.Instance.SetInitialItemSpawnStrategy(regularStrategy);
+    }
+    void InitializeChosenPartner()
+    {
+        if (ES3.KeyExists("chosenPartner"))
+        {
+            partnerFirstStageType = ES3.Load<PartnerType>("chosenPartner");
+            Debug.Log(partnerFirstStageType);
+        }
     }
 
     public void SwitchToRegularStrategy()

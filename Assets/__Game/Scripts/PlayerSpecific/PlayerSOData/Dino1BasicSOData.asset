@@ -37,6 +37,8 @@ MonoBehaviour:
   dashTime: 0.15
   numberOfDashes: 1
   dashForce: 4
+  bondToEvolveOne: 16
+  bondToEvolveTwo: 36
   stage1: 1
   stage2: 0
   stage3: 0
