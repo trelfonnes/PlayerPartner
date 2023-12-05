@@ -71,7 +71,6 @@ public override void DoChecks()
         }
         else if(xInput !=0 && yInput != 0 && primaryAttackInput)
         {
-            Debug.Log("change to attack state");
             PSM.ChangePartnerState(partner.PrimaryAttackState);
         }
         if (secondaryAttackInput)
@@ -81,7 +80,6 @@ public override void DoChecks()
         }
         else if (xInput != 0 && yInput != 0 && secondaryAttackInput)
         {
-            Debug.Log("change to attack state");
             PSM.ChangePartnerState(partner.SecondaryAttackState);
         }
 

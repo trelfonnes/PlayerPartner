@@ -46,6 +46,7 @@ public class PartnerJumpState : PartnerAbilityState
         base.Enter();
         Vector2 direction = new Vector2(partner.InputHandler.NormInputX, partner.InputHandler.NormInputY);
         initialPosition = partner.transform.position;
+        playerSOData.Stamina -= 10f;
         DecreaseAmountOfJumpsLeft();
         Movement?.SetVelocityZero();
         CollisionSenses?.DisableHazardDetection();

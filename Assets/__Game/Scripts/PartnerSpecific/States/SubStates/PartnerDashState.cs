@@ -17,6 +17,7 @@ public class PartnerDashState : PartnerAbilityState
     {
         base.Enter();
         amountOfDashesLeft--;
+        playerSOData.Stamina -= 5f;
         timer = 0f;
         Movement?.SetVelocity(Movement.latestMovingVelocity * playerSOData.dashForce);
 

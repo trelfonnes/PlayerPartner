@@ -122,6 +122,11 @@ public class Stamina : Stats, IStaminaChange
                 DecreaseStamina(10);
             }
         }
+        if(SOData.Stamina == 0)
+        {
+            if(SOData.CurrentHealth > 1)
+            SOData.CurrentHealth -= .25f;
+        }
 
     }
         void SubscribeToHourlyTickEvent()

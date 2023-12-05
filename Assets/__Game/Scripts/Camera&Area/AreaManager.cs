@@ -12,6 +12,7 @@ public class AreaManager : MonoBehaviour
     [SerializeField] PolygonCollider2D areaTriggerCollider;
     EnemySpawnManager spawnManager;
     int hourAllEnemiesDefeated;
+    public bool hasSpawned;
     private void Awake()
     {
         spawnManager = new EnemySpawnManager();
@@ -43,55 +44,64 @@ public class AreaManager : MonoBehaviour
     {
         if (!collision.isTrigger && (collision.CompareTag("Player") ||  !collision.isTrigger && collision.CompareTag("Partner")))
         {
+           
             if(hourAllEnemiesDefeated <= TimeOfDayManager.Instance.HoursPassed)
             {
                 totalEnemiesDefeated = 0;
             }
             int difference = enemiesInThisArea - totalEnemiesDefeated;
             Debug.Log(difference + "this is the difference");
-            for (int i = 0; i < difference; i++)
+            if (!hasSpawned)
             {
-                float rand = UnityEngine.Random.value * 100; // Random value between 0 and 100
-
-                EnemyType enemyType = EnemyType.RatOne; //shouldn't be called but is set to a default because the compiler complains
-
-                if (rand < 70f)
+                for (int i = 0; i < difference; i++)
                 {
-                    enemyType = enemiesInAreaSO.commonAreaEnemies[UnityEngine.Random.Range(0, enemiesInAreaSO.commonAreaEnemies.Count)]; //returns a random one in the list from 0 to length of the list
-                }
-                if (rand >= 70f && rand < 95f)
-                {
-                   enemyType = enemiesInAreaSO.uncommonAreaEnemies[UnityEngine.Random.Range(0, enemiesInAreaSO.uncommonAreaEnemies.Count)];
-                }
-               if (rand >= 95f)
-                {
-                    enemyType = enemiesInAreaSO.rareAreaEnemies[UnityEngine.Random.Range(0, enemiesInAreaSO.rareAreaEnemies.Count)];
-                }
-                Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)];
+                    float rand = UnityEngine.Random.value * 100; // Random value between 0 and 100
 
-                // Use spawnManager to spawn the enemy with the chosen type and spawn point
-                spawnManager.SpawnEnemy(enemyType, spawnPoint, thisAreaType);
+                    EnemyType enemyType = EnemyType.RatOne; //shouldn't be called but is set to a default because the compiler complains
+
+                    if (rand < 70f)
+                    {
+                        enemyType = enemiesInAreaSO.commonAreaEnemies[UnityEngine.Random.Range(0, enemiesInAreaSO.commonAreaEnemies.Count)]; //returns a random one in the list from 0 to length of the list
+                    }
+                    if (rand >= 70f && rand < 95f)
+                    {
+                        enemyType = enemiesInAreaSO.uncommonAreaEnemies[UnityEngine.Random.Range(0, enemiesInAreaSO.uncommonAreaEnemies.Count)];
+                    }
+                    if (rand >= 95f)
+                    {
+                        enemyType = enemiesInAreaSO.rareAreaEnemies[UnityEngine.Random.Range(0, enemiesInAreaSO.rareAreaEnemies.Count)];
+                    }
+                    Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)];
+
+                    // Use spawnManager to spawn the enemy with the chosen type and spawn point
+                    spawnManager.SpawnEnemy(enemyType, spawnPoint, thisAreaType);
+                    hasSpawned = true;
+                }
             }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.isTrigger && collision.CompareTag("Partner"))
+        if (!collision.isTrigger && collision.CompareTag("Player"))
         {
-            foreach (EnemyType item in enemiesInAreaSO.commonAreaEnemies)
+            if (hasSpawned)
             {
-                spawnManager.ClearEnemy(item);
-                
-            } 
-            foreach (EnemyType item in enemiesInAreaSO.uncommonAreaEnemies)
-            {
-                spawnManager.ClearEnemy(item);
-                
-            } 
-            foreach (EnemyType item in enemiesInAreaSO.rareAreaEnemies)
-            {
-                spawnManager.ClearEnemy(item);
-                
+                hasSpawned = false;
+                foreach (EnemyType item in enemiesInAreaSO.commonAreaEnemies)
+                {
+                    spawnManager.ClearEnemy(item);
+
+                }
+                foreach (EnemyType item in enemiesInAreaSO.uncommonAreaEnemies)
+                {
+                    spawnManager.ClearEnemy(item);
+
+                }
+                foreach (EnemyType item in enemiesInAreaSO.rareAreaEnemies)
+                {
+                    spawnManager.ClearEnemy(item);
+
+                }
             }
         }
     }

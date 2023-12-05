@@ -33,6 +33,7 @@ public class PlayerInputHandler : MonoBehaviour
     private void Awake()
     {
         PauseManager.OnPauseStateChanged += HandlePausedStateChanged;
+        CutsceneManager.OnCutscenePlaying += HandlePausedStateChanged;
         _playerInput = GetComponent<PlayerInput>();
         
 
@@ -224,6 +225,8 @@ public class PlayerInputHandler : MonoBehaviour
     private void OnDisable()
     {
         PauseManager.OnPauseStateChanged -= HandlePausedStateChanged;
+        CutsceneManager.OnCutscenePlaying -= HandlePausedStateChanged;
+
     }
 }
 
