@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AirTypeStrategy : IAttackTypeDamageCalculation
 {
-    public int CalculateDamageModifier(int damageAmount, AttackType attackerType)
+    public float CalculateDamageModifier(float damageAmount, AttackType attackerType)
     {
         //Weakness
         if (attackerType == AttackType.Fire)
@@ -15,6 +15,11 @@ public class AirTypeStrategy : IAttackTypeDamageCalculation
     
         //Resistance
         if(attackerType == AttackType.Water)
+        {
+            damageAmount = damageAmount / 2;
+            return damageAmount;
+        }
+        if(attackerType == AttackType.Ground)
         {
             damageAmount = damageAmount / 2;
             return damageAmount;

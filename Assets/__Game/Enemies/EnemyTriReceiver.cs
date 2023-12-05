@@ -36,9 +36,9 @@ public class EnemyTriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoi
 
     public void Damage(float amount, AttackType attackType)
     {
-        int amountInt = (int)amount;
+        float amountFloat = amount;
 
-        int calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountInt, attackType);
+        float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
 
         float calculatedDamageFloat = (float)calculatedDamage;
 

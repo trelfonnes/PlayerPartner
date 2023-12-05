@@ -10,21 +10,20 @@ public class DamageReceiver : CoreComponent, IDamageable
     CoreComp<Stats> stats;
     CoreComp<Health> health;
     CoreComp<Particles> particles;
-   // CoreComp<Movement> movement;
+    // CoreComp<Movement> movement;
     //CoreComp<CollisionSenses> collisionSenses;
     public void Damage(float amount, AttackType attackType)
     {
-        int amountInt = (int)amount;
+        float amountFloat = amount;
 
-        int calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountInt, attackType);
+        float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
 
         float calculatedDamageFloat = (float)calculatedDamage;
 
         health.Comp?.DecreaseHealth(calculatedDamageFloat);
-        //need to start particles with reference to the particle manager
     }
 
-   
+
 
     protected override void Awake()
     {

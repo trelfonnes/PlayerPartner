@@ -22,16 +22,14 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
 
   
     public void Damage(float amount, AttackType attackType)
-    {// casting because I messed up and used int in concrete strategies instead of float.
-        //TODO: make them use float instead of int
-        int amountInt = (int)amount;
-       
-        int calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountInt, attackType);
+    {
+        float amountFloat = amount;
 
-       float calculatedDamageFloat = (float)calculatedDamage;
+        float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
 
-        health.Comp?.DecreaseHealth(calculatedDamageFloat);  // needs to send amount to the Health component
-       // particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
+        float calculatedDamageFloat = (float)calculatedDamage;
+
+        health.Comp?.DecreaseHealth(calculatedDamageFloat);
     }
     public void DamagePoise(float amount)
     {

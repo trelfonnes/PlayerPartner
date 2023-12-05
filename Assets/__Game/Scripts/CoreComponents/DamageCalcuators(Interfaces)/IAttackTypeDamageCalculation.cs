@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IAttackTypeDamageCalculation
 {
-    int CalculateDamageModifier(int damageAmount, AttackType attackerType);
+    float CalculateDamageModifier(float damageAmount, AttackType attackerType);
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundTypeStrategy : IAttackTypeDamageCalculation
 {
-    public int CalculateDamageModifier(int damageAmount, AttackType attackerType)
+    public float CalculateDamageModifier(float damageAmount, AttackType attackerType)
     {
         if (attackerType == AttackType.Poison)
         {
@@ -13,6 +13,11 @@ public class GroundTypeStrategy : IAttackTypeDamageCalculation
 
         }
         if (attackerType == AttackType.Electric)
+        {
+            damageAmount = (damageAmount / 2);
+            return damageAmount;
+        } 
+        if (attackerType == AttackType.Air)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class NormalTypeStrategy : IAttackTypeDamageCalculation
 {
-    public int CalculateDamageModifier(int damageAmount, AttackType attackerType)
+    public float CalculateDamageModifier(float damageAmount, AttackType attackerType)
     {
-        
-            return damageAmount;
+        return damageAmount;
         
     }
 }

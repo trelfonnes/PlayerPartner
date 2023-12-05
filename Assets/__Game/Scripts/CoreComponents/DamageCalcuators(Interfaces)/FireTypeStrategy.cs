@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireTypeStrategy : IAttackTypeDamageCalculation
 {
-    public int CalculateDamageModifier(int damageAmount, AttackType attackerType)
+    public float CalculateDamageModifier(float damageAmount, AttackType attackerType)
     {
         if(attackerType == AttackType.Water)
         {
@@ -13,6 +13,11 @@ public class FireTypeStrategy : IAttackTypeDamageCalculation
                       
         }
         if(attackerType == AttackType.Air)
+        {
+            damageAmount = (damageAmount / 2);
+            return damageAmount;
+        }
+        if(attackerType == AttackType.Fire)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;

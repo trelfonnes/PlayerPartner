@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoisonTypeStrategy : IAttackTypeDamageCalculation
 {
-    public int CalculateDamageModifier(int damageAmount, AttackType attackerType)
+    public float CalculateDamageModifier(float damageAmount, AttackType attackerType)
     {
         if (attackerType == AttackType.Electric)
         {
@@ -13,6 +13,10 @@ public class PoisonTypeStrategy : IAttackTypeDamageCalculation
 
         }
         if (attackerType == AttackType.Ground)
+        {
+            damageAmount = (damageAmount / 2);
+            return damageAmount;
+        } if (attackerType == AttackType.Poison)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;
