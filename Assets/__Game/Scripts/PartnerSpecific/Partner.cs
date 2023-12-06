@@ -20,6 +20,7 @@ public class Partner : MonoBehaviour
     public PartnerAttackState PrimaryAttackState { get; private set; }
     public PartnerAttackState SecondaryAttackState { get; private set; }
     public PartnerDefeatedState DefeatedState { get; private set; }
+    public PartnerFallingState FallingState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -76,7 +77,7 @@ public class Partner : MonoBehaviour
         JumpState = new PartnerJumpState(this, StateMachine, playerSOData, _playerData, "jump");
         DashState = new PartnerDashState(this, StateMachine, playerSOData, _playerData, "dash");
         DefeatedState = new PartnerDefeatedState(this, StateMachine, playerSOData, _playerData, "defeated");
-        
+        FallingState = new PartnerFallingState(this, StateMachine, playerSOData, _playerData, "falling");
     }
     protected virtual void Start()
     {

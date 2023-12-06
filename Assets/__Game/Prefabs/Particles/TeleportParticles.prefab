@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3912591755316884335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3912591755316884328}
+  - component: {fileID: 3912591755316884329}
+  - component: {fileID: 3912591755316884334}
+  m_Layer: 0
+  m_Name: TeleportParticles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3912591755316884328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3912591755316884335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.22, y: 0.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3912591755316884329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3912591755316884335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb29fc84677a784f8829eaa7f9b281d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteList:
+  - {fileID: 318559359322327871, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: 7205088445056218637, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: -7887009528132063026, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: -3451983560910075197, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: 5606860600703510163, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: 4566745311562748213, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: 244532908769287803, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: -907914000545499954, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: -6048949601095747164, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: -4127140881787998030, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: -6729705993135201325, guid: 08ceb89cae5c399428bd8c9203bfa9dc, type: 3}
+  - {fileID: -3693502029954866929, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: -5316117475673258440, guid: 08ceb89cae5c399428bd8c9203bfa9dc, type: 3}
+  - {fileID: 5396619723534660515, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: -6729705993135201325, guid: 08ceb89cae5c399428bd8c9203bfa9dc, type: 3}
+  - {fileID: -1573914581395960461, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  - {fileID: -5316117475673258440, guid: 08ceb89cae5c399428bd8c9203bfa9dc, type: 3}
+  - {fileID: -6729705993135201325, guid: 08ceb89cae5c399428bd8c9203bfa9dc, type: 3}
+  isPlaying: 1
+  frameDuration: 0.07
+--- !u!212 &3912591755316884334
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3912591755316884335}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1194929251
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -6048949601095747164, guid: 09d334d4b2c849f4ea4a29cea58e88e3, type: 3}
+  m_Color: {r: 0.75, g: 1, b: 0.978125, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.34375, y: 2.625}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

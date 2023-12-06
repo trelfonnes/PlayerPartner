@@ -82,7 +82,7 @@ public override void DoChecks()
         {
             PSM.ChangePartnerState(partner.SecondaryAttackState);
         }
-
+     
     }
 
     public override void PhysicsUpdate()

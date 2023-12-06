@@ -83,6 +83,7 @@ public class PartnerIdleState : PartnerBasicState
         {
             SubToLevelUp();
         }
+    
     }
 
     public override void PhysicsUpdate()

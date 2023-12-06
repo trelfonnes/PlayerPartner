@@ -20,6 +20,7 @@ public class PartnerDashState : PartnerAbilityState
         playerSOData.Stamina -= 5f;
         timer = 0f;
         Movement?.SetVelocity(Movement.latestMovingVelocity * playerSOData.dashForce);
+        isTouchingPitfall = false;
 
     }
 
@@ -59,14 +60,20 @@ public class PartnerDashState : PartnerAbilityState
         base.LogicUpdate();
         Movement?.SetVelocity(partner.playerDirection * playerSOData.dashForce);
         timer += Time.deltaTime;
-
+       
         if (timer >= playerSOData.dashTime)
         {
             Movement?.SetVelocityZero();
             PSM.ChangePartnerState(partner.IdleState);
             partner.DashCooldownTimer.Reset();
         }
-        
+        Debug.Log(isTouchingPitfall + "Frombasic state");
+        if (isTouchingPitfall)
+        {
+            PSM.ChangePartnerState(partner.FallingState);
+        }
+
+
     }
 
     public override void PhysicsUpdate()

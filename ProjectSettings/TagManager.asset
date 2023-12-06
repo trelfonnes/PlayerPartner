@@ -9,6 +9,7 @@ TagManager:
   - Boulder
   - Enemy
   - Item
+  - PitfallCol
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Damageable
   - Cutable
   - Enemy
-  - 
+  - Pitfall
   - 
   - 
   - 

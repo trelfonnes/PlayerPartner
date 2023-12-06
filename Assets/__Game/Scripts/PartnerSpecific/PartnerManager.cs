@@ -222,5 +222,8 @@ public class PartnerManager : MonoBehaviour
         }
         else Debug.LogError("no Partner component found" + lastPartner.name);
     }
-
+    public void MoveCurrentPartner(Transform partnerTransform, Vector2 location)
+    {
+        partnerTransform.position = location;
+    }
 }

@@ -7,7 +7,8 @@ using System;
     {
         Defeated,
         Stunned,
-        LevelUp
+        LevelUp,
+        Teleport
         // Add more particle types as needed
     }
 

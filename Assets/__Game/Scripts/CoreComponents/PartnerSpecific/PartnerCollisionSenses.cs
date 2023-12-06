@@ -12,9 +12,13 @@ public class PartnerCollisionSenses : CollisionSenses
     [SerializeField] private float playerCheckRadius = 1.5f;
     [SerializeField] private float wallCheckFollowRadius = 1f;
     public float PlayerDistanceFromPartner { get => playerCheckRadius; set => playerCheckRadius = value; }
+    [SerializeField] BoxCollider2D pitfallCollider;
 
 
-
+    protected override void Start()
+    {
+        base.Start();
+    }
     public bool PlayerCheck
     {
         get 
@@ -38,12 +42,26 @@ public class PartnerCollisionSenses : CollisionSenses
     public void DisableHazardDetection()
     {
         Physics2D.IgnoreLayerCollision(10, 15, true); // 10 = partner, 15 = hazards
+        pitfallCollider.enabled = false;
+//        Physics2D.IgnoreLayerCollision(10, 19, true); // 10 = partner, 19 = Pitfalls
+
     }
     public void EnableHazardDetection()
     {
         Physics2D.IgnoreLayerCollision(10, 15, false);
+        pitfallCollider.enabled = true;
+    //    Physics2D.IgnoreLayerCollision(10, 19, false);
 
     }
 
+    public bool PitFallCheck
+    {
+        get
+        {
+            Collider2D[] results = new Collider2D[50];
+            int count = Physics2D.OverlapBoxNonAlloc(pitfallCollider.bounds.center, pitfallCollider.bounds.size, 0f, results, whatIsPitfall);
+            return count > 0;
+        }
+    }
 
 }

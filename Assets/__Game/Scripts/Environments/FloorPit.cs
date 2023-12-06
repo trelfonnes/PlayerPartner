@@ -17,15 +17,22 @@ public class FloorPit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && !collision.isTrigger || collision.CompareTag("Partner") && !collision.isTrigger)
+        if(collision.CompareTag("PitfallCol"))
         {
             spriteRenderer.sprite = pitSprite;
-            collision.transform.position = areaSpawnPoint.position;
-            collision.GetComponentInChildren<IHealthChange>().DecreaseHealth(damageAmount);
+           // collision.GetComponentInChildren<IHealthChange>().DecreaseHealth(damageAmount);
+           StartCoroutine(RepositionCharacter(collision));
             //TODO: call FLASH interface to show damage. Play sound FX for hurt
             // Or, is this done congruent when health is decreased?
             //TODO: go the extra mile by player a "fall animation" and reposition once that has played.
         }
+    }
+
+    IEnumerator RepositionCharacter(Collider2D collision)
+    {
+        yield return new WaitForSeconds(1.25f);
+        collision.transform.parent.parent.parent.position = areaSpawnPoint.position;
+
     }
 
 }

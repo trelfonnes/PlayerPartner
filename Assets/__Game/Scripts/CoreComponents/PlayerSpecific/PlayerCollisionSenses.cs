@@ -10,7 +10,13 @@ public class PlayerCollisionSenses : CollisionSenses
     public Transform carryPoint;
     [SerializeField]
     float heldItemCheckDistance;
-   
+    [SerializeField] BoxCollider2D pitfallCollider;
+    protected override void Start()
+    {
+        base.Start();
+
+    }
+
     public RaycastHit2D HitsToCarry
     {
         get
@@ -67,6 +73,15 @@ public class PlayerCollisionSenses : CollisionSenses
         get => Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsInteractable);
           
     }
-   
+
+    public bool PitFallCheck
+    {
+        get
+        {
+            Collider2D[] results = new Collider2D[50];
+            int count = Physics2D.OverlapBoxNonAlloc(pitfallCollider.bounds.center, pitfallCollider.bounds.size, 0f, results, whatIsPitfall);
+            return count > 0;
+        }
+    }
 
 }

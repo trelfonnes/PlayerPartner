@@ -84,4 +84,8 @@ public class PlayerManager : MonoBehaviour
         GameManager.Instance.SetPlayer(playerClass);
         player.SetActive(true);
     }
+    public void MoveThePlayer(Transform playerTransform, Vector2 newPosition)
+    {
+        playerTransform.position = newPosition;
+    }
 }

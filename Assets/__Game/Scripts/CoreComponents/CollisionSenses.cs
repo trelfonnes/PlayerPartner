@@ -36,6 +36,7 @@ public class CollisionSenses : CoreComponent
 
     [SerializeField] protected LayerMask whatIsWall;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] protected LayerMask whatIsPitfall;
 
     #endregion
 
@@ -70,7 +71,7 @@ public class CollisionSenses : CoreComponent
             return count > 0;
         }
     }
-
+   
 
     #endregion
 
@@ -84,6 +85,5 @@ public class CollisionSenses : CoreComponent
         Vector3 direction = new Vector3(0, -1, 0);
         Gizmos.DrawLine(collisionsCheckPoint.position, collisionsCheckPoint.position + direction * collisionCheckDistance);
 
-        Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
     }
 }

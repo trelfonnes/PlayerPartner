@@ -31,13 +31,17 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c1b63738e906aa54798d1683e9b5fd36, type: 2}
+    - target: {fileID: 3096751257916962951, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: pitfallCollider
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Name
       value: PartnerDino2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156557, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: stageOne
@@ -148,6 +152,18 @@ PrefabInstance:
       value: -81584303
       objectReference: {fileID: 0}
     - target: {fileID: 3351323679572738871, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: BasicProjectile
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ae2f06b98cc8b04aaa635285c741996, type: 2}
+    - target: {fileID: 3351323679572738871, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: ChargeProjectile
+      value: 
+      objectReference: {fileID: 11400000, guid: cd183f8d96771414ea1dd395b8a24a8e, type: 2}
+    - target: {fileID: 3351323679572738871, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: SpreadProjectile
+      value: 
+      objectReference: {fileID: 11400000, guid: b191199d78ec92d419b530c01c689577, type: 2}
+    - target: {fileID: 3351323679572738871, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: <Data>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: bc8dcae0a24754545bbf73e55cfa4539, type: 2}
@@ -155,6 +171,14 @@ PrefabInstance:
       propertyPath: SOData
       value: 
       objectReference: {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
+    - target: {fileID: 3597630684682271060, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: MeleeHold
+      value: 
+      objectReference: {fileID: 11400000, guid: ba559c214bf9cd84f9adc8ba7fc95bcb, type: 2}
+    - target: {fileID: 3597630684682271060, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: MeleeBasic
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f0382bd97a31a84c8af7a4fe97d4e65, type: 2}
     - target: {fileID: 3597630684682271060, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: <Data>k__BackingField
       value: 
@@ -170,11 +194,19 @@ PrefabInstance:
     - target: {fileID: 5784541043429851520, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 0bfa9543277a8af46bf9151f3c65e96f, type: 2}
+      objectReference: {fileID: 9100000, guid: 9a40d07060a3b8244b94ba90bc6d3f7b, type: 2}
     - target: {fileID: 6009775099449210989, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: cd183f8d96771414ea1dd395b8a24a8e, type: 2}
+      objectReference: {fileID: 11400000, guid: 0ae2f06b98cc8b04aaa635285c741996, type: 2}
+    - target: {fileID: 6258627381479909380, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258627381479909380, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7201974324662115658, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SOData
       value: 
@@ -182,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 7366003051328502054, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 9f0382bd97a31a84c8af7a4fe97d4e65, type: 2}
+      objectReference: {fileID: 11400000, guid: ba559c214bf9cd84f9adc8ba7fc95bcb, type: 2}
     - target: {fileID: 7472095014903256249, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SOData
       value: 
@@ -205,4 +237,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3758139163639882425, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+    - {fileID: 1530509087, guid: e59075285719fb1469c9501c19ad3641, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+--- !u!1 &4049214561859281610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1530509086, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+  m_PrefabInstance: {fileID: 4049214562511066580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &4049214561859281611
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049214561859281610}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03, y: -0.75}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.4}
+  m_EdgeRadius: 0

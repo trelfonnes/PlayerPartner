@@ -22,6 +22,7 @@ public class PlayerBasicState : PlayerState
     protected bool isTouchingCarryable;
     protected bool isTouchingInteractable;
     protected bool isTouchingGround;
+    protected bool isTouchingPitfall;
     protected bool canExitState;
     protected bool isTouchingPartner;
     protected RaycastHit2D HitsToCarry;
@@ -46,6 +47,7 @@ public class PlayerBasicState : PlayerState
             isTouchingGround = PlayerCollisionSenses.GroundCheck;
             isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
             isTouchingInteractable = PlayerCollisionSenses.InteractableCheck;
+        isTouchingPitfall = PlayerCollisionSenses.PitFallCheck;
         
        
     } 
@@ -83,7 +85,10 @@ public class PlayerBasicState : PlayerState
         secondaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.secondary];
 
 
-       
+        if (isTouchingPitfall)
+        {
+            PSM.ChangeState(player.FallingState);
+        }
     }
 
     public override void PhysicsUpdate()

@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public PlayerWatchState WatchState { get; private set; }
     public PlayerEvolutionState EvolutionState { get; private set; }
     public PlayerDefeatedState DefeatedState { get; private set; }
+    public PlayerFallingState FallingState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -66,6 +67,7 @@ public class Player : MonoBehaviour
         WatchState = new PlayerWatchState(this, StateMachine, playerSOData, _playerData, "watch");
         EvolutionState = new PlayerEvolutionState(this, StateMachine, playerSOData, _playerData, "evolve");
         DefeatedState = new PlayerDefeatedState(this, StateMachine, playerSOData, _playerData, "defeated");
+        FallingState = new PlayerFallingState(this, StateMachine, playerSOData, _playerData, "falling");
 
     }
     #endregion
