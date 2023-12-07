@@ -17,6 +17,8 @@ public class SpreadProjectileRight : MonoBehaviour
     bool hasBeenShot;
     Rigidbody2D rb;
     Vector2 Direction;
+    private ISpecialAbility specialAbility;
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -46,25 +48,78 @@ public class SpreadProjectileRight : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        SetSpecialAbility(attackType, collision);
         if (collision.CompareTag("Enemy"))
         {
-            //TODO: add logic for damage and knockback and poise. 
-            if (collision.TryGetComponent(out IDamageable damageable))
-            {
-                damageable.Damage(damage, attackType);
-            }
-            if (collision.TryGetComponent(out IKnockBackable knockBackable))
-            {
-                knockBackable.KnockBack(Direction, knockBackDamage, (int)Direction.x, (int)Direction.y);
-            }
-            if (collision.TryGetComponent(out IPoiseDamageable poise))
-            {
-                poise.DamagePoise(poiseDamage);
-            }
-            gameObject.SetActive(false);
+            TakeCareOfCollision(collision);
+        }
+
+
+
+    }
+
+    //TODO: add logic for damage and knockback and poise. 
+
+    void TakeCareOfCollision(Collider2D collision)
+    {
+        SetSpecialAbility(attackType, collision);
+        ApplyDamage(collision);
+        ApplyKnockback(collision);
+        ApplyPoiseDamage(collision);
+
+        hasBeenShot = false;
+        gameObject.SetActive(false);
+    }
+    private void ApplyDamage(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IDamageable damageable))
+        {
+            damageable.Damage(damage, attackType);
         }
     }
 
+    private void ApplyKnockback(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IKnockBackable knockBackable))
+        {
+            knockBackable.KnockBack(Direction, knockBackDamage, (int)Direction.x, (int)Direction.y);
+        }
+    }
+
+    private void ApplyPoiseDamage(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IPoiseDamageable poise))
+        {
+            poise.DamagePoise(poiseDamage);
+        }
+    }
+    void SetSpecialAbility(AttackType type, Collider2D collider)
+    {
+        if (type == AttackType.Fire)
+        {
+            specialAbility = new IProjIgniteSA();
+            specialAbility.ExecuteSpecialAbility(collider);
+        }
+        if (type == AttackType.Water)
+        {
+            specialAbility = new IProjExtinguish();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+        if (type == AttackType.Poison)
+        {
+            specialAbility = new IProjCorrode();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+        if (type == AttackType.Electric)
+        {
+            specialAbility = new IProjPowerOn();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+    }
 
     public void Shoot(Vector2 normalizedDirection)
     {

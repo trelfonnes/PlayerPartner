@@ -18,7 +18,7 @@ public class BasicProjectile : MonoBehaviour
     bool partnerProjectile;
     bool enemyProjectile;
     [SerializeField] AttackType attackType;
-
+    private ISpecialAbility specialAbility;
     Vector2 normalizedDirection;
 
     private void Awake()
@@ -94,10 +94,12 @@ public class BasicProjectile : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D collision)
 {
+        SetSpecialAbility(attackType, collision);
         if(partnerProjectile && collision.CompareTag("Enemy"))
         {
             TakeCareOfCollision(collision);
         }
+        
 
         if (enemyProjectile && collision.CompareTag("Partner") || enemyProjectile && collision.CompareTag("Player"))
     {
@@ -107,6 +109,7 @@ public class BasicProjectile : MonoBehaviour
 }
     void TakeCareOfCollision(Collider2D collision)
     {
+        SetSpecialAbility(attackType, collision);
         ApplyDamage(collision);
         ApplyKnockback(collision);
         ApplyPoiseDamage(collision);
@@ -135,6 +138,32 @@ public class BasicProjectile : MonoBehaviour
         if (collision.TryGetComponent(out IPoiseDamageable poise))
         {
             poise.DamagePoise(poiseDamage);
+        }
+    }
+    void SetSpecialAbility(AttackType type, Collider2D collider)
+    {
+        if(type == AttackType.Fire)
+        {
+            specialAbility = new IProjIgniteSA();
+            specialAbility.ExecuteSpecialAbility(collider);
+        }
+        if(type == AttackType.Water)
+        {
+            specialAbility = new IProjExtinguish();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+        if (type == AttackType.Poison)
+        {
+            specialAbility = new IProjCorrode();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+        if (type == AttackType.Electric)
+        {
+            specialAbility = new IProjPowerOn();
+            specialAbility.ExecuteSpecialAbility(collider);
+
         }
     }
     private void OnEnable()//subscribe so same prefab can be used for both enemy and partner

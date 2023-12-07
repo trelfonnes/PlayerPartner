@@ -18,6 +18,7 @@ public class ChargedProjectile : MonoBehaviour
     [SerializeField] private float chargedKnockBackDamage = 3; //how much knockback it gives
     [SerializeField] private float chargedPoiseDamage = 1; //how much poise damage it does
     [SerializeField] float chargedVelocity = 10f; // how fast it travels
+    private ISpecialAbility specialAbility;
 
     float timeToSpriteSwitch = .1f;
     float scaleFactor = 1.5f;
@@ -97,43 +98,91 @@ public class ChargedProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SetSpecialAbility(attackType, collision);
+
         if (collision.CompareTag("Enemy"))
         {
+            TakeCareOfCollision(collision);
             //TODO: add logic for damage and knockback and poise. 
-            if (collision.TryGetComponent(out IDamageable damageable))
+    
+        }
+    }
+    void TakeCareOfCollision(Collider2D collision)
+    {
+        SetSpecialAbility(attackType, collision);
+        ApplyDamage(collision);
+        ApplyKnockback(collision);
+        ApplyPoiseDamage(collision);
+
+        hasBeenShot = false;
+        isCharged = false;
+        transform.localScale = baseScale;
+        gameObject.SetActive(false);
+    }
+    private void ApplyDamage(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IDamageable damageable))
+        {
+            if (isCharged)
             {
-                if (isCharged)
-                {
-                    damageable.Damage(chargedDamage, attackType);
-                }
-                else
+                damageable.Damage(chargedDamage, attackType);
+            }
+            else
                 damageable.Damage(damage, attackType);
-            }
-            if (collision.TryGetComponent(out IKnockBackable knockBackable))
-            {
-                if (isCharged)
-                {
-                    knockBackable.KnockBack(normalizedDirection, chargedKnockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
-                }
-                else
-                    knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
-            }
-            if (collision.TryGetComponent(out IPoiseDamageable poise))
-            {
-                if (isCharged)
-                {
-                    poise.DamagePoise(chargedPoiseDamage);
-                }
-                else
-                    poise.DamagePoise(poiseDamage);
-            }
-            hasBeenShot = false;
-            isCharged = false;
-            transform.localScale = baseScale;
-            gameObject.SetActive(false);
         }
     }
 
+    private void ApplyKnockback(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IKnockBackable knockBackable))
+        {
+            if (isCharged)
+            {
+                knockBackable.KnockBack(normalizedDirection, chargedKnockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
+            }
+            else
+                knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
+        }
+    }
+
+    private void ApplyPoiseDamage(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IPoiseDamageable poise))
+        {
+            if (isCharged)
+            {
+                poise.DamagePoise(chargedPoiseDamage);
+            }
+            else
+                poise.DamagePoise(poiseDamage);
+        }
+    }
+    void SetSpecialAbility(AttackType type, Collider2D collider)
+    {
+        if (type == AttackType.Fire)
+        {
+            specialAbility = new IProjIgniteSA();
+            specialAbility.ExecuteSpecialAbility(collider);
+        }
+        if (type == AttackType.Water)
+        {
+            specialAbility = new IProjExtinguish();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+        if (type == AttackType.Poison)
+        {
+            specialAbility = new IProjCorrode();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+        if (type == AttackType.Electric)
+        {
+            specialAbility = new IProjPowerOn();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+    }
     private void OnEnable()
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet += Shoot;

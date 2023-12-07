@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class FirelightHandler : MonoBehaviour, ILightable, IInteractable
+public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtinguishable
 {
     [SerializeField] GameObject fire;
     [SerializeField] bool isIndoorObject;
@@ -37,8 +37,10 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable
     public void Extinguish()
     {
         fire.SetActive(false);
+        hasBeenActivated = false;
+
     }
-     void DimForDaylight()
+    void DimForDaylight()
     {
         if (hasBeenActivated && !isIndoorObject)
         {
