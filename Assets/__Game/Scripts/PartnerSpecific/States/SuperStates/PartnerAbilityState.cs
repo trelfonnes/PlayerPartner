@@ -29,7 +29,6 @@ public class PartnerAbilityState : PartnerState
     public override void DoChecks()
     {
         base.DoChecks();
-        isTouchingPitfall = CollisionSenses.PitFallCheck;
     }
 
     public override void Enter()

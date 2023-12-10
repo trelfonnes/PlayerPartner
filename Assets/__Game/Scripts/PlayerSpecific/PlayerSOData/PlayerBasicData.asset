@@ -21,7 +21,7 @@ MonoBehaviour:
   followSpeed: 5
   MaxHealth: 5
   HealthLimit: 10
-  SP: 25
+  SP: 0
   MaxSP: 25
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
@@ -37,6 +37,8 @@ MonoBehaviour:
   dashTime: 0
   numberOfDashes: 0
   dashForce: 0
+  bondToEvolveOne: 0
+  bondToEvolveTwo: 0
   stage1: 0
   stage2: 0
   stage3: 0

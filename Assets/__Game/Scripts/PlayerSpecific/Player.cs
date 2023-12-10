@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
     Weapon primaryWeapon;
     Weapon secondaryWeapon;
 
+    public event Action onFallOver;
+    public event Action onFallStarted;
 
 
     #region Unity Callback Functions Initialized in Awake Method
@@ -98,6 +100,17 @@ public class Player : MonoBehaviour
     {
         //logic for whatever needs to be done. Trigger game over screen
     }
+
+    public void OnFallAnimEvent()
+    {
+        onFallOver?.Invoke();
+    }
+    public void OnStartFallEvent()
+    {
+        onFallStarted?.Invoke();
+    }
+
+
     #region For Saving Data BIND
     internal void Bind(PlayerData playerData)
     {

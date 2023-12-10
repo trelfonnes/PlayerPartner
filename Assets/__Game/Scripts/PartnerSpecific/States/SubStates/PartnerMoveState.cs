@@ -30,6 +30,8 @@ public override void DoChecks()
             statEvents.onCurrentEPZero += TimeToDevolve;
 
         }
+        partner.onFallStarted += StartFalling;
+
         statEvents.onLevelUp += LevelUp;
     }
 
@@ -41,6 +43,8 @@ public override void DoChecks()
             statEvents.onCurrentEPZero -= TimeToDevolve;
 
         }
+        partner.onFallStarted -= StartFalling;
+
         statEvents.onLevelUp -= LevelUp;
     }
 
@@ -84,7 +88,7 @@ public override void DoChecks()
         }
      
     }
-
+ 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

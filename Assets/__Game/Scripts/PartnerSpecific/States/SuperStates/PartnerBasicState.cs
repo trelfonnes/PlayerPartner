@@ -49,7 +49,6 @@ public class PartnerBasicState : PartnerState
             isTouchingGround = CollisionSenses.GroundCheck;
             isTouchingPlayer = CollisionSenses.PlayerCheck;
             player = CollisionSenses.followPoint;
-        isTouchingPitfall = CollisionSenses.PitFallCheck;
         
     }
 
@@ -98,10 +97,7 @@ public class PartnerBasicState : PartnerState
                 PSM.ChangePartnerState(partner.DashState);
              
         }
-        if (isTouchingPitfall)
-        {
-            PSM.ChangePartnerState(partner.FallingState);
-        }
+       
        
         
 

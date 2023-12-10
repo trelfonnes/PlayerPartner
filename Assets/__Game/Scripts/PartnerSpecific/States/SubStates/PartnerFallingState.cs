@@ -14,6 +14,8 @@ public class PartnerFallingState : PartnerBasicState
     public override void Enter()
     {
         base.Enter();
+        partner.onFallOver += FallIsOver;
+
         Debug.Log("partner entered falling state");
 
     }
@@ -21,6 +23,8 @@ public class PartnerFallingState : PartnerBasicState
     public override void Exit()
     {
         base.Exit();
+        partner.onFallOver -= FallIsOver;
+
     }
 
     public override void LogicUpdate()
@@ -28,10 +32,7 @@ public class PartnerFallingState : PartnerBasicState
         base.LogicUpdate();
         Movement?.SetVelocityZero();
 
-        if (!isTouchingPitfall)
-        {
-            PSM.ChangePartnerState(partner.IdleState);
-        }
+        
 
 
     }
@@ -45,5 +46,9 @@ public class PartnerFallingState : PartnerBasicState
     {
         base.AnimationTrigger();
     }
-
+    public void FallIsOver()
+    {
+        PSM.ChangePartnerState(partner.IdleState);
+    }
 }
+

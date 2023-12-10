@@ -25,10 +25,15 @@ MonoBehaviour:
   <ComponentData>k__BackingField:
   - rid: 7917043979528962048
   - rid: 7917043979528962049
+  - rid: 447581669018304512
   <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
+    - rid: 447581669018304512
+      type: {class: InputHoldData, ns: , asm: Assembly-CSharp}
+      data:
+        name: InputHoldData
     - rid: 7917043979528962048
       type: {class: ProjectileData, ns: , asm: Assembly-CSharp}
       data:
@@ -37,6 +42,8 @@ MonoBehaviour:
         - name: Bomb
           <TypeOfProjectile>k__BackingField: 4
           <SPCost>k__BackingField: 10
+          <damage>k__BackingField: 0
+          <knockbackStrength>k__BackingField: 0
     - rid: 7917043979528962049
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1420522633898153318}
   - component: {fileID: 3279062841310652938}
   - component: {fileID: 7802515202797672450}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: PlayerTimerBomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd1b2b15a8f30043a94212038551bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  decayFactor: 1
   sprites:
   - {fileID: 777128407, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
   - {fileID: 58136241, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
@@ -144,4 +145,5 @@ MonoBehaviour:
   knockBackDamage: 20
   poiseDamage: 10
   setTime: 2.5
+  storedParticles: {fileID: 11400000, guid: 5ae8df37656f5f24593b65cd991c2c73, type: 2}
   radius: 1.8

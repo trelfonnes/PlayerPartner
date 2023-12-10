@@ -44,7 +44,8 @@ public class Particle : MonoBehaviour
     public void Stop()
     {
         isPlaying = false;
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     // Method to set the position of the particle and start playing

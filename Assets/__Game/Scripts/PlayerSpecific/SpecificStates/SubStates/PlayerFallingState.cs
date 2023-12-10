@@ -24,26 +24,31 @@ public class PlayerFallingState : PlayerBasicState
     public override void Enter()
     {
         base.Enter();
+        player.onFallOver += FallIsOver;
+        Debug.Log("Entered falling state");
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.onFallOver -= FallIsOver;
+
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         Movement?.SetVelocityZero();
-        if (!isTouchingPitfall)
-        {
-            PSM.ChangeState(player.IdleState);
-        }
+        
 
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+    public void FallIsOver()
+    {
+        PSM.ChangeState(player.IdleState);
     }
 }

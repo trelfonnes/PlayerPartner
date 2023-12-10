@@ -9,7 +9,8 @@ TagManager:
   - Boulder
   - Enemy
   - Item
-  - PitfallCol
+  - Bomb
+  - Pitfall
   layers:
   - Default
   - TransparentFX

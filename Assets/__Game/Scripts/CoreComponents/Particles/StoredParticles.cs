@@ -8,7 +8,8 @@ using System;
         Defeated,
         Stunned,
         LevelUp,
-        Teleport
+        Teleport,
+        BombExplode
         // Add more particle types as needed
     }
 

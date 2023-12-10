@@ -54,13 +54,12 @@ public class PartnerCollisionSenses : CollisionSenses
 
     }
 
-    public bool PitFallCheck
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        get
+        if (collision.CompareTag("Pitfall"))
         {
-            Collider2D[] results = new Collider2D[50];
-            int count = Physics2D.OverlapBoxNonAlloc(pitfallCollider.bounds.center, pitfallCollider.bounds.size, 0f, results, whatIsPitfall);
-            return count > 0;
+
+            partner.OnStartFallEvent();
         }
     }
 

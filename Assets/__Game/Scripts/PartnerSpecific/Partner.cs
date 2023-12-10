@@ -50,7 +50,9 @@ public class Partner : MonoBehaviour
     PartnerWeapon primaryWeapon;
     PartnerWeapon secondaryWeapon;
     public BoxCollider2D partnerCollider { get; private set; }
- 
+
+    public event Action onFallOver;
+    public event Action onFallStarted;
 
     protected virtual void Awake()
     {
@@ -138,7 +140,21 @@ public class Partner : MonoBehaviour
         evolutionEvents.Devolve();
     }
 
+
     #endregion
+
+
+    public void OnFallAnimEvent()
+    {
+        onFallOver?.Invoke();
+    }
+    public void OnStartFallEvent()
+    {
+        onFallStarted?.Invoke();
+        Debug.Log("InvokeFallStartedPartner");
+
+    }
+
 
 
     #region For Saving Data BIND

@@ -10,7 +10,8 @@ public class PlayerCollisionSenses : CollisionSenses
     public Transform carryPoint;
     [SerializeField]
     float heldItemCheckDistance;
-    [SerializeField] BoxCollider2D pitfallCollider;
+    [SerializeField] Transform pitfallCheckPoint;
+    public bool PitFallCheck;
     protected override void Start()
     {
         base.Start();
@@ -54,6 +55,7 @@ public class PlayerCollisionSenses : CollisionSenses
     [SerializeField] private LayerMask whatIsInteractable;
     [SerializeField] private LayerMask whatIsCarryable;
     [SerializeField] float partnerCheckRadius = .5f;
+    [SerializeField] private float pitfallCheckDistance;
 
     public bool PartnerCheck
     {
@@ -74,14 +76,16 @@ public class PlayerCollisionSenses : CollisionSenses
           
     }
 
-    public bool PitFallCheck
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        get
+        if (collision.CompareTag("Pitfall"))
         {
-            Collider2D[] results = new Collider2D[50];
-            int count = Physics2D.OverlapBoxNonAlloc(pitfallCollider.bounds.center, pitfallCollider.bounds.size, 0f, results, whatIsPitfall);
-            return count > 0;
+            Debug.Log("Fell in hole");
+
+            player.OnStartFallEvent();
         }
     }
+ 
+
 
 }

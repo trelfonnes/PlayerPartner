@@ -21,12 +21,14 @@ public class PartnerDashState : PartnerAbilityState
         timer = 0f;
         Movement?.SetVelocity(Movement.latestMovingVelocity * playerSOData.dashForce);
         isTouchingPitfall = false;
+        partner.onFallStarted += StartFalling;
 
     }
 
     public override void Exit()
     {
         base.Exit();
+        partner.onFallStarted -= StartFalling;
 
         ResetAmountOfDashesLeft();
     }
@@ -68,10 +70,7 @@ public class PartnerDashState : PartnerAbilityState
             partner.DashCooldownTimer.Reset();
         }
         Debug.Log(isTouchingPitfall + "Frombasic state");
-        if (isTouchingPitfall)
-        {
-            PSM.ChangePartnerState(partner.FallingState);
-        }
+        
 
 
     }

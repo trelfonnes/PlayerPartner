@@ -19,12 +19,15 @@ public class PlayerMoveState : PlayerBasicState
     public override void Enter()
     {
         base.Enter();
+        player.onFallStarted += StartFalling;
         canExitState = false;
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.onFallStarted -= StartFalling;
+
     }
 
     public override void LogicUpdate()
@@ -41,7 +44,7 @@ public class PlayerMoveState : PlayerBasicState
             player.anim.SetFloat("moveX", player.playerDirection.x);
             player.lastDirection = player.playerDirection;
         }
-
+        
         if (!isExitingState)
         {
             
@@ -80,6 +83,10 @@ public class PlayerMoveState : PlayerBasicState
 
         }
 
+    }
+    public void StartFalling()
+    {
+        PSM.ChangeState(player.FallingState);
     }
 
     public override void PhysicsUpdate()

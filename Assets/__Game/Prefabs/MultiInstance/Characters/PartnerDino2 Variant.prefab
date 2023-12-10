@@ -34,14 +34,14 @@ PrefabInstance:
     - target: {fileID: 3096751257916962951, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: pitfallCollider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4049214561859281611}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Name
       value: PartnerDino2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156557, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: stageOne
@@ -238,6 +238,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3758139163639882425, guid: e59075285719fb1469c9501c19ad3641, type: 3}
     - {fileID: 1530509087, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+    - {fileID: 2791745991268073790, guid: e59075285719fb1469c9501c19ad3641, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e59075285719fb1469c9501c19ad3641, type: 3}
 --- !u!1 &4049214561859281610 stripped
 GameObject:
@@ -251,6 +252,37 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4049214561859281610}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03, y: -0.75}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.4}
+  m_EdgeRadius: 0
+--- !u!1 &7366678121125074287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6776230274729689275, guid: e59075285719fb1469c9501c19ad3641, type: 3}
+  m_PrefabInstance: {fileID: 4049214562511066580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2202248127206397162
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7366678121125074287}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

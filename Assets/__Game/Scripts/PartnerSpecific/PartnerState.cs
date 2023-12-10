@@ -51,7 +51,6 @@ public class PartnerState
         isExitingState = false;
         statEvents.onCurrentHealthZero += Partner1Defeated;
 
-
     }
 
     public virtual void Exit()
@@ -59,7 +58,6 @@ public class PartnerState
         partner.anim.SetBool(animBoolName, false);
         isExitingState = true;
         statEvents.onCurrentHealthZero -= Partner1Defeated;
-
 
 
     }
@@ -93,6 +91,12 @@ public class PartnerState
             PSM.ChangePartnerState(partner.DevolveState);
         }
 
+    }
+    public void StartFalling()
+    {
+        Debug.Log("Partner going to fall state");
+
+        PSM.ChangePartnerState(partner.FallingState);
     }
     public virtual void Partner1Defeated()
     {

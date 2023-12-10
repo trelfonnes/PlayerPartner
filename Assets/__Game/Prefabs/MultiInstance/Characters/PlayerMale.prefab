@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &314192329
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 314192330}
-  m_Layer: 9
-  m_Name: PitfallCheckPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &314192330
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314192329}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.755, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3963916744730356114}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118141018
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3963916744730356114}
   - component: {fileID: 2638291573643422366}
+  - component: {fileID: 1424136277}
   m_Layer: 9
   m_Name: CollisionSenses
   m_TagString: Untagged
@@ -321,7 +291,6 @@ Transform:
   - {fileID: 1600163994}
   - {fileID: 2121437962378263932}
   - {fileID: 3938561055844868905}
-  - {fileID: 314192330}
   m_Father: {fileID: 3963916744843280178}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -339,11 +308,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionsCheckPoint: {fileID: 3963916744851059632}
   groundCheckPoint: {fileID: 3963916746401700930}
-  pitfallCheckPoint: {fileID: 314192330}
   collisionCheckDistance: 1.5
   groundCheckRadius: 0.3
-  pitfallCheckWidth: 0.33
-  pitfallCheckHeight: 0.25
   whatIsWall:
     serializedVersion: 2
     m_Bits: 64
@@ -356,6 +322,8 @@ MonoBehaviour:
   partnerCheckArea: {fileID: 2121437962378263932}
   carryPoint: {fileID: 3938561055844868905}
   heldItemCheckDistance: 0.1
+  pitfallCheckPoint: {fileID: 0}
+  PitFallCheck: 0
   partnerDistanceFromPlayerRadius: 2
   whatIsPartner:
     serializedVersion: 2
@@ -367,6 +335,33 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   partnerCheckRadius: 1.3
+  pitfallCheckDistance: 0.375
+--- !u!61 &1424136277
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3963916744730356113}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03072089, y: -0.7236022}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.66210854, y: 0.4372046}
+  m_EdgeRadius: 0
 --- !u!1 &3963916744843280177
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3963916745617885425
 Transform:
   m_ObjectHideFlags: 0
@@ -876,7 +871,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03072089, y: -0.7557266}
+  m_Offset: {x: -0.03072089, y: -0.7236022}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -887,7 +882,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66210854, y: 0.5014534}
+  m_Size: {x: 0.66210854, y: 0.4372046}
   m_EdgeRadius: 0
 --- !u!1 &3963916746401700929
 GameObject:
