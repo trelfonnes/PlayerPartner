@@ -41,10 +41,20 @@ MonoBehaviour:
         - name: Slash
           <PhaseSprites>k__BackingField:
           - <Phase>k__BackingField: 2
-            <PhaseDirection>k__BackingField: 0
+            <PhaseDirection>k__BackingField: 3
             <Sprites>k__BackingField:
-            - {fileID: -57562604, guid: 220cb46c3c067494ea2ebb09c79c7d01, type: 3}
-            - {fileID: -2076007643, guid: 220cb46c3c067494ea2ebb09c79c7d01, type: 3}
+            - {fileID: 659048633, guid: b3ae2dbbd5bf79646aa159ce0ae827f9, type: 3}
+            - {fileID: 2071767823, guid: b3ae2dbbd5bf79646aa159ce0ae827f9, type: 3}
+          - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 4
+            <Sprites>k__BackingField:
+            - {fileID: -609785535, guid: b3ae2dbbd5bf79646aa159ce0ae827f9, type: 3}
+            - {fileID: 1852040229, guid: b3ae2dbbd5bf79646aa159ce0ae827f9, type: 3}
+          - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 5
+            <Sprites>k__BackingField:
+            - {fileID: 2122030039, guid: b3ae2dbbd5bf79646aa159ce0ae827f9, type: 3}
+            - {fileID: 585451633, guid: b3ae2dbbd5bf79646aa159ce0ae827f9, type: 3}
     - rid: 7917043528491597832
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
@@ -70,15 +80,15 @@ MonoBehaviour:
           <HitBoxSouth>k__BackingField:
             serializedVersion: 2
             x: -0.9
-            y: -2.1
+            y: -2.4
             width: 1.7
-            height: 2
+            height: 2.2
           DebugHitBoxEast: 1
           <HitBoxEast>k__BackingField:
             serializedVersion: 2
             x: 0
             y: -0.85
-            width: 2
+            width: 2.3
             height: 2
           DebugHitBoxWest: 0
           <HitBoxWest>k__BackingField:

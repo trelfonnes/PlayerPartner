@@ -28,10 +28,33 @@ MonoBehaviour:
   - rid: 7917043640045142016
   - rid: 7917043661478035457
   - rid: 7917043703839719424
+  - rid: 447581737425043456
   <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
+    - rid: 447581737425043456
+      type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
+      data:
+        name: WeaponSpriteData
+        attackData:
+        - name: Attack1
+          <PhaseSprites>k__BackingField:
+          - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 5
+            <Sprites>k__BackingField:
+            - {fileID: 70936455, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
+            - {fileID: 1006178748, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
+          - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 3
+            <Sprites>k__BackingField:
+            - {fileID: -1554596430, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
+            - {fileID: -1764198799, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
+          - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 4
+            <Sprites>k__BackingField:
+            - {fileID: -14791887, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
+            - {fileID: 1174743258, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
     - rid: 7917043528491597828
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
@@ -46,21 +69,21 @@ MonoBehaviour:
         name: ActionHitBoxData
         attackData:
         - name: Scratch
-          DebugHitBoxNorth: 0
+          DebugHitBoxNorth: 1
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
             x: -0.5
             y: -0.33
             width: 1
             height: 1
-          DebugHitBoxSouth: 0
+          DebugHitBoxSouth: 1
           <HitBoxSouth>k__BackingField:
             serializedVersion: 2
             x: -0.5
             y: -1.5
             width: 1
             height: 1
-          DebugHitBoxEast: 0
+          DebugHitBoxEast: 1
           <HitBoxEast>k__BackingField:
             serializedVersion: 2
             x: 0.15

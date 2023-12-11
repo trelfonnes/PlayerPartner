@@ -95,7 +95,7 @@ public class PartnerState
     public void StartFalling()
     {
         Debug.Log("Partner going to fall state");
-
+        
         PSM.ChangePartnerState(partner.FallingState);
     }
     public virtual void Partner1Defeated()

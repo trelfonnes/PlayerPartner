@@ -12,8 +12,8 @@ public class PartnerCollisionSenses : CollisionSenses
     [SerializeField] private float playerCheckRadius = 1.5f;
     [SerializeField] private float wallCheckFollowRadius = 1f;
     public float PlayerDistanceFromPartner { get => playerCheckRadius; set => playerCheckRadius = value; }
-    [SerializeField] BoxCollider2D pitfallCollider;
 
+    bool isJumping;
 
     protected override void Start()
     {
@@ -42,24 +42,24 @@ public class PartnerCollisionSenses : CollisionSenses
     public void DisableHazardDetection()
     {
         Physics2D.IgnoreLayerCollision(10, 15, true); // 10 = partner, 15 = hazards
-        pitfallCollider.enabled = false;
-//        Physics2D.IgnoreLayerCollision(10, 19, true); // 10 = partner, 19 = Pitfalls
-
+        Physics2D.IgnoreLayerCollision(10, 19, true); // 10 = partner, 19 = pitfalls
+        isJumping = true;
     }
     public void EnableHazardDetection()
     {
         Physics2D.IgnoreLayerCollision(10, 15, false);
-        pitfallCollider.enabled = true;
-    //    Physics2D.IgnoreLayerCollision(10, 19, false);
-
+        Physics2D.IgnoreLayerCollision(10, 19, false);
+        isJumping = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Pitfall"))
         {
-
-            partner.OnStartFallEvent();
+            if (!isJumping)
+            {
+                partner.OnStartFallEvent();
+            }
         }
     }
 

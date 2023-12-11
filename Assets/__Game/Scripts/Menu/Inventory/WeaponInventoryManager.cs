@@ -35,7 +35,6 @@ public class WeaponInventoryManager : MonoBehaviour
     [SerializeField] public List<WeaponInventoryItemSO> playerWeaponsInInventory = new List<WeaponInventoryItemSO>();
     [SerializeField] public List<WeaponInventoryItemSO> partnerWeaponsInInventory = new List<WeaponInventoryItemSO>();
 
-
     private void Start()
     {
         partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
@@ -135,6 +134,12 @@ public class WeaponInventoryManager : MonoBehaviour
         MakeInventorySlots();
         SetTextAndButton("", false);
     }
+    private void OnDisable()
+    {
+
+        //sub to partnerWeapon global event then check this event in equip button pressed before running any logic
+    }
+    
     public void ClearAndMakeSlots()
     {
         ClearInventorySlots();
@@ -148,22 +153,27 @@ public class WeaponInventoryManager : MonoBehaviour
         if (currentWeapon.isPlayerWeapon)
         {
             onPlayerWeaponSwapped.Invoke();
-
+            SetEquippedImage(currentWeapon);
+            SetTextAndButton("", false);
         }
         else
         {
-            if (currentWeapon.isPrimary)
+            if (!PartnerWeapon.AnyInstanceAttacking())
             {
-                partnerWeaponStateInstance.SwitchPrimaryState(currentWeapon.primaryType);
+                if (currentWeapon.isPrimary)
+                {
+                    partnerWeaponStateInstance.SwitchPrimaryState(currentWeapon.primaryType);
+                }
+                else
+                {
+                    partnerWeaponStateInstance.SwitchSecondaryState(currentWeapon.secondaryType);
+                }
+                onPartnerWeaponSwapped.Invoke();
+                SetEquippedImage(currentWeapon);
+                SetTextAndButton("", false);
             }
-            else
-            {
-                partnerWeaponStateInstance.SwitchSecondaryState(currentWeapon.secondaryType);
-            }
-            onPartnerWeaponSwapped.Invoke();
         }
-            SetEquippedImage(currentWeapon);
-        SetTextAndButton("", false);
+           
 
     }
 
@@ -254,4 +264,5 @@ public class WeaponInventoryManager : MonoBehaviour
         }
 
     }
+   
 }

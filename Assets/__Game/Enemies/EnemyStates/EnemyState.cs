@@ -35,6 +35,7 @@ public class EnemyState
     }
     public virtual void Exit()
     {
+        Debug.Log(enemy.anim + "Checking the enemy anim reference");
         enemy.anim.SetBool(animBoolName, false);
         isExitingState = true;
     }

@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e94117a57f6fe42ad55dec9dbb7799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAreaType: 0
   enemySOData: {fileID: 11400000, guid: a1ed30aaa86fd324d9fc560145f82736, type: 2}
   statEvents: {fileID: 11400000, guid: 2d965b53208f7da429aaebb7bb701d6d, type: 2}
   enemyDirection: {x: 0, y: 0}
@@ -738,6 +739,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  whatIsPitfall:
+    serializedVersion: 2
+    m_Bits: 0
   characterCheckDistance: 4
   characterCheckRadius: 6
   projAndOverallFOVDistance: 4

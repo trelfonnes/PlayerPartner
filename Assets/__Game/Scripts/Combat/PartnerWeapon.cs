@@ -13,7 +13,8 @@ public class PartnerWeapon : MonoBehaviour
     [SerializeField] WeaponDataSO BasicProjectile;
     [SerializeField] WeaponDataSO ChargeProjectile;
     [SerializeField] WeaponDataSO SpreadProjectile;
-
+    private static bool isAnyInstanceAttacking = false;
+  
     PartnerWeaponState partnerWeaponStateInstance;
     public WeaponDataSO Data { get; private set; }
     public int CurrentAttackCounter
@@ -58,6 +59,7 @@ public class PartnerWeapon : MonoBehaviour
         anim.SetFloat("moveY", partner.lastDirection.y);
         anim.SetInteger("counter", CurrentAttackCounter);
         attackCounterResetTimer.StopTimer();
+        isAnyInstanceAttacking = true;
         onEnter?.Invoke();
     }
     public void Exit()
@@ -65,7 +67,13 @@ public class PartnerWeapon : MonoBehaviour
         anim.SetBool("active", false);
         CurrentAttackCounter++;
         attackCounterResetTimer.StartTimer();
+        isAnyInstanceAttacking = false;
         onExit?.Invoke();
+    }
+    public static bool AnyInstanceAttacking()
+    {
+        
+        return isAnyInstanceAttacking;
     }
     private void Awake()
     {

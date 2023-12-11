@@ -914,6 +914,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  whatIsPitfall:
+    serializedVersion: 2
+    m_Bits: 0
   characterCheckDistance: 4
   characterCheckRadius: 6
   projAndOverallFOVDistance: 4.5
