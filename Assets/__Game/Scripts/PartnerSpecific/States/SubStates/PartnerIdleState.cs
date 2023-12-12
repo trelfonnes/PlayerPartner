@@ -33,6 +33,8 @@ public class PartnerIdleState : PartnerBasicState
             statEvents.onCurrentEPZero += TimeToDevolve;
 
         }
+        partner.onFallStarted += StartFalling;
+
     }
 
     public override void Exit()
@@ -45,6 +47,8 @@ public class PartnerIdleState : PartnerBasicState
         }
         statEvents.onLevelUp -= LevelUp;
         subToLevelUP = false;
+        partner.onFallStarted -= StartFalling;
+
     }
 
     public override void LogicUpdate()
@@ -85,7 +89,7 @@ public class PartnerIdleState : PartnerBasicState
         }
     
     }
-
+  
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

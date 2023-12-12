@@ -1367,7 +1367,7 @@ MonoBehaviour:
   weapon: {fileID: 6331929672594413318}
   partnerWeapon: {fileID: 0}
   enemyWeapon: {fileID: 0}
-  data: {fileID: 11400000, guid: 602b9638b74e61440a8e906bca645eeb, type: 2}
+  data: {fileID: 11400000, guid: 57c59a3a19206ea498a1796f8d367b73, type: 2}
 --- !u!114 &6331929672594413318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,6 +1382,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisWeaponsAutoGenerator: {fileID: 2096271035}
   weaponInventoryManager: {fileID: 0}
+  BareHands: {fileID: 11400000, guid: 57c59a3a19206ea498a1796f8d367b73, type: 2}
+  BareHandsProjectile: {fileID: 0}
   Whip: {fileID: 11400000, guid: 602b9638b74e61440a8e906bca645eeb, type: 2}
   Scythe: {fileID: 11400000, guid: e7f5033298a859241a66f5697be370eb, type: 2}
   Dart: {fileID: 0}
@@ -1473,7 +1475,7 @@ MonoBehaviour:
   weapon: {fileID: 7345843354213220129}
   partnerWeapon: {fileID: 0}
   enemyWeapon: {fileID: 0}
-  data: {fileID: 11400000, guid: e29a753d990a38d499bd6b21883cd78c, type: 2}
+  data: {fileID: 11400000, guid: 318f15cbacd98e842bc3182785d1e55d, type: 2}
 --- !u!114 &7345843354213220129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,6 +1490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisWeaponsAutoGenerator: {fileID: 617004290}
   weaponInventoryManager: {fileID: 0}
+  BareHands: {fileID: 0}
+  BareHandsProjectile: {fileID: 0}
   Whip: {fileID: 0}
   Scythe: {fileID: 0}
   Dart: {fileID: 11400000, guid: e29a753d990a38d499bd6b21883cd78c, type: 2}

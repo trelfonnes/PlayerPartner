@@ -8,6 +8,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] WeaponAutoGenerator thisWeaponsAutoGenerator;
     [SerializeField] WeaponInventoryManager weaponInventoryManager;
 
+    [SerializeField] WeaponDataSO BareHands;
+    [SerializeField] WeaponDataSO BareHandsProjectile;
     [SerializeField] WeaponDataSO Whip;
     [SerializeField] WeaponDataSO Scythe;
     [SerializeField] WeaponDataSO Dart;
@@ -101,6 +103,14 @@ public class Weapon : MonoBehaviour
             {
                 //generateboomerang
                 thisWeaponsAutoGenerator.GenerateWeapon(Boomerang);
+
+            }
+        } if (BareHands != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "BareHands")
+            {
+                //generateboomerang
+                thisWeaponsAutoGenerator.GenerateWeapon(BareHands);
 
             }
         }

@@ -94,7 +94,7 @@ Transform:
   - {fileID: 1112500509}
   - {fileID: 767457973}
   m_Father: {fileID: 8392074538503067613}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767457972
 GameObject:
@@ -454,7 +454,6 @@ Transform:
   - {fileID: 8392074537919305348}
   - {fileID: 7470835155404570981}
   - {fileID: 229751206}
-  - {fileID: 8392074538800123953}
   - {fileID: 624330041}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -524,6 +523,7 @@ MonoBehaviour:
   - {fileID: 767457973}
   enemiesInAreaSO: {fileID: 11400000, guid: c16414f70dcfb664ab6c4fe29028bf53, type: 2}
   areaTriggerCollider: {fileID: 0}
+  hasSpawned: 0
 --- !u!1 &8392074538929272696
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,93 +612,3 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
---- !u!1001 &7645238901749467668
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8392074538503067613}
-    m_Modifications:
-    - target: {fileID: 2193247598617188900, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_Name
-      value: FloorTrap_Pit
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188900, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188902, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_Size.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188902, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_Size.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193247598617188903, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 255207913, guid: dd3961f5f3380c94ba584335d8eb9007, type: 3}
-    - target: {fileID: 2193247598617188952, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: pitSprite
-      value: 
-      objectReference: {fileID: 207312270, guid: dd3961f5f3380c94ba584335d8eb9007, type: 3}
-    - target: {fileID: 2193247598617188952, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: crackedSprite
-      value: 
-      objectReference: {fileID: 255207913, guid: dd3961f5f3380c94ba584335d8eb9007, type: 3}
-    - target: {fileID: 2193247598617188952, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-      propertyPath: areaSpawnPoint
-      value: 
-      objectReference: {fileID: 229751206}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d4d029c15b653144cb469274227f23f0, type: 3}
---- !u!4 &8392074538800123953 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2193247598617188901, guid: d4d029c15b653144cb469274227f23f0, type: 3}
-  m_PrefabInstance: {fileID: 7645238901749467668}
-  m_PrefabAsset: {fileID: 0}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMoveState : EnemyBasicState
 {
+    float stuckInStateTime = 5f;
     protected EnemyMovement EnemyMovement { get => enemyMovement ?? core.GetCoreComponent(ref enemyMovement); }
     private EnemyMovement enemyMovement;
     protected EnemyCollisionSenses EnemyCollisionSenses { get => enemyCollisionSenses ?? core.GetCoreComponent(ref enemyCollisionSenses); }
@@ -61,7 +62,10 @@ public class EnemyMoveState : EnemyBasicState
             ESM.ChangeState(enemy.PlayerDetectedState);
         }
         
-        
+        if(Time.time - startTime >= stuckInStateTime)
+        {
+            ESM.ChangeState(enemy.MeleeState);
+        }
        else if (!inSightCircle)
         {
             EnemyMovement.SetVelocityZero();

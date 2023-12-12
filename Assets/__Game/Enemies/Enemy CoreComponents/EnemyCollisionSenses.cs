@@ -49,6 +49,7 @@ private void OnTriggerEnter2D(Collider2D collision)
         if(collision.CompareTag("Partner"))
         {
             partnerTransform = collision.transform;
+            Debug.Log(partnerTransform);
         }
         if(collision.CompareTag("Player"))
         {
@@ -74,7 +75,7 @@ private void OnTriggerEnter2D(Collider2D collision)
                 if (angleToPlayer < fieldOfViewAngle * 0.5f)
                 {
                     RaycastHit2D[] playerResults = new RaycastHit2D[50];
-                    int playerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, playerResults, projAndOverallFOVDistance, playerAndPartnerLayerMask);
+                    int playerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, playerResults, projAndOverallFOVDistance, whatIsPlayer);
 
                     for (int i = 0; i < playerHits; i++)
                     {
@@ -95,7 +96,7 @@ private void OnTriggerEnter2D(Collider2D collision)
                 if (angleToPartner < fieldOfViewAngle * 0.5f)
                 {
                     RaycastHit2D[] partnerResults = new RaycastHit2D[10];
-                    int partnerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, partnerResults, projAndOverallFOVDistance, playerAndPartnerLayerMask);
+                    int partnerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, partnerResults, projAndOverallFOVDistance, whatIsPartner);
 
                     for (int i = 0; i < partnerHits; i++)
                     {
@@ -135,7 +136,7 @@ private void OnTriggerEnter2D(Collider2D collision)
                 if (angleToPlayer < fieldOfViewAngle * 0.5f)
                 {
                     RaycastHit2D[] playerResults = new RaycastHit2D[10];
-                    int playerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, playerResults, meleeFOVDistance, playerAndPartnerLayerMask);
+                    int playerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, playerResults, meleeFOVDistance, whatIsPlayer);
 
                     for (int i = 0; i < playerHits; i++)
                     {
@@ -156,7 +157,7 @@ private void OnTriggerEnter2D(Collider2D collision)
                 if (angleToPartner < fieldOfViewAngle * 0.5f)
                 {
                     RaycastHit2D[] partnerResults = new RaycastHit2D[10];
-                    int partnerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, partnerResults, meleeFOVDistance, playerAndPartnerLayerMask);
+                    int partnerHits = Physics2D.RaycastNonAlloc(transform.position, directionToPlayer, partnerResults, meleeFOVDistance, whatIsPartner);
 
                     for (int i = 0; i < partnerHits; i++)
                     {

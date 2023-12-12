@@ -11,22 +11,22 @@ public class EnemyTouchDamage : MonoBehaviour
     int directionX;
     int directionY;
     private float lastTouchDamageTime;
-    [SerializeField] float touchDamageCooldown = 1.0f;
+    [SerializeField] float touchDamageCooldown = .5f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Time.time - lastTouchDamageTime > touchDamageCooldown)
-        {
+      
             if (collision.CompareTag("Player") || collision.CompareTag("Partner"))
             {
-                ApplyDamage(collision);
                 lastTouchDamageTime = Time.time;
+                ApplyDamage(collision);
                 ApplyKnockback(collision);
                 ApplyPoiseDamage(collision);
 
             }
-        }
+        
     }
+   
     private void ApplyDamage(Collider2D collision)
     {
         if (collision.TryGetComponent(out IDamageable damageable))

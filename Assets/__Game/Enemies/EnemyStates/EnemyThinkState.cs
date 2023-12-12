@@ -28,7 +28,6 @@ public class EnemyThinkState : EnemyBasicState
         {
             if (data.lowHealth && inSightCircle)
             {
-                Debug.Log("GOING TO LOW HEALTH");
                 ESM.ChangeState(enemy.LowHealthState);
             }
            else if (inSightCircle)
@@ -38,6 +37,7 @@ public class EnemyThinkState : EnemyBasicState
             
 
         }
+
         if (Time.time - startTime >= thinkTime)
         {
            

@@ -45,17 +45,17 @@ public class EnemyPatrolState : EnemyBasicState
     {
         base.LogicUpdate();
         Movement?.Patrol();
-       
-        if (Time.time >= startTime + patrolTime)
-        {
-            isPatrolTimeOver = true;
-        }
-
         if (isPlayerPartnerDetected)
         {
             ESM.ChangeState(enemy.PlayerDetectedState);
         }
-        
+
+       else if (Time.time >= startTime + patrolTime)
+        {
+            isPatrolTimeOver = true;
+        }
+
+      
        
         if (isTouchingWall)
         {

@@ -40,11 +40,11 @@ public class WeaponInventoryManager : MonoBehaviour
         partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
 
         
-                SetInitialPlayerPrimaryWeapon(playerWeaponsInInventory[0]);
-        SetInitialPlayerSecondaryWeapon(playerWeaponsInInventory[1]);
+                SetInitialPlayerPrimaryWeapon(playerWeaponsInInventory[0]); //bare hands
+        SetInitialPlayerSecondaryWeapon(playerWeaponsInInventory[1]);   // bare hands projectile
         
-                SetInitialPartnerPrimaryWeapon(partnerWeaponsInInventory[0]);
-        SetInitialPartnerSecondaryWeapon(partnerWeaponsInInventory[1]);
+                SetInitialPartnerPrimaryWeapon(partnerWeaponsInInventory[0]); //basic melee
+        SetInitialPartnerSecondaryWeapon(partnerWeaponsInInventory[1]);  // basic projectile
     }
    
 
@@ -84,7 +84,11 @@ public class WeaponInventoryManager : MonoBehaviour
             for (int i = 0; i < playerWeaponsInInventory.Count; i++)
             {
                 //condition for only if hasn't been made before
-
+                if (i == 1)
+                {
+                    continue;
+                }
+                {
                     GameObject temp =
                         Instantiate(blankWeaponInventorySlot, playerWeaponInventoryContentPanel.transform.position, Quaternion.identity);
                     temp.transform.SetParent(playerWeaponInventoryContentPanel.transform);
@@ -94,7 +98,8 @@ public class WeaponInventoryManager : MonoBehaviour
                     {
                         newSlot.Setup(playerWeaponsInInventory[i], this);
                     }
-                
+
+                }
             }
 
         }

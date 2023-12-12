@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-    [SerializeField] Transform destination;
+    [SerializeField] Teleporter destinationTeleporter;
     [SerializeField] StoredParticles particles;
 
     public Transform playerStoredTransform;
     public Transform partnerStoredTransform;
-
+    bool isActive = true;
 
     
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.isTrigger && collision.CompareTag("Player"))
+        if (isActive)
         {
-            playerStoredTransform = collision.transform;
-        }
-        if (!collision.isTrigger && collision.CompareTag("Partner"))
-        {
-            partnerStoredTransform = collision.transform;
-        }
+            if (!collision.isTrigger && collision.CompareTag("Player"))
+            {
+                playerStoredTransform = collision.transform;
+            }
+            if (!collision.isTrigger && collision.CompareTag("Partner"))
+            {
+                partnerStoredTransform = collision.transform;
+            }
 
-        // Check if both player and partner are present
-        if (partnerStoredTransform != null && playerStoredTransform != null)
-        {
-            Teleport(playerStoredTransform, partnerStoredTransform);
+            // Check if both player and partner are present
+            if (partnerStoredTransform != null && playerStoredTransform != null)
+            {
+                Teleport(playerStoredTransform, partnerStoredTransform);
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -39,6 +42,10 @@ public class Teleporter : MonoBehaviour
         if (collision.CompareTag("Partner"))
         {
             partnerStoredTransform = null;
+        }
+        if (playerStoredTransform == null && partnerStoredTransform == null)
+        {
+            isActive = true;
         }
     }
     void Teleport(Transform playerTransform, Transform partnerTransform)
@@ -52,20 +59,24 @@ public class Teleporter : MonoBehaviour
         GameObject flashEffect = Instantiate(particles.GetParticlePrefab(ParticleType.Teleport), transform.position + new Vector3(0f, 0.3f, 0f), Quaternion.Euler(0f, 0f, -90f)); yield return new WaitForSeconds(1.0f); // Adjust the duration as needed
 
         // Teleport both player and partner
-        if (destination)
+        if (destinationTeleporter)
         {
-           // Teleporter destinationTeleporter = teleporterPairs[pairingID];
-            
-                playerTransform.position = destination.position;
-                partnerTransform.position = destination.position;
-            
+            // Teleporter destinationTeleporter = teleporterPairs[pairingID];
+            destinationTeleporter.SetToInnactive();
+                playerTransform.position = destinationTeleporter.transform.position;
+                partnerTransform.position = destinationTeleporter.transform.position;
+
         }
 
         else
         {
-            Debug.LogWarning("Teleporter with " + destination + " not found!");
+            Debug.LogWarning("Teleporter with " + destinationTeleporter + " not found!");
         }
         Destroy(flashEffect);
 
+    }
+    public void SetToInnactive()
+    {
+        isActive = false;
     }
 }
