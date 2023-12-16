@@ -30,14 +30,19 @@ public class WeaponInventoryManager : MonoBehaviour
     [SerializeField] Image playerSecondaryEquippedImage;  
     [SerializeField] Image partnerPrimaryEquippedImage;
     [SerializeField] Image partnerSecondaryEquippedImage;
-    PartnerWeaponState partnerWeaponStateInstance;
+  //  PartnerWeaponState partnerWeaponStateInstance;
 
     [SerializeField] public List<WeaponInventoryItemSO> playerWeaponsInInventory = new List<WeaponInventoryItemSO>();
     [SerializeField] public List<WeaponInventoryItemSO> partnerWeaponsInInventory = new List<WeaponInventoryItemSO>();
 
+    private void Awake()
+    {
+        PartnerWeaponState.Instance.SwitchPrimaryState(PrimaryWeaponState.MeleeBasic);
+        PartnerWeaponState.Instance.SwitchSecondaryState(SecondaryWeaponState.BasicProjectile);
+    }
     private void Start()
     {
-        partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
+        //partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
 
         
                 SetInitialPlayerPrimaryWeapon(playerWeaponsInInventory[0]); //bare hands
@@ -167,11 +172,13 @@ public class WeaponInventoryManager : MonoBehaviour
             {
                 if (currentWeapon.isPrimary)
                 {
-                    partnerWeaponStateInstance.SwitchPrimaryState(currentWeapon.primaryType);
+                    PartnerWeaponState.Instance.SwitchPrimaryState(currentWeapon.primaryType);
+//                    partnerWeaponStateInstance.SwitchPrimaryState(currentWeapon.primaryType);
                 }
                 else
                 {
-                    partnerWeaponStateInstance.SwitchSecondaryState(currentWeapon.secondaryType);
+                    PartnerWeaponState.Instance.SwitchSecondaryState(currentWeapon.secondaryType);
+            //        partnerWeaponStateInstance.SwitchSecondaryState(currentWeapon.secondaryType);
                 }
                 onPartnerWeaponSwapped.Invoke();
                 SetEquippedImage(currentWeapon);
