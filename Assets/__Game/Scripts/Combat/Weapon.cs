@@ -10,7 +10,9 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] WeaponDataSO BareHands;
     [SerializeField] WeaponDataSO BareHandsProjectile;
-    [SerializeField] WeaponDataSO Whip;
+    [SerializeField] WeaponDataSO CableCord;
+    [SerializeField] WeaponDataSO CableCord2;
+    [SerializeField] WeaponDataSO CableCord3;
     [SerializeField] WeaponDataSO Scythe;
     [SerializeField] WeaponDataSO Dart;
     [SerializeField] WeaponDataSO Boomerang;
@@ -114,11 +116,25 @@ public class Weapon : MonoBehaviour
 
             }
         }
-        if (Whip != null)
+        if (CableCord != null)
         {
-            if (weaponInventoryManager.currentWeapon.weaponName == "Whip")
+            if (weaponInventoryManager.currentWeapon.weaponName == "CableCord")
             {
-                thisWeaponsAutoGenerator.GenerateWeapon(Whip);
+                thisWeaponsAutoGenerator.GenerateWeapon(CableCord);
+            }
+        }  
+        if (CableCord2 != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "CableCord2")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(CableCord2);
+            }
+        }  
+        if (CableCord3 != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "CableCord3")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(CableCord3);
             }
         }
         if (Scythe != null)

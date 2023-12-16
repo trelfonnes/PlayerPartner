@@ -11,6 +11,7 @@ public class WeaponInventoryItemSO : ScriptableObject
     public string weaponName;
     public Sprite weaponImage;
     public bool isPlayerWeapon;
+    public bool isCableCordUpgrade;
     public bool isPartnerWeapon;
     public bool isPrimary;
     public bool isPartnerOne;

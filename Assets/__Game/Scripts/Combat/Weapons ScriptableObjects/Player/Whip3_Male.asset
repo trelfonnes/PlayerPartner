@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
-  m_Name: Whip_Male
+  m_Name: Whip3_Male
   m_EditorClassIdentifier: 
   isPlayerWeapon: 1
   isPartnerWeapon: 0
@@ -29,10 +29,29 @@ MonoBehaviour:
   - rid: 7917043661478035456
   - rid: 7917043661478035461
   - rid: 7917043703839719427
+  - rid: 447581859178610692
+  - rid: 447581859178610693
   <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
+    - rid: 447581859178610692
+      type: {class: CutData, ns: , asm: Assembly-CSharp}
+      data:
+        name: CutData
+        attackData:
+        - name: Attack1
+          <Amount>k__BackingField: 1
+    - rid: 447581859178610693
+      type: {class: ProjectileData, ns: , asm: Assembly-CSharp}
+      data:
+        name: ProjectileData
+        attackData:
+        - name: Attack1
+          <TypeOfProjectile>k__BackingField: 3
+          <SPCost>k__BackingField: 0
+          <damage>k__BackingField: 0
+          <knockbackStrength>k__BackingField: 0
     - rid: 7917043528491597826
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:
@@ -43,21 +62,21 @@ MonoBehaviour:
           - <Phase>k__BackingField: 2
             <PhaseDirection>k__BackingField: 4
             <Sprites>k__BackingField:
-            - {fileID: -1687249032, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
-            - {fileID: -687616939, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
-            - {fileID: 1088247767, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+            - {fileID: -816687438, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
+            - {fileID: 2139304605, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
+            - {fileID: 246619675, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
           - <Phase>k__BackingField: 2
             <PhaseDirection>k__BackingField: 3
             <Sprites>k__BackingField:
-            - {fileID: 105848856, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
-            - {fileID: -450251771, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
-            - {fileID: -1496027033, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+            - {fileID: 843138181, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
+            - {fileID: -865200711, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
+            - {fileID: 428873143, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
           - <Phase>k__BackingField: 2
             <PhaseDirection>k__BackingField: 5
             <Sprites>k__BackingField:
-            - {fileID: -1616468718, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
-            - {fileID: 1791306229, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
-            - {fileID: 1001092491, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+            - {fileID: -150822839, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
+            - {fileID: 1993169683, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
+            - {fileID: -843423470, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
     - rid: 7917043528491597827
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
@@ -130,14 +149,14 @@ MonoBehaviour:
             height: -2
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
-          m_Bits: 65536
+          m_Bits: 196608
     - rid: 7917043661478035456
       type: {class: DamageData, ns: , asm: Assembly-CSharp}
       data:
         name: DamageData
         attackData:
         - name: Attack1
-          <Amount>k__BackingField: 0
+          <Amount>k__BackingField: 1
           <AttackType>k__BackingField: 5
     - rid: 7917043661478035461
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
@@ -146,11 +165,11 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 4
+          <Strength>k__BackingField: 8
     - rid: 7917043703839719427
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
       data:
         name: PoiseDamageData
         attackData:
         - name: Attack1
-          <amount>k__BackingField: 15
+          <amount>k__BackingField: 20

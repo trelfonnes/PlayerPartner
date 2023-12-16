@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 448bccf008060be41b4d2f3d250d117c, type: 3}
-  m_Name: WhipMeleePlayer
+  m_Name: Whip3MeleePlayer
   m_EditorClassIdentifier: 
   secondaryType: 3
   primaryType: 2
-  weaponDescription: The hero's weapon. The one to link them all.
-  weaponName: CableCord
-  weaponImage: {fileID: -1496027033, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+  weaponDescription: The CABLE CORD's final upgrade. The hero's weapon. The one to
+    link them all.
+  weaponName: CableCord3
+  weaponImage: {fileID: 428873143, guid: 7f377fb5e37863045a46908503ae7c15, type: 3}
   isPlayerWeapon: 1
-  isCableCordUpgrade: 0
+  isCableCordUpgrade: 1
   isPartnerWeapon: 0
   isPrimary: 1
   isPartnerOne: 0

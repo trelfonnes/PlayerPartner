@@ -125,7 +125,7 @@ public class SpreadProjectileRight : MonoBehaviour
     {
         Direction = normalizedDirection;
         
-            rb.velocity = normalizedDirection * velocity;
+           // rb.velocity = normalizedDirection * velocity;
            
             StartCoroutine(SwitchSpriteRoutine());
             StartCoroutine(DeactivateAfterTime());

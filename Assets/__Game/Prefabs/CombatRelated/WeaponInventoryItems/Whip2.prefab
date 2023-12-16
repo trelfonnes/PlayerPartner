@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3741564581259039685}
   - component: {fileID: 3741564581259039690}
   m_Layer: 0
-  m_Name: Whip
+  m_Name: Whip2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 829795316, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
+  m_Sprite: {fileID: -1496027033, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

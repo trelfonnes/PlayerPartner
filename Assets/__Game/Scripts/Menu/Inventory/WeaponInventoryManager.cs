@@ -229,9 +229,22 @@ public class WeaponInventoryManager : MonoBehaviour
     // private Dictionary<string, weaponItem> weaponItems = new Dictionary<string, weaponItem>();
     public void AddToPlayerWeaponInventory(WeaponInventoryItemSO weapon)
     {
-        playerWeaponsInInventory.Add(weapon);
-        MakeNewInventorySlots(weapon);
+        if (weapon.isCableCordUpgrade && playerWeaponsInInventory[2] !=null)
+        {
+            playerWeaponsInInventory[2] = weapon;
+            currentWeapon = weapon;
+            EquipButtonPressed();
+            
+            ClearInventorySlots();
+            MakeInventorySlots();
 
+        }
+        else
+        {
+            playerWeaponsInInventory.Add(weapon);
+        }
+        if(!weapon.isCableCordUpgrade)
+        MakeNewInventorySlots(weapon);
     }
     public void AddToPartnerWeaponInventory(WeaponInventoryItemSO weapon)
     {

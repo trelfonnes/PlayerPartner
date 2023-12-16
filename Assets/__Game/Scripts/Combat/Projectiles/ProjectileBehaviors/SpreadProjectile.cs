@@ -17,11 +17,14 @@ public class SpreadProjectile : MonoBehaviour
     [SerializeField] float velocity = 10f; // how fast it travels
     [SerializeField] float activeTime = 2.5f;  //how far it travels
     float timeToSpriteSwitch = .2f;
+    [SerializeField] float separationSpeed = 2f;
     bool hasBeenShot;
     SpreadProjectileLeft leftProj;
     SpreadProjectileRight rightProj;
     private ISpecialAbility specialAbility;
-
+   [SerializeField] bool isActive;
+   
+    [SerializeField] float maxSeparation = 5f; // Adjust this value based on your preference
 
     public Vector2 normalizedDirection;
 
@@ -31,7 +34,12 @@ public class SpreadProjectile : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         leftProj = GetComponentInChildren<SpreadProjectileLeft>();
         rightProj = GetComponentInChildren<SpreadProjectileRight>();
+   
+       
+
+
     }
+
 
 
     IEnumerator SwitchSpriteRoutine()
@@ -79,7 +87,7 @@ public class SpreadProjectile : MonoBehaviour
         ApplyPoiseDamage(collision);
 
         hasBeenShot = false;
-        gameObject.SetActive(false);
+        
     }
     private void ApplyDamage(Collider2D collision)
     {
@@ -139,6 +147,7 @@ public class SpreadProjectile : MonoBehaviour
     private void OnDisable()
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet -= Shoot;
+        isActive = false;
     }
 
 
@@ -151,21 +160,70 @@ public class SpreadProjectile : MonoBehaviour
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             transform.rotation = rotation;
-            leftProj.gameObject.SetActive(true);
-            rightProj.gameObject.SetActive(true);
-
+          
             transform.position = component.transform.position;
+            rightProj.transform.position = component.transform.position;
+            leftProj.transform.position = component.transform.position;
             
+            normalizedDirection = direction.normalized;
+            rb.velocity = normalizedDirection * velocity;
+            
+            rightProj.gameObject.SetActive(true);
+            leftProj.gameObject.SetActive(true);
+            float offset = 1.50f; // Adjust this value to control the initial separation
+
+            // Calculate the perpendicular vector to the normalized direction
+            Vector2 perpendicularVector = new Vector2(-direction.y, direction.x).normalized;
+
+            // Calculate the target positions for left and right projectiles
+            Vector3 leftTargetPos = transform.position - (Vector3)perpendicularVector * offset;
+            Vector3 rightTargetPos = transform.position + (Vector3)perpendicularVector * offset;
+
+            // Set the initial positions of the child objects
+            leftProj.transform.position = transform.position;
+            rightProj.transform.position = transform.position;
+
+            // Move the child objects toward their target positions
+            StartCoroutine(MoveToTarget(leftProj.transform, leftTargetPos, separationSpeed));
+            StartCoroutine(MoveToTarget(rightProj.transform, rightTargetPos, separationSpeed));
+
+            isActive = true;
             normalizedDirection = direction.normalized;
 
             rb.velocity = normalizedDirection * velocity;
 
-            leftProj.Shoot(normalizedDirection);
-            rightProj.Shoot(normalizedDirection);
+            leftProj.gameObject.SetActive(true);
+            rightProj.gameObject.SetActive(true);
+
             hasBeenShot = true;
             StartCoroutine(SwitchSpriteRoutine());
             StartCoroutine(DeactivateAfterTime());
+            rightProj.Shoot(normalizedDirection);
+            leftProj.Shoot(normalizedDirection);
 
+
+        
         }
     }
-}
+
+    IEnumerator MoveToTarget(Transform projectileTransform, Vector3 targetPosition, float speed)
+    {
+        float elapsedTime = 0f;
+        float moveTime = Vector3.Distance(projectileTransform.position, targetPosition) / speed;
+
+        while (elapsedTime < moveTime)
+        {
+            projectileTransform.position = Vector3.Lerp(projectileTransform.position, targetPosition, elapsedTime / moveTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the projectile reaches exactly the target position
+        projectileTransform.position = targetPosition;
+    }
+
+   
+
+        }
+    
+
