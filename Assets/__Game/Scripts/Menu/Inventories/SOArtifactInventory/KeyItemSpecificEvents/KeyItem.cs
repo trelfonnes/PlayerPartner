@@ -7,8 +7,10 @@ public class KeyItem
 {
     public string Name;
     public string Description;
-        //additional properties related to key items can be added here
-    
+  public ArtifactInventoryItems keyItemInventoryDescriptionSO;
+
+    //additional properties related to key items can be added here
+
     public KeyItem(string name, string description)
     {
         Name = name;

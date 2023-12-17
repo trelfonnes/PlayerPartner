@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInventoryInitializer : MonoBehaviour
 {
     [SerializeField] PlayerInventory playerInventory; //this is used to set the instance of PlayerInventory. It is attached to the GameManager Game Object
+    [SerializeField] PlayerArtifactInventory playerArtifactInventory; //this is used to set the instance of PlayerInventory. It is attached to the GameManager Game Object
 
     private void Awake()
     {
@@ -15,6 +16,14 @@ public class PlayerInventoryInitializer : MonoBehaviour
         else
         {
             Debug.LogWarning("PlayerInventory already initialized. Ignoring the initialization");
+        }
+        if(PlayerArtifactInventory.Instance == null)
+        {
+            PlayerArtifactInventory.Instance = playerArtifactInventory;
+        }
+        else
+        {
+            Debug.LogWarning("PlayerArtifactInventory already initialized. Ignoring the initialization");
         }
     }
 }

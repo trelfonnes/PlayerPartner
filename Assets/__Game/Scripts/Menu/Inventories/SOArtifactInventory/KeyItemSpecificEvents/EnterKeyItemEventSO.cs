@@ -9,11 +9,11 @@ public class EnterKeyItemEventSO : ScriptableObject
     [SerializeField] string requiredKeyItemName;
     [SerializeField] string actionMessage;
     [SerializeField] GameObject ObjectToInfluence; //drag and drop gameObject into inspector here.
-    PlayerInventory inventory;
+    PlayerArtifactInventory inventory;
     public string RequiredKeyItemName => requiredKeyItemName;
     public string ActionMessage => actionMessage;
 
-    public bool CheckCondition(PlayerInventory inventory)
+    public bool CheckCondition(PlayerArtifactInventory inventory)
     {
         this.inventory = inventory;
         return inventory.HasKeyItem(requiredKeyItemName);

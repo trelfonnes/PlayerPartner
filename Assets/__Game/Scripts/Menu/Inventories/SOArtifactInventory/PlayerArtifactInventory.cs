@@ -1,35 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu(fileName = "New Artifact Inventory", menuName = "ArtifactInventory/PlayerArtifactInventory")]
 
-[CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory/PlayerInventory")]
-[System.Serializable]
-public class PlayerInventory : ScriptableObject
+public class PlayerArtifactInventory : ScriptableObject
 {
-    public List<inventoryItems> myInventory = new List<inventoryItems>();
+    public List<ArtifactInventoryItems> artifactInventory = new List<ArtifactInventoryItems>();
 
-
-    private static PlayerInventory instance;
-    public static PlayerInventory Instance
+    private static PlayerArtifactInventory instance;
+    public static PlayerArtifactInventory Instance
     {
         get => instance;
         set => instance = value;
-                
+
 
 
     }
 
-    //dictionary to store key items in the player's inventory, NOT usable items e.g. potions
-
- public Dictionary<string, KeyItem> keyItems = new Dictionary<string, KeyItem>();
+    public Dictionary<string, KeyItem> keyItems = new Dictionary<string, KeyItem>();
 
     public void AddKeyItem(KeyItem keyItem)
     {
         if (!keyItems.ContainsKey(keyItem.Name))
         {
             keyItems.Add(keyItem.Name, keyItem);
+            artifactInventory.Add(keyItem.keyItemInventoryDescriptionSO);
+            Debug.Log("Hitting in teh add key item via artifact inventory");
         }
-        
+
     }
 
     public void RemoveKeyItem(KeyItem keyItem)
@@ -39,10 +37,9 @@ public class PlayerInventory : ScriptableObject
 
     public bool HasKeyItem(string itemName)
     {
-        
+
         return keyItems.ContainsKey(itemName);
     }
-
     public void ClearInventory()
     {
         keyItems.Clear();
@@ -53,9 +50,9 @@ public class PlayerInventory : ScriptableObject
     private void OnEnable()
     {
         // TODO: when done with testing put conditio nto check if doesn't exist already
-            keyItems = new Dictionary<string, KeyItem>();
-        
+        keyItems = new Dictionary<string, KeyItem>();
+
     }
 
-   
+
 }

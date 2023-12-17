@@ -24,9 +24,7 @@ public class EnemyPlayerDetectedState : EnemyBasicState
     {
         base.LogicUpdate();
         EnemyMovement.SetVelocityZero();
-        Debug.Log(useMeleeAttack + "Melee bool");
-        Debug.Log(useRangedAttack + "projectile bool");
-        Debug.Log(inSightCircle + "sightcircle bool");
+      
 
        if (useMeleeAttack)
         {

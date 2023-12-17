@@ -10,6 +10,7 @@ public class PauseScreen : MonoBehaviour
     bool SelectInput;
     bool CancelInput;
     [SerializeField] GameObject PauseMenuScreen;
+    [SerializeField] GameObject ArtifactMenuScreen;
     public  bool isOn = true;
     private bool canToggle = true;
     private bool canCloseMenu;
@@ -59,6 +60,8 @@ public class PauseScreen : MonoBehaviour
     public void TogglePauseMenu()
     {
         PauseMenuScreen.SetActive(isOn);
+        ArtifactMenuScreen.SetActive(false);
+        
         isOn = !isOn;
        // canToggle = false;
         //Invoke(nameof(ResetToggleCooldown), inputCoolDown);

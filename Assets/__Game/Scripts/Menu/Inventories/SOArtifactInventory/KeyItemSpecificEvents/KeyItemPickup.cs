@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class KeyItemPickup : MonoBehaviour
 {
-    [SerializeField] KeyItem keyItem;
+    [SerializeField] KeyItem keyItemActionCheck;
+    [SerializeField] PlayerArtifactInventory artifactInventory;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (PlayerInventory.Instance != null)
+
+            if (artifactInventory)
             {
-                PlayerInventory.Instance.AddKeyItem(keyItem);
+                artifactInventory.AddKeyItem(keyItemActionCheck);
                 Destroy(gameObject);
             }
         }

@@ -49,7 +49,6 @@ private void OnTriggerEnter2D(Collider2D collision)
         if(collision.CompareTag("Partner"))
         {
             partnerTransform = collision.transform;
-            Debug.Log(partnerTransform);
         }
         if(collision.CompareTag("Player"))
         {
@@ -81,7 +80,6 @@ private void OnTriggerEnter2D(Collider2D collision)
                     {
                         if (playerResults[i].collider.CompareTag("Player"))
                         {
-                            Debug.Log("Player is in long range rangeFOV");
                             playerInFOV = true;
                             break; // Exit the loop once player is found
                         }
@@ -102,7 +100,6 @@ private void OnTriggerEnter2D(Collider2D collision)
                     {
                         if (partnerResults[i].collider.CompareTag("Partner"))
                         {
-                            Debug.Log(partnerResults[i].collider.name + "Partner is in long rangeFOV");
                             partnerInFOV = true;
                             break; // Exit the loop once partner is found
                         }
@@ -142,7 +139,6 @@ private void OnTriggerEnter2D(Collider2D collision)
                     {
                         if (playerResults[i].collider.CompareTag("Player"))
                         {
-                            Debug.Log(playerResults[i].collider.name +"Player is in close rangeFOV");
                             playerInFOV = true;
                             break; // Exit the loop once player is found
                         }
@@ -163,7 +159,6 @@ private void OnTriggerEnter2D(Collider2D collision)
                     {
                         if (partnerResults[i].collider.CompareTag("Partner"))
                         {
-                            Debug.Log(partnerResults[i].collider.name + "Partner is in close rangeFOV");
                             partnerInFOV = true;
                             break; // Exit the loop once partner is found
                         }
