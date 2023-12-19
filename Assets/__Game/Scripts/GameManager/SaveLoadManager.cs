@@ -13,6 +13,7 @@ public class SaveLoadManager : DataReferenceInheritor
     PlayerSOData partner3BasicData;
     [SerializeField] PlayerData sharedPartnerData;
     [SerializeField] PlayerInventory playerInventory;
+    [SerializeField] PlayerArtifactInventory artifactInventory;
     [SerializeField] List<inventoryItems> itemsAmountInInventory;
     [SerializeField] GameObject gameSavedUI;
     [SerializeField] WeaponInventoryManager weaponInventoryManager;
@@ -118,6 +119,7 @@ public class SaveLoadManager : DataReferenceInheritor
     {
         ES3.Save("playerInventory", playerInventory);
         ES3.Save("individualInventoryItems", itemsAmountInInventory);
+        ES3.Save("artifactInventory", artifactInventory);
     } 
    
     void LoadPlayerInventoryContents()
@@ -129,6 +131,10 @@ public class SaveLoadManager : DataReferenceInheritor
         if (ES3.KeyExists("individualInventoryItems"))
         {
             ES3.Load("individualInventoryItems");
+        }
+        if (ES3.KeyExists("artifactInventory"))
+        {
+            ES3.Load("artifactInventory");
         }
     }
     void SaveWeaponItems()

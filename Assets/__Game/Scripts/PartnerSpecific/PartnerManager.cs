@@ -226,4 +226,24 @@ public class PartnerManager : MonoBehaviour
     {
         partnerTransform.position = location;
     }
+
+    public GameObject ReturnPartnerType(PartnerType partnerType)
+    {
+       
+        if(partnerPrefabs.TryGetValue(partnerType, out GameObject partnerPrefab))
+        {
+            return partnerPrefab;
+        }
+        else
+        {
+            Debug.LogError("PartnerType not found in partnerPrefabs PartnerManager dictionary");
+            return null;
+        }
+
+
+
+
+    }
+
+
 }

@@ -35,6 +35,7 @@ public class Partner : MonoBehaviour
     public bool stageOne;
     public bool stageTwo;
     public bool stageThree;
+    public bool initializeForBattleScene = false; //check this for partner instances in the battle scenes
     public float dashCooldown = 3f;
     public float jumpCooldown = 0f;
     public PlayerInputHandler InputHandler { get; private set; }
@@ -91,7 +92,14 @@ public class Partner : MonoBehaviour
     private void OnEnable()
     {
         InputHandler.ChangeMuteInput(false);
-       StateMachine.InitializePartner(FollowIdleState);
+
+        if (initializeForBattleScene)
+        {
+            StateMachine.InitializePartner(IdleState);
+        }
+         else
+            StateMachine.InitializePartner(FollowIdleState);
+        
     }
     protected virtual void Update()
     {
@@ -104,7 +112,7 @@ public class Partner : MonoBehaviour
             JumpCooldownTimer.Update(Time.deltaTime);
         }
         StateMachine.CurrentPartnerState.LogicUpdate();
-        //
+        
 
     }
 
