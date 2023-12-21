@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PartnerCollisionSenses : CollisionSenses
 {
+
     [SerializeField] public Transform followPoint;
+    [SerializeField] public Transform maleFollowPoint;
+    [SerializeField] public Transform femaleFollowPoint;
     [SerializeField] private Transform playerCheckArea;
 
     [SerializeField] private LayerMask whatIsPlayer;
@@ -18,6 +21,14 @@ public class PartnerCollisionSenses : CollisionSenses
     protected override void Start()
     {
         base.Start();
+        if(GameManager.Instance.chosenPlayer == PlayerType.Male)
+        {
+            followPoint = maleFollowPoint;
+        }
+        else
+        {
+            followPoint = femaleFollowPoint;
+        }
     }
     public bool PlayerCheck
     {

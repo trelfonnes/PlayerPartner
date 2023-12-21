@@ -42,6 +42,11 @@ public class EnemyState
     {
         DoChecks();
     }
+    public virtual void OnDisable()
+    {
+
+    }
+
     public virtual void PhysicsUpdate()
     {
        // DoChecks();

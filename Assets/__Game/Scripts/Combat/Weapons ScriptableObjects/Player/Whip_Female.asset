@@ -72,7 +72,7 @@ MonoBehaviour:
         name: ActionHitBoxData
         attackData:
         - name: Attack1
-          DebugHitBoxNorth: 0
+          DebugHitBoxNorth: 1
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
             x: -1

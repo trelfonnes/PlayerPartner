@@ -42,6 +42,11 @@ public class EnemyStunnedState : EnemyBasicState
 
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        statEvents.onHealthZero -= SwitchToDefeated;
+    }
 
     public override void LogicUpdate()
     {

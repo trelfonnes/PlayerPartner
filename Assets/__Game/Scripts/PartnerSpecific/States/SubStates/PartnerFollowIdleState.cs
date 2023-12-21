@@ -43,8 +43,8 @@ public class PartnerFollowIdleState : PartnerFollowState
     public override void OnDisable()
     {
         base.OnDisable();
-        statEvents.onCurrentEPZero -= TimeToDevolve;
         partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
+        statEvents.onCurrentEPZero -= TimeToDevolve;
 
     }
 

@@ -422,6 +422,7 @@ MonoBehaviour:
   stageOne: 1
   stageTwo: 0
   stageThree: 0
+  initializeForBattleScene: 0
   dashCooldown: 1.5
   jumpCooldown: 0.5
   playerSOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
@@ -962,7 +963,7 @@ MonoBehaviour:
   groundCheckRadius: 0.3
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 557120
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -970,13 +971,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 524288
   followPoint: {fileID: 0}
+  maleFollowPoint: {fileID: 0}
+  femaleFollowPoint: {fileID: 0}
   playerCheckArea: {fileID: 885020788}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
   playerCheckRadius: 1
   wallCheckFollowRadius: 0.5
-  pitfallCollider: {fileID: 0}
 --- !u!61 &2791745991268073790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1431,7 +1433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989388053292830388, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2607447855836341977, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: MeleeHold
@@ -1463,11 +1465,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_Size.x
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_Size.y
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_SortingLayer

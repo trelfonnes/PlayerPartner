@@ -79,7 +79,9 @@ public class Enemy : MonoBehaviour
         ProjectileState = new EnemyProjectileAttackState(this, StateMachine, enemySOData, enemyData, "attack", projectileWeapon, projectileStrategy, ProjectileWeaponDatas);
 
     }
-   
+    private void OnDisable()
+    {
+    }
     //refactor to individual enemy class
     protected virtual void SetStrategies()
     {
@@ -151,6 +153,8 @@ public class Enemy : MonoBehaviour
         PlayerData.Instance.GainExperience(enemySOData.expYield);
         onEnemyDefeated?.Invoke(enemyAreaType);
         needsToInitializeStates = true;
+        StateMachine.CurrentState.OnDisable();
+
         gameObject.SetActive(false);
     }
 }

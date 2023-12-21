@@ -50,6 +50,14 @@ public class EnemyBasicState : EnemyState
 
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        statEvents.onHealthZero -= EnemyDefeated;
+        statEvents.onPoiseZero -= PoiseZero;
+        statEvents.onPoiseRefilled -= PoiseRefilled;
+        statEvents.onHealthLow -= HealthLow;
+    }
 
     public override void LogicUpdate()
     {

@@ -16,7 +16,7 @@ public class GameManager : DataReferenceInheritor
    // int chosenPartnerCharacterIndex = 0;
     //int chosenPlayerCharacterIndex = 0;
     [SerializeField] PartnerType partnerFirstStageType;// this variable will be passed in by questionairre and set before passed to PartnerManager
-    [SerializeField] PlayerType chosenPlayer;// this variable will be passed in by questionairre and set before passed to PartnerManager
+    public PlayerType chosenPlayer;// this variable will be passed in by questionairre and set before passed to PartnerManager
                                                         // only needs to be the first stage of whatever partner.
     public ItemsObjectPool objectPool;
     public static GameManager Instance { get; private set; }
