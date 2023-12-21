@@ -23,7 +23,9 @@ public class SaveLoadManager : DataReferenceInheritor
     [SerializeField] Partner partner;
     [SerializeField] Vector2 savedLocations;
     [SerializeField] Transform locationForPartnerLoad;
-    
+       
+    SceneLoaderUtility sceneLoader = new SceneLoaderUtility();
+
 
     [SerializeField] GameObject activePartner;
 
@@ -79,15 +81,30 @@ public class SaveLoadManager : DataReferenceInheritor
         SavePlayerPartnerLocation();
         SaveLastActivePartner();
         PopUpUI();
+       SaveCurrentScene();
     }
     public void LoadWithEasySave()
     {
+        LoadCurrentScene();
         LoadPlayerPartnerBasicData();
         LoadSharedPartnerData();
         LoadPlayerInventoryContents();
         LoadWeaponItems();
         LoadPlayerPartnerLocation();
         LoadLastActivePartner();
+    }
+    void SaveCurrentScene()
+    {
+        string sceneToSave = sceneLoader.GetCurrentScene();
+        ES3.Save("currentScene", sceneToSave);
+    }
+    void LoadCurrentScene()
+    {
+        if (ES3.KeyExists("currentScene"))
+        {
+            string sceneToLoad = ES3.Load<string>("currentScene");
+            sceneLoader.LoadScene(sceneToLoad);
+        }
     }
     private void SavePlayerPartnerBasicData()
     {

@@ -52,13 +52,17 @@ public class Player : MonoBehaviour
     {
         
         playerDirection = Vector2.down;
-        StateMachine = new PlayerStateMachine();
         core = GetComponentInChildren<CoreHandler>();
         primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<Weapon>();
         secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<Weapon>();
         primaryWeapon.SetCore(core);
         secondaryWeapon.SetCore(core);
         _playerData = PlayerData.Instance;
+        anim = GetComponent<Animator>();
+        InputHandler = GetComponent<PlayerInputHandler>();
+        Debug.Log("Awake method of this Player being initialized" + gameObject.name);
+        StateMachine = new PlayerStateMachine();
+
         IdleState = new PlayerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerSOData, _playerData, "move");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon, CombatInputs.primary);
@@ -75,8 +79,7 @@ public class Player : MonoBehaviour
     #endregion
     protected virtual void Start()
     {
-        anim = GetComponent<Animator>();
-        InputHandler = GetComponent<PlayerInputHandler>();
+      
         StateMachine.Initialize(IdleState); //for when states are referenced in awake.
     }
     protected virtual void Update()

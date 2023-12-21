@@ -55,6 +55,7 @@ public class PartnerState
 
     public virtual void Exit()
     {
+        Debug.Log(this.GetType().Name); 
         partner.anim.SetBool(animBoolName, false);
         isExitingState = true;
         statEvents.onCurrentHealthZero -= Partner1Defeated;

@@ -50,7 +50,6 @@ public class AreaManager : MonoBehaviour
                 totalEnemiesDefeated = 0;
             }
             int difference = enemiesInThisArea - totalEnemiesDefeated;
-            Debug.Log(difference + "this is the difference");
             if (!hasSpawned)
             {
                 for (int i = 0; i < difference; i++)

@@ -47,6 +47,7 @@ public class PartnerFollowMoveState : PartnerFollowState
         base.LogicUpdate();
         if (player != null)
         {
+            Debug.Log(partner);
             var direction = (player.position - partner.transform.position).normalized;
             //direction.Normalize();
             Movement?.CheckIfShouldFlipFollowing(direction);

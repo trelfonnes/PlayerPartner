@@ -41,7 +41,6 @@ public class WeaponAutoGenerator : MonoBehaviour
         }
        else if (partnerWeapon != null)
         {
-            Debug.Log("The CURRENTWEAPON IS GENERATING TO MELEEBASIC" + data.name);
             this.data = data;
             partnerWeapon.SetData(data);
             character = 0;

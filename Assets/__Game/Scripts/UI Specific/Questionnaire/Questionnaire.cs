@@ -31,7 +31,7 @@ public class Questionnaire : MonoBehaviour
     "Gentle OceanSides",
 
     "Keep a safe distance", //answers for question 2
-    "Touch it immediately",
+    "Snatch it quickly",
     "Analyze it carefully",
     "Consult others for advice",
 
@@ -41,7 +41,7 @@ public class Questionnaire : MonoBehaviour
     "Shield or armor",
 
      "Blend into the crowd", //answer options for question 4
-    "Take charge or defend yourself",
+    "Defend yourself",
     "Stay focused and serious",
     "Remain calm and ask questions",
 
@@ -51,7 +51,7 @@ public class Questionnaire : MonoBehaviour
     "Spend time with friends",
 
      "Wait for help", //answer options for question 6
-    "Smash it open",
+    "Bust it open",
     "Search for a key",
     "Go a different way",
 
@@ -88,7 +88,6 @@ public class Questionnaire : MonoBehaviour
         }
         else
         {
-            Debug.Log("THIS IS PARTNER TYPE");
 
            DeterminePartnerType();
         }
@@ -128,8 +127,10 @@ public class Questionnaire : MonoBehaviour
             result = PartnerType.DinoOne;
 
 
-        Debug.Log("THIS IS PARTNER TYPE" + result);
         ES3.Save("chosenPartner", result);
+        SceneLoaderUtility sceneManager = new SceneLoaderUtility();
+        sceneManager.LoadScene("SandBoxScene");
+        //load to the next scene;
         // Pass the result to your game manager for initialization
         // GameManager.Instance.Initialize(result);
     }

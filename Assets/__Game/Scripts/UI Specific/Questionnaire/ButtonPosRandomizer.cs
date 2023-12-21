@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class ButtonPosRandomizer : MonoBehaviour
 {
     public Button[] answerButtons;
-
+    [SerializeField] int totalQuestions = 8;
+    int timesClicked = 0;
     private Vector3[] initialPositions;
 
     void Start()
@@ -16,13 +17,17 @@ public class ButtonPosRandomizer : MonoBehaviour
 
     public void RandomizeButtonPositions()
     {
-        // Shuffle the initial positions array
-        ShuffleArray(initialPositions);
-
-        // Apply the shuffled positions to the buttons
-        for (int i = 0; i < answerButtons.Length; i++)
+        timesClicked++;
+        if (timesClicked < totalQuestions)
         {
-            answerButtons[i].GetComponent<RectTransform>().anchoredPosition = initialPositions[i];
+            // Shuffle the initial positions array
+            ShuffleArray(initialPositions);
+
+            // Apply the shuffled positions to the buttons
+            for (int i = 0; i < answerButtons.Length; i++)
+            {
+                answerButtons[i].GetComponent<RectTransform>().anchoredPosition = initialPositions[i];
+            }
         }
     }
 

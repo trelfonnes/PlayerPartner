@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtinguishable
 {
     [SerializeField] GameObject fire;
+    [SerializeField] GameObject RestAndRestore;
     [SerializeField] bool isIndoorObject;
     Light2D pointLight;
     bool hasBeenActivated;
@@ -29,6 +30,7 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtin
     public void Light()
     {
         fire.SetActive(true);
+        RestAndRestore.SetActive(true);
         pointLight = GetComponentInChildren<Light2D>();
         hasBeenActivated = true;
         isLit = true;
@@ -37,6 +39,8 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtin
     public void Extinguish()
     {
         fire.SetActive(false);
+        RestAndRestore.SetActive(false);
+
         hasBeenActivated = false;
 
     }

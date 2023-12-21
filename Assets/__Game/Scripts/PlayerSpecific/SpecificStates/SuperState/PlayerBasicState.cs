@@ -76,14 +76,19 @@ public class PlayerBasicState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        xInput = player.InputHandler.NormInputX;
-        yInput = player.InputHandler.NormInputY;
-        switchInput = player.InputHandler.SwitchPlayerInput;
-        interactInput = player.InputHandler.InteractInput;
-        evolveInput = player.InputHandler.EvolveInput;
-        primaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.primary];
-        secondaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.secondary];
-
+        if (player.InputHandler)
+        {
+            xInput = player.InputHandler.NormInputX;
+            yInput = player.InputHandler.NormInputY;
+            switchInput = player.InputHandler.SwitchPlayerInput;
+            interactInput = player.InputHandler.InteractInput;
+            evolveInput = player.InputHandler.EvolveInput;
+            if (player.InputHandler.AttackInputs != null)
+            {
+                primaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.primary];
+                secondaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.secondary];
+            }
+        }
 
         
     }
@@ -92,10 +97,13 @@ public class PlayerBasicState : PlayerState
     {
         base.PhysicsUpdate();
     }
-    
+
 
     void StartEvolution()
     {
-        PSM.ChangeState(player.EvolutionState);
+        if (player)
+        {
+            PSM.ChangeState(player.EvolutionState);
+        }
     }
 }

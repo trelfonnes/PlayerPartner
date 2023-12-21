@@ -43,8 +43,10 @@ public class PartnerFollowIdleState : PartnerFollowState
 
     private void BackToIdle()
     {
-        
-        PSM.ChangePartnerState(partner.IdleState);
+        if (partner)
+        {
+            PSM.ChangePartnerState(partner.IdleState);
+        }
     }
 
     public override void LogicUpdate()
@@ -70,7 +72,6 @@ public class PartnerFollowIdleState : PartnerFollowState
         {
             if (playerSOData.stage1 && playerData.deviceOneCollected && playerData.currentBondLevel >= playerSOData.bondToEvolveOne && playerData.ep >= 30)
             {
-                Debug.Log("EVOLVE" + isTouchingPlayer);
 
                 PSM.ChangePartnerState(partner.EvolutionState);
             }

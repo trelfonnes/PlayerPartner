@@ -88,7 +88,6 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
     {
         if (gameObject.transform.parent.parent.gameObject.activeSelf)
         {
-            Debug.Log("update UI");
             
             if (heartDisplayUI != null)
                 heartDisplayUI.UpdateHeartDisplay(SOData.CurrentHealth, SOData.MaxHealth);
