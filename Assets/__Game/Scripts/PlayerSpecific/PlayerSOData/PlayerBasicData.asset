@@ -21,8 +21,8 @@ MonoBehaviour:
   followSpeed: 5
   MaxHealth: 5
   HealthLimit: 10
-  SP: 0
-  MaxSP: 25
+  SP: 1370
+  MaxSP: 2500
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
   MaxStamina: 0

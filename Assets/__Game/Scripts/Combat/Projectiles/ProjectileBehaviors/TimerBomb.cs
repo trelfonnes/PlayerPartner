@@ -22,7 +22,7 @@ public class TimerBomb : MonoBehaviour, IKnockBackable
     [SerializeField] StoredParticles storedParticles;
     float timeToSpriteSwitch = .2f;
    [SerializeField] private float radius = 5f;
-    bool hasBeenShot;
+  public bool hasBeenShot;
 
     private void Awake()
     {

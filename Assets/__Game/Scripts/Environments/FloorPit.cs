@@ -25,6 +25,10 @@ public class FloorPit : MonoBehaviour
            StartCoroutine(RepositionCharacter(collision));
             
         }
+        if (collision.CompareTag("Carryable"))
+        {
+            spriteRenderer.sprite = pitSprite;
+        }
     }
 
     IEnumerator RepositionCharacter(Collider2D collision)

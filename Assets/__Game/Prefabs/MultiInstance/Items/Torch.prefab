@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 4761410264728816078}
   - component: {fileID: 4761410264728816079}
   - component: {fileID: 7452859669408235577}
+  - component: {fileID: 1241905248}
   m_Layer: 7
   m_Name: Torch
-  m_TagString: Untagged
+  m_TagString: Carryable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +126,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1716666086, guid: 1c91049e508419d4eaf5efa073ec4030, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -182,6 +183,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5febba2b9710d346972179df6cffe72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isIndoorObject: 0
+--- !u!114 &1241905248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4761410264728816049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edae36cfdc1ade24db2056632b7d6e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRespawn: 2
 --- !u!1001 &7452859668313860574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,11 +218,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3669699301813979348, guid: e24928200df95445c8eaff3599526819, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.006
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3669699301813979348, guid: e24928200df95445c8eaff3599526819, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3669699301813979348, guid: e24928200df95445c8eaff3599526819, type: 3}
       propertyPath: m_LocalPosition.z
@@ -251,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3669699301813979350, guid: e24928200df95445c8eaff3599526819, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3669699301813979350, guid: e24928200df95445c8eaff3599526819, type: 3}
       propertyPath: m_SortingLayerID
@@ -285,8 +300,8 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.615
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.26
+  m_Color: {r: 0.9339623, g: 0.8168568, b: 0.66522783, a: 1}
+  m_Intensity: 0.25
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 01ab81a400000000511f23fb632c3947
@@ -336,8 +351,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.2
-  m_PointLightOuterRadius: 1.35
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.7
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

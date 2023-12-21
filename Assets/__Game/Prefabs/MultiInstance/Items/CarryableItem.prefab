@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 2701611160141834319}
   - component: {fileID: 2701611160141834291}
   - component: {fileID: 2701611160141834290}
+  - component: {fileID: 60440075}
   m_Layer: 7
   m_Name: CarryableItem
-  m_TagString: Untagged
+  m_TagString: Carryable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +53,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.51640093, y: 0.9592309}
+    pivot: {x: 0.5108037, y: 0.28756762}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -121,8 +122,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -81584303
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1629189709, guid: dd3961f5f3380c94ba584335d8eb9007, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -168,3 +169,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &60440075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701611160141834316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edae36cfdc1ade24db2056632b7d6e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRespawn: 2

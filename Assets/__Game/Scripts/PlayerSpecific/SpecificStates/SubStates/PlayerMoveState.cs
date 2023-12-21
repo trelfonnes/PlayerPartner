@@ -29,7 +29,12 @@ public class PlayerMoveState : PlayerBasicState
         player.onFallStarted -= StartFalling;
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        player.onFallStarted -= StartFalling;
 
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

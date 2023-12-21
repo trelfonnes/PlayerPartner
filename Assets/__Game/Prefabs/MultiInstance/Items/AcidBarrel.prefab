@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 8293389705610794619}
   - component: {fileID: 8293389705610794618}
   - component: {fileID: 1094779087546086793}
+  - component: {fileID: 5046067967929675232}
   m_Layer: 7
   m_Name: AcidBarrel
-  m_TagString: Untagged
+  m_TagString: Carryable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,3 +182,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74bf99033d8ef544854bc114d83d0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5046067967929675232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293389705610794500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edae36cfdc1ade24db2056632b7d6e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRespawn: 2

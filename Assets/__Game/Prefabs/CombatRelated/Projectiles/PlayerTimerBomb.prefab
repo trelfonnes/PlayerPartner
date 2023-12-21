@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1420522633898153318}
   - component: {fileID: 3279062841310652938}
   - component: {fileID: 7802515202797672450}
+  - component: {fileID: 1217947048897523557}
   m_Layer: 16
   m_Name: PlayerTimerBomb
   m_TagString: Bomb
@@ -147,3 +148,16 @@ MonoBehaviour:
   setTime: 2.5
   storedParticles: {fileID: 11400000, guid: 5ae8df37656f5f24593b65cd991c2c73, type: 2}
   radius: 1.8
+--- !u!114 &1217947048897523557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5895533085909410044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edae36cfdc1ade24db2056632b7d6e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRespawn: 10
