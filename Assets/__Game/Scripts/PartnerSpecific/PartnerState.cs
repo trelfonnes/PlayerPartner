@@ -62,6 +62,10 @@ public class PartnerState
 
 
     }
+    public virtual void OnDisable()
+    {
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
+    }
     public virtual void LogicUpdate()
     {
 

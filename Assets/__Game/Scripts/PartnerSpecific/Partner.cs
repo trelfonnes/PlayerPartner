@@ -124,7 +124,10 @@ public class Partner : MonoBehaviour
         StateMachine.CurrentPartnerState.PhysicsUpdate();
     }
 
-
+    private void OnDisable()
+    {
+        StateMachine.CurrentPartnerState.OnDisable();
+    }
 
     #region PartnerEvolutionEventsForAnimEvents
     void EvolveToSecondStage()

@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
     }
     private void OnDisable()
     {
-       
+        StateMachine.CurrentState.OnDisable();
     }
     public void PlayerIsDefeated()
     {
@@ -112,7 +112,10 @@ public class Player : MonoBehaviour
     {
         onFallStarted?.Invoke();
     }
+    void UnsubscribeToEvolutionEvents()
+    {
 
+    }
 
     #region For Saving Data BIND
     internal void Bind(PlayerData playerData)

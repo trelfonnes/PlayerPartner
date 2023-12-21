@@ -40,13 +40,19 @@ public class PartnerFollowIdleState : PartnerFollowState
 
         }
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        statEvents.onCurrentEPZero -= TimeToDevolve;
+        partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
+
+    }
 
     private void BackToIdle()
     {
-        if (partner)
-        {
+        
             PSM.ChangePartnerState(partner.IdleState);
-        }
+        
     }
 
     public override void LogicUpdate()

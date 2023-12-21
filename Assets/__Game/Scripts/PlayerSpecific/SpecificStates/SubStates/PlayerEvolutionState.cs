@@ -41,9 +41,12 @@ public class PlayerEvolutionState : PlayerBasicState
         base.PhysicsUpdate();
     }
 
-    
-       void StopEvolution()
+
+    void StopEvolution()
     {
-        PSM.ChangeState(player.IdleState);
+        if (player)
+        {
+            PSM.ChangeState(player.IdleState);
+        }
     }
 }

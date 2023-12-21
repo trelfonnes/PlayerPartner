@@ -72,6 +72,13 @@ public class PlayerBasicState : PlayerState
         player.evolutionEvents.OnStopForEvolution -= StartEvolution;
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        statEvents.onCurrentEPZero -= TimeToDevolve;
+        player.evolutionEvents.OnStopForEvolution -= StartEvolution;
+
+    }
 
     public override void LogicUpdate()
     {
@@ -101,9 +108,9 @@ public class PlayerBasicState : PlayerState
 
     void StartEvolution()
     {
-        if (player)
-        {
+        
             PSM.ChangeState(player.EvolutionState);
-        }
+        
+      
     }
 }
