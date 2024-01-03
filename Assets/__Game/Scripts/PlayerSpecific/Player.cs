@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
         _playerData = PlayerData.Instance;
         anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
-        Debug.Log("Awake method of this Player being initialized" + gameObject.name);
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this, StateMachine, playerSOData, _playerData, "idle");

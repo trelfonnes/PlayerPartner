@@ -49,16 +49,24 @@ public class EnemyObjectPool : MonoBehaviour
     {
         foreach (KeyValuePair<EnemyType, GameObject> kvp in enemyPrefabDictionary)
         {
-            List<GameObject> objects = new List<GameObject>();
-            int poolSize = enemyPoolSizeDictionary[kvp.Key];
-            for(int j = 0; j < poolSize; j++)
+            if (!pooledEnemyObjectsDictionary.ContainsKey(kvp.Value))
             {
-                GameObject obj = Instantiate(kvp.Value);
-                obj.SetActive(false);
-                objects.Add(obj);
+                List<GameObject> objects = new List<GameObject>();
+                int poolSize = enemyPoolSizeDictionary[kvp.Key];
+                for (int j = 0; j < poolSize; j++)
+                {
+                    GameObject obj = Instantiate(kvp.Value);
+                    obj.SetActive(false);
+                    objects.Add(obj);
 
+                }
+                pooledEnemyObjectsDictionary.Add(kvp.Value, objects);
             }
-            pooledEnemyObjectsDictionary.Add(kvp.Value, objects);
+            else
+            {
+                Debug.LogWarning("Duplicate key found: " + kvp.Value);
+            }
+        
         }
     }
     private GameObject GetPrefabFromType(EnemyType enemyType)

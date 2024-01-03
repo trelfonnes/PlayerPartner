@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using UnityEngine.SceneManagement;
 
 public class SaveLoadManager : DataReferenceInheritor
 {
@@ -23,15 +23,29 @@ public class SaveLoadManager : DataReferenceInheritor
     [SerializeField] Partner partner;
     [SerializeField] Vector2 savedLocations;
     [SerializeField] Transform locationForPartnerLoad;
-       
+    NPCManager npcManager;
     SceneLoaderUtility sceneLoader = new SceneLoaderUtility();
 
+    
 
     [SerializeField] GameObject activePartner;
 
     public static SaveLoadManager Instance;
-    
 
+    private void OnEnable()
+    {
+        SceneManager.sceneUnloaded += SaveDataFromSceneUnloaded;
+        SceneManager.sceneLoaded += LoadDataFromSceneLoaded;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneUnloaded -= SaveDataFromSceneUnloaded;
+        SceneManager.sceneLoaded -= LoadDataFromSceneLoaded;
+    }
+    public void InitializeNPCManager(NPCManager npcManager)
+    {
+        this.npcManager = npcManager;
+    }
     protected override void Awake()
     {
         base.Awake();
@@ -72,33 +86,120 @@ public class SaveLoadManager : DataReferenceInheritor
         return Directory.Exists(Application.persistentDataPath + "/game_save");
         
     }
-    public void SaveWithEasySave()
+    public void SaveDataFromSceneUnloaded(Scene scene)
     {
-        SavePlayerPartnerBasicData();
+        if (scene.name == "BattleArena")
+        {
+            GameManager.Instance.SetGameState(GameState.Arena);// when arena is unloaded, I save just the persistant data
+        }
+        else
+        {
+            GameManager.Instance.SetGameState(GameState.overworld);
+        }
+
+        if (GameManager.Instance.CurrentGameState == GameState.Arena)
+        {
+            SaveDataFromBattleArena();
+        }
+        else
+        {
+            SaveGlobalData();
+            SaveCurrentScene(scene);
+        }
+    }
+    public void LoadDataFromSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "BattleArena") // check the incomming scene, set state accordingly
+        {
+            GameManager.Instance.SetGameState(GameState.Arena); //when arena is entered, I load just persistant data
+        }
+        else
+        {
+            GameManager.Instance.SetGameState(GameState.overworld);
+        }
+
+        if (GameManager.Instance.CurrentGameState == GameState.Arena)
+        {
+            LoadBattleArenaData();
+        }
+        else
+        {
+            LoadGlobalData();
+        }
+    }
+    public void SaveGlobalData() //Globals to be called when all data is needed. i.e. starting the game or returning to the overworld/ anywhere with all needed functionality
+    {  // before exiting overworld. Or use for an autosave, etc. NOT during a battlescene.
+       
+           SavePlayerPartnerBasicData();
         SaveSharedPartnerData();
         SavePlayerInventoryContents();
         SaveWeaponItems();
         SavePlayerPartnerLocation();
         SaveLastActivePartner();
+        SaveNPCData();
         PopUpUI();
-       SaveCurrentScene();
+      
     }
-    public void LoadWithEasySave()
+    public void LoadGlobalData()// return to overworld or load game from menu.
     {
-        LoadCurrentScene();
+        
+       // LoadCurrentScene();
         LoadPlayerPartnerBasicData();
         LoadSharedPartnerData();
         LoadPlayerInventoryContents();
         LoadWeaponItems();
         LoadPlayerPartnerLocation();
         LoadLastActivePartner();
+        LoadChosenPlayerAndPartner();
+        LoadNPCData();
     }
-    void SaveCurrentScene()
+
+    public void LoadChosenPlayerAndPartner()
     {
-        string sceneToSave = sceneLoader.GetCurrentScene();
-        ES3.Save("currentScene", sceneToSave);
+        if (ES3.KeyExists("chosenPartner"))
+        {
+            GameManager.Instance.partnerFirstStageType = ES3.Load<PartnerType>("chosenPartner");
+        }
+        if (ES3.KeyExists("chosenPlayer"))
+        {
+            GameManager.Instance.chosenPlayer = ES3.Load<PlayerType>("chosenPlayer");
+        }
     }
-    void LoadCurrentScene()
+    public void SaveDataFromBattleArena() // these will be called right before leaving the Arena, to update any stat boosts or items received from the battle
+    {
+        SavePlayerPartnerBasicData();
+        SaveWeaponItems();
+        SaveNPCData();
+
+    }
+    public void LoadBattleArenaData() //This will be called right before entering the arena, to persist data needed for the battle such as stats
+    {
+        LoadPlayerPartnerBasicData();
+        LoadSharedPartnerData();
+        LoadWeaponItems();
+    }
+
+    void SaveNPCData()
+    {
+        //add future NPC related data to persist here by accessing injected NPCManager;
+        List<BattleArenaDataSO> listToSave = npcManager.GetListOfNPCSOs();
+        ES3.Save("NPCBattleList", listToSave);
+    }
+    void LoadNPCData()
+    {
+        //load back into NPC Manager. Clears list, then receives the saved one.
+        if (ES3.KeyExists("NPCBattleList"))
+        {
+            List<BattleArenaDataSO> listToLoad = ES3.Load<List<BattleArenaDataSO>>("NPCBattleList");
+            npcManager.RestoreSavedList(listToLoad);
+        }
+    }
+    void SaveCurrentScene(Scene scene)
+    {
+       // string sceneToSave = sceneLoader.GetCurrentScene();
+        ES3.Save("currentScene", scene);
+    }
+    void LoadCurrentScene()//call this from initial load only at game starting up. Don't need to between scene transitions
     {
         if (ES3.KeyExists("currentScene"))
         {

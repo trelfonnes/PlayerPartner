@@ -46,13 +46,13 @@ public class PartnerFollowIdleState : PartnerFollowState
         partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
         statEvents.onCurrentEPZero -= TimeToDevolve;
 
-    }
+    } 
 
     private void BackToIdle()
     {
         
             PSM.ChangePartnerState(partner.IdleState);
-        
+         
     }
 
     public override void LogicUpdate()

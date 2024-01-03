@@ -323,10 +323,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 10, y: 6}
+    - - {x: 10, y: 8}
       - {x: 10, y: -6}
       - {x: -10, y: -6}
-      - {x: -10, y: 6}
+      - {x: -10, y: 8}
 --- !u!114 &8067076779252833470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 8067076777799402181}
   partnerCamera: {fileID: 8067076779285332172}
+  switchEvents: {fileID: 11400000, guid: cea042e38e7e2db44bb9d1b3d982c775, type: 2}
 --- !u!1 &8067076779285332172
 GameObject:
   m_ObjectHideFlags: 0

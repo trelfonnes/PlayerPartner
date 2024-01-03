@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAreaType: 1
-  enemiesInThisArea: 2
+  enemiesInThisArea: 1
   totalEnemiesDefeated: 0
   spawnPoints:
   - {fileID: 538312102}

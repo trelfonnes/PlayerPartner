@@ -68,7 +68,6 @@ public class Partner : MonoBehaviour
         StateMachine = new PlayerStateMachine();
         playerDirection = Vector2.down;
         partnerCollider = GetComponent<BoxCollider2D>();
-        Debug.Log("Awake method of this Partner being initialized" + gameObject.name);
         PrimaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon, CombatInputs.primary);
         SecondaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", secondaryWeapon, CombatInputs.secondary);
         MoveState = new PartnerMoveState(this, StateMachine, playerSOData, _playerData, "move");
@@ -85,22 +84,27 @@ public class Partner : MonoBehaviour
     protected virtual void Start()
     {
         DashCooldownTimer = new Timer(dashCooldown);
-        JumpCooldownTimer = new Timer(jumpCooldown);
+        JumpCooldownTimer = new Timer(jumpCooldown); 
         if (initializeForBattleScene)
         {
             StateMachine.InitializePartner(IdleState);
         }
-        else
+        else {
             StateMachine.InitializePartner(FollowIdleState); //for when states are referenced in awake.
-       // 
+        }
     }
     private void OnEnable()
     {
         InputHandler.ChangeMuteInput(false);
 
-     
-            StateMachine.InitializePartner(FollowIdleState);
-        
+        if (initializeForBattleScene)
+        {
+            StateMachine.InitializePartner(IdleState);
+        }
+        else
+        {
+            StateMachine.InitializePartner(FollowIdleState); //for when states are referenced in awake.
+        }
     }
     protected virtual void Update()
     {

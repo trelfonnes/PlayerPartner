@@ -15,7 +15,7 @@ public class GameManager : DataReferenceInheritor
    // public GameObject[] playablePlayerPrefabs; // male and female
    // int chosenPartnerCharacterIndex = 0;
     //int chosenPlayerCharacterIndex = 0;
-    [SerializeField] PartnerType partnerFirstStageType;// this variable will be passed in by questionairre and set before passed to PartnerManager
+   public PartnerType partnerFirstStageType;// this variable will be passed in by questionairre and set before passed to PartnerManager
     public PlayerType chosenPlayer;// this variable will be passed in by questionairre and set before passed to PartnerManager
                                                         // only needs to be the first stage of whatever partner.
     public ItemsObjectPool objectPool;
@@ -25,6 +25,8 @@ public class GameManager : DataReferenceInheritor
     IItemSpawnStrategy regularStrategy;
     PartnerManager partnerManager;
     PlayerManager playerManager;
+    public BattleArenaDataSO currentNPCToBattle;
+    public GameState CurrentGameState { get; private set; }
     GameData gameData = new GameData();
     protected override void Awake()
     {
@@ -53,22 +55,33 @@ public class GameManager : DataReferenceInheritor
         rareStrategy = new RareItemSpawnStrategy(objectPool);
         extraRareStrategy = new ExtraRareItemSpawnStrategy(objectPool);
         InitializeChosenPartnerAndPlayer();
-        playerManager.SetPlayerType(chosenPlayer); //this will be passed in via the questionairre
-        partnerManager.SetPartners(partnerFirstStageType);
+      
 
         // Set the desired strategy in the ItemSpawnSystem (you can do this based on game logic).
         // For example, based on the category of defeated enemy or broken object, you can set the strategy.
         ItemSpawnSystem.Instance.SetInitialItemSpawnStrategy(regularStrategy);
     }
-    void InitializeChosenPartnerAndPlayer()
+
+    public void SetGameState(GameState newState)
     {
-        if (ES3.KeyExists("chosenPartner"))
+        CurrentGameState = newState;
+
+    }
+    void InitializeChosenPartnerAndPlayer() //This is assuming Start will be called again between each scene, if not,
+                                            //Delete the gameStateCheck and save load manager will do it.
+    {
+        if (CurrentGameState != GameState.Arena)
         {
-            partnerFirstStageType = ES3.Load<PartnerType>("chosenPartner");
-        }
-        if (ES3.KeyExists("chosenPlayer"))
-        {
-            chosenPlayer = ES3.Load<PlayerType>("chosenPlayer");
+            if (ES3.KeyExists("chosenPartner"))
+            {
+                partnerFirstStageType = ES3.Load<PartnerType>("chosenPartner");
+            }
+            if (ES3.KeyExists("chosenPlayer"))
+            {
+                chosenPlayer = ES3.Load<PlayerType>("chosenPlayer");
+            }
+            playerManager.SetPlayerType(chosenPlayer); //this will be passed in via the questionairre
+            partnerManager.SetPartners(partnerFirstStageType);
         }
     }
 
@@ -120,14 +133,15 @@ public class GameManager : DataReferenceInheritor
     // bool isChosenPlayer = GameManager.Instance.GetChosenPlayerPrefab() == gameObject;
     //gameObject.SetActive(isChosenPlayer);
     
-    public void LoadNewScene(string sceneName, GameObject player) //call this from collider to enter next level and pass in itself and desired scene.
-    {
-        SavePlayerPosition(player);
+    //refactored out
+    public void LoadNewScene(string sceneName, Transform playercurrentPosition) //call this from collider to enter next level and pass in the player and take its position and desired scene.
+    {   //e.g. When I enter a next level trigger, it will call this method, pass in the "sceneToLoad" serialized field, and the position
+        SavePlayerPosition(playercurrentPosition);
         SceneManager.LoadScene(sceneName);
     }
-    void SavePlayerPosition(GameObject player)//for saving previous scenes position
+    void SavePlayerPosition(Transform player)//for saving previous scenes position
     {
-        Vector3 playerPosition = player.transform.position;
+        Vector3 playerPosition = player.position;
         PlayerPrefs.SetString("PlayerPosition", playerPosition.ToString());
     }
     public Vector3 GetSavedPosition()
