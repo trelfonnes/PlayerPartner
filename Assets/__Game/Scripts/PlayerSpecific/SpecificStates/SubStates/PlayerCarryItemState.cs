@@ -21,16 +21,25 @@ public class PlayerCarryItemState : PlayerBasicState
         base.Enter();
         canExitState = false;
         currentlyCarrying = true;
-        
-            
+        player.onFallStarted += StartFalling;
+
+
+
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.onFallStarted -= StartFalling;
+
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        player.onFallStarted -= StartFalling;
 
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
@@ -71,7 +80,12 @@ public class PlayerCarryItemState : PlayerBasicState
             }
         }
     }
-
+    public void StartFalling()
+    {
+        HeldItemHit.collider.GetComponent<IThrow>().SetDown(player.playerDirection);
+        currentlyCarrying = false;
+        PSM.ChangeState(player.FallingState);
+    }
 
     public override void PhysicsUpdate()
     {

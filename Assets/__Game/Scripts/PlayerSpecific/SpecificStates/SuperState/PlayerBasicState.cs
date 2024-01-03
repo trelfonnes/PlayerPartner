@@ -22,6 +22,7 @@ public class PlayerBasicState : PlayerState
     protected bool isTouchingCarryable;
     protected bool isTouchingInteractable;
     protected bool isTouchingGround;
+    protected bool isTouchingPitfall;
     protected bool canExitState;
     protected bool isTouchingPartner;
     protected RaycastHit2D HitsToCarry;
@@ -46,6 +47,7 @@ public class PlayerBasicState : PlayerState
             isTouchingGround = PlayerCollisionSenses.GroundCheck;
             isTouchingPartner = PlayerCollisionSenses.PartnerCheck;
             isTouchingInteractable = PlayerCollisionSenses.InteractableCheck;
+            isTouchingPitfall = PlayerCollisionSenses.PitFallCheck;
         
        
     } 
@@ -70,30 +72,45 @@ public class PlayerBasicState : PlayerState
         player.evolutionEvents.OnStopForEvolution -= StartEvolution;
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        statEvents.onCurrentEPZero -= TimeToDevolve;
+        player.evolutionEvents.OnStopForEvolution -= StartEvolution;
+
+    }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        xInput = player.InputHandler.NormInputX;
-        yInput = player.InputHandler.NormInputY;
-        switchInput = player.InputHandler.SwitchPlayerInput;
-        interactInput = player.InputHandler.InteractInput;
-        evolveInput = player.InputHandler.EvolveInput;
-        primaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.primary];
-        secondaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.secondary];
+        if (player.InputHandler)
+        {
+            xInput = player.InputHandler.NormInputX;
+            yInput = player.InputHandler.NormInputY;
+            switchInput = player.InputHandler.SwitchPlayerInput;
+            interactInput = player.InputHandler.InteractInput;
+            evolveInput = player.InputHandler.EvolveInput;
+            if (player.InputHandler.AttackInputs != null)
+            {
+                primaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.primary];
+                secondaryAttackInput = player.InputHandler.AttackInputs[(int)CombatInputs.secondary];
+            }
+        }
 
-
-       
+        
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
-    
+
 
     void StartEvolution()
     {
-        PSM.ChangeState(player.EvolutionState);
+        
+            PSM.ChangeState(player.EvolutionState);
+        
+      
     }
 }

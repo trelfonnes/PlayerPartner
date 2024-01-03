@@ -8,5 +8,6 @@ public class KnockBackData : ComponentData<AttackKnockBack> //component data is 
     {
         PlayerComponentDependency = typeof(KnockBack);
         PartnerComponentDependency = typeof(PartnerKnockBack);
+        EnemyComponentDependency = typeof(EnemyKnockback);
     }
 }

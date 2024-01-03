@@ -20,13 +20,14 @@ MonoBehaviour:
   isPartnerThree: 0
   secondaryType: 3
   primaryType: 2
-  <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8951ff8e9747b9f40ada6146dfeb3b09, type: 2}
+  <AnimatorController>k__BackingField: {fileID: 9100000, guid: 8ca8a7396ba7cab46873b142f3e08763, type: 2}
   <NumberOfAttacks>k__BackingField: 0
   <ComponentData>k__BackingField:
   - rid: 7917043528491597838
   - rid: 7917043543650074628
   - rid: 7917043770508705800
   - rid: 7917043770508705807
+  <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
@@ -118,3 +119,5 @@ MonoBehaviour:
         - name: StunArrow
           <TypeOfProjectile>k__BackingField: 3
           <SPCost>k__BackingField: 1
+          <damage>k__BackingField: 0
+          <knockbackStrength>k__BackingField: 0

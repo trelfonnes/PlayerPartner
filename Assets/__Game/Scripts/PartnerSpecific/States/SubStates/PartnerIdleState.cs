@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class PartnerIdleState : PartnerBasicState
 {
+    bool subToLevelUP;
     protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
     private PartnerCollisionSenses collisionSenses;
     public PartnerIdleState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName) : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
     }
 
-   
+    protected Particles Particles { get => particles ?? core.GetCoreComponent<Particles>(); }
+    private Particles particles;
 
+    void LevelUp()
+    {
+        Particles.StartParticles(ParticleType.LevelUp, core.transform.position, core.transform.rotation);
+    }
+    void SubToLevelUp()
+    {
+        statEvents.onLevelUp += LevelUp;
+        subToLevelUP = true;
+
+    }
     public override void Enter()
     {
         base.Enter();
@@ -21,6 +33,8 @@ public class PartnerIdleState : PartnerBasicState
             statEvents.onCurrentEPZero += TimeToDevolve;
 
         }
+        partner.onFallStarted += StartFalling;
+
     }
 
     public override void Exit()
@@ -31,6 +45,10 @@ public class PartnerIdleState : PartnerBasicState
             statEvents.onCurrentEPZero -= TimeToDevolve;
 
         }
+        statEvents.onLevelUp -= LevelUp;
+        subToLevelUP = false;
+        partner.onFallStarted -= StartFalling;
+
     }
 
     public override void LogicUpdate()
@@ -65,8 +83,13 @@ public class PartnerIdleState : PartnerBasicState
             PSM.ChangePartnerState(partner.SecondaryAttackState);
 
         }
+        if (!subToLevelUP)
+        {
+            SubToLevelUp();
+        }
+    
     }
-
+  
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

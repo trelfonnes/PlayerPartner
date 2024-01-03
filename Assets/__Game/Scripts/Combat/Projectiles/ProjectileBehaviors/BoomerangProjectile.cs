@@ -7,6 +7,7 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
     [SerializeField] List<Sprite> boomerangSprites = new List<Sprite>();
     SpriteRenderer sr;
     Rigidbody2D rb;
+    [SerializeField] AttackType attackType;
     [SerializeField] float throwSpeed = 10f;
     [SerializeField] float returnSpeed = 10f;
     [SerializeField] float maxDistance = 10f;
@@ -92,7 +93,7 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
             //apply damages
             if (collision.TryGetComponent(out IDamageable damageable))
             {
-                damageable.Damage(damage);
+                damageable.Damage(damage, attackType);
             }
             if (collision.TryGetComponent(out IKnockBackable knockBackable))
             {

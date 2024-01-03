@@ -10,7 +10,14 @@ public class PlayerCollisionSenses : CollisionSenses
     public Transform carryPoint;
     [SerializeField]
     float heldItemCheckDistance;
-   
+    [SerializeField] Transform pitfallCheckPoint;
+    public bool PitFallCheck;
+    protected override void Start()
+    {
+        base.Start();
+
+    }
+
     public RaycastHit2D HitsToCarry
     {
         get
@@ -48,6 +55,7 @@ public class PlayerCollisionSenses : CollisionSenses
     [SerializeField] private LayerMask whatIsInteractable;
     [SerializeField] private LayerMask whatIsCarryable;
     [SerializeField] float partnerCheckRadius = .5f;
+    [SerializeField] private float pitfallCheckDistance;
 
     public bool PartnerCheck
     {
@@ -67,6 +75,17 @@ public class PlayerCollisionSenses : CollisionSenses
         get => Physics2D.Raycast(collisionsCheckPoint.position, player.playerDirection, collisionCheckDistance, whatIsInteractable);
           
     }
-   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Pitfall"))
+        {
+            Debug.Log("Fell in hole");
+
+            player.OnStartFallEvent();
+        }
+    }
+ 
+
 
 }

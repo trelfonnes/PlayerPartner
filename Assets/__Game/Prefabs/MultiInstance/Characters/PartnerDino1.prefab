@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390183056437055124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0048fa46fdd2c48b268c3257c4cbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storedParticles: {fileID: 11400000, guid: 5ae8df37656f5f24593b65cd991c2c73, type: 2}
 --- !u!1 &619514006536346290
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619514006536346290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -188,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108279516156255898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -211,6 +212,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
   staminaDisplay: {fileID: 0}
 --- !u!1 &1173671507260601905
 GameObject:
@@ -223,7 +225,7 @@ GameObject:
   - component: {fileID: 415934357402341011}
   - component: {fileID: 8902732269619792106}
   - component: {fileID: 484200921}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: Combat to hold knockbackreceiver and damagereceiver scripts with same collider
   m_TagString: Partner
   m_Icon: {fileID: 0}
@@ -238,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173671507260601905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -309,7 +311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825631742397934376}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -332,6 +334,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
 --- !u!1 &2973850023705336087
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3096751259281156562
 Transform:
   m_ObjectHideFlags: 0
@@ -419,6 +422,7 @@ MonoBehaviour:
   stageOne: 1
   stageTwo: 0
   stageThree: 0
+  initializeForBattleScene: 0
   dashCooldown: 1.5
   jumpCooldown: 0.5
   playerSOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
@@ -786,7 +790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4008906956573421610}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -805,7 +809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3029f4dd63a4aca4a9eb6a014fdbbef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defeatedParticles: []
 --- !u!1 &4339884105966896992
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4339884105966896992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -854,6 +857,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
 --- !u!1 &6015545633308158202
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6015545633308158202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -902,6 +906,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
   regeneratePoise: 0
   poiseRecoveryRate: 2
 --- !u!1 &6776230274729689275
@@ -914,6 +919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3737765852121119572}
   - component: {fileID: 3096751257916962951}
+  - component: {fileID: 2791745991268073790}
   m_Layer: 10
   m_Name: CollisionSenses
   m_TagString: Untagged
@@ -929,7 +935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6776230274729689275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -957,17 +963,48 @@ MonoBehaviour:
   groundCheckRadius: 0.3
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 557120
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  whatIsPitfall:
+    serializedVersion: 2
+    m_Bits: 524288
   followPoint: {fileID: 0}
+  maleFollowPoint: {fileID: 0}
+  femaleFollowPoint: {fileID: 0}
   playerCheckArea: {fileID: 885020788}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
   playerCheckRadius: 1
   wallCheckFollowRadius: 0.5
+--- !u!61 &2791745991268073790
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6776230274729689275}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03, y: -0.8}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.55, y: 0.3}
+  m_EdgeRadius: 0
 --- !u!1 &7337572960134393174
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +1030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7337572960134393174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1016,6 +1053,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
 --- !u!1 &8460978843648797258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,7 +1079,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8460978843648797258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1064,6 +1102,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
   canShoot: 1
   SPDisplay: {fileID: 0}
 --- !u!1 &8615240597578919871
@@ -1091,7 +1130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8615240597578919871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1114,6 +1153,8 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
+  defensiveType: 0
   heartDisplayUI: {fileID: 0}
 --- !u!1 &8628484195028216845
 GameObject:
@@ -1140,7 +1181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8628484195028216845}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1163,6 +1204,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
   startEvolutionTimer: 0
   EPDisplay: {fileID: 0}
 --- !u!1 &8928211653619389193
@@ -1190,7 +1232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8928211653619389193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1391,7 +1433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989388053292830388, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2607447855836341977, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: MeleeHold
@@ -1423,11 +1465,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_Size.x
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_Size.y
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4835109499877865353, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_SortingLayer
@@ -1448,7 +1490,7 @@ PrefabInstance:
     - target: {fileID: 8357434848059745963, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 91e8d0f28f3c29c4a91ffea532176135, type: 2}
+      objectReference: {fileID: 11400000, guid: 75c455d94e8600f4685232fbb90782b2, type: 2}
     m_RemovedComponents:
     - {fileID: 2091487698614593328, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}

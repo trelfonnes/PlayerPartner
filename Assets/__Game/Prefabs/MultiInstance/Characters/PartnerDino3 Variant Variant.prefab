@@ -12,6 +12,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
     - target: {fileID: 710699281103170688, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: MeleeHold
+      value: 
+      objectReference: {fileID: 11400000, guid: 2fba990c9bd2bf74abd5dc9566e4866d, type: 2}
+    - target: {fileID: 710699281103170688, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: MeleeBasic
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d140c2aa56e7e94ba2e4364395be25e, type: 2}
+    - target: {fileID: 710699281103170688, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: <Data>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 9d140c2aa56e7e94ba2e4364395be25e, type: 2}
@@ -123,6 +131,22 @@ PrefabInstance:
       propertyPath: evolutionEvents
       value: 
       objectReference: {fileID: 11400000, guid: cea042e38e7e2db44bb9d1b3d982c775, type: 2}
+    - target: {fileID: 1353452550487928147, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: pitfallCollider
+      value: 
+      objectReference: {fileID: 5254628715784335783}
+    - target: {fileID: 1635923843871037155, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: BasicProjectile
+      value: 
+      objectReference: {fileID: 11400000, guid: b3cf30962a3f4a740ae856151a24282a, type: 2}
+    - target: {fileID: 1635923843871037155, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: ChargeProjectile
+      value: 
+      objectReference: {fileID: 11400000, guid: 399f802eddb367e42a7af97a965fb467, type: 2}
+    - target: {fileID: 1635923843871037155, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: SpreadProjectile
+      value: 
+      objectReference: {fileID: 11400000, guid: 73c529191214fd848ae12adbe66b02d6, type: 2}
     - target: {fileID: 1635923843871037155, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: <Data>k__BackingField
       value: 
@@ -187,10 +211,14 @@ PrefabInstance:
       propertyPath: SOData
       value: 
       objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
+    - target: {fileID: 6766087294494308482, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6775946631057468658, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 9d140c2aa56e7e94ba2e4364395be25e, type: 2}
+      objectReference: {fileID: 11400000, guid: 2fba990c9bd2bf74abd5dc9566e4866d, type: 2}
     - target: {fileID: 6882491866135724397, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: SOData
       value: 
@@ -198,18 +226,18 @@ PrefabInstance:
     - target: {fileID: 7527593460245877844, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 2039c6ea1c37277448d024d261fc9867, type: 2}
+      objectReference: {fileID: 9100000, guid: c7b9af377f648544cb6e119660e8ba67, type: 2}
     - target: {fileID: 7734564764485414329, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 399f802eddb367e42a7af97a965fb467, type: 2}
+      objectReference: {fileID: 11400000, guid: b3cf30962a3f4a740ae856151a24282a, type: 2}
     - target: {fileID: 7992393184567836112, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7992393184567836112, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8734731287185820796, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -221,4 +249,68 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
     m_RemovedComponents:
     - {fileID: 870923815494006637, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+    - {fileID: 4049214561859281611, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+    - {fileID: 2202248127206397162, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+--- !u!1 &1650060680186758659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7366678121125074287, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+  m_PrefabInstance: {fileID: 8132801408728716140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &7949546903383459718
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650060680186758659}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.62}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.6}
+  m_EdgeRadius: 0
+--- !u!1 &5254628715784335782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4049214561859281610, guid: b9a1874ca8dda9446a0b4821810be8f0, type: 3}
+  m_PrefabInstance: {fileID: 8132801408728716140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &5254628715784335783
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254628715784335782}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.62}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.6}
+  m_EdgeRadius: 0

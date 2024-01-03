@@ -14,11 +14,27 @@ public class StatEvents : ScriptableObject
     public event Action onCurrentStaminaZero;
     public event Action onCurrentStaminaFull;
     public event Action onCurrentPoiseZero;
+    public event Action onPartnerFullyRestored;
+    public event Action onPlayerFullyRestored;
+    public event Action onPlayerHealthZero;
+    public event Action onLevelUp;
    
+    public void LeveledUp()
+    {
+        if(onLevelUp != null)
+        {
+            onLevelUp?.Invoke();
+        }
+    }
      public void CurrentHealthZero()
     {
         if (onCurrentHealthZero != null)
             onCurrentHealthZero?.Invoke();
+    }
+    public void CurrentPlayerHealthZero()
+    {
+        if (onPlayerHealthZero != null)
+            onPlayerHealthZero?.Invoke();
     }
 
      public void CurrentHealthFull()
@@ -33,7 +49,20 @@ public class StatEvents : ScriptableObject
             onCurrentEPZero.Invoke();
         }
     }
-    
+    public void PartnerRestored()
+    {
+        if (onPartnerFullyRestored != null)
+        {
+            onPartnerFullyRestored.Invoke();
+        }
+    }
+    public void PlayerRestored()
+    {
+        if (onPlayerFullyRestored != null)
+        {
+            onPlayerFullyRestored.Invoke();
+        }
+    }
 
      public void IsInjured()
     {

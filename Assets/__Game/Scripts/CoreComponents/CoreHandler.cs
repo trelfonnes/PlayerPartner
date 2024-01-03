@@ -33,7 +33,8 @@ public class CoreHandler : MonoBehaviour
     public T GetCoreComponent<T>() where T : CoreComponent
     {
 
-        var comp = CoreComponents.OfType<T>().FirstOrDefault();//takes the first element of the collection passed in as type T. or returns default value(null) if nothing is found
+        var comp = CoreComponents.OfType<T>().FirstOrDefault();//takes the first element of the collection
+                                                               //passed in as type T. or returns default value(null) if nothing is found
 
         if (comp)
             return comp;

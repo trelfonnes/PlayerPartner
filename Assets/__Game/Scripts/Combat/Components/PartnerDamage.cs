@@ -12,11 +12,11 @@ public class PartnerDamage : WeaponComponent<DamageData, AttackDamage>
         {
             if (item.TryGetComponent(out IDamageable damageable)) //using an output parameter instead of input
             {
-                if (!item.CompareTag("Player"))
+                if (!item.CompareTag("Player") && !item.CompareTag("Partner"))
                 {
 
                     //if something was found, can call the function from it
-                    damageable.Damage(currentAttackDataPartner.Amount);
+                    damageable.Damage(currentAttackDataPartner.Amount, currentAttackDataPartner.AttackType);
                 }
             }
         }

@@ -17,19 +17,18 @@ public class PartnerState
     protected float startTime;
     string animBoolName;
 
-   // protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    // protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     //protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
-   
- 
+
+
 
     protected Stats Stats { get => stats ??= core.GetCoreComponent<Stats>(); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
-    protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
+  
 
 
     private Stats stats;
     private Defeated defeated;
-    private Particles particles;
 
     //Constructor    
     public PartnerState(Partner partner, PlayerStateMachine PSM, PlayerSOData playerSOData, PlayerData playerData, string animBoolName)
@@ -50,7 +49,7 @@ public class PartnerState
         partner.anim.SetBool(animBoolName, true);
         isAnimationFinished = false;
         isExitingState = false;
-       
+        statEvents.onCurrentHealthZero += Partner1Defeated;
 
     }
 
@@ -58,21 +57,23 @@ public class PartnerState
     {
         partner.anim.SetBool(animBoolName, false);
         isExitingState = true;
-       
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
 
+
+    }
+    public virtual void OnDisable()
+    {
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
     }
     public virtual void LogicUpdate()
     {
-        
+
     }
     public virtual void PhysicsUpdate()
     {
         DoChecks();
     }
-    void Start()
-    {
 
-    }
     public virtual void DoChecks()
     {
 
@@ -87,12 +88,25 @@ public class PartnerState
     }
     public virtual void TimeToDevolve()
     {
-     
+
         if (!playerSOData.stage1)
         {
-           
+
             PSM.ChangePartnerState(partner.DevolveState);
         }
 
+    }
+    public void StartFalling()
+    {
+        Debug.Log("Partner going to fall state");
+        
+        PSM.ChangePartnerState(partner.FallingState);
+    }
+    public virtual void Partner1Defeated()
+    {
+        if (playerSOData.stage1)
+        {
+            PSM.ChangePartnerState(partner.DefeatedState);
+        }
     }
 }

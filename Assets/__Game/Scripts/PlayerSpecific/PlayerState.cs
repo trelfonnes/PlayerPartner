@@ -44,11 +44,7 @@ public class PlayerState
 
     public virtual void Enter()
     {
-       // DoChecks();
-        
-        
-
-
+        statEvents.onPlayerHealthZero += PlayerIsDefeated;
         startTime = Time.time; //might need changed
                 player.anim.SetBool(animBoolName, true);
         isAnimationFinished = false;
@@ -60,6 +56,7 @@ public class PlayerState
     {
         player.anim.SetBool(animBoolName, false);
         isExitingState = true;
+        statEvents.onPlayerHealthZero -= PlayerIsDefeated;
 
     }
     public virtual void LogicUpdate()
@@ -88,6 +85,19 @@ public class PlayerState
     }
     public virtual void TimeToDevolve()
     {
-        PSM.ChangeState(player.EvolutionState);
+        if (player)
+        {
+            PSM.ChangeState(player.EvolutionState);
+        }
+    }
+    public virtual void PlayerIsDefeated()
+    {
+        
+            PSM.ChangeState(player.DefeatedState);
+        
+    }
+    public virtual void OnDisable()
+    {
+        statEvents.onCurrentHealthZero -= PlayerIsDefeated;
     }
 }

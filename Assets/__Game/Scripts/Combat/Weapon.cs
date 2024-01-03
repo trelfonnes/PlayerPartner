@@ -8,7 +8,11 @@ public class Weapon : MonoBehaviour
     [SerializeField] WeaponAutoGenerator thisWeaponsAutoGenerator;
     [SerializeField] WeaponInventoryManager weaponInventoryManager;
 
-    [SerializeField] WeaponDataSO Whip;
+    [SerializeField] WeaponDataSO BareHands;
+    [SerializeField] WeaponDataSO BareHandsProjectile;
+    [SerializeField] WeaponDataSO CableCord;
+    [SerializeField] WeaponDataSO CableCord2;
+    [SerializeField] WeaponDataSO CableCord3;
     [SerializeField] WeaponDataSO Scythe;
     [SerializeField] WeaponDataSO Dart;
     [SerializeField] WeaponDataSO Boomerang;
@@ -66,7 +70,7 @@ public class Weapon : MonoBehaviour
 
     }
 
-    void Exit()
+   public void Exit()
     {
         anim.SetBool("active", false);
         CurrentAttackCounter++;
@@ -103,12 +107,34 @@ public class Weapon : MonoBehaviour
                 thisWeaponsAutoGenerator.GenerateWeapon(Boomerang);
 
             }
-        }
-        if (Whip != null)
+        } if (BareHands != null)
         {
-            if (weaponInventoryManager.currentWeapon.weaponName == "Whip")
+            if (weaponInventoryManager.currentWeapon.weaponName == "BareHands")
             {
-                thisWeaponsAutoGenerator.GenerateWeapon(Whip);
+                //generateboomerang
+                thisWeaponsAutoGenerator.GenerateWeapon(BareHands);
+
+            }
+        }
+        if (CableCord != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "CableCord")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(CableCord);
+            }
+        }  
+        if (CableCord2 != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "CableCord2")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(CableCord2);
+            }
+        }  
+        if (CableCord3 != null)
+        {
+            if (weaponInventoryManager.currentWeapon.weaponName == "CableCord3")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(CableCord3);
             }
         }
         if (Scythe != null)

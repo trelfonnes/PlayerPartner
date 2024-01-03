@@ -9,7 +9,15 @@ public class PartnerMoveState : PartnerBasicState
     }
     protected Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
     private Movement movement;
-    public override void DoChecks()
+    protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
+    private Particles particles;
+
+    void LevelUp()
+    {
+        Particles.StartParticles(ParticleType.LevelUp, core.transform.position, core.transform.rotation);
+    }
+
+public override void DoChecks()
     {
         base.DoChecks();
     }
@@ -22,6 +30,9 @@ public class PartnerMoveState : PartnerBasicState
             statEvents.onCurrentEPZero += TimeToDevolve;
 
         }
+        partner.onFallStarted += StartFalling;
+
+        statEvents.onLevelUp += LevelUp;
     }
 
     public override void Exit()
@@ -32,6 +43,9 @@ public class PartnerMoveState : PartnerBasicState
             statEvents.onCurrentEPZero -= TimeToDevolve;
 
         }
+        partner.onFallStarted -= StartFalling;
+
+        statEvents.onLevelUp -= LevelUp;
     }
 
     public override void LogicUpdate()
@@ -61,7 +75,6 @@ public class PartnerMoveState : PartnerBasicState
         }
         else if(xInput !=0 && yInput != 0 && primaryAttackInput)
         {
-            Debug.Log("change to attack state");
             PSM.ChangePartnerState(partner.PrimaryAttackState);
         }
         if (secondaryAttackInput)
@@ -71,12 +84,11 @@ public class PartnerMoveState : PartnerBasicState
         }
         else if (xInput != 0 && yInput != 0 && secondaryAttackInput)
         {
-            Debug.Log("change to attack state");
             PSM.ChangePartnerState(partner.SecondaryAttackState);
         }
-
+     
     }
-
+ 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

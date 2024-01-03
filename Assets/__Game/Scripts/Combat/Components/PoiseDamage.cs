@@ -26,12 +26,14 @@ public class PoiseDamage : WeaponComponent<PoiseDamageData, AttackPoiseDamage>
     {
         base.Start();
         hitBox = GetComponent<ActionHitBox>();
+        if(hitBox)
         hitBox.OnDetectedCollider2D += HandleDetectCollider2D;
     }
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
+        if(hitBox)
         hitBox.OnDetectedCollider2D -= HandleDetectCollider2D;
     }
 

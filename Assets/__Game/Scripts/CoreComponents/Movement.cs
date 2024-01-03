@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : CoreComponent
 {
     public Rigidbody2D rb { get; private set; }
-    private Vector2 workspace;
+    protected Vector2 workspace;
     public int facingDirectionX { get; private set; }
     public int facingCombatDirectionX { get; private set; }
     public int facingCombatDirectionY { get; private set; }
@@ -13,6 +13,10 @@ public class Movement : CoreComponent
     public Vector2 CurrentVelocity { get; private set; }
     public Vector2 latestMovingVelocity { get; private set; }
     public bool CanSetVelocity { get; set; }
+    CoreComp<TriReceiver> receiver;
+    bool isKnockedback = false;
+    float knockbackEndTime;
+    protected bool canReceiveInput = true;
 
     protected override void Awake()
     {
@@ -22,7 +26,7 @@ public class Movement : CoreComponent
         facingDirectionY = -1;
         facingCombatDirectionX = 0;
         facingCombatDirectionY = -1;
-
+        receiver = new CoreComp<TriReceiver>(core);
         CanSetVelocity = true;
     }
     public override void LogicUpdate()
@@ -106,10 +110,13 @@ public class Movement : CoreComponent
         SetFinalVelocity();
     }
     public void SetVelocity(Vector2 velocity)
-    {
-        //workspace = direction * velocity;
-        workspace = velocity;
-        SetFinalVelocity();
+    {  
+        if (canReceiveInput)
+        {
+            //workspace = direction * velocity;
+            workspace = velocity;
+            SetFinalVelocity();
+        }
     }
 
     public void SetLatestVelocity(Vector2 velocity)//TODO: create a reference in partner move state as well
@@ -118,15 +125,33 @@ public class Movement : CoreComponent
     }
     public void SetKnockBackVelocity(Vector2 angle, float strength, int directionX, int directionY)
     {
-        workspace.Set(directionX * strength, directionY * strength); //dont thing I need angle for this game but good to have it here just in case
-        SetFinalVelocity();
+        if (!isKnockedback && this.isActiveAndEnabled)
+        {
+            isKnockedback = true;
+            canReceiveInput = false;
+            workspace.Set(directionX * strength, directionY * strength); //dont thing I need angle for this game but good to have it here just in case
+            SetFinalVelocity();
+            knockbackEndTime = Time.time + .2f;
+            StartCoroutine(EndKnockback());
+        }
     }
-    private void SetFinalVelocity()
+    private IEnumerator EndKnockback()
+    {
+        while(Time.time < knockbackEndTime)
+        {
+            yield return null;
+        }
+        isKnockedback = false;
+        canReceiveInput = true;
+
+    }
+    protected void SetFinalVelocity()
     {
         if (CanSetVelocity)
         {
             rb.velocity = workspace;
             CurrentVelocity = workspace;
+            
         }
         else
         {

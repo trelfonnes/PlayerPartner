@@ -7,7 +7,7 @@ using UnityEngine;
 public class Health : Stats, IHealthChange //interfaces for decreasing health and increasing
 {//CANNOT be a child object of Stats. Has to be a child object of coreHandler or else error is thrown.
  //hold events in functions within stats and call them where needed in respective scripts 
-
+   [SerializeField] public DefensiveType defensiveType;
    [SerializeField] private HeartDisplayUI heartDisplayUI;
     protected override void Awake()
     {
@@ -18,6 +18,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
     private void OnEnable()
     {
         UpdateUI();
+
     }
 
     public void DecreaseHealth(float amount)
@@ -27,9 +28,16 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
             SOData.CurrentHealth -= amount;
             if (SOData.CurrentHealth <= 0)
             {
-
-                SOData.CurrentHealth = 0;
-                base.CurrentHealthZero();
+                if (SOData.isPlayer)
+                {
+                    SOData.CurrentHealth = 0;
+                    base.CurrentPlayerHealthZero();
+                }
+                else
+                {
+                    SOData.CurrentHealth = 0;
+                    base.CurrentHealthZero();
+                }
             }
 
             UpdateUI();
@@ -72,10 +80,11 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
     }
         private void OnDisable()
     {
+       
         UnSubscribeToHourlyTickEvent();
     }
-
-    private void UpdateUI()
+    
+    public void UpdateUI()
     {
         if (gameObject.transform.parent.parent.gameObject.activeSelf)
         {

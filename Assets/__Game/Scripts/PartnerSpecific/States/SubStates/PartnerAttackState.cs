@@ -20,7 +20,13 @@ public class PartnerAttackState : PartnerAbilityState
         weapon.onDevolve += Devolve;
         inputIndex = (int)input;
     }
+    protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
+    private Particles particles;
 
+    void LevelUp()
+    {
+        Particles.StartParticles(ParticleType.LevelUp, core.transform.position, core.transform.rotation);
+    }
     public override void DoChecks()
     {
         base.DoChecks();
@@ -35,17 +41,19 @@ public class PartnerAttackState : PartnerAbilityState
             statEvents.onCurrentEPZero += Devolve;
 
         }
-
+        statEvents.onLevelUp += LevelUp;
     }
 
     public override void Exit()
     {
         base.Exit();
+        weapon.Exit();
         if (playerSOData.stage2 || playerSOData.stage3)
         {
             statEvents.onCurrentEPZero -= Devolve;
 
         }
+        statEvents.onLevelUp -= LevelUp;
     }
 
     public override void LogicUpdate()
@@ -74,4 +82,5 @@ public class PartnerAttackState : PartnerAbilityState
             PSM.ChangePartnerState(partner.DevolveState);
         }
     }
+    
 }

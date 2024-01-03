@@ -15,7 +15,7 @@ public class Damage : WeaponComponent<DamageData, AttackDamage>
                 {
                     //if something was found, can call the function from it
                     
-                    damageable.Damage(currentAttackDataPlayer.Amount);
+                    damageable.Damage(currentAttackDataPlayer.Amount, currentAttackDataPlayer.AttackType);
                 }
             }
         }

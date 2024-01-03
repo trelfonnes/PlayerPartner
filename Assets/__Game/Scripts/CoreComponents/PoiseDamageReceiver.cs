@@ -11,7 +11,7 @@ public class PoiseDamageReceiver : CoreComponent, IPoiseDamageable
 
     public void DamagePoise(float amount)
     {
-        poise.DecreasePoise(amount);
+        poise.DamagePoise(amount);
        // particles.StartParticlesWithRandomRotation(stunnedParticles); //TODO: might not be best way to set stun particles if any
     }
     protected override void Awake()

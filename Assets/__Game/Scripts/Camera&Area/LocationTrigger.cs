@@ -5,13 +5,13 @@ using UnityEngine;
 public class LocationTrigger : MonoBehaviour
 {
     public EnterKeyItemEventSO eventToTrigger;
-
+    public PlayerArtifactInventory artifactInventory;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
           
-            if (eventToTrigger.CheckCondition(PlayerInventory.Instance))
+            if (eventToTrigger.CheckCondition(artifactInventory))
             {
                 eventToTrigger.Trigger();
             }

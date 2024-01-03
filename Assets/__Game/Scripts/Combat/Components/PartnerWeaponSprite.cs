@@ -60,8 +60,7 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
             partnerWeaponsSpriteRenderer.sprite = null;
             return;
         }
-        Debug.Log(currentWeaponSpriteIndex);
-        Debug.Log(currentPhaseSprites.Length);
+       
 
         if (currentWeaponSpriteIndex >= currentPhaseSprites.Length)
         {

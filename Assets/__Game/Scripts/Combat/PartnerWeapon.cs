@@ -13,8 +13,9 @@ public class PartnerWeapon : MonoBehaviour
     [SerializeField] WeaponDataSO BasicProjectile;
     [SerializeField] WeaponDataSO ChargeProjectile;
     [SerializeField] WeaponDataSO SpreadProjectile;
-
-    PartnerWeaponState partnerWeaponStateInstance;
+    private static bool isAnyInstanceAttacking = false;
+  
+   // PartnerWeaponState partnerWeaponStateInstance;
     public WeaponDataSO Data { get; private set; }
     public int CurrentAttackCounter
     {
@@ -58,14 +59,21 @@ public class PartnerWeapon : MonoBehaviour
         anim.SetFloat("moveY", partner.lastDirection.y);
         anim.SetInteger("counter", CurrentAttackCounter);
         attackCounterResetTimer.StopTimer();
+        isAnyInstanceAttacking = true;
         onEnter?.Invoke();
     }
-    void Exit()
+    public void Exit()
     {
         anim.SetBool("active", false);
         CurrentAttackCounter++;
         attackCounterResetTimer.StartTimer();
+        isAnyInstanceAttacking = false;
         onExit?.Invoke();
+    }
+    public static bool AnyInstanceAttacking()
+    {
+        
+        return isAnyInstanceAttacking;
     }
     private void Awake()
     {
@@ -75,9 +83,13 @@ public class PartnerWeapon : MonoBehaviour
         anim = BaseGO.GetComponent<Animator>();
         EventHandler = BaseGO.GetComponent<AnimationEventHandler>();
         attackCounterResetTimer = new Timer(attackCounterResetCooldown);
-        partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
+     //   partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
 
 
+    }
+    private void Start()
+    {
+        CheckWeaponEquippedState();
     }
     private void Update()
     {
@@ -90,9 +102,10 @@ public class PartnerWeapon : MonoBehaviour
     void SwapWeapons()
     {
         //check the state of the projectile
-
-        PrimaryWeaponState currentPrimaryWeapon = partnerWeaponStateInstance.GetCurrentPrimaryState();
-        SecondaryWeaponState currentSecondaryWeapon = partnerWeaponStateInstance.GetCurrentSecondaryState();
+     PrimaryWeaponState currentPrimaryWeapon = PartnerWeaponState.Instance.GetCurrentPrimaryState();
+        //PrimaryWeaponState currentPrimaryWeapon = partnerWeaponStateInstance.GetCurrentPrimaryState();
+        SecondaryWeaponState currentSecondaryWeapon = PartnerWeaponState.Instance.GetCurrentSecondaryState();
+ //       SecondaryWeaponState currentSecondaryWeapon = partnerWeaponStateInstance.GetCurrentSecondaryState();
         if (MeleeBasic != null)
         {
             if (currentPrimaryWeapon == PrimaryWeaponState.MeleeBasic)
@@ -162,8 +175,8 @@ public class PartnerWeapon : MonoBehaviour
     }
     public void CheckWeaponEquippedState()
     {
-        PrimaryWeaponState currentPrimaryState = partnerWeaponStateInstance.GetCurrentPrimaryState();
-        SecondaryWeaponState currentSecondaryState = partnerWeaponStateInstance.GetCurrentSecondaryState();
+        PrimaryWeaponState currentPrimaryState = PartnerWeaponState.Instance.GetCurrentPrimaryState();
+        SecondaryWeaponState currentSecondaryState = PartnerWeaponState.Instance.GetCurrentSecondaryState();
         if (MeleeBasic != null)
         {
             if (currentPrimaryState == PrimaryWeaponState.MeleeBasic)

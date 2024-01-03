@@ -17,14 +17,18 @@ public class PartnerDashState : PartnerAbilityState
     {
         base.Enter();
         amountOfDashesLeft--;
+        playerSOData.Stamina -= 5f;
         timer = 0f;
         Movement?.SetVelocity(Movement.latestMovingVelocity * playerSOData.dashForce);
+        isTouchingPitfall = false;
+        partner.onFallStarted += StartFalling;
 
     }
 
     public override void Exit()
     {
         base.Exit();
+        partner.onFallStarted -= StartFalling;
 
         ResetAmountOfDashesLeft();
     }
@@ -58,14 +62,17 @@ public class PartnerDashState : PartnerAbilityState
         base.LogicUpdate();
         Movement?.SetVelocity(partner.playerDirection * playerSOData.dashForce);
         timer += Time.deltaTime;
-
+       
         if (timer >= playerSOData.dashTime)
         {
             Movement?.SetVelocityZero();
             PSM.ChangePartnerState(partner.IdleState);
             partner.DashCooldownTimer.Reset();
         }
+        Debug.Log(isTouchingPitfall + "Frombasic state");
         
+
+
     }
 
     public override void PhysicsUpdate()

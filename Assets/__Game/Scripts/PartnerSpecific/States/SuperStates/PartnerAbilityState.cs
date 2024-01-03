@@ -6,6 +6,7 @@ public class PartnerAbilityState : PartnerState
 {
     protected bool isAbilityDone;
     protected bool switchInput;
+    protected bool isTouchingPitfall;
     protected PartnerCollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
     private PartnerCollisionSenses collisionSenses;
 
@@ -56,6 +57,7 @@ public class PartnerAbilityState : PartnerState
                 PSM.ChangePartnerState(partner.IdleState);
             }
          }
+      
     }
 
     public override void PhysicsUpdate()

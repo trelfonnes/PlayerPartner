@@ -23,7 +23,7 @@ public class WeaponDataSO : ScriptableObject
     [field: SerializeField] public int NumberOfAttacks { get; private set; }
 
     [field: SerializeReference] public List<ComponentData> ComponentData { get; private set; }
-    
+    [field: SerializeField] public AttackType AttackType { get; private set; }
    
     public T GetData<T>()
     {
@@ -39,6 +39,11 @@ public class WeaponDataSO : ScriptableObject
         if (character == 1)
         {
             return ComponentData.Select(component => component.PlayerComponentDependency).ToList();
+        }
+        if(character == 2)
+        {
+            return ComponentData.Select(component => component.EnemyComponentDependency).ToList();
+
         }
         else
         {

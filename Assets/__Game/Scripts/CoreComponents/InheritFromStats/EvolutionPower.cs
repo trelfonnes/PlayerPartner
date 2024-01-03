@@ -19,13 +19,16 @@ public class EvolutionPower : Stats, IEvolutionPower
         base.Start();
        
     }
-
-    public void DecreaseEP(int amount)
+    void EPHealthZeroPenalty()
+    {
+        DecreaseEP(playerData.maxEp);
+    }
+    public void DecreaseEP(float amount)
     {
         playerData.ep -= amount;
         if(playerData.ep <= 0)
         {
-           
+            playerData.ep = 0;
             StopEvolutionTimer();
         }
         roundedAmount = Mathf.RoundToInt(playerData.ep);
@@ -49,5 +52,15 @@ public class EvolutionPower : Stats, IEvolutionPower
     public void StopEvolutionTimer()
     {
         playerData.StartEPTimer = false;
+    }
+    private void OnEnable()
+    {
+        statEvents.onCurrentHealthZero += EPHealthZeroPenalty;
+
+    }
+    private void OnDisable()
+    {
+        statEvents.onCurrentHealthZero -= EPHealthZeroPenalty;
+
     }
 }

@@ -54,6 +54,12 @@ MonoBehaviour:
     projectilePrefab: {fileID: 4194652619202764880, guid: cdec877e9564fe64684e3418ad1842a1, type: 3}
   - projectileType: 1
     projectilePrefab: {fileID: 4194652619202764880, guid: c09dd339a29c51e4b849f628a74334de, type: 3}
+  - projectileType: 4
+    projectilePrefab: {fileID: 5895533085909410044, guid: 4480ce1aab396fb45a1cf2d9760f118e, type: 3}
+  - projectileType: 5
+    projectilePrefab: {fileID: 7286626852500903003, guid: d44583cd39e76b1478e8cf81752168a7, type: 3}
+  - projectileType: 6
+    projectilePrefab: {fileID: 4194652619202764880, guid: b7033f0b2a3d8a142a7ebf39791006d2, type: 3}
   poolSizes:
   - projectileType: 0
     poolSize: 5
@@ -62,6 +68,12 @@ MonoBehaviour:
   - projectileType: 3
     poolSize: 5
   - projectileType: 1
+    poolSize: 5
+  - projectileType: 4
+    poolSize: 5
+  - projectileType: 5
+    poolSize: 1
+  - projectileType: 6
     poolSize: 5
 --- !u!114 &1734242481786781561
 MonoBehaviour:

@@ -57,7 +57,6 @@ public class ClockHandUI : MonoBehaviour
         }
         //Increment the index,
         currentImageIndex++;
-        Debug.Log(currentImageIndex + " is image index");
         // reset to 0 if it goes beyond the list size before setting to active
      
         if (currentImageIndex >= DayCycles.Count)

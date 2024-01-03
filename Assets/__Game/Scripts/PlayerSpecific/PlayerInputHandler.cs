@@ -24,6 +24,7 @@ public class PlayerInputHandler : MonoBehaviour
     //Variables just for dash's double tap input because new input system is trash
     private bool dashInputDown = false;
     private bool isDoubleTap = false;
+    private bool muteInput = false;
     private float doubleTapTimeThreshold = 0.2f;
     private float lastTapTime;
     private bool isResettingDash = false;
@@ -31,9 +32,22 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Awake()
     {
+        PauseManager.OnPauseStateChanged += HandlePausedStateChanged;
+        CutsceneManager.OnCutscenePlaying += HandlePausedStateChanged;
         _playerInput = GetComponent<PlayerInput>();
         
 
+    }
+    void HandlePausedStateChanged(bool isPaused)
+    {
+        if (isPaused)
+        {
+            muteInput = true;
+        }
+        else
+        {
+            muteInput = false;
+        }
     }
     private void Start()
     {
@@ -42,30 +56,40 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnMoveInput(InputAction.CallbackContext context)
     {
+        if (muteInput)
+        {
+            Debug.Log(muteInput);
+            NormInputX = 0;
+            NormInputY = 0;
+            return;
+        }
         RawMovementInput = context.ReadValue<Vector2>();
-        NormInputX = Mathf.RoundToInt(RawMovementInput.x);
-        NormInputY = Mathf.RoundToInt(RawMovementInput.y);
+            NormInputX = Mathf.RoundToInt(RawMovementInput.x);
+            NormInputY = Mathf.RoundToInt(RawMovementInput.y);
+        
     }
     public void OnAttackInput(InputAction.CallbackContext context)//primary
     {
-
-        if (context.action.triggered)
-        {
-
-            // Start the coroutine to handle the input duration
-            primaryAttackInputCoroutine = StartCoroutine(HandleAttackInputDuration());
-            AttackInputs[(int)CombatInputs.primary] = true;
-        }
-        else if (context.action.phase == InputActionPhase.Canceled)
-        {
-            // Stop the coroutine if the input is released
-            if (primaryAttackInputCoroutine != null)
+        if (muteInput)
+            return;
+            if (context.action.triggered)
             {
-                StopCoroutine(primaryAttackInputCoroutine);
-                primaryAttackInputCoroutine = null;
+
+                // Start the coroutine to handle the input duration
+                primaryAttackInputCoroutine = StartCoroutine(HandleAttackInputDuration());
+                AttackInputs[(int)CombatInputs.primary] = true;
             }
-            AttackInputs[(int)CombatInputs.primary] = false;
-        }
+            else if (context.action.phase == InputActionPhase.Canceled)
+            {
+                // Stop the coroutine if the input is released
+                if (primaryAttackInputCoroutine != null)
+                {
+                    StopCoroutine(primaryAttackInputCoroutine);
+                    primaryAttackInputCoroutine = null;
+                }
+                AttackInputs[(int)CombatInputs.primary] = false;
+            }
+        
     }
     private IEnumerator HandleAttackInputDuration()
     {
@@ -75,35 +99,43 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnSpecialInput(InputAction.CallbackContext context)
     {
+        if (muteInput)
+            return; 
+        
+    
         if (context.action.triggered)
-        {
-            // Start the coroutine to handle the input duration
-       //     secondaryAttackInputCoroutine = StartCoroutine(HandleAttackInputDuration());
-            AttackInputs[(int)CombatInputs.secondary] = true;
-        }
-        else if (context.action.phase == InputActionPhase.Canceled)
-        {
-            // Stop the coroutine if the input is released
-          //  if (secondaryAttackInputCoroutine != null)
-         //   {
-          //      StopCoroutine(secondaryAttackInputCoroutine);
-           //     secondaryAttackInputCoroutine = null;
-          //  }
-            AttackInputs[(int)CombatInputs.secondary] = false;
-        }
+            {
+                // Start the coroutine to handle the input duration
+                //     secondaryAttackInputCoroutine = StartCoroutine(HandleAttackInputDuration());
+                AttackInputs[(int)CombatInputs.secondary] = true;
+            }
+            else if (context.action.phase == InputActionPhase.Canceled)
+            {
+                // Stop the coroutine if the input is released
+                //  if (secondaryAttackInputCoroutine != null)
+                //   {
+                //      StopCoroutine(secondaryAttackInputCoroutine);
+                //     secondaryAttackInputCoroutine = null;
+                //  }
+                AttackInputs[(int)CombatInputs.secondary] = false;
+            }
+        
     }
     public void OnInteractInput(InputAction.CallbackContext context)
     {
+        if (muteInput)
+            return;
         if (context.ReadValueAsButton())
-        {
-            InteractInput = true;
+            {
+                InteractInput = true;
 
-        }
-        else
-        {
-            InteractInput = false;
+            }
+            else
+            {
+                InteractInput = false;
 
-        }
+            }
+        
     }
     public void OnMenuInput(InputAction.CallbackContext context)
     {
@@ -114,9 +146,10 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void OnPlayerSwitchInput(InputAction.CallbackContext context)
     {
-        
-        
-            if (context.ReadValueAsButton())
+        if (muteInput)
+            return;
+
+        if (context.ReadValueAsButton())
             {
                 SwitchPlayerInput = true;
             }
@@ -125,55 +158,56 @@ public class PlayerInputHandler : MonoBehaviour
                 SwitchPlayerInput = false;
             }
         
-
-            
-
     }
     public void OnEvolveInput(InputAction.CallbackContext context)
     {
-       
+        if (muteInput)
+            return;
         if (context.ReadValueAsButton())
-        {
-            EvolveInput = true;
-        }
-        else
-        {
-            EvolveInput = false;
-
-        }
-    }
-    public void OnDashInput(InputAction.CallbackContext context)
-    {
-
-        if (context.started)
-        {
-            float currentTime = Time.time;
-
-            if (currentTime - lastTapTime <= doubleTapTimeThreshold)
             {
-                isDoubleTap = true;
+                EvolveInput = true;
             }
             else
             {
-                isDoubleTap = false;
+                EvolveInput = false;
+
             }
-
-            lastTapTime = currentTime;
-
-            dashInputDown = true;
-        }
-
-        if (context.started && isDoubleTap)
-        {
-            dashInputDown = false;
-            DashInput = true;
-            isDoubleTap = false;
-
-            if (!isResettingDash)
+        
+    }
+    public void OnDashInput(InputAction.CallbackContext context)
+    {
+        if (muteInput)
+            return;
+        if (context.started)
             {
-                StartCoroutine(ResetDashInput());
+                float currentTime = Time.time;
+
+                if (currentTime - lastTapTime <= doubleTapTimeThreshold)
+                {
+                    isDoubleTap = true;
+                }
+                else
+                {
+                    isDoubleTap = false;
+                }
+
+                lastTapTime = currentTime;
+
+                dashInputDown = true;
             }
-        }
+
+            if (context.started && isDoubleTap)
+            {
+                dashInputDown = false;
+                DashInput = true;
+                isDoubleTap = false;
+
+                if (!isResettingDash)
+                {
+                    StartCoroutine(ResetDashInput());
+                }
+            }
+        
     }
 
     private IEnumerator ResetDashInput()
@@ -183,8 +217,17 @@ public class PlayerInputHandler : MonoBehaviour
         DashInput = false;
         isResettingDash = false;
     }
-    
+    public void ChangeMuteInput(bool muteInput)
+    {
+        this.muteInput = muteInput;
+    }
 
+    private void OnDisable()
+    {
+        PauseManager.OnPauseStateChanged -= HandlePausedStateChanged;
+        CutsceneManager.OnCutscenePlaying -= HandlePausedStateChanged;
+
+    }
 }
 
 public enum CombatInputs

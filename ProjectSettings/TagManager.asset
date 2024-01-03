@@ -9,6 +9,9 @@ TagManager:
   - Boulder
   - Enemy
   - Item
+  - Bomb
+  - Pitfall
+  - Carryable
   layers:
   - Default
   - TransparentFX
@@ -28,8 +31,8 @@ TagManager:
   - Hazards
   - Damageable
   - Cutable
-  - 
-  - 
+  - Enemy
+  - Pitfall
   - 
   - 
   - 

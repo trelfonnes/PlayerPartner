@@ -47,7 +47,7 @@ public class PartnerProjectile : WeaponComponent<ProjectileData, AttackProjectil
     void SetDirection() // listened to by actual projectile game object that is "unpooled"
     {
         direction = new Vector2(movement.facingCombatDirectionX, movement.facingCombatDirectionY);
-        ProjectileEventSystem.Instance.RaisePartnerDirectionSetEvent(this, direction);
+        ProjectileEventSystem.Instance.RaisePartnerDirectionSetEvent(this, direction, currentAttackDataPartner.damage, currentAttackDataPartner.knockbackStrength);
     }
     void SetCharge()
     {

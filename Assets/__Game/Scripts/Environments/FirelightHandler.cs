@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class FirelightHandler : MonoBehaviour, ILightable, IInteractable
+public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtinguishable
 {
     [SerializeField] GameObject fire;
+    [SerializeField] GameObject RestAndRestore;
     [SerializeField] bool isIndoorObject;
     Light2D pointLight;
     bool hasBeenActivated;
@@ -22,13 +23,14 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable
     {
         if (hasBeenActivated)
         {
-            SaveLoadManager.Instance.SaveGame();
+            SaveLoadManager.Instance.SaveGlobalData();
             //TODO allow game to save and bring up UI
         }
     }
     public void Light()
     {
         fire.SetActive(true);
+        RestAndRestore.SetActive(true);
         pointLight = GetComponentInChildren<Light2D>();
         hasBeenActivated = true;
         isLit = true;
@@ -37,8 +39,12 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable
     public void Extinguish()
     {
         fire.SetActive(false);
+        RestAndRestore.SetActive(false);
+
+        hasBeenActivated = false;
+
     }
-     void DimForDaylight()
+    void DimForDaylight()
     {
         if (hasBeenActivated && !isIndoorObject)
         {

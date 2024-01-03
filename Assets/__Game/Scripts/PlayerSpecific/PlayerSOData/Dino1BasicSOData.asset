@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Dino1BasicSOData
   m_EditorClassIdentifier: 
   isSick: 0
-  currentHealth: 4
-  stamina: 16
+  currentHealth: 5
+  stamina: 39
   isInjured: 0
   moveSpeed: 4
   watchSpeed: 0
   followSpeed: 4.5
-  MaxHealth: 4
+  MaxHealth: 5
   HealthLimit: 7
-  SP: 0
-  MaxSP: 20
+  SP: 19338
+  MaxSP: 20000
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
-  MaxStamina: 50
+  MaxStamina: 55
   StaminaLimit: 60
-  Poise: 30
+  Poise: 9
   MaxPoise: 30
   canJump: 1
   numberOfJumps: 1
@@ -37,8 +37,13 @@ MonoBehaviour:
   dashTime: 0.15
   numberOfDashes: 1
   dashForce: 4
+  bondToEvolveOne: 16
+  bondToEvolveTwo: 36
   stage1: 1
   stage2: 0
   stage3: 0
+  isPlayer: 0
   Bytes: 0
   MaxBytes: 0
+  Keys: 0
+  BossKeys: 0

@@ -25,6 +25,7 @@ MonoBehaviour:
   <ComponentData>k__BackingField:
   - rid: 4121996703554863104
   - rid: 4121996703554863105
+  <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
@@ -36,6 +37,8 @@ MonoBehaviour:
         - name: Attack1
           <TypeOfProjectile>k__BackingField: 5
           <SPCost>k__BackingField: 0
+          <damage>k__BackingField: 0
+          <knockbackStrength>k__BackingField: 0
     - rid: 4121996703554863105
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:

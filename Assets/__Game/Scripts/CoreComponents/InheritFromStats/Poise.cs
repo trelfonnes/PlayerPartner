@@ -21,7 +21,7 @@ public class Poise : Stats, IPoiseDamageable
     }
 
    
-    public void DecreasePoise(float amount)
+    public void DamagePoise(float amount)
     {
         SOData.Poise -= amount;
         if(SOData.Poise <= 0)

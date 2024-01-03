@@ -17,26 +17,24 @@ public enum SecondaryWeaponState
 }
 public class PartnerWeaponState 
 {
+  
+    private static PartnerWeaponState instance;
+    public static PartnerWeaponState Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new PartnerWeaponState();
+            }
+            return instance;
+        }
+    }
+  
     
-
     PrimaryWeaponState currentPrimaryState;
     SecondaryWeaponState currentSecondaryState;
-
-    private static PartnerWeaponState instance;
-
-    public PartnerWeaponState()
-    {
-        currentPrimaryState = PrimaryWeaponState.MeleeBasic;
-        currentSecondaryState = SecondaryWeaponState.NA;
-    }
-    public static PartnerWeaponState GetInstance()
-    {
-        if (instance == null)
-        {
-            instance = new PartnerWeaponState();
-        }
-        return instance;
-    }
+  
     public void SwitchPrimaryState(PrimaryWeaponState newState)
     {
         ExitPrimaryState(currentPrimaryState);

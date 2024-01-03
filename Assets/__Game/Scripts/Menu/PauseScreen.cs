@@ -2,15 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PauseScreen : MonoBehaviour
 {
-    PlayerInput _playerInput;
+   // PlayerInput _playerInput;
     bool MenuInput;
     bool SelectInput;
     bool CancelInput;
     [SerializeField] GameObject PauseMenuScreen;
+    [SerializeField] GameObject ArtifactMenuScreen;
     public  bool isOn = true;
     private bool canToggle = true;
     private bool canCloseMenu;
@@ -18,46 +18,59 @@ public class PauseScreen : MonoBehaviour
    
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
+       // _playerInput = GetComponent<PlayerInput>();
     }
-    public void OnMenuInput(InputAction.CallbackContext context)
+    /*public void OnMenuInput(InputAction.CallbackContext context)
     {
         if (!canToggle)
             return;
 
-         MenuInput = context.ReadValue<float>() >= .5f;
-        if(MenuInput && !isOn)
+        if (context.ReadValue<float>() >= 0.5f)
         {
             TogglePauseMenu();
+            PauseManager.TogglePause();
         }
-        else if(MenuInput && isOn)
+    }*/
+
+    /* public void OnSelectInput(InputAction.CallbackContext context)
+     {
+         SelectInput = context.ReadValue<float>() >= .5f;
+
+
+     }
+
+     public void OnCancelInput(InputAction.CallbackContext context)
+     {
+         CancelInput = context.ReadValue<float>() >= .5f;
+
+     }*/
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePauseMenu();
+            if (!canToggle) return;
+            else
+            {
+                TogglePauseMenu();
+            
+            }
         }
     }
-    public void OnSelectInput(InputAction.CallbackContext context)
-    {
-        SelectInput = context.ReadValue<float>() >= .5f;
-        
-
-    }
-
-    public void OnCancelInput(InputAction.CallbackContext context)
-    {
-        CancelInput = context.ReadValue<float>() >= .5f;
-
-    }
-
-    private void TogglePauseMenu()
+    public void TogglePauseMenu()
     {
         PauseMenuScreen.SetActive(isOn);
+        ArtifactMenuScreen.SetActive(false);
+        
         isOn = !isOn;
-        canToggle = false;
-        Invoke(nameof(ResetToggleCooldown), inputCoolDown);
+       // canToggle = false;
+        //Invoke(nameof(ResetToggleCooldown), inputCoolDown);
+        PauseManager.TogglePause();
+
     }
 
-    private void ResetToggleCooldown()
-    {
-        canToggle = true;
-    }
+  //  private void ResetToggleCooldown()
+    //{
+    //    canToggle = true;
+    //}
 }

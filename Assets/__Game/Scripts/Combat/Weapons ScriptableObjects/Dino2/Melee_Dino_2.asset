@@ -29,6 +29,7 @@ MonoBehaviour:
   - rid: 7917043640045142017
   - rid: 7917043661478035458
   - rid: 7917043703839719425
+  <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
@@ -40,9 +41,20 @@ MonoBehaviour:
         - name: Claw
           <PhaseSprites>k__BackingField:
           - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 5
             <Sprites>k__BackingField:
-            - {fileID: -396325562, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
-            - {fileID: -1071569395, guid: 815b8ce0cb246da4caaa96113e36e3d0, type: 3}
+            - {fileID: -940585775, guid: c92916bb7b13cdc4faf0e9eb4635637d, type: 3}
+            - {fileID: -1502119995, guid: c92916bb7b13cdc4faf0e9eb4635637d, type: 3}
+          - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 4
+            <Sprites>k__BackingField:
+            - {fileID: -1276573986, guid: c92916bb7b13cdc4faf0e9eb4635637d, type: 3}
+            - {fileID: 720571555, guid: c92916bb7b13cdc4faf0e9eb4635637d, type: 3}
+          - <Phase>k__BackingField: 2
+            <PhaseDirection>k__BackingField: 3
+            <Sprites>k__BackingField:
+            - {fileID: -1891737132, guid: c92916bb7b13cdc4faf0e9eb4635637d, type: 3}
+            - {fileID: -1753002612, guid: c92916bb7b13cdc4faf0e9eb4635637d, type: 3}
     - rid: 7917043528491597830
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
@@ -123,6 +135,7 @@ MonoBehaviour:
         attackData:
         - name: Claw
           <Amount>k__BackingField: 3
+          <AttackType>k__BackingField: 5
     - rid: 7917043661478035458
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:

@@ -22,8 +22,8 @@ public class DamageReceivingObject : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
         originalPosition = transform.position;
     }
-    public void Damage(float amount)
-    {
+    public void Damage(float amount, AttackType attackType)
+    { 
         StartCoroutine(WiggleCoroutine());
         currentHealth -= amount;
         if(currentHealth <= 0)

@@ -13,6 +13,7 @@ public class Stamina : Stats, IStaminaChange
     }
     private void OnEnable()
     {
+        statEvents.onCurrentHealthZero += Partner1Defeated;
         UpdateUI();
         UpdateConditionUI();
         if (gameObject.transform.parent.parent.gameObject.activeSelf)
@@ -95,10 +96,8 @@ public class Stamina : Stats, IStaminaChange
     }
     private void OnDisable()
     {
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
         UnSubscribeToHourlyTickEvent();
-       
-       
-
     }
     void UpdateUI()
     {
@@ -123,12 +122,16 @@ public class Stamina : Stats, IStaminaChange
                 DecreaseStamina(10);
             }
         }
+        if(SOData.Stamina == 0)
+        {
+            if(SOData.CurrentHealth > 1)
+            SOData.CurrentHealth -= .25f;
+        }
 
     }
         void SubscribeToHourlyTickEvent()
     {
         ClockManager.OnTick += HandleHourlyTick;
-        Debug.Log("onTick subbed");
 
     }
     
@@ -137,5 +140,8 @@ public class Stamina : Stats, IStaminaChange
         ClockManager.OnTick -= HandleHourlyTick;
     }
    
-
+    void Partner1Defeated()
+    {
+        DecreaseStamina(SOData.MaxStamina);
+    }
 }

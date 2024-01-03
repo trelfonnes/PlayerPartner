@@ -11,9 +11,12 @@ public class PartnerKnockBack : WeaponComponent<KnockBackData, AttackKnockBack>
     {
         foreach (var item in colliders)
         {
-            if(item.TryGetComponent(out IKnockBackable knockBackable))
+            if (item.TryGetComponent(out IKnockBackable knockBackable))
             {
-                knockBackable.KnockBack(currentAttackDataPartner.Angle, currentAttackDataPartner.Strength, movement.facingCombatDirectionX, movement.facingCombatDirectionY);
+                if (!item.CompareTag("Partner") && !item.CompareTag("Player"))
+                {
+                    knockBackable.KnockBack(currentAttackDataPartner.Angle, currentAttackDataPartner.Strength, movement.facingCombatDirectionX, movement.facingCombatDirectionY);
+                }
             }
         }
     }

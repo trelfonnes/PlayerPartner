@@ -11,6 +11,7 @@ public abstract class ComponentData
 
     public Type PartnerComponentDependency { get; protected set; }
     public Type PlayerComponentDependency { get; protected set; }
+    public Type EnemyComponentDependency { get; protected set; }
 
 
     public void SetComponentName() => name = GetType().Name;

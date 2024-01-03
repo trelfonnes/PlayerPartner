@@ -52,11 +52,12 @@ MonoBehaviour:
   - {fileID: 737139779, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
   - {fileID: -198556284, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
   - {fileID: 1929006112, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
+  attackType: 5
   throwSpeed: 10
   returnSpeed: 10
   maxDistance: 5
-  poiseDamage: 10
-  damage: 10
+  poiseDamage: 15
+  damage: 0
   knockBackDamage: 10
 --- !u!50 &3825286087797616844
 Rigidbody2D:

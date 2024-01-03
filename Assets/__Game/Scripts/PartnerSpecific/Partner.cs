@@ -19,6 +19,8 @@ public class Partner : MonoBehaviour
     public PartnerDashState DashState { get; private set; }
     public PartnerAttackState PrimaryAttackState { get; private set; }
     public PartnerAttackState SecondaryAttackState { get; private set; }
+    public PartnerDefeatedState DefeatedState { get; private set; }
+    public PartnerFallingState FallingState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -33,6 +35,7 @@ public class Partner : MonoBehaviour
     public bool stageOne;
     public bool stageTwo;
     public bool stageThree;
+    public bool initializeForBattleScene = false; //check this for partner instances in the battle scenes
     public float dashCooldown = 3f;
     public float jumpCooldown = 0f;
     public PlayerInputHandler InputHandler { get; private set; }
@@ -47,12 +50,13 @@ public class Partner : MonoBehaviour
     public Vector2 lastDirection;
     PartnerWeapon primaryWeapon;
     PartnerWeapon secondaryWeapon;
+    public BoxCollider2D partnerCollider { get; private set; }
 
- 
+    public event Action onFallOver;
+    public event Action onFallStarted;
 
     protected virtual void Awake()
     {
-        
         core = GetComponentInChildren<CoreHandler>();
         primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<PartnerWeapon>();
         secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<PartnerWeapon>();
@@ -63,7 +67,7 @@ public class Partner : MonoBehaviour
         _playerData = PlayerData.Instance;
         StateMachine = new PlayerStateMachine();
         playerDirection = Vector2.down;
-
+        partnerCollider = GetComponent<BoxCollider2D>();
         PrimaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon, CombatInputs.primary);
         SecondaryAttackState = new PartnerAttackState(this, StateMachine, playerSOData, _playerData, "attack", secondaryWeapon, CombatInputs.secondary);
         MoveState = new PartnerMoveState(this, StateMachine, playerSOData, _playerData, "move");
@@ -74,17 +78,33 @@ public class Partner : MonoBehaviour
         DevolveState = new PartnerDeEvolutionState(this, StateMachine, playerSOData, _playerData, "devolve");
         JumpState = new PartnerJumpState(this, StateMachine, playerSOData, _playerData, "jump");
         DashState = new PartnerDashState(this, StateMachine, playerSOData, _playerData, "dash");
+        DefeatedState = new PartnerDefeatedState(this, StateMachine, playerSOData, _playerData, "defeated");
+        FallingState = new PartnerFallingState(this, StateMachine, playerSOData, _playerData, "falling");
     }
     protected virtual void Start()
     {
         DashCooldownTimer = new Timer(dashCooldown);
-        JumpCooldownTimer = new Timer(jumpCooldown);
-        StateMachine.InitializePartner(FollowIdleState); //for when states are referenced in awake.
-       // 
+        JumpCooldownTimer = new Timer(jumpCooldown); 
+        if (initializeForBattleScene)
+        {
+            StateMachine.InitializePartner(IdleState);
+        }
+        else {
+            StateMachine.InitializePartner(FollowIdleState); //for when states are referenced in awake.
+        }
     }
     private void OnEnable()
     {
-       // StateMachine.InitializePartner(FollowIdleState);
+        InputHandler.ChangeMuteInput(false);
+
+        if (initializeForBattleScene)
+        {
+            StateMachine.InitializePartner(IdleState);
+        }
+        else
+        {
+            StateMachine.InitializePartner(FollowIdleState); //for when states are referenced in awake.
+        }
     }
     protected virtual void Update()
     {
@@ -97,7 +117,7 @@ public class Partner : MonoBehaviour
             JumpCooldownTimer.Update(Time.deltaTime);
         }
         StateMachine.CurrentPartnerState.LogicUpdate();
-        //
+        
 
     }
 
@@ -108,7 +128,10 @@ public class Partner : MonoBehaviour
         StateMachine.CurrentPartnerState.PhysicsUpdate();
     }
 
-
+    private void OnDisable()
+    {
+        StateMachine.CurrentPartnerState.OnDisable();
+    }
 
     #region PartnerEvolutionEventsForAnimEvents
     void EvolveToSecondStage()
@@ -133,7 +156,21 @@ public class Partner : MonoBehaviour
         evolutionEvents.Devolve();
     }
 
+
     #endregion
+
+
+    public void OnFallAnimEvent()
+    {
+        onFallOver?.Invoke();
+    }
+    public void OnStartFallEvent()
+    {
+        onFallStarted?.Invoke();
+        Debug.Log("InvokeFallStartedPartner");
+
+    }
+
 
 
     #region For Saving Data BIND

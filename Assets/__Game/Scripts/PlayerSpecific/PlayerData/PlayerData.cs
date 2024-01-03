@@ -6,15 +6,21 @@ public class PlayerData : MonoBehaviour
 {
     [SerializeField] public StatEvents statEvents;
     [SerializeField] EPDisplayUI UIForEP;
+    [SerializeField] EPDisplayUI UIForBond;
     public float ep;
+    public int currentExperience = 0;
+    public int experienceToNextLevel = 10;
+    public int currentBondLevel = 1;
     public float maxEp;
     public bool deviceOneCollected;
     public bool deviceTwoCollected;
     public bool StartEPTimer;
     int roundedAmount;
+    public bool partnerIsDefeated;
+    public Vector2 lastPositionsInScene;
 
     private static PlayerData instance;
-
+    
     public static PlayerData Instance
     {
         get { return instance; } }
@@ -37,6 +43,7 @@ public class PlayerData : MonoBehaviour
     private void OnEnable()
     {
         UIForEP.UpdateEPDisplayUI(roundedAmount);
+        UIForBond.UpdateEPDisplayUI(currentBondLevel);
 
     }
     void Update()
@@ -68,5 +75,32 @@ public class PlayerData : MonoBehaviour
         UIForEP.UpdateEPDisplayUI(roundedAmount);
     }
 
-    
+    public void GainExperience(int exp)
+    {
+        currentExperience += exp;
+        Debug.Log(currentExperience);
+        if(currentExperience >= experienceToNextLevel)
+        {
+            Level1Up();
+        }
+    }
+
+    void Level1Up()
+    {
+        currentBondLevel++;
+        currentExperience = 0;
+        experienceToNextLevel = CalculateNextLevelExperience();
+        statEvents.LeveledUp();
+        UIForBond.UpdateEPDisplayUI(currentBondLevel);
+
+
+    }
+    int CalculateNextLevelExperience()
+    {
+        float baseExperience = 10;
+        float growthFactor = 1.2f;
+        return Mathf.RoundToInt(baseExperience * Mathf.Pow(growthFactor, currentBondLevel));
+
+
+    }
 }

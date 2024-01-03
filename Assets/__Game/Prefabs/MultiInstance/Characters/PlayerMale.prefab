@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118141018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,6 +48,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
   BytesDisplay: {fileID: 0}
 --- !u!1 &1600163993
 GameObject:
@@ -105,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981183774258020141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -128,6 +129,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
 --- !u!1 &1555753722857316150
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555753722857316150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -172,8 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3029f4dd63a4aca4a9eb6a014fdbbef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defeatedParticles:
-  - {fileID: 0}
 --- !u!1 &1970277185830754713
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3111106526559064779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -253,6 +253,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 0}
+  playerOnlyheartDisplayUI: {fileID: 0}
   keyDisplay: {fileID: 0}
   bossKeyDisplay: {fileID: 0}
 --- !u!1 &3963916744730356113
@@ -265,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3963916744730356114}
   - component: {fileID: 2638291573643422366}
+  - component: {fileID: 1424136277}
   m_Layer: 9
   m_Name: CollisionSenses
   m_TagString: Untagged
@@ -280,7 +282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963916744730356113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -314,9 +316,14 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  whatIsPitfall:
+    serializedVersion: 2
+    m_Bits: 524288
   partnerCheckArea: {fileID: 2121437962378263932}
   carryPoint: {fileID: 3938561055844868905}
   heldItemCheckDistance: 0.1
+  pitfallCheckPoint: {fileID: 0}
+  PitFallCheck: 0
   partnerDistanceFromPlayerRadius: 2
   whatIsPartner:
     serializedVersion: 2
@@ -328,6 +335,33 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   partnerCheckRadius: 1.3
+  pitfallCheckDistance: 0.375
+--- !u!61 &1424136277
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3963916744730356113}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03072089, y: -0.7236022}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.66210854, y: 0.4372046}
+  m_EdgeRadius: 0
 --- !u!1 &3963916744843280177
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963916744843280177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -438,7 +472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963916745355562004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -468,18 +502,18 @@ GameObject:
   - component: {fileID: 3963916745617885425}
   - component: {fileID: 3963916745617885424}
   - component: {fileID: 3963916745617885422}
-  - component: {fileID: 3963916745617885421}
   - component: {fileID: 3963916745617885420}
   - component: {fileID: 3963916745617885426}
   - component: {fileID: 3963916745617885428}
   - component: {fileID: 3963916745617885427}
+  - component: {fileID: 46642770}
   m_Layer: 9
   m_Name: PlayerMale
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3963916745617885425
 Transform:
   m_ObjectHideFlags: 0
@@ -488,7 +522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963916745617885419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -537,22 +571,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &3963916745617885421
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3963916745617885419}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: -0.65}
-  m_Size: {x: 0.75, y: 0.5}
-  m_Direction: 0
 --- !u!95 &3963916745617885420
 Animator:
   serializedVersion: 5
@@ -625,7 +643,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &3963916745617885428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,6 +858,32 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!61 &46642770
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3963916745617885419}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03072089, y: -0.7236022}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.66210854, y: 0.4372046}
+  m_EdgeRadius: 0
 --- !u!1 &3963916746401700929
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4417470257329829911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -919,6 +963,7 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
   canShoot: 1
   SPDisplay: {fileID: 0}
 --- !u!1 &4867193511025852559
@@ -946,7 +991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4867193511025852559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -965,6 +1010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0048fa46fdd2c48b268c3257c4cbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storedParticles: {fileID: 11400000, guid: 5ae8df37656f5f24593b65cd991c2c73, type: 2}
 --- !u!1 &5133961399817514402
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,7 +1037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5133961399817514402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1062,7 +1108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6397525271055040648}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1085,6 +1131,8 @@ MonoBehaviour:
   SOData: {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
+  playerOnlyheartDisplayUI: {fileID: 0}
+  defensiveType: 5
   heartDisplayUI: {fileID: 0}
 --- !u!1 &7759988393125100095
 GameObject:
@@ -1318,7 +1366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 6331929672594413318}
   partnerWeapon: {fileID: 0}
-  data: {fileID: 11400000, guid: e7f5033298a859241a66f5697be370eb, type: 2}
+  enemyWeapon: {fileID: 0}
+  data: {fileID: 11400000, guid: 57c59a3a19206ea498a1796f8d367b73, type: 2}
 --- !u!114 &6331929672594413318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,7 +1382,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisWeaponsAutoGenerator: {fileID: 2096271035}
   weaponInventoryManager: {fileID: 0}
-  Whip: {fileID: 11400000, guid: 602b9638b74e61440a8e906bca645eeb, type: 2}
+  BareHands: {fileID: 11400000, guid: 57c59a3a19206ea498a1796f8d367b73, type: 2}
+  BareHandsProjectile: {fileID: 0}
+  CableCord: {fileID: 11400000, guid: 602b9638b74e61440a8e906bca645eeb, type: 2}
+  CableCord2: {fileID: 11400000, guid: 71f05776c208ef1429cbb434747aa60e, type: 2}
+  CableCord3: {fileID: 11400000, guid: 3a3aba8fd4b03634792226e16fbcc71d, type: 2}
   Scythe: {fileID: 11400000, guid: e7f5033298a859241a66f5697be370eb, type: 2}
   Dart: {fileID: 0}
   Boomerang: {fileID: 0}
@@ -1423,7 +1476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 7345843354213220129}
   partnerWeapon: {fileID: 0}
-  data: {fileID: 11400000, guid: e29a753d990a38d499bd6b21883cd78c, type: 2}
+  enemyWeapon: {fileID: 0}
+  data: {fileID: 11400000, guid: 318f15cbacd98e842bc3182785d1e55d, type: 2}
 --- !u!114 &7345843354213220129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,7 +1492,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisWeaponsAutoGenerator: {fileID: 617004290}
   weaponInventoryManager: {fileID: 0}
-  Whip: {fileID: 0}
+  BareHands: {fileID: 0}
+  BareHandsProjectile: {fileID: 11400000, guid: 318f15cbacd98e842bc3182785d1e55d, type: 2}
+  CableCord: {fileID: 0}
+  CableCord2: {fileID: 0}
+  CableCord3: {fileID: 0}
   Scythe: {fileID: 0}
   Dart: {fileID: 11400000, guid: e29a753d990a38d499bd6b21883cd78c, type: 2}
   Boomerang: {fileID: 11400000, guid: 4eb0e69dfd8d08f4799dec62c09e8c26, type: 2}

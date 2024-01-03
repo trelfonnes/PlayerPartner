@@ -34,11 +34,14 @@ public class PlayerSOData : BaseSOPlayerData
     public float dashTime;
     public int numberOfDashes = 1;
     public float dashForce = 3f;
+    public int bondToEvolveOne;
+    public int bondToEvolveTwo;
 
     [Header("Stage Identifier")]
     public bool stage1 = false;
     public bool stage2 = false;
     public bool stage3 = false;
+    public bool isPlayer = false;
 
     [Header("Player exclusive Data")]
     public int Bytes = 0;

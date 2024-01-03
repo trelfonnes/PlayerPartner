@@ -28,9 +28,18 @@ MonoBehaviour:
   - rid: 4121997090188165122
   - rid: 4121997090188165123
   - rid: 4121997090188165124
+  - rid: 447581658432667649
+  <AttackType>k__BackingField: 0
   references:
     version: 2
     RefIds:
+    - rid: 447581658432667649
+      type: {class: IgniteData, ns: , asm: Assembly-CSharp}
+      data:
+        name: IgniteData
+        attackData:
+        - name: Attack1
+          <Amount>k__BackingField: 2
     - rid: 4121997090188165120
       type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
       data:
@@ -95,7 +104,7 @@ MonoBehaviour:
             height: 2
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
-          m_Bits: 65536
+          m_Bits: 81920
     - rid: 4121997090188165121
       type: {class: DamageData, ns: , asm: Assembly-CSharp}
       data:
@@ -103,13 +112,14 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <Amount>k__BackingField: 1
+          <AttackType>k__BackingField: 0
     - rid: 4121997090188165122
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
       data:
         name: PoiseDamageData
         attackData:
         - name: Attack1
-          <amount>k__BackingField: 10
+          <amount>k__BackingField: 1
     - rid: 4121997090188165123
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:

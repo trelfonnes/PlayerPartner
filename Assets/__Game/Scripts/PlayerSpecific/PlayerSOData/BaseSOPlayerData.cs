@@ -32,9 +32,11 @@ public class BaseSOPlayerData : ScriptableObject
     }
 
     // Example method that modifies the float value
-    public void SetHealth(float value)
+    public void SetPartnerHealthFromItem(float value)
     {
-        CurrentHealth = value;
+       
+            CurrentHealth = value;
+       
     }
 
 

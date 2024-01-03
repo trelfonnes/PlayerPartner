@@ -2,32 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDamageable
+public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDamageable, IReviveAndRestore
 {
   //  [SerializeField] GameObject damageParticles; //particles or vfx for when taking damage
   //  [SerializeField] GameObject stunnedParticles;
 
-    [SerializeField] float maxKnockBackTime = .2f;
+    public float maxKnockBackTime = .2f;
     float KnockBackStartTime;
     bool isKnockBackActive;
+
+    IAttackTypeDamageCalculation defensiveStrategy;
 
     private CoreComp<Movement> movement;
     private CoreComp<CollisionSenses> collisionSenses;
     CoreComp<Health> health;
     CoreComp<Particles> particles;
-    Poise poise;
+    CoreComp<Poise> poise;
+    CoreComp<Stats> stats;
 
-    // CoreComp<Movement> movement;
-    //CoreComp<CollisionSenses> collisionSenses;
-    public void Damage(float amount)
+  
+    public void Damage(float amount, AttackType attackType)
     {
-        health.Comp?.DecreaseHealth(amount);  // needs to send amount to the Health component
-       // particles.Comp?.StartParticlesWithRandomRotation(damageParticles); //need to start particles with reference to the particle manager
+        float amountFloat = amount;
+
+        float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
+
+        float calculatedDamageFloat = (float)calculatedDamage;
+
+        health.Comp?.DecreaseHealth(calculatedDamageFloat);
     }
     public void DamagePoise(float amount)
     {
         
-            poise?.DecreasePoise(amount);
+            poise.Comp?.DamagePoise(amount);
             // particles.StartParticlesWithRandomRotation(stunnedParticles); //TODO: might not be best way to set stun particles if any
         
     }
@@ -39,7 +46,6 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
 
     public void KnockBack(Vector2 angle, float strength, int directionX, int directionY)
     {
-        Debug.Log("KNockback applied on " + gameObject.name);
         movement.Comp?.SetKnockBackVelocity(angle, strength, directionX, directionY);
         movement.Comp.CanSetVelocity = false;
         isKnockBackActive = true;
@@ -59,14 +65,26 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
 
 
     }
+    public void ReviveAndRestore()
+    {
+        stats.Comp?.ReviveAndRestore();
+    }
 
     protected override void Awake()
     {
         base.Awake();
-        poise = core.GetCoreComponent<Poise>();
+        poise = new CoreComp<Poise>(core);
         health = new CoreComp<Health>(core);
         particles = new CoreComp<Particles>(core);
         movement = new CoreComp<Movement>(core);
+        stats = new CoreComp<Stats>(core);
         collisionSenses = new CoreComp<CollisionSenses>(core);
+        SetDefensiveStrategy(health.Comp.defensiveType);
+    }
+
+    void SetDefensiveStrategy(DefensiveType defensiveType)
+    {
+      defensiveStrategy = DefensiveTypeStrategyFactory.CreateStrategy(defensiveType);
+
     }
 }

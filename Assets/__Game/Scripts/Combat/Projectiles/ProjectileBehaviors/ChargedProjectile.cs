@@ -8,16 +8,17 @@ public class ChargedProjectile : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
     SpriteRenderer sr;
-
+    [SerializeField] AttackType attackType;
     [SerializeField] private float damage = 1; //how much damage it does
     [SerializeField] private float knockBackDamage = 3; //how much knockback it gives
     [SerializeField] private float poiseDamage = 1; //how much poise damage it does
     [SerializeField] float velocity = 10f; // how fast it travels
     [SerializeField] float activeTime = 2.5f;
-    [SerializeField] private float chargedDamage = 1; //how much damage it does
+    [SerializeField] private float chargedDamage = 3; //how much damage it does
     [SerializeField] private float chargedKnockBackDamage = 3; //how much knockback it gives
     [SerializeField] private float chargedPoiseDamage = 1; //how much poise damage it does
     [SerializeField] float chargedVelocity = 10f; // how fast it travels
+    private ISpecialAbility specialAbility;
 
     float timeToSpriteSwitch = .1f;
     float scaleFactor = 1.5f;
@@ -37,12 +38,14 @@ public class ChargedProjectile : MonoBehaviour
         baseScale = new Vector3(1, 1, 1);
     }
 
-    void Shoot(PartnerProjectile component, Vector2 direction)
+    void Shoot(PartnerProjectile component, Vector2 direction, float damage, float knockback)
     {
         chargedScale = baseScale * scaleFactor;
 
         if (!hasBeenShot)
         {
+            this.damage = damage;
+            knockBackDamage = knockback;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             transform.position = component.transform.position;
@@ -50,6 +53,7 @@ public class ChargedProjectile : MonoBehaviour
             normalizedDirection = direction.normalized;
             if (isCharged)
             {
+                this.damage *= 2;
                 transform.localScale = chargedScale;
                 rb.velocity = normalizedDirection * chargedVelocity;
             }
@@ -94,43 +98,91 @@ public class ChargedProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SetSpecialAbility(attackType, collision);
+
         if (collision.CompareTag("Enemy"))
         {
+            TakeCareOfCollision(collision);
             //TODO: add logic for damage and knockback and poise. 
-            if (collision.TryGetComponent(out IDamageable damageable))
+    
+        }
+    }
+    void TakeCareOfCollision(Collider2D collision)
+    {
+        SetSpecialAbility(attackType, collision);
+        ApplyDamage(collision);
+        ApplyKnockback(collision);
+        ApplyPoiseDamage(collision);
+
+        hasBeenShot = false;
+        isCharged = false;
+        transform.localScale = baseScale;
+        gameObject.SetActive(false);
+    }
+    private void ApplyDamage(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IDamageable damageable))
+        {
+            if (isCharged)
             {
-                if (isCharged)
-                {
-                    damageable.Damage(chargedDamage);
-                }
-                else
-                damageable.Damage(damage);
+                damageable.Damage(chargedDamage, attackType);
             }
-            if (collision.TryGetComponent(out IKnockBackable knockBackable))
-            {
-                if (isCharged)
-                {
-                    knockBackable.KnockBack(normalizedDirection, chargedKnockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
-                }
-                else
-                    knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
-            }
-            if (collision.TryGetComponent(out IPoiseDamageable poise))
-            {
-                if (isCharged)
-                {
-                    poise.DamagePoise(chargedPoiseDamage);
-                }
-                else
-                    poise.DamagePoise(poiseDamage);
-            }
-            hasBeenShot = false;
-            isCharged = false;
-            transform.localScale = baseScale;
-            gameObject.SetActive(false);
+            else
+                damageable.Damage(damage, attackType);
         }
     }
 
+    private void ApplyKnockback(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IKnockBackable knockBackable))
+        {
+            if (isCharged)
+            {
+                knockBackable.KnockBack(normalizedDirection, chargedKnockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
+            }
+            else
+                knockBackable.KnockBack(normalizedDirection, knockBackDamage, (int)normalizedDirection.x, (int)normalizedDirection.y);
+        }
+    }
+
+    private void ApplyPoiseDamage(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IPoiseDamageable poise))
+        {
+            if (isCharged)
+            {
+                poise.DamagePoise(chargedPoiseDamage);
+            }
+            else
+                poise.DamagePoise(poiseDamage);
+        }
+    }
+    void SetSpecialAbility(AttackType type, Collider2D collider)
+    {
+        if (type == AttackType.Fire)
+        {
+            specialAbility = new IProjIgniteSA();
+            specialAbility.ExecuteSpecialAbility(collider);
+        }
+        if (type == AttackType.Water)
+        {
+            specialAbility = new IProjExtinguish();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+        if (type == AttackType.Poison)
+        {
+            specialAbility = new IProjCorrode();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+        if (type == AttackType.Electric)
+        {
+            specialAbility = new IProjPowerOn();
+            specialAbility.ExecuteSpecialAbility(collider);
+
+        }
+    }
     private void OnEnable()
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet += Shoot;

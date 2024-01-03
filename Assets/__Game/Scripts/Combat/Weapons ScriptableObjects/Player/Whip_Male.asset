@@ -29,6 +29,7 @@ MonoBehaviour:
   - rid: 7917043661478035456
   - rid: 7917043661478035461
   - rid: 7917043703839719427
+  <AttackType>k__BackingField: 5
   references:
     version: 2
     RefIds:
@@ -42,21 +43,21 @@ MonoBehaviour:
           - <Phase>k__BackingField: 2
             <PhaseDirection>k__BackingField: 4
             <Sprites>k__BackingField:
-            - {fileID: 200830569, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
-            - {fileID: 1583773621, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
-            - {fileID: 1228776907, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
+            - {fileID: -1687249032, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+            - {fileID: -687616939, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+            - {fileID: 1088247767, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
           - <Phase>k__BackingField: 2
             <PhaseDirection>k__BackingField: 3
             <Sprites>k__BackingField:
-            - {fileID: 1382565042, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
-            - {fileID: -276040209, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
-            - {fileID: 829795316, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
+            - {fileID: 105848856, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+            - {fileID: -450251771, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+            - {fileID: -1496027033, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
           - <Phase>k__BackingField: 2
             <PhaseDirection>k__BackingField: 5
             <Sprites>k__BackingField:
-            - {fileID: -1429002893, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
-            - {fileID: -447834323, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
-            - {fileID: -1193747328, guid: 84133d0876bdfcb4ea7c833178818097, type: 3}
+            - {fileID: -1616468718, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+            - {fileID: 1791306229, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
+            - {fileID: 1001092491, guid: b14b4cd1600f50a42b68643694a26b23, type: 3}
     - rid: 7917043528491597827
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
@@ -136,7 +137,8 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: Attack1
-          <Amount>k__BackingField: 1
+          <Amount>k__BackingField: 0
+          <AttackType>k__BackingField: 5
     - rid: 7917043661478035461
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:
@@ -144,7 +146,7 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 3
+          <Strength>k__BackingField: 4
     - rid: 7917043703839719427
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
       data:

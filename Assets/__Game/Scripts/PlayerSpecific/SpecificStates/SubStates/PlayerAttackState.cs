@@ -38,6 +38,7 @@ public class PlayerAttackState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
+        weapon.Exit();
     }
 
     public override void LogicUpdate()

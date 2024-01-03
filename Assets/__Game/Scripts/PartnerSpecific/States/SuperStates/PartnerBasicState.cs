@@ -18,6 +18,7 @@ public class PartnerBasicState : PartnerState
     protected bool isTouchingWall;
     protected bool isTouchingWallFollowing; 
     protected bool isTouchingGround;
+    protected bool isTouchingPitfall;
     protected bool canExitState;
     protected bool isTouchingPlayer;
     protected bool inBasicStates;
@@ -48,7 +49,6 @@ public class PartnerBasicState : PartnerState
             isTouchingGround = CollisionSenses.GroundCheck;
             isTouchingPlayer = CollisionSenses.PlayerCheck;
             player = CollisionSenses.followPoint;
-        
         
     }
 
@@ -87,15 +87,18 @@ public class PartnerBasicState : PartnerState
         dashInput = partner.InputHandler.DashInput;
         if(partner.JumpCooldownTimer.IsFinished() && interactInput && partner.JumpState.CanJump() && playerSOData.canJump) //might need to change input to make it a hold or a double tap??
         {
+            if(playerSOData.Stamina >=10 && !isTouchingPitfall)
             PSM.ChangePartnerState(partner.JumpState);
         }
         
         if (partner.DashCooldownTimer.IsFinished() && dashInput && partner.DashState.CanDash() && playerSOData.canDash) // and can dash 
         {
+            if (playerSOData.Stamina >= 10 && !isTouchingPitfall)
                 PSM.ChangePartnerState(partner.DashState);
              
         }
-        
+       
+       
         
 
     }

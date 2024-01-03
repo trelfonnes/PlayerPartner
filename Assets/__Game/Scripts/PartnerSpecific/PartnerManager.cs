@@ -3,20 +3,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
+public class PartnerPrefabMapping
+{
+    public PartnerType partnerType;
+    public GameObject partnerPrefab;
+}
 public class PartnerManager : MonoBehaviour
 {
-    private static PartnerManager instance;
-    public static PartnerManager Instance => instance;
 
-    [SerializeField] GameObject dinoOne;
-    [SerializeField] GameObject dinoTwo;
-    [SerializeField] GameObject dinoThree;
+   [SerializeField] private List<PartnerPrefabMapping> partnerMappings = new List<PartnerPrefabMapping>();
+
+    // Dictionary to store partner prefabs with their corresponding PartnerType
+    private Dictionary<PartnerType, GameObject> partnerPrefabs = new Dictionary<PartnerType, GameObject>();
+
+    private static PartnerManager instance;
+    public static PartnerManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<PartnerManager>();
+                if (instance == null)
+                {
+                    GameObject managerObject = new GameObject("PartnerManager");
+                    instance = managerObject.AddComponent<PartnerManager>();
+                }
+            }
+            return instance;
+        }
+    }
+
+
+
+    [SerializeField] GameObject partnerOne;
+    [SerializeField] GameObject partnerTwo;
+    [SerializeField] GameObject partnerThree;
     GameObject currentPartner;
     
     [SerializeField] Transform inactiveTransform;
     [SerializeField]Transform workingTransform;
     [SerializeField] EvolutionEvents evolutionEvents;
- 
+
+    [SerializeField] Vector2 startingSpawnPoint; //TODO: For testing
+
 
     bool isEvolving;
     bool isDevolving;
@@ -48,15 +80,84 @@ public class PartnerManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        currentPartner = dinoOne;
-        workingTransform.position = currentPartner.transform.position;
+        InitializePartnerPrefabs();
+
     }
- 
+    private void InitializePartnerPrefabs()
+    {
+        // Load and store partner prefabs in the dictionary
+        foreach (var mapping in partnerMappings)
+        {
+            if (mapping.partnerPrefab != null && !partnerPrefabs.ContainsKey(mapping.partnerType))
+            {
+                partnerPrefabs.Add(mapping.partnerType, mapping.partnerPrefab);
+            }
+            else
+            {
+                Debug.LogError("Invalid prefab mapping for " + mapping.partnerType.ToString());
+            }
+        }
+       // SetPartners();
+    }
+   public void SetPartners(PartnerType type)
+    {
+        if(type == PartnerType.DinoOne)
+        {
+            partnerOne = GetPartnerPrefab(type);
+            partnerTwo = GetPartnerPrefab(PartnerType.DinoTwo);
+            partnerThree = GetPartnerPrefab(PartnerType.DinoThree);
+
+        }
+        else if(type == PartnerType.BearOne)
+        {
+            partnerOne = GetPartnerPrefab(type);
+            partnerTwo = GetPartnerPrefab(PartnerType.BearTwo);
+            partnerThree = GetPartnerPrefab(PartnerType.BearThree);
+        }
+        else if(type == PartnerType.RabbitOne)
+        {
+            partnerOne = GetPartnerPrefab(type);
+            partnerTwo = GetPartnerPrefab(PartnerType.RabbitTwo);
+            partnerThree = GetPartnerPrefab(PartnerType.RabbitThree);
+        }
+        else if(type == PartnerType.AxelOne)
+        {
+            partnerOne = GetPartnerPrefab(type);
+            partnerTwo = GetPartnerPrefab(PartnerType.AxelTwo);
+            partnerThree = GetPartnerPrefab(PartnerType.AxelThree);
+        }
+        currentPartner = partnerOne;
+        workingTransform.position = currentPartner.transform.position;
+        InstantiatePartner(currentPartner);
+    }
+    public GameObject GetPartnerPrefab(PartnerType partnerType)
+    {
+        // Retrieve the partner prefab based on the provided PartnerType
+        if (partnerPrefabs.ContainsKey(partnerType))
+        {
+            return partnerPrefabs[partnerType];
+        }
+        else
+        {
+            Debug.LogError("Prefab not found for " + partnerType.ToString());
+            return null;
+        }
+    }
+    void InstantiatePartner(GameObject partner)
+    {
+      
+        Instantiate(partner);
+        partner.transform.position = startingSpawnPoint;
+        GameManager.Instance.SetPartner(partner);
+        partner.SetActive(true);
+    }
+
     private void OnStartEvolutionHandler(EvolutionEvents.EvolutionEventData e)
     {
 
         SwitchStage(e.evolutionStage);
     }
+    
 
     public void SwitchStage(int stage)
     {
@@ -67,36 +168,82 @@ public class PartnerManager : MonoBehaviour
         
         if (stage == 1)
         {
-            dinoOne.gameObject.SetActive(true);
-            currentPartner = dinoOne;
+            partnerOne.gameObject.SetActive(true);
+            currentPartner = partnerOne;
             currentPartner.transform.position = workingTransform.position;
-            dinoTwo.gameObject.SetActive(false);
-            dinoThree.gameObject.SetActive(false);
+            partnerTwo.gameObject.SetActive(false);
+            partnerThree.gameObject.SetActive(false);
         }
         else if (stage == 2)
         {
-            dinoTwo.gameObject.SetActive(true);
-            currentPartner = dinoTwo;
+            partnerTwo.gameObject.SetActive(true);
+            currentPartner = partnerTwo;
             currentPartner.transform.position = workingTransform.position;
-            dinoOne.gameObject.SetActive(false);
-            dinoThree.gameObject.SetActive(false);
+            partnerOne.gameObject.SetActive(false);
+            partnerThree.gameObject.SetActive(false);
             
                 currentPartner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
         }
         else if (stage == 3)
         {
-            dinoThree.gameObject.SetActive(true);
+            partnerThree.gameObject.SetActive(true);
 
-            currentPartner = dinoThree;
+            currentPartner = partnerThree;
             currentPartner.transform.position = workingTransform.position;
-            dinoOne.gameObject.SetActive(false);
-            dinoTwo.gameObject.SetActive(false);
+            partnerOne.gameObject.SetActive(false);
+            partnerTwo.gameObject.SetActive(false);
             
                 currentPartner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
 
         }
+        GameManager.Instance.SetPartner(currentPartner); // sending the correct reference to be stored in the partner variable in SaveLoadManager
+    }
+    public void SetLastPartnerActive(GameObject lastPartner)
+    {
+        Partner partner = lastPartner.GetComponent<Partner>();
+        if (partner)
+        {
+
+
+            if (partner.stageOne)
+            {
+                SwitchStage(1);
+            }
+            else if (partner.stageTwo)
+            {
+                SwitchStage(2);
+
+            }
+            else if (partner.stageThree)
+            {
+                SwitchStage(3);
+
+            }
+        }
+        else Debug.LogError("no Partner component found" + lastPartner.name);
+    }
+    public void MoveCurrentPartner(Transform partnerTransform, Vector2 location)
+    {
+        partnerTransform.position = location;
+    }
+
+    public GameObject ReturnPartnerType(PartnerType partnerType)
+    {
+       
+        if(partnerPrefabs.TryGetValue(partnerType, out GameObject partnerPrefab))
+        {
+            return partnerPrefab;
+        }
+        else
+        {
+            Debug.LogError("PartnerType not found in partnerPrefabs PartnerManager dictionary");
+            return null;
+        }
+
+
+
 
     }
-    
+
 
 }

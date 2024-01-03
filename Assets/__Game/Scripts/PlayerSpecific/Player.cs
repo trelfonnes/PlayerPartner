@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public PlayerHoldItemState HoldItemState { get; private set; }
     public PlayerWatchState WatchState { get; private set; }
     public PlayerEvolutionState EvolutionState { get; private set; }
+    public PlayerDefeatedState DefeatedState { get; private set; }
+    public PlayerFallingState FallingState { get; private set; }
     #endregion
     public CoreHandler core { get; private set; }
     public Animator anim { get; private set; }
@@ -40,6 +42,8 @@ public class Player : MonoBehaviour
     Weapon primaryWeapon;
     Weapon secondaryWeapon;
 
+    public event Action onFallOver;
+    public event Action onFallStarted;
 
 
     #region Unity Callback Functions Initialized in Awake Method
@@ -48,13 +52,16 @@ public class Player : MonoBehaviour
     {
         
         playerDirection = Vector2.down;
-        StateMachine = new PlayerStateMachine();
         core = GetComponentInChildren<CoreHandler>();
         primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<Weapon>();
         secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<Weapon>();
         primaryWeapon.SetCore(core);
         secondaryWeapon.SetCore(core);
         _playerData = PlayerData.Instance;
+        anim = GetComponent<Animator>();
+        InputHandler = GetComponent<PlayerInputHandler>();
+        StateMachine = new PlayerStateMachine();
+
         IdleState = new PlayerIdleState(this, StateMachine, playerSOData, _playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerSOData, _playerData, "move");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerSOData, _playerData, "attack", primaryWeapon, CombatInputs.primary);
@@ -64,13 +71,14 @@ public class Player : MonoBehaviour
         HoldItemState = new PlayerHoldItemState(this, StateMachine, playerSOData, _playerData, "holdItem");
         WatchState = new PlayerWatchState(this, StateMachine, playerSOData, _playerData, "watch");
         EvolutionState = new PlayerEvolutionState(this, StateMachine, playerSOData, _playerData, "evolve");
+        DefeatedState = new PlayerDefeatedState(this, StateMachine, playerSOData, _playerData, "defeated");
+        FallingState = new PlayerFallingState(this, StateMachine, playerSOData, _playerData, "falling");
 
     }
     #endregion
     protected virtual void Start()
     {
-        anim = GetComponent<Animator>();
-        InputHandler = GetComponent<PlayerInputHandler>();
+      
         StateMachine.Initialize(IdleState); //for when states are referenced in awake.
     }
     protected virtual void Update()
@@ -86,7 +94,28 @@ public class Player : MonoBehaviour
         //connected physics update for specific character
        StateMachine.CurrentState.PhysicsUpdate();
     }
-   
+    private void OnDisable()
+    {
+        StateMachine.CurrentState.OnDisable();
+    }
+    public void PlayerIsDefeated()
+    {
+        //logic for whatever needs to be done. Trigger game over screen
+    }
+
+    public void OnFallAnimEvent()
+    {
+        onFallOver?.Invoke();
+    }
+    public void OnStartFallEvent()
+    {
+        onFallStarted?.Invoke();
+    }
+    void UnsubscribeToEvolutionEvents()
+    {
+
+    }
+
     #region For Saving Data BIND
     internal void Bind(PlayerData playerData)
     {
