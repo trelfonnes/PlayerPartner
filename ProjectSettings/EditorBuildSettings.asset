@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__Game/Scenes/PartnerSelectScene.unity
     guid: 5f17a15e29b7d8d4e9ae17a15c6ba49b
+  - enabled: 1
+    path: Assets/__Game/Scenes/BattleArena.unity
+    guid: a2b4d4bf55557724b9e74ff37225bb10
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f950216f28e09fa408ee011d9352c95e, type: 2}

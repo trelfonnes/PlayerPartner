@@ -78,6 +78,12 @@ public class EvolutionEvents : ScriptableObject
            
         }
     }
+    public void UnSubscribeAllEvents()
+    {
+        OnSwitchToPartner = null;
+        OnSwitchToPlayer = null;
+       
+    }
     private static readonly Queue<EvolutionEventData> eventPool = new Queue<EvolutionEventData>();
 
 

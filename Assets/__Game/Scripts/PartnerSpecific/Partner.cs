@@ -57,6 +57,7 @@ public class Partner : MonoBehaviour
 
     protected virtual void Awake()
     {
+        Debug.Log("Creating a Partner in awake" + gameObject.name);
         core = GetComponentInChildren<CoreHandler>();
         primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<PartnerWeapon>();
         secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<PartnerWeapon>();
@@ -131,6 +132,8 @@ public class Partner : MonoBehaviour
     private void OnDisable()
     {
         StateMachine.CurrentPartnerState.OnDisable();
+        Debug.Log("Disabling a Partner in awake" + gameObject.name);
+
     }
 
     #region PartnerEvolutionEventsForAnimEvents

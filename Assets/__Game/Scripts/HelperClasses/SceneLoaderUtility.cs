@@ -6,6 +6,31 @@ public class SceneLoaderUtility
 {
   public void LoadScene(string sceneName)
    {
+        
+
+        SaveLoadManager.Instance.SaveDataForSceneSwitch();
+        if(GameStateTracker.Instance.CurrentGameState != GameState.Arena) //check before changing to next scene
+        {
+            GameManager.Instance.SavePlayerPartnerLocation();
+        }
+        if (sceneName == "BattleArena")
+        {
+            GameStateTracker.Instance.ChangeGameState(GameState.Arena);
+        }
+        else if (sceneName == "Overworld")
+        {
+            GameManager.Instance.SavePlayerPartnerLocation();
+
+            GameStateTracker.Instance.ChangeGameState(GameState.overworld);
+
+        }
+        else if (sceneName == "SandBoxScene")
+        {
+           
+
+            GameStateTracker.Instance.ChangeGameState(GameState.overworld);
+
+        }
         SceneManager.LoadScene(sceneName);
     
     }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 
 [System.Serializable]
 public class PlayerPrefabMapping
@@ -15,10 +15,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<PlayerPrefabMapping> playerMappings = new List<PlayerPrefabMapping>();
 
     private Dictionary<PlayerType, GameObject> playerPrefabs = new Dictionary<PlayerType, GameObject>();
-    Player playerClass;
-    
+     Player playerClass;
 
-    GameObject player;
+
+    public GameObject player { get; private set; }
     [SerializeField] Vector2 startingSpawnPoint; //TODO: For testing
     private static PlayerManager instance;
     public static PlayerManager Instance
@@ -79,13 +79,13 @@ public class PlayerManager : MonoBehaviour
     void InstantiatePlayer(GameObject player)
     {
         playerClass = player.GetComponent<Player>();
-        Instantiate(player);
+        player.SetActive(true);
         player.transform.position = startingSpawnPoint;
-        GameManager.Instance.SetPlayer(playerClass);
+        GameManager.Instance.SetPlayerInSaveManager(playerClass);
         player.SetActive(true);
     }
-    public void MoveThePlayer(Transform playerTransform, Vector2 newPosition)
+    public void MoveThePlayer(Vector2 newPosition)
     {
-        playerTransform.position = newPosition;
+        player.transform.position = newPosition;
     }
 }

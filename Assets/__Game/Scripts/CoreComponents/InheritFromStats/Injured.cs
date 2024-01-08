@@ -26,7 +26,7 @@ public class Injured : Stats, IInjured
         SOData.IsInjured = rotate;
         if (SOData.IsInjured)
         {
-            playerData.LowerEPOnInjury();
+            PlayerData.Instance.LowerEPOnInjury();
             base.IsInjured();
         }
         UpdateConditionUI();

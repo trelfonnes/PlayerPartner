@@ -18,6 +18,7 @@ MonoBehaviour:
   weaponName: Melee attack
   weaponImage: {fileID: -452101086, guid: f2eeea435bd8a744f8aa07bcbe455ca6, type: 3}
   isPlayerWeapon: 0
+  isCableCordUpgrade: 0
   isPartnerWeapon: 1
   isPrimary: 1
   isPartnerOne: 1

@@ -11,7 +11,7 @@ public class SaveLoadManager : DataReferenceInheritor
     PlayerSOData partner1BasicData;
     PlayerSOData partner2BasicData;
     PlayerSOData partner3BasicData;
-    [SerializeField] PlayerData sharedPartnerData;
+    [SerializeField] PlayerData sharedPlayerData;
     [SerializeField] PlayerInventory playerInventory;
     [SerializeField] PlayerArtifactInventory artifactInventory;
     [SerializeField] List<inventoryItems> itemsAmountInInventory;
@@ -23,28 +23,24 @@ public class SaveLoadManager : DataReferenceInheritor
     [SerializeField] Partner partner;
     [SerializeField] Vector2 savedLocations;
     [SerializeField] Transform locationForPartnerLoad;
-    NPCManager npcManager;
+   [SerializeField] NPCManager npcManager;
     SceneLoaderUtility sceneLoader = new SceneLoaderUtility();
-
+    
     
 
-    [SerializeField] GameObject activePartner;
+    [SerializeField] PartnerType activePartner;
 
     public static SaveLoadManager Instance;
 
-    private void OnEnable()
-    {
-        SceneManager.sceneUnloaded += SaveDataFromSceneUnloaded;
-        SceneManager.sceneLoaded += LoadDataFromSceneLoaded;
-    }
-    private void OnDisable()
-    {
-        SceneManager.sceneUnloaded -= SaveDataFromSceneUnloaded;
-        SceneManager.sceneLoaded -= LoadDataFromSceneLoaded;
-    }
+   
     public void InitializeNPCManager(NPCManager npcManager)
     {
         this.npcManager = npcManager;
+        LoadNPCData();
+    }
+    public void InitializeSharedPlayerData(PlayerData playerData)
+    {
+        sharedPlayerData = playerData;
     }
     protected override void Awake()
     {
@@ -75,57 +71,46 @@ public class SaveLoadManager : DataReferenceInheritor
         this.player = player;
     }
 
-    public void SetPartner(GameObject currentPartner)
+    public void SetPartner(PartnerType currentPartner)
     {
         activePartner = currentPartner;
-        Partner partner = currentPartner.GetComponent<Partner>();
-        this.partner = partner;
+       
     }
     public bool IsSaveFile()
     {
         return Directory.Exists(Application.persistentDataPath + "/game_save");
         
     }
-    public void SaveDataFromSceneUnloaded(Scene scene)
+   public void SaveDataForSceneSwitch() //can't sub to scenemanager unloaded so call from utility here.
     {
-        if (scene.name == "BattleArena")
-        {
-            GameManager.Instance.SetGameState(GameState.Arena);// when arena is unloaded, I save just the persistant data
-        }
-        else
-        {
-            GameManager.Instance.SetGameState(GameState.overworld);
-        }
-
-        if (GameManager.Instance.CurrentGameState == GameState.Arena)
+        if(GameStateTracker.Instance.CurrentGameState == GameState.Arena)
         {
             SaveDataFromBattleArena();
         }
         else
         {
             SaveGlobalData();
-            SaveCurrentScene(scene);
         }
     }
+
+     
+    
     public void LoadDataFromSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "BattleArena") // check the incomming scene, set state accordingly
         {
-            GameManager.Instance.SetGameState(GameState.Arena); //when arena is entered, I load just persistant data
+            GameStateTracker.Instance.ChangeGameState(GameState.Arena); //when arena is entered, I load just persistant data
+        }
+        else if(scene.name == "Dungeon") //Might not need this.
+        {
+            GameStateTracker.Instance.ChangeGameState(GameState.Dungeon);
         }
         else
         {
-            GameManager.Instance.SetGameState(GameState.overworld);
+            GameStateTracker.Instance.ChangeGameState(GameState.overworld);
         }
 
-        if (GameManager.Instance.CurrentGameState == GameState.Arena)
-        {
-            LoadBattleArenaData();
-        }
-        else
-        {
-            LoadGlobalData();
-        }
+       
     }
     public void SaveGlobalData() //Globals to be called when all data is needed. i.e. starting the game or returning to the overworld/ anywhere with all needed functionality
     {  // before exiting overworld. Or use for an autosave, etc. NOT during a battlescene.
@@ -134,24 +119,27 @@ public class SaveLoadManager : DataReferenceInheritor
         SaveSharedPartnerData();
         SavePlayerInventoryContents();
         SaveWeaponItems();
-        SavePlayerPartnerLocation();
+       // SaveLastPlayerPosition(); //
         SaveLastActivePartner();
-        SaveNPCData();
-        PopUpUI();
+        //PopUpUI(); call this during Player save, not auto save between scenes
       
+    }
+    public void LoadSavedSceneFromMenu() //Call this from the menu...
+    {
+        LoadCurrentScene();
+
     }
     public void LoadGlobalData()// return to overworld or load game from menu.
     {
         
-       // LoadCurrentScene();
         LoadPlayerPartnerBasicData();
-        LoadSharedPartnerData();
-        LoadPlayerInventoryContents();
+        //LoadSharedPartnerData();
+        LoadPlayerInventoryContents(); 
         LoadWeaponItems();
-        LoadPlayerPartnerLocation();
+        //LoadPlayerPartnerLocation(); this needs to be done after initialized or this class won't have reference to player or partner
         LoadLastActivePartner();
         LoadChosenPlayerAndPartner();
-        LoadNPCData();
+       // LoadNPCData();
     }
 
     public void LoadChosenPlayerAndPartner()
@@ -168,6 +156,7 @@ public class SaveLoadManager : DataReferenceInheritor
     public void SaveDataFromBattleArena() // these will be called right before leaving the Arena, to update any stat boosts or items received from the battle
     {
         SavePlayerPartnerBasicData();
+        SaveSharedPartnerData();
         SaveWeaponItems();
         SaveNPCData();
 
@@ -175,7 +164,7 @@ public class SaveLoadManager : DataReferenceInheritor
     public void LoadBattleArenaData() //This will be called right before entering the arena, to persist data needed for the battle such as stats
     {
         LoadPlayerPartnerBasicData();
-        LoadSharedPartnerData();
+       // LoadSharedPartnerData();
         LoadWeaponItems();
     }
 
@@ -194,8 +183,9 @@ public class SaveLoadManager : DataReferenceInheritor
             npcManager.RestoreSavedList(listToLoad);
         }
     }
-    void SaveCurrentScene(Scene scene)
+   public void SaveCurrentScene() 
     {
+        string scene = sceneLoader.GetCurrentScene();
        // string sceneToSave = sceneLoader.GetCurrentScene();
         ES3.Save("currentScene", scene);
     }
@@ -218,22 +208,27 @@ public class SaveLoadManager : DataReferenceInheritor
     }
     private void LoadPlayerPartnerBasicData()
     {
-        ES3.Load("playerDataSO");
+        ES3.Load("playerDataSO", playerBasicData);
         ES3.Load("partner1BasicData", partner1SOData);
         ES3.Load("partner2BasicData", partner2SOData);
         ES3.Load("partner3BasicData", partner3SOData);
     }
     void SaveSharedPartnerData() //AKA PlayerData
     {
-        ES3.Save("sharedPartnerData", sharedPartnerData);
+        ES3.Save("sharedPartnerData", sharedPlayerData);
 
     }
-    void LoadSharedPartnerData()
+    public PlayerData LoadSharedPartnerData()
     {
-        if(ES3.KeyExists("sharedPartnerData"))
-        ES3.Load("sharedPartnerData");
-    }
-    void SavePlayerInventoryContents()
+        if (sharedPlayerData != null)
+        {
+            sharedPlayerData = ES3.Load<PlayerData>("sharedPartnerData");
+            return sharedPlayerData;
+        }
+        else { return null; }
+
+        }
+        void SavePlayerInventoryContents()
     {
         ES3.Save("playerInventory", playerInventory);
         ES3.Save("individualInventoryItems", itemsAmountInInventory);
@@ -257,6 +252,7 @@ public class SaveLoadManager : DataReferenceInheritor
     }
     void SaveWeaponItems()
     {
+        Debug.Log("SAVE WEAPON ITEMS" + playerWeapons + partnerWeapons);
         playerWeapons = weaponInventoryManager.playerWeaponsInInventory;
         partnerWeapons = weaponInventoryManager.partnerWeaponsInInventory;
 
@@ -265,6 +261,8 @@ public class SaveLoadManager : DataReferenceInheritor
     }
     void LoadWeaponItems()
     {
+        Debug.Log("LOAD WEAPON ITEMS" + playerWeapons + partnerWeapons);
+
         if (ES3.KeyExists("playerWeapons"))
         {
             // Load playerWeapons data
@@ -291,27 +289,8 @@ public class SaveLoadManager : DataReferenceInheritor
         weaponInventoryManager.ClearAndMakeSlots();
     
     }
-     void SavePlayerPartnerLocation()
-    {
-        savedLocations = player.transform.position; 
-      
-        ES3.Save("playerPartnerLocation", savedLocations);
-
-    }
-    void LoadPlayerPartnerLocation()
-    {
-        if (ES3.KeyExists("playerPartnerLocation"))
-        {
-            savedLocations = ES3.Load<Vector2>("playerPartnerLocation");
-            player.transform.position = savedLocations;
-            partner.transform.position = savedLocations;
-        }
-        else
-        {
-            Debug.LogWarning("Key 'playerPartnerLocation' does not exist or data is not loaded.");
-
-        }
-    }
+     
+    
     void SaveLastActivePartner()
     {
         ES3.Save("lastActivePartner", activePartner);
@@ -320,8 +299,8 @@ public class SaveLoadManager : DataReferenceInheritor
     {
         if (ES3.KeyExists("lastActivePartner"))
         {
-            activePartner = ES3.Load<GameObject>("lastActivePartner");
-            activePartner.SetActive(true);
+            activePartner = ES3.Load<PartnerType>("lastActivePartner");
+           
 
             PartnerManager.Instance.SetLastPartnerActive(activePartner);
             
@@ -331,7 +310,24 @@ public class SaveLoadManager : DataReferenceInheritor
             Debug.LogError("lastActivePartner key does not exist");
         }
     }
-  
+    public void SaveLastPlayerPosition()
+    {
+        savedLocations = player.transform.position;
+
+        ES3.Save("playerPartnerLocation", savedLocations);
+
+    }
+    public Vector2 LoadLastPlayerPosition()
+    {
+        if (ES3.KeyExists("playerPartnerLocation"))
+        {
+            savedLocations = ES3.Load<Vector2>("playerPartnerLocation");
+            return savedLocations;
+            //pass in saved locations to both
+        }
+        else return Vector2.zero;
+       
+    }
     public void SaveGame()
     {// add saving PlayerInventory scriptable object
      //base folder

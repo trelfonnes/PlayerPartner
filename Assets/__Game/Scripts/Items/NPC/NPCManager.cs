@@ -10,6 +10,10 @@ public class NPCManager : MonoBehaviour
 
     private void Awake()
     {
+      
+    }
+    private void Start()
+    {
         SaveLoadManager.Instance.InitializeNPCManager(this);
     }
 

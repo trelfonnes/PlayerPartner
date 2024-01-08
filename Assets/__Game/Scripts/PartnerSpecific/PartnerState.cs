@@ -55,10 +55,13 @@ public class PartnerState
 
     public virtual void Exit()
     {
-        partner.anim.SetBool(animBoolName, false);
-        isExitingState = true;
-        statEvents.onCurrentHealthZero -= Partner1Defeated;
-
+       
+        
+            partner.anim.SetBool(animBoolName, false);
+        
+            isExitingState = true;
+            statEvents.onCurrentHealthZero -= Partner1Defeated;
+        
 
     }
     public virtual void OnDisable()

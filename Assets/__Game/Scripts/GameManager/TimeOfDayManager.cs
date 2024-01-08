@@ -7,11 +7,11 @@ using UnityEngine.Rendering.Universal;
 public class TimeOfDayManager : MonoBehaviour
 {
     public static TimeOfDayManager Instance { get; private set; }
-    Light2D globalLight;
+    [SerializeField] Light2D globalLight;
     [SerializeField] float targetIntensity = 1f;
     [SerializeField] float transitionDuration = 3f;
     float transitionTimer = 0f;
-
+    private int currentHour = 2;
     public bool isIndoors; //access this and change to true when indoors. When back outdoors, switch to false first, then executetimevisuallogic
     public TimeOfDay CurrentTimeOfDay { get; private set; }
     public enum TimeOfDay
@@ -50,25 +50,28 @@ public class TimeOfDayManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         HoursPassed = 2;
-
+        if (globalLight == null)
+        {
+            globalLight = GetComponentInChildren<Light2D>();
+        }
     }
-
 
 
     private void Start()
     {
-        globalLight = GetComponent<Light2D>();
-        //then checked and set. e.g. works with entering and exiting indoors and outdoors.
-       // This script continues to be subscribed to ontick indoors. However, use flag isIndoors
-       // before RunTimeLogic is executed. That way HoursPassed will increment but lighting wont change
-        ExecuteTimeVisualLogic();
-
+            ExecuteTimeVisualLogic();
+        
     }
     private void Update()
     {
-        ChangeLight();
+                
+            ChangeLight();
+        
     }
-
+    public int GetCurrentHour()
+    {
+        return currentHour;
+    }
     private void ChangeLight()
     {
         if (transitionTimer < transitionDuration)
@@ -87,11 +90,14 @@ public class TimeOfDayManager : MonoBehaviour
 
     void HandleTimeTick(object sender, ClockManager.OnTickEventArgs e)
     {
+       
         if (HoursPassed >= 16)
         {
             HoursPassed = 0;
+            currentHour = 0;
         }
         HoursPassed++;
+        currentHour++;
 
         if (!isIndoors)
         {
@@ -179,7 +185,20 @@ public class TimeOfDayManager : MonoBehaviour
     {
         SubscribeToTimeTickEvent();
     }
-
+    public void DisableGlobalLight() // call from scene end
+    {
+        if (globalLight != null)
+        {
+            globalLight.enabled = false;
+        }
+    }
+    public void EnableGlobalLight() //call from scene start
+    {
+        if (globalLight)
+        {
+            globalLight.enabled = true;
+        }
+    }
     private void OnDisable()
     {
         UnSubscribeToHourlyTickEvent();

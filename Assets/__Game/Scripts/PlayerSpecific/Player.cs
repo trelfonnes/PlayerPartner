@@ -50,7 +50,8 @@ public class Player : MonoBehaviour
 
     protected virtual void Awake()
     {
-        
+        Debug.Log("Creating a Player in awake" + gameObject.name);
+
         playerDirection = Vector2.down;
         core = GetComponentInChildren<CoreHandler>();
         primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<Weapon>();
@@ -97,6 +98,8 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         StateMachine.CurrentState.OnDisable();
+        Debug.Log("Disabling a Player in awake" + gameObject.name);
+
     }
     public void PlayerIsDefeated()
     {

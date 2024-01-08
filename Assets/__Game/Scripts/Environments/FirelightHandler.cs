@@ -18,6 +18,27 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtin
        
         TimeOfDayManager.Instance.onDay += DimForDaylight;
         TimeOfDayManager.Instance.onEvening += BrightenForDusk;
+        CheckTheTime();
+    }
+    void CheckTheTime()
+    {
+        int currentHour = TimeOfDayManager.Instance.GetCurrentHour();
+        if( currentHour >=2 && currentHour < 6)
+        {
+            //morning brightness
+        }
+        else if(currentHour >=6 && currentHour< 10)
+        {
+            DimForDaylight();
+        }
+        else if(currentHour>=10 && currentHour < 14)
+        {
+            BrightenForDusk();
+        }
+        else
+        {
+            //night brightness
+        }
     }
     public void Interact()
     {
@@ -30,6 +51,7 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtin
     public void Light()
     {
         fire.SetActive(true);
+        CheckTheTime();
         RestAndRestore.SetActive(true);
         pointLight = GetComponentInChildren<Light2D>();
         hasBeenActivated = true;

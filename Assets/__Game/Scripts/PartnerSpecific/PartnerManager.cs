@@ -4,19 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[System.Serializable]
-public class PartnerPrefabMapping
-{
-    public PartnerType partnerType;
-    public GameObject partnerPrefab;
-}
+
 public class PartnerManager : MonoBehaviour
 {
 
-   [SerializeField] private List<PartnerPrefabMapping> partnerMappings = new List<PartnerPrefabMapping>();
+   [SerializeField] private PartnerPrefabMappings prefabMappings;
 
     // Dictionary to store partner prefabs with their corresponding PartnerType
-    private Dictionary<PartnerType, GameObject> partnerPrefabs = new Dictionary<PartnerType, GameObject>();
 
     private static PartnerManager instance;
     public static PartnerManager Instance
@@ -41,7 +35,7 @@ public class PartnerManager : MonoBehaviour
     [SerializeField] GameObject partnerOne;
     [SerializeField] GameObject partnerTwo;
     [SerializeField] GameObject partnerThree;
-    GameObject currentPartner;
+   public GameObject currentPartner { get; private set; }
     
     [SerializeField] Transform inactiveTransform;
     [SerializeField]Transform workingTransform;
@@ -79,79 +73,59 @@ public class PartnerManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
-        InitializePartnerPrefabs();
+        prefabMappings = GetComponentInChildren<PartnerPrefabMappings>();
+
+        if (prefabMappings == null)
+        {
+            Debug.LogError("Prefab mapping reference in PartnerManager is null");
+        }
 
     }
-    private void InitializePartnerPrefabs()
-    {
-        // Load and store partner prefabs in the dictionary
-        foreach (var mapping in partnerMappings)
-        {
-            if (mapping.partnerPrefab != null && !partnerPrefabs.ContainsKey(mapping.partnerType))
-            {
-                partnerPrefabs.Add(mapping.partnerType, mapping.partnerPrefab);
-            }
-            else
-            {
-                Debug.LogError("Invalid prefab mapping for " + mapping.partnerType.ToString());
-            }
-        }
-       // SetPartners();
-    }
+   
    public void SetPartners(PartnerType type)
     {
         if(type == PartnerType.DinoOne)
         {
-            partnerOne = GetPartnerPrefab(type);
-            partnerTwo = GetPartnerPrefab(PartnerType.DinoTwo);
-            partnerThree = GetPartnerPrefab(PartnerType.DinoThree);
+            partnerOne = prefabMappings.GetPartnerPrefab(type);
+            partnerTwo = prefabMappings.GetPartnerPrefab(PartnerType.DinoTwo);
+            partnerThree = prefabMappings.GetPartnerPrefab(PartnerType.DinoThree);
 
         }
         else if(type == PartnerType.BearOne)
         {
-            partnerOne = GetPartnerPrefab(type);
-            partnerTwo = GetPartnerPrefab(PartnerType.BearTwo);
-            partnerThree = GetPartnerPrefab(PartnerType.BearThree);
+            partnerOne = prefabMappings.GetPartnerPrefab(type);
+            partnerTwo = prefabMappings.GetPartnerPrefab(PartnerType.BearTwo);
+            partnerThree = prefabMappings.GetPartnerPrefab(PartnerType.BearThree);
         }
         else if(type == PartnerType.RabbitOne)
         {
-            partnerOne = GetPartnerPrefab(type);
-            partnerTwo = GetPartnerPrefab(PartnerType.RabbitTwo);
-            partnerThree = GetPartnerPrefab(PartnerType.RabbitThree);
+            partnerOne = prefabMappings.GetPartnerPrefab(type);
+            partnerTwo = prefabMappings.GetPartnerPrefab(PartnerType.RabbitTwo);
+            partnerThree = prefabMappings.GetPartnerPrefab(PartnerType.RabbitThree);
         }
         else if(type == PartnerType.AxelOne)
         {
-            partnerOne = GetPartnerPrefab(type);
-            partnerTwo = GetPartnerPrefab(PartnerType.AxelTwo);
-            partnerThree = GetPartnerPrefab(PartnerType.AxelThree);
+            partnerOne = prefabMappings.GetPartnerPrefab(type);
+            partnerTwo = prefabMappings.GetPartnerPrefab(PartnerType.AxelTwo);
+            partnerThree = prefabMappings.GetPartnerPrefab(PartnerType.AxelThree);
         }
         currentPartner = partnerOne;
         workingTransform.position = currentPartner.transform.position;
-        InstantiatePartner(currentPartner);
+        SavePartnerType(type);
+        InstantiatePartner(currentPartner, type);
     }
-    public GameObject GetPartnerPrefab(PartnerType partnerType)
+ 
+    void InstantiatePartner(GameObject partner, PartnerType type)
     {
-        // Retrieve the partner prefab based on the provided PartnerType
-        if (partnerPrefabs.ContainsKey(partnerType))
-        {
-            return partnerPrefabs[partnerType];
-        }
-        else
-        {
-            Debug.LogError("Prefab not found for " + partnerType.ToString());
-            return null;
-        }
-    }
-    void InstantiatePartner(GameObject partner)
-    {
-      
-        Instantiate(partner);
-        partner.transform.position = startingSpawnPoint;
-        GameManager.Instance.SetPartner(partner);
         partner.SetActive(true);
-    }
+        partner.transform.position = startingSpawnPoint;
 
+        GameManager.Instance.SetPartnerInSaveManager(type);
+    }
+    void SavePartnerType(PartnerType type)
+    {
+        GameManager.Instance.SetPartnerInSaveManager(type);
+    }
     private void OnStartEvolutionHandler(EvolutionEvents.EvolutionEventData e)
     {
 
@@ -196,16 +170,19 @@ public class PartnerManager : MonoBehaviour
                 currentPartner.GetComponentInChildren<IEvolutionPower>().StartEvolutionTimer();
 
         }
-        GameManager.Instance.SetPartner(currentPartner); // sending the correct reference to be stored in the partner variable in SaveLoadManager
     }
-    public void SetLastPartnerActive(GameObject lastPartner)
+    public void SetLastPartnerActive(PartnerType savedPartner)
     {
-        Partner partner = lastPartner.GetComponent<Partner>();
-        if (partner)
+        if (currentPartner)
         {
+            currentPartner.SetActive(false);
+        }
+        currentPartner = null;
+       currentPartner = ReturnPartnerType(savedPartner);
 
+        Partner partner = currentPartner.GetComponent<Partner>();
 
-            if (partner.stageOne)
+            if (partner.stageOne )
             {
                 SwitchStage(1);
             }
@@ -220,25 +197,17 @@ public class PartnerManager : MonoBehaviour
 
             }
         }
-        else Debug.LogError("no Partner component found" + lastPartner.name);
-    }
-    public void MoveCurrentPartner(Transform partnerTransform, Vector2 location)
+    
+    public void MoveCurrentPartner(Vector2 location)
     {
-        partnerTransform.position = location;
+        currentPartner.transform.position = location;
     }
 
-    public GameObject ReturnPartnerType(PartnerType partnerType)
+    public GameObject ReturnPartnerType(PartnerType partnerType) // goes through here to get to mappings
     {
-       
-        if(partnerPrefabs.TryGetValue(partnerType, out GameObject partnerPrefab))
-        {
-            return partnerPrefab;
-        }
-        else
-        {
-            Debug.LogError("PartnerType not found in partnerPrefabs PartnerManager dictionary");
-            return null;
-        }
+       GameObject partner = prefabMappings.GetPartnerPrefab(partnerType);
+
+        return partner;
 
 
 

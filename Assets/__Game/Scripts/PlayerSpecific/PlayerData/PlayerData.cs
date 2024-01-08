@@ -32,13 +32,42 @@ public class PlayerData : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-        roundedAmount = Mathf.RoundToInt(ep);
+       
+            roundedAmount = Mathf.RoundToInt(ep);
+    }
+    private void Start()
+    {
+        if (ES3.KeyExists("sharedPartnerData"))
+        {
+            PlayerData savedPlayerData = SaveLoadManager.Instance.LoadSharedPartnerData();
+            if (savedPlayerData != null)
+            {
+                InitializeDataWithSaveLoad(savedPlayerData);
+            }
+        }
+        SendDataToSaveLoad();
+    }
+    void InitializeDataWithSaveLoad(PlayerData savedPlayerData)
+    {
+        ep = savedPlayerData.ep;
+        currentExperience = savedPlayerData.currentExperience;
+        experienceToNextLevel = savedPlayerData.experienceToNextLevel;
+        currentBondLevel = savedPlayerData.currentBondLevel;
+        maxEp = savedPlayerData.maxEp;
+        deviceOneCollected = savedPlayerData.deviceOneCollected;
+        deviceTwoCollected = savedPlayerData.deviceTwoCollected;
+        StartEPTimer = savedPlayerData.StartEPTimer;
+        partnerIsDefeated = savedPlayerData.partnerIsDefeated;
+        lastPositionsInScene = savedPlayerData.lastPositionsInScene;
+    }
+    void SendDataToSaveLoad()
+    {
+        SaveLoadManager.Instance.InitializeSharedPlayerData(this);
     }
     private void OnEnable()
     {

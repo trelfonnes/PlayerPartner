@@ -16,9 +16,14 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     private bool isThrown = false;
     private bool wasKinematic;
     [SerializeField]private float throwDownwardForceMultiplier;
+    [SerializeField]private float throwUpwardForceMultiplier;
     [SerializeField]private float setDownwardForceMultiplier;
     [SerializeField] float setUpwardForceMultiplier;
+    [SerializeField] float airTravelTime;
     SpriteRenderer sr;
+    [SerializeField] private float throwDistanceLimit = 5f;
+    private Vector2 throwStartPosition;
+    [SerializeField] private float smoothTransitionTime;
 
     private void Start()
     {
@@ -68,14 +73,16 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     {
         itemTransform.parent = null;
 
-        if (direction == new Vector2(5,0) || direction == new Vector2(-5,0))
+        if (direction == new Vector2(5, 0) || direction == new Vector2(-5, 0))
         {
-            modifiedDirection = direction + Vector2.down * throwDownwardForceMultiplier;
+            modifiedDirection = direction + Vector2.up * throwUpwardForceMultiplier;
+            StartCoroutine(ApplyDownwardForceAfterDelay(direction));
         }
         else
-       {
-         modifiedDirection = direction;
-       }
+        {
+            modifiedDirection = direction;
+        }
+
         if (!isThrown && rb != null)
         {
             rb.velocity = Vector2.zero;
@@ -83,12 +90,52 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
             Physics2D.IgnoreLayerCollision(7, 18, true);
 
             rb.isKinematic = false;
-            rb.AddForce(modifiedDirection * throwSpeed, ForceMode2D.Impulse);
-            isThrown = true;
+            StartCoroutine(SmoothTransitionToVelocity(modifiedDirection.normalized * throwSpeed));
+            throwStartPosition = itemTransform.position;
+            StartCoroutine(TrackThrowDistance());
 
+            isThrown = true;
         }
     }
 
+    private IEnumerator ApplyDownwardForceAfterDelay(Vector2 direction)
+    {
+        yield return new WaitForSeconds(airTravelTime); // Adjust the delay duration as needed
+
+        modifiedDirection = direction + Vector2.down * throwDownwardForceMultiplier;
+
+        // Set downward velocity smoothly
+        StartCoroutine(SmoothTransitionToVelocity(modifiedDirection.normalized * throwSpeed));
+        isThrown = true;
+    }
+
+    private IEnumerator SmoothTransitionToVelocity(Vector2 targetVelocity)
+    {
+        float elapsedTime = 0f;
+        Vector2 initialVelocity = rb.velocity;
+
+        while (elapsedTime < smoothTransitionTime)
+        {
+            rb.velocity = Vector2.Lerp(initialVelocity, targetVelocity, elapsedTime / smoothTransitionTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        rb.velocity = targetVelocity;
+    }
+    private IEnumerator TrackThrowDistance()
+    {
+        float initialDistance = Vector2.Distance(itemTransform.position, throwStartPosition);
+
+        while (initialDistance + throwDistanceLimit > Vector2.Distance(itemTransform.position, throwStartPosition))
+        {
+            yield return null;
+        }
+
+        // Stop the object after reaching the distance limit
+        rb.velocity = Vector2.zero;
+        Land();
+    }
     public void SetDown(Vector2 direction)
     {
         if (direction == Vector2.up)

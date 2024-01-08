@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryMediator: MonoBehaviour
-{
+{ 
 
     [SerializeField] List<PlayerSOData> Datas = new List<PlayerSOData>();
 
@@ -23,14 +23,14 @@ public class InventoryMediator: MonoBehaviour
             
         }
     }
-    public void IncreasePartnerHealth(float amount)
+    public void IncreasePlayerHealth(float amount)
     {
         if (Datas != null && !PlayerData.Instance.partnerIsDefeated)
         {
 
             for (int i = 0; i < Datas.Count; i++)
             {
-                if (i != 0) // 0 is the first slot in the list which will always be for the player
+                if (i == 0) // 0 is the first slot in the list which will always be for the player
                 {
                     Datas[i].CurrentHealth = Mathf.Clamp(Datas[i].CurrentHealth + amount, 0, Datas[i].MaxHealth);
                 }
@@ -39,14 +39,14 @@ public class InventoryMediator: MonoBehaviour
         }    
         
     }
-    public void IncreasePlayerHealth(float amount)
+    public void IncreasePartnerHealth(float amount)
     {
         Debug.Log("Health UP");
         if (Datas != null)
         {
             for (int i = 0; i < Datas.Count; i++)
             {
-                if (i == 0)
+                if (i != 0)
                 {
                     float adjustedAmount = Mathf.Clamp(Datas[i].CurrentHealth + amount, 0, Datas[i].MaxHealth);
                     Datas[i].SetPartnerHealthFromItem(adjustedAmount);

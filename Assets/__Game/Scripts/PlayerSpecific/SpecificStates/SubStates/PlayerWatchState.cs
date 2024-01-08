@@ -44,7 +44,6 @@ public class PlayerWatchState : PlayerBasicState
                            //TODO logic for switching camera from player to partner.. perhaps on entry
                            // Within partner: logic for switching camera from partner to player. or switch back to player on exit.
 
-        Debug.Log("In watch state");
         
         
     }

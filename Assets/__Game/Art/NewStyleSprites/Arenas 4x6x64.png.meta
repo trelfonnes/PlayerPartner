@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2eeea435bd8a744f8aa07bcbe455ca6
+guid: 219786d0c221a7c498268d0544ab89aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 28
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Weapon Sprites pt.2_0
+      name: Arenas 4x6x64_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 172
-        width: 32
-        height: 32
+        x: 39
+        y: 590
+        width: 386
+        height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fef89d5a8fe2ef4abf02ff4c1ece922
-      internalID: -397211858
+      spriteID: 878dafb023814e64aa82390e58ad7676
+      internalID: 1583184749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon Sprites pt.2_1
+      name: Arenas 4x6x64_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 140
-        width: 32
-        height: 32
+        x: 38
+        y: 312
+        width: 386
+        height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e8d77390d257804585777e335100e43
-      internalID: -452101086
+      spriteID: d583c53edd22c5e4886e5adbe7c9b21d
+      internalID: -2046808046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon Sprites pt.2_2
+      name: Arenas 4x6x64_2
       rect:
         serializedVersion: 2
-        x: 160
-        y: 140
-        width: 32
-        height: 32
+        x: 35
+        y: 20
+        width: 386
+        height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,92 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53743858d48318341ac4f43bfa3d64f9
-      internalID: 230030118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Weapon Sprites pt.2_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 140
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 392d3e2f36051d241a59fd8a3ec65c15
-      internalID: 3679362
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Weapon Sprites pt.2_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 108
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5752a4d5ae3bb5479e7204648da2d17
-      internalID: -2073985583
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Weapon Sprites pt.2_5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 76
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cb1e707a87ae21479552af389e0e886
-      internalID: 305533956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Weapon Sprites pt.2_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 44
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f3fb51cd89069342a6f309ade122f85
-      internalID: 1813559058
+      spriteID: 5ac51b3c32956a74f81f1ec6a475d7ad
+      internalID: 644712859
       vertices: []
       indices: 
       edges: []
@@ -274,13 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Weapon Sprites pt.2_0: -397211858
-      Weapon Sprites pt.2_1: -452101086
-      Weapon Sprites pt.2_2: 230030118
-      Weapon Sprites pt.2_3: 3679362
-      Weapon Sprites pt.2_4: -2073985583
-      Weapon Sprites pt.2_5: 305533956
-      Weapon Sprites pt.2_6: 1813559058
+      Arenas 4x6x64_0: 1583184749
+      Arenas 4x6x64_1: -2046808046
+      Arenas 4x6x64_2: 644712859
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
