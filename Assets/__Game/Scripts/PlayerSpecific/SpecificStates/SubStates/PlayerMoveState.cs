@@ -40,10 +40,10 @@ public class PlayerMoveState : PlayerBasicState
         base.LogicUpdate();
         
         Movement?.CheckIfShouldFlip(xInput, yInput);
-        Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput,  yInput).normalized));
-       if(Movement.CurrentVelocity != Vector2.zero)
+        Movement?.SetVelocity(new Vector2(xInput, yInput).normalized, playerSOData.moveSpeed);
+        if (Movement.CurrentVelocity != Vector2.zero)
         {
-            Movement?.CheckCombatHitBoxDirection(xInput, yInput);
+          //  Movement?.CheckCombatHitBoxDirection(xInput, yInput);
             player.playerDirection = Movement.CurrentVelocity;
             player.anim.SetFloat("moveY", player.playerDirection.y);
             player.anim.SetFloat("moveX", player.playerDirection.x);

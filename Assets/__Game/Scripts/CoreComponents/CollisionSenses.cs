@@ -20,8 +20,10 @@ public class CollisionSenses : CoreComponent
     protected Transform collisionsCheckPoint; 
     [SerializeField]
     protected Transform groundCheckPoint;
-  
-   
+    public bool isIceTile;// { get; protected set; }
+    public bool isSandTile;// { get; protected set; }
+    public bool isSnowTile;// { get; protected set; }
+
 
     #endregion
 
@@ -35,10 +37,13 @@ public class CollisionSenses : CoreComponent
     [SerializeField] private float groundCheckRadius = 0.3f;
 
     [SerializeField] protected LayerMask whatIsWall;
-    [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected LayerMask whatIsPitfall;
 
     #endregion
+
+
+
 
     #region Public CollisionCheck Functions
     public bool WallCheck

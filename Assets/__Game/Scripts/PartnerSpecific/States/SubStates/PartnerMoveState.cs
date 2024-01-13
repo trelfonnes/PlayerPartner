@@ -52,11 +52,11 @@ public override void DoChecks()
     {
         base.LogicUpdate();
         Movement?.CheckIfShouldFlip(xInput, yInput);
-        Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput, yInput).normalized));
+        Movement?.SetVelocity(new Vector2(xInput, yInput).normalized, playerSOData.moveSpeed);
         if (Movement.CurrentVelocity != Vector2.zero)
         {
             Movement?.SetLatestVelocity(Movement.CurrentVelocity);
-            Movement?.CheckCombatHitBoxDirection(xInput, yInput);
+           // Movement?.CheckCombatHitBoxDirection(xInput, yInput);
             partner.playerDirection = Movement.CurrentVelocity;
             partner.anim.SetFloat("moveY", partner.playerDirection.y);
             partner.anim.SetFloat("moveX", partner.playerDirection.x);

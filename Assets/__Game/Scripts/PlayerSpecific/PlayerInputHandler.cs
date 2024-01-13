@@ -29,6 +29,7 @@ public class PlayerInputHandler : MonoBehaviour
     private float lastTapTime;
     private bool isResettingDash = false;
     private float resetDelay = .01f;
+    public bool HasMoveInput => RawMovementInput != Vector2.zero;
 
     private void Awake()
     {

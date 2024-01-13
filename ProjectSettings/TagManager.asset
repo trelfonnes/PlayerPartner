@@ -12,6 +12,9 @@ TagManager:
   - Bomb
   - Pitfall
   - Carryable
+  - IceTile
+  - SnowTile
+  - SandTile
   layers:
   - Default
   - TransparentFX

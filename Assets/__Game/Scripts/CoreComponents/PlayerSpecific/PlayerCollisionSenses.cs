@@ -15,9 +15,43 @@ public class PlayerCollisionSenses : CollisionSenses
     protected override void Start()
     {
         base.Start();
+        Collider2D tileCollider = GetTileColliderAtPlayerPosition();
+
+        if (tileCollider != null)
+        {
+            Debug.Log("PlayerCollisionSenses: Initialized inside tile: " + tileCollider.name);
+
+            if (tileCollider.CompareTag("IceTile"))
+            {
+                isIceTile = true;
+                isSandTile = false;
+                isSnowTile = false;
+            }
+            else if (tileCollider.CompareTag("SnowTile"))
+            {
+                isSnowTile = true;
+                isIceTile = false;
+                isSandTile = false;
+            }
+            else if (tileCollider.CompareTag("SandTile"))
+            {
+                isSandTile = true;
+                isIceTile = false;
+                isSnowTile = false;
+            }
+            // ... (repeat for other tile types)
+        }
+    }
+    private Collider2D GetTileColliderAtPlayerPosition()
+    {
+        
+            Vector2 playerPosition = player.transform.position;
+            Collider2D tileCollider = Physics2D.OverlapPoint(playerPosition, whatIsGround);
+
+            return tileCollider;
+        
 
     }
-
     public RaycastHit2D HitsToCarry
     {
         get
@@ -78,14 +112,63 @@ public class PlayerCollisionSenses : CollisionSenses
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Pitfall"))
+        Debug.Log("Collider detected in on collision" + collision.gameObject.name);
+        if (GroundCheck)
         {
-            Debug.Log("Fell in hole");
+            if (collision.CompareTag("Pitfall"))
+            {
 
-            player.OnStartFallEvent();
+                player.OnStartFallEvent();
+            }
+            if (collision.CompareTag("IceTile"))
+            {
+                Debug.Log("IceTile Detected");
+                isIceTile = true;
+                isSandTile = false;
+                isSnowTile = false;
+            }
+            else if (collision.CompareTag("SnowTile"))
+            {
+                isSnowTile = true;
+                isSandTile = false;
+                isIceTile = false;
+            }
+            else if (collision.CompareTag("SandTile"))
+            {
+                isSandTile = true;
+                isSnowTile = false;
+                isIceTile = false;
+            }
+            else
+            {
+                isSandTile = false;
+                isSnowTile = false;
+                isIceTile = false;
+            }
         }
     }
- 
 
+
+   
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+      //  Debug.Log("On trigger exit detected in collisionsensesPlayer");
+     //   if (collision.CompareTag("IceTile"))
+    //    {
+     //     isIceTile = false;
+
+       // }
+      //  if (collision.CompareTag("SnowTile"))
+      //  {
+      //      isSnowTile = false;
+
+     //   }
+      //  if (collision.CompareTag("SandTile"))
+      //  {
+       //     isSandTile = false;
+
+
+     //   }
+    }
 
 }

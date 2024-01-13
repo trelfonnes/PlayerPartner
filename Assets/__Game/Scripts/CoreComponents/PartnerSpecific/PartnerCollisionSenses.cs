@@ -65,13 +65,41 @@ public class PartnerCollisionSenses : CollisionSenses
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Pitfall"))
+        if (GroundCheck)
         {
-            if (!isJumping)
+            if (collision.CompareTag("Pitfall"))
             {
-                partner.OnStartFallEvent();
+
+                player.OnStartFallEvent();
+            }
+            if (collision.CompareTag("IceTile"))
+            {
+                Debug.Log("IceTile Detected");
+                isIceTile = true;
+                isSandTile = false;
+                isSnowTile = false;
+            }
+            else if (collision.CompareTag("SnowTile"))
+            {
+                isSnowTile = true;
+                isSandTile = false;
+                isIceTile = false;
+            }
+            else if (collision.CompareTag("SandTile"))
+            {
+                isSandTile = true;
+                isSnowTile = false;
+                isIceTile = false;
+            }
+            else
+            {
+                isSandTile = false;
+                isSnowTile = false;
+                isIceTile = false;
             }
         }
     }
+    
+    
 
 }
