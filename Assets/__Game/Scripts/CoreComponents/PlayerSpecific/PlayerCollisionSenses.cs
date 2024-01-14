@@ -46,7 +46,7 @@ public class PlayerCollisionSenses : CollisionSenses
     {
         
             Vector2 playerPosition = player.transform.position;
-            Collider2D tileCollider = Physics2D.OverlapPoint(playerPosition, whatIsGround);
+            Collider2D tileCollider = Physics2D.OverlapPoint(playerPosition, whatIsGround, 2f);
 
             return tileCollider;
         
@@ -112,14 +112,14 @@ public class PlayerCollisionSenses : CollisionSenses
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collider detected in on collision" + collision.gameObject.name);
+        if (collision.CompareTag("Pitfall"))
+        {
+
+            player.OnStartFallEvent();
+        }
         if (GroundCheck)
         {
-            if (collision.CompareTag("Pitfall"))
-            {
-
-                player.OnStartFallEvent();
-            }
+           
             if (collision.CompareTag("IceTile"))
             {
                 Debug.Log("IceTile Detected");

@@ -148,11 +148,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9edfa05b7bde44898e44e4d8b688ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: 25
+  throwSpeed: 15
   setDownDistance: 10
-  throwDownwardForceMultiplier: 0.7
+  throwInitialDownwardForceMultiplier: 7
+  throwInitialUpwardForceMultiplier: 2
   setDownwardForceMultiplier: 1.5
-  setUpwardForceMultiplier: 0
+  setUpwardForceMultiplier: 1
+  airTravelTime: 0.25
+  throwDistanceLimit: 5
+  smoothTransitionTime: 0.1
 --- !u!58 &2701611160141834290
 CircleCollider2D:
   m_ObjectHideFlags: 0

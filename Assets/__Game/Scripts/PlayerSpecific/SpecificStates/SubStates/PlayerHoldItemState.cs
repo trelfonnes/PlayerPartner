@@ -45,7 +45,7 @@ public class PlayerHoldItemState : PlayerBasicState
                 if (currentlyCarrying)
                 {
 
-                    HeldItemHit.collider.GetComponent<IThrow>().SetDown(player.playerDirection);
+                    HeldItemHit.collider.GetComponent<IThrow>().SetDown(player.lastDirection);
                     currentlyCarrying = false;
                     PSM.ChangeState(player.IdleState);
 

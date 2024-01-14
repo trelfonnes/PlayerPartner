@@ -65,13 +65,14 @@ public class PartnerCollisionSenses : CollisionSenses
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Pitfall"))
+        {
+
+            partner.OnStartFallEvent();
+        }
         if (GroundCheck)
         {
-            if (collision.CompareTag("Pitfall"))
-            {
-
-                player.OnStartFallEvent();
-            }
+          
             if (collision.CompareTag("IceTile"))
             {
                 Debug.Log("IceTile Detected");

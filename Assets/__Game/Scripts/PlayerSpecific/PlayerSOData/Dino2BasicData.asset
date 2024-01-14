@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSick: 0
   currentHealth: 7
-  stamina: 56
+  stamina: 58
   isInjured: 0
   moveSpeed: 5
   watchSpeed: 0
   followSpeed: 4.5
   MaxHealth: 7
   HealthLimit: 10
-  SP: 12
+  SP: 0
   MaxSP: 35
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
@@ -36,7 +36,7 @@ MonoBehaviour:
   canDash: 1
   dashTime: 0.15
   numberOfDashes: 1
-  dashForce: 4
+  dashForce: 3
   bondToEvolveOne: 16
   bondToEvolveTwo: 36
   stage1: 0

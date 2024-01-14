@@ -113,6 +113,7 @@ public class Player : MonoBehaviour
     public void OnStartFallEvent()
     {
         onFallStarted?.Invoke();
+        Debug.Log("Start falling Player");
     }
     void UnsubscribeToEvolutionEvents()
     {

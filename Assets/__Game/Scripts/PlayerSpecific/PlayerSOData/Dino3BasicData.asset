@@ -23,6 +23,8 @@ MonoBehaviour:
   HealthLimit: 13
   SP: 50
   MaxSP: 50
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
   MaxStamina: 70
   StaminaLimit: 80
   Poise: 60
@@ -34,9 +36,14 @@ MonoBehaviour:
   canDash: 1
   dashTime: 0.15
   numberOfDashes: 1
-  dashForce: 4
+  dashForce: 3
+  bondToEvolveOne: 0
+  bondToEvolveTwo: 0
   stage1: 0
   stage2: 0
   stage3: 1
+  isPlayer: 0
   Bytes: 0
   MaxBytes: 0
+  Keys: 0
+  BossKeys: 0

@@ -60,7 +60,7 @@ public class PartnerDashState : PartnerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        Movement?.SetVelocity(partner.playerDirection * playerSOData.dashForce);
+        Movement?.SetVelocity(partner.lastDirection * playerSOData.dashForce);
         timer += Time.deltaTime;
        
         if (timer >= playerSOData.dashTime)

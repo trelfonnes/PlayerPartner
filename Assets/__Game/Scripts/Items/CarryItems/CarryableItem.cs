@@ -15,8 +15,11 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     private Vector2 modifiedDirection;
     private bool isThrown = false;
     private bool wasKinematic;
-    [SerializeField]private float throwDownwardForceMultiplier;
-    [SerializeField]private float throwUpwardForceMultiplier;
+    [SerializeField]private float throwInitialDownwardForceMultiplier;
+    private float throwDownwardForceMultiplier;
+    private float throwUpwardForceMultiplier;
+
+    [SerializeField]private float throwInitialUpwardForceMultiplier;
     [SerializeField]private float setDownwardForceMultiplier;
     [SerializeField] float setUpwardForceMultiplier;
     [SerializeField] float airTravelTime;
@@ -24,6 +27,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     [SerializeField] private float throwDistanceLimit = 5f;
     private Vector2 throwStartPosition;
     [SerializeField] private float smoothTransitionTime;
+    bool landAppropriate;
 
     private void Start()
     {
@@ -45,15 +49,19 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
 
     private void Land()
     {
-
+        Debug.Log("land is called");
         isThrown = false;
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.isKinematic = wasKinematic;
-        Physics2D.IgnoreLayerCollision(7, 10, false);
-        Physics2D.IgnoreLayerCollision(7, 9, false);
-        Physics2D.IgnoreLayerCollision(7, 18, false);
-        sr.sortingOrder = 0;
+        if (landAppropriate)
+        {
+            Physics2D.IgnoreLayerCollision(7, 10, false);
+            Physics2D.IgnoreLayerCollision(7, 9, false);
+            Physics2D.IgnoreLayerCollision(7, 18, false);
+            Physics2D.IgnoreLayerCollision(7, 19, false);
+            sr.sortingOrder = 0;
+        }
         // transform.position = initialPosition;
     }
 
@@ -71,10 +79,23 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
 
     public void Throw(Vector2 direction)
     {
+        landAppropriate = false;
         itemTransform.parent = null;
-
-        if (direction == new Vector2(5, 0) || direction == new Vector2(-5, 0))
+     
+        if (direction.x > .05f || direction.x < -.05f)
         {
+            if (direction.y > 0)
+            {
+                throwUpwardForceMultiplier = throwInitialUpwardForceMultiplier * .75f;
+            }
+            else if (direction.y < 0)
+            {
+                throwUpwardForceMultiplier = throwInitialUpwardForceMultiplier * .5f;
+            }
+            else
+            {
+                throwUpwardForceMultiplier = throwInitialUpwardForceMultiplier;
+            }
             modifiedDirection = direction + Vector2.up * throwUpwardForceMultiplier;
             StartCoroutine(ApplyDownwardForceAfterDelay(direction));
         }
@@ -86,8 +107,10 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         if (!isThrown && rb != null)
         {
             rb.velocity = Vector2.zero;
+            Physics2D.IgnoreLayerCollision(7, 9, true);
             Physics2D.IgnoreLayerCollision(7, 10, true);
             Physics2D.IgnoreLayerCollision(7, 18, true);
+            Physics2D.IgnoreLayerCollision(7, 19, true);
 
             rb.isKinematic = false;
             StartCoroutine(SmoothTransitionToVelocity(modifiedDirection.normalized * throwSpeed));
@@ -101,9 +124,21 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     private IEnumerator ApplyDownwardForceAfterDelay(Vector2 direction)
     {
         yield return new WaitForSeconds(airTravelTime); // Adjust the delay duration as needed
-
+        if(direction.y > 0)
+        {
+            throwDownwardForceMultiplier = throwInitialDownwardForceMultiplier * .5f;
+        }
+        else if(direction.y < 0)
+        {
+            throwDownwardForceMultiplier = throwInitialDownwardForceMultiplier * 2f;
+        }
+        else
+        {
+            throwDownwardForceMultiplier = throwInitialDownwardForceMultiplier;
+        }
+        Debug.Log(throwDownwardForceMultiplier + "ThrowDownwardForceMultiplier");
         modifiedDirection = direction + Vector2.down * throwDownwardForceMultiplier;
-
+        Debug.Log(modifiedDirection);
         // Set downward velocity smoothly
         StartCoroutine(SmoothTransitionToVelocity(modifiedDirection.normalized * throwSpeed));
         isThrown = true;
@@ -134,10 +169,12 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
 
         // Stop the object after reaching the distance limit
         rb.velocity = Vector2.zero;
+        landAppropriate = true;
         Land();
     }
     public void SetDown(Vector2 direction)
     {
+        landAppropriate = true;
         if (direction == Vector2.up)
         {
             modifiedDirection = direction * setUpwardForceMultiplier;
@@ -153,6 +190,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
             Physics2D.IgnoreLayerCollision(7, 9, true);
             Physics2D.IgnoreLayerCollision(7, 10, true);
             Physics2D.IgnoreLayerCollision(7, 18, true);
+            Physics2D.IgnoreLayerCollision(7, 19, true);
 
             itemTransform.parent = null;
             rb.isKinematic = false;

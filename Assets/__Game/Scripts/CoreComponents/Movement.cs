@@ -10,6 +10,7 @@ public class Movement : CoreComponent
     public int facingCombatDirectionX { get; private set; }
     public int facingCombatDirectionY { get; private set; }
     public int facingDirectionY { get; private set; }
+    Vector2 lastFacingCombatDirection;
     public Vector2 CurrentVelocity { get; private set; }
     public Vector2 latestMovingVelocity { get; private set; }
     public bool CanSetVelocity { get; set; }
@@ -49,12 +50,12 @@ public class Movement : CoreComponent
                 workspace = Vector2.Lerp(workspace, Vector2.zero, Time.deltaTime * decelerationRate);
                 SetFinalVelocity();
             }
-            
+
             if (rb.velocity != Vector2.zero)
             {
-                int roundedValuex = Mathf.RoundToInt(rb.velocity.x);
-                int roundedValuey = Mathf.RoundToInt(rb.velocity.y);
-                CheckCombatHitBoxDirection(roundedValuex, roundedValuey);
+                player.playerDirection = rb.velocity;
+              
+                CheckCombatHitBoxDirection(player.playerDirection.x, player.playerDirection.y);
 
             }
         }
@@ -68,9 +69,9 @@ public class Movement : CoreComponent
 
             if (rb.velocity != Vector2.zero)
             {
-                int roundedValuex = Mathf.RoundToInt(rb.velocity.x);
-                int roundedValuey = Mathf.RoundToInt(rb.velocity.y);
-                CheckCombatHitBoxDirection(roundedValuex, roundedValuey);
+                partner.playerDirection = rb.velocity;
+              
+                CheckCombatHitBoxDirection(partner.playerDirection.x, partner.playerDirection.y);
 
             }
         }
@@ -96,35 +97,47 @@ public class Movement : CoreComponent
         }
     }
 
-    public void CheckCombatHitBoxDirection(int xInput, int yInput) 
+    public void CheckCombatHitBoxDirection(float xInput, float yInput) 
         {
-        if (xInput > 0)
+        if (xInput > .06f)
         {
             facingCombatDirectionX = 1;
         }
-        else if (xInput < 0)
+        else if (xInput < -.06f)
         {
             facingCombatDirectionX = -1;
         }
-        else if (xInput == 0)
+        else 
         {
             facingCombatDirectionX = 0;
         }
 
 
-        if (yInput > 0)
+        if (yInput > .06f)
         {
             facingCombatDirectionY = 1;
         }
-        else if (yInput < 0)
+        else if (yInput < -.06f)
         {
             facingCombatDirectionY = -1;
         }
-        else if( yInput == 0)
+        else
         {
             facingCombatDirectionY = 0;
         }
+        if (!enemy)
+        {
+            if (facingCombatDirectionX == 0 && facingCombatDirectionY == 0)
+            {
+                facingCombatDirectionX = (int)lastFacingCombatDirection.x;
+                facingCombatDirectionY = (int)lastFacingCombatDirection.y;
+            }
+            else
+            {
+                lastFacingCombatDirection = new Vector2(facingCombatDirectionX, facingCombatDirectionY);
 
+            }
+        }
     }
     public void CheckIfShouldFlipFollowing(Vector2 vector2)
     {
@@ -167,7 +180,6 @@ public class Movement : CoreComponent
 
 
             workspace = Vector2.Lerp(workspace, maxVelocity, Time.deltaTime * accelerationLerpFactor);
-            Debug.Log(workspace);
             SetFinalVelocity();
         }
     }
