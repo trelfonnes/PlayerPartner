@@ -122,29 +122,26 @@ public class PlayerCollisionSenses : CollisionSenses
            
             if (collision.CompareTag("IceTile"))
             {
-                Debug.Log("IceTile Detected");
+
                 isIceTile = true;
                 isSandTile = false;
                 isSnowTile = false;
             }
             else if (collision.CompareTag("SnowTile"))
             {
+
                 isSnowTile = true;
                 isSandTile = false;
                 isIceTile = false;
             }
             else if (collision.CompareTag("SandTile"))
             {
+
                 isSandTile = true;
                 isSnowTile = false;
                 isIceTile = false;
             }
-            else
-            {
-                isSandTile = false;
-                isSnowTile = false;
-                isIceTile = false;
-            }
+            
         }
     }
 
@@ -152,23 +149,27 @@ public class PlayerCollisionSenses : CollisionSenses
    
     private void OnTriggerExit2D(Collider2D collision)
     {
-      //  Debug.Log("On trigger exit detected in collisionsensesPlayer");
-     //   if (collision.CompareTag("IceTile"))
-    //    {
-     //     isIceTile = false;
+        if (GroundCheck) // this means on trigger exit wont run unless ground is detected while collider is exited.
+        {
+            if (collision.CompareTag("IceTile"))
+            {
+                Debug.Log("IceTile Detected Exiting");
 
-       // }
-      //  if (collision.CompareTag("SnowTile"))
-      //  {
-      //      isSnowTile = false;
-
-     //   }
-      //  if (collision.CompareTag("SandTile"))
-      //  {
-       //     isSandTile = false;
-
-
-     //   }
+                isIceTile = false;
+                
+            }
+            else if (collision.CompareTag("SnowTile"))
+            {
+                isSnowTile = false;
+              
+            }
+            else if (collision.CompareTag("SandTile"))
+            {
+                isSandTile = false;
+              
+            }
+          
+        }
     }
 
 }

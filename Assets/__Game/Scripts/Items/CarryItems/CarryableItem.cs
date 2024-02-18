@@ -73,6 +73,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
             itemTransform.position = CarryPoint.position;
             itemTransform.parent = CarryPoint;
             Physics2D.IgnoreLayerCollision(7, 10, true);
+            Physics2D.IgnoreLayerCollision(7, 19, true);
         sr.sortingOrder = 1;
         
     }

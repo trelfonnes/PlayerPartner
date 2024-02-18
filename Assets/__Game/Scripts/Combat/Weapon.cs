@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] WeaponDataSO Boomerang;
     [SerializeField] WeaponDataSO Bomb;
 
-
+   
 
     public WeaponDataSO Data { get; private set; }
 
@@ -40,9 +40,17 @@ public class Weapon : MonoBehaviour
     public AnimationEventHandler EventHandler { get; private set; }
     public CoreHandler Core { get; private set; }
 
+    Movement playerCoreMovement;
+    Movement PlayerCoreMovement
+    {
+        get => playerCoreMovement ??= Core.GetCoreComponent<Movement>();
+
+    }
+
     int currentAttackCounter;
      private Timer attackCounterResetTimer;
     private bool currentInput;
+    private Vector2 lastFacingCombatDirection;
 
     public bool CurrentInput
     {
@@ -62,8 +70,8 @@ public class Weapon : MonoBehaviour
     {
         print($"{transform.name} enter");
         anim.SetBool("active", true);
-        anim.SetFloat("moveX", player.lastDirection.x);
-        anim.SetFloat("moveY", player.lastDirection.y);
+        anim.SetFloat("moveX", PlayerCoreMovement.facingCombatDirectionX);
+        anim.SetFloat("moveY", PlayerCoreMovement.facingCombatDirectionY);
          anim.SetInteger("counter", CurrentAttackCounter);
         attackCounterResetTimer.StopTimer();
         onEnter?.Invoke();
@@ -96,6 +104,10 @@ public class Weapon : MonoBehaviour
     void ResetAttackCounter()
     {
         CurrentAttackCounter = 0;
+    }
+    private void Start()
+    {
+        
     }
     private void SwapWeapons()
     {
@@ -189,4 +201,5 @@ public class Weapon : MonoBehaviour
     {
         Data = data;
     }
+  
 }

@@ -15,6 +15,7 @@ TagManager:
   - IceTile
   - SnowTile
   - SandTile
+  - NormalTile
   layers:
   - Default
   - TransparentFX
@@ -36,7 +37,7 @@ TagManager:
   - Cutable
   - Enemy
   - Pitfall
-  - 
+  - BossMovePoint
   - 
   - 
   - 

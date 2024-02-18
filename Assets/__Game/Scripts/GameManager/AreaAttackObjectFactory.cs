@@ -24,7 +24,7 @@ public class AreaAttackObjectFactory : MonoBehaviour
     private Dictionary<AttackType, List<AreaAttackObject>> pooledObjects;
     private Dictionary<AttackType, AreaAttackObject> prefabDictionary; // This is what you need
 
-    // Reference to the AreaAttackObject prefab
+    // Reference to the AreaAttackObject prefabs add for more then intialize on awake
     [SerializeField] AreaAttackObject firePrefab;
     private void Awake()
     {

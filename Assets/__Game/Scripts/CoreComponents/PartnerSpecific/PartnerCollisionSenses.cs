@@ -75,7 +75,6 @@ public class PartnerCollisionSenses : CollisionSenses
           
             if (collision.CompareTag("IceTile"))
             {
-                Debug.Log("IceTile Detected");
                 isIceTile = true;
                 isSandTile = false;
                 isSnowTile = false;
@@ -92,15 +91,33 @@ public class PartnerCollisionSenses : CollisionSenses
                 isSnowTile = false;
                 isIceTile = false;
             }
-            else
-            {
-                isSandTile = false;
-                isSnowTile = false;
-                isIceTile = false;
-            }
+         
         }
     }
-    
-    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (GroundCheck)
+        {
+            if (collision.CompareTag("IceTile"))
+            {
+                Debug.Log("IceTile Detected Exiting");
+
+                isIceTile = false;
+
+            }
+            else if (collision.CompareTag("SnowTile"))
+            {
+                isSnowTile = false;
+
+            }
+            else if (collision.CompareTag("SandTile"))
+            {
+                isSandTile = false;
+
+            }
+
+        }
+    }
+
 
 }

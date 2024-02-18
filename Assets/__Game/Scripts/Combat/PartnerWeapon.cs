@@ -35,6 +35,12 @@ public class PartnerWeapon : MonoBehaviour
     Partner partner;
     public AnimationEventHandler EventHandler { get; private set; }
     public CoreHandler Core { get; private set; }
+    Movement partnerCoreMovement;
+    Movement PartnerCoreMovement
+    {
+        get => partnerCoreMovement ??= Core.GetCoreComponent<Movement>();
+
+    }
     bool devolve;
     bool currentInput;
     int currentAttackCounter;
@@ -55,8 +61,8 @@ public class PartnerWeapon : MonoBehaviour
     public void Enter()
     {
         anim.SetBool("active", true);
-        anim.SetFloat("moveX", partner.lastDirection.x);
-        anim.SetFloat("moveY", partner.lastDirection.y);
+        anim.SetFloat("moveX", PartnerCoreMovement.facingCombatDirectionX);
+        anim.SetFloat("moveY", PartnerCoreMovement.facingCombatDirectionY);
         anim.SetInteger("counter", CurrentAttackCounter);
         attackCounterResetTimer.StopTimer();
         isAnyInstanceAttacking = true;
