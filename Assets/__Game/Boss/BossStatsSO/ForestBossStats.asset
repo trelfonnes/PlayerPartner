@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: ForestBossStats
   m_EditorClassIdentifier: 
   health: 100
-  moveSpeed: 3
+  moveSpeed: 5
+  meleeTime: 1.5
+  timeBetweenProjectiles: 3

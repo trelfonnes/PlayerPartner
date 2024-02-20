@@ -7,5 +7,7 @@ public class BossStatsSO : ScriptableObject
 {
     public int health;
     public float moveSpeed;
+    public float meleeTime;
+    public float timeBetweenProjectiles;
     
 }

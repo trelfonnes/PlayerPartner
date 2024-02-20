@@ -9,6 +9,8 @@ public class BossBlackboard
     public bool isTouchingWall;
     public bool hasStarted;
     public float moveSpeed;
+    public float timeBetweenProj;
     public bool chooseDirection;
+    public float meleeTime;
 
 }

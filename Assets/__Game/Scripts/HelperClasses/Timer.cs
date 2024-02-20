@@ -11,6 +11,7 @@ public class Timer
     {
         this.duration = duration;
         elapsedTime = 0f;
+        isActive = false;
     }
 
     public void Update(float deltaTime)
@@ -41,6 +42,7 @@ public class Timer
         targetTime = startTime + duration;
         isActive = true;
     }
+    
 
     public void StopTimer()
     {

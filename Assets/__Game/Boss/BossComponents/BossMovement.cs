@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossMovement : BossCoreComponent
 {
     Rigidbody2D rb;
-
+    
 
     protected override void Awake()
     {
@@ -20,5 +20,18 @@ public class BossMovement : BossCoreComponent
         rb.velocity = direction * moveSpeed;
     }
 
-   
+   public void HoldMovementForMelee()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+    public void ContinueMovement(float timeToMove)
+    {
+        StartCoroutine(MoveAgain(timeToMove));
+    }
+    IEnumerator MoveAgain(float timeToMove)
+    {
+        yield return new WaitForSeconds(timeToMove);
+        rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+        rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+    }
 }

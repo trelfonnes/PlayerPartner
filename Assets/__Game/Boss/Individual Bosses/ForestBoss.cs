@@ -21,10 +21,20 @@ public class ForestBoss : BossAI
         base.InitializeBehaviorTree();
 
         SelectorNode rootNode = new SelectorNode(componentLocator, blackboard,
+            // for movement 
+            new SequenceNode(componentLocator, blackboard,
+                new BossMovementNode(blackboard, componentLocator),
+                new BossMoveConditionNode(blackboard, componentLocator), // condition for movement comes first
+                new BossPickMovePoint(blackboard, componentLocator)),
+                //for projectiles             
              new SequenceNode(componentLocator, blackboard,
-             new BossMovementNode(blackboard, componentLocator),
-             new BossMoveConditionNode(blackboard, componentLocator), // condition for movement comes first
-             new BossPickMovePoint(blackboard, componentLocator)));
+                new BossShootProjNode(blackboard, componentLocator),
+                new BossProjActionNode(blackboard, componentLocator)),
+             // for melee
+             new SequenceNode(componentLocator, blackboard,
+                new BossMeleeConditionNode(blackboard, componentLocator),
+                new BossMeleeActionNode(blackboard, componentLocator))
+             );
             // selector node for attacks next.
 
         //list of action, decorator, or condition node in this sequence) 
@@ -34,21 +44,34 @@ public class ForestBoss : BossAI
         // new CheckHealthNode(Potential dependencies),
         // new SummonMinionsNode(Potential Dependencies),
         SetBehaviorTreeRoot(rootNode);
+        //set next stage roots when applicable
     }
     protected override void Update()
     {
         base.Update();
-        behaviorTreeRoot.Execute();
+        // if health is above 25% do behavior tree root node, else, switch to second stage root
+
+        behaviorTreeFirstStageRoot.Execute();
     }
-    void InitializeStats()
+    void InitializeStats() // set the individual boss specs to the blackboard
     {
         blackboard.moveSpeed = bossStats.moveSpeed;
-        
-        blackboard.moveDirection = Collisions.MovePoints[2].position;
-        Collisions.lastMovePoint = Collisions.MovePoints[2];
+        blackboard.meleeTime = bossStats.meleeTime;
+        blackboard.timeBetweenProj = bossStats.timeBetweenProjectiles;
+        int startingMovePoint = Random.Range(0, 5);
+        blackboard.moveDirection = Collisions.MovePoints[startingMovePoint].position;
+        Collisions.lastMovePoint = Collisions.MovePoints[startingMovePoint];
     }
     void SetBehaviorTreeRoot(BehaviorNode root)
     {
-        behaviorTreeRoot = root;
+        behaviorTreeFirstStageRoot = root;
+    }
+    void SetSecondStageRoot(BehaviorNode secondRoot)
+    {
+        behaviorTreeSecondStageRoot = secondRoot;
+    }
+    void SetThirdStageRoot(BehaviorNode thirdRoot)
+    {
+        behaviorTreeThirdStageRoot = thirdRoot;
     }
 }

@@ -8,7 +8,9 @@ public class BossAI : MonoBehaviour
     protected BossBlackboard blackboard;
     [SerializeField] protected BossStatsSO bossStats;
     protected Timer timer;
-    protected BehaviorNode behaviorTreeRoot;
+    protected BehaviorNode behaviorTreeFirstStageRoot;
+    protected BehaviorNode behaviorTreeSecondStageRoot;
+    protected BehaviorNode behaviorTreeThirdStageRoot;
   protected virtual void InitializeBehaviorTree()
     {
 

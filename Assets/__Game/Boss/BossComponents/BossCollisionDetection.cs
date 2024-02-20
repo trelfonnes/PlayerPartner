@@ -175,4 +175,16 @@ public class BossCollisionDetection : BossCoreComponent
     {
         return wallCollisionDirection;
     }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        float halfFOV = fieldOfViewAngle * 0.5f;
+        Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.forward);
+        Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.forward);
+        Vector3 directionToPlayer = transform.TransformDirection(Vector3.down);
+
+        Gizmos.DrawRay(transform.position, leftRayRotation * directionToPlayer * projAndOverallFOVDistance);
+        Gizmos.DrawRay(transform.position, rightRayRotation * directionToPlayer * projAndOverallFOVDistance);
+        Gizmos.DrawRay(transform.position, directionToPlayer * projAndOverallFOVDistance);
+    }
 }
