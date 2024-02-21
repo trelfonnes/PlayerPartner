@@ -10,6 +10,7 @@ public class ProjectileEventSystem : MonoBehaviour
     public event Action<PartnerProjectile, Vector2, float, float> OnPartnerDirectionSet;
     public event Action<Projectile, Vector2> OnPlayerDirectionSet;
     public event Action<EnemyProjectile, Vector2, float, float> OnEnemyDirectionSet;
+    public event Action<Vector2, Vector2> OnBossDirectionSet;
     // create an event for unpooling as well??
     public event Action<ProjectileType> OnSetProjectileType;
     public event Action<bool> OnPartnerShotIsCharged;
@@ -43,6 +44,10 @@ public class ProjectileEventSystem : MonoBehaviour
     public void RaiseEnemyDirectionSetEvent(EnemyProjectile projectileComponent, Vector2 direction, float damage, float knockback)
     {
         OnEnemyDirectionSet?.Invoke(projectileComponent, direction, damage, knockback); //Listened to by Enemy Specific Projectiles
+    }
+    public void RaiseBossDirectionSetEvent(Vector2 position, Vector2 direction)
+    {
+        OnBossDirectionSet?.Invoke(position, direction);
     }
     public void RaiseSetProjectileTypeEvent(ProjectileType type)
     {

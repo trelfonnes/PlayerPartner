@@ -34,4 +34,8 @@ public class BossMovement : BossCoreComponent
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
     }
+    public void StopMovement()
+    {
+        rb.velocity = Vector2.zero;
+    }
 }

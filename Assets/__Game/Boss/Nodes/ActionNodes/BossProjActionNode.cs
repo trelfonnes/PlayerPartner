@@ -5,6 +5,9 @@ using UnityEngine;
 public class BossProjActionNode : ActionNode
 {
     bool projectileShot = false;
+
+    private BossProjectile Projectile { get => projectile ?? componentLocator.GetCoreComponent(ref projectile);}
+    private BossProjectile projectile;
     public BossProjActionNode(BossBlackboard blackboard, BossComponentLocator componentLocator)
     {
         this.blackboard = blackboard;
@@ -12,20 +15,14 @@ public class BossProjActionNode : ActionNode
     }
     public override NodeState Execute()
     {
-        if (!projectileShot)
-        {
+       
             ShootProjectile();
             return NodeState.success;
-        }
-        else
-        {
-            projectileShot = false;
-            return NodeState.failure;
-        }
+        
     }
     void ShootProjectile()
     {
-        Debug.Log("FIRE!");
+        Projectile.ShootProjectile(blackboard.projectileType, blackboard.projectileDirection);
         projectileShot = true;
     }
 }

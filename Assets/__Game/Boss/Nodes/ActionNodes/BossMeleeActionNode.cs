@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BossMeleeActionNode : ActionNode
 {
-    bool meleeExecuted = false;
+    private BossMelee Melee { get => melee ?? componentLocator.GetCoreComponent(ref melee); }
+    private BossMelee melee;
     private BossCollisionDetection Collisions { get => collisions ?? componentLocator.GetCoreComponent(ref collisions); }
     private BossCollisionDetection collisions;
     private BossMovement Movement { get => movement ?? componentLocator.GetCoreComponent(ref movement); }
@@ -18,23 +19,12 @@ public class BossMeleeActionNode : ActionNode
 
     public override NodeState Execute()
     {
-        if (!meleeExecuted)
-        {
-            Movement.HoldMovementForMelee();
             AttackMelee();
             return NodeState.success;
-
-        }
-        else
-        {
-            meleeExecuted = false;
-            return NodeState.failure;
-        }
+             
     }
     void AttackMelee()
     {
-        Debug.Log("Melee");
-        meleeExecuted = true;
-        Movement.ContinueMovement(blackboard.meleeTime);
+        Melee.ExecuteAttack();
     }
 }

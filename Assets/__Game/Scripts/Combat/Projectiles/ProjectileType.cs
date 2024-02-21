@@ -6,5 +6,6 @@
     PlayerDartProjectile,
     PlayerBombProjectile,
     PlayerBoomerangProjectile,
-    BasicMudProjectile
+    BasicMudProjectile,
+    ForestBossProjectile
 }

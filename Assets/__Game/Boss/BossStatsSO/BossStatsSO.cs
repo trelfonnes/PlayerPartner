@@ -9,5 +9,5 @@ public class BossStatsSO : ScriptableObject
     public float moveSpeed;
     public float meleeTime;
     public float timeBetweenProjectiles;
-    
+    public ProjectileType projectileType;
 }
