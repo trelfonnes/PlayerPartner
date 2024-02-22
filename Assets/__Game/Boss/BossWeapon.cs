@@ -24,10 +24,12 @@ public class BossWeapon : MonoBehaviour
 
     private void Awake()
     {   //Coment these in if can't set in the inspector.
-       // BaseGO = transform.Find("Base").gameObject;
-        //WeaponSpriteGO = transform.Find("WeaponSprite").gameObject;
+        BaseGO = transform.Find("Base").gameObject;
+        WeaponSpriteGO = transform.Find("WeaponSprite").gameObject;
+
         anim = BaseGO.GetComponent<Animator>();
         EventHandler = BaseGO.GetComponent<AnimationEventHandler>();
+      
     }
 
     public void Enter()

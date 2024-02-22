@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossMelee : BossCoreComponent
 {
-    BossWeapon weapon;
+   [SerializeField] BossWeapon weapon;
         BossMeleeState currentState;
     bool executeAttack;
 
@@ -12,6 +12,7 @@ public class BossMelee : BossCoreComponent
     {
         weapon = GetComponentInChildren<BossWeapon>();
         weapon.onExit += AnimationFinished;
+        weapon.SetComponentLocator(componentLocator);
     }
     private void Update()
     {

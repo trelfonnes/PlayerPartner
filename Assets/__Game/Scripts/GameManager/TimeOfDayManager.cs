@@ -8,11 +8,11 @@ public class TimeOfDayManager : MonoBehaviour
 {
     public static TimeOfDayManager Instance { get; private set; }
     [SerializeField] Light2D globalLight;
-    [SerializeField] float targetIntensity = 1f;
+    [SerializeField] float targetIntensity;
     [SerializeField] float transitionDuration = 3f;
     float transitionTimer = 0f;
     private int currentHour = 2;
-    public bool isIndoors; //access this and change to true when indoors. When back outdoors, switch to false first, then executetimevisuallogic
+    [SerializeField] bool isIndoors; //access this and change to true when indoors. When back outdoors, switch to false first, then executetimevisuallogic
     public TimeOfDay CurrentTimeOfDay { get; private set; }
     public enum TimeOfDay
     {
@@ -99,49 +99,61 @@ public class TimeOfDayManager : MonoBehaviour
         HoursPassed++;
         currentHour++;
 
-        if (!isIndoors)
+       
+            ExecuteTimeVisualLogic();
+        
+       
+    }
+    public void ChangeGlobalLightIntensity(float targetIntensity)
+    {
+        this.targetIntensity = targetIntensity;
+    }
+    public void ChangeToIndoorLight(bool isIndoors)
+    {
+        this.isIndoors = isIndoors;
+        if (!this.isIndoors)
         {
             ExecuteTimeVisualLogic();
         }
-       
     }
-
     private void ExecuteTimeVisualLogic()
     {
-        
-        if (HoursPassed >= nightHour || HoursPassed < morningHour) // Night condition
-        {//turn dark
-            targetIntensity = .7f;
-            transitionTimer = 0f;
-            // change color to white
-            globalLight.color = new Color(1f, 1f, 1f, 0f);
-            SetTimeOfDay(TimeOfDay.Night);
-        }
-        else if (HoursPassed >= morningHour && HoursPassed < dayHour) // morning condition
+        if (!isIndoors)
         {
-            //change color to sunrise and return to day intensity
-            targetIntensity = 1f;
-            transitionTimer = 0f;
-            globalLight.color = new Color(209f / 255f, 234f / 255f, 1, 0f);
-            SetTimeOfDay(TimeOfDay.Morning);
+            if (HoursPassed >= nightHour || HoursPassed < morningHour) // Night condition
+            {//turn dark
+                targetIntensity = .7f;
+                transitionTimer = 0f;
+                // change color to white
+                globalLight.color = new Color(1f, 1f, 1f, 0f);
+                SetTimeOfDay(TimeOfDay.Night);
+            }
+            else if (HoursPassed >= morningHour && HoursPassed < dayHour) // morning condition
+            {
+                //change color to sunrise and return to day intensity
+                targetIntensity = 1f;
+                transitionTimer = 0f;
+                globalLight.color = new Color(209f / 255f, 234f / 255f, 1, 0f);
+                SetTimeOfDay(TimeOfDay.Morning);
 
-        }
+            }
 
-        else if (HoursPassed >= dayHour && HoursPassed < eveningHour) //daytime condition
-        {
+            else if (HoursPassed >= dayHour && HoursPassed < eveningHour) //daytime condition
+            {
 
-            // change color to white. should already be at correct intensity
-            globalLight.color = new Color(1f, 1f, 1f, 0f);
-            SetTimeOfDay(TimeOfDay.Day);
+                // change color to white. should already be at correct intensity
+                globalLight.color = new Color(1f, 1f, 1f, 0f);
+                SetTimeOfDay(TimeOfDay.Day);
 
-        }
-        else if (HoursPassed >= eveningHour && HoursPassed < nightHour) //evening condition
-        {
-            // change color to sunset, should already be correct intensity
-            globalLight.color = new Color(1f, 224f / 255f, 204f / 255f, 0f);
-            SetTimeOfDay(TimeOfDay.Evening);
+            }
+            else if (HoursPassed >= eveningHour && HoursPassed < nightHour) //evening condition
+            {
+                // change color to sunset, should already be correct intensity
+                globalLight.color = new Color(1f, 224f / 255f, 204f / 255f, 0f);
+                SetTimeOfDay(TimeOfDay.Evening);
 
 
+            }
         }
     }
 

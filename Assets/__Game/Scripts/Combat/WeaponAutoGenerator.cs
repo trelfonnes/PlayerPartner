@@ -10,7 +10,7 @@ public class WeaponAutoGenerator : MonoBehaviour
     [SerializeField] Weapon weapon;
     [SerializeField] PartnerWeapon partnerWeapon;  //drag references in inspector
     [SerializeField] EnemyWeapon enemyWeapon;  //drag references in inspector
-    
+    [SerializeField] BossWeapon bossWeapon;
     [SerializeField] WeaponDataSO data; // drag data desired for weapon here for now
                                         // eventually it will be passed by inventory
     private List<WeaponComponent> componentAlreadyOnWeapon = new List<WeaponComponent>();
@@ -49,6 +49,11 @@ public class WeaponAutoGenerator : MonoBehaviour
         {
             enemyWeapon.SetInitialEnemyData(data);
            character = 2;
+        }
+        else if(bossWeapon != null)
+        {
+            bossWeapon.SetInitialWeaponData(data);
+            character = 3;
         }
         componentAlreadyOnWeapon.Clear();
         componentAddedToWeapon.Clear();
