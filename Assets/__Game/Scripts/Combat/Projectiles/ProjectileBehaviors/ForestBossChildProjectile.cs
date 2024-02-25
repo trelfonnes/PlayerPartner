@@ -7,7 +7,6 @@ public class ForestBossChildProjectile : MonoBehaviour
     float damage;
     [SerializeField] float timeToSpriteSwitch = .1f;
     float knockBackDamage;
-    [SerializeField] float activeTime = 2.5f;
     bool hasBeenShot;
 
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
@@ -17,13 +16,14 @@ public class ForestBossChildProjectile : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
     }
     public void SetParameters(Vector2 direction, float velocity, float damage, float knockback, AttackType attackType)
     {
+
         this.damage = damage;
         normalizedDirection = direction;
         knockBackDamage = knockback;
@@ -49,7 +49,6 @@ public class ForestBossChildProjectile : MonoBehaviour
     {
         rb.velocity = direction * velocity;
         StartCoroutine(SwitchSpriteRoutine());
-        StartCoroutine(DeactivateAfterTime());
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -70,10 +69,5 @@ public class ForestBossChildProjectile : MonoBehaviour
             }
         }
     }
-    IEnumerator DeactivateAfterTime()
-    {
-        yield return new WaitForSeconds(activeTime);
-        hasBeenShot = false;
-        gameObject.SetActive(false);
-    }
+  
 }

@@ -25,6 +25,7 @@ public class BossShootProjNode : ConditionNode
 
         if (timer.IsFinished())
         {
+            Debug.Log("Execute from proj condition node");
             timer.Reset();
             return NodeState.success;
             

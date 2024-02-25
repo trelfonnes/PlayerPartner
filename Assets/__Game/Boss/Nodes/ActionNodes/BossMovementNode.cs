@@ -17,7 +17,6 @@ public class BossMovementNode : ActionNode
     public override NodeState Execute()
     {
             Movement.MoveTowards(blackboard.moveDirection, blackboard.moveSpeed);
-        Debug.Log(blackboard.moveDirection); 
         return NodeState.success;
     }
 }
