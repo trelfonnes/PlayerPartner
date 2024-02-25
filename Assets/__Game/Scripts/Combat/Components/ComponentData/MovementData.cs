@@ -9,5 +9,6 @@ public class MovementData : ComponentData<AttackMovementData>
         PlayerComponentDependency = typeof(AttackMovement);
         PartnerComponentDependency = typeof(PartnerAttackMovement);
         EnemyComponentDependency = typeof(EnemyAttackMovement);
+        BossComponentDependency = typeof(BossAttackMovement);
     }
 }

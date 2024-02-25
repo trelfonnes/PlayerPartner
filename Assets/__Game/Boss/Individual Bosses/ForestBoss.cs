@@ -25,22 +25,24 @@ public class ForestBoss : BossAI
         base.InitializeBehaviorTree();
 
         SelectorNode rootNode = new SelectorNode(componentLocator, blackboard,
-           //execute behavior with decorator moving, melee, or stun
-             new SequenceNode(componentLocator, blackboard,
-                new ConditionalExecutionDecorator(blackboard, componentLocator, 
-                    new BossStunActionNode(blackboard, componentLocator),
-                    new BossMeleeActionNode(blackboard, componentLocator),
-                    new BossMovementNode(blackboard, componentLocator))),
-             //check when to move to new pos
+              //execute behavior with decorator moving, melee, or stun
+
+              //check when to move to new pos
               new SequenceNode(componentLocator, blackboard,
                 new BossMoveConditionNode(blackboard, componentLocator), // condition for movement comes first
                 new BossPickMovePoint(blackboard, componentLocator)),
-             //check when to shoot a projectile
+              //check when to shoot a projectile
               new SequenceNode(componentLocator, blackboard,
                 new BossShootProjNode(blackboard, componentLocator),
-                new BossProjActionNode(blackboard, componentLocator))
-             
-             );
+                new BossProjActionNode(blackboard, componentLocator)),
+              new SequenceNode(componentLocator, blackboard,
+                new ConditionalExecutionDecorator(blackboard, componentLocator,
+                    new BossStunActionNode(blackboard, componentLocator),
+                    new BossMeleeActionNode(blackboard, componentLocator),
+                    new BossMovementNode(blackboard, componentLocator)))
+
+
+             ) ;
             // selector node for attacks next.
 
         //list of action, decorator, or condition node in this sequence) 

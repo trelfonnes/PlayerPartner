@@ -42,7 +42,7 @@ public class ConditionalExecutionDecorator : DecoratorNode
         }
         else // both are idle
         {
-           NodeState result = nodeChildren[2].Execute();
+            NodeState result = nodeChildren[2].Execute();
             return result;
             // execute movement node.
         }

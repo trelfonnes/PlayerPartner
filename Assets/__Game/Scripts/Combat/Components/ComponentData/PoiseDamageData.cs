@@ -9,5 +9,6 @@ public class PoiseDamageData : ComponentData<AttackPoiseDamage>
         PlayerComponentDependency = typeof(PoiseDamage);
         PartnerComponentDependency = typeof(PartnerPoiseDamage);
         EnemyComponentDependency = typeof(EnemyPoiseDamage);
+        BossComponentDependency = typeof(BossPoiseDamage);
     }
 }

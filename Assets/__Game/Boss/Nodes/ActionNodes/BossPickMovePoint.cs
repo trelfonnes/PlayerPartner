@@ -17,20 +17,16 @@ public class BossPickMovePoint : ActionNode
     {
         Debug.Log("singleExecute" + singleExecute);
 
-        if (blackboard.chooseDirection)
-        {
+        
             Transform targetMovePoint = Collisions.GetRandomMovePoint();
             blackboard.moveDirection = targetMovePoint.position;
             Debug.Log("Inside pick new pos" + targetMovePoint.position);
             blackboard.chooseDirection = false;
             return NodeState.success;
-        }
+        
         
 
 
-        else
-        {
-            return NodeState.failure;
-        }
+     
     } 
 }

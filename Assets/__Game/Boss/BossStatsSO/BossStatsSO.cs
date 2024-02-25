@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BossStatsSO : ScriptableObject
 {
-    public int health;
+    public float health;
+    public float maxHealth;
     public float moveSpeed;
     public float meleeTime;
     public float timeBetweenProjectiles;

@@ -8,12 +8,15 @@ public abstract class WeaponComponent : MonoBehaviour
     protected Weapon weapon;
     protected PartnerWeapon partnerWeapon;
     protected EnemyWeapon enemyWeapon;
+    protected BossWeapon bossWeapon;
     protected Enemy enemy;
     protected Partner partner;
     protected Player player;
+    protected BossAI boss;
     protected bool isAttackActive;
     protected bool isPartnerAttackActive;
     protected bool isEnemyAttackActive;
+    protected bool isBossAttackActive;
 
     // protected AnimationEventHandler PlayerEventHandler => weapon.EventHandler;
     // protected AnimationEventHandler PartnerEventHandler => partnerWeapon.EventHandler;
@@ -23,9 +26,11 @@ public abstract class WeaponComponent : MonoBehaviour
     protected AnimationEventHandler PartnerEventHandler;
     protected AnimationEventHandler PlayerEventHandler;
     protected AnimationEventHandler EnemyEventHandler;
+    protected AnimationEventHandler BossEventHandler;
     protected CoreHandler PlayerCore => weapon?.Core;
     protected CoreHandler PartnerCore => partnerWeapon?.Core;
     protected CoreHandler EnemyCore => enemyWeapon?.Core;
+    protected BossComponentLocator BossCompLoc => bossWeapon?.ComponentLocator;
 
     public virtual void Init()
     {
@@ -47,6 +52,12 @@ public abstract class WeaponComponent : MonoBehaviour
         enemy = GetComponentInParent<Enemy>();
         enemyWeapon = GetComponent<EnemyWeapon>();
         EnemyEventHandler = GetComponentInChildren<AnimationEventHandler>();
+
+        BossEventHandler = GetComponentInChildren<AnimationEventHandler>();
+        bossWeapon = GetComponent<BossWeapon>();
+        boss = GetComponentInParent<BossAI>();
+       
+
     }
     protected virtual void Start()
     {
@@ -64,6 +75,11 @@ public abstract class WeaponComponent : MonoBehaviour
         {
             enemyWeapon.onEnter += HandleEnemyEnter;
             enemyWeapon.onExit += HandleEnemyExit;
+        }
+        if(bossWeapon != null)
+        {
+            bossWeapon.onEnter += HandleBossEnter;
+            bossWeapon.onExit += HandleBossExit;
         }
     }
     protected virtual void HandleEnter()
@@ -90,6 +106,14 @@ public abstract class WeaponComponent : MonoBehaviour
     {
         isEnemyAttackActive = false;
     }
+    protected virtual void HandleBossEnter()
+    {
+        isBossAttackActive = true;
+    }
+    protected virtual void HandleBossExit()
+    {
+        isBossAttackActive = false;
+    }
    
     protected virtual void OnDestroy()
     {
@@ -108,6 +132,11 @@ public abstract class WeaponComponent : MonoBehaviour
             enemyWeapon.onEnter -= HandleEnemyEnter;
             enemyWeapon.onExit -= HandleEnemyExit;
         }
+        if(bossWeapon != null)
+        {
+            bossWeapon.onEnter -= HandleBossEnter;
+            bossWeapon.onExit -= HandleBossExit;
+        }
     }
 }
     public abstract class WeaponComponent<T1, T2> : WeaponComponent where T1 : ComponentData<T2> where T2: AttackData
@@ -115,11 +144,12 @@ public abstract class WeaponComponent : MonoBehaviour
         protected T1 dataPartner;
         protected T1 dataPlayer;
         protected T1 dataEnemy;
+        protected T1 dataBoss;
 
         protected T2 currentAttackDataPartner;
         protected T2 currentAttackDataPlayer;
         protected T2 currentAttackDataEnemy;
-
+        protected T2 currentAttackDataBoss;
     protected override void HandleEnter()
     {
         base.HandleEnter();
@@ -145,7 +175,15 @@ public abstract class WeaponComponent : MonoBehaviour
             currentAttackDataEnemy = dataEnemy.AttackData[enemyWeapon.CurrentAttackCounter];
         }
     }
-    
+    protected override void HandleBossEnter()
+    {
+        base.HandleBossEnter();
+        if(bossWeapon != null)
+        {
+            currentAttackDataBoss = dataBoss.AttackData[bossWeapon.CurrentAttackCounter];
+        }
+    }
+
 
     public override void Init()
     {
@@ -162,6 +200,10 @@ public abstract class WeaponComponent : MonoBehaviour
         if(enemyWeapon != null)
         {
             dataEnemy = enemyWeapon.weaponData.GetData<T1>();
+        }
+        if(bossWeapon != null)
+        {
+            dataBoss = bossWeapon.weaponData.GetData<T1>();
         }
     }
 
