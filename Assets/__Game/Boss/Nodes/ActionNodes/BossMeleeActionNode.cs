@@ -10,21 +10,29 @@ public class BossMeleeActionNode : ActionNode
     private BossCollisionDetection collisions;
     private BossMovement Movement { get => movement ?? componentLocator.GetCoreComponent(ref movement); }
     private BossMovement movement;
+    private BossCombatReceiver CombatReceiver { get => combatReceiver ?? componentLocator.GetCoreComponent(ref combatReceiver); }
+    private BossCombatReceiver combatReceiver;
 
-    public BossMeleeActionNode(BossBlackboard blackboard, BossComponentLocator componentLocator)
+    public BossMeleeActionNode(BossBlackboard blackboard, BossComponentLocator componentLocator, string animBoolName) : base(blackboard, componentLocator, animBoolName)
     {
-        this.componentLocator = componentLocator;
-        this.blackboard = blackboard;
+
     }
 
     public override NodeState Execute()
     {
             AttackMelee();
-            return NodeState.success;
+        CombatReceiver.TurnCombatColliderOn(true);
+
+        return NodeState.success;
              
     }
     void AttackMelee()
     {
+        SetAnimation();
         Melee.ExecuteAttack();
+    }
+    public override void SetAnimation()
+    {
+        base.SetAnimation();
     }
 }

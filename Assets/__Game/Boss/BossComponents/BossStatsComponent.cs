@@ -5,17 +5,20 @@ using UnityEngine;
 public class BossStatsComponent : BossCoreComponent
 {
     [SerializeField] BossStatsSO bossSOData;
-
+    [SerializeField] EnemyStatEvents bossStatEvents;
     public void DecreaseHealth(float amount)
     { bossSOData.health -= amount;
 
         if(bossSOData.health <= 0)
         {
             //onhealth zero event triggered
+            bossStatEvents.HealthZero();
             bossSOData.health = 0;
         }
         else if(bossSOData.health <= bossSOData.maxHealth * .34f)
         {
+            bossStatEvents.HealthLow();
+
             //health low event trigger??
         }
     }

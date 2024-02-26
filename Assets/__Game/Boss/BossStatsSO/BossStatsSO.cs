@@ -11,4 +11,6 @@ public class BossStatsSO : ScriptableObject
     public float meleeTime;
     public float timeBetweenProjectiles;
     public ProjectileType projectileType;
+    public bool isDefeated;
+    public bool isLowHealth;
 }

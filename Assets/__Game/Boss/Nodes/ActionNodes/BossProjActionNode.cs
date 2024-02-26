@@ -9,10 +9,9 @@ public class BossProjActionNode : ActionNode
     private BossStunned stunned;
     private BossProjectile Projectile { get => projectile ?? componentLocator.GetCoreComponent(ref projectile);}
     private BossProjectile projectile;
-    public BossProjActionNode(BossBlackboard blackboard, BossComponentLocator componentLocator)
+    public BossProjActionNode(BossBlackboard blackboard, BossComponentLocator componentLocator, string animBoolName) : base(blackboard, componentLocator, animBoolName)
     {
-        this.blackboard = blackboard;
-        this.componentLocator = componentLocator;
+
     }
     public override NodeState Execute()
     {

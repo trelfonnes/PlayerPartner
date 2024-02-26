@@ -7,7 +7,7 @@ public class ForestBoss : BossAI
     [SerializeField] float decisionTimer = 3f;
     private BossCollisionDetection Collisions { get => collisions ?? componentLocator.GetCoreComponent(ref collisions); }
     private BossCollisionDetection collisions;
-
+    [SerializeField] EnemyStatEvents bossStatEvents;
     [SerializeField] Animator anim;
 
     protected override void Start()
@@ -30,16 +30,16 @@ public class ForestBoss : BossAI
               //check when to move to new pos
               new SequenceNode(componentLocator, blackboard,
                 new BossMoveConditionNode(blackboard, componentLocator), // condition for movement comes first
-                new BossPickMovePoint(blackboard, componentLocator)),
+                new BossPickMovePoint(blackboard, componentLocator, "move")),
               //check when to shoot a projectile
               new SequenceNode(componentLocator, blackboard,
                 new BossShootProjNode(blackboard, componentLocator),
-                new BossProjActionNode(blackboard, componentLocator)),
+                new BossProjActionNode(blackboard, componentLocator, "move")),
               new SequenceNode(componentLocator, blackboard,
                 new ConditionalExecutionDecorator(blackboard, componentLocator,
-                    new BossStunActionNode(blackboard, componentLocator),
-                    new BossMeleeActionNode(blackboard, componentLocator),
-                    new BossMovementNode(blackboard, componentLocator)))
+                    new BossStunActionNode(blackboard, componentLocator, "stun"),
+                    new BossMeleeActionNode(blackboard, componentLocator, "attack"),
+                    new BossMovementNode(blackboard, componentLocator, "move")))
 
 
              ) ;
@@ -60,6 +60,14 @@ public class ForestBoss : BossAI
         // if health is above 25% do behavior tree root node, else, switch to second stage root
 
         behaviorTreeFirstStageRoot.Execute();
+        if (bossStats.isLowHealth)
+        {
+            // switch to next behavior tree strategy
+        }
+        if (bossStats.isDefeated)
+        {
+            //implement defeated behavior
+        }
     }
     void InitializeStats() // set the individual boss specs to the blackboard
     {
@@ -83,5 +91,28 @@ public class ForestBoss : BossAI
     void SetThirdStageRoot(BehaviorNode thirdRoot)
     {
         behaviorTreeThirdStageRoot = thirdRoot;
+    }
+    protected override void OnEnable()
+    {
+        base.OnDisable();
+    
+        bossStatEvents.onHealthZero += HealthZero;
+        bossStatEvents.onHealthLow += HealthLow;
+    }
+
+   
+    protected override void OnDisable()
+    {
+        bossStatEvents.onHealthZero -= HealthZero;
+        bossStatEvents.onHealthLow -= HealthLow;
+    }
+    private void HealthLow()
+    {
+        bossStats.isLowHealth = true;
+    }
+
+    private void HealthZero()
+    {
+        bossStats.isDefeated = true;
     }
 }

@@ -6,11 +6,9 @@ public class BossPickMovePoint : ActionNode
 {
     private BossCollisionDetection Collisions { get => collisions ?? componentLocator.GetCoreComponent(ref collisions); }
     private BossCollisionDetection collisions;
-    public BossPickMovePoint(BossBlackboard blackboard, BossComponentLocator componentLocator)
+    public BossPickMovePoint(BossBlackboard blackboard, BossComponentLocator componentLocator, string animBoolName) : base(blackboard, componentLocator, animBoolName)
     {
-        this.blackboard = blackboard;
-        this.componentLocator = componentLocator;
-      
+        
     }
 
     public override NodeState Execute()
