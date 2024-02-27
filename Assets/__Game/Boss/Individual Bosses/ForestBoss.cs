@@ -69,6 +69,7 @@ public class ForestBoss : BossAI
         if (bossStats.isDefeated)
         {
             //implement defeated behavior
+            Debug.Log("Boss Stats is marked as defeated");
         }
     }
     void InitializeStats() // set the individual boss specs to the blackboard
