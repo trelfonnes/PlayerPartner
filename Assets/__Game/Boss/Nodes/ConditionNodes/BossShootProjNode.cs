@@ -5,6 +5,8 @@ using UnityEngine;
 public class BossShootProjNode : ConditionNode
 {
     Timer timer;
+    BossMeleeState meleeState;
+   
     private BossCollisionDetection Collisions { get => collisions ?? componentLocator.GetCoreComponent(ref collisions); }
     private BossCollisionDetection collisions;
     public BossShootProjNode(BossBlackboard blackboard, BossComponentLocator componentLocator)
@@ -12,6 +14,7 @@ public class BossShootProjNode : ConditionNode
         this.blackboard = blackboard;
         this.componentLocator = componentLocator;
         StartShootTimer();
+        meleeState = BossMeleeState.idle;
     }
     void StartShootTimer()
     {
@@ -22,12 +25,14 @@ public class BossShootProjNode : ConditionNode
     public override NodeState Execute()
     {
         timer.Update(Time.deltaTime);
-
+        
         if (timer.IsFinished())
         {
-            Debug.Log("Execute from proj condition node");
-            timer.Reset();
-            return NodeState.success;
+           
+                Debug.Log("Melee state from proj cond node" + meleeState);
+                timer.Reset();
+                return NodeState.success;
+            
             
         }
         if (!timer.IsFinished())

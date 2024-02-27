@@ -35,7 +35,7 @@ public class ConditionalExecutionDecorator : DecoratorNode
            NodeState result = nodeChildren[1].Execute();
             return result;
         }
-        else if (Melee.GetCurrentMeleeState() != BossMeleeState.idle)// still run bc it was triggered previously
+        else if (Melee.currentState != BossMeleeState.idle)// still run bc it was triggered previously
         {
             NodeState result = nodeChildren[1].Execute();
            return result;

@@ -36,14 +36,14 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: Attack1
-          <Amount>k__BackingField: 2
+          <Amount>k__BackingField: 1
           <AttackType>k__BackingField: 6
     - rid: 2215977191644332032
       type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
       data:
         name: ActionHitBoxData
         attackData:
-        - name: Attack1
+        - name: wing attack
           DebugHitBoxNorth: 0
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
@@ -51,13 +51,13 @@ MonoBehaviour:
             y: 0
             width: 0
             height: 0
-          DebugHitBoxSouth: 0
+          DebugHitBoxSouth: 1
           <HitBoxSouth>k__BackingField:
             serializedVersion: 2
-            x: 1
-            y: 1
-            width: 1
-            height: 1
+            x: -0.5
+            y: -2.5
+            width: 1.25
+            height: 3
           DebugHitBoxEast: 0
           <HitBoxEast>k__BackingField:
             serializedVersion: 2
@@ -102,7 +102,7 @@ MonoBehaviour:
             height: 0
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
-          m_Bits: 0
+          m_Bits: 65536
     - rid: 2215977191644332033
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:
@@ -110,4 +110,4 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 0
+          <Strength>k__BackingField: 5

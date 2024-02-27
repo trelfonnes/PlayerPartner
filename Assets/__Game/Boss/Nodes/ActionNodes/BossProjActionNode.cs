@@ -5,6 +5,8 @@ using UnityEngine;
 public class BossProjActionNode : ActionNode
 {
     bool projectileShot = false;
+    private BossMelee Melee { get => melee ?? componentLocator.GetCoreComponent(ref melee); }
+    private BossMelee melee;
     private BossStunned Stunned { get => stunned ?? componentLocator.GetCoreComponent(ref stunned); }
     private BossStunned stunned;
     private BossProjectile Projectile { get => projectile ?? componentLocator.GetCoreComponent(ref projectile);}
@@ -19,6 +21,11 @@ public class BossProjActionNode : ActionNode
         {
             return NodeState.failure;
         }
+        if (Melee.currentState == BossMeleeState.active)
+        {
+            return NodeState.failure;
+        }
+        
         else
         {
             ShootProjectile();

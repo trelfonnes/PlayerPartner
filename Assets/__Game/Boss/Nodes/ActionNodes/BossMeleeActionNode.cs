@@ -20,6 +20,7 @@ public class BossMeleeActionNode : ActionNode
 
     public override NodeState Execute()
     {
+        Movement.StopMovement();
             AttackMelee();
         CombatReceiver.TurnCombatColliderOn(true);
 
@@ -29,7 +30,7 @@ public class BossMeleeActionNode : ActionNode
     void AttackMelee()
     {
         SetAnimation();
-        Melee.ExecuteAttack();
+        Melee.ExecuteAttack(blackboard.anim, animBoolName);
     }
     public override void SetAnimation()
     {

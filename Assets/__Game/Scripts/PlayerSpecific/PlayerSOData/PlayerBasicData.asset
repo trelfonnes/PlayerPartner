@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerBasicData
   m_EditorClassIdentifier: 
   isSick: 0
-  currentHealth: 5
+  currentHealth: 0
   stamina: 0
   isInjured: 0
   moveSpeed: 5

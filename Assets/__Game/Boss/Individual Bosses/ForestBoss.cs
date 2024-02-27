@@ -62,7 +62,9 @@ public class ForestBoss : BossAI
         behaviorTreeFirstStageRoot.Execute();
         if (bossStats.isLowHealth)
         {
-            // switch to next behavior tree strategy
+            blackboard.moveSpeed *= 1.25f;
+            blackboard.timeBetweenProj = 2f;
+            // switch to next behavior tree strategy if applicable
         }
         if (bossStats.isDefeated)
         {
@@ -114,5 +116,6 @@ public class ForestBoss : BossAI
     private void HealthZero()
     {
         bossStats.isDefeated = true;
+        Debug.Log("BOSS IS DEFEATED!");
     }
 }

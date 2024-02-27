@@ -8,7 +8,7 @@ public class BossStatsComponent : BossCoreComponent
     [SerializeField] EnemyStatEvents bossStatEvents;
     public void DecreaseHealth(float amount)
     { bossSOData.health -= amount;
-
+        Debug.Log("Boss' Health: " + bossSOData.health);
         if(bossSOData.health <= 0)
         {
             //onhealth zero event triggered
