@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossStatsComponent : BossCoreComponent
+public class BossStatsComponent : BossCoreComponent, IHealthChange
 {
     [SerializeField] BossStatsSO bossSOData;
     [SerializeField] EnemyStatEvents bossStatEvents;

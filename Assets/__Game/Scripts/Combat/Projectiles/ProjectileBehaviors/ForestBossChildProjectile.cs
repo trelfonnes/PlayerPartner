@@ -43,6 +43,7 @@ public class ForestBossChildProjectile : MonoBehaviour
         if (collision.TryGetComponent(out IDamageable damageable))
         {
             damageable.Damage(damage, attackType);
+            gameObject.SetActive(false);
         }
     }
     void ApplyMovement(float velocity, Vector2 direction)

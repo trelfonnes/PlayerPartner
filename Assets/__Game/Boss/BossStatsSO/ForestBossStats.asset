@@ -16,7 +16,7 @@ MonoBehaviour:
   maxHealth: 30
   moveSpeed: 5
   meleeTime: 1.5
-  timeBetweenProjectiles: 15
+  timeBetweenProjectiles: 7
   projectileType: 7
   isDefeated: 0
   isLowHealth: 0

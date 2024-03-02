@@ -12,7 +12,14 @@ public class EnemyStatEvents : ScriptableObject
     public event Action onHealthZero;
     public event Action onPoiseZero;
     public event Action onPoiseRefilled;
-
+    public event Action onBattleStart;
+    public void BattleStart()
+    {
+        if (onBattleStart != null)
+        {
+            onBattleStart?.Invoke();
+        }
+    }
     public void HealthZero()
     {
         if(onHealthZero != null)

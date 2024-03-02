@@ -36,7 +36,10 @@ public class ForestBossProjectile : MonoBehaviour
             foreach (GameObject projectile in ChildProjectiles)
             {
                 Debug.Log(ChildProjectiles.Length);
-
+                if(projectile.activeSelf == false)
+                {
+                    projectile.SetActive(true);
+                }
                 if (directionIndex < directions.Count)
                 {
                     projectile.GetComponent<ForestBossChildProjectile>().SetParameters(directions[directionIndex], velocity, damageAmount, knockBackAmount, attackType);

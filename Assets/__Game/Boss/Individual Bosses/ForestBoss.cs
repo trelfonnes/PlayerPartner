@@ -9,6 +9,7 @@ public class ForestBoss : BossAI
     private BossCollisionDetection collisions;
     [SerializeField] EnemyStatEvents bossStatEvents;
     [SerializeField] Animator anim;
+    bool battleStarted;
 
     protected override void Start()
     {
@@ -58,18 +59,20 @@ public class ForestBoss : BossAI
     {
         base.Update();
         // if health is above 25% do behavior tree root node, else, switch to second stage root
-
-        behaviorTreeFirstStageRoot.Execute();
-        if (bossStats.isLowHealth)
+        if (battleStarted)
         {
-            blackboard.moveSpeed *= 1.25f;
-            blackboard.timeBetweenProj = 2f;
-            // switch to next behavior tree strategy if applicable
-        }
-        if (bossStats.isDefeated)
-        {
-            //implement defeated behavior
-            Debug.Log("Boss Stats is marked as defeated");
+            behaviorTreeFirstStageRoot.Execute();
+            if (bossStats.isLowHealth)
+            {
+                blackboard.moveSpeed = 7f;
+                blackboard.timeBetweenProj = 2f;
+                // switch to next behavior tree strategy if applicable
+            }
+            if (bossStats.isDefeated)
+            {
+                //implement defeated behavior
+                Debug.Log("Boss Stats is marked as defeated");
+            }
         }
     }
     void InitializeStats() // set the individual boss specs to the blackboard
@@ -101,13 +104,22 @@ public class ForestBoss : BossAI
     
         bossStatEvents.onHealthZero += HealthZero;
         bossStatEvents.onHealthLow += HealthLow;
+        bossStatEvents.onBattleStart += BattleStarted;
+
     }
 
-   
+
     protected override void OnDisable()
     {
         bossStatEvents.onHealthZero -= HealthZero;
         bossStatEvents.onHealthLow -= HealthLow;
+        bossStatEvents.onBattleStart -= BattleStarted;
+
+
+    }
+    void BattleStarted()
+    {
+        battleStarted = true;
     }
     private void HealthLow()
     {

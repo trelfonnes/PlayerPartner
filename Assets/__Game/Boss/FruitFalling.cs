@@ -8,7 +8,7 @@ public class FruitFalling : MonoBehaviour
     [SerializeField] private float amountToIncrease = 1f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !collision.isTrigger || collision.CompareTag("Partner") && !collision.isTrigger || collision.CompareTag("boss") && !collision.isTrigger)
+        if (collision.CompareTag("Player") && !collision.isTrigger || collision.CompareTag("Partner") && !collision.isTrigger || collision.CompareTag("Boss") && !collision.isTrigger)
         {
             collision.GetComponentInChildren<IHealthChange>().IncreaseHealth(amountToIncrease);
             gameObject.SetActive(false);

@@ -16,6 +16,7 @@ public class BossMovementNode : ActionNode
     }
     public override NodeState Execute()
     {
+        Debug.Log(blackboard.moveSpeed);
             Movement.MoveTowards(blackboard.moveDirection, blackboard.moveSpeed);
             CombatReceiver.TurnCombatColliderOn(false);
             SetAnimation();

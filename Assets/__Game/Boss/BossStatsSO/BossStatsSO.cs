@@ -13,4 +13,10 @@ public class BossStatsSO : ScriptableObject
     public ProjectileType projectileType;
     public bool isDefeated;
     public bool isLowHealth;
+    private void OnEnable()
+    {
+        health = maxHealth;
+        isDefeated = false;
+        isLowHealth = false;
+    }
 }
