@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SaveLoadManager : DataReferenceInheritor
 {
@@ -25,13 +26,22 @@ public class SaveLoadManager : DataReferenceInheritor
     [SerializeField] Transform locationForPartnerLoad;
    [SerializeField] NPCManager npcManager;
     SceneLoaderUtility sceneLoader = new SceneLoaderUtility();
-    
-    
+
+    public static event Action onGlobalSave;
+    public static event Action onGlobalLoad;
 
     [SerializeField] PartnerType activePartner;
 
     public static SaveLoadManager Instance;
 
+    void TriggerGlobalSaveEvent()
+    {
+        onGlobalSave?.Invoke();
+    }
+    void TriggerGlobalLoadEvent()
+    {
+        onGlobalLoad?.Invoke();
+    }
    
     public void InitializeNPCManager(NPCManager npcManager)
     {
@@ -114,7 +124,7 @@ public class SaveLoadManager : DataReferenceInheritor
     }
     public void SaveGlobalData() //Globals to be called when all data is needed. i.e. starting the game or returning to the overworld/ anywhere with all needed functionality
     {  // before exiting overworld. Or use for an autosave, etc. NOT during a battlescene.
-       
+        TriggerGlobalSaveEvent();
            SavePlayerPartnerBasicData();
         SaveSharedPartnerData();
         SavePlayerInventoryContents();
@@ -131,7 +141,7 @@ public class SaveLoadManager : DataReferenceInheritor
     }
     public void LoadGlobalData()// return to overworld or load game from menu.
     {
-        
+        TriggerGlobalLoadEvent();
         LoadPlayerPartnerBasicData();
         //LoadSharedPartnerData();
         LoadPlayerInventoryContents(); 

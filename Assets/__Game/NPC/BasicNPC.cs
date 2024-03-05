@@ -1,0 +1,110 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BasicNPC : MonoBehaviour, IInteractable
+{
+    [SerializeField] string npcID;
+    NPCDataSO npcData;
+    [SerializeField] bool isMovingNPC;
+
+    [SerializeField] float moveSpeed = 3f;
+    [SerializeField] float minMoveDistance = 2f;
+    [SerializeField] float maxMoveDistance = 5f;
+    [SerializeField] float minPauseDuration;
+    [SerializeField] float maxPauseDuration;
+    Animator anim;
+    Vector2 moveDirection;
+    Rigidbody2D rb;
+    [SerializeField]LayerMask whatIsTurnFrom;
+
+    enum NPCState { Moving, TalkToPlayer, Idling}
+    NPCState currentState = NPCState.Moving;
+    private bool isPlayerColliding;
+
+    private void Start()
+    {
+        GetNPCData();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        if (isMovingNPC)
+        {
+            StartCoroutine(MoveRoutine());
+            anim.SetBool("move", true);
+        }
+    }
+    void GetNPCData()
+    {
+        npcData = NPCDataManager.Instance.GetNPCData(npcID);
+
+    }
+    public void ChangeToMovingState() // call this after player is done talking to NPC will need to work with Dialogue system
+    {
+        Move();
+    }
+    public void Interact()
+    {
+        currentState = NPCState.TalkToPlayer;
+        
+
+    }
+    private IEnumerator MoveRoutine()
+    {
+        while (true)
+        {
+            if (currentState == NPCState.Moving)
+            {
+                // Determine a random move direction
+                moveDirection = Random.insideUnitCircle.normalized;
+
+                // Determine a random move distance
+                float moveDistance = Random.Range(minMoveDistance, maxMoveDistance);
+
+                // Move in the chosen direction for the determined distance
+                float distanceMoved = 0f;
+                while (distanceMoved < moveDistance)
+                {
+                    Vector2 movement = moveDirection * moveSpeed * Time.deltaTime;
+                    anim.SetFloat("moveX", movement.x);
+                    anim.SetFloat("moveY", movement.y);
+                    rb.MovePosition(rb.position + movement);
+                    distanceMoved += movement.magnitude;
+                    yield return null;
+                }
+
+                // Introduce a random pause before the next movement
+                float pauseDuration = Random.Range(minPauseDuration, maxPauseDuration);
+                Idle();
+                yield return new WaitForSeconds(pauseDuration);
+                Move();
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+    }
+    void Idle()
+    {
+        currentState = NPCState.Idling;
+        anim.SetBool("move", false);
+        anim.SetBool("idle", true);
+    }
+    void Move()
+    {
+        currentState = NPCState.Moving;
+        anim.SetBool("idle", false);
+        anim.SetBool("move", true);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(currentState == NPCState.Moving && whatIsTurnFrom == (whatIsTurnFrom | (1 << collision.gameObject.layer)))
+        {
+            moveDirection *= -1f;
+        }
+       
+    }
+  
+
+}

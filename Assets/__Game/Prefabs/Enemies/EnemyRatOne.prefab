@@ -63,6 +63,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   partnerWeapon: {fileID: 0}
   enemyWeapon: {fileID: 440854609659832050}
+  bossWeapon: {fileID: 0}
   data: {fileID: 11400000, guid: 4bc4c2fce18eeb74d97505b0781c3b0f, type: 2}
 --- !u!1 &440854609784716401
 GameObject:
@@ -207,6 +208,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   partnerWeapon: {fileID: 0}
   enemyWeapon: {fileID: 440854609917873863}
+  bossWeapon: {fileID: 0}
   data: {fileID: 11400000, guid: dead30ce5c3a6fb4dac1ef9287912122, type: 2}
 --- !u!1 &440854609981045044
 GameObject:
@@ -731,6 +733,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionsCheckPoint: {fileID: 440854611000628444}
   groundCheckPoint: {fileID: 440854609823250743}
+  isIceTile: 0
+  isSandTile: 0
+  isSnowTile: 0
   collisionCheckDistance: 1.25
   groundCheckRadius: 0.3
   whatIsWall:
@@ -858,6 +863,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b42ab89208866e42a0dafbe2192fc23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iceAccelerationMultiplier: 1.2
+  sandAccelerationMultiplier: 0.7
+  snowAccelerationMultiplier: 0.5
+  iceAccelerationLerpFactor: 0.5
+  sandAccelerationLerpFactor: 0.9
+  snowAccelerationLerpFactor: 1
 --- !u!1 &440854610879031261
 GameObject:
   m_ObjectHideFlags: 0

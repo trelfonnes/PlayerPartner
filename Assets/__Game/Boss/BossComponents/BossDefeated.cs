@@ -5,20 +5,22 @@ using UnityEngine;
 public class BossDefeated : BossCoreComponent
 {
     [SerializeField] GameObject rewardForDefeat;
+    [SerializeField] Animator bossDefeatedAnim;
 
     public void Defeated()
     {
-        CleanUp();
-        SpawnReward();
+        bossDefeatedAnim.SetBool("defeated", true);
     }
 
-    void CleanUp()
+    public void CleanUp()
     {
+        ParticleFX.StartParticles(ParticleType.Defeated, transform.position, Quaternion.identity);
 
+        transform.parent.parent.gameObject.SetActive(false);
     }
-    void SpawnReward()
+    public void SpawnReward()
     {
-
+        GameObject rewardInstance = Instantiate(rewardForDefeat, transform.position, Quaternion.identity);
     }
 
 }

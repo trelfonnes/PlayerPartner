@@ -12,6 +12,8 @@ public class BossBlackboard
     public float moveSpeed;
     public float timeBetweenProj;
     public bool chooseDirection;
+    public bool isDefeated = false;
+    public bool isLowHealth = false;
     public float meleeTime;
     public ProjectileType projectileType;
     public Vector2 projectileDirection = Vector2.zero;

@@ -27,6 +27,9 @@ public class ForestBoss : BossAI
 
         SelectorNode rootNode = new SelectorNode(componentLocator, blackboard,
               //execute behavior with decorator moving, melee, or stun
+              new SequenceNode(componentLocator, blackboard,
+                new BossDefeatedConditionNode(blackboard, componentLocator),
+                new BossDefeatedActionNode(blackboard, componentLocator, "defeated")),
 
               //check when to move to new pos
               new SequenceNode(componentLocator, blackboard,
@@ -41,7 +44,7 @@ public class ForestBoss : BossAI
                     new BossStunActionNode(blackboard, componentLocator, "stun"),
                     new BossMeleeActionNode(blackboard, componentLocator, "attack"),
                     new BossMovementNode(blackboard, componentLocator, "move")))
-
+              
 
              ) ;
             // selector node for attacks next.
@@ -62,17 +65,13 @@ public class ForestBoss : BossAI
         if (battleStarted)
         {
             behaviorTreeFirstStageRoot.Execute();
-            if (bossStats.isLowHealth)
+            if (blackboard.isLowHealth)
             {
                 blackboard.moveSpeed = 7f;
                 blackboard.timeBetweenProj = 2f;
                 // switch to next behavior tree strategy if applicable
             }
-            if (bossStats.isDefeated)
-            {
-                //implement defeated behavior
-                Debug.Log("Boss Stats is marked as defeated");
-            }
+            
         }
     }
     void InitializeStats() // set the individual boss specs to the blackboard
@@ -124,11 +123,12 @@ public class ForestBoss : BossAI
     private void HealthLow()
     {
         bossStats.isLowHealth = true;
+        blackboard.isLowHealth = true;
     }
 
     private void HealthZero()
     {
         bossStats.isDefeated = true;
-        Debug.Log("BOSS IS DEFEATED!");
+        blackboard.isDefeated = true;
     }
 }

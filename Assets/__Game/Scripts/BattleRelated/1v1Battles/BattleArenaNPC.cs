@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BattleArenaNPC : MonoBehaviour, IInteractable
 {
-    [SerializeField] BattleArenaDataSO thisNPCsData;
-    
+    [SerializeField] BattleArenaDataSO battleArenaData;
+    [SerializeField] NPCDataSO nPCData;
+    [SerializeField] string npcID;
+
 
     //this class goes on the actual npc. TODO: functionality for dialogue and any other behaviors.
     public void Interact()
@@ -17,14 +19,19 @@ public class BattleArenaNPC : MonoBehaviour, IInteractable
 
     public void CheckIfCanBattle()
     {
-        if (!thisNPCsData.hasBeenDefeated)
+        if (!battleArenaData.hasBeenDefeated)
         {
             Debug.Log("Inside start battle logic");
-            GameManager.Instance.currentNPCToBattle = thisNPCsData;
+            GameManager.Instance.currentNPCToBattle = battleArenaData;
             OnStartTheArenaBattle();
         }
     }
 
+    private void Start()
+    {
+        //GetData on initialize
+        NPCDataManager.Instance.GetNPCData(npcID);
+    }
 
     private void OnStartTheArenaBattle()
     {
