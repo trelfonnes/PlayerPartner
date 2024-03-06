@@ -15,6 +15,7 @@ public class BasicNPC : MonoBehaviour, IInteractable
     [SerializeField] float maxPauseDuration;
     Animator anim;
     Vector2 moveDirection;
+    Vector2 currentDirection;
     Rigidbody2D rb;
     [SerializeField]LayerMask whatIsTurnFrom;
 
@@ -56,17 +57,16 @@ public class BasicNPC : MonoBehaviour, IInteractable
             {
                 // Determine a random move direction
                 moveDirection = Random.insideUnitCircle.normalized;
-
+              
                 // Determine a random move distance
                 float moveDistance = Random.Range(minMoveDistance, maxMoveDistance);
 
                 // Move in the chosen direction for the determined distance
                 float distanceMoved = 0f;
+                FindAnimDirection(moveDirection);
                 while (distanceMoved < moveDistance)
                 {
                     Vector2 movement = moveDirection * moveSpeed * Time.deltaTime;
-                    anim.SetFloat("moveX", movement.x);
-                    anim.SetFloat("moveY", movement.y);
                     rb.MovePosition(rb.position + movement);
                     distanceMoved += movement.magnitude;
                     yield return null;
@@ -82,6 +82,28 @@ public class BasicNPC : MonoBehaviour, IInteractable
             {
                 yield return null;
             }
+        }
+    }
+
+    private void FindAnimDirection(Vector2 moveDirection)
+    {
+         currentDirection = (moveDirection * moveSpeed);
+        
+            CheckToFlip(currentDirection);
+        
+        anim.SetFloat("moveX", currentDirection.x);
+        anim.SetFloat("moveY", currentDirection.y);
+    }
+
+    void CheckToFlip(Vector2 vector2)
+    {
+        if (vector2.x < 0)
+        {
+            rb.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (vector2.x > 0)
+        {
+            rb.transform.localScale = new Vector3(1, 1, 1);
         }
     }
     void Idle()

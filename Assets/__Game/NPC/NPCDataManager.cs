@@ -36,11 +36,14 @@ public class NPCDataManager : MonoBehaviour
     void SaveListData()
     {
         ES3.Save<List<NPCDataSO>>("allNPCData", allNPCData);
+        Debug.Log("NPCDataManager data has been SAVED");
     }
     void LoadListData()
     {
         if (ES3.KeyExists("allNPCData"))
         {
+            Debug.Log("NPCDataManager data has been LOADED");
+
             allNPCData = ES3.Load<List<NPCDataSO>>("allNPCData");
         }
     }
