@@ -7,5 +7,8 @@
     PlayerBombProjectile,
     PlayerBoomerangProjectile,
     BasicMudProjectile,
-    ForestBossProjectile
+    ForestBossProjectile,
+    BasicWaterProjectile,
+    ChargeWaterProjectile,
+    SpreadWaterProjectile
 }

@@ -11,6 +11,8 @@ public class NPCDataSO : ScriptableObject
     public bool hasGivenItem;
     public bool hasReceivedItem;
     public bool hasSpokenToPlayer;
+    public bool askForRegularItem;
+    public bool askForArtifactItem;
    
 
 

@@ -31,6 +31,7 @@ public class GameManager : DataReferenceInheritor
 
     public Player CurrentPlayer;
     GameObject CurrentPartner;
+    ProgressMarker currentGameProgress;
 
     protected override void Awake()
     { 
@@ -50,6 +51,11 @@ public class GameManager : DataReferenceInheritor
         partnerManager = GetComponentInChildren<PartnerManager>();
 
     }
+    private void OnEnable()
+    {
+        SaveLoadManager.onGlobalLoad += GlobalLoadListener;
+        SaveLoadManager.onGlobalSave += GlobalSaveListener;
+    }
     private void OnDisable()
     {
         TimeOfDayManager.Instance.DisableGlobalLight();
@@ -59,6 +65,16 @@ public class GameManager : DataReferenceInheritor
             //SaveLoadManager.Instance.SaveGlobalData();  SAVE CAN"T BE CALLED ONDISABLE. MUST BE DONE FROM SCENE SWITCH INVOKING OBJECT
            // SaveLoadManager.Instance.SaveLastPlayerPosition();
         }
+        SaveLoadManager.onGlobalLoad -= GlobalLoadListener;
+        SaveLoadManager.onGlobalSave -= GlobalSaveListener;
+    }
+    void GlobalLoadListener()
+    {
+        // add retreival of currentGameProgress
+    }
+    void GlobalSaveListener()
+    {
+        //add storing of currentGameProgress
     }
 
 
@@ -141,6 +157,14 @@ public class GameManager : DataReferenceInheritor
             Debug.LogWarning("Key 'playerPartnerLocation' does not exist or data is not loaded.");
 
         }
+    }
+    public ProgressMarker ReturnCurrentGameProgress()
+    {
+        return currentGameProgress;
+    }
+    public void ChangeCurrentGameProgress(ProgressMarker progressMarker)
+    {
+        currentGameProgress = progressMarker;
     }
     public void SwitchToRegularStrategy()
     {
@@ -231,4 +255,11 @@ public class GameManager : DataReferenceInheritor
         set { gameData = value; }
     }
 
+}
+public enum ProgressMarker
+{
+    act1,
+    act2,
+    act3,
+    act4
 }

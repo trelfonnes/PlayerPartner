@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
+  m_Name: Special_Charge_bear2
+  m_EditorClassIdentifier: 
+  isPlayerWeapon: 0
+  isPartnerWeapon: 1
+  isPrimary: 0
+  isPartnerOne: 0
+  isPartnerTwo: 1
+  isPartnerThree: 0
+  secondaryType: 2
+  primaryType: 2
+  <AnimatorController>k__BackingField: {fileID: 9100000, guid: 6a8e887d5afa5994d874aecc424b6880, type: 2}
+  <NumberOfAttacks>k__BackingField: 1
+  <ComponentData>k__BackingField:
+  - rid: 7917043731285409792
+  - rid: 7917043731285409793
+  - rid: 7917043731285409794
+  - rid: 7917043731285409795
+  - rid: 7917043731285409796
+  - rid: 7917043770508705797
+  - rid: 7917043770508705805
+  <AttackType>k__BackingField: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 7917043731285409792
+      type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
+      data:
+        name: ActionHitBoxData
+        attackData:
+        - name: Attack1
+          DebugHitBoxNorth: 0
+          <HitBoxNorth>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxSouth: 0
+          <HitBoxSouth>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxEast: 0
+          <HitBoxEast>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxWest: 0
+          <HitBoxWest>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxNorthWest: 0
+          <HitBoxNorthWest>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxSouthWest: 0
+          <HitBoxSouthWest>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxNorthEast: 0
+          <HitBoxNorthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxSouthEast: 0
+          <HitBoxSouthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+        <DetectableLayers>k__BackingField:
+          serializedVersion: 2
+          m_Bits: 0
+    - rid: 7917043731285409793
+      type: {class: DamageData, ns: , asm: Assembly-CSharp}
+      data:
+        name: DamageData
+        attackData:
+        - name: Attack1
+          <Amount>k__BackingField: 0
+          <AttackType>k__BackingField: 1
+    - rid: 7917043731285409794
+      type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
+      data:
+        name: KnockBackData
+        attackData:
+        - name: Attack1
+          <Angle>k__BackingField: {x: 0, y: 0}
+          <Strength>k__BackingField: 0
+    - rid: 7917043731285409795
+      type: {class: MovementData, ns: , asm: Assembly-CSharp}
+      data:
+        name: MovementData
+        attackData:
+        - name: Attack1
+          <Direction>k__BackingField: {x: 0, y: 0}
+          <Velocity>k__BackingField: 0
+    - rid: 7917043731285409796
+      type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
+      data:
+        name: PoiseDamageData
+        attackData:
+        - name: Attack1
+          <amount>k__BackingField: 0
+    - rid: 7917043770508705797
+      type: {class: InputHoldData, ns: , asm: Assembly-CSharp}
+      data:
+        name: InputHoldData
+    - rid: 7917043770508705805
+      type: {class: ProjectileData, ns: , asm: Assembly-CSharp}
+      data:
+        name: ProjectileData
+        attackData:
+        - name: ChargedProjectile
+          <TypeOfProjectile>k__BackingField: 9
+          <SPCost>k__BackingField: 1
+          <damage>k__BackingField: 3
+          <knockbackStrength>k__BackingField: 4
