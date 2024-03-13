@@ -620,6 +620,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spr_axel1New_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf8aab366a9d30439eafdee726e0579
+      internalID: -454152048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -648,6 +669,7 @@ TextureImporter:
       spr_axel1New_21: 2051455711
       spr_axel1New_22: -1870685868
       spr_axel1New_23: -816405424
+      spr_axel1New_24: -454152048
       spr_axel1New_3: -537746285
       spr_axel1New_4: 779594854
       spr_axel1New_5: -2021919901

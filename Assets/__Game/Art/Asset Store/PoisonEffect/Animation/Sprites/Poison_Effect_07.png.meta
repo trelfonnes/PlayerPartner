@@ -165,7 +165,322 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Poison_Effect_07 0
+      name: Poison_Effect_07_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9397ea7e7846fe4ea10e214c60a0c46
+      internalID: 1515550999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1540a42995eb9db4bb8d369b1894410a
+      internalID: 1328698626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5867ade6128aaf149abf277268e22862
+      internalID: 935528115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a10317e73da48024f8d896c03b4fd623
+      internalID: -1778268119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30fc6a8aed3d4ef42951bc1612541a7f
+      internalID: 1543172714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b482ed51b0c8a934fbe7101459da44b9
+      internalID: 1306712154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ebbcdabebffc3445a77d8e2ae7e9ba3
+      internalID: 367427240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_7
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eccd8fc2ffbba0408f43defbce3bb0b
+      internalID: -1825246333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d636a88fb222444b03548dbe7eb372
+      internalID: -1606274537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0e9e787c7496349ae0e9cb0ba72272
+      internalID: 57231512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1cdc3f9d5ceaa4ba38875d74931e0b
+      internalID: 1187303282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a97de85a62d894fbcf7aa4ba4ec333
+      internalID: -1343625654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa84ec23890a2944f9aa5096bd95fa7f
+      internalID: 1284849362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6fcd1eee16138045ae59d47451a9fe6
+      internalID: -1747084483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8a49a42865df5a4991e3ad3f22a491a
+      internalID: 1104839292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poison_Effect_07_15
       rect:
         serializedVersion: 2
         x: 0
@@ -177,16 +492,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cc7e677c44d0f86b0800000000000000
-      internalID: -5291996448081647668
+      spriteID: a6a40a502d650cc4587629fa46bb58e1
+      internalID: -2026681579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 1
+      name: Poison_Effect_07_16
       rect:
         serializedVersion: 2
         x: 128
@@ -198,16 +513,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2f27787ca46d81710800000000000000
-      internalID: 1664315678976865010
+      spriteID: 903b57a023fb8934398c496d1f68abd5
+      internalID: -468832871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 2
+      name: Poison_Effect_07_17
       rect:
         serializedVersion: 2
         x: 256
@@ -219,16 +534,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 91c74191bc6376470800000000000000
-      internalID: 8387733076927872025
+      spriteID: 82bc2f81396c17345a9d1c7ea32775cc
+      internalID: -1892498552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 3
+      name: Poison_Effect_07_18
       rect:
         serializedVersion: 2
         x: 384
@@ -240,16 +555,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9360d9923aab87a30800000000000000
-      internalID: 4213322661345691193
+      spriteID: 8787f1aae69df624a96fedd14d5a1dfe
+      internalID: -1431234624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 4
+      name: Poison_Effect_07_19
       rect:
         serializedVersion: 2
         x: 0
@@ -261,16 +576,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: be10b77186b44c0c0800000000000000
-      internalID: -4556434012549479957
+      spriteID: 4cb10365ba384ab46a8ccabbbe54573e
+      internalID: 54565402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 5
+      name: Poison_Effect_07_20
       rect:
         serializedVersion: 2
         x: 128
@@ -282,16 +597,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f89d603ca01fca480800000000000000
-      internalID: -8886462936184858225
+      spriteID: bc4b4dd6e7e130145ba3ebd17bc2cfb6
+      internalID: 1525371551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 6
+      name: Poison_Effect_07_21
       rect:
         serializedVersion: 2
         x: 256
@@ -303,16 +618,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8f364636dddc3b2b0800000000000000
-      internalID: -5569881963388181512
+      spriteID: 78fdaa71f57afc644bc8c4dd82314ecf
+      internalID: -50667352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 7
+      name: Poison_Effect_07_22
       rect:
         serializedVersion: 2
         x: 384
@@ -324,16 +639,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 355cf5bd6239cf200800000000000000
-      internalID: 215208677305468243
+      spriteID: 02bc8ccb965ad5b40b3a2ccee3273c27
+      internalID: 931165439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 8
+      name: Poison_Effect_07_23
       rect:
         serializedVersion: 2
         x: 0
@@ -345,16 +660,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6b8885ff06e0713f0800000000000000
-      internalID: -930258988265076554
+      spriteID: bc3573db7d6854543b9abd1663cc23e0
+      internalID: -1869131591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 9
+      name: Poison_Effect_07_24
       rect:
         serializedVersion: 2
         x: 128
@@ -366,16 +681,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6f84bb5b91c832a00800000000000000
-      internalID: 730581606615173366
+      spriteID: f05fb859c7364b34faaeec5f4fd3855d
+      internalID: -1718378344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 10
+      name: Poison_Effect_07_25
       rect:
         serializedVersion: 2
         x: 256
@@ -387,16 +702,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 27b95712cdeb06df0800000000000000
-      internalID: -188941331686122638
+      spriteID: e5fb552e8f8a8ee41b6be2485df2041e
+      internalID: -444111874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 11
+      name: Poison_Effect_07_26
       rect:
         serializedVersion: 2
         x: 384
@@ -408,16 +723,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b7d7fc85399ec6410800000000000000
-      internalID: 1471807997302766971
+      spriteID: 38d341cfcc3bd154389a5561fb514d83
+      internalID: 1097188931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 12
+      name: Poison_Effect_07_27
       rect:
         serializedVersion: 2
         x: 0
@@ -429,16 +744,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ffc1b6a9bd555aff0800000000000000
-      internalID: -25519821203759873
+      spriteID: d76fbb96854541740813bb110c87a5c3
+      internalID: -104148887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 13
+      name: Poison_Effect_07_28
       rect:
         serializedVersion: 2
         x: 128
@@ -450,16 +765,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6d3050293b7c11640800000000000000
-      internalID: 5049036231321912278
+      spriteID: 9a3391709f4b5df43926552d2ccc41e9
+      internalID: 785563873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poison_Effect_07 14
+      name: Poison_Effect_07_29
       rect:
         serializedVersion: 2
         x: 256
@@ -471,31 +786,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f339bd4fd963a31e0800000000000000
-      internalID: -2217399814480751809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Poison_Effect_07 15
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 05f6f04d3e96eee10800000000000000
-      internalID: 2228835292831248208
+      spriteID: 23f6f89b39ff93644afa94bd5230f74b
+      internalID: -1454889144
       vertices: []
       indices: 
       edges: []
@@ -511,22 +805,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Poison_Effect_07 0: -5291996448081647668
-      Poison_Effect_07 1: 1664315678976865010
-      Poison_Effect_07 10: -188941331686122638
-      Poison_Effect_07 11: 1471807997302766971
-      Poison_Effect_07 12: -25519821203759873
-      Poison_Effect_07 13: 5049036231321912278
-      Poison_Effect_07 14: -2217399814480751809
-      Poison_Effect_07 15: 2228835292831248208
-      Poison_Effect_07 2: 8387733076927872025
-      Poison_Effect_07 3: 4213322661345691193
-      Poison_Effect_07 4: -4556434012549479957
-      Poison_Effect_07 5: -8886462936184858225
-      Poison_Effect_07 6: -5569881963388181512
-      Poison_Effect_07 7: 215208677305468243
-      Poison_Effect_07 8: -930258988265076554
-      Poison_Effect_07 9: 730581606615173366
+      Poison_Effect_07_0: 1515550999
+      Poison_Effect_07_1: 1328698626
+      Poison_Effect_07_10: 1187303282
+      Poison_Effect_07_11: -1343625654
+      Poison_Effect_07_12: 1284849362
+      Poison_Effect_07_13: -1747084483
+      Poison_Effect_07_14: 1104839292
+      Poison_Effect_07_15: -2026681579
+      Poison_Effect_07_16: -468832871
+      Poison_Effect_07_17: -1892498552
+      Poison_Effect_07_18: -1431234624
+      Poison_Effect_07_19: 54565402
+      Poison_Effect_07_2: 935528115
+      Poison_Effect_07_20: 1525371551
+      Poison_Effect_07_21: -50667352
+      Poison_Effect_07_22: 931165439
+      Poison_Effect_07_23: -1869131591
+      Poison_Effect_07_24: -1718378344
+      Poison_Effect_07_25: -444111874
+      Poison_Effect_07_26: 1097188931
+      Poison_Effect_07_27: -104148887
+      Poison_Effect_07_28: 785563873
+      Poison_Effect_07_29: -1454889144
+      Poison_Effect_07_3: -1778268119
+      Poison_Effect_07_4: 1543172714
+      Poison_Effect_07_5: 1306712154
+      Poison_Effect_07_6: 367427240
+      Poison_Effect_07_7: -1825246333
+      Poison_Effect_07_8: -1606274537
+      Poison_Effect_07_9: 57231512
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

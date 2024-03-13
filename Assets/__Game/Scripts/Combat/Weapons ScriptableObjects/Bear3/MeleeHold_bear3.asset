@@ -20,7 +20,7 @@ MonoBehaviour:
   isPartnerThree: 1
   secondaryType: 3
   primaryType: 1
-  <AnimatorController>k__BackingField: {fileID: 9100000, guid: de0de42179acf5542ab7726a05721564, type: 2}
+  <AnimatorController>k__BackingField: {fileID: 9100000, guid: 1f2f58da5cec0ba4fa3bd9c5fb791eb0, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
   - rid: 4121997090188165120
@@ -104,7 +104,7 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: WaterSpray
-          <Amount>k__BackingField: 2
+          <Amount>k__BackingField: 1
           <AttackType>k__BackingField: 1
     - rid: 4121997090188165122
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
@@ -112,7 +112,7 @@ MonoBehaviour:
         name: PoiseDamageData
         attackData:
         - name: Attack1
-          <amount>k__BackingField: 7
+          <amount>k__BackingField: 6
     - rid: 4121997090188165123
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:

@@ -10,5 +10,8 @@
     ForestBossProjectile,
     BasicWaterProjectile,
     ChargeWaterProjectile,
-    SpreadWaterProjectile
+    SpreadWaterProjectile,
+    BasicPoisonProjectile,
+    ChargePoisonProjectile,
+    SpreadPoisonProjectile
 }

@@ -60,7 +60,8 @@ MonoBehaviour:
   knockBackDamage: 3
   poiseDamage: 1
   velocity: 10
-  activeTime: 2.5
+  activeTime: 2
+  attackType: 0
 --- !u!50 &2237084802592247979
 Rigidbody2D:
   serializedVersion: 4

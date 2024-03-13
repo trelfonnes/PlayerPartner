@@ -620,6 +620,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spr_Bear1New_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428a5a21b28b5044793e29f3a0a91ad6
+      internalID: 756299934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -648,6 +669,7 @@ TextureImporter:
       spr_Bear1New_21: -1014320010
       spr_Bear1New_22: 1005647714
       spr_Bear1New_23: 639575590
+      spr_Bear1New_24: 756299934
       spr_Bear1New_3: -375484906
       spr_Bear1New_4: -1383612950
       spr_Bear1New_5: -1764010479

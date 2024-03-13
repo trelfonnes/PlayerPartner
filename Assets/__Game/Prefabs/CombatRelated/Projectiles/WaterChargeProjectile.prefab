@@ -147,7 +147,7 @@ MonoBehaviour:
   - {fileID: -5802934678898774245, guid: 7f0334fbcb82d4dea9084d6f5a2ab8d3, type: 3}
   attackType: 1
   damage: 1
-  knockBackDamage: 5
+  knockBackDamage: 4
   poiseDamage: 2
   velocity: 8
   activeTime: 2.5
