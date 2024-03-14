@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Axelotl3BasicData
   m_EditorClassIdentifier: 
   isSick: 0
-  currentHealth: 10
-  stamina: 70
+  currentHealth: 8
+  stamina: 0
   isInjured: 0
-  moveSpeed: 5.5
+  moveSpeed: 6
   watchSpeed: 0
   followSpeed: 4.5
-  MaxHealth: 10
-  HealthLimit: 13
+  MaxHealth: 8
+  HealthLimit: 11
   SP: 50
   MaxSP: 50
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
-  MaxStamina: 70
-  StaminaLimit: 80
-  Poise: 60
+  MaxStamina: 55
+  StaminaLimit: 65
+  Poise: 59
   MaxPoise: 60
   canJump: 1
   numberOfJumps: 1
@@ -37,8 +37,8 @@ MonoBehaviour:
   dashTime: 0.15
   numberOfDashes: 1
   dashForce: 3
-  bondToEvolveOne: 0
-  bondToEvolveTwo: 0
+  bondToEvolveOne: 10
+  bondToEvolveTwo: 30
   stage1: 0
   stage2: 0
   stage3: 1

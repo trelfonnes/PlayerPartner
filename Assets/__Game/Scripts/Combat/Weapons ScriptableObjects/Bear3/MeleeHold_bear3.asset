@@ -104,7 +104,7 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: WaterSpray
-          <Amount>k__BackingField: 1
+          <Amount>k__BackingField: 2.5
           <AttackType>k__BackingField: 1
     - rid: 4121997090188165122
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}

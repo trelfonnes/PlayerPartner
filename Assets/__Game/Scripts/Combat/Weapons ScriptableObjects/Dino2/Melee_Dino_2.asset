@@ -134,7 +134,7 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: Claw
-          <Amount>k__BackingField: 3
+          <Amount>k__BackingField: 4
           <AttackType>k__BackingField: 5
     - rid: 7917043661478035458
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}

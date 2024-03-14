@@ -134,7 +134,7 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: Body Tsunami
-          <Amount>k__BackingField: 4
+          <Amount>k__BackingField: 5
           <AttackType>k__BackingField: 5
     - rid: 7917043661478035457
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
