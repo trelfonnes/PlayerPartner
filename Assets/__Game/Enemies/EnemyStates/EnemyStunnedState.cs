@@ -51,6 +51,10 @@ public class EnemyStunnedState : EnemyBasicState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(data.health <= 0)
+        {
+            ESM.ChangeState(enemy.DefeatedState);
+        }
         if (particlesSpawned == 0)
         {
             Particles?.StartParticles(ParticleType.Stunned, enemy.transform.position, enemy.transform.rotation);

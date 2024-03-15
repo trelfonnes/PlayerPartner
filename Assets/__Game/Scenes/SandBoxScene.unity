@@ -31558,6 +31558,42 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}
+    - target: {fileID: 8957202859324220801, guid: 4b2351b69276102488f25927a198aa20, type: 3}
+      propertyPath: Axel1SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c28ce457fdeb6f428db1745b9ea6b84, type: 2}
+    - target: {fileID: 8957202859324220801, guid: 4b2351b69276102488f25927a198aa20, type: 3}
+      propertyPath: Axel2SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7677d19e203ee3a4ca135407aa9633e5, type: 2}
+    - target: {fileID: 8957202859324220801, guid: 4b2351b69276102488f25927a198aa20, type: 3}
+      propertyPath: Axel3SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: e7b0308be0841bb44a3683eaee15637e, type: 2}
+    - target: {fileID: 8957202859324220801, guid: 4b2351b69276102488f25927a198aa20, type: 3}
+      propertyPath: Bear1SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: f5a2e69a9b5773d4aae3bf67cdd34cb9, type: 2}
+    - target: {fileID: 8957202859324220801, guid: 4b2351b69276102488f25927a198aa20, type: 3}
+      propertyPath: Bear2SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: 848e821c08d5b4d46bc98bb1e47b9ef8, type: 2}
+    - target: {fileID: 8957202859324220801, guid: 4b2351b69276102488f25927a198aa20, type: 3}
+      propertyPath: Bear3SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: aec137ca11bff3243bb10e2b1fac2f8f, type: 2}
+    - target: {fileID: 8957202859324220801, guid: 4b2351b69276102488f25927a198aa20, type: 3}
+      propertyPath: Rabbit1SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0fddc1314a9e8054a8951a3c417d21ec, type: 2}
+    - target: {fileID: 8957202859324220801, guid: 4b2351b69276102488f25927a198aa20, type: 3}
+      propertyPath: Rabbit2SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: a8142db7161199a4d92bf67844dccf89, type: 2}
+    - target: {fileID: 8957202859324220801, guid: 4b2351b69276102488f25927a198aa20, type: 3}
+      propertyPath: Rabbit3SOData
+      value: 
+      objectReference: {fileID: 11400000, guid: 57cd271819cafde44b89ea54e6ad1bcc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b2351b69276102488f25927a198aa20, type: 3}
 --- !u!4 &970757325 stripped

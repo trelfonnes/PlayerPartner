@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneLoaderUtility 
 {
+    public void LoadMenuScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
   public void LoadScene(string sceneName)
    {
         
 
-        SaveLoadManager.Instance.SaveDataForSceneSwitch();
+       SaveLoadManager.Instance.SaveDataForSceneSwitch(); 
         if(GameStateTracker.Instance.CurrentGameState != GameState.Arena) //check before changing to next scene
         {
             GameManager.Instance.SavePlayerPartnerLocation();

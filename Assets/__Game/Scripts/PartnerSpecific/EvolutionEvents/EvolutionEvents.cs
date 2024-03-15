@@ -64,6 +64,7 @@ public class EvolutionEvents : ScriptableObject
     }
     public void ReturnFromEvolution()
     {
+        Debug.Log("OnReturn from evolution invoked");
         OnReturnFromEvolution?.Invoke();
     }
     public void Devolve()

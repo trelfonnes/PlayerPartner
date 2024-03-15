@@ -46,6 +46,7 @@ public class PlayerEvolutionState : PlayerBasicState
     {
         if (player)
         {
+            Debug.Log("StopEvolution from player evolution state");
             PSM.ChangeState(player.IdleState);
         }
     }

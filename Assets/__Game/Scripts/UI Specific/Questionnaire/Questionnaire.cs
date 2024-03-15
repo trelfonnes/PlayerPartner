@@ -129,7 +129,7 @@ public class Questionnaire : MonoBehaviour
 
         ES3.Save("chosenPartner", result);
         SceneLoaderUtility sceneManager = new SceneLoaderUtility();
-        sceneManager.LoadScene("SandBoxScene");
+        sceneManager.LoadMenuScene("SandBoxScene");
         //load to the next scene;
         // Pass the result to your game manager for initialization
         // GameManager.Instance.Initialize(result);

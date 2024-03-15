@@ -322,10 +322,12 @@ public class SaveLoadManager : DataReferenceInheritor
     }
     public void SaveLastPlayerPosition()
     {
-        savedLocations = player.transform.position;
+        if (player)
+        {
+            savedLocations = player.transform.position;
 
-        ES3.Save("playerPartnerLocation", savedLocations);
-
+            ES3.Save("playerPartnerLocation", savedLocations);
+        }
     }
     public Vector2 LoadLastPlayerPosition()
     {
