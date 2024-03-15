@@ -72,24 +72,24 @@ MonoBehaviour:
           DebugHitBoxNorth: 1
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
-            x: -0.5
+            x: -0.63
             y: -0.33
-            width: 1
-            height: 1
+            width: 1.33
+            height: 1.15
           DebugHitBoxSouth: 1
           <HitBoxSouth>k__BackingField:
             serializedVersion: 2
-            x: -0.5
-            y: -1.5
-            width: 1
-            height: 1
+            x: -0.63
+            y: -1.62
+            width: 1.33
+            height: 1.15
           DebugHitBoxEast: 1
           <HitBoxEast>k__BackingField:
             serializedVersion: 2
             x: 0.15
-            y: -0.9
-            width: 1
-            height: 1
+            y: -1.08
+            width: 1.18
+            height: 1.32
           DebugHitBoxWest: 0
           <HitBoxWest>k__BackingField:
             serializedVersion: 2

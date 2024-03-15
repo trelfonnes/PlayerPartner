@@ -72,24 +72,24 @@ MonoBehaviour:
           DebugHitBoxNorth: 1
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
-            x: -0.5
+            x: -0.7
             y: -0.33
-            width: 1
-            height: 1
+            width: 1.45
+            height: 1.6
           DebugHitBoxSouth: 1
           <HitBoxSouth>k__BackingField:
             serializedVersion: 2
-            x: -0.5
-            y: -1.5
-            width: 1
-            height: 1
-          DebugHitBoxEast: 1
+            x: -0.7
+            y: -1.95
+            width: 1.45
+            height: 1.6
+          DebugHitBoxEast: 0
           <HitBoxEast>k__BackingField:
             serializedVersion: 2
             x: 0.15
-            y: -0.9
-            width: 1
-            height: 1
+            y: -1.08
+            width: 1.61
+            height: 1.55
           DebugHitBoxWest: 0
           <HitBoxWest>k__BackingField:
             serializedVersion: 2
@@ -111,20 +111,20 @@ MonoBehaviour:
             y: -1.42
             width: 1
             height: 1
-          DebugHitBoxNorthEast: 0
+          DebugHitBoxNorthEast: 1
           <HitBoxNorthEast>k__BackingField:
             serializedVersion: 2
             x: 0.06
             y: -0.4
-            width: 1
-            height: 1
-          DebugHitBoxSouthEast: 0
+            width: 1.63
+            height: 1.5
+          DebugHitBoxSouthEast: 1
           <HitBoxSouthEast>k__BackingField:
             serializedVersion: 2
             x: 0.06
-            y: -1.42
-            width: 1
-            height: 1
+            y: -1.79
+            width: 1.63
+            height: 1.38
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 65536

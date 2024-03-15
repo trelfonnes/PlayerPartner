@@ -40,26 +40,26 @@ MonoBehaviour:
         name: ActionHitBoxData
         attackData:
         - name: Attack1
-          DebugHitBoxNorth: 0
+          DebugHitBoxNorth: 1
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
             x: -1
             y: 0
             width: 2
-            height: 2
-          DebugHitBoxSouth: 0
+            height: 3.9
+          DebugHitBoxSouth: 1
           <HitBoxSouth>k__BackingField:
             serializedVersion: 2
             x: -1
-            y: -3
+            y: -3.98
             width: 2
-            height: 2
-          DebugHitBoxEast: 0
+            height: 3.48
+          DebugHitBoxEast: 1
           <HitBoxEast>k__BackingField:
             serializedVersion: 2
             x: 0.3
             y: -1.4
-            width: 2
+            width: 3.6
             height: 2
           DebugHitBoxWest: 0
           <HitBoxWest>k__BackingField:
@@ -82,20 +82,20 @@ MonoBehaviour:
             y: 0
             width: 0
             height: 0
-          DebugHitBoxNorthEast: 0
+          DebugHitBoxNorthEast: 1
           <HitBoxNorthEast>k__BackingField:
             serializedVersion: 2
             x: 0.3
-            y: -0.5
-            width: 2
-            height: 2
-          DebugHitBoxSouthEast: 0
+            y: -0.19
+            width: 2.76
+            height: 3.65
+          DebugHitBoxSouthEast: 1
           <HitBoxSouthEast>k__BackingField:
             serializedVersion: 2
             x: 0.3
-            y: -2.5
-            width: 2
-            height: 2
+            y: -3.51
+            width: 2.77
+            height: 3.32
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 81920
