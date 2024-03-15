@@ -28,7 +28,11 @@ public class PlayerEvolutionState : PlayerBasicState
         player.evolutionEvents.OnReturnFromEvolution -= StopEvolution;
 
     }
-
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        player.evolutionEvents.OnReturnFromEvolution -= StopEvolution;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
