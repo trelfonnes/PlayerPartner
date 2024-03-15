@@ -112,7 +112,7 @@ MonoBehaviour:
         name: PoiseDamageData
         attackData:
         - name: Attack1
-          <amount>k__BackingField: 5
+          <amount>k__BackingField: 4
     - rid: 4121997090188165123
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:

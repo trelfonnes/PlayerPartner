@@ -143,7 +143,7 @@ MonoBehaviour:
         attackData:
         - name: Aqua Fist
           <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 8
+          <Strength>k__BackingField: 6
     - rid: 7917043703839719424
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
       data:

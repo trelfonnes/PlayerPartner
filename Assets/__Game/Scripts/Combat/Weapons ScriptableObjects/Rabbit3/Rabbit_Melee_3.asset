@@ -42,19 +42,13 @@ MonoBehaviour:
           <PhaseSprites>k__BackingField:
           - <Phase>k__BackingField: 2
             <PhaseDirection>k__BackingField: 5
-            <Sprites>k__BackingField:
-            - {fileID: 70936455, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
-            - {fileID: 1006178748, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
+            <Sprites>k__BackingField: []
           - <Phase>k__BackingField: 2
             <PhaseDirection>k__BackingField: 3
-            <Sprites>k__BackingField:
-            - {fileID: -1554596430, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
-            - {fileID: -1764198799, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
+            <Sprites>k__BackingField: []
           - <Phase>k__BackingField: 2
             <PhaseDirection>k__BackingField: 4
-            <Sprites>k__BackingField:
-            - {fileID: -14791887, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
-            - {fileID: 1174743258, guid: c206d77aba55c3343b377cccfe3af1e5, type: 3}
+            <Sprites>k__BackingField: []
     - rid: 7917043528491597828
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
@@ -68,27 +62,27 @@ MonoBehaviour:
       data:
         name: ActionHitBoxData
         attackData:
-        - name: Headbutt
+        - name: power pole
           DebugHitBoxNorth: 1
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
             x: -0.5
             y: -0.33
             width: 1
-            height: 1
+            height: 1.9
           DebugHitBoxSouth: 1
           <HitBoxSouth>k__BackingField:
             serializedVersion: 2
             x: -0.5
-            y: -1.5
+            y: -2.04
             width: 1
-            height: 1
+            height: 1.53
           DebugHitBoxEast: 1
           <HitBoxEast>k__BackingField:
             serializedVersion: 2
             x: 0.15
             y: -0.9
-            width: 1
+            width: 1.82
             height: 1
           DebugHitBoxWest: 0
           <HitBoxWest>k__BackingField:
@@ -111,20 +105,20 @@ MonoBehaviour:
             y: -1.42
             width: 1
             height: 1
-          DebugHitBoxNorthEast: 0
+          DebugHitBoxNorthEast: 1
           <HitBoxNorthEast>k__BackingField:
             serializedVersion: 2
             x: 0.06
             y: -0.4
-            width: 1
-            height: 1
-          DebugHitBoxSouthEast: 0
+            width: 1.71
+            height: 1.68
+          DebugHitBoxSouthEast: 1
           <HitBoxSouthEast>k__BackingField:
             serializedVersion: 2
             x: 0.06
-            y: -1.42
-            width: 1
-            height: 1
+            y: -1.94
+            width: 1.7
+            height: 1.48
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 65536
@@ -133,21 +127,21 @@ MonoBehaviour:
       data:
         name: DamageData
         attackData:
-        - name: Headbutt
-          <Amount>k__BackingField: 2
+        - name: Power Pole
+          <Amount>k__BackingField: 4
           <AttackType>k__BackingField: 5
     - rid: 7917043661478035457
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:
         name: KnockBackData
         attackData:
-        - name: Headbutt
+        - name: Power Pole
           <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 5
+          <Strength>k__BackingField: 5.5
     - rid: 7917043703839719424
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
       data:
         name: PoiseDamageData
         attackData:
-        - name: Headbutt
-          <amount>k__BackingField: 4
+        - name: Power Pole
+          <amount>k__BackingField: 6.5

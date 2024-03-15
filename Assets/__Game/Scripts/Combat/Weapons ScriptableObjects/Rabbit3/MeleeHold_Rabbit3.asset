@@ -29,7 +29,8 @@ MonoBehaviour:
   - rid: 4121997090188165123
   - rid: 4121997090188165124
   - rid: 4713564883522945024
-  <AttackType>k__BackingField: 2
+  - rid: 4713564905995501570
+  <AttackType>k__BackingField: 3
   references:
     version: 2
     RefIds:
@@ -103,16 +104,16 @@ MonoBehaviour:
       data:
         name: DamageData
         attackData:
-        - name: PoisonSpray
-          <Amount>k__BackingField: 4
-          <AttackType>k__BackingField: 2
+        - name: Angelic Bolt
+          <Amount>k__BackingField: 2.5
+          <AttackType>k__BackingField: 3
     - rid: 4121997090188165122
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
       data:
         name: PoiseDamageData
         attackData:
         - name: Attack1
-          <amount>k__BackingField: 5
+          <amount>k__BackingField: 6.5
     - rid: 4121997090188165123
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:
@@ -120,7 +121,7 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 2
+          <Strength>k__BackingField: 5.5
     - rid: 4121997090188165124
       type: {class: MovementData, ns: , asm: Assembly-CSharp}
       data:
@@ -133,6 +134,11 @@ MonoBehaviour:
       type: {class: CorrodeData, ns: , asm: Assembly-CSharp}
       data:
         name: CorrodeData
+        attackData: []
+    - rid: 4713564905995501570
+      type: {class: PowerOnData, ns: , asm: Assembly-CSharp}
+      data:
+        name: PowerOnData
         attackData:
         - name: Attack1
           <Amount>k__BackingField: 3

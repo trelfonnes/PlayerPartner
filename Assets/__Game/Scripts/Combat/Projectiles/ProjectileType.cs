@@ -13,5 +13,8 @@
     SpreadWaterProjectile,
     BasicPoisonProjectile,
     ChargePoisonProjectile,
-    SpreadPoisonProjectile
+    SpreadPoisonProjectile,
+    BasicElectricProjectile,
+    ChargeElectricProjectile,
+    SpreadElectricProjectile
 }

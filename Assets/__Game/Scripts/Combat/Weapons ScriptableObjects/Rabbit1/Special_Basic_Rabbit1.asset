@@ -30,7 +30,7 @@ MonoBehaviour:
   - rid: 7917043731285409796
   - rid: 7917043770508705805
   - rid: 4121997002277650432
-  <AttackType>k__BackingField: 2
+  <AttackType>k__BackingField: 3
   references:
     version: 2
     RefIds:
@@ -110,7 +110,7 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <Amount>k__BackingField: 3
-          <AttackType>k__BackingField: 2
+          <AttackType>k__BackingField: 3
     - rid: 7917043731285409794
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:
@@ -140,7 +140,7 @@ MonoBehaviour:
         name: ProjectileData
         attackData:
         - name: BasicProjectile
-          <TypeOfProjectile>k__BackingField: 11
-          <SPCost>k__BackingField: 2
+          <TypeOfProjectile>k__BackingField: 14
+          <SPCost>k__BackingField: 1
           <damage>k__BackingField: 2
-          <knockbackStrength>k__BackingField: 1
+          <knockbackStrength>k__BackingField: 4

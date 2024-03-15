@@ -140,7 +140,7 @@ MonoBehaviour:
         name: ProjectileData
         attackData:
         - name: SpreadProjectile
-          <TypeOfProjectile>k__BackingField: 10
-          <SPCost>k__BackingField: 3
+          <TypeOfProjectile>k__BackingField: 13
+          <SPCost>k__BackingField: 4
           <damage>k__BackingField: 6
-          <knockbackStrength>k__BackingField: 2
+          <knockbackStrength>k__BackingField: 3

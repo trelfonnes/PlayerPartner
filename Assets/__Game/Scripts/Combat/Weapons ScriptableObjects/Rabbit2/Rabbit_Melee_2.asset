@@ -133,21 +133,21 @@ MonoBehaviour:
       data:
         name: DamageData
         attackData:
-        - name: Tongue Punch
-          <Amount>k__BackingField: 1
+        - name: 
+          <Amount>k__BackingField: 2
           <AttackType>k__BackingField: 5
     - rid: 7917043661478035457
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
       data:
         name: KnockBackData
         attackData:
-        - name: Tongue Punch
+        - name: 
           <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 3
+          <Strength>k__BackingField: 5
     - rid: 7917043703839719424
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
       data:
         name: PoiseDamageData
         attackData:
         - name: Tongue Punch
-          <amount>k__BackingField: 3
+          <amount>k__BackingField: 6
