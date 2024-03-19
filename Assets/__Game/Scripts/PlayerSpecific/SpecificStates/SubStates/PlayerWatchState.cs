@@ -37,6 +37,12 @@ public class PlayerWatchState : PlayerBasicState
         isWatching = false;
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        player.evolutionEvents.OnSwitchToPlayer -= BackToIdle;
+
+    }
 
     public override void LogicUpdate()
     {

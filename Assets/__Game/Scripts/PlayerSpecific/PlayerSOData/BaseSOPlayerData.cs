@@ -24,7 +24,6 @@ public class BaseSOPlayerData : ScriptableObject
             if (currentHealth != value)
             {
                 currentHealth = value;
-
                 // Raise the event to notify listeners that the float value has changed
                 OnCurrentHealthValueChanged?.Invoke(currentHealth);
             }

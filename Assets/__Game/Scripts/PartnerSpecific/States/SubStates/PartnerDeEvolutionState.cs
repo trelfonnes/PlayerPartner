@@ -40,7 +40,12 @@ public class PartnerDeEvolutionState : PartnerBasicState
         partner.evolutionEvents.OnDevolve -= DevolveOver;
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        partner.evolutionEvents.OnDevolve -= DevolveOver;
 
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

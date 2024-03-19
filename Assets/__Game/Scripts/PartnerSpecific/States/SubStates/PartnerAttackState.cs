@@ -71,6 +71,11 @@ public class PartnerAttackState : PartnerAbilityState
         AnimationFinishTrigger();
         isAbilityDone = true;
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        weapon.onDevolve -= Devolve;
+    }
     void Devolve()
     {
         AnimationFinishTrigger();

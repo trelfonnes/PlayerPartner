@@ -46,7 +46,12 @@ public class PartnerEvolutionState : PartnerFollowState
         partner.evolutionEvents.OnEvolveToThirdStage -= EvolveCheck;
         partner.evolutionEvents.OnEvolveToSecondStage -= EvolveCheck;
     }
-
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        partner.evolutionEvents.OnEvolveToThirdStage -= EvolveCheck;
+        partner.evolutionEvents.OnEvolveToSecondStage -= EvolveCheck;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

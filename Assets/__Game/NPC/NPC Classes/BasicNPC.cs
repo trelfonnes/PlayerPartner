@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 
 public class BasicNPC : MonoBehaviour, IInteractable
 {
     [SerializeField] string npcID;
    [SerializeField] protected NPCDataSO npcData;
     [SerializeField] bool isMovingNPC;
-
+    bool isConversationActive = false;
     [SerializeField] float moveSpeed = 3f;
+    [SerializeField] float startingMoveSpeed = 3f;
     [SerializeField] float minMoveDistance = 2f;
     [SerializeField] float maxMoveDistance = 5f;
     [SerializeField] float minPauseDuration;
@@ -27,6 +29,7 @@ public class BasicNPC : MonoBehaviour, IInteractable
     private void Start()
     {
         GetNPCData();
+        GetConversation();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         if (isMovingNPC)
@@ -34,6 +37,10 @@ public class BasicNPC : MonoBehaviour, IInteractable
             StartCoroutine(MoveRoutine());
             anim.SetBool("move", true);
         }
+    }
+    void GetConversation()
+    {
+
     }
     void GetNPCData()
     {
@@ -47,8 +54,31 @@ public class BasicNPC : MonoBehaviour, IInteractable
     public virtual void Interact()
     {
         currentState = NPCState.TalkToPlayer;
-        
 
+        StartConversation();
+    }
+    protected virtual void StartConversation()
+    {
+        DialogueManager.Instance.conversationEnded += ConversationFinished;
+        isConversationActive = true;
+        moveSpeed = 0f;
+        gameObject.GetComponent<DialogueSystemTrigger>().OnUse();
+        
+    }
+    public virtual void ConversationFinished(Transform primaryActorName)
+    {
+        if (isConversationActive)
+        {
+            currentState = NPCState.Idling;
+            if (isMovingNPC)
+            {
+                moveSpeed = startingMoveSpeed;
+                currentState = NPCState.Moving;
+
+            }
+            isConversationActive = false;
+            DialogueManager.Instance.conversationEnded -= ConversationFinished;
+        }
     }
     private IEnumerator MoveRoutine()
     {
@@ -128,7 +158,8 @@ public class BasicNPC : MonoBehaviour, IInteractable
         }
        
     }
-  
+   
+
     protected void CheckGameProgress()
     {
         currentProgress = GameManager.Instance.ReturnCurrentGameProgress();

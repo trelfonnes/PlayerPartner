@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class InventoryMediator: MonoBehaviour
 { 
-
+    //this class is just a prefab outside of the scene
     [SerializeField] List<PlayerSOData> Datas = new List<PlayerSOData>();
 
-    
+
     // not sure how to get all partner data referenced other than hard reference.
     //this system works purely with prefabs, nothing in the actual scene.
-
+    private void Awake()
+    {
+    }
 
     public void IncreaseStamina(float amount)
     {

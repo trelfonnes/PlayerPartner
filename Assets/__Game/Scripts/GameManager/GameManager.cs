@@ -15,7 +15,7 @@ public class GameManager : DataReferenceInheritor
    // public GameObject[] playablePlayerPrefabs; // male and female
    // int chosenPartnerCharacterIndex = 0;
     //int chosenPlayerCharacterIndex = 0;
-   public PartnerType partnerFirstStageType;// this variable will be passed in by questionairre and set before passed to PartnerManager
+  // public PartnerType partnerFirstStageType;// this variable will be passed in by questionairre and set before passed to PartnerManager
     public PlayerType chosenPlayer;// this variable will be passed in by questionairre and set before passed to PartnerManager
     [SerializeField] Vector2 savedLocations;    // only needs to be the first stage of whatever partner.
     public ItemsObjectPool objectPool;

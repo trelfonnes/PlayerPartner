@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using PixelCrushers.DialogueSystem;
 
 public class PauseManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PauseManager : MonoBehaviour
             OnPauseStateChanged?.Invoke(isPaused);
         }
     }
+
     private void Awake()
     {
         if (IsPaused)
@@ -29,6 +31,20 @@ public class PauseManager : MonoBehaviour
         IsPaused = !IsPaused;
         Time.timeScale = IsPaused ? 0 : 1;
     }
-
+    public void ToggleForDialogue(Transform actor)
+    {
+        IsPaused = !IsPaused;
+        Time.timeScale = IsPaused ? 0 : 1;
+    }
+    private void OnEnable()
+    {
+       // DialogueManager.Instance.conversationEnded += ToggleForDialogue;
+      //  DialogueManager.Instance.conversationStarted += ToggleForDialogue;
+    }
+    private void OnDisable()
+    {
+      //  DialogueManager.Instance.conversationEnded -= ToggleForDialogue;
+       // DialogueManager.Instance.conversationStarted -= ToggleForDialogue;
+    }
 
 }

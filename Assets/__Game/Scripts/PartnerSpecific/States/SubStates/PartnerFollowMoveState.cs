@@ -82,7 +82,13 @@ public class PartnerFollowMoveState : PartnerFollowState
         
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        statEvents.onCurrentEPZero -= TimeToDevolve;
+        partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
 
+    }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

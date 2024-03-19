@@ -10,7 +10,7 @@ public class DataReferenceInheritor : MonoBehaviour
     [SerializeField] protected PlayerSOData partner2SOData;
     [SerializeField] protected PlayerSOData partner3SOData;
     SORefHolder partnerDatas;
-
+    public PartnerType partnerFirstStageType;
     protected virtual void Awake()
     {
         GameObject SORefHolderGO = GameObject.Find("ScriptableObjectReferenceHolder");
@@ -25,16 +25,47 @@ public class DataReferenceInheritor : MonoBehaviour
             }
             else
             {
-                //TODO create some logic that dictates which partnerDatas to match up with
-                // like, if user got a int 3 outcome in their questions, partner1SOdata = dino1 etc.
-                playerSOData = partnerDatas.playerSOData;
-                partner1SOData = partnerDatas.Dino1SOData;
-                partner2SOData = partnerDatas.Dino2SOData;
-                partner3SOData = partnerDatas.Dino3SOData;
+                AssignData();
+                                            
+                
 
             }
         }
 
+    }
+    void AssignData()
+    {
+        if (ES3.KeyExists("chosenPartner"))
+        {
+            partnerFirstStageType = ES3.Load<PartnerType>("chosenPartner");
+        }
+
+        playerSOData = partnerDatas.playerSOData;
+        if (partnerFirstStageType == PartnerType.DinoOne)
+        {
+            partner1SOData = partnerDatas.Dino1SOData;
+            partner2SOData = partnerDatas.Dino2SOData;
+            partner3SOData = partnerDatas.Dino3SOData;
+        }
+        if (partnerFirstStageType == PartnerType.BearOne)
+        {
+            partner1SOData = partnerDatas.Bear1SOData;
+            partner2SOData = partnerDatas.Bear2SOData;
+            partner3SOData = partnerDatas.Bear3SOData;
+        }  
+        if (partnerFirstStageType == PartnerType.AxelOne)
+        {
+            partner1SOData = partnerDatas.Axel1SOData;
+            partner2SOData = partnerDatas.Axel2SOData;
+            partner3SOData = partnerDatas.Axel3SOData;
+        } 
+        if (partnerFirstStageType == PartnerType.RabbitOne)
+        {
+            partner1SOData = partnerDatas.Rabbit1SOData;
+            partner2SOData = partnerDatas.Rabbit2SOData;
+            partner3SOData = partnerDatas.Rabbit3SOData;
+        }
+      
     }
     
 }
