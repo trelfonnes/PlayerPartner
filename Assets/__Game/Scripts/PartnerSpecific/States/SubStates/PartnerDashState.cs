@@ -69,7 +69,6 @@ public class PartnerDashState : PartnerAbilityState
             PSM.ChangePartnerState(partner.IdleState);
             partner.DashCooldownTimer.Reset();
         }
-        Debug.Log(isTouchingPitfall + "Frombasic state");
         
 
 

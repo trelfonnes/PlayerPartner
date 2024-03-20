@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 935899b62f48ae5498594680ed17d133, type: 3}
-  m_Name: Dialogue Database
+  m_Name: Dialogue Database (Auto-Backup)
   m_EditorClassIdentifier: 
   version: 
   author: 
@@ -35,10 +35,10 @@ MonoBehaviour:
     underline: 0
   baseID: 1
   actors:
-  - id: 6
+  - id: 3
     fields:
     - title: Name
-      value: MalePlayer
+      value: PlayerM
       type: 0
       typeString: 
     - title: Pictures
@@ -46,7 +46,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: male main character
+      value: MalePlayer
       type: 0
       typeString: CustomFieldType_Text
     - title: IsPlayer
@@ -58,10 +58,10 @@ MonoBehaviour:
     alternatePortraits: []
     spritePortraits:
     - {fileID: -790833201, guid: 7cff2d431885bb8489282ef10f34185c, type: 3}
-  - id: 5
+  - id: 1
     fields:
     - title: Name
-      value: FemalePlayer
+      value: PlayerF
       type: 0
       typeString: 
     - title: Pictures
@@ -69,7 +69,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: Female Main Character
+      value: Female Player
       type: 0
       typeString: CustomFieldType_Text
     - title: IsPlayer
@@ -81,18 +81,18 @@ MonoBehaviour:
     alternatePortraits: []
     spritePortraits:
     - {fileID: 1685095271, guid: 7cff2d431885bb8489282ef10f34185c, type: 3}
-  - id: 7
+  - id: 2
     fields:
     - title: Name
-      value: Cloaked Figure
+      value: Lindsey
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: NPC
+      value: TesterNPC
       type: 0
       typeString: CustomFieldType_Text
     - title: IsPlayer
@@ -100,10 +100,77 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: -1400420241, guid: 0062264fcf494f64d824db88aca467df, type: 3}
+    spritePortrait: {fileID: 1685095271, guid: 7cff2d431885bb8489282ef10f34185c, type: 3}
     alternatePortraits: []
     spritePortraits:
-    - {fileID: 1719033035, guid: 0062264fcf494f64d824db88aca467df, type: 3}
+    - {fileID: -1400420241, guid: 0062264fcf494f64d824db88aca467df, type: 3}
+  - id: 4
+    fields:
+    - title: Name
+      value: Trel
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: Tester NPC
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 699445923, guid: 0062264fcf494f64d824db88aca467df, type: 3}
+    alternatePortraits: []
+    spritePortraits:
+    - {fileID: -790833201, guid: 7cff2d431885bb8489282ef10f34185c, type: 3}
+  - id: 5
+    fields:
+    - title: Name
+      value: PlayerM
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: Automatic responding player. (No input, can change portraits via [pic=#])
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 6
+    fields:
+    - title: Name
+      value: PlayerF
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: Non Player Response.(No input, can change portraits via [pic=#])
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
   items: []
   locations: []
   variables:
@@ -335,17 +402,17 @@ MonoBehaviour:
     - title: Title
       value: Talk To Test NPC
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Description
       value: 
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Actor
-      value: 6
+      value: 1
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 7
+      value: 2
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -387,11 +454,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 6
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 7
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -428,7 +495,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 255.60443
-        y: 8.149986
+        y: 9.120865
         width: 160
         height: 30
     - id: 1
@@ -442,11 +509,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 7
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 6
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -459,10 +526,6 @@ MonoBehaviour:
         typeString: 
       - title: Sequence
         value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: SetPortrait(FemalePlayer,pic=2); SetPortrait(MalePlayer,pic=2)
         type: 0
         typeString: 
       conversationID: 2
@@ -493,7 +556,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 260.03302
-        y: 70.43486
+        y: 73.250656
         width: 160
         height: 30
     - id: 2
@@ -507,11 +570,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 6
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 7
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -519,7 +582,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '[pic=2]Meh, it''s up and down.'
+        value: Meh, it's up and down.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -554,7 +617,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 77.92311
-        y: 139.68344
+        y: 142.87492
         width: 160
         height: 30
     - id: 3
@@ -562,31 +625,31 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: CustomFieldType_Text
+        typeString: 
       - title: Description
         value: 
         type: 0
-        typeString: CustomFieldType_Text
+        typeString: 
       - title: Actor
-        value: 6
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 7
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
         value: 
         type: 0
-        typeString: CustomFieldType_Text
+        typeString: 
       - title: Dialogue Text
-        value: '[pic=2]I''m having a rough go of it.'
+        value: I'm having a rough go of it.
         type: 0
-        typeString: CustomFieldType_Text
+        typeString: 
       - title: Sequence
         value: 
         type: 0
-        typeString: CustomFieldType_Text
+        typeString: 
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -609,7 +672,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 478.01
-        y: 143.23012
+        y: 144.40659
         width: 160
         height: 30
     - id: 4
@@ -623,11 +686,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 7
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 6
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -640,10 +703,6 @@ MonoBehaviour:
         typeString: 
       - title: Sequence
         value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: SetPortrait(FemalePlayer,pic=1); SetPortrait(MalePlayer,pic=1)
         type: 0
         typeString: 
       conversationID: 2
@@ -682,11 +741,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 6
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 7
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -694,7 +753,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: '[pic=1]I''ll see what I can do...'
+        value: I'll see what I can do...
         type: 0
         typeString: 
       - title: Sequence
@@ -717,7 +776,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 90.87912
-        y: 298.34967
+        y: 299.989
         width: 160
         height: 30
     - id: 6
@@ -731,11 +790,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 7
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 6
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -743,15 +802,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: '[pic=2]Don''t give up, you got this!'
+        value: Don't give up, you got this!
         type: 0
         typeString: 
       - title: Sequence
         value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: SetPortrait(FemalePlayer,pic=1); SetPortrait(MalePlayer,pic=1)
         type: 0
         typeString: 
       conversationID: 2
@@ -790,11 +845,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 6
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 7
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -802,11 +857,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: '[pic=2]You''re right, thanks!'
+        value: You're right, thanks!
         type: 0
         typeString: 
       - title: Sequence
-        value: SetPortrait(MalePlayer,pic=1)
+        value: 
         type: 0
         typeString: 
       conversationID: 2
@@ -825,7 +880,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 487.71027
-        y: 294.56177
+        y: 296.48486
         width: 160
         height: 30
     - id: 8
@@ -839,11 +894,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 7
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 6
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -885,7 +940,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.52000034
+    canvasZoom: 0.94
   syncInfo:
     syncActors: 0
     syncItems: 0

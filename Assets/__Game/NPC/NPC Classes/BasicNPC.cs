@@ -21,6 +21,7 @@ public class BasicNPC : MonoBehaviour, IInteractable
     Rigidbody2D rb;
     ProgressMarker currentProgress;
     [SerializeField]LayerMask whatIsTurnFrom;
+    DialogueSystemTrigger DST;
 
    protected enum NPCState { Moving, TalkToPlayer, Idling}
    protected NPCState currentState = NPCState.Moving;
@@ -28,6 +29,7 @@ public class BasicNPC : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        DST = GetComponent<DialogueSystemTrigger>();
         GetNPCData();
         GetConversation();
         rb = GetComponent<Rigidbody2D>();
@@ -178,6 +180,13 @@ public class BasicNPC : MonoBehaviour, IInteractable
         else if(currentProgress == ProgressMarker.act4)
         {
 
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            DST.conversationActor = collision.transform;
         }
     }
 }

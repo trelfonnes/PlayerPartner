@@ -44,7 +44,6 @@ public class PartnerFollowIdleState : PartnerFollowState
     {
         base.OnDisable();
         partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
-        Debug.Log("Unsub from switch to partner event");
 
         statEvents.onCurrentEPZero -= TimeToDevolve;
 

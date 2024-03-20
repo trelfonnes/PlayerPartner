@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using PixelCrushers.DialogueSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
@@ -31,13 +32,28 @@ public class PlayerInputHandler : MonoBehaviour
     private float resetDelay = .01f;
     public bool HasMoveInput => RawMovementInput != Vector2.zero;
 
+    private void OnEnable()
+    {
+        DialogueManager.Instance.conversationStarted += MuteInputForDialogue;
+        DialogueManager.Instance.conversationEnded += ReturnInputFromDialogue;
+
+    }
+    
     private void Awake()
     {
         PauseManager.OnPauseStateChanged += HandlePausedStateChanged;
         CutsceneManager.OnCutscenePlaying += HandlePausedStateChanged;
         _playerInput = GetComponent<PlayerInput>();
-        
+       
 
+    }
+    void MuteInputForDialogue(Transform actor)
+    {
+        _playerInput.DeactivateInput();
+    }
+    void ReturnInputFromDialogue(Transform actor)
+    {
+        _playerInput.ActivateInput();
     }
     void HandlePausedStateChanged(bool isPaused)
     {
@@ -227,7 +243,16 @@ public class PlayerInputHandler : MonoBehaviour
     {
         PauseManager.OnPauseStateChanged -= HandlePausedStateChanged;
         CutsceneManager.OnCutscenePlaying -= HandlePausedStateChanged;
+  
 
+    }
+    private void OnApplicationQuit()
+    {
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.conversationStarted -= MuteInputForDialogue;
+            DialogueManager.Instance.conversationEnded -= ReturnInputFromDialogue;
+        }
     }
 }
 

@@ -98,7 +98,6 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         StateMachine.CurrentState.OnDisable();
-        Debug.Log("Disabling a Player in awake" + gameObject.name);
 
     }
     public void PlayerIsDefeated()
