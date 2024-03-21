@@ -34,9 +34,11 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogueManager.Instance.conversationStarted += MuteInputForDialogue;
-        DialogueManager.Instance.conversationEnded += ReturnInputFromDialogue;
-
+        if (gameObject.activeSelf)
+        {
+            DialogueManager.Instance.conversationStarted += MuteInputForDialogue;
+            DialogueManager.Instance.conversationEnded += ReturnInputFromDialogue;
+        }
     }
     
     private void Awake()
@@ -248,7 +250,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        if (DialogueManager.Instance != null)
+        if (DialogueManager.Instance != null && gameObject.activeSelf)
         {
             DialogueManager.Instance.conversationStarted -= MuteInputForDialogue;
             DialogueManager.Instance.conversationEnded -= ReturnInputFromDialogue;

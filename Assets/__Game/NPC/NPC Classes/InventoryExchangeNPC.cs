@@ -1,48 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class InventoryExchangeNPC : BasicNPC
-{
+using PixelCrushers.DialogueSystem;
+public class InventoryExchangeNPC : MonoBehaviour
+{// attach this script to the dialogue manager
     [SerializeField] PlayerInventory playerInventory;
     [SerializeField] PlayerArtifactInventory artifactInventory;
-    [SerializeField] string itemToRemove;
-    [SerializeField] string requestedItem;
-    [SerializeField] string requestedArtifact;
-    [SerializeField] string artifactToRemove;
+  
     [SerializeField] GameObject itemToGive;//NPC will just spawn the item, not put direct in inventory
 
-    public override void Interact()
-    {
-        base.Interact();
-        if (npcData.askForRegularItem)
-        {
-            if (HasRequestedItem())
-            {
-                RemoveItemFromPlayerInventory();
-            }
-            else
-            {
-                //give a response that they don't have the item
-                Debug.Log("You don't have the item");
+   
 
-            }
-        }
-        if (npcData.askForArtifactItem)
-        {
-            if (HasRequestedArtifactItem())
-            {
-                RemoveItemFromArtifactInventory();
-            }
-            else
-            {
-                //tell the player they don't have the artifact yet.
-                Debug.Log("You don't have the artifact");
-            }
-        }
-    }
-
-    bool HasRequestedItem()
+    bool HasRequestedItem(string requestedItem)
     {
         foreach (inventoryItems item in playerInventory.myInventory)
         {
@@ -50,23 +19,23 @@ public class InventoryExchangeNPC : BasicNPC
             {
                 return true;
             }
-        }
+        } 
         return false;
     }
 
-    void RemoveItemFromPlayerInventory()
+    void RemoveItemFromPlayerInventory(string itemToRemove)
     {
         foreach(inventoryItems item in playerInventory.myInventory)
         {
             if(item.itemName == itemToRemove)
             {
                 Debug.Log(item.itemName + " was removed from inventory");
-                playerInventory.myInventory.Remove(item);
+                item.DecreaseAmount(1);
                 break;
             }
         }
     }
-    bool HasRequestedArtifactItem()
+    bool HasRequestedArtifactItem(string requestedArtifact)
     {
         foreach (ArtifactInventoryItems item in artifactInventory.artifactInventory)
         {
@@ -78,7 +47,7 @@ public class InventoryExchangeNPC : BasicNPC
         }
         return false;
     }
-    void RemoveItemFromArtifactInventory()
+    void RemoveItemFromArtifactInventory(string artifactToRemove)
     {
         foreach(ArtifactInventoryItems item in artifactInventory.artifactInventory)
         {
@@ -91,6 +60,20 @@ public class InventoryExchangeNPC : BasicNPC
             }
         }
     }
-
+    private void OnEnable()
+    {
+        Lua.RegisterFunction("HasRequestedItem", this, SymbolExtensions.GetMethodInfo(() => HasRequestedItem(string.Empty)));
+        Lua.RegisterFunction("HasRequestedArtifactItem", this, SymbolExtensions.GetMethodInfo(() => HasRequestedArtifactItem(string.Empty)));
+        Lua.RegisterFunction("RemoveItemFromArtifactInventory", this, SymbolExtensions.GetMethodInfo(() => RemoveItemFromArtifactInventory(string.Empty)));
+        Lua.RegisterFunction("RemoveItemFromPlayerInventory", this, SymbolExtensions.GetMethodInfo(() => RemoveItemFromPlayerInventory(string.Empty)));
+       // Lua.RegisterFunction(nameof(AddOne), this, SymbolExtensions.GetMethodInfo(() => AddOne((double)0)));
+    }
+    private void OnDisable()
+    {//if this is on the dialogue manager these are not need because it is persistant across scenes
+       // Lua.UnregisterFunction(nameof(HasRequestedItem));
+      //  Lua.UnregisterFunction(nameof(HasRequestedArtifactItem));
+      //  Lua.UnregisterFunction(nameof(RemoveItemFromArtifactInventory));
+     //   Lua.UnregisterFunction(nameof(RemoveItemFromPlayerInventory));
+    }
 
 }

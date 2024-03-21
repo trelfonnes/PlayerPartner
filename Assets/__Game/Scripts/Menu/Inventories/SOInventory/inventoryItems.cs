@@ -25,4 +25,8 @@ public class inventoryItems : ScriptableObject
             numberHeld = 0;
         }
     }
+    public int ReturnAmount()
+    {
+        return numberHeld;
+    }
 }

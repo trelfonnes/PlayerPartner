@@ -8,13 +8,16 @@ public class BasicNPC : MonoBehaviour, IInteractable
     [SerializeField] string npcID;
    [SerializeField] protected NPCDataSO npcData;
     [SerializeField] bool isMovingNPC;
-    bool isConversationActive = false;
+    protected bool isConversationActive = false;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float startingMoveSpeed = 3f;
     [SerializeField] float minMoveDistance = 2f;
     [SerializeField] float maxMoveDistance = 5f;
     [SerializeField] float minPauseDuration;
     [SerializeField] float maxPauseDuration;
+    [SerializeField] GameObject itemToSpawn;
+    [SerializeField] Transform spawnPoint;
+    
     Animator anim;
     Vector2 moveDirection;
     Vector2 currentDirection;
@@ -188,5 +191,28 @@ public class BasicNPC : MonoBehaviour, IInteractable
         {
             DST.conversationActor = collision.transform;
         }
+    }
+
+    void CheckNPCNameItemSpawn(string name)
+    {
+        if(name == npcID)
+        {
+            if (!npcData.hasGivenItem)
+            {
+                Instantiate(itemToSpawn, spawnPoint);
+                npcData.hasGivenItem = true;
+            }
+        }
+    }
+
+    //connecting with LUA
+
+    private void OnEnable()
+    {
+        Lua.RegisterFunction("CheckNPCNameItemSpawn", this, SymbolExtensions.GetMethodInfo(() => CheckNPCNameItemSpawn(string.Empty)));
+    }
+    private void OnDisable()
+    {
+        Lua.UnregisterFunction("CheckNPCNameItemSpawn");
     }
 }

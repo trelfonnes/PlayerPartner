@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef08ef81b100d6f4b89fa3dd22452fe1, type: 3}
   m_Name: StaminaIncrease 50pts
   m_EditorClassIdentifier: 
-  itemName: Stamina Bottle
+  itemName: StaminaPotion
   itemDescription: A quick and easy stamina refill. The artificial flavors may not
     have the same effects as eating natual foods.
   itemImage: {fileID: 1686477926, guid: 53cdcada1346fd7489e33d26e8c0ec1d, type: 3}

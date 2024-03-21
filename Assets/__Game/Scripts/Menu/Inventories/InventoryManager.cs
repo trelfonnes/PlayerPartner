@@ -43,6 +43,14 @@ public class InventoryManager : MonoBehaviour
                         newSlot.Setup(playerInventory.myInventory[i], this);
                     }
                 }
+                else
+                {
+                    // Remove items with numberHeld less than or equal to zero
+                    playerInventory.myInventory.RemoveAt(i);
+                    // Since we removed an item, decrement the loop index to properly iterate through the modified list
+                    i--;
+                }
+
             }
 
         }
