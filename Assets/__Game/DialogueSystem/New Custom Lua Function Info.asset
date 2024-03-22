@@ -28,6 +28,9 @@ MonoBehaviour:
   - functionName: NpcCheck/CheckNPCNameItemSpawn
     parameters: 02000000
     returnValue: 0
+  - functionName: DialogueCheck/GetCurrentGameProgress
+    parameters: 
+    returnValue: 2
   scriptFunctions:
   - functionName: NpcCheck/CheckNPCNameItemSpawn
     parameters: 02000000

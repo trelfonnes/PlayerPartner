@@ -340,6 +340,19 @@ public class SaveLoadManager : DataReferenceInheritor
         else return Vector2.zero;
        
     }
+    public void SaveBool(string key, bool value)
+    {
+        ES3.Save<bool>(key, value);
+    }
+    public bool LoadBool(string key)
+    {
+        if (ES3.KeyExists(key))
+        {
+            return ES3.Load<bool>(key);
+        }
+        else return false;
+    }
+
     public void SaveGame()
     {// add saving PlayerInventory scriptable object
      //base folder

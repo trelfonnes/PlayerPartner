@@ -6,19 +6,26 @@ using PixelCrushers.DialogueSystem;
 
 public class ActorAlternationDST : MonoBehaviour, IInteractable
 {
-    [SerializeField] bool isActor;
-    DialogueSystemTrigger DST;
+    //This is ticked to onTrigger dialogue on an object that only needs dialogue once.
+    // Not a 'inspectable' object. Those will have isOnUse ticked
+    //make sure the object it is attached to has a trigger collider if it is onTrigger or needs to set the actor/conversant.
+    [SerializeField] bool isActor; //this is ticked for making the player the actor or unticked if I want the player to be the conversant
     bool alreadyTriggered;
-    [SerializeField] bool isOnUseTrigger;
-    [SerializeField] bool isOnTriggerEnter;
+    [SerializeField] bool isOnTriggerEnter; // tick for onTrigger dialogue user. Untick for dialogue user.
+    [SerializeField] string DialogueName; //Fill this out to give an ONTRIGGEREnter only a uniqe identifier for saving its status
+    DialogueSystemTrigger DST;
 
-    // Start is called before the first frame update
     void Start()
     {
         DST = GetComponent<DialogueSystemTrigger>();
-        if (alreadyTriggered)
+        if (DialogueName != null && isOnTriggerEnter)
         {
-            gameObject.SetActive(false);
+            alreadyTriggered = SaveLoadManager.Instance.LoadBool(DialogueName);
+
+            if (alreadyTriggered)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
@@ -29,8 +36,10 @@ public class ActorAlternationDST : MonoBehaviour, IInteractable
     }
     public void Interact()
     {
-        gameObject.GetComponent<DialogueSystemTrigger>().OnUse();
-
+        if (!isOnTriggerEnter)
+        {
+            gameObject.GetComponent<DialogueSystemTrigger>().OnUse();
+        }
     }
   
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,10 +58,12 @@ public class ActorAlternationDST : MonoBehaviour, IInteractable
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && isOnTriggerEnter)
+        if (collision.CompareTag("Player") && isOnTriggerEnter && !alreadyTriggered)
         {
             alreadyTriggered = true;
+            SaveLoadManager.Instance.SaveBool(DialogueName, alreadyTriggered);
             gameObject.SetActive(false);
+
         }
     }
 }

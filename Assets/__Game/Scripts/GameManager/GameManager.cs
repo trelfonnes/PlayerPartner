@@ -70,11 +70,14 @@ public class GameManager : DataReferenceInheritor
     }
     void GlobalLoadListener()
     {
-        // add retreival of currentGameProgress
+        if (ES3.KeyExists("currentGameProgress"))
+        {
+          currentGameProgress = ES3.Load<ProgressMarker>("currentGameProgress");
+        }
     }
     void GlobalSaveListener()
     {
-        //add storing of currentGameProgress
+        ES3.Save<ProgressMarker>("currentGameProgress", currentGameProgress);
     }
 
 
