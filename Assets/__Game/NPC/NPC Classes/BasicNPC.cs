@@ -59,6 +59,7 @@ public class BasicNPC : MonoBehaviour, IInteractable
     public virtual void Interact()
     {
         currentState = NPCState.TalkToPlayer;
+        AudioManager.Instance.PlayAudioClip("Interact");
 
         StartConversation();
     }

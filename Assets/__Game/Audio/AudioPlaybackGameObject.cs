@@ -11,9 +11,11 @@ public class AudioPlaybackGameObject : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         // Start coroutine to check audio playback completion after a delay
+    }
+    private void OnEnable()
+    {
         StartCoroutine(CheckAudioPlaybackCompletion());
     }
-
     private IEnumerator CheckAudioPlaybackCompletion()
     {
         // Wait for the specified delay before checking audio playback

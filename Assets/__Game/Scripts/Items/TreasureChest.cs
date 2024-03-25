@@ -30,6 +30,8 @@ public class TreasureChest : MonoBehaviour, IInteractable
         Vector2 colliderPosition = boxCollider2D.offset;
         colliderPosition.y += yOffset;
         boxCollider2D.offset = colliderPosition;
+        AudioManager.Instance.PlayAudioClip("OpenChest");
+
         if (containedItemInstance == null)
         {
           

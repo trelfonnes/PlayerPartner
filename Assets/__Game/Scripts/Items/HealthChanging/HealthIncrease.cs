@@ -10,7 +10,10 @@ public class HealthIncrease : MonoBehaviour
         if(collision.CompareTag("Player") && !collision.isTrigger || collision.CompareTag("Partner") && !collision.isTrigger ) 
         {
             collision.GetComponentInChildren<IHealthChange>().IncreaseHealth(amountToIncrease);
+            AudioManager.Instance.PlayAudioClip("CollectHeart");
+
             gameObject.SetActive(false);
+        
         }
         if (collision.CompareTag("Boss"))
         {

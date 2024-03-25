@@ -11,6 +11,8 @@ public class AddArtifactToInventory : MonoBehaviour
         if(collision.CompareTag("Player") && !collision.isTrigger)
         {
             manager.AddArtifactToInventory(artifactSO);
+            AudioManager.Instance.PlayAudioClip("CollectArtifact");
+
             gameObject.SetActive(false);
         }
     }

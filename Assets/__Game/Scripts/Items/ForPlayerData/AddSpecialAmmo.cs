@@ -12,6 +12,8 @@ public class AddSpecialAmmo : MonoBehaviour
         if (collision.CompareTag("Partner") && !collision.isTrigger)
         {
             collision.GetComponentInChildren<ISpecialPower>().IncreaseSP(amount);
+            AudioManager.Instance.PlayAudioClip("CollectAmmo");
+
             gameObject.SetActive(false);
 
         }

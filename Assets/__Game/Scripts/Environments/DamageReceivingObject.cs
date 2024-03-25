@@ -26,7 +26,9 @@ public class DamageReceivingObject : MonoBehaviour, IDamageable
     { 
         StartCoroutine(WiggleCoroutine());
         currentHealth -= amount;
-        if(currentHealth <= 0)
+        AudioManager.Instance.PlayAudioClip("Damaged");
+
+        if (currentHealth <= 0)
         {
             // play breaking sprites
             InvokeRepeating("BreakSprites", 0.0f, .1f);

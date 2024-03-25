@@ -12,6 +12,8 @@ public class AddItemToInventory : MonoBehaviour
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
             item.numberHeld++;
+            AudioManager.Instance.PlayAudioClip("CollectItem");
+
             collision.GetComponentInChildren<IInventory>().AddItemToInventory(item);
             gameObject.SetActive(false);
 

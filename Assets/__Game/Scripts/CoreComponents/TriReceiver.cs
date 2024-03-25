@@ -28,6 +28,7 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
         float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
 
         float calculatedDamageFloat = (float)calculatedDamage;
+        AudioManager.Instance.PlayAudioClip("Hurt");
 
         health.Comp?.DecreaseHealth(calculatedDamageFloat);
     }

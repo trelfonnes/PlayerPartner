@@ -25,6 +25,8 @@ public class BossKeyDoor : MonoBehaviour
             if (keyAmount >= costToOpen && !doorOpened)
             {
                 OpenDoor();
+                AudioManager.Instance.PlayAudioClip("OpenDoor");
+
                 collision.GetComponentInChildren<IKeys>().MinusBossKey(costToOpen);
 
 

@@ -25,6 +25,8 @@ public class PlayerFallingState : PlayerBasicState
     {
         base.Enter();
         player.onFallOver += FallIsOver;
+        AudioManager.Instance.PlayAudioClip("Falling");
+
         Debug.Log("Entered falling state");
     }
 

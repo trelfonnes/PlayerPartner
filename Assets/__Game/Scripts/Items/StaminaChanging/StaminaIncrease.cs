@@ -10,6 +10,8 @@ public class StaminaIncrease : MonoBehaviour
         if (collision.CompareTag("Partner") && !collision.isTrigger)
         {
             collision.GetComponentInChildren<IStaminaChange>().IncreaseStamina(amountToIncrease);
+            AudioManager.Instance.PlayAudioClip("CollectStamina");
+
             gameObject.SetActive(false);
             
         }

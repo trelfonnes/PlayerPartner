@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        audioObjectPool = GetComponent<AudioObjectPool>();
 
         InitializeAudioClips();
     }
@@ -55,6 +56,7 @@ public class AudioManager : MonoBehaviour
     }
     public void ReturnAudioToPool(GameObject audioObject)
     {
+        Debug.Log("Return to the pool");
         audioObjectPool.ReturnToPool(audioObject);
     }
 
@@ -65,11 +67,15 @@ public class AudioManager : MonoBehaviour
         {
             // Request audio playback GameObject from the pool
             GameObject audioObject = audioObjectPool.GetPooledObject();
+            Debug.Log("BEFORE AUDIO OBJECT NULL CHECK");
+
             if (audioObject != null)
             {
+                Debug.Log("PLAY THE AUDIO CLIP");
                 // Get AudioSource component and set the audio clip
                 AudioSource audioSource = audioObject.GetComponent<AudioSource>();
                 audioSource.clip = audioClips[key];
+              //  audioObject.SetActive(true);
                 audioSource.Play();
             }
         }

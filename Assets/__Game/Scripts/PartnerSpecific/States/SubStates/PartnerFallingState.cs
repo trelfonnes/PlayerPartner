@@ -15,6 +15,7 @@ public class PartnerFallingState : PartnerBasicState
     {
         base.Enter();
         partner.onFallOver += FallIsOver;
+        AudioManager.Instance.PlayAudioClip("Falling");
 
         Debug.Log("partner entered falling state");
 

@@ -15,6 +15,8 @@ public class KeyItemPickup : MonoBehaviour
             if (artifactInventory)
             {
                 artifactInventory.AddKeyItem(keyItemActionCheck);
+                AudioManager.Instance.PlayAudioClip("CollectArtifact");
+
                 Destroy(gameObject);
             }
         }

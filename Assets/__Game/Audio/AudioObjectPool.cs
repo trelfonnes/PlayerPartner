@@ -5,15 +5,9 @@ using UnityEngine;
 public class AudioObjectPool : MonoBehaviour
 {
     public GameObject audioPlaybackPrefab;
-
-    // Maximum number of audio playback GameObjects in the pool
     public int maxPoolSize = 10;
 
-    // List to store available audio playback GameObjects
-    private List<GameObject> availableObjects = new List<GameObject>();
-
-    // List to store in-use audio playback GameObjects
-    private List<GameObject> inUseObjects = new List<GameObject>();
+    private List<GameObject> pooledAudioObjects = new List<GameObject>();
 
     private void Start()
     {
@@ -22,52 +16,30 @@ public class AudioObjectPool : MonoBehaviour
         {
             GameObject obj = Instantiate(audioPlaybackPrefab);
             obj.SetActive(false);
-            availableObjects.Add(obj);
+            pooledAudioObjects.Add(obj);
         }
     }
 
-    // Method to get an audio playback GameObject from the pool
     public GameObject GetPooledObject()
     {
-        if (availableObjects.Count == 0)
+        // Find and return an inactive audio playback GameObject from the pool
+        foreach (GameObject obj in pooledAudioObjects)
         {
-            // If no available objects in the pool, dynamically create a new one if the pool size limit is not reached
-            if (inUseObjects.Count < maxPoolSize)
+            if (!obj.activeInHierarchy)
             {
-                GameObject newObj = Instantiate(audioPlaybackPrefab);
-                newObj.SetActive(false);
-                inUseObjects.Add(newObj);
-                return newObj;
-            }
-            else
-            {
-                // If the pool size limit is reached, return null
-                Debug.LogWarning("AudioObjectPool limit reached. Consider increasing the maxPoolSize.");
-                return null;
+                obj.SetActive(true);
+                return obj;
             }
         }
-        else
-        {
-            // Retrieve an available object from the pool
-            GameObject obj = availableObjects[0];
-            availableObjects.RemoveAt(0);
-            inUseObjects.Add(obj);
-            return obj;
-        }
+
+        // If no inactive object is found, return null
+        Debug.LogWarning("No available audio playback GameObjects in the pool.");
+        return null;
     }
 
-    // Method to return an audio playback GameObject to the pool
     public void ReturnToPool(GameObject obj)
     {
-        if (inUseObjects.Contains(obj))
-        {
-            obj.SetActive(false);
-            inUseObjects.Remove(obj);
-            availableObjects.Add(obj);
-        }
-        else
-        {
-            Debug.LogWarning("Trying to return an object to AudioObjectPool that was not obtained from the pool.");
-        }
+        // Deactivate the audio playback GameObject and return it to the pool
+        obj.SetActive(false);
     }
 }

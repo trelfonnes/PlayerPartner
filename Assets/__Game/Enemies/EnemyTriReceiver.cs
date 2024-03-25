@@ -41,6 +41,8 @@ public class EnemyTriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoi
         float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
 
         float calculatedDamageFloat = (float)calculatedDamage;
+        AudioManager.Instance.PlayAudioClip("Damaged");
+
 
         stats.Comp?.DecreaseHealth(calculatedDamageFloat);
     }

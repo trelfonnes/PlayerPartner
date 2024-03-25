@@ -20,6 +20,8 @@ public class PartnerDashState : PartnerAbilityState
         playerSOData.Stamina -= 5f;
         timer = 0f;
         Movement?.SetVelocity(Movement.latestMovingVelocity * playerSOData.dashForce);
+        AudioManager.Instance.PlayAudioClip("Dash");
+
         isTouchingPitfall = false;
         partner.onFallStarted += StartFalling;
 

@@ -58,6 +58,8 @@ public class PartnerJumpState : PartnerAbilityState
 
         }
         Movement?.SetVelocity(direction * playerSOData.jumpForce);
+        AudioManager.Instance.PlayAudioClip("Jump");
+
         timer = 0f;
     }
 

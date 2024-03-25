@@ -19,11 +19,15 @@ public class EvolutionDevice : MonoBehaviour
                 if (isFirstDevice)
                 {
                     playerData.deviceOneCollected = true;
+                AudioManager.Instance.PlayAudioClip("CollectArtifact");
+
                 gameObject.SetActive(false);
             }
             if (isSecondDevice)
                 {
                     playerData.deviceTwoCollected = true;
+                AudioManager.Instance.PlayAudioClip("CollectArtifact");
+
                 gameObject.SetActive(false);
                 }
         }

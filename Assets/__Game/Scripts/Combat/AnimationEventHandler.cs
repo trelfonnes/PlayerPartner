@@ -12,6 +12,7 @@ public class AnimationEventHandler : MonoBehaviour
     public event Action OnShootProjectile;
     public event Action OnShootChargedProjectile;
     public event Action<AttackPhases> OnEnterAttackPhase;
+    public event Action<string> onPlayAudio;
 
     bool isCharged = false;
 
@@ -44,5 +45,8 @@ public class AnimationEventHandler : MonoBehaviour
 
     }
     void EnterAttackPhase(AttackPhases phase) => OnEnterAttackPhase?.Invoke(phase); 
-
+    void PlayAudio(string audio)
+    {
+        AudioManager.Instance.PlayAudioClip(audio);
+    }
 }
