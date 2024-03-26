@@ -8,7 +8,9 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtin
     [SerializeField] GameObject fire;
     [SerializeField] GameObject RestAndRestore;
     [SerializeField] bool isIndoorObject;
+    [SerializeField] string audioName;
     Light2D pointLight;
+    bool audioIsPlaying;
     bool hasBeenActivated;
     bool isLit;
     
@@ -56,6 +58,7 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtin
         pointLight = GetComponentInChildren<Light2D>();
         hasBeenActivated = true;
         isLit = true;
+
     }
 
     public void Extinguish()
@@ -78,6 +81,28 @@ public class FirelightHandler : MonoBehaviour, ILightable, IInteractable, IExtin
         if (hasBeenActivated && !isIndoorObject)
         {
             pointLight.intensity = .5f;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && !collision.isTrigger || collision.CompareTag("Partner") && !collision.isTrigger)
+        {
+            if (hasBeenActivated && !audioIsPlaying)
+            {
+                AudioManager.Instance.PlayLoopingAudioClip(audioName);
+                audioIsPlaying = true;
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player") && !collision.isTrigger || collision.CompareTag("Partner") && !collision.isTrigger)
+        {
+            if (hasBeenActivated && audioIsPlaying)
+            {
+                AudioManager.Instance.TurnLoopingObjectOff(audioName);
+                audioIsPlaying = false;
+            }
         }
     }
     private void OnEnable()

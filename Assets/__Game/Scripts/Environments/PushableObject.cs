@@ -36,6 +36,7 @@ public class PushableObject : MonoBehaviour
                     rb.bodyType = RigidbodyType2D.Dynamic;
                     // Apply the push force to move the object
                     rb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+                    AudioManager.Instance.PlayAudioClip("Push");
                 }
             }
         }

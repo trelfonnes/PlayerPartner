@@ -33,6 +33,8 @@ public class BasicProjectile : MonoBehaviour
         {
             this.damage = damage;
             this.knockBackDamage = knockBackDamage;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
+
             enemyProjectile = false;
             partnerProjectile = true;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
@@ -56,6 +58,8 @@ public class BasicProjectile : MonoBehaviour
         {
             this.damage = damage;
             this.knockBackDamage = knockBackDamage;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
+
             enemyProjectile = true;
             partnerProjectile = false;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;

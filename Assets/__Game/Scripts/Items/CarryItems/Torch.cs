@@ -8,6 +8,7 @@ public class Torch : MonoBehaviour
 {
     Light2D pointLight;
     [SerializeField] bool isIndoorObject;
+    bool audioIsPlaying;
 
     private void Start()
     {
@@ -22,6 +23,11 @@ public class Torch : MonoBehaviour
         {
             lightable.Light(); //TODO create the "Fire" object that will implement this interface and do the lighting behavior.
         }
+       
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+      
     }
     void DimForDaylight()
     {

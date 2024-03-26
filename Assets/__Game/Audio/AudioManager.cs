@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioClipManager audioClipManager; // Serialized field for AudioClipManager
     private AudioObjectPool audioObjectPool;
+
+    Dictionary<string, GameObject> loopingObjects = new Dictionary<string, GameObject>();
     private void Awake()
     {
         // Singleton pattern
@@ -67,11 +69,9 @@ public class AudioManager : MonoBehaviour
         {
             // Request audio playback GameObject from the pool
             GameObject audioObject = audioObjectPool.GetPooledObject();
-            Debug.Log("BEFORE AUDIO OBJECT NULL CHECK");
 
             if (audioObject != null)
             {
-                Debug.Log("PLAY THE AUDIO CLIP");
                 // Get AudioSource component and set the audio clip
                 AudioSource audioSource = audioObject.GetComponent<AudioSource>();
                 audioSource.clip = audioClips[key];
@@ -82,6 +82,54 @@ public class AudioManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Audio clip with key " + key + " not found.");
+        }
+    }
+    public void PlayLoopingAudioClip(string key)
+    {
+        if (audioClips.ContainsKey(key))
+        {
+            // Request audio playback GameObject from the pool
+            GameObject audioObject = audioObjectPool.GetLoopingPooledObject();
+            AddToLoopingObjectList(key, audioObject);
+            if (audioObject != null)
+            {
+                // Get AudioSource component and set the audio clip
+                AudioSource audioSource = audioObject.GetComponent<AudioSource>();
+                audioSource.clip = audioClips[key];
+              //  audioObject.SetActive(true);
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Audio clip with key " + key + " not found.");
+        }
+    }
+    void AddToLoopingObjectList(string key, GameObject audioObject) 
+    {
+        if (!loopingObjects.ContainsKey(key))
+        {
+            loopingObjects.Add(key, audioObject);
+        }
+    }
+
+    
+    public void TurnLoopingObjectOff(string audioName)
+    {
+        if (loopingObjects.ContainsKey(audioName))
+        {
+            // Get the GameObject associated with the audio name
+            GameObject audioObject = loopingObjects[audioName];
+
+            // Set the GameObject to inactive and turn audio off
+            audioObject.SetActive(false);
+
+            // Remove the GameObject from the dictionary so it can be added as the manager sets it with a new clip/keyword
+            loopingObjects.Remove(audioName);
+        }
+        else
+        {
+            Debug.LogWarning("No looping audio object with the specified name found: " + audioName);
         }
     }
 }

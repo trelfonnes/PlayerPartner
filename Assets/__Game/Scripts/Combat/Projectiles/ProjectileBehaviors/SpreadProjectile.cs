@@ -157,6 +157,8 @@ public class SpreadProjectile : MonoBehaviour
         {
             this.damage = damage;
             knockBackDamage = knockBack;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
+
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             transform.rotation = rotation;

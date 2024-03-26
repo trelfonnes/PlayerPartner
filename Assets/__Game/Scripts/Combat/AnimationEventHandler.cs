@@ -42,6 +42,8 @@ public class AnimationEventHandler : MonoBehaviour
         void SetChargedState()// this event is triggered in idle after a duration
     {
         isCharged = true;
+        AudioManager.Instance.PlayAudioClip("Charged");
+
 
     }
     void EnterAttackPhase(AttackPhases phase) => OnEnterAttackPhase?.Invoke(phase); 
