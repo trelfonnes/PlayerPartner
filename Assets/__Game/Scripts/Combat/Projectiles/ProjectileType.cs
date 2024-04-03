@@ -16,5 +16,6 @@
     SpreadPoisonProjectile,
     BasicElectricProjectile,
     ChargeElectricProjectile,
-    SpreadElectricProjectile
+    SpreadElectricProjectile,
+    BasicAuraProjectile
 }
