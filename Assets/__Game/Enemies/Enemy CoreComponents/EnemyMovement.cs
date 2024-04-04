@@ -121,5 +121,20 @@ public class EnemyMovement : Movement
             enemy.enemyDirection = LastEnemyDirection;
         }
     }
+
+    public void Teleport(float minTeleportDistance, float maxTeleportDistance)
+    {
+        float randomAngle = Random.Range(0f, 2f * Mathf.PI);
+
+        // Calculate a random distance between min and max teleport distances
+        float randomDistance = Random.Range(minTeleportDistance, maxTeleportDistance);
+
+        // Calculate the new position based on the random angle and distance
+        Vector3 newPosition = rb.transform.position + new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle)) * randomDistance;
+
+        // Teleport the enemy to the new position instantly
+        rb.transform.position = newPosition;
+    }
+
 }
 

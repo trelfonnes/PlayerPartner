@@ -17,5 +17,6 @@
     BasicElectricProjectile,
     ChargeElectricProjectile,
     SpreadElectricProjectile,
-    BasicAuraProjectile
+    BasicAuraProjectile,
+    BasicKunaiProjectile
 }

@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Rabbitl1BasicSOData
   m_EditorClassIdentifier: 
   isSick: 0
-  currentHealth: 3
-  stamina: 30
+  currentHealth: 1.5
+  stamina: 16
   isInjured: 0
   moveSpeed: 5
   watchSpeed: 0
   followSpeed: 4.5
   MaxHealth: 3
   HealthLimit: 6
-  SP: 18679
+  SP: 18676
   MaxSP: 20000
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
   MaxStamina: 30
   StaminaLimit: 50
-  Poise: 30
+  Poise: 15.291679
   MaxPoise: 30
   canJump: 1
   numberOfJumps: 1
