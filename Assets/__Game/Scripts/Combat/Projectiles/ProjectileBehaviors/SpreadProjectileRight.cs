@@ -18,7 +18,7 @@ public class SpreadProjectileRight : MonoBehaviour
     Rigidbody2D rb;
     Vector2 Direction;
     private ISpecialAbility specialAbility;
-
+    bool isEnemyProjectile;
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -48,15 +48,21 @@ public class SpreadProjectileRight : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         SetSpecialAbility(attackType, collision);
-        if (collision.CompareTag("Enemy"))
+        if (!isEnemyProjectile)
         {
-            TakeCareOfCollision(collision);
+            if (collision.CompareTag("Enemy"))
+            {
+                TakeCareOfCollision(collision);
+            }
         }
-
-
-
+        if (isEnemyProjectile)
+        {
+            if (collision.CompareTag("Partner") || collision.CompareTag("Player"))
+            {
+                TakeCareOfCollision(collision);
+            }
+        }
     }
 
     //TODO: add logic for damage and knockback and poise. 
@@ -121,15 +127,16 @@ public class SpreadProjectileRight : MonoBehaviour
         }
     }
 
-    public void Shoot(Vector2 normalizedDirection)
+    public void Shoot(Vector2 normalizedDirection, bool isEnemyProj)
     {
+        isEnemyProjectile = isEnemyProj;
         Direction = normalizedDirection;
-        
-           // rb.velocity = normalizedDirection * velocity;
-           
-            StartCoroutine(SwitchSpriteRoutine());
-            StartCoroutine(DeactivateAfterTime());
 
-        
+        // rb.velocity = normalizedDirection * velocity;
+
+        StartCoroutine(SwitchSpriteRoutine());
+        StartCoroutine(DeactivateAfterTime());
+
+
     }
 }

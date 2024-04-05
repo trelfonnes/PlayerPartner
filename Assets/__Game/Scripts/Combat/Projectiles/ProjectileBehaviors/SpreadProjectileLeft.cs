@@ -18,6 +18,7 @@ public class SpreadProjectileLeft : MonoBehaviour
     Vector2 Direction;
     Rigidbody2D rb;
     private ISpecialAbility specialAbility;
+    bool isEnemyProjectile;
 
     private void Awake()
     {
@@ -53,9 +54,19 @@ public class SpreadProjectileLeft : MonoBehaviour
     {
 
         SetSpecialAbility(attackType, collision);
-        if (collision.CompareTag("Enemy"))
+        if (!isEnemyProjectile)
         {
-            TakeCareOfCollision(collision);
+            if (collision.CompareTag("Enemy"))
+            {
+                TakeCareOfCollision(collision);
+            }
+        }
+        if (isEnemyProjectile)
+        {
+            if(collision.CompareTag("Partner") || collision.CompareTag("Player"))
+            {
+                TakeCareOfCollision(collision);
+            }
         }
 
 
@@ -125,8 +136,9 @@ public class SpreadProjectileLeft : MonoBehaviour
     }
 
 
-    public void Shoot(Vector2 normalizedDirection)
+    public void Shoot(Vector2 normalizedDirection, bool isEnemyProj)
     {
+        isEnemyProjectile = isEnemyProj;
         Direction = normalizedDirection;
         
            // rb.velocity = normalizedDirection * velocity;
