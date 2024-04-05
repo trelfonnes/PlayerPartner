@@ -18,5 +18,6 @@
     ChargeElectricProjectile,
     SpreadElectricProjectile,
     BasicAuraProjectile,
-    BasicKunaiProjectile
+    BasicKunaiProjectile,
+    SpreadWhirlwindProjectile
 }

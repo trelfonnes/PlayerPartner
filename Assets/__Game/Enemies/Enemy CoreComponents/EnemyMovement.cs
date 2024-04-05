@@ -135,6 +135,67 @@ public class EnemyMovement : Movement
         // Teleport the enemy to the new position instantly
         rb.transform.position = newPosition;
     }
+    private bool isCircling = false; // Flag to track if the enemy is circling
+    private float circleRadius = 10f; // Radius for circling around the character
+    public float approachRadius = 2f;
+    public void MoveInCircularMotion(Transform characterTransform, float radius, float speed)
+    {
+        // Calculate the distance to the character
+        
+            float distanceToCharacter = Vector3.Distance(rb.transform.position, characterTransform.position);
 
+            // Check if the enemy is within the approach radius
+            if (distanceToCharacter <= approachRadius)
+            {
+                isCircling = true;
+            }
+            else
+            {
+            // Player moved out of circling range, reset flag
+                isCircling = false;
+                rb.velocity = Vector2.zero;
+            }
+
+            if (isCircling)
+            {
+            CircleCharacter(speed);
+            }
+            else
+            {
+
+            Vector3 directionToCharacter = characterTransform.position - rb.transform.position;
+
+            // Calculate the angle from the direction
+            float angle = Mathf.Atan2(directionToCharacter.y, directionToCharacter.x);
+
+            // Update the angle based on time and speed
+            angle += Time.deltaTime * speed;
+
+            // Calculate the new position based on circular motion
+            float xPosition = characterTransform.position.x + Mathf.Cos(angle) * radius;
+            float yPosition = characterTransform.position.y + Mathf.Sin(angle) * radius;
+
+            // Move towards the character transform
+            Vector3 newPosition = Vector3.MoveTowards(rb.transform.position, new Vector3(xPosition, yPosition, rb.transform.position.z), speed * Time.deltaTime);
+
+            // Update the enemy's position
+            rb.transform.position = newPosition;
+        
+    }
+        }
+    private void CircleCharacter(float speed)
+    {
+        float angle = Time.time * (speed);
+
+        // Calculate the new position based on circular motion
+        float xPosition = Mathf.Cos(angle) * (speed);
+        float yPosition = Mathf.Sin(angle) * (speed);
+        
+
+        // Move towards the calculated position
+        rb.velocity = new Vector2(xPosition, yPosition);
+    }
 }
+
+
 
