@@ -5253,7 +5253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Name
-      value: PartnerDino2 Variant
+      value: PartnerDino2 Male
       objectReference: {fileID: 0}
     - target: {fileID: 3096751259281156556, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_IsActive
@@ -5410,7 +5410,7 @@ PrefabInstance:
     - target: {fileID: 5784541043429851520, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 9a40d07060a3b8244b94ba90bc6d3f7b, type: 2}
+      objectReference: {fileID: 9100000, guid: 0bfa9543277a8af46bf9151f3c65e96f, type: 2}
     - target: {fileID: 6009775099449210989, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: data
       value: 
@@ -5430,7 +5430,7 @@ PrefabInstance:
     - target: {fileID: 7366003051328502054, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: ba559c214bf9cd84f9adc8ba7fc95bcb, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7472095014903256249, guid: e59075285719fb1469c9501c19ad3641, type: 3}
       propertyPath: SOData
       value: 
@@ -5941,7 +5941,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.03, y: -0.75}

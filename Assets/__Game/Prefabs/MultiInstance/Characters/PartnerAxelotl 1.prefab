@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   groundCheckRadius: 0.3
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 557120
+    m_Bits: 557128
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -1119,7 +1119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7332889359782497629
 Transform:
   m_ObjectHideFlags: 0

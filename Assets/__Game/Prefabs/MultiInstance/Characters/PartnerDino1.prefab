@@ -1400,7 +1400,7 @@ MonoBehaviour:
   groundCheckRadius: 0.3
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 557120
+    m_Bits: 557128
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -1706,6 +1706,14 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3591465576041025626, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591465576041025626, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591465576041025626, guid: aa85a598f66ba1348acea9486e8a0f86, type: 3}
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1976,7 +1984,7 @@ PrefabInstance:
     - target: {fileID: 5009145620644978189, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: f249ae00ddfe8ed4b899fc45bcba0b9e, type: 2}
+      objectReference: {fileID: 9100000, guid: f2db4695aa8bded44b8cdfe9e40a099b, type: 2}
     - target: {fileID: 8357434848059745963, guid: bcd83f0ea43b4a3439e199e54e2af072, type: 3}
       propertyPath: data
       value: 

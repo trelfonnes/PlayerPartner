@@ -34,7 +34,7 @@ MonoBehaviour:
         name: ProjectileData
         attackData:
         - name: Whirlwind
-          <TypeOfProjectile>k__BackingField: 19
+          <TypeOfProjectile>k__BackingField: 20
           <SPCost>k__BackingField: 0
           <damage>k__BackingField: 1
           <knockbackStrength>k__BackingField: 5

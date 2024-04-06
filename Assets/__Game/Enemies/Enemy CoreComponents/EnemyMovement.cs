@@ -111,6 +111,7 @@ public class EnemyMovement : Movement
 
         }
     }
+   
     void UpdateLastDirection(float X, float Y)
     {
         directionX = X;

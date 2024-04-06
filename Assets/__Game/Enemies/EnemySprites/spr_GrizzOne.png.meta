@@ -410,6 +410,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spr_GrizzOne_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8119ae2b4c597174bb21bc1e3b015432
+      internalID: 89419576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_GrizzOne_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5dfb92486c45ef4db376ccb4a470dd4
+      internalID: 1421368295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -427,6 +469,8 @@ TextureImporter:
       spr_GrizzOne_11: 1544024845
       spr_GrizzOne_12: 1009884596
       spr_GrizzOne_13: -628032961
+      spr_GrizzOne_14: 89419576
+      spr_GrizzOne_15: 1421368295
       spr_GrizzOne_2: -1523572735
       spr_GrizzOne_3: 1246102933
       spr_GrizzOne_4: 879375728

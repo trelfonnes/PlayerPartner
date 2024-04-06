@@ -19,5 +19,6 @@
     SpreadElectricProjectile,
     BasicAuraProjectile,
     BasicKunaiProjectile,
-    SpreadWhirlwindProjectile
+    SpreadWhirlwindProjectile,
+    WhirlwindBasicProjectile
 }

@@ -74,13 +74,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8, y: 8}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 100193727044557439}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9147162bd7e352644b8457eaf99ccce3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f53ca12de4b1454393f923d9840102f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   groundCheckRadius: 0.3
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 557120
+    m_Bits: 557128
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conditionDisplay: {fileID: 0}
-  SOData: {fileID: 11400000, guid: 0c28ce457fdeb6f428db1745b9ea6b84, type: 2}
+  SOData: {fileID: 11400000, guid: 0fddc1314a9e8054a8951a3c417d21ec, type: 2}
   playerInventory: {fileID: 0}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
   playerOnlyheartDisplayUI: {fileID: 0}
@@ -1119,7 +1119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7332889359782497629
 Transform:
   m_ObjectHideFlags: 0
