@@ -10,7 +10,7 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
     public float maxKnockBackTime = .2f;
     float KnockBackStartTime;
     bool isKnockBackActive;
-
+    bool _isBlocking = false;
     IAttackTypeDamageCalculation defensiveStrategy;
 
     private CoreComp<Movement> movement;
@@ -20,17 +20,20 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
     CoreComp<Poise> poise;
     CoreComp<Stats> stats;
 
-  
+
     public void Damage(float amount, AttackType attackType)
-    {
-        float amountFloat = amount;
+    {// if is blocking, play blocking SFX
+        if (!_isBlocking)
+        {
+            float amountFloat = amount;
 
-        float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
+            float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
 
-        float calculatedDamageFloat = (float)calculatedDamage;
-        AudioManager.Instance.PlayAudioClip("Hurt");
+            float calculatedDamageFloat = (float)calculatedDamage;
+            AudioManager.Instance.PlayAudioClip("Hurt");
 
-        health.Comp?.DecreaseHealth(calculatedDamageFloat);
+            health.Comp?.DecreaseHealth(calculatedDamageFloat);
+        }
     }
     public void DamagePoise(float amount)
     {
@@ -47,11 +50,13 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
 
     public void KnockBack(Vector2 angle, float strength, int directionX, int directionY)
     {
-        movement.Comp?.SetKnockBackVelocity(angle, strength, directionX, directionY);
-        movement.Comp.CanSetVelocity = false;
-        isKnockBackActive = true;
-        KnockBackStartTime = Time.time;
-
+        if (!_isBlocking)
+        {
+            movement.Comp?.SetKnockBackVelocity(angle, strength, directionX, directionY);
+            movement.Comp.CanSetVelocity = false;
+            isKnockBackActive = true;
+            KnockBackStartTime = Time.time;
+        }
     }
 
     void CheckKnockBack()
@@ -82,7 +87,10 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
         collisionSenses = new CoreComp<CollisionSenses>(core);
         SetDefensiveStrategy(health.Comp.defensiveType);
     }
-
+    public void StartAndStopBlocking(bool isBlocking)
+    {
+        _isBlocking = isBlocking;
+    }
     void SetDefensiveStrategy(DefensiveType defensiveType)
     {
       defensiveStrategy = DefensiveTypeStrategyFactory.CreateStrategy(defensiveType);

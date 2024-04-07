@@ -9,13 +9,13 @@ public class EnemyTriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoi
     private CoreComp<EnemyCollisionSenses> collisionSenses;
     private CoreComp<EnemyStats> stats;
     private CoreComp<Particles> particles;
- 
 
     private IAttackTypeDamageCalculation defensiveStrategy;
     
     [SerializeField] float maxKnockBackTime = .2f;
     float KnockBackStartTime;
     bool isKnockBackActive;
+    bool _isBlocking = false;
 
     protected override void Awake()
     {
@@ -36,35 +36,47 @@ public class EnemyTriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoi
 
     public void Damage(float amount, AttackType attackType)
     {
-        float amountFloat = amount;
+        if (!_isBlocking)
+        {
+            float amountFloat = amount;
 
-        float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
+            float calculatedDamage = defensiveStrategy.CalculateDamageModifier(amountFloat, attackType);
 
-        float calculatedDamageFloat = (float)calculatedDamage;
-        AudioManager.Instance.PlayAudioClip("Damaged");
+            float calculatedDamageFloat = (float)calculatedDamage;
+            AudioManager.Instance.PlayAudioClip("Damaged");
 
 
-        stats.Comp?.DecreaseHealth(calculatedDamageFloat);
+            stats.Comp?.DecreaseHealth(calculatedDamageFloat);
+        }
     }
 
     public void KnockBack(Vector2 angle, float strength, int directionX, int directionY)
     {
-        movement.Comp?.TurnTowardsAttack(directionX, directionY);
-        movement.Comp?.SetKnockBackVelocity(angle, strength, directionX, directionY);
-        movement.Comp.CanSetVelocity = false;
-        isKnockBackActive = true;
-        KnockBackStartTime = Time.time;
+        if (!_isBlocking)
+        {
+            movement.Comp?.TurnTowardsAttack(directionX, directionY);
+            movement.Comp?.SetKnockBackVelocity(angle, strength, directionX, directionY);
+            movement.Comp.CanSetVelocity = false;
+            isKnockBackActive = true;
+            KnockBackStartTime = Time.time;
+        }
     }
-    public void DamagePoise(float amount) 
+    public void DamagePoise(float amount)
     {
-        stats.Comp?.DamagePoise(amount);
+        if (!_isBlocking)
+        {
+            stats.Comp?.DamagePoise(amount);
+        }
     }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         CheckKnockBack();
     }
-
+    public void StartAndStopBlocking(bool isBlocking)
+    {
+        _isBlocking = isBlocking;
+    }
     void CheckKnockBack()
     {
         if (isKnockBackActive && Time.time >= KnockBackStartTime + maxKnockBackTime) // extra condition for a side scroller to include grounded and no y velocity being applied

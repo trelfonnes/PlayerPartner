@@ -14,6 +14,10 @@ public class AnimationEventHandler : MonoBehaviour
     public event Action<AttackPhases> OnEnterAttackPhase;
     public event Action<string> onPlayAudio;
     public event Action onChangePosition;
+    public event Action onStartDefend;
+    public event Action onStopDefend;
+    public event Action onPursuePlayer;
+
 
     bool isCharged = false;
 
@@ -55,5 +59,17 @@ public class AnimationEventHandler : MonoBehaviour
     void ChangePosition()
     {
         onChangePosition?.Invoke();
+    }
+    void StartDefending()
+    {
+        onStartDefend?.Invoke();
+    }
+    void StopDefending()
+    {
+        onStopDefend?.Invoke();
+    }
+    void PursuePlayer()
+    {
+        onPursuePlayer?.Invoke();
     }
 }

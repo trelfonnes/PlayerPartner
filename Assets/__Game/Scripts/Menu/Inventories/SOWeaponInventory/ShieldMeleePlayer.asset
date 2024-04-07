@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 448bccf008060be41b4d2f3d250d117c, type: 3}
-  m_Name: ScytheMeleePlayer
+  m_Name: ShieldMeleePlayer
   m_EditorClassIdentifier: 
   secondaryType: 3
   primaryType: 2
-  weaponDescription: A scythe used to slash at objects.
-  weaponName: Scythe
-  weaponImage: {fileID: 230030118, guid: f2eeea435bd8a744f8aa07bcbe455ca6, type: 3}
+  weaponDescription: The weilder of this item is covered with a protective force.
+  weaponName: Shield
+  weaponImage: {fileID: 21300000, guid: 33f76acf5c615044b85f3e691e06a276, type: 3}
   isPlayerWeapon: 1
+  isCableCordUpgrade: 0
   isPartnerWeapon: 0
-  isPrimary: 1
+  isPrimary: 0
   isPartnerOne: 0
   isPartnerTwo: 0
   isPartnerThree: 0
