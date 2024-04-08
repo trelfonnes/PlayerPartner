@@ -20,5 +20,7 @@
     BasicAuraProjectile,
     BasicKunaiProjectile,
     SpreadWhirlwindProjectile,
-    WhirlwindBasicProjectile
+    WhirlwindBasicProjectile,
+    RazorLeafBasicProjectile,
+    BananaBasicProjectile
 }

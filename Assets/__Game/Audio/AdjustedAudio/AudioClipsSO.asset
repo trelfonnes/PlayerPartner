@@ -117,3 +117,5 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d1afd3f4d23c24f418ffc315afb04965, type: 3}
   - id: Punch
     clip: {fileID: 8300000, guid: d0461f7f046f1fa47876d732eef23fd6, type: 3}
+  - id: Block
+    clip: {fileID: 8300000, guid: 12266a19bca27db428f43516d26117af, type: 3}

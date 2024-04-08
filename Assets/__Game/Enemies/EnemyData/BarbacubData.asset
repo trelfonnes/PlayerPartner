@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 5
   patrolSpeed: 2
   chargeSpeed: 3
-  lowHealthSpeed: 2
+  lowHealthSpeed: 3
   maxPoise: 7
   poiseRefillTime: 10
   intelligence: 2.5
@@ -24,8 +24,9 @@ MonoBehaviour:
   maxPatrolTime: 4
   minPatrolTime: 1
   timeBetweenAttacks: 0.45
-  timeInLowHealth: 2.5
+  timeInLowHealth: 3
   selfDestructor: 0
+  rager: 1
   expYield: 5
   offensiveType: 5
   defensiveType: 5

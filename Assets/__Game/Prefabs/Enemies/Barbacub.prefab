@@ -139,7 +139,7 @@ SpriteRenderer:
   m_SortingLayerID: -81584303
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2047383200, guid: 30366a0f989bca44da3f0aefefcd5b60, type: 3}
+  m_Sprite: {fileID: -693003299, guid: 30366a0f989bca44da3f0aefefcd5b60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1058,6 +1058,7 @@ MonoBehaviour:
   iceAccelerationLerpFactor: 0.5
   sandAccelerationLerpFactor: 0.9
   snowAccelerationLerpFactor: 1
+  approachRadius: 2
 --- !u!1 &2601709915991926163
 GameObject:
   m_ObjectHideFlags: 0

@@ -317,7 +317,7 @@ Animator:
   m_GameObject: {fileID: 440854609981045044}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed9d4d7eaac9797489dfcce4784feb4c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 53df62e753d76974ca1d84942442e8bf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -492,7 +492,7 @@ MonoBehaviour:
   touchKnockBackStrength: 7
   touchPoiseDamage: 2
   touchDamageType: 5
-  touchDamageCooldown: 1
+  touchDamageCooldown: 0.1
 --- !u!1 &440854610341853402
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +869,7 @@ MonoBehaviour:
   iceAccelerationLerpFactor: 0.5
   sandAccelerationLerpFactor: 0.9
   snowAccelerationLerpFactor: 1
+  approachRadius: 2
 --- !u!1 &440854610879031261
 GameObject:
   m_ObjectHideFlags: 0

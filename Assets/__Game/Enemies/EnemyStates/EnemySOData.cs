@@ -21,6 +21,7 @@ public class EnemySOData : ScriptableObject
     public float timeBetweenAttacks = .5f;
     public float timeInLowHealth = 2.5f;
     public bool selfDestructor;
+    public bool rager;
     public int expYield;
     public AttackType offensiveType;
     public DefensiveType defensiveType;

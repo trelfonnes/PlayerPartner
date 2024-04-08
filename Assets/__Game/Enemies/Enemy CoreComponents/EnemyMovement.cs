@@ -68,8 +68,10 @@ public class EnemyMovement : Movement
     {
         if (CharacterTransform != null)
         {
+
             if (canReceiveInput)
             {
+
                 Vector2 targetPosition = Vector2.MoveTowards(this.transform.position, CharacterTransform.position, velocity * Time.deltaTime);
                 Vector2 direction = (targetPosition - (Vector2)this.transform.position).normalized;
                 Vector2 roundedDirection = new Vector2(Mathf.Round(direction.x), Mathf.Round(direction.y));

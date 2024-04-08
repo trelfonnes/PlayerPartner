@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b2ef25359f5948a9971d4d3701a89, type: 3}
+  m_Name: VigilapeData
+  m_EditorClassIdentifier: 
+  maxHealth: 6
+  patrolSpeed: 1.5
+  chargeSpeed: 3
+  lowHealthSpeed: 4
+  maxPoise: 15
+  poiseRefillTime: 10
+  intelligence: 3
+  maxIdleTime: 1.5
+  minIdleTime: 0.75
+  maxPatrolTime: 4
+  minPatrolTime: 1
+  timeBetweenAttacks: 0.85
+  timeInLowHealth: 4
+  selfDestructor: 0
+  rager: 1
+  expYield: 5
+  offensiveType: 5
+  defensiveType: 5

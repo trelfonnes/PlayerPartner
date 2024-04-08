@@ -21,6 +21,17 @@ public class EnemyCharge : IEnemyMove, IEnemyLowHealth
     }
     public void StartLowHealthStrategy(EnemySOData data, EnemyMovement movement, EnemyCollisionSenses collisionSenses)
     {
-        StartMovement(data.chargeSpeed, movement, collisionSenses);
+        if (collisionSenses.partnerTransform)
+        {
+
+            movement.ChargePartner(data.lowHealthSpeed, collisionSenses.partnerTransform);
+        }
+        else if (collisionSenses.playerTransform)
+        {
+            movement.ChargePartner(data.lowHealthSpeed, collisionSenses.playerTransform);
+
+        }
+        else
+            return;
     }
 }

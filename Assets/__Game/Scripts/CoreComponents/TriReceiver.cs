@@ -34,6 +34,10 @@ public class TriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoiseDam
 
             health.Comp?.DecreaseHealth(calculatedDamageFloat);
         }
+        if (_isBlocking)
+        {
+            AudioManager.Instance.PlayAudioClip("Block");
+        }
     }
     public void DamagePoise(float amount)
     {
