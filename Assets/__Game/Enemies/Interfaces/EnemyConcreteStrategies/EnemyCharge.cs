@@ -19,7 +19,7 @@ public class EnemyCharge : IEnemyMove, IEnemyLowHealth
         else
             return;
     }
-    public void StartLowHealthStrategy(EnemySOData data, EnemyMovement movement, EnemyCollisionSenses collisionSenses)
+    public void StartLowHealthStrategy(EnemySOData data, EnemyMovement movement, EnemyCollisionSenses collisionSenses, EnemyStats stats)
     {
         if (collisionSenses.partnerTransform)
         {

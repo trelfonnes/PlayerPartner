@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b2ef25359f5948a9971d4d3701a89, type: 3}
+  m_Name: Dewdog
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+  patrolSpeed: 2
+  chargeSpeed: 3
+  lowHealthSpeed: 0
+  maxPoise: 10
+  poiseRefillTime: 10
+  intelligence: 5
+  maxIdleTime: 2.5
+  minIdleTime: 1
+  maxPatrolTime: 3
+  minPatrolTime: 1.5
+  timeBetweenAttacks: 0.5
+  timeInLowHealth: 3
+  selfDestructor: 0
+  rager: 0
+  expYield: 5
+  offensiveType: 1
+  defensiveType: 1

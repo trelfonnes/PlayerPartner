@@ -410,6 +410,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spr_DalOne_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28fd79b862d09104e9fb832dfb760a42
+      internalID: 403056981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -427,6 +448,7 @@ TextureImporter:
       spr_DalOne_11: 949817012
       spr_DalOne_12: -827053577
       spr_DalOne_13: 934292104
+      spr_DalOne_14: 403056981
       spr_DalOne_2: -1862234345
       spr_DalOne_3: 1228118413
       spr_DalOne_4: 1118317707

@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IEnemyLowHealth 
 {
 
-    public void StartLowHealthStrategy(EnemySOData data, EnemyMovement movement, EnemyCollisionSenses collisionSenses)
+    public void StartLowHealthStrategy(EnemySOData data, EnemyMovement movement, EnemyCollisionSenses collisionSenses, EnemyStats stats)
     {
 
     }
