@@ -10,6 +10,8 @@ public class EnemyLowHealthState : EnemyBasicState
     private EnemyMovement enemyMovement;
     protected EnemyStats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     EnemyStats stats;
+    protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
+    Particles particles;
     public EnemyLowHealthState(Enemy enemy, EnemyStateMachine ESM, EnemySOData enemySoData, EnemyData data, string animBoolName, IEnemyLowHealth lowHealthStrategy) : base(enemy, ESM, enemySoData, data, animBoolName)
     {
         this.lowHealthStrategy = lowHealthStrategy;
@@ -21,7 +23,7 @@ public class EnemyLowHealthState : EnemyBasicState
         base.Enter();
         if (!enemySoData.selfDestructor || !enemySoData.rager)
         {
-            lowHealthStrategy.StartLowHealthStrategy(enemySoData, EnemyMovement, CollisionSenses, Stats);
+            lowHealthStrategy.StartLowHealthStrategy(enemySoData, EnemyMovement, CollisionSenses, Stats, Particles);
         }
     }
 
@@ -41,7 +43,7 @@ public class EnemyLowHealthState : EnemyBasicState
         }
         if (enemySoData.rager)
         {
-            lowHealthStrategy.StartLowHealthStrategy(enemySoData, EnemyMovement, CollisionSenses, Stats);
+            lowHealthStrategy.StartLowHealthStrategy(enemySoData, EnemyMovement, CollisionSenses, Stats, Particles);
         }
         if (isPlayerPartnerDetected && !enemySoData.rager)
         {
@@ -51,7 +53,7 @@ public class EnemyLowHealthState : EnemyBasicState
         {
             if (enemySoData.selfDestructor)
             {
-                lowHealthStrategy.StartLowHealthStrategy(enemySoData, EnemyMovement, CollisionSenses, Stats);
+                lowHealthStrategy.StartLowHealthStrategy(enemySoData, EnemyMovement, CollisionSenses, Stats, Particles);
             }
             else
             {

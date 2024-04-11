@@ -22,5 +22,6 @@
     SpreadWhirlwindProjectile,
     WhirlwindBasicProjectile,
     RazorLeafBasicProjectile,
-    BananaBasicProjectile
+    BananaBasicProjectile,
+    WebBasicProjectile
 }

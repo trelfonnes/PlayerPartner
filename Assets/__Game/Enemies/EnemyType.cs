@@ -10,6 +10,13 @@ public enum EnemyType
     Barbacub,
     Nindrake,
     Whirljay,
-    Rizzagrizz
+    Rizzagrizz,
+    Dewdog,
+    Rattlefang,
+    Petapincher,
+    Nitebite,
+    Shrubby,
+    Vigilape,
+    Gnutnasher
 
 }
