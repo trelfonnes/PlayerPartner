@@ -20,6 +20,7 @@ public class BasicProjectile : MonoBehaviour
     [SerializeField] AttackType attackType;
     private ISpecialAbility specialAbility;
     Vector2 normalizedDirection;
+    [SerializeField] bool isWhirlWind;
 
     private void Awake()
     {
@@ -64,8 +65,14 @@ public class BasicProjectile : MonoBehaviour
             partnerProjectile = false;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+
+            if (!isWhirlWind) 
+            {
+                transform.rotation = rotation;
+
+            }
+
             rb.transform.position = component.transform.position;
-            transform.rotation = rotation;
             normalizedDirection = direction.normalized;
 
             rb.velocity = normalizedDirection * velocity;

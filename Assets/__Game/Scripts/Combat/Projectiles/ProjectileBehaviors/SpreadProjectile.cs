@@ -29,6 +29,7 @@ public class SpreadProjectile : MonoBehaviour
     public Vector2 normalizedDirection;
     private bool partnerProjectile;
     private bool enemyProjectile;
+    [SerializeField]private bool isWhirlWind;
 
     private void Awake()
     {
@@ -232,8 +233,11 @@ public class SpreadProjectile : MonoBehaviour
             enemyProjectile = true;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
-            transform.rotation = rotation;
+            if (!isWhirlWind)
+            {
+                transform.rotation = rotation;
 
+            }
             transform.position = component.transform.position;
             rightProj.transform.position = component.transform.position;
             leftProj.transform.position = component.transform.position;

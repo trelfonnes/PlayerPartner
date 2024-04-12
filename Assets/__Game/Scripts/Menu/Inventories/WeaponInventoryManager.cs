@@ -35,6 +35,8 @@ public class WeaponInventoryManager : MonoBehaviour
     [SerializeField] public List<WeaponInventoryItemSO> playerWeaponsInInventory = new List<WeaponInventoryItemSO>();
     [SerializeField] public List<WeaponInventoryItemSO> partnerWeaponsInInventory = new List<WeaponInventoryItemSO>();
 
+
+    Image equipButtonImage;
     private void Awake()
     {
         PartnerWeaponState.Instance.SwitchPrimaryState(PrimaryWeaponState.MeleeBasic);
@@ -50,8 +52,11 @@ public class WeaponInventoryManager : MonoBehaviour
         
                 SetInitialPartnerPrimaryWeapon(partnerWeaponsInInventory[0]); //basic melee
         SetInitialPartnerSecondaryWeapon(partnerWeaponsInInventory[1]);  // basic projectile
+
+      
+
     }
-   
+
 
     void SetInitialPartnerPrimaryWeapon(WeaponInventoryItemSO partnerWeapon)
     {
@@ -71,15 +76,23 @@ public class WeaponInventoryManager : MonoBehaviour
 
     public void SetTextAndButton(string description, bool buttonActive)
     {
+        if(equipButtonImage == null)
+        {
+            equipButtonImage = equipButton.GetComponent<Image>();
+        }
         weaponDescriptionText.text = description;
-        if (buttonActive)
+        if (buttonActive && equipButtonImage)
         {
-            equipButton.SetActive(true);
+            equipButtonImage.color = Color.green;
+
+
         }
-        else
+        else if (!buttonActive && equipButtonImage)
         {
-            equipButton.SetActive(false);
+            equipButtonImage.color = Color.red;
+
         }
+        else return;
     }
 
      void MakeInventorySlots()
@@ -135,7 +148,7 @@ public class WeaponInventoryManager : MonoBehaviour
     {
         currentWeapon = newWeapon;
         weaponDescriptionText.text = newDescription;
-        equipButton.SetActive(isButtonActive);
+        SetTextAndButton(newDescription, isButtonActive);
     }
 
     private void OnEnable()
@@ -159,7 +172,7 @@ public class WeaponInventoryManager : MonoBehaviour
 
     public void EquipButtonPressed()
     {//Potential need to create and call a mediator for handling the changing of weapon data. Use UI only here??
-
+        if(currentWeapon)
         if (currentWeapon.isPlayerWeapon)
         {
             onPlayerWeaponSwapped.Invoke();
@@ -184,6 +197,10 @@ public class WeaponInventoryManager : MonoBehaviour
                 SetEquippedImage(currentWeapon);
                 SetTextAndButton("", false);
             }
+        }
+        else
+        {
+            return;
         }
            
 

@@ -18,7 +18,7 @@ MonoBehaviour:
   isPartnerOne: 0
   isPartnerTwo: 0
   isPartnerThree: 0
-  secondaryType: 1
+  secondaryType: 0
   primaryType: 2
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 53631ccd6ffc74e4a9ad71d0ae81aba4, type: 2}
   <NumberOfAttacks>k__BackingField: 1

@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: e7b0308be0841bb44a3683eaee15637e, type: 2}
     - target: {fileID: 321528187757600593, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 406571007002918686, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
       propertyPath: localRefs._Keys.Array.size
@@ -9220,6 +9220,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: e7b16db102c43ab499b226b749fbefea, type: 2}
     - target: {fileID: 1059168220421723612, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
+      propertyPath: stageTwo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059168220421723612, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
+      propertyPath: stageThree
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059168220421723612, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
       propertyPath: playerSOData
       value: 
       objectReference: {fileID: 11400000, guid: e7b0308be0841bb44a3683eaee15637e, type: 2}
@@ -9229,7 +9237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1059168220421723613, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1560056595984205125, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
       propertyPath: MeleeHold
@@ -9289,16 +9297,16 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: e7b0308be0841bb44a3683eaee15637e, type: 2}
     - target: {fileID: 8255143536484701205, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
       propertyPath: m_Size.x
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8255143536484701205, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
       propertyPath: m_Size.y
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8362591119420243345, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: f9f28146108f0714299a5584ede7d692, type: 2}
+      objectReference: {fileID: 9100000, guid: b023d0b064e21094dbf7391310d9f32a, type: 2}
     - target: {fileID: 8587299758648099964, guid: c4458480e36d89c438b42d5745c852a0, type: 3}
       propertyPath: data
       value: 

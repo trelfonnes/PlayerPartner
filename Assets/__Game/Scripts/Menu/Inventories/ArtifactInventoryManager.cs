@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System;
 public class ArtifactInventoryManager : MonoBehaviour
 {
@@ -12,13 +13,21 @@ public class ArtifactInventoryManager : MonoBehaviour
     [SerializeField] GameObject inventoryContentPanel;
     [SerializeField] TextMeshProUGUI descriptionText; // the 
     [SerializeField] Image artifactImage;  //the blown up image UI element
-    public ArtifactInventoryItems currentItem; 
-
+    public ArtifactInventoryItems currentItem;
+    [SerializeField] GameObject FirstMenuButton; //Make sure this is serialized to desired inital button in INSPECTOR
 
     public void SetText(string description)
     {
         descriptionText.text = description;
 
+    }
+     void SetInitialMenuButton() //Need to set the selected button manually when Menu opens because event system can't track it itself.
+    {
+        if(FirstMenuButton != null)
+        {
+            EventSystem.current.firstSelectedGameObject = FirstMenuButton;
+            EventSystem.current.SetSelectedGameObject(FirstMenuButton);
+        }
     }
 
     void MakeInventorySlots()
@@ -38,6 +47,7 @@ public class ArtifactInventoryManager : MonoBehaviour
                 }
             }
         }
+        
     }
     public void AddArtifactToInventory(ArtifactInventoryItems artifact)
     {
@@ -49,6 +59,7 @@ public class ArtifactInventoryManager : MonoBehaviour
         ClearInventorySlots();
         MakeInventorySlots();
         SetText("");
+        SetInitialMenuButton();
     }
     private void OnDisable()
     {
@@ -69,5 +80,6 @@ public class ArtifactInventoryManager : MonoBehaviour
         {
             Destroy(inventoryContentPanel.transform.GetChild(i).gameObject);
         }
+  
     }
 }

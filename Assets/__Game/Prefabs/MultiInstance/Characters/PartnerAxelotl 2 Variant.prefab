@@ -68,6 +68,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4d65d85633882a849b48dc2402339f98, type: 2}
     - target: {fileID: 7332889359782497602, guid: db569b7e41c5c1f47a8c7cb3c7791164, type: 3}
+      propertyPath: stageOne
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332889359782497602, guid: db569b7e41c5c1f47a8c7cb3c7791164, type: 3}
+      propertyPath: stageTwo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332889359782497602, guid: db569b7e41c5c1f47a8c7cb3c7791164, type: 3}
       propertyPath: playerSOData
       value: 
       objectReference: {fileID: 11400000, guid: 7677d19e203ee3a4ca135407aa9633e5, type: 2}
