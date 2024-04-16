@@ -19,6 +19,6 @@ public class PlayerDetectionNode : ConditionNode
             return NodeState.success;
         }
         else
-            return NodeState.success;
+            return NodeState.failure;
     }
 }

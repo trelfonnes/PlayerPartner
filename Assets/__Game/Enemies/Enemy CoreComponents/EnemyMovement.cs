@@ -58,7 +58,7 @@ public class EnemyMovement : Movement
     }
     public void Pursue( Transform target)
     {
-        Debug.Log("HELLO WORLD");
+       
         Vector2 direction = (target.position - rb.transform.position).normalized;
 
         rb.AddForce(direction * 4f, ForceMode2D.Impulse);

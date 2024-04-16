@@ -23,6 +23,7 @@ public class BossProjectile : BossCoreComponent
     {
         currentState = BossProjectileState.idle;
     }
+   
 }
 public enum BossProjectileState
 {

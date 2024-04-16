@@ -33,7 +33,10 @@ public class BossCollisionDetection : BossCoreComponent
             return count > 0;
         }
     }
-
+    public void ChangeFOVDistance(float newDistance)
+    {
+        projAndOverallFOVDistance = newDistance;
+    }
     public Transform GetRandomMovePoint()
     {
         List<Transform> availableMovePoints = new List<Transform>(MovePoints);
