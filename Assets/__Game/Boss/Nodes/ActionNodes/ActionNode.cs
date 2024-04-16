@@ -19,5 +19,9 @@ public abstract class ActionNode : BehaviorNode
         blackboard.anim.SetTrigger(animBoolName);
         
     }
-
+    public virtual void SetAnimationFloat(float moveX, float moveY)
+    {
+        blackboard.anim.SetFloat("MoveX", moveX);
+        blackboard.anim.SetFloat("MoveY", moveY);
+    }
 }

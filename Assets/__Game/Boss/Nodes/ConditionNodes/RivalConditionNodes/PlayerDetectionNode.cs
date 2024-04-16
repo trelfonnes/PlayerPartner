@@ -14,7 +14,7 @@ public class PlayerDetectionNode : ConditionNode
     }
     public override NodeState Execute()
     {
-        if (Collisions.IsPlayerInFieldOfView)//playeris detected form boss collision detection){
+        if (Collisions.IsPartnerInFieldOfView)//playeris detected form boss collision detection){
         {
             return NodeState.success;
         }

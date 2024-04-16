@@ -22,10 +22,15 @@ public class BossChargeActionNode : ActionNode
             return NodeState.success;
         }
         Movement.ChargePlayer(blackboard.moveSpeed, Collisions.partnerTransform, blackboard.chargeBuffer);
+        Collisions.UpdateFOVDirection(Movement.CurrentDirection);
         SetAnimation();
+        SetAnimationFloat(Movement.CurrentDirection.x, Movement.CurrentDirection.y);
         return NodeState.success;
     }
-
+    public override void SetAnimationFloat(float moveX, float moveY)
+    {
+        base.SetAnimationFloat(moveX, moveY);
+    }
     public override void SetAnimation()
     {
         base.SetAnimation();

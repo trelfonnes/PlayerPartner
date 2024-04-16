@@ -9,6 +9,8 @@ public class BossMovement : BossCoreComponent
     Vector2 randomDistancingDirection = Vector2.zero;
     bool isKnockedback = false;
     float knockbackEndTime;
+    Vector2 defaultMovingDirection = Vector2.down;
+    public Vector2 CurrentDirection { get; private set; }
     protected override void Awake()
     {
         base.Awake();
@@ -75,6 +77,7 @@ public class BossMovement : BossCoreComponent
                 Vector2 velocity = moveDirection * moveSpeed;
 
                 // Set the rigidbody velocity to move the enemy towards the player
+                CurrentDirection = velocity.normalized;
                 rb.velocity = velocity;
             }
         }
@@ -101,6 +104,7 @@ public class BossMovement : BossCoreComponent
                 // Calculate the movement vector with the desired speed
                 Vector2 movement = randomDistancingDirection * moveSpeed * Time.deltaTime;
 
+                CurrentDirection = randomDistancingDirection;
                 // Move the enemy in the opposite direction to maintain distance
                 rb.position -= movement;
             }
@@ -133,6 +137,7 @@ public class BossMovement : BossCoreComponent
             isKnockedback = true;
             Vector2 knockbackDir = new Vector2(directionX * strength, directionY * strength);
             rb.AddForce(knockbackDir, ForceMode2D.Impulse);//fiddle here for desired effect
+            CurrentDirection = -knockbackDir.normalized;
             knockbackEndTime = Time.time + 0.2f;
             StartCoroutine(EndKnockback());
         }

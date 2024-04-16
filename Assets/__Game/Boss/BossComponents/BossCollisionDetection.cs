@@ -19,7 +19,7 @@ public class BossCollisionDetection : BossCoreComponent
     [SerializeField] Transform collisionsCheckPoint;
     [SerializeField] float wallCheckRadius;
     private Vector2 wallCollisionDirection;
-
+    Vector2 fovDirection;
     [SerializeField] float movePointCheckRadius = .5f;
     public List<Transform> MovePoints;
     public Transform lastMovePoint;
@@ -33,10 +33,8 @@ public class BossCollisionDetection : BossCoreComponent
             return count > 0;
         }
     }
-    public void ChangeFOVDistance(float newDistance)
-    {
-        projAndOverallFOVDistance = newDistance;
-    }
+    
+   
     public Transform GetRandomMovePoint()
     {
         List<Transform> availableMovePoints = new List<Transform>(MovePoints);
@@ -178,6 +176,52 @@ public class BossCollisionDetection : BossCoreComponent
     {
         return wallCollisionDirection;
     }
+
+
+    public void UpdateFOVDirection(Vector2 dir)
+    {
+        fovDirection = dir;
+    }
+    public void ChangeFOVDistance(float newDistance)
+    {
+        projAndOverallFOVDistance = newDistance;
+    }
+
+    public bool IsPartnerInFieldOfView //For ARENA BATTLES aka no player
+    {
+        get
+        {
+           //change this for dynamic direction of FOV if needed.
+
+            bool playerInFOV = false;
+            bool partnerInFOV = false;
+
+
+            if (partnerTransform != null)
+            {
+                float angleToPartner = Vector2.Angle(fovDirection, partnerTransform.position - transform.position);
+
+                if (angleToPartner < fieldOfViewAngle * 0.5f)
+                {
+                    RaycastHit2D[] partnerResults = new RaycastHit2D[10];
+                    int partnerHits = Physics2D.RaycastNonAlloc(transform.position, fovDirection, partnerResults, projAndOverallFOVDistance, whatIsPartner);
+
+                    for (int i = 0; i < partnerHits; i++)
+                    {
+                        if (partnerResults[i].collider.CompareTag("Partner"))
+                        {
+                            partnerInFOV = true;
+                            break; // Exit the loop once partner is found
+                        }
+                    }
+                }
+            }
+
+            // Return true if either player or partner is in FOV
+            return playerInFOV || partnerInFOV;
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

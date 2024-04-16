@@ -33,6 +33,18 @@ public class BossMelee : BossCoreComponent
         executeAttack = true;
         currentState = BossMeleeState.active;
         weapon.Enter();
+    } public void ExecuteDirectionalAttack(Animator blackboardAnim, string animBoolName, float moveX, float moveY) // called by node and pass in reg. anim ref.
+    {
+        this.blackboardAnim = blackboardAnim;
+        blackboardAnimBoolName = animBoolName;
+        blackboardAnim.SetBool(animBoolName, true);
+
+        weaponAnim.SetBool("attack", true);
+        weaponAnim.SetFloat("MoveX", moveX);
+        weaponAnim.SetFloat("MoveY", moveY);
+        executeAttack = true;
+        currentState = BossMeleeState.active;
+        weapon.Enter();
     }
     public void AnimationFinished() //called by anim event
     {

@@ -86,7 +86,5 @@ public class EnemyTriReceiver : CoreComponent, IKnockBackable, IDamageable, IPoi
             movement.Comp.CanSetVelocity = true;
         }
 
-
-
     }
 }
