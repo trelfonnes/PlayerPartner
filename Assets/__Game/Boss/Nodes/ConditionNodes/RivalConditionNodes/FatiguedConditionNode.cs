@@ -19,6 +19,8 @@ public class FatiguedConditionNode : ConditionNode
         }
         else
         {
+           // blackboard.canMove = true;
+
             return NodeState.failure;
         }
     }

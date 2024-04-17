@@ -37,10 +37,14 @@ public class BossShootProjNode : ConditionNode
         }
         if (!timer.IsFinished())
         {
+          //  blackboard.canMove = true;
+
             return NodeState.failure;
         }
         else
         {
+           // blackboard.canMove = true;
+
             return NodeState.failure;
         }
     }

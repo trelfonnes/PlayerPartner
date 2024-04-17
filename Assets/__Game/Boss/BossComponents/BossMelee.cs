@@ -10,7 +10,7 @@ public class BossMelee : BossCoreComponent
     string blackboardAnimBoolName;
     Animator weaponAnim;
     Animator blackboardAnim;
-
+   
     private void Start()
     {
         weaponAnim = GetComponentInChildren<Animator>();
@@ -31,14 +31,15 @@ public class BossMelee : BossCoreComponent
         blackboardAnim.SetBool(animBoolName, true);
         weaponAnim.SetBool("attack", true);
         executeAttack = true;
+        
         currentState = BossMeleeState.active;
         weapon.Enter();
     } public void ExecuteDirectionalAttack(Animator blackboardAnim, string animBoolName, float moveX, float moveY) // called by node and pass in reg. anim ref.
     {
         this.blackboardAnim = blackboardAnim;
         blackboardAnimBoolName = animBoolName;
+        Movement.MoveOnOff(false);
         blackboardAnim.SetBool(animBoolName, true);
-
         weaponAnim.SetBool("attack", true);
         weaponAnim.SetFloat("MoveX", moveX);
         weaponAnim.SetFloat("MoveY", moveY);
@@ -52,6 +53,7 @@ public class BossMelee : BossCoreComponent
         weaponAnim.SetBool("attack", false);
         executeAttack = false;
         currentState = BossMeleeState.idle;
+        Movement.MoveOnOff(true);
     }
 
     public BossMeleeState GetCurrentMeleeState()

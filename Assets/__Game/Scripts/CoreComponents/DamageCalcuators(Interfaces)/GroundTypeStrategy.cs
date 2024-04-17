@@ -11,6 +11,12 @@ public class GroundTypeStrategy : IAttackTypeDamageCalculation
             damageAmount = (damageAmount * 2);
             return damageAmount;
 
+        } 
+        if (attackerType == AttackType.Fire)
+        {
+            damageAmount = (damageAmount * 2);
+            return damageAmount;
+
         }
         if (attackerType == AttackType.Electric)
         {
@@ -18,6 +24,11 @@ public class GroundTypeStrategy : IAttackTypeDamageCalculation
             return damageAmount;
         } 
         if (attackerType == AttackType.Air)
+        {
+            damageAmount = (damageAmount / 2);
+            return damageAmount;
+        } 
+        if (attackerType == AttackType.Martial)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;

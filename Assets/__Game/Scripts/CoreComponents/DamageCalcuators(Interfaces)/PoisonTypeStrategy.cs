@@ -11,12 +11,24 @@ public class PoisonTypeStrategy : IAttackTypeDamageCalculation
             damageAmount = (damageAmount * 2);
             return damageAmount;
 
+        } 
+        if (attackerType == AttackType.Fire)
+        {
+            damageAmount = (damageAmount * 2);
+            return damageAmount;
+
         }
         if (attackerType == AttackType.Ground)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;
-        } if (attackerType == AttackType.Poison)
+        } 
+        if (attackerType == AttackType.Poison)
+        {
+            damageAmount = (damageAmount / 2);
+            return damageAmount;
+        } 
+        if (attackerType == AttackType.Martial)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;

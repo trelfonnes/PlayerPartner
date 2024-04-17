@@ -43,6 +43,7 @@ public class RivalOne : BossAI
                 new BossShootProjNode(blackboard, componentLocator),
                 new DirectionalProjActionNode(blackboard, componentLocator, "attack")),
             new SequenceNode(componentLocator, blackboard,
+                new MoveConditionNode(blackboard, componentLocator),
                 new MovementTypeDecoratorNode(blackboard, componentLocator,
                     new BossChargeActionNode(blackboard, componentLocator, "move"),
                     new BossDistanceActionNode(blackboard, componentLocator, "move")))
@@ -54,8 +55,8 @@ public class RivalOne : BossAI
     {
         base.Update();
         // if health is above 25% do behavior tree root node, else, switch to second stage root
-        if (battleStarted)
-        {
+       // if (battleStarted)
+       // {
             behaviorTreeFirstStageRoot.Execute();
             if (blackboard.isLowHealth)
             {
@@ -63,7 +64,7 @@ public class RivalOne : BossAI
                 // switch to next behavior tree strategy if applicable
             }
 
-        }
+       // }
     }
 
     void InitializeStats() // set the individual boss specs to the blackboard

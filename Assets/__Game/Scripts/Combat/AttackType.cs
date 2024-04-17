@@ -10,6 +10,8 @@ public enum AttackType
     Electric,
     Ground,
     Normal,
-    Air
+    Air,
+    Dragon,
+    Martial
 
 }

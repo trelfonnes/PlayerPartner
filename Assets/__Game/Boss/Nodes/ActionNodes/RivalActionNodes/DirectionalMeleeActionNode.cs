@@ -18,7 +18,7 @@ public class DirectionalMeleeActionNode : ActionNode
 
     public override NodeState Execute()
     {
-        Movement.StopMovement();
+      
         AttackMelee();
         return NodeState.success;
 

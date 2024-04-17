@@ -17,6 +17,7 @@ public class BossBlackboard
     public bool isDefeated = false;
     public bool isLowHealth = false;
     public bool isFatigued = false;
+    
     public float distancingLength = 4.5f;
     public float meleeTime;
     public float restTime;

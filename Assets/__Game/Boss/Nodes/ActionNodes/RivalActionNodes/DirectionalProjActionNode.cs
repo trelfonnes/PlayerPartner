@@ -24,6 +24,7 @@ public class DirectionalProjActionNode : ActionNode
         }
         else
         {
+            
 
             SetAnimation();
             SetAnimationFloat(Movement.CurrentDirection.x, Movement.CurrentDirection.y);

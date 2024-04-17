@@ -14,6 +14,8 @@ public class RestActionNode : ActionNode
 
     public override NodeState Execute()
     {
+        
+
         timer.Update(Time.deltaTime);
         if (timer.IsFinished())
         {
@@ -23,10 +25,14 @@ public class RestActionNode : ActionNode
         if (!timer.IsFinished())
         {
             blackboard.isFatigued = false;
+        //    blackboard.canMove = true;
+
             return NodeState.failure;
         }
         else
         {
+         //   blackboard.canMove = true;
+
             blackboard.isFatigued = false;
             return NodeState.failure;
         }

@@ -22,6 +22,10 @@ public class DefensiveTypeStrategyFactory
                 return new PoisonTypeStrategy();
             case DefensiveType.Normal:
                 return new NormalTypeStrategy();
+            case DefensiveType.Dragon:
+                return new DragonTypeStrategy();
+            case DefensiveType.Martial:
+                return new MartialTypeStrategy();
 
 
             default:

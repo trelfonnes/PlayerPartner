@@ -16,9 +16,14 @@ public class PlayerDetectionNode : ConditionNode
     {
         if (Collisions.IsPartnerInFieldOfView)//playeris detected form boss collision detection){
         {
+            
             return NodeState.success;
         }
         else
+        {
+           
+
             return NodeState.failure;
+        }
     }
 }

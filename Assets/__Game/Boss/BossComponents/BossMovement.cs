@@ -10,6 +10,8 @@ public class BossMovement : BossCoreComponent
     bool isKnockedback = false;
     float knockbackEndTime;
     Vector2 defaultMovingDirection = Vector2.down;
+    private bool canMove = true;
+
     public Vector2 CurrentDirection { get; private set; }
     protected override void Awake()
     {
@@ -78,6 +80,7 @@ public class BossMovement : BossCoreComponent
 
                 // Set the rigidbody velocity to move the enemy towards the player
                 CurrentDirection = velocity.normalized;
+                CheckIfShouldFlip(velocity);
                 rb.velocity = velocity;
             }
         }
@@ -105,6 +108,7 @@ public class BossMovement : BossCoreComponent
                 Vector2 movement = randomDistancingDirection * moveSpeed * Time.deltaTime;
 
                 CurrentDirection = randomDistancingDirection;
+                CheckIfShouldFlip(randomDistancingDirection);
                 // Move the enemy in the opposite direction to maintain distance
                 rb.position -= movement;
             }
@@ -115,6 +119,20 @@ public class BossMovement : BossCoreComponent
             }
         }
     }
+
+    public void CheckIfShouldFlip(Vector2 vector2)
+    {
+        if (vector2.x < 0)
+        {
+            rb.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (vector2.x > 0)
+        {
+            rb.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+    }
+
 
     Vector2 GenerateRandomDirection()
     {
@@ -153,5 +171,17 @@ public class BossMovement : BossCoreComponent
         isKnockedback = false;
        
 
+    }
+    public void MoveOnOff(bool onOff)
+    {
+        canMove = onOff;
+        if (!canMove)
+        {
+            rb.velocity = Vector2.zero;
+        }
+    }
+    public bool CanMove()
+    {
+        return canMove;
     }
 }

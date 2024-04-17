@@ -10,5 +10,7 @@ public enum DefensiveType
    Poison,
    Ground,
    Normal,
-   air
+   air,
+   Dragon,
+   Martial
 }
