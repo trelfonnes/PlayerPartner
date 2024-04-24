@@ -49,7 +49,6 @@ public class BattleArenaManager : MonoBehaviour
         {
             
             GameObject partner = partnerManager.ReturnPartnerType(currentBattleArenaData.partnerType);
-            Debug.Log(partner + "Partner is");
             partner.transform.position = matchingArena.partnerSpawnPoint.position;
             partner.SetActive(true); //make sure the referenced partner prefab in partner manager are the ones already in the scene innactive.
 

@@ -29,7 +29,6 @@ public class BossShootProjNode : ConditionNode
         if (timer.IsFinished())
         {
            
-                Debug.Log("Melee state from proj cond node" + meleeState);
                 timer.Reset();
                 return NodeState.success;
             
@@ -37,13 +36,13 @@ public class BossShootProjNode : ConditionNode
         }
         if (!timer.IsFinished())
         {
-          //  blackboard.canMove = true;
+         
 
             return NodeState.failure;
         }
         else
         {
-           // blackboard.canMove = true;
+          
 
             return NodeState.failure;
         }

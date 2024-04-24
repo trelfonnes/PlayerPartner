@@ -17,6 +17,7 @@ public enum EnemyType
     Nitebite,
     Shrubby,
     Vigilape,
-    Gnutnasher
+    Gnutnasher,
+    Verdago
 
 }

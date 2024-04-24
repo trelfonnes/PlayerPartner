@@ -34,7 +34,7 @@ MonoBehaviour:
         name: ProjectileData
         attackData:
         - name: Dragon Ember
-          <TypeOfProjectile>k__BackingField: 0
+          <TypeOfProjectile>k__BackingField: 24
           <SPCost>k__BackingField: 0
           <damage>k__BackingField: 2
           <knockbackStrength>k__BackingField: 4

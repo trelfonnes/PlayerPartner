@@ -125,6 +125,8 @@ public class ProjectilePooling : MonoBehaviour  //inherit from a script that sto
 
 private void OnEnable()//listens to event and passes through projectile type
     {
+
+
         ProjectileEventSystem.Instance.OnSetProjectileType += ReceiveProjectileType;
     }
     private void OnDisable()

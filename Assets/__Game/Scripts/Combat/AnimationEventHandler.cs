@@ -26,7 +26,6 @@ public class AnimationEventHandler : MonoBehaviour
     void StopMovementTrigger() => OnStopMovement?.Invoke();
     void AttackActionTrigger()
     {
-        Debug.Log("AttackAnimTrigger");
         OnAttackAction?.Invoke();
     }
     void MinHoldPassTrigger() => OnMinHoldPassed?.Invoke();
@@ -40,6 +39,8 @@ public class AnimationEventHandler : MonoBehaviour
         }
         else
         {
+            Debug.Log("ShootProjectile");
+
             OnShootProjectile?.Invoke();//can create event to have a dropdown like Phases that designates which projectile to shoot??
         }
 

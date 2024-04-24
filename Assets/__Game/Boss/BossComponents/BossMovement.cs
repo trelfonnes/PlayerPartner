@@ -11,15 +11,26 @@ public class BossMovement : BossCoreComponent
     float knockbackEndTime;
     Vector2 defaultMovingDirection = Vector2.down;
     private bool canMove = true;
+    [SerializeField] EnemyStatEvents bossStatEvents;
 
     public Vector2 CurrentDirection { get; private set; }
     protected override void Awake()
     {
         base.Awake();
         rb = GetComponentInParent<Rigidbody2D>();
+        bossStatEvents.onStaminaZero += StopMovement;
         
     }
+    private void OnDisable()
+    {
+        bossStatEvents.onStaminaZero -= StopMovement;
 
+    }
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+        
+    }
     public void MoveTowards(Vector2 targetPosition, float moveSpeed)
     {
         Vector2 direction = (targetPosition - rb.position).normalized;
@@ -169,13 +180,13 @@ public class BossMovement : BossCoreComponent
         }
         rb.velocity = Vector2.zero;
         isKnockedback = false;
-       
 
     }
+
     public void MoveOnOff(bool onOff)
     {
         canMove = onOff;
-        if (!canMove)
+        if (!canMove && !isKnockedback)
         {
             rb.velocity = Vector2.zero;
         }

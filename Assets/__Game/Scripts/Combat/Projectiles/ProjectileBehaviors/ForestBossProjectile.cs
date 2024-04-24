@@ -29,7 +29,7 @@ public class ForestBossProjectile : MonoBehaviour
         SetInitialBehavior();  
     }
    
-    void Shoot(Vector2 position, Vector2 direction)
+    void Shoot(Vector2 position, Vector2 direction, float damage, float knockback) // damage and knockback not needed here, but congruent w/ proj system
         {
             transform.position = position;
             int directionIndex = 0;

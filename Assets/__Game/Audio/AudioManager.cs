@@ -58,7 +58,6 @@ public class AudioManager : MonoBehaviour
     }
     public void ReturnAudioToPool(GameObject audioObject)
     {
-        Debug.Log("Return to the pool");
         audioObjectPool.ReturnToPool(audioObject);
     }
 

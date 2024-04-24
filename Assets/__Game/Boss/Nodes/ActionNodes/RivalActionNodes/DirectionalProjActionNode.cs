@@ -6,6 +6,8 @@ public class DirectionalProjActionNode : ActionNode
 {
     private BossProjectile Projectile { get => projectile ?? componentLocator.GetCoreComponent(ref projectile); }
     private BossProjectile projectile;
+    private BossPositionTracker PosPredict { get => posPredict ?? componentLocator.GetCoreComponent(ref posPredict); }
+    private BossPositionTracker posPredict;
     private BossCollisionDetection Collisions { get => collisions ?? componentLocator.GetCoreComponent(ref collisions); }
     private BossCollisionDetection collisions;
     private BossMovement Movement { get => movement ?? componentLocator.GetCoreComponent(ref movement); }
@@ -35,9 +37,8 @@ public class DirectionalProjActionNode : ActionNode
     }
     void ShootDirectionalProjectile()
     {
-        Vector2 shootDir = new Vector2(Collisions.partnerTransform.position.x, Collisions.partnerTransform.position.y);
-        Projectile.ShootProjectile(blackboard.projectileType, shootDir);
-
+        Vector2 predictedPosition = PosPredict.GetPredictedPosition();
+        Projectile.ShootDirectionalProjectile(blackboard.projectileType, predictedPosition, blackboard.anim, animBoolName, Movement.CurrentDirection.x, Movement.CurrentDirection.y);
     }
     public override void SetAnimation()
     {

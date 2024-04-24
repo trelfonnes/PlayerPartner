@@ -59,4 +59,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPlaybackPrefab: {fileID: 2827278875996059473, guid: 4607f6658272c644cbff277f45dcb4b6, type: 3}
+  audioLoopingPlaybackPrefab: {fileID: 2827278875996059473, guid: 99c2f16447e702843b51847262bb1138, type: 3}
   maxPoolSize: 10

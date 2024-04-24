@@ -6,41 +6,34 @@ public class RestActionNode : ActionNode
 {
     Timer timer;
     float restTime;
+
+    private BossMovement Movement { get => movement ?? componentLocator.GetCoreComponent(ref movement); }
+    private BossMovement movement;
+    private BossStatsComponent Stats { get => stats ?? componentLocator.GetCoreComponent(ref stats); }
+    private BossStatsComponent stats;
+
     public RestActionNode(BossBlackboard blackboard, BossComponentLocator componentLocator, string animBoolName) : base(blackboard, componentLocator, animBoolName)
     {
-        restTime = blackboard.restTime;
-        StartRestTimer();
+       
+       
     }
 
     public override NodeState Execute()
     {
-        
-
-        timer.Update(Time.deltaTime);
-        if (timer.IsFinished())
+        Movement.MoveOnOff(false);
+        Stats.RestoreStamina();
+        if (Stats.IsFatigued())
         {
-            timer.Reset();
+            SetAnimation();
             return NodeState.success;
-        }
-        if (!timer.IsFinished())
-        {
-            blackboard.isFatigued = false;
-        //    blackboard.canMove = true;
-
-            return NodeState.failure;
         }
         else
         {
-         //   blackboard.canMove = true;
-
-            blackboard.isFatigued = false;
             return NodeState.failure;
         }
+              
     }
-    void StartRestTimer()
-    {
-        timer = new Timer(restTime);
-    }
+    
     public override void SetAnimation() //play the stunned character animation.
     {
         base.SetAnimation();

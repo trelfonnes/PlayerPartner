@@ -81,6 +81,29 @@ public class BasicProjectile : MonoBehaviour
             StartCoroutine(DeactivateAfterTime());
         }
     }
+    void BossShoot(Vector2 position, Vector2 direction, float damage, float knockback)
+    {
+        if (!hasBeenShot)
+        {
+            this.damage = damage;
+          knockBackDamage = knockback;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
+
+            enemyProjectile = true;
+            partnerProjectile = false;
+            float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+            rb.transform.position = position;
+            transform.rotation = rotation;
+            normalizedDirection = direction.normalized;
+
+            rb.velocity = normalizedDirection * velocity;
+            hasBeenShot = true;
+            StartCoroutine(SwitchSpriteRoutine());
+            StartCoroutine(DeactivateAfterTime());
+
+        }
+    }
     IEnumerator SwitchSpriteRoutine()
     {
         while (true)
@@ -124,7 +147,7 @@ public class BasicProjectile : MonoBehaviour
         ApplyDamage(collision);
         ApplyKnockback(collision);
         ApplyPoiseDamage(collision);
-
+        Debug.Log(collision.name + " collided with projectile");
         hasBeenShot = false;
         gameObject.SetActive(false);
     }
@@ -181,6 +204,8 @@ public class BasicProjectile : MonoBehaviour
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet += Shoot;
         ProjectileEventSystem.Instance.OnEnemyDirectionSet += EnemyShoot;
+        ProjectileEventSystem.Instance.OnBossDirectionSet += BossShoot;
+
     }
 
 
@@ -188,6 +213,8 @@ public class BasicProjectile : MonoBehaviour
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet -= Shoot;
         ProjectileEventSystem.Instance.OnEnemyDirectionSet -= EnemyShoot;
+        ProjectileEventSystem.Instance.OnBossDirectionSet -= BossShoot;
+
 
     }
 

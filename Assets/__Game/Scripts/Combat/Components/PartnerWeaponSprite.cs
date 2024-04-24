@@ -20,8 +20,7 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
     private void HandleEnterAttackPhase(AttackPhases phase)
     {
         currentWeaponSpriteIndex = 0;
-        Debug.Log(movement.facingCombatDirectionX);
-        Debug.Log(movement.facingCombatDirectionY);
+       
 
         //  currentPhaseSprites = currentAttackDataPartner.PhaseSprites.FirstOrDefault(dataPartner => dataPartner.Phase == phase).Sprites;
         PhaseSprites[] filteredPhaseSprites = new PhaseSprites[currentAttackDataPartner.PhaseSprites.Length]; //default

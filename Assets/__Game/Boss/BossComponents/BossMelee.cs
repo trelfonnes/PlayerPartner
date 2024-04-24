@@ -20,7 +20,6 @@ public class BossMelee : BossCoreComponent
     }
     private void Update()
     {
-            Debug.Log(currentState);
 
 
     }
@@ -39,10 +38,12 @@ public class BossMelee : BossCoreComponent
         this.blackboardAnim = blackboardAnim;
         blackboardAnimBoolName = animBoolName;
         Movement.MoveOnOff(false);
+        int roundedMoveX = Mathf.RoundToInt(moveX);
+        int roundedMoveY = Mathf.RoundToInt(moveY);
         blackboardAnim.SetBool(animBoolName, true);
         weaponAnim.SetBool("attack", true);
-        weaponAnim.SetFloat("MoveX", moveX);
-        weaponAnim.SetFloat("MoveY", moveY);
+        weaponAnim.SetFloat("MoveX", roundedMoveX);
+        weaponAnim.SetFloat("MoveY", roundedMoveY);
         executeAttack = true;
         currentState = BossMeleeState.active;
         weapon.Enter();

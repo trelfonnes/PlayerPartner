@@ -23,6 +23,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
 
     public void DecreaseHealth(float amount)
     {
+        Debug.Log(amount + " Damage amount");
         if (gameObject.transform.parent.parent.gameObject.activeSelf)//even if only UPdateUI on active, event in stats still triggers and changes UI
         {
             SOData.CurrentHealth -= amount;

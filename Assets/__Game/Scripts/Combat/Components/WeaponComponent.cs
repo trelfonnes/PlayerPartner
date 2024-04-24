@@ -117,6 +117,7 @@ public abstract class WeaponComponent : MonoBehaviour
    
     protected virtual void OnDestroy()
     {
+        Debug.Log("OnDestroy is called from the weapon component. Events unsubbed");
         if (weapon != null)
         {
             weapon.onEnter -= HandleEnter;

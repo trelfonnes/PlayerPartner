@@ -46,7 +46,7 @@ public class SaveLoadManager : DataReferenceInheritor
     public void InitializeNPCManager(NPCManager npcManager)
     {
         this.npcManager = npcManager;
-        LoadNPCData();
+       // LoadNPCData();
     }
     public void InitializeSharedPlayerData(PlayerData playerData)
     {

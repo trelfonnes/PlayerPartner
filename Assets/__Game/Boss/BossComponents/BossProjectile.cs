@@ -11,6 +11,7 @@ public class BossProjectile : BossCoreComponent
     string blackboardAnimBoolName;
     Animator weaponAnim;
     Animator blackboardAnim;
+    public Vector2 ShootDirection { get; private set; }
 
     private void Start()
     {
@@ -25,7 +26,25 @@ public class BossProjectile : BossCoreComponent
         // send the type from the blackboard and this transform position to projectile handler
         currentState = BossProjectileState.active;
         ProjectileEventSystem.Instance.RaiseSetProjectileTypeEvent(projectileType);
-        ProjectileEventSystem.Instance.RaiseBossDirectionSetEvent(transform.position, direction);
+        ProjectileEventSystem.Instance.RaiseBossDirectionSetEvent(transform.position, direction.normalized, 1, 5);
+    }
+    public void ShootDirectionalProjectile(ProjectileType projType, Vector2 target, Animator blackboardAnim, string animBoolName, float moveX, float moveY)
+    {
+
+        this.blackboardAnim = blackboardAnim;
+        blackboardAnimBoolName = animBoolName;
+        ShootDirection = target;
+        Movement.MoveOnOff(false);
+        int roundedMoveX = Mathf.RoundToInt(moveX);
+        int roundedMoveY = Mathf.RoundToInt(moveY);
+        blackboardAnim.SetBool(animBoolName, true);
+        weaponAnim.SetBool("attack", true);
+        weaponAnim.SetFloat("MoveX", roundedMoveX);
+        weaponAnim.SetFloat("MoveY", roundedMoveY);
+        currentState = BossProjectileState.active;
+        weapon.Enter();
+
+
     }
     public void ProjectileAnimDirection(Animator blackboardAnim, string animBoolName, float moveX, float moveY)
     {
@@ -49,6 +68,7 @@ public class BossProjectile : BossCoreComponent
         weaponAnim.SetBool("attack", false);
         executeAttack = false;
         currentState = BossProjectileState.idle;
+        Movement.MoveOnOff(true);
     }
     private void OnDisable()
     {

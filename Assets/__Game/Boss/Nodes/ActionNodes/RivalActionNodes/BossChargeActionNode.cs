@@ -8,23 +8,25 @@ public class BossChargeActionNode : ActionNode
     private BossMovement movement;
     private BossCollisionDetection Collisions { get => collisions ?? componentLocator.GetCoreComponent(ref collisions); }
     private BossCollisionDetection collisions;
-    
+    private BossStatsComponent Stats { get => stats ?? componentLocator.GetCoreComponent(ref stats); }
+    private BossStatsComponent stats;
+
     public BossChargeActionNode(BossBlackboard blackboard, BossComponentLocator componentLocator, string animBoolName) : base(blackboard, componentLocator, animBoolName)
     {
     }
 
     public override NodeState Execute()
     {
-        blackboard.stamina -= Time.deltaTime;
-        if (blackboard.stamina <= 0 && !blackboard.isFatigued)
+        if (Movement.CanMove())
         {
-            blackboard.isFatigued = true;
-            return NodeState.success;
-        }
-        Movement.ChargePlayer(blackboard.moveSpeed, Collisions.partnerTransform, blackboard.chargeBuffer);
-        Collisions.UpdateFOVDirection(Movement.CurrentDirection);
+            Stats.DecreaseStamina();
+            Movement.ChargePlayer(blackboard.moveSpeed, Collisions.partnerTransform, blackboard.chargeBuffer);
         SetAnimation();
-        SetAnimationFloat(Movement.CurrentDirection.x, Movement.CurrentDirection.y);
+            SetAnimationFloat(Movement.CurrentDirection.x, Movement.CurrentDirection.y);
+
+        }
+
+        Collisions.UpdateFOVDirection(Movement.CurrentDirection);
         return NodeState.success;
     }
     public override void SetAnimationFloat(float moveX, float moveY)

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TestBattleArenaData
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 0}
-  enemyType: 0
+  enemyType: 14
   enemiesToSpawn: 1
-  partnerType: 1
+  partnerType: 0
   areaType: 1
-  hasBeenDefeated: 1
+  hasBeenDefeated: 0

@@ -19,12 +19,17 @@ public class BossProjectileWeaponComponent : WeaponComponent<ProjectileData, Att
     }
 
 
-    void SetDirection() // listened to by actual projectile game object that is "unpooled"
-    {//make sure combat facing direction works for enemy. 
-       // direction = movement.LastEnemyDirection; //new Vector2(movement.LastEnemyDirection.x, movement.LastEnemyDirection.y);
-        ProjectileEventSystem.Instance.RaiseBossDirectionSetEvent(this.transform.position, Vector2.zero);
+    void SetDirection() 
+    {
+       // Vector2 direction = CalculateRoundedDirection(projectile.TargetTransform.position);
+        ProjectileEventSystem.Instance.RaiseBossDirectionSetEvent(this.transform.position, projectile.ShootDirection, currentAttackDataBoss.damage, currentAttackDataBoss.knockbackStrength);
     }
-
+   // Vector2 CalculateRoundedDirection(Vector3 targetPosition)
+   // {
+    //    Vector2 normalizedDirection = (new Vector2(targetPosition.x, targetPosition.y)).normalized;
+   //     Vector2 roundedDirection = new Vector2(normalizedDirection.x, Mathf.Round(normalizedDirection.y));
+    //    return roundedDirection;
+   // }
     protected override void Start()
     {
         base.Start();

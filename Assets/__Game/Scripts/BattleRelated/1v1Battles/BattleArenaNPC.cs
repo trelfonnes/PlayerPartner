@@ -14,7 +14,7 @@ public class BattleArenaNPC : MonoBehaviour, IInteractable
     {
         //TODO refactor this out to worth with the dialogue system. Interact => dialogue => UI selection => CheckIfCanBattle();
         CheckIfCanBattle();
-        Debug.Log("Interacting with NPC");
+        Debug.Log("Interacting with arena NPC");
     }
 
     public void CheckIfCanBattle()

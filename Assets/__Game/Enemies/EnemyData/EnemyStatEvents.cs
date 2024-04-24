@@ -13,6 +13,7 @@ public class EnemyStatEvents : ScriptableObject
     public event Action onPoiseZero;
     public event Action onPoiseRefilled;
     public event Action onBattleStart;
+    public event Action onStaminaZero;
     public void BattleStart()
     {
         if (onBattleStart != null)
@@ -47,6 +48,13 @@ public class EnemyStatEvents : ScriptableObject
         if(onPoiseRefilled != null)
         {
             onPoiseRefilled.Invoke();
+        }
+    }
+    public void StaminaZero()
+    {
+        if(onStaminaZero != null)
+        {
+            onStaminaZero.Invoke();
         }
     }
 

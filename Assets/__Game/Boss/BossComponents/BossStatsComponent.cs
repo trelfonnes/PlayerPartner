@@ -7,6 +7,16 @@ public class BossStatsComponent : BossCoreComponent, IHealthChange
     [SerializeField] BossStatsSO bossSOData;
     [SerializeField] EnemyStatEvents bossStatEvents;
     [SerializeField] BossHealthBarDisplay healthBarDisplay;
+    bool isFatigued;
+    float workingRestTime;
+    private void Start()
+    {
+        workingRestTime = Random.Range(1, bossSOData.restTime);
+        if(healthBarDisplay == null)
+        {
+            healthBarDisplay = GetComponentInChildren<BossHealthBarDisplay>();
+        }
+    }
     public void DecreaseHealth(float amount)
     { bossSOData.health -= amount;
         UpdateHealthBar(bossSOData.health, bossSOData.maxHealth);
@@ -47,5 +57,38 @@ public class BossStatsComponent : BossCoreComponent, IHealthChange
     void UpdateHealthBar(float health, float maxHealth)
     {
         healthBarDisplay.UpdateDisplay(health, maxHealth);
+    }
+
+    public void RestoreStamina()
+    {
+        workingRestTime -= Time.deltaTime;
+        if (workingRestTime <= 0)
+        {
+            workingRestTime = Random.Range(1, bossSOData.restTime);
+            bossSOData.stamina = bossSOData.maxStamina;
+            isFatigued = false;
+            Movement.MoveOnOff(true);
+
+        }
+    }
+    public void DecreaseStamina()
+    {
+        bossSOData.stamina -= Time.deltaTime;
+        if(bossSOData.stamina <= 0)
+        {
+            bossStatEvents.StaminaZero();
+            bossSOData.stamina = 0;
+            EnterFatigued();
+        }
+    }
+    public void EnterFatigued()
+    {
+        Movement.MoveOnOff(false);
+       
+        isFatigued = true;
+    }
+    public bool IsFatigued()
+    {
+        return isFatigued;
     }
 }

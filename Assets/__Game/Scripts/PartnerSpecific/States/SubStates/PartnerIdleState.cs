@@ -56,7 +56,6 @@ public class PartnerIdleState : PartnerBasicState
         base.LogicUpdate();
         if (xInput != 0 || yInput != 0)
         {
-            Debug.Log("Reading X and Y INput"); 
             PSM.ChangePartnerState(partner.MoveState);
         }
         if(!switchInput && !interactInput)

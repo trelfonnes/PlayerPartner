@@ -23,5 +23,6 @@
     WhirlwindBasicProjectile,
     RazorLeafBasicProjectile,
     BananaBasicProjectile,
-    WebBasicProjectile
+    WebBasicProjectile,
+    DragonFireBasicProj
 }

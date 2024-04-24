@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9e3ccdf21529747bb9c4e1f82da897, type: 3}
   m_Name: RivalOneStats
   m_EditorClassIdentifier: 
-  health: 30
-  maxHealth: 30
+  health: 8
+  maxHealth: 15
   moveSpeed: 3
   meleeTime: 1.5
-  stamina: 100
-  maxStamina: 100
-  restTime: 7
-  timeBetweenProjectiles: 100
+  stamina: 1.1794072
+  maxStamina: 7
+  restTime: 5
+  timeBetweenProjectiles: 2
   distancingLength: 4
-  chargeBuffer: 1
-  projectileType: 0
+  chargeBuffer: 1.5
+  projectileType: 24
   isDefeated: 0
-  isLowHealth: 0
+  isLowHealth: 1

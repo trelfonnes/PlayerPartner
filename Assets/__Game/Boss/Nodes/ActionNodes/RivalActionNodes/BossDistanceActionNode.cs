@@ -8,6 +8,8 @@ public class BossDistanceActionNode : ActionNode
     private BossMovement movement;
     private BossCollisionDetection Collisions { get => collisions ?? componentLocator.GetCoreComponent(ref collisions); }
     private BossCollisionDetection collisions;
+    private BossStatsComponent Stats { get => stats ?? componentLocator.GetCoreComponent(ref stats); }
+    private BossStatsComponent stats;
     public BossDistanceActionNode(BossBlackboard blackboard, BossComponentLocator componentLocator, string animBoolName) : base(blackboard, componentLocator, animBoolName)
     {
 
@@ -15,11 +17,9 @@ public class BossDistanceActionNode : ActionNode
 
     public override NodeState Execute()
     {
-        blackboard.stamina -= Time.deltaTime;
-        if(blackboard.stamina <= 0 && !blackboard.isFatigued)
+        if (Movement.CanMove())
         {
-            blackboard.isFatigued = true;
-            return NodeState.success;
+            Stats.DecreaseStamina();
         }
         Movement.KeepDistance(blackboard.moveSpeed, Collisions.partnerTransform, blackboard.distancingLength, Collisions.WallCheck);
         Collisions.UpdateFOVDirection(Movement.CurrentDirection);
