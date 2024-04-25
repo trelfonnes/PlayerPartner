@@ -45,7 +45,11 @@ public class EnemyProjectileAttackState : EnemyAttackState
     {
         base.Exit();
     }
-
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        weapon.onExit -= ExitHandler;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

@@ -24,13 +24,13 @@ public class BasicNPC : MonoBehaviour, IInteractable
     Rigidbody2D rb;
     ProgressMarker currentProgress;
     [SerializeField]LayerMask whatIsTurnFrom;
-    DialogueSystemTrigger DST;
+    [SerializeField]DialogueSystemTrigger DST;
 
    protected enum NPCState { Moving, TalkToPlayer, Idling}
    protected NPCState currentState = NPCState.Moving;
     private bool isPlayerColliding;
 
-    private void Start()
+    protected virtual void Start()
     {
         DST = GetComponent<DialogueSystemTrigger>();
         GetNPCData();

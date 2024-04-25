@@ -16,8 +16,12 @@ public class PartnerAttackState : PartnerAbilityState
         : base(partner, PSM, playerSOData, playerData, animBoolName)
     {
         this.weapon = weapon;
-        weapon.onExit += ExitHandler; //DO I need to unsub??
-        weapon.onDevolve += Devolve;
+       // weapon.onExit += ExitHandler; //DO I need to unsub?? Try in ondisable
+        Subscribe((handler) => weapon.onExit += handler, ExitHandler);
+
+        // weapon.onDevolve += Devolve;
+        Subscribe((handler) => weapon.onDevolve += handler, Devolve);
+
         inputIndex = (int)input;
     }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
@@ -38,10 +42,15 @@ public class PartnerAttackState : PartnerAbilityState
         weapon.Enter();
         if (playerSOData.stage2 || playerSOData.stage3)
         {
-            statEvents.onCurrentEPZero += Devolve;
+           // statEvents.onCurrentEPZero += Devolve;
+            Subscribe((handler) => statEvents.onCurrentEPZero += handler, Devolve);
+
 
         }
-        statEvents.onLevelUp += LevelUp;
+      //  statEvents.onLevelUp += LevelUp;
+        Subscribe((handler) => statEvents.onLevelUp += handler, LevelUp);
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
+
     }
 
     public override void Exit()
@@ -54,6 +63,7 @@ public class PartnerAttackState : PartnerAbilityState
 
         }
         statEvents.onLevelUp -= LevelUp;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
     }
 
     public override void LogicUpdate()
@@ -75,6 +85,10 @@ public class PartnerAttackState : PartnerAbilityState
     {
         base.OnDisable();
         weapon.onDevolve -= Devolve;
+        statEvents.onLevelUp -= LevelUp;
+        weapon.onExit -= ExitHandler;
+        statEvents.onCurrentEPZero -= Devolve;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
     }
     void Devolve()
     {

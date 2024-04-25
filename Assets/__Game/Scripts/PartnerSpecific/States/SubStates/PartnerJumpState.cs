@@ -54,13 +54,17 @@ public class PartnerJumpState : PartnerAbilityState
         if (playerSOData.stage2 || playerSOData.stage3)
         {
 
-            statEvents.onCurrentEPZero += Devolve;
+           // statEvents.onCurrentEPZero += Devolve;
+            Subscribe((handler) => statEvents.onCurrentEPZero += handler, Devolve);
+
 
         }
         Movement?.SetVelocity(direction * playerSOData.jumpForce);
         AudioManager.Instance.PlayAudioClip("Jump");
 
         timer = 0f;
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
+
     }
 
     public override void Exit()
@@ -72,8 +76,14 @@ public class PartnerJumpState : PartnerAbilityState
             statEvents.onCurrentEPZero -= Devolve;
 
         }
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
     }
-
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        statEvents.onCurrentEPZero -= Devolve;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

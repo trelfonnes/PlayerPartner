@@ -98,7 +98,7 @@ public class RivalOne : BossAI
 
     protected override void OnEnable()
     {
-        base.OnDisable();
+        base.OnEnable();
 
         bossStatEvents.onHealthZero += HealthZero;
         bossStatEvents.onHealthLow += HealthLow;

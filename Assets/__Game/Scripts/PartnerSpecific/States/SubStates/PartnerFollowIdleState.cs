@@ -20,10 +20,14 @@ public class PartnerFollowIdleState : PartnerFollowState
     {
         base.Enter();
         canExitState = false;
-        partner.evolutionEvents.OnSwitchToPartner += BackToIdle;
+        //partner.evolutionEvents.OnSwitchToPartner += BackToIdle;
+        Subscribe((handler) => partner.evolutionEvents.OnSwitchToPartner += handler, BackToIdle);
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
+
         if (playerSOData.stage2 || playerSOData.stage3)
         {
-            statEvents.onCurrentEPZero += TimeToDevolve;
+            //statEvents.onCurrentEPZero += TimeToDevolve;
+            Subscribe((handler) => statEvents.onCurrentEPZero += handler, TimeToDevolve);
 
         }
 
@@ -34,6 +38,7 @@ public class PartnerFollowIdleState : PartnerFollowState
     {
         base.Exit();
         partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
         if (playerSOData.stage2 || playerSOData.stage3)
         {
             statEvents.onCurrentEPZero -= TimeToDevolve;
@@ -44,10 +49,13 @@ public class PartnerFollowIdleState : PartnerFollowState
     {
         base.OnDisable();
         partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero -= TimeToDevolve;
+        }
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
 
-        statEvents.onCurrentEPZero -= TimeToDevolve;
-
-    } 
+    }
 
     private void BackToIdle()
     {

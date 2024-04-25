@@ -18,8 +18,15 @@ public class PartnerDefeatedState : PartnerFollowState
     public override void Enter()
     {
         base.Enter();
+        if(partner == null)
+        {
+            statEvents.onCurrentHealthZero -= Partner1Defeated;
+            return;
+        }
         partner.partnerCollider.enabled = false;
-        partner.statEvents.onPartnerFullyRestored += PartnerRevived;
+        //partner.statEvents.onPartnerFullyRestored += PartnerRevived;
+        Subscribe((handler) => statEvents.onPartnerFullyRestored += handler, PartnerRevived);
+
         partner.evolutionEvents.SwitchToPlayer();
         PlayerData.Instance.partnerIsDefeated = true;
     }
@@ -27,11 +34,22 @@ public class PartnerDefeatedState : PartnerFollowState
     public override void Exit()
     {
         base.Exit();
+       
+        if (partner == null)
+        {
+            statEvents.onCurrentHealthZero -= Partner1Defeated;
+            return;
+        }
         partner.partnerCollider.enabled = true;
         partner.statEvents.onPartnerFullyRestored -= PartnerRevived;
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        partner.statEvents.onPartnerFullyRestored -= PartnerRevived;
 
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

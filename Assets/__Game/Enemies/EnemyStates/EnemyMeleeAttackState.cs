@@ -57,7 +57,11 @@ public class EnemyMeleeAttackState : EnemyAttackState
           
         
     }
-
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        weapon.onExit -= ExitHandler;
+    }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

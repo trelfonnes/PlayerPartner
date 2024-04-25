@@ -96,41 +96,53 @@ public class BossMovement : BossCoreComponent
             }
         }
     }
+    float timeSinceLastDirectionChange = 0f;
     public void KeepDistance(float moveSpeed, Transform player, float distance, bool isTouchingWall)
     {
+      
+        float directionChangeCooldown = 1.5f; // Adjust as needed
+
         if (!isKnockedback)
         {
             Vector2 directionToPlayer = player.position - rb.transform.position;
             float currentDistance = directionToPlayer.magnitude;
-
-            // Calculate the target distance from the player
-            float targetDistance = distance;
-
-            // If the current distance is less than the target distance, move away from the player
-            if (currentDistance < targetDistance)
+            if (currentDistance < distance) 
             {
-                if (randomDistancingDirection == Vector2.zero || isTouchingWall) //Collisions hitting wall.
+                if (timeSinceLastDirectionChange > directionChangeCooldown|| randomDistancingDirection == Vector2.zero)
                 {
-                    // Generate random x and y components for a new movement direction. Should only happen when running into a wall, or vector 2 is zero.
-                    // Create a vector with the random x and y components
-                    randomDistancingDirection = GenerateRandomDirection();
+                    if (isTouchingWall )
+                    {
+                        randomDistancingDirection = -randomDistancingDirection;
+                        timeSinceLastDirectionChange = 0f;
+                    }
+                    else
+                    {
+                        randomDistancingDirection = GenerateRandomDirection();
+                        timeSinceLastDirectionChange = 0f; // Reset cooldown
+                    }                            //  }
                 }
-                // Calculate the movement vector with the desired speed
-                Vector2 movement = randomDistancingDirection * moveSpeed * Time.deltaTime;
+            }
 
-                CurrentDirection = randomDistancingDirection;
-                CheckIfShouldFlip(randomDistancingDirection);
-                // Move the enemy in the opposite direction to maintain distance
-                rb.position -= movement;
-            }
-            else
-            {
-                randomDistancingDirection = GenerateRandomDirection();
-                targetDistance = GenerateRandomDistance(distance);
-            }
+            Vector2 movement = randomDistancingDirection * moveSpeed * Time.deltaTime;
+            FaceThePlayer(player);
+            //CheckIfShouldFlip(CurrentDirection);
+            rb.position -= movement;
+
+            // Increment time since last direction change
+            timeSinceLastDirectionChange += Time.deltaTime;
         }
     }
+    public void FaceThePlayer(Transform playerTransform)
+    {
+        
+        // Calculate the relative position and direction
+        Vector3 relativeDirection = (playerTransform.position - transform.position).normalized;
 
+        // Use this relative direction to determine which way the enemy should face
+        CheckIfShouldFlip(relativeDirection);
+       
+        
+    }
     public void CheckIfShouldFlip(Vector2 vector2)
     {
         if (vector2.x < 0)
@@ -147,8 +159,17 @@ public class BossMovement : BossCoreComponent
 
     Vector2 GenerateRandomDirection()
     {
-        int randomX = Random.Range(-1, 2); // Random value between -1 and 1 (inclusive)
-        int randomY = Random.Range(-1, 2); // Random value between -1 and 1 (inclusive)
+        int[] validDirections = { -1, 1 };
+        int randomX = validDirections[Random.Range(0, validDirections.Length)];
+        int randomY = validDirections[Random.Range(0, validDirections.Length)];
+
+        // Prevent zero-zero direction
+        if (randomX == 0 && randomY == 0)
+        {
+            randomX = Random.Range(-1, 2); // Random value between -1 and 1 (inclusive)
+            randomY = Random.Range(-1, 2); // Random value between -1 and 1 (inclusive)
+        }
+
         return new Vector2(randomX, randomY).normalized;
     }
     float GenerateRandomDistance(float distance)

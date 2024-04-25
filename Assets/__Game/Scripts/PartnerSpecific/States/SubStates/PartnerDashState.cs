@@ -23,7 +23,10 @@ public class PartnerDashState : PartnerAbilityState
         AudioManager.Instance.PlayAudioClip("Dash");
 
         isTouchingPitfall = false;
-        partner.onFallStarted += StartFalling;
+        //partner.onFallStarted += StartFalling;
+        Subscribe((handler) => partner.onFallStarted += handler, StartFalling);
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
+
 
     }
 
@@ -31,12 +34,17 @@ public class PartnerDashState : PartnerAbilityState
     {
         base.Exit();
         partner.onFallStarted -= StartFalling;
-
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
         ResetAmountOfDashesLeft();
     }
-
-         //   partner.AbilityCooldownTimer.Reset();
-       // && partner.AbilityCooldownTimer.IsFinished()
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        partner.onFallStarted -= StartFalling;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
+    }
+    //   partner.AbilityCooldownTimer.Reset();
+    // && partner.AbilityCooldownTimer.IsFinished()
 
     public bool CanDash()
     {

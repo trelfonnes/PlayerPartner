@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleArenaNPC : MonoBehaviour, IInteractable
+public class BattleArenaNPC : BasicNPC
 {
     [SerializeField] BattleArenaDataSO battleArenaData;
     [SerializeField] NPCDataSO nPCData;
@@ -10,11 +10,12 @@ public class BattleArenaNPC : MonoBehaviour, IInteractable
 
 
     //this class goes on the actual npc. TODO: functionality for dialogue and any other behaviors.
-    public void Interact()
+    public override void Interact()
     {
+        base.Interact();
         //TODO refactor this out to worth with the dialogue system. Interact => dialogue => UI selection => CheckIfCanBattle();
-        CheckIfCanBattle();
-        Debug.Log("Interacting with arena NPC");
+        
+       
     }
 
     public void CheckIfCanBattle()
@@ -27,8 +28,9 @@ public class BattleArenaNPC : MonoBehaviour, IInteractable
         }
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         //GetData on initialize
         NPCDataManager.Instance.GetNPCData(npcID);
     }

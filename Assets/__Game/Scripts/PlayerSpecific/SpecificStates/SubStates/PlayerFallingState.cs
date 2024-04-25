@@ -36,7 +36,11 @@ public class PlayerFallingState : PlayerBasicState
         player.onFallOver -= FallIsOver;
 
     }
-
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        player.onFallOver -= FallIsOver;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

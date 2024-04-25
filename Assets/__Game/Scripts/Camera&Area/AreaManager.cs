@@ -113,6 +113,7 @@ public class AreaManager : MonoBehaviour
     } }
     private void OnDisable()
     {
-      
+        Enemy.onEnemyDefeated -= EnemyInAreaDefeated;
+
     }
 }

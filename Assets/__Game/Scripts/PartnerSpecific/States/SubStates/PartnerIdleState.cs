@@ -20,7 +20,9 @@ public class PartnerIdleState : PartnerBasicState
     }
     void SubToLevelUp()
     {
-        statEvents.onLevelUp += LevelUp;
+        //statEvents.onLevelUp += LevelUp;
+        Subscribe((handler) => statEvents.onLevelUp += handler, LevelUp);
+
         subToLevelUP = true;
 
     }
@@ -30,10 +32,13 @@ public class PartnerIdleState : PartnerBasicState
         canExitState = false;
         if (playerSOData.stage2 || playerSOData.stage3)
         {
-            statEvents.onCurrentEPZero += TimeToDevolve;
+          //  statEvents.onCurrentEPZero += TimeToDevolve;
+            Subscribe((handler) => statEvents.onCurrentEPZero += handler, TimeToDevolve);
 
         }
-        partner.onFallStarted += StartFalling;
+        //partner.onFallStarted += StartFalling;
+        Subscribe((handler) => partner.onFallStarted += handler, StartFalling);
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
 
     }
 
@@ -48,9 +53,20 @@ public class PartnerIdleState : PartnerBasicState
         statEvents.onLevelUp -= LevelUp;
         subToLevelUP = false;
         partner.onFallStarted -= StartFalling;
-
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero -= TimeToDevolve;
 
+        }
+        statEvents.onLevelUp -= LevelUp;
+        partner.onFallStarted -= StartFalling;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

@@ -30,6 +30,8 @@ public class PartnerDeEvolutionState : PartnerBasicState
         base.Enter();
         isDevolving = true;
         partner.evolutionEvents.OnDevolve += DevolveOver;
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
+
 
     }
 
@@ -38,12 +40,14 @@ public class PartnerDeEvolutionState : PartnerBasicState
         base.Exit();
         isDevolvingAbilityCancel = false;
         partner.evolutionEvents.OnDevolve -= DevolveOver;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
 
     }
     public override void OnDisable()
     {
         base.OnDisable();
         partner.evolutionEvents.OnDevolve -= DevolveOver;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
 
     }
     public override void LogicUpdate()

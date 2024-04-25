@@ -30,7 +30,7 @@ public class BossDistanceActionNode : ActionNode
     }
     public override void SetAnimationFloat(float moveX, float moveY)
     {
-        base.SetAnimationFloat(moveX, moveY);
+        base.SetAnimationFloat(moveX, moveY); 
     }
     public override void SetAnimation()
     {

@@ -34,6 +34,8 @@ public class PartnerEvolutionState : PartnerFollowState
         Movement?.SetVelocity(playerSOData.watchSpeed * (new Vector2(1, 1)));
         partner.evolutionEvents.OnEvolveToThirdStage += EvolveCheck;
         partner.evolutionEvents.OnEvolveToSecondStage += EvolveCheck;
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
+
 
     }
 
@@ -45,12 +47,14 @@ public class PartnerEvolutionState : PartnerFollowState
         
         partner.evolutionEvents.OnEvolveToThirdStage -= EvolveCheck;
         partner.evolutionEvents.OnEvolveToSecondStage -= EvolveCheck;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
     }
     public override void OnDisable()
     {
         base.OnDisable();
         partner.evolutionEvents.OnEvolveToThirdStage -= EvolveCheck;
         partner.evolutionEvents.OnEvolveToSecondStage -= EvolveCheck;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
     }
     public override void LogicUpdate()
     {

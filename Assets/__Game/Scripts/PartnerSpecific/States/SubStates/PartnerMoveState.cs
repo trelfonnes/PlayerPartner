@@ -27,14 +27,21 @@ public override void DoChecks()
         base.Enter();
         if (playerSOData.stage2 || playerSOData.stage3)
         {
-            statEvents.onCurrentEPZero += TimeToDevolve;
-
+           // statEvents.onCurrentEPZero += TimeToDevolve;
+            Subscribe((handler) => statEvents.onCurrentEPZero += handler, TimeToDevolve);
         }
-        partner.onFallStarted += StartFalling;
+      //  partner.onFallStarted += StartFalling;
+        Subscribe((handler) => partner.onFallStarted += handler, StartFalling);
 
-        statEvents.onLevelUp += LevelUp;
+        // statEvents.onLevelUp += LevelUp;
+        Subscribe((handler) => statEvents.onLevelUp += handler, LevelUp);
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
+
     }
-
+    public override void Partner1Defeated()
+    {
+        base.Partner1Defeated();
+    }
     public override void Exit()
     {
         base.Exit();
@@ -46,8 +53,21 @@ public override void DoChecks()
         partner.onFallStarted -= StartFalling;
 
         statEvents.onLevelUp -= LevelUp;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        if (playerSOData.stage2 || playerSOData.stage3)
+        {
+            statEvents.onCurrentEPZero -= TimeToDevolve;
 
+        }
+        partner.onFallStarted -= StartFalling;
+        statEvents.onLevelUp -= LevelUp;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
+
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

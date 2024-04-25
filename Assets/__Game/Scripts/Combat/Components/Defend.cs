@@ -21,5 +21,11 @@ public class Defend : WeaponComponent<DefendData, AttackDefend>
     {
         combatReceiver.StartAndStopBlocking(false);
     }
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        PlayerEventHandler.onStartDefend -= StartDefend;
+        PlayerEventHandler.onStopDefend -= StopDefend;
+    }
 
 }
