@@ -25,7 +25,7 @@ public class BossShootProjNode : ConditionNode
     public override NodeState Execute()
     {
         timer.Update(Time.deltaTime);
-        
+       
         if (timer.IsFinished())
         {
            

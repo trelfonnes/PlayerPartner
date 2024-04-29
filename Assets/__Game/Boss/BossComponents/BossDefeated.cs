@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class BossDefeated : BossCoreComponent
 {
-    [SerializeField] GameObject rewardForDefeat;
+   // [SerializeField] GameObject rewardForDefeat;
     [SerializeField] Animator bossDefeatedAnim;
+        [SerializeField] EnemyStatEvents statEvents;
 
+    
     public void Defeated()
     {
         bossDefeatedAnim.SetBool("defeated", true);
+       
     }
 
     public void CleanUp()
@@ -20,7 +23,11 @@ public class BossDefeated : BossCoreComponent
     }
     public void SpawnReward()
     {
-        GameObject rewardInstance = Instantiate(rewardForDefeat, transform.position, Quaternion.identity);
+     //   GameObject rewardInstance = Instantiate(rewardForDefeat, transform.position, Quaternion.identity);
     }
 
+    public void ArenaEnemyDefeated()
+    {
+        statEvents.BossEnemyDefeated();
+    }
 }

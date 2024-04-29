@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class ArenaDefeatedActionNode : ActionNode
 {
+    bool alreadyTriggered; // this node only needs to fire its logic once, as the enemy will be dead
+    private BossDefeated Defeated { get => defeated ?? componentLocator.GetCoreComponent(ref defeated); }
+    private BossDefeated defeated;
     public ArenaDefeatedActionNode(BossBlackboard blackboard, BossComponentLocator componentLocator, string animBoolName) : base(blackboard, componentLocator, animBoolName)
     {
+        alreadyTriggered = false; //initialize as false
     }
 
     public override NodeState Execute()
     {
-        
-        //TODO: Implement calling the defeated component. It will have access to communicating to the scene what to do.
-        throw new System.NotImplementedException();
+        if (!alreadyTriggered)
+        {
+            SetAnimation();
+            Defeated.ArenaEnemyDefeated(); //only called to trigger event once. Needed system/level components will listen.
+            alreadyTriggered = true;
+            return NodeState.success;
+        }
+        return NodeState.success;
     }
 
     public override void SetAnimation()
     {
-        base.SetAnimation(); //opponent defeated sprite plays.
+        base.SetAnimation(); //opponent defeated sprite plays and does not loop, remaining in this state.
     }
 }

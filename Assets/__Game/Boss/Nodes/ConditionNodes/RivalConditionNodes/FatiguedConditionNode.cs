@@ -16,10 +16,12 @@ public class FatiguedConditionNode : ConditionNode
 
     public override NodeState Execute()
     {
+       
         if (Stats.IsFatigued())
         {
             return NodeState.success;
         }
+      
         else
         {
 

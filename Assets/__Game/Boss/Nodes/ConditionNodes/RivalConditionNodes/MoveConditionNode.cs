@@ -18,6 +18,7 @@ public class MoveConditionNode : ConditionNode
 
     public override NodeState Execute()
     {
+     
         if (Movement.CanMove() && !Stats.IsFatigued())
         {
             return NodeState.success;

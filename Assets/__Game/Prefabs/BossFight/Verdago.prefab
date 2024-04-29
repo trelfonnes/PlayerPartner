@@ -1462,8 +1462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a00ba05a595174db05792b67e9feca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardForDefeat: {fileID: 0}
   bossDefeatedAnim: {fileID: 1753832639826232819}
+  statEvents: {fileID: 11400000, guid: 656cfedea7ba9334f9b09994b0613ff6, type: 2}
 --- !u!95 &1753832639826232819
 Animator:
   serializedVersion: 5

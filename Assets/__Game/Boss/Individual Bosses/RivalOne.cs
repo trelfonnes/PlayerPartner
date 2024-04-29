@@ -13,6 +13,10 @@ public class RivalOne : BossAI
 
     [SerializeField] float decisionTimer = 3f;
 
+    public void StartBattle()
+    {
+        battleStarted = true;
+    }
 
     protected override void Start()
     {
@@ -23,6 +27,7 @@ public class RivalOne : BossAI
         anim = GetComponent<Animator>();
         InitializeStats();
         InitializeBehaviorTree();
+        CutsceneManager.onCutsceneFinished += StartBattle;
     }
 
     protected override void InitializeBehaviorTree()
@@ -55,8 +60,8 @@ public class RivalOne : BossAI
     {
         base.Update();
         // if health is above 25% do behavior tree root node, else, switch to second stage root
-       // if (battleStarted)
-       // {
+        if (battleStarted)
+        {
             behaviorTreeFirstStageRoot.Execute();
             if (blackboard.isLowHealth)
             {
@@ -64,7 +69,7 @@ public class RivalOne : BossAI
                 // switch to next behavior tree strategy if applicable
             }
 
-       // }
+        }
     }
 
     void InitializeStats() // set the individual boss specs to the blackboard
@@ -111,7 +116,7 @@ public class RivalOne : BossAI
         bossStatEvents.onHealthZero -= HealthZero;
         bossStatEvents.onHealthLow -= HealthLow;
         bossStatEvents.onBattleStart -= BattleStarted;
-
+        CutsceneManager.onCutsceneFinished -= StartBattle;
 
     }
     void BattleStarted()

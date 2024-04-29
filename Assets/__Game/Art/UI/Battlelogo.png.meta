@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aa627169c9ee0b6419f5ec276137b4e5
+guid: 7b9ab904d63ad044d85b9c528f259de0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_RivalOne_0
+      name: Battlelogo_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
+        x: 10
+        y: 47
+        width: 32
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd3f870dd93d14c44aa7e8c451138bd3
-      internalID: 1165189555
+      spriteID: 9e34bb444d4a7f54d95f9595f0b2da4e
+      internalID: 1653690207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_1
+      name: Battlelogo_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
+        x: 50
+        y: 47
+        width: 37
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02493be5d4d17464c802b2f902fdac50
-      internalID: -2005226015
+      spriteID: a53109823b33b8241a88eee14c1a7f47
+      internalID: 716345560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_2
+      name: Battlelogo_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
+        x: 89
+        y: 47
+        width: 39
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c872699aeb65587448a2122fcd0e1d63
-      internalID: 520108410
+      spriteID: 5b9308a869831334eac4dfd43d0aaadc
+      internalID: 2139891586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_3
+      name: Battlelogo_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
+        x: 132
+        y: 47
+        width: 39
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54bb6b791605fb3449ab7e367e9a332b
-      internalID: -475261437
+      spriteID: 8fcd9c3d3bb27894994cc355a91113ae
+      internalID: -644462300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_4
+      name: Battlelogo_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
-        width: 64
-        height: 64
+        x: 177
+        y: 47
+        width: 24
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44913dd67d6209444929cc3e05737152
-      internalID: -1189623321
+      spriteID: 591de819fb6874e4c847212160991591
+      internalID: 1902795668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_5
+      name: Battlelogo_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 128
-        width: 64
-        height: 64
+        x: 206
+        y: 47
+        width: 29
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,146 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faceece87aeeb184fb20987be1a6c9f6
-      internalID: 326825041
+      spriteID: 189344f21b2f28a469d16060d81ed109
+      internalID: -938051873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_6
+      name: Battlelogo_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94753bbf14e42094580de98642c71c50
-      internalID: -1873509559
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_RivalOne_7
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e6d84496016c64448be788dc431a321
-      internalID: 792939354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_RivalOne_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd4f553c768981c478e110a5a7915659
-      internalID: -471854999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_RivalOne_9
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc5d49e0f24ef044d8e90ea3d9325dac
-      internalID: -380363296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_RivalOne_10
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f4a5e776e5645d4fac0a8a200e3899f
-      internalID: 1444816759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_RivalOne_11
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c67c30450e6630c4e8fce35c5c3d0583
-      internalID: -1609446849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_RivalOne_12
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 10
         y: 0
-        width: 64
-        height: 64
+        width: 35
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a12c496f79c35074692c42d052bb1898
-      internalID: 940937102
+      spriteID: ee1bfc603a547644fa120c52e36d7ae4
+      internalID: 543066808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_13
+      name: Battlelogo_7
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 0
-        width: 64
-        height: 64
+        width: 35
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,20 +278,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81c23d24dd39da54ea71fb19813e67f3
-      internalID: 620801243
+      spriteID: d0d800d60e10b1140ac22d06c9307a40
+      internalID: 647938061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_14
+      name: Battlelogo_8
       rect:
         serializedVersion: 2
-        x: 128
+        x: 87
         y: 0
-        width: 64
-        height: 64
+        width: 35
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -425,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c05ce6907323da41b808fcba5f50114
-      internalID: 269914822
+      spriteID: 3a172394817c83540a4998c90868413f
+      internalID: -2007930921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_15
+      name: Battlelogo_9
       rect:
         serializedVersion: 2
-        x: 192
+        x: 125
         y: 0
-        width: 64
-        height: 64
+        width: 35
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -446,20 +320,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83ee6d4be5dc56d4da7e11b6223738d2
-      internalID: 1536854949
+      spriteID: 5512a767f947d914db5421b5680a6cce
+      internalID: 1989454281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_16
+      name: Battlelogo_10
       rect:
         serializedVersion: 2
-        x: 256
+        x: 165
         y: 0
-        width: 64
-        height: 64
+        width: 25
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -467,20 +341,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a994d079cd1e8d54ab9349b4e0460014
-      internalID: 598119570
+      spriteID: ca9ac47ba7f9cd6489a2eff1dffd3773
+      internalID: -1328418205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_RivalOne_17
+      name: Battlelogo_11
       rect:
         serializedVersion: 2
-        x: 320
+        x: 191
         y: 0
-        width: 64
-        height: 64
+        width: 31
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -488,8 +362,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25c2b639875a66240a1505001492e828
-      internalID: -451071165
+      spriteID: c278a2c7dc9660d40853ba7f98ebde90
+      internalID: 2060112400
       vertices: []
       indices: 
       edges: []
@@ -505,24 +379,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_RivalOne_0: 1165189555
-      spr_RivalOne_1: -2005226015
-      spr_RivalOne_10: 1444816759
-      spr_RivalOne_11: -1609446849
-      spr_RivalOne_12: 940937102
-      spr_RivalOne_13: 620801243
-      spr_RivalOne_14: 269914822
-      spr_RivalOne_15: 1536854949
-      spr_RivalOne_16: 598119570
-      spr_RivalOne_17: -451071165
-      spr_RivalOne_2: 520108410
-      spr_RivalOne_3: -475261437
-      spr_RivalOne_4: -1189623321
-      spr_RivalOne_5: 326825041
-      spr_RivalOne_6: -1873509559
-      spr_RivalOne_7: 792939354
-      spr_RivalOne_8: -471854999
-      spr_RivalOne_9: -380363296
+      Battlelogo_0: 1653690207
+      Battlelogo_1: 716345560
+      Battlelogo_10: -1328418205
+      Battlelogo_11: 2060112400
+      Battlelogo_2: 2139891586
+      Battlelogo_3: -644462300
+      Battlelogo_4: 1902795668
+      Battlelogo_5: -938051873
+      Battlelogo_6: 543066808
+      Battlelogo_7: 647938061
+      Battlelogo_8: -2007930921
+      Battlelogo_9: 1989454281
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
