@@ -25,7 +25,18 @@ public class CutsceneManager : MonoBehaviour
     }
     public void RegisterCutscene(string cutsceneName, PlayableDirector director)
     {
-        cutsceneDictionary[cutsceneName] = director;
+        if (!cutsceneDictionary.ContainsKey(cutsceneName))
+        {
+            // If the key doesn't exist, add it along with its corresponding PlayableDirector
+            cutsceneDictionary[cutsceneName] = director;
+        }
+        else
+        {
+            // If the key exists, log a warning to prevent duplicate registrations
+            Debug.LogWarning($"Cutscene with key '{cutsceneName}' already exists. Ignoring registration.");
+
+            // Optional: Handle logic if you need to update or replace existing entries
+        }
     }
 
     public void PlayCutscene(string cutsceneName)

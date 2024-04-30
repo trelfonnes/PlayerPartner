@@ -12,7 +12,7 @@ public class TreasureChest : MonoBehaviour, IInteractable
     private GameObject containedItemInstance;
     BoxCollider2D boxCollider2D;
     float yOffset = .7f;
-    private void Start()
+    protected virtual void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = closed;
