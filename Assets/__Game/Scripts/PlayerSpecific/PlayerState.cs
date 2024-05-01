@@ -54,6 +54,12 @@ public class PlayerState
 
     public virtual void Exit()
     {
+        if (player == null)
+        {
+            statEvents.onCurrentHealthZero -= PlayerIsDefeated;
+            Debug.Log("Unsub because player was found to be null");
+            return;
+        }
         player.anim.SetBool(animBoolName, false);
         isExitingState = true;
         statEvents.onPlayerHealthZero -= PlayerIsDefeated;

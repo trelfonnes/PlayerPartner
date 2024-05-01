@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EasyTransition;
 using UnityEngine.SceneManagement;
 public class SceneLoaderUtility 
 {
@@ -11,7 +12,7 @@ public class SceneLoaderUtility
   public void LoadScene(string sceneName)
    {
         
-
+        
        SaveLoadManager.Instance.SaveDataForSceneSwitch(); 
         if(GameStateTracker.Instance.CurrentGameState != GameState.Arena) //check before changing to next scene
         {
@@ -35,7 +36,8 @@ public class SceneLoaderUtility
             GameStateTracker.Instance.ChangeGameState(GameState.overworld);
 
         }
-        SceneManager.LoadScene(sceneName);
+        CustomTransitionCall.Instance.LoadScene(sceneName);//implements transition then calls below method
+      //  SceneManager.LoadScene(sceneName);
     
     }
 

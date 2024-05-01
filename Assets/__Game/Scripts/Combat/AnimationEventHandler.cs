@@ -21,8 +21,11 @@ public class AnimationEventHandler : MonoBehaviour
 
     bool isCharged = false;
 
-    void AnimationFinishedTrigger() => OnFinish?.Invoke();
-    void StartMovementTrigger() => OnStartMovement?.Invoke();
+    void AnimationFinishedTrigger()
+    {
+        OnFinish?.Invoke();
+    }
+        void StartMovementTrigger() => OnStartMovement?.Invoke();
     void StopMovementTrigger() => OnStopMovement?.Invoke();
     void AttackActionTrigger()
     {
@@ -39,7 +42,7 @@ public class AnimationEventHandler : MonoBehaviour
         }
         else
         {
-            Debug.Log("ShootProjectile");
+            
 
             OnShootProjectile?.Invoke();//can create event to have a dropdown like Phases that designates which projectile to shoot??
         }

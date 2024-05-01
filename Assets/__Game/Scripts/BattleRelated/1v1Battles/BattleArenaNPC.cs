@@ -5,8 +5,14 @@ using UnityEngine;
 public class BattleArenaNPC : BasicNPC
 {
     [SerializeField] BattleArenaDataSO battleArenaData;
-    [SerializeField] NPCDataSO nPCData;
-    [SerializeField] string npcID;
+   // [SerializeField] NPCDataSO nPCData;
+   // [SerializeField] string npcID;
+    [SerializeField] int stageToChallenge = 1;
+    
+    PartnerType GetChosenPartner()
+    {
+       return GameManager.Instance.partnerFirstStageType;
+    }
 
 
     //this class goes on the actual npc. TODO: functionality for dialogue and any other behaviors.
@@ -33,8 +39,25 @@ public class BattleArenaNPC : BasicNPC
         base.Start();
         //GetData on initialize
         NPCDataManager.Instance.GetNPCData(npcID);
-    }
+        SetPartner();
 
+    }
+    void SetPartner()
+    {
+        PartnerType partner = GetChosenPartner();
+        var partnerMapping = new Dictionary<PartnerType, PartnerType[]>
+        {
+            { PartnerType.DinoOne, new PartnerType[] { PartnerType.DinoOne, PartnerType.DinoTwo, PartnerType.DinoThree } },
+            { PartnerType.BearOne, new PartnerType[] { PartnerType.BearOne, PartnerType.BearTwo, PartnerType.BearThree } },
+            { PartnerType.RabbitOne, new PartnerType[] { PartnerType.RabbitOne, PartnerType.RabbitTwo, PartnerType.RabbitThree } },
+            { PartnerType.AxelOne, new PartnerType[] { PartnerType.AxelOne, PartnerType.AxelTwo, PartnerType.AxelThree } },
+        };
+
+        if (partnerMapping.ContainsKey(partner) && stageToChallenge >= 1 && stageToChallenge <= 3)
+        {
+            battleArenaData.partnerType = partnerMapping[partner][stageToChallenge - 1];
+        }
+    }
     private void OnStartTheArenaBattle()
     {
         

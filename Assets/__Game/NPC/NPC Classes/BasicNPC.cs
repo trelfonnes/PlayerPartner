@@ -5,7 +5,7 @@ using PixelCrushers.DialogueSystem;
 
 public class BasicNPC : MonoBehaviour, IInteractable
 {
-    [SerializeField] string npcID;
+    [SerializeField] protected string npcID;
    [SerializeField] protected NPCDataSO npcData;
     [SerializeField] bool isMovingNPC;
     protected bool isConversationActive = false;
