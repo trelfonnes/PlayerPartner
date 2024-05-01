@@ -17,7 +17,7 @@ public class BasicNPC : MonoBehaviour, IInteractable
     [SerializeField] float maxPauseDuration;
     [SerializeField] GameObject itemToSpawn;
     [SerializeField] Transform spawnPoint;
-    
+    CoversationActorSet conversationActorSetter;
     Animator anim;
     Vector2 moveDirection;
     Vector2 currentDirection;
@@ -32,7 +32,8 @@ public class BasicNPC : MonoBehaviour, IInteractable
 
     protected virtual void Start()
     {
-        DST = GetComponent<DialogueSystemTrigger>();
+        DST = GetComponentInChildren<DialogueSystemTrigger>();
+        conversationActorSetter = GetComponentInChildren<CoversationActorSet>();
         GetNPCData();
         GetConversation();
         rb = GetComponent<Rigidbody2D>();
@@ -58,6 +59,7 @@ public class BasicNPC : MonoBehaviour, IInteractable
     }
     public virtual void Interact()
     {
+      DST.conversationActor = conversationActorSetter.GetActor();
         currentState = NPCState.TalkToPlayer;
         AudioManager.Instance.PlayAudioClip("Interact");
 
@@ -68,7 +70,7 @@ public class BasicNPC : MonoBehaviour, IInteractable
         DialogueManager.Instance.conversationEnded += ConversationFinished;
         isConversationActive = true;
         moveSpeed = 0f;
-        gameObject.GetComponent<DialogueSystemTrigger>().OnUse();
+        DST.OnUse();
         
     }
     public virtual void ConversationFinished(Transform primaryActorName)
@@ -186,13 +188,7 @@ public class BasicNPC : MonoBehaviour, IInteractable
 
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            DST.conversationActor = collision.transform;
-        }
-    }
+   
 
     void CheckNPCNameItemSpawn(string name)
     {
