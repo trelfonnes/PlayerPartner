@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 
 public class BattleArenaNPC : BasicNPC
 {
@@ -33,7 +34,14 @@ public class BattleArenaNPC : BasicNPC
             OnStartTheArenaBattle();
         }
     }
-
+    bool HasBattled() //FOR Lua
+    {
+        if (battleArenaData.hasBeenDefeated)
+        {
+            return true;
+        }
+        else return false;
+    }
     protected override void Start()
     {
         base.Start();
@@ -67,6 +75,16 @@ public class BattleArenaNPC : BasicNPC
 
     }
 
-
+    private void OnEnable()
+    {
+        Lua.RegisterFunction("CheckIfCanBattle", this, SymbolExtensions.GetMethodInfo(() => CheckIfCanBattle())); 
+        Lua.RegisterFunction("HasBattled", this, SymbolExtensions.GetMethodInfo(() => HasBattled())); 
+        
+    }
+    private void OnDisable()
+    {
+        Lua.UnregisterFunction(nameof(CheckIfCanBattle));
+        Lua.UnregisterFunction(nameof(HasBattled));
+    }
 
 }

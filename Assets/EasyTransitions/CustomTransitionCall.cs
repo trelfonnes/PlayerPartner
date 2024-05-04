@@ -33,6 +33,7 @@ public class CustomTransitionCall : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        Debug.Log("Load the scene from curomtransitioncall");
         TransitionManager.Instance().Transition(sceneName, currentTransition, startDelay); // Use singleton instance
     }
 

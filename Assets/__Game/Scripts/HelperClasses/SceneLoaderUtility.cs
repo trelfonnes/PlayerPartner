@@ -9,6 +9,15 @@ public class SceneLoaderUtility
     {
         SceneManager.LoadScene(sceneName);
     }
+    public void LoadContinueFromGameOver(string sceneName)
+    {
+        if(sceneName == "SandBoxScene")
+        {
+            GameStateTracker.Instance.ChangeGameState(GameState.overworld);
+
+        }
+        SceneManager.LoadScene(sceneName);
+    }
   public void LoadScene(string sceneName)
    {
         
@@ -35,6 +44,10 @@ public class SceneLoaderUtility
 
             GameStateTracker.Instance.ChangeGameState(GameState.overworld);
 
+        }
+        else if (sceneName == "GameOver")
+        {
+            GameStateTracker.Instance.ChangeGameState(GameState.gameOver);
         }
         CustomTransitionCall.Instance.LoadScene(sceneName);//implements transition then calls below method
       //  SceneManager.LoadScene(sceneName);

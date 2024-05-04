@@ -58,15 +58,18 @@ public class GameManager : DataReferenceInheritor
     }
     private void OnDisable()
     {
-        TimeOfDayManager.Instance.DisableGlobalLight();
-       
-        if (GameStateTracker.Instance.CurrentGameState == GameState.overworld)
+        if (TimeOfDayManager.Instance)
         {
-            //SaveLoadManager.Instance.SaveGlobalData();  SAVE CAN"T BE CALLED ONDISABLE. MUST BE DONE FROM SCENE SWITCH INVOKING OBJECT
-           // SaveLoadManager.Instance.SaveLastPlayerPosition();
+            TimeOfDayManager.Instance.DisableGlobalLight();
+
+            if (GameStateTracker.Instance.CurrentGameState == GameState.overworld)
+            {
+                //SaveLoadManager.Instance.SaveGlobalData();  SAVE CAN"T BE CALLED ONDISABLE. MUST BE DONE FROM SCENE SWITCH INVOKING OBJECT
+                // SaveLoadManager.Instance.SaveLastPlayerPosition();
+            }
+            SaveLoadManager.onGlobalLoad -= GlobalLoadListener;
+            SaveLoadManager.onGlobalSave -= GlobalSaveListener;
         }
-        SaveLoadManager.onGlobalLoad -= GlobalLoadListener;
-        SaveLoadManager.onGlobalSave -= GlobalSaveListener;
     }
     void GlobalLoadListener()
     {
@@ -118,9 +121,8 @@ public class GameManager : DataReferenceInheritor
   
     void InitializeChosenPlayer() 
     {
-        if (GameStateTracker.Instance.CurrentGameState != GameState.Arena)
+        if (GameStateTracker.Instance.CurrentGameState != GameState.Arena || GameStateTracker.Instance.CurrentGameState != GameState.gameOver)
         {
-           
            
             if (ES3.KeyExists("chosenPlayer"))
             {

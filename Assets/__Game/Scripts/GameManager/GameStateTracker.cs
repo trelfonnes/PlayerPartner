@@ -6,7 +6,8 @@ public enum GameState
     overworld,
     Dungeon,
     Arena,
-    gameStart
+    gameStart,
+    gameOver
 
 }
 
