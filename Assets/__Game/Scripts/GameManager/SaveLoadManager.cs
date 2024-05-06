@@ -129,7 +129,8 @@ public class SaveLoadManager : DataReferenceInheritor
         SaveSharedPartnerData();
         SavePlayerInventoryContents();
         SaveWeaponItems();
-       // SaveLastPlayerPosition(); //
+        //  SaveLastPlayerPosition(); //
+        Debug.Log("Saving the game");
         SaveLastActivePartner();
         //PopUpUI(); call this during Player save, not auto save between scenes
       
@@ -143,9 +144,9 @@ public class SaveLoadManager : DataReferenceInheritor
     {
         TriggerGlobalLoadEvent();
         LoadPlayerPartnerBasicData();
-        //LoadSharedPartnerData();
-        LoadPlayerInventoryContents(); 
-        LoadWeaponItems();
+        LoadSharedPartnerData();
+       // LoadPlayerInventoryContents(); 
+     //   LoadWeaponItems();
         //LoadPlayerPartnerLocation(); this needs to be done after initialized or this class won't have reference to player or partner
         LoadLastActivePartner();
         LoadChosenPlayerAndPartner();
@@ -175,7 +176,7 @@ public class SaveLoadManager : DataReferenceInheritor
     {
         LoadPlayerPartnerBasicData();
        // LoadSharedPartnerData();
-        LoadWeaponItems();
+        //LoadWeaponItems();
     }
 
     void SaveNPCData()
@@ -209,6 +210,7 @@ public class SaveLoadManager : DataReferenceInheritor
     }
     private void SavePlayerPartnerBasicData()
     {
+        Debug.Log("Saving SO DATA for Player and Partner. This should not happen during game over transitions");
         ES3.Save("playerDataSO", playerBasicData);
         ES3.Save("partner1BasicData", partner1SOData);
         ES3.Save("partner2BasicData", partner2SOData);
@@ -216,8 +218,10 @@ public class SaveLoadManager : DataReferenceInheritor
         
 
     }
-    private void LoadPlayerPartnerBasicData()
+    public void LoadPlayerPartnerBasicData()
     {
+        Debug.Log("Loading SO DATA for Player and Partner. This should  happen after game over transitions");
+
         ES3.Load("playerDataSO", playerBasicData);
         ES3.Load("partner1BasicData", partner1SOData);
         ES3.Load("partner2BasicData", partner2SOData);

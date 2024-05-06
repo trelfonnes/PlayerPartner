@@ -27,7 +27,7 @@ public class GameStateTracker : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        CurrentGameState = GameState.gameStart;
+        //CurrentGameState = GameState.gameStart;
         
     }
     public void ChangeGameState(GameState newState)

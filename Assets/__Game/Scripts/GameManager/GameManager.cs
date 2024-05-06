@@ -86,6 +86,7 @@ public class GameManager : DataReferenceInheritor
 
     private void Start()
     {
+        SaveLoadManager.Instance.LoadPlayerPartnerBasicData();
         InitializeChosenPlayer();
         if (GameStateTracker.Instance.CurrentGameState != GameState.Arena)
         {

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: PlayerBasicData
   m_EditorClassIdentifier: 
   isSick: 0
-  currentHealth: 5
+  currentHealth: 6
   stamina: 0
   isInjured: 0
   moveSpeed: 5
   watchSpeed: 0
   followSpeed: 5
-  MaxHealth: 5
+  MaxHealth: 6
   HealthLimit: 10
   SP: 1370
   MaxSP: 2500

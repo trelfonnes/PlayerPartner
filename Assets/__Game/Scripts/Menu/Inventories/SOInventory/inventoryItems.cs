@@ -16,6 +16,10 @@ public class inventoryItems : ScriptableObject
     public void Use()
     {
         thisEvent.Invoke();
+        if (usable)
+        {
+            DecreaseAmount(1);
+        }
     }
     public void DecreaseAmount(int amountToDecrease)
     {

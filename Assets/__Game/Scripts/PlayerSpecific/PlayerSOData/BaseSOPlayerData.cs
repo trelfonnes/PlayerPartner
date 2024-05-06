@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class BaseSOPlayerData : ScriptableObject
 {
+    public event System.Action<bool> onInjuredChanged;
+    public event System.Action<bool> onSickChanged;
     public BoolEvent isSickChanged = new BoolEvent();
     public BoolEvent isInjuredChanged = new BoolEvent();
     
@@ -74,7 +76,7 @@ public class BaseSOPlayerData : ScriptableObject
             if (isSick != value)
             {
                 isSick = value;
-                isSickChanged.Invoke(isSick);
+                onSickChanged?.Invoke(isSick);
             }
         }
     }
@@ -85,10 +87,12 @@ public class BaseSOPlayerData : ScriptableObject
         get { return isInjured; }
         set
         {
-            if(isInjured != value)
-            {
+           
+            if (isInjured != value)
+           {
                 isInjured = value;
-                isInjuredChanged.Invoke(isInjured);
+                Debug.Log("IsInjured event should be invoking" + isInjured);
+                onInjuredChanged?.Invoke(isInjured);
             }
         }
     }

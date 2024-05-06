@@ -18,7 +18,7 @@ public class TestingMakeSickandInjured : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Partner"))
+        if (collision.CompareTag("Partner") && !collision.isTrigger)
         {
             collision.GetComponentInChildren<ISick>().SickONandOFF(makeSickandInjured);
             collision.GetComponentInChildren<IInjured>().InjuredONandOFF(makeSickandInjured);
