@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 public class BaseSOPlayerData : ScriptableObject
 {
-    public event System.Action<bool> onInjuredChanged;
+    public event System.Action<bool> onInjuredChanged; //listened to by displays in status bar
     public event System.Action<bool> onSickChanged;
     public BoolEvent isSickChanged = new BoolEvent();
     public BoolEvent isInjuredChanged = new BoolEvent();
     
     [SerializeField] bool isSick;
 
-    public event System.Action<float> OnCurrentHealthValueChanged;
+    public event System.Action<float> OnCurrentHealthValueChanged; //listened to by displays
     public event System.Action<float> OnStaminaValueChanged;
 
     // Example health variable

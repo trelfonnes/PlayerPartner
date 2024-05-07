@@ -4,8 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 public class InventoryManager : MonoBehaviour
 {
+   
     [Header("Inventory Information")]
     [SerializeField] PlayerInventory playerInventory;
     [SerializeField] GameObject blankInventorySlot;
@@ -15,6 +17,38 @@ public class InventoryManager : MonoBehaviour
     public inventoryItems currentItem;
     Image equipButtonImage;
     [SerializeField] GameObject FirstMenuButton;
+    private Dictionary<ItemType, Action> itemUseEvents;
+    private Dictionary<ItemType, Action<float>> floatItemUseEvents;
+    public event Action<float> onHealthPotionUsed = f => { };
+    public event Action<float> onStaminaPotionUsed = f => { };
+    public event Action<float> onPlayerPotionUsed = f => { };
+    public event Action onMedicineUsed = () => { };
+    public event Action onBandaidUsed = () => { };
+    public event Action<float> onElixirUsed = f => { };
+
+    private void Awake()
+    {
+        Debug.Log("Create ItemUseEvents Dictionary within the inventory manager");
+        if (floatItemUseEvents == null)
+        {
+            floatItemUseEvents = new Dictionary<ItemType, Action<float>>
+        {
+            { ItemType.HealthPotion, onHealthPotionUsed },
+            { ItemType.StaminaPotion, onStaminaPotionUsed },
+            { ItemType.PlayerPotion, onPlayerPotionUsed },
+            { ItemType.Elixir, onElixirUsed }
+        };
+        }
+        if(itemUseEvents == null)
+        {
+            itemUseEvents = new Dictionary<ItemType, Action>
+            {  
+                { ItemType.Medicine, onMedicineUsed },
+            
+                { ItemType.Bandaid, onBandaidUsed }
+            };
+        }
+    }
     private void Start()
     {
        
@@ -110,6 +144,7 @@ public class InventoryManager : MonoBehaviour
         if (currentItem)
         {
             currentItem.Use();
+            UseItem();
             ClearInventorySlots();
             MakeInventorySlots();
             SetTextAndButton("", false);
@@ -119,5 +154,42 @@ public class InventoryManager : MonoBehaviour
             return;
         }
     }
+    void UseItem()
+    {
+        if (currentItem.statusHealingItem)
+        {
+            ItemType itemType = currentItem.GetItemType();
+            if (itemUseEvents.TryGetValue(itemType, out var action))
+            {
+                action?.Invoke();
 
+            }
+            else
+            {
+                Debug.LogWarning($"Trel Message: No Action defined for item type in Inventory Manager: {itemType}");
+            }
+        }
+        else
+        {
+            ItemType itemType = currentItem.GetItemType();
+            if(floatItemUseEvents.TryGetValue(itemType, out var action))
+            {
+                action?.Invoke(currentItem.amountToHeal);
+            }
+            else
+            {
+                Debug.LogWarning($"Trel Message: No Action defined for item type (potion types) in Inventory Manager: {itemType}");
+            }
+        }
+    }
+
+}
+public enum ItemType
+{
+    HealthPotion,
+    StaminaPotion,
+    Medicine,
+    Bandaid,
+    PlayerPotion,
+    Elixir
 }

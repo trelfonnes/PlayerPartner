@@ -145,8 +145,8 @@ public class SaveLoadManager : DataReferenceInheritor
         TriggerGlobalLoadEvent();
         LoadPlayerPartnerBasicData();
         LoadSharedPartnerData();
-       // LoadPlayerInventoryContents(); 
-     //   LoadWeaponItems();
+        LoadPlayerInventoryContents(); 
+        LoadWeaponItems();
         //LoadPlayerPartnerLocation(); this needs to be done after initialized or this class won't have reference to player or partner
         LoadLastActivePartner();
         LoadChosenPlayerAndPartner();
@@ -249,7 +249,7 @@ public class SaveLoadManager : DataReferenceInheritor
         ES3.Save("artifactInventory", artifactInventory);
     } 
    
-    void LoadPlayerInventoryContents()
+   public void LoadPlayerInventoryContents()
     {
         if (ES3.KeyExists("playerInventory"))
         {
@@ -266,17 +266,15 @@ public class SaveLoadManager : DataReferenceInheritor
     }
     void SaveWeaponItems()
     {
-        Debug.Log("SAVE WEAPON ITEMS" + playerWeapons + partnerWeapons);
         playerWeapons = weaponInventoryManager.playerWeaponsInInventory;
         partnerWeapons = weaponInventoryManager.partnerWeaponsInInventory;
 
         ES3.Save("playerWeapons", playerWeapons);
         ES3.Save("partnerWeapons", partnerWeapons);
     }
-    void LoadWeaponItems()
+    public void LoadWeaponItems()
     {
-        Debug.Log("LOAD WEAPON ITEMS" + playerWeapons + partnerWeapons);
-
+        
         if (ES3.KeyExists("playerWeapons"))
         {
             // Load playerWeapons data

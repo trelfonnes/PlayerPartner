@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef08ef81b100d6f4b89fa3dd22452fe1, type: 3}
-  m_Name: PlayerHealthPotion
+  m_Name: Elixir
   m_EditorClassIdentifier: 
-  itemName: Secret Stuff
-  itemDescription: A pick-me-up for myself! (Increases Player Health)
-  itemImage: {fileID: 21300000, guid: 98d13f8734db28b44bccf65cbd0e406b, type: 3}
+  itemName: Health Potion
+  itemDescription: Cherry flavor!
+  itemImage: {fileID: 21300000, guid: fe44a970e8a48664f924104073da6bac, type: 3}
   numberHeld: 0
   usable: 1
   unique: 0
-  itemType: 4
+  itemType: 5
   statusHealingItem: 0
-  amountToHeal: 5
+  amountToHeal: 1000

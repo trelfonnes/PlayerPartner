@@ -51,11 +51,17 @@ public class PlayerInputHandler : MonoBehaviour
     }
     void MuteInputForDialogue(Transform actor)
     {
-        _playerInput.DeactivateInput();
+        if (_playerInput)
+        {
+            _playerInput.DeactivateInput();
+        }
     }
     void ReturnInputFromDialogue(Transform actor)
     {
-        _playerInput.ActivateInput();
+        if (_playerInput)
+        {
+            _playerInput.ActivateInput();
+        }
     }
     void HandlePausedStateChanged(bool isPaused)
     {

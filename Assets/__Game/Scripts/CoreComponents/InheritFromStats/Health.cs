@@ -77,6 +77,7 @@ public class Health : Stats, IHealthChange //interfaces for decreasing health an
         {
             SubscribeToHourlyTickEvent();
         }
+        UpdateUI();
 
     }
         private void OnDisable()

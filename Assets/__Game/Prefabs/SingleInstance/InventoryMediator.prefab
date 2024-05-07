@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3893520122465381672
+--- !u!1 &1879746769444345082
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 179695543445621910}
-  - component: {fileID: 8667623664920865984}
+  - component: {fileID: 3253982795004110229}
+  - component: {fileID: 3626416819922505878}
   m_Layer: 0
   m_Name: InventoryMediator
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &179695543445621910
+--- !u!4 &3253982795004110229
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893520122465381672}
+  m_GameObject: {fileID: 1879746769444345082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,30 +32,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8667623664920865984
+--- !u!114 &3626416819922505878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893520122465381672}
+  m_GameObject: {fileID: 1879746769444345082}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b2df6e112e31ce499c15c2a43daae89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Datas:
-  - {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
-  - {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
-  - {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
-  - {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
-  - {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
+  inventoryManager: {fileID: 0}
+  PartnerDatas:
   - {fileID: 11400000, guid: 0c28ce457fdeb6f428db1745b9ea6b84, type: 2}
   - {fileID: 11400000, guid: 7677d19e203ee3a4ca135407aa9633e5, type: 2}
   - {fileID: 11400000, guid: e7b0308be0841bb44a3683eaee15637e, type: 2}
   - {fileID: 11400000, guid: f5a2e69a9b5773d4aae3bf67cdd34cb9, type: 2}
   - {fileID: 11400000, guid: 848e821c08d5b4d46bc98bb1e47b9ef8, type: 2}
   - {fileID: 11400000, guid: aec137ca11bff3243bb10e2b1fac2f8f, type: 2}
+  - {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
+  - {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
+  - {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
   - {fileID: 11400000, guid: 0fddc1314a9e8054a8951a3c417d21ec, type: 2}
   - {fileID: 11400000, guid: a8142db7161199a4d92bf67844dccf89, type: 2}
   - {fileID: 11400000, guid: 57cd271819cafde44b89ea54e6ad1bcc, type: 2}
+  PlayerDatas:
+  - {fileID: 11400000, guid: 1a48474c10da10a468baf7f5ac24badb, type: 2}
