@@ -17,12 +17,15 @@ public class BossPositionTracker : BossCoreComponent
     void AddPlayerPositionToHistory()
     {
         // Add current player position to history
-        playerPositionHistory.Enqueue(playerTransform.position);
-
-        // Remove oldest position if history size exceeds desired length
-        if (playerPositionHistory.Count > 10)
+        if (playerTransform)
         {
-            playerPositionHistory.Dequeue();
+            playerPositionHistory.Enqueue(playerTransform.position);
+
+            // Remove oldest position if history size exceeds desired length
+            if (playerPositionHistory.Count > 10)
+            {
+                playerPositionHistory.Dequeue();
+            }
         }
     }
 
@@ -41,14 +44,16 @@ public class BossPositionTracker : BossCoreComponent
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        AddPlayerPositionToHistory();
+        if (playerTransform)
+        {
+            AddPlayerPositionToHistory();
 
-        // Predict player's future position
-        Vector2 predictedPosition = PredictPlayerFuturePosition();
+            // Predict player's future position
+            Vector2 predictedPosition = PredictPlayerFuturePosition();
 
-        // Aim projectile at predicted position
-       PredictedPosition = (predictedPosition - (Vector2)transform.position).normalized;
-
+            // Aim projectile at predicted position
+            PredictedPosition = (predictedPosition - (Vector2)transform.position).normalized;
+        }
        
     }
 

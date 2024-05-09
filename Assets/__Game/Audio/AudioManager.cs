@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     private Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
 
     [SerializeField] private AudioClipManager audioClipManager; // Serialized field for AudioClipManager
-    private AudioObjectPool audioObjectPool;
+   [SerializeField] private AudioObjectPool audioObjectPool;
 
     Dictionary<string, GameObject> loopingObjects = new Dictionary<string, GameObject>();
     private void Awake()
@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            
         }
         else
         {
@@ -26,8 +26,14 @@ public class AudioManager : MonoBehaviour
             return;
         }
         audioObjectPool = GetComponent<AudioObjectPool>();
-
         InitializeAudioClips();
+    }
+    private void OnEnable()
+    {
+       // if (audioObjectPool == null)
+       // {
+       //     audioObjectPool = GetComponent<AudioObjectPool>();
+       // }
     }
     public void InitializeAudioClips()
     {

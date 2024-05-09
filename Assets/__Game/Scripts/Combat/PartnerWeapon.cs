@@ -96,6 +96,7 @@ public class PartnerWeapon : MonoBehaviour
     private void Start()
     {
         CheckWeaponEquippedState();
+        SetWeaponAfterLoad();
     }
     private void Update()
     {
@@ -107,8 +108,10 @@ public class PartnerWeapon : MonoBehaviour
     }
     void SwapWeapons()
     {
+        Debug.Log("Swap weapon to from parther weapon");
+
         //check the state of the projectile
-     PrimaryWeaponState currentPrimaryWeapon = PartnerWeaponState.Instance.GetCurrentPrimaryState();
+        PrimaryWeaponState currentPrimaryWeapon = PartnerWeaponState.Instance.GetCurrentPrimaryState();
         //PrimaryWeaponState currentPrimaryWeapon = partnerWeaponStateInstance.GetCurrentPrimaryState();
         SecondaryWeaponState currentSecondaryWeapon = PartnerWeaponState.Instance.GetCurrentSecondaryState();
  //       SecondaryWeaponState currentSecondaryWeapon = partnerWeaponStateInstance.GetCurrentSecondaryState();
@@ -141,6 +144,65 @@ public class PartnerWeapon : MonoBehaviour
         else
             return;
 
+
+    }
+
+    void SetWeaponAfterLoad()
+    {
+        WeaponInventoryItemSO primaryWeapon = weaponInventoryManager.GetPartnerPrimarySavedEquippedWeapon();
+        WeaponInventoryItemSO secondaryWeapon = weaponInventoryManager.GetPartnerSecondarySavedEquippedWeapon();
+
+        if (primaryWeapon)
+        {
+            SwapWeaponToLastEquipped(primaryWeapon.weaponName);
+        }
+        if (secondaryWeapon)
+        {
+            SwapWeaponToLastEquipped(secondaryWeapon.weaponName);
+        }
+    }
+    void SwapWeaponToLastEquipped(string weaponName)
+    {
+        if (MeleeBasic)
+        {
+            if (weaponName == "Melee")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(MeleeBasic);
+
+            }
+        }
+        if (MeleeHold)
+        {
+            if (weaponName == "Elemental")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(MeleeHold);
+
+            }
+        }
+        if (BasicProjectile)
+        {
+            if (weaponName == "Basic")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(BasicProjectile);
+
+            }
+        }
+        if (ChargeProjectile)
+        {
+            if (weaponName == "Charged")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(ChargeProjectile);
+
+            }
+        }
+        if (SpreadProjectile)
+        {
+            if (weaponName == "Spread")
+            {
+                thisWeaponsAutoGenerator.GenerateWeapon(SpreadProjectile);
+
+            }
+        }
 
     }
     private void OnEnable()

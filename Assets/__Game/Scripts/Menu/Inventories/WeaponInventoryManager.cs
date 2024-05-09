@@ -15,8 +15,9 @@ public class WeaponInventoryManager : MonoBehaviour
 {
    
 
-
+    [SerializeField] bool deleteKeys;
     [Header("Weapon Inventory Information")]
+
     [SerializeField] GameObject blankWeaponInventorySlot;
     [SerializeField] GameObject playerWeaponInventoryContentPanel;
     [SerializeField] GameObject partnerWeaponInventoryContentPanel;
@@ -34,29 +35,149 @@ public class WeaponInventoryManager : MonoBehaviour
 
     [SerializeField] public List<WeaponInventoryItemSO> playerWeaponsInInventory = new List<WeaponInventoryItemSO>();
     [SerializeField] public List<WeaponInventoryItemSO> partnerWeaponsInInventory = new List<WeaponInventoryItemSO>();
-
+    [SerializeField] private WeaponInventoryItemSO currentPlayerEquippedSecondary;
+    [SerializeField] private WeaponInventoryItemSO currentPartnerEquippedSecondary;
+    [SerializeField] private WeaponInventoryItemSO currentPlayerEquippedPrimary;
+    [SerializeField] private WeaponInventoryItemSO currentPartnerEquippedPrimary;
 
     Image equipButtonImage;
+
     private void Awake()
     {
         PartnerWeaponState.Instance.SwitchPrimaryState(PrimaryWeaponState.MeleeBasic);
         PartnerWeaponState.Instance.SwitchSecondaryState(SecondaryWeaponState.BasicProjectile);
+        SaveLoadManager.onGlobalSave += SaveWeaponItems;
+        SaveLoadManager.onGlobalSave += SaveCurrentEquippedWeapon;
     }
     private void Start()
     {
-        //partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
-
         
+        //partnerWeaponStateInstance = PartnerWeaponState.GetInstance();
+        if (deleteKeys)
+        {
+            ES3.DeleteKey("playerWeapons");
+            ES3.DeleteKey("partnerWeapons");
+            ES3.DeleteKey("equippedPrimary");
+            ES3.DeleteKey("equippedSecondary");
+            ES3.DeleteKey("equippedPartnerPrimary");
+            ES3.DeleteKey("equippedPartnerSecondary");
+        }
                 SetInitialPlayerPrimaryWeapon(playerWeaponsInInventory[0]); //bare hands
         SetInitialPlayerSecondaryWeapon(playerWeaponsInInventory[1]);   // bare hands projectile
         
                 SetInitialPartnerPrimaryWeapon(partnerWeaponsInInventory[0]); //basic melee
         SetInitialPartnerSecondaryWeapon(partnerWeaponsInInventory[1]);  // basic projectile
 
-      
+        LoadWeaponItems();
+       LoadCurrentEquippedWeapon();
 
     }
+    void SaveWeaponItems()
+    {
+      
 
+        ES3.Save<List<WeaponInventoryItemSO>>("playerWeapons", playerWeaponsInInventory);
+        ES3.Save<List<WeaponInventoryItemSO>>("partnerWeapons", partnerWeaponsInInventory);
+    }
+  
+    void SaveCurrentEquippedWeapon()
+    {
+        if (currentPlayerEquippedPrimary != null)
+        {
+            ES3.Save<WeaponInventoryItemSO>("equippedPrimary", currentPlayerEquippedPrimary);
+        }
+        if (currentPlayerEquippedSecondary != null)
+        {
+            ES3.Save<WeaponInventoryItemSO>("equippedSecondary", currentPlayerEquippedSecondary);
+        }
+         if (currentPartnerEquippedPrimary != null)
+        {
+            ES3.Save<WeaponInventoryItemSO>("equippedPartnerPrimary", currentPartnerEquippedPrimary);
+        }
+        if (currentPartnerEquippedSecondary != null)
+        {
+            ES3.Save<WeaponInventoryItemSO>("equippedPartnerSecondary", currentPartnerEquippedSecondary);
+        }
+
+    }
+    public WeaponInventoryItemSO GetPrimarySavedEquippedWeapon()
+    {
+        return currentPlayerEquippedPrimary;
+    }
+    public WeaponInventoryItemSO GetSecondarySavedEquippedWeapon()
+    {
+        return currentPlayerEquippedSecondary;
+    }
+   
+    public WeaponInventoryItemSO GetPartnerPrimarySavedEquippedWeapon()
+    {
+        return currentPartnerEquippedPrimary;
+    }
+    public WeaponInventoryItemSO GetPartnerSecondarySavedEquippedWeapon()
+    {
+        return currentPartnerEquippedSecondary;
+    }
+   
+    
+   public void LoadCurrentEquippedWeapon()
+    {
+        if (ES3.KeyExists("equippedPrimary"))
+        {
+            currentPlayerEquippedPrimary = ES3.Load<WeaponInventoryItemSO>("equippedPrimary");
+              SetInitialPlayerPrimaryWeapon(currentPlayerEquippedPrimary);
+            
+
+        }
+        if (ES3.KeyExists("equippedSecondary"))
+        {
+            currentPlayerEquippedSecondary = ES3.Load<WeaponInventoryItemSO>("equippedSecondary");
+              SetInitialPlayerSecondaryWeapon(currentPlayerEquippedSecondary);
+        } 
+        if (ES3.KeyExists("equippedPartnerPrimary"))
+        {
+                currentPartnerEquippedPrimary = ES3.Load<WeaponInventoryItemSO>("equippedPartnerPrimary");
+            SetInitialPartnerPrimaryWeapon(currentPartnerEquippedPrimary);
+           
+
+        }
+        if (ES3.KeyExists("equippedPartnerSecondary"))
+        {
+            currentPartnerEquippedSecondary = ES3.Load<WeaponInventoryItemSO>("equippedPartnerSecondary");
+          
+            SetInitialPartnerSecondaryWeapon(currentPartnerEquippedSecondary);
+
+        }
+    }
+    public void LoadWeaponItems()
+    {
+
+        if (ES3.KeyExists("playerWeapons"))
+        {
+            // Load playerWeapons data
+            playerWeaponsInInventory = ES3.Load<List<WeaponInventoryItemSO>>("playerWeapons");
+        }
+        else
+        {
+            // Handle the case when the key doesn't exist or the data is not loaded
+            Debug.LogWarning("Key 'playerWeapons' does not exist or data is not loaded.");
+        }
+        if (ES3.KeyExists("partnerWeapons"))
+        {
+            Debug.Log("LoadPartnerWeapon Inventory");
+
+            // Load partnerWeapons data
+            partnerWeaponsInInventory = ES3.Load<List<WeaponInventoryItemSO>>("partnerWeapons");
+        }
+        else
+        {
+            // Handle the case when the key doesn't exist or the data is not loaded
+            Debug.LogWarning("Key 'partnerWeapons' does not exist or data is not loaded.");
+        }
+
+       
+       ClearAndMakeSlots();
+
+    }
 
     void SetInitialPartnerPrimaryWeapon(WeaponInventoryItemSO partnerWeapon)
     {
@@ -65,9 +186,11 @@ public class WeaponInventoryManager : MonoBehaviour
     {
         playerPrimaryEquippedImage.sprite = playerWeapon.weaponImage;
     }
+
     void SetInitialPartnerSecondaryWeapon(WeaponInventoryItemSO partnerWeapon)
     {
         partnerSecondaryEquippedImage.sprite = partnerWeapon.weaponImage;
+
     }
     void SetInitialPlayerSecondaryWeapon(WeaponInventoryItemSO playerWeapon)
     {
@@ -119,7 +242,6 @@ public class WeaponInventoryManager : MonoBehaviour
 
                 }
             }
-
         }
         //setting the initial "Melee" attack image. When this slot is equipped, set a flag, other stages check that flag when set to active. 
         //only using stage 1 weapon list and 2 and 3 will always correspond. on enable event of stage 2 and 3, allweaponobjectreference will subscribe and set to what the flag tells.
@@ -141,7 +263,7 @@ public class WeaponInventoryManager : MonoBehaviour
             }
 
         }
-
+        
 
     }
     public void SetupDescriptionAndButton(string newDescription, bool isButtonActive, WeaponInventoryItemSO newWeapon)
@@ -159,7 +281,10 @@ public class WeaponInventoryManager : MonoBehaviour
     }
     private void OnDisable()
     {
-
+        SaveLoadManager.onGlobalSave -= SaveWeaponItems;
+        SaveLoadManager.onGlobalSave -= SaveCurrentEquippedWeapon;
+        //SaveWeaponItems();
+        // SaveCurrentEquippedWeapon();
         //sub to partnerWeapon global event then check this event in equip button pressed before running any logic
     }
     
@@ -169,33 +294,59 @@ public class WeaponInventoryManager : MonoBehaviour
         MakeInventorySlots();
         SetTextAndButton("", false);
     }
-
-    public void EquipButtonPressed()
-    {//Potential need to create and call a mediator for handling the changing of weapon data. Use UI only here??
-        if(currentWeapon)
-        if (currentWeapon.isPlayerWeapon)
+    void SetLastPlayerEquippedWeapon()
+    {
+        if (currentWeapon.isPrimary)
         {
-            onPlayerWeaponSwapped.Invoke();
-            SetEquippedImage(currentWeapon);
-            SetTextAndButton("", false);
+            currentPlayerEquippedPrimary = currentWeapon;
         }
         else
         {
-            if (!PartnerWeapon.AnyInstanceAttacking())
+            currentPlayerEquippedSecondary = currentWeapon;
+        }
+    } 
+    void SetLastPartnerEquippedWeapon()
+    {
+        if (currentWeapon.isPrimary)
+        {
+            currentPartnerEquippedPrimary = currentWeapon;
+        }
+        else
+        {
+            currentPartnerEquippedSecondary = currentWeapon;
+        }
+    }
+    public void EquipButtonPressed()
+    {//Potential need to create and call a mediator for handling the changing of weapon data. Use UI only here??
+        if (currentWeapon)
+        {
+            if (currentWeapon.isPlayerWeapon)
             {
-                if (currentWeapon.isPrimary)
-                {
-                    PartnerWeaponState.Instance.SwitchPrimaryState(currentWeapon.primaryType);
-//                    partnerWeaponStateInstance.SwitchPrimaryState(currentWeapon.primaryType);
-                }
-                else
-                {
-                    PartnerWeaponState.Instance.SwitchSecondaryState(currentWeapon.secondaryType);
-            //        partnerWeaponStateInstance.SwitchSecondaryState(currentWeapon.secondaryType);
-                }
-                onPartnerWeaponSwapped.Invoke();
+                SetLastPlayerEquippedWeapon();
+                onPlayerWeaponSwapped.Invoke();
                 SetEquippedImage(currentWeapon);
                 SetTextAndButton("", false);
+            }
+            else
+            {
+                if (!PartnerWeapon.AnyInstanceAttacking())
+                {
+
+                    if (currentWeapon.isPrimary)
+                    {
+                        PartnerWeaponState.Instance.SwitchPrimaryState(currentWeapon.primaryType);
+                        //                    partnerWeaponStateInstance.SwitchPrimaryState(currentWeapon.primaryType);
+                    }
+                    else
+                    {
+                        PartnerWeaponState.Instance.SwitchSecondaryState(currentWeapon.secondaryType);
+                        //        partnerWeaponStateInstance.SwitchSecondaryState(currentWeapon.secondaryType);
+                    }
+                    SetLastPartnerEquippedWeapon();
+                    onPartnerWeaponSwapped.Invoke();
+                    SetEquippedImage(currentWeapon);
+                    SetTextAndButton("", false);
+                }
             }
         }
         else

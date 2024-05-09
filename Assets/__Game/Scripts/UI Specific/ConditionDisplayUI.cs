@@ -41,11 +41,13 @@ public class ConditionDisplayUI : DataReferenceInheritor
 
     private void UpdateHealthDisplayFromInventory(float currentHealth)
     {
-        if(currentHealth > 2)
-        {
-            conditions[0].gameObject.SetActive(true);
-            conditions[4].gameObject.SetActive(false);
-        }
+      
+            if (currentHealth > 2)
+            {
+                conditions[0].gameObject.SetActive(true);
+                conditions[4].gameObject.SetActive(false);
+            }
+        
         
     }
 

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PlayerBasicData
   m_EditorClassIdentifier: 
   isSick: 0
-  currentHealth: 6
+  isPlayerForHealthUI: 1
+  currentHealth: 4
   stamina: 0
   isInjured: 0
   moveSpeed: 5
@@ -21,7 +22,7 @@ MonoBehaviour:
   followSpeed: 5
   MaxHealth: 6
   HealthLimit: 10
-  SP: 1370
+  SP: 1371
   MaxSP: 2500
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}

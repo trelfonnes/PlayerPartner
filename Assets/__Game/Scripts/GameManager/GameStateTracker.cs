@@ -32,6 +32,7 @@ public class GameStateTracker : MonoBehaviour
     }
     public void ChangeGameState(GameState newState)
     {
+        Debug.Log("Change the game state to" + newState);
         CurrentGameState = newState;
     }
     public GameState ReturnGameState()

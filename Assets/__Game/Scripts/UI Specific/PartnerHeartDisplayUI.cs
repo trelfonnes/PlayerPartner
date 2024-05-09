@@ -15,20 +15,22 @@ public class PartnerHeartDisplayUI : HeartDisplayUI
 
     private void UpdateDisplayViaInventory(float currentHealth)
     {
-        int fullHeartsCount = Mathf.CeilToInt(currentHealth);
+        
+            int fullHeartsCount = Mathf.CeilToInt(currentHealth);
 
-        for (int i = 0; i < heartsFull.Count; i++)
-        {
-            if (i < fullHeartsCount)
+            for (int i = 0; i < heartsFull.Count; i++)
             {
-                heartsFull[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                heartsFull[i].gameObject.SetActive(false);
-            }
+                if (i < fullHeartsCount)
+                {
+                    heartsFull[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    heartsFull[i].gameObject.SetActive(false);
+                }
 
-        }
+            }
+       
     }
 
     private void OnDisable()

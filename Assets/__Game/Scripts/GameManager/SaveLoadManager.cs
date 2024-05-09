@@ -18,8 +18,8 @@ public class SaveLoadManager : DataReferenceInheritor
     [SerializeField] List<inventoryItems> itemsAmountInInventory;
     [SerializeField] GameObject gameSavedUI;
     [SerializeField] WeaponInventoryManager weaponInventoryManager;
-   [SerializeField] List<WeaponInventoryItemSO> playerWeapons;
-   [SerializeField] List<WeaponInventoryItemSO> partnerWeapons;
+  // [SerializeField] List<WeaponInventoryItemSO> playerWeapons;
+  // [SerializeField] List<WeaponInventoryItemSO> partnerWeapons;
     [SerializeField] Player player;
     [SerializeField] Partner partner;
     [SerializeField] Vector2 savedLocations;
@@ -128,7 +128,7 @@ public class SaveLoadManager : DataReferenceInheritor
            SavePlayerPartnerBasicData();
         SaveSharedPartnerData();
         SavePlayerInventoryContents();
-        SaveWeaponItems();
+       // SaveWeaponItems();
         //  SaveLastPlayerPosition(); //
         Debug.Log("Saving the game");
         SaveLastActivePartner();
@@ -146,7 +146,7 @@ public class SaveLoadManager : DataReferenceInheritor
         LoadPlayerPartnerBasicData();
         LoadSharedPartnerData();
         LoadPlayerInventoryContents(); 
-        LoadWeaponItems();
+     //   LoadWeaponItems();
         //LoadPlayerPartnerLocation(); this needs to be done after initialized or this class won't have reference to player or partner
         LoadLastActivePartner();
         LoadChosenPlayerAndPartner();
@@ -168,7 +168,7 @@ public class SaveLoadManager : DataReferenceInheritor
     {
         SavePlayerPartnerBasicData();
         SaveSharedPartnerData();
-        SaveWeaponItems();
+       // SaveWeaponItems();
         SaveNPCData();
 
     }
@@ -264,43 +264,7 @@ public class SaveLoadManager : DataReferenceInheritor
             ES3.Load("artifactInventory");
         }
     }
-    void SaveWeaponItems()
-    {
-        playerWeapons = weaponInventoryManager.playerWeaponsInInventory;
-        partnerWeapons = weaponInventoryManager.partnerWeaponsInInventory;
-
-        ES3.Save("playerWeapons", playerWeapons);
-        ES3.Save("partnerWeapons", partnerWeapons);
-    }
-    public void LoadWeaponItems()
-    {
-        
-        if (ES3.KeyExists("playerWeapons"))
-        {
-            // Load playerWeapons data
-            playerWeapons = ES3.Load<List<WeaponInventoryItemSO>>("playerWeapons");
-        }
-        else
-        {
-            // Handle the case when the key doesn't exist or the data is not loaded
-            Debug.LogWarning("Key 'playerWeapons' does not exist or data is not loaded.");
-        }
-        if (ES3.KeyExists("partnerWeapons"))
-        {
-            // Load partnerWeapons data
-            partnerWeapons = ES3.Load<List<WeaponInventoryItemSO>>("partnerWeapons");
-        }
-        else
-        {
-            // Handle the case when the key doesn't exist or the data is not loaded
-            Debug.LogWarning("Key 'partnerWeapons' does not exist or data is not loaded.");
-        }
-       
-        weaponInventoryManager.playerWeaponsInInventory = playerWeapons;
-        weaponInventoryManager.partnerWeaponsInInventory = partnerWeapons;
-        weaponInventoryManager.ClearAndMakeSlots();
-    
-    }
+   
      
     
     void SaveLastActivePartner()

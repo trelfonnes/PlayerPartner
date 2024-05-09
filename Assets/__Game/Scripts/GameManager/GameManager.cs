@@ -86,9 +86,11 @@ public class GameManager : DataReferenceInheritor
 
     private void Start()
     {
-        InitializeChosenPlayer();
+        
         if (GameStateTracker.Instance.CurrentGameState != GameState.Arena)
         {
+            Debug.Log(GameStateTracker.Instance.CurrentGameState + " is the game state currently");
+            InitializeChosenPlayer();
             InitializeChosenPartner();
            // SaveLoadManager.Instance.LoadBattleArenaData();
             SaveLoadManager.Instance.SaveCurrentScene();
@@ -128,6 +130,7 @@ public class GameManager : DataReferenceInheritor
             {
                 chosenPlayer = ES3.Load<PlayerType>("chosenPlayer");
             }
+            Debug.Log(GameStateTracker.Instance.CurrentGameState + " is Current game state");
             playerManager.SetPlayerType(chosenPlayer); 
         }
     } 

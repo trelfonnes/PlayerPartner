@@ -11,8 +11,9 @@ public class BaseSOPlayerData : ScriptableObject
     public BoolEvent isInjuredChanged = new BoolEvent();
     
     [SerializeField] bool isSick;
-
-    public event System.Action<float> OnCurrentHealthValueChanged; //listened to by displays
+    [SerializeField] bool isPlayerForHealthUI;
+    public event System.Action<float> OnCurrentHealthValueChanged; //listened to by displays bool dictates player vs partner health
+    public event System.Action<float> OnCurrentPlayerHealthValueChanged; //listened to by displays bool dictates player vs partner health
     public event System.Action<float> OnStaminaValueChanged;
 
     // Example health variable
@@ -27,18 +28,29 @@ public class BaseSOPlayerData : ScriptableObject
             {
                 currentHealth = value;
                 // Raise the event to notify listeners that the float value has changed
-                OnCurrentHealthValueChanged?.Invoke(currentHealth);
+                if (isPlayerForHealthUI)
+                {
+                    OnCurrentPlayerHealthValueChanged?.Invoke(currentHealth);
+                }
+                else
+                {
+                    OnCurrentHealthValueChanged?.Invoke(currentHealth);
+                }
             }
         }
     }
 
     // Example method that modifies the float value
-    public void SetPartnerHealthFromItem(float value)
+    public void SetPartnerHealthFromItem(float value, bool isPlayerHealth)
     {
+        CurrentHealth = value;
        
+    }  
+    public void SetPlayerHealthFromItem(float value, bool isPlayerHealth)
+    {
             CurrentHealth = value;
        
-    }
+    }  
 
 
     // Example Stamina variable

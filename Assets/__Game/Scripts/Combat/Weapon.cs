@@ -5,6 +5,7 @@ using System;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] bool isPrimaryWeapon;
     [SerializeField] WeaponAutoGenerator thisWeaponsAutoGenerator;
     [SerializeField] WeaponInventoryManager weaponInventoryManager;
 
@@ -107,6 +108,47 @@ public class Weapon : MonoBehaviour
     }
     private void Start()
     {
+        SetWeaponAfterLoad();
+    }
+    void SwapWeaponToLastEquipped(string weapon)
+    {
+        if (weapon == "Boomerang")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(Boomerang);
+        }
+         if (weapon == "BareHands")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(BareHands);
+        }
+         if (weapon == "CableCord")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(CableCord);
+        }
+         if (weapon == "CableCord2")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(CableCord2);
+        }
+
+          if (weapon == "CableCord3")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(CableCord3);
+        }
+        
+        if (weapon == "Shield")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(Shield);
+        }
+           
+        if (weapon == "Bomb")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(Bomb);
+        }
+          
+        if (weapon == "Dart")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(Dart);
+        }
+
         
     }
     private void SwapWeapons()
@@ -146,6 +188,7 @@ public class Weapon : MonoBehaviour
         {
             if (weaponInventoryManager.currentWeapon.weaponName == "CableCord3")
             {
+
                 thisWeaponsAutoGenerator.GenerateWeapon(CableCord3);
             }
         }
@@ -182,6 +225,9 @@ public class Weapon : MonoBehaviour
         weaponInventoryManager.onPlayerWeaponSwapped += SwapWeapons;
         EventHandler.OnFinish += Exit;
          attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
+        weaponInventoryManager.LoadCurrentEquippedWeapon();
+        
+
     }
     private void OnDisable()
     {
@@ -191,7 +237,20 @@ public class Weapon : MonoBehaviour
 
     }
 
-   
+    void SetWeaponAfterLoad()
+    {
+        WeaponInventoryItemSO primaryWeapon = weaponInventoryManager.GetPrimarySavedEquippedWeapon();
+        WeaponInventoryItemSO secondaryWeapon = weaponInventoryManager.GetSecondarySavedEquippedWeapon();
+
+        if (isPrimaryWeapon && primaryWeapon)
+        {
+            SwapWeaponToLastEquipped(primaryWeapon.weaponName);
+        }
+        if (!isPrimaryWeapon && secondaryWeapon)
+        {
+            SwapWeaponToLastEquipped(secondaryWeapon.weaponName);
+        }
+    }
 
     public void SetCore(CoreHandler core)
     {
@@ -201,5 +260,5 @@ public class Weapon : MonoBehaviour
     {
         Data = data;
     }
-  
+ 
 }

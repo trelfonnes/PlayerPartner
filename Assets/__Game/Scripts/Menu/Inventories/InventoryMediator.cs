@@ -51,11 +51,10 @@ public class InventoryMediator : MonoBehaviour
 
             for (int i = 0; i < PlayerDatas.Count; i++)
             {
-                if (i == 0) // 0 is the first slot in the list which will always be for the player
-                {
+                
                     float adjustedAmount = Mathf.Clamp(PlayerDatas[i].CurrentHealth + amount, 0, PlayerDatas[i].MaxHealth);
-                    PlayerDatas[i].SetPartnerHealthFromItem(adjustedAmount);
-                }
+                    PlayerDatas[i].SetPlayerHealthFromItem(adjustedAmount, true);
+                
 
             }
         }    
@@ -63,13 +62,13 @@ public class InventoryMediator : MonoBehaviour
     }
     public void IncreasePartnerHealth(float amount)
     {
-        Debug.Log("Health UP");
+ 
         if (PartnerDatas != null && !PlayerData.Instance.partnerIsDefeated)
         {
             for (int i = 0; i < PartnerDatas.Count; i++)
             {
                     float adjustedAmount = Mathf.Clamp(PartnerDatas[i].CurrentHealth + amount, 0, PartnerDatas[i].MaxHealth);
-                    PartnerDatas[i].SetPartnerHealthFromItem(adjustedAmount);
+                    PartnerDatas[i].SetPartnerHealthFromItem(adjustedAmount, false);
               
             }
         }

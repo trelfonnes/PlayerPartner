@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioObjectPool : MonoBehaviour
 {
+    public static AudioObjectPool Instance { get; private set; }
     public GameObject audioPlaybackPrefab;
     public GameObject audioLoopingPlaybackPrefab;
     public int maxPoolSize = 10;
@@ -13,6 +14,7 @@ public class AudioObjectPool : MonoBehaviour
 
     private void Start()
     {
+       
         // Preload audio playback GameObjects into the pool
         for (int i = 0; i < maxPoolSize; i++)
         {
@@ -22,6 +24,7 @@ public class AudioObjectPool : MonoBehaviour
             pooledAudioObjects.Add(obj);
             pooledLoopingAudioObjects.Add(loopObj);
         }
+
     }
 
     public GameObject GetPooledObject()
