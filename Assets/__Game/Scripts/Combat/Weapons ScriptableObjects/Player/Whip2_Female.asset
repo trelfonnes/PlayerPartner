@@ -30,6 +30,7 @@ MonoBehaviour:
   - rid: 7917043661478035461
   - rid: 7917043703839719427
   - rid: 447581859178610688
+  - rid: 7483893544675442693
   <AttackType>k__BackingField: 5
   references:
     version: 2
@@ -41,6 +42,13 @@ MonoBehaviour:
         attackData:
         - name: Attack1
           <Amount>k__BackingField: 1
+    - rid: 7483893544675442693
+      type: {class: LinkableData, ns: , asm: Assembly-CSharp}
+      data:
+        name: LinkableData
+        attackData:
+        - name: Attack1
+          <Amount>k__BackingField: 2
     - rid: 7917043528491597826
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:

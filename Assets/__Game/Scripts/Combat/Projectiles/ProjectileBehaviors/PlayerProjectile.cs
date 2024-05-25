@@ -61,6 +61,10 @@ public class PlayerProjectile : MonoBehaviour
             {
                 poise.DamagePoise(poiseDamage);
             }
+            if(collision.TryGetComponent( out IDartTarget target))
+            {
+                target.BullsEye();
+            }
             hasBeenShot = false;
             gameObject.SetActive(false);
         }
