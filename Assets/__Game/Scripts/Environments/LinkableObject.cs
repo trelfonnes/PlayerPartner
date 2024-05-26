@@ -7,6 +7,7 @@ public class LinkableObject : MonoBehaviour, ILinkable
     //place this script on obstacles that block paths until level is reached. (linkCable upgraded)
     Animator anim;
     [SerializeField] float linkLevelRequired;
+    BoxCollider2D boxCollider;
     public void Link(float linkLevel)
     {
         CheckLinkLevel(linkLevel);
@@ -14,6 +15,7 @@ public class LinkableObject : MonoBehaviour, ILinkable
 
     void Start()
     {
+        boxCollider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();   
     }
 
@@ -22,6 +24,9 @@ public class LinkableObject : MonoBehaviour, ILinkable
         if(currentLevel >= linkLevelRequired)
         {
             //TODO: Execute functionality.
+            //change anim state
+            // disable collider
+            Debug.Log("Execute functionality");
         }
         else
         {

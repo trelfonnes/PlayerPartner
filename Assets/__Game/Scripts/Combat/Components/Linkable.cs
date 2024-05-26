@@ -12,6 +12,7 @@ public class Linkable : WeaponComponent<LinkableData, AttackLinkable>
         {
             if(item.TryGetComponent(out ILinkable linkable))
             {
+
                 linkable.Link(currentAttackDataPlayer.Amount);
             }
         }
