@@ -120,8 +120,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_0
       rect:
         serializedVersion: 2
-        x: 208
-        y: 754
+        x: 16
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -141,8 +141,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_1
       rect:
         serializedVersion: 2
-        x: 224
-        y: 754
+        x: 32
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -162,8 +162,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_2
       rect:
         serializedVersion: 2
-        x: 240
-        y: 754
+        x: 48
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -183,8 +183,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_3
       rect:
         serializedVersion: 2
-        x: 256
-        y: 754
+        x: 192
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -204,8 +204,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_4
       rect:
         serializedVersion: 2
-        x: 272
-        y: 754
+        x: 208
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -225,8 +225,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_5
       rect:
         serializedVersion: 2
-        x: 288
-        y: 754
+        x: 224
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -246,8 +246,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_6
       rect:
         serializedVersion: 2
-        x: 304
-        y: 754
+        x: 272
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -267,8 +267,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_7
       rect:
         serializedVersion: 2
-        x: 320
-        y: 754
+        x: 288
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -288,8 +288,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_8
       rect:
         serializedVersion: 2
-        x: 48
-        y: 450
+        x: 304
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -309,8 +309,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 450
+        x: 448
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -330,8 +330,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_10
       rect:
         serializedVersion: 2
-        x: 224
-        y: 450
+        x: 464
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -351,8 +351,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_11
       rect:
         serializedVersion: 2
-        x: 240
-        y: 450
+        x: 480
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -372,8 +372,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_12
       rect:
         serializedVersion: 2
-        x: 304
-        y: 450
+        x: 32
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -393,8 +393,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_13
       rect:
         serializedVersion: 2
-        x: 320
-        y: 450
+        x: 48
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -414,8 +414,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_14
       rect:
         serializedVersion: 2
-        x: 480
-        y: 450
+        x: 64
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -435,8 +435,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_15
       rect:
         serializedVersion: 2
-        x: 496
-        y: 450
+        x: 80
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -456,8 +456,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_16
       rect:
         serializedVersion: 2
-        x: 48
-        y: 434
+        x: 96
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -477,8 +477,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_17
       rect:
         serializedVersion: 2
-        x: 64
-        y: 434
+        x: 112
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -498,8 +498,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_18
       rect:
         serializedVersion: 2
-        x: 80
-        y: 434
+        x: 128
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -519,8 +519,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_19
       rect:
         serializedVersion: 2
-        x: 96
-        y: 434
+        x: 144
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -540,8 +540,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_20
       rect:
         serializedVersion: 2
-        x: 112
-        y: 434
+        x: 160
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -561,8 +561,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_21
       rect:
         serializedVersion: 2
-        x: 128
-        y: 434
+        x: 176
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -582,8 +582,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_22
       rect:
         serializedVersion: 2
-        x: 144
-        y: 434
+        x: 192
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -603,8 +603,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_23
       rect:
         serializedVersion: 2
-        x: 160
-        y: 434
+        x: 208
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -624,8 +624,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_24
       rect:
         serializedVersion: 2
-        x: 176
-        y: 434
+        x: 224
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -645,8 +645,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_25
       rect:
         serializedVersion: 2
-        x: 192
-        y: 434
+        x: 240
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -666,8 +666,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_26
       rect:
         serializedVersion: 2
-        x: 208
-        y: 434
+        x: 256
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -687,8 +687,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_27
       rect:
         serializedVersion: 2
-        x: 224
-        y: 434
+        x: 272
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -708,8 +708,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_28
       rect:
         serializedVersion: 2
-        x: 240
-        y: 434
+        x: 288
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -729,8 +729,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_29
       rect:
         serializedVersion: 2
-        x: 256
-        y: 434
+        x: 304
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -750,8 +750,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_30
       rect:
         serializedVersion: 2
-        x: 272
-        y: 434
+        x: 320
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -771,8 +771,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_31
       rect:
         serializedVersion: 2
-        x: 288
-        y: 434
+        x: 336
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -792,8 +792,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_32
       rect:
         serializedVersion: 2
-        x: 304
-        y: 434
+        x: 352
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -813,8 +813,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_33
       rect:
         serializedVersion: 2
-        x: 320
-        y: 434
+        x: 368
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -834,8 +834,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_34
       rect:
         serializedVersion: 2
-        x: 336
-        y: 434
+        x: 384
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -855,8 +855,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_35
       rect:
         serializedVersion: 2
-        x: 352
-        y: 434
+        x: 400
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -876,8 +876,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_36
       rect:
         serializedVersion: 2
-        x: 368
-        y: 434
+        x: 416
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -897,8 +897,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_37
       rect:
         serializedVersion: 2
-        x: 384
-        y: 434
+        x: 432
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -918,8 +918,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_38
       rect:
         serializedVersion: 2
-        x: 400
-        y: 434
+        x: 448
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -939,8 +939,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_39
       rect:
         serializedVersion: 2
-        x: 416
-        y: 434
+        x: 464
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -960,8 +960,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_40
       rect:
         serializedVersion: 2
-        x: 432
-        y: 434
+        x: 32
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -981,8 +981,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_41
       rect:
         serializedVersion: 2
-        x: 448
-        y: 434
+        x: 48
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1002,8 +1002,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_42
       rect:
         serializedVersion: 2
-        x: 464
-        y: 434
+        x: 64
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1023,8 +1023,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_43
       rect:
         serializedVersion: 2
-        x: 480
-        y: 434
+        x: 80
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1044,8 +1044,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_44
       rect:
         serializedVersion: 2
-        x: 496
-        y: 434
+        x: 96
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1065,8 +1065,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_45
       rect:
         serializedVersion: 2
-        x: 48
-        y: 418
+        x: 112
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1086,8 +1086,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_46
       rect:
         serializedVersion: 2
-        x: 64
-        y: 418
+        x: 128
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1107,8 +1107,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_47
       rect:
         serializedVersion: 2
-        x: 80
-        y: 418
+        x: 144
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1128,8 +1128,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_48
       rect:
         serializedVersion: 2
-        x: 96
-        y: 418
+        x: 160
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1149,8 +1149,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_49
       rect:
         serializedVersion: 2
-        x: 112
-        y: 418
+        x: 176
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1170,8 +1170,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_50
       rect:
         serializedVersion: 2
-        x: 128
-        y: 418
+        x: 192
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1191,8 +1191,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_51
       rect:
         serializedVersion: 2
-        x: 144
-        y: 418
+        x: 208
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1212,8 +1212,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_52
       rect:
         serializedVersion: 2
-        x: 160
-        y: 418
+        x: 224
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1233,8 +1233,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_53
       rect:
         serializedVersion: 2
-        x: 176
-        y: 418
+        x: 240
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1254,8 +1254,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_54
       rect:
         serializedVersion: 2
-        x: 192
-        y: 418
+        x: 256
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1275,8 +1275,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_55
       rect:
         serializedVersion: 2
-        x: 208
-        y: 418
+        x: 272
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1296,8 +1296,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_56
       rect:
         serializedVersion: 2
-        x: 224
-        y: 418
+        x: 288
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1317,8 +1317,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_57
       rect:
         serializedVersion: 2
-        x: 240
-        y: 418
+        x: 304
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1338,8 +1338,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_58
       rect:
         serializedVersion: 2
-        x: 256
-        y: 418
+        x: 320
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1359,8 +1359,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_59
       rect:
         serializedVersion: 2
-        x: 272
-        y: 418
+        x: 336
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1380,8 +1380,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_60
       rect:
         serializedVersion: 2
-        x: 288
-        y: 418
+        x: 352
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1401,8 +1401,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_61
       rect:
         serializedVersion: 2
-        x: 304
-        y: 418
+        x: 368
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1422,8 +1422,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_62
       rect:
         serializedVersion: 2
-        x: 320
-        y: 418
+        x: 384
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1443,8 +1443,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_63
       rect:
         serializedVersion: 2
-        x: 336
-        y: 418
+        x: 400
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1464,8 +1464,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_64
       rect:
         serializedVersion: 2
-        x: 352
-        y: 418
+        x: 416
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1485,8 +1485,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_65
       rect:
         serializedVersion: 2
-        x: 368
-        y: 418
+        x: 432
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1506,8 +1506,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_66
       rect:
         serializedVersion: 2
-        x: 384
-        y: 418
+        x: 448
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1527,8 +1527,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_67
       rect:
         serializedVersion: 2
-        x: 400
-        y: 418
+        x: 464
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1548,8 +1548,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_68
       rect:
         serializedVersion: 2
-        x: 416
-        y: 418
+        x: 32
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1569,8 +1569,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_69
       rect:
         serializedVersion: 2
-        x: 432
-        y: 418
+        x: 240
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1590,8 +1590,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_70
       rect:
         serializedVersion: 2
-        x: 448
-        y: 418
+        x: 256
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1612,7 +1612,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 464
-        y: 418
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1632,8 +1632,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_72
       rect:
         serializedVersion: 2
-        x: 480
-        y: 418
+        x: 32
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1653,8 +1653,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_73
       rect:
         serializedVersion: 2
-        x: 496
-        y: 418
+        x: 80
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1674,8 +1674,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_74
       rect:
         serializedVersion: 2
-        x: 48
-        y: 402
+        x: 128
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1695,8 +1695,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_75
       rect:
         serializedVersion: 2
-        x: 256
-        y: 402
+        x: 176
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1716,8 +1716,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_76
       rect:
         serializedVersion: 2
-        x: 272
-        y: 402
+        x: 240
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1737,8 +1737,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_77
       rect:
         serializedVersion: 2
-        x: 288
-        y: 402
+        x: 256
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1758,8 +1758,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_78
       rect:
         serializedVersion: 2
-        x: 480
-        y: 402
+        x: 320
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1779,8 +1779,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_79
       rect:
         serializedVersion: 2
-        x: 48
-        y: 386
+        x: 368
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1800,8 +1800,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_80
       rect:
         serializedVersion: 2
-        x: 96
-        y: 386
+        x: 416
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1821,8 +1821,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_81
       rect:
         serializedVersion: 2
-        x: 112
-        y: 386
+        x: 464
+        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -1842,8 +1842,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_82
       rect:
         serializedVersion: 2
-        x: 144
-        y: 386
+        x: 32
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1863,8 +1863,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_83
       rect:
         serializedVersion: 2
-        x: 160
-        y: 386
+        x: 240
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1884,8 +1884,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_84
       rect:
         serializedVersion: 2
-        x: 192
-        y: 386
+        x: 256
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1905,8 +1905,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_85
       rect:
         serializedVersion: 2
-        x: 208
-        y: 386
+        x: 464
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1926,8 +1926,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_86
       rect:
         serializedVersion: 2
-        x: 256
-        y: 386
+        x: 32
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -1947,8 +1947,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_87
       rect:
         serializedVersion: 2
-        x: 272
-        y: 386
+        x: 240
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -1968,8 +1968,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_88
       rect:
         serializedVersion: 2
-        x: 288
-        y: 386
+        x: 256
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -1989,8 +1989,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_89
       rect:
         serializedVersion: 2
-        x: 336
-        y: 386
+        x: 464
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -2010,8 +2010,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_90
       rect:
         serializedVersion: 2
-        x: 352
-        y: 386
+        x: 16
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2031,8 +2031,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_91
       rect:
         serializedVersion: 2
-        x: 384
-        y: 386
+        x: 32
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2052,8 +2052,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_92
       rect:
         serializedVersion: 2
-        x: 400
-        y: 386
+        x: 48
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2073,8 +2073,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_93
       rect:
         serializedVersion: 2
-        x: 432
-        y: 386
+        x: 80
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2094,8 +2094,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_94
       rect:
         serializedVersion: 2
-        x: 448
-        y: 386
+        x: 128
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2115,8 +2115,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_95
       rect:
         serializedVersion: 2
-        x: 480
-        y: 386
+        x: 176
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2136,8 +2136,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_96
       rect:
         serializedVersion: 2
-        x: 48
-        y: 370
+        x: 240
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2158,7 +2158,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 370
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2178,8 +2178,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_98
       rect:
         serializedVersion: 2
-        x: 272
-        y: 370
+        x: 320
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2199,8 +2199,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_99
       rect:
         serializedVersion: 2
-        x: 288
-        y: 370
+        x: 368
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2220,8 +2220,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_100
       rect:
         serializedVersion: 2
-        x: 480
-        y: 370
+        x: 416
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2241,8 +2241,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_101
       rect:
         serializedVersion: 2
-        x: 48
-        y: 354
+        x: 448
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2262,8 +2262,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_102
       rect:
         serializedVersion: 2
-        x: 256
-        y: 354
+        x: 464
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2283,8 +2283,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_103
       rect:
         serializedVersion: 2
-        x: 272
-        y: 354
+        x: 480
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -2304,8 +2304,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_104
       rect:
         serializedVersion: 2
-        x: 288
-        y: 354
+        x: 32
+        y: 128
         width: 16
         height: 16
       alignment: 0
@@ -2325,8 +2325,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_105
       rect:
         serializedVersion: 2
-        x: 480
-        y: 354
+        x: 240
+        y: 128
         width: 16
         height: 16
       alignment: 0
@@ -2346,8 +2346,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_106
       rect:
         serializedVersion: 2
-        x: 48
-        y: 338
+        x: 256
+        y: 128
         width: 16
         height: 16
       alignment: 0
@@ -2367,8 +2367,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_107
       rect:
         serializedVersion: 2
-        x: 64
-        y: 338
+        x: 464
+        y: 128
         width: 16
         height: 16
       alignment: 0
@@ -2388,8 +2388,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_108
       rect:
         serializedVersion: 2
-        x: 96
-        y: 338
+        x: 32
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -2409,8 +2409,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_109
       rect:
         serializedVersion: 2
-        x: 112
-        y: 338
+        x: 240
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -2430,8 +2430,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_110
       rect:
         serializedVersion: 2
-        x: 144
-        y: 338
+        x: 256
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -2451,8 +2451,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_111
       rect:
         serializedVersion: 2
-        x: 160
-        y: 338
+        x: 464
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -2472,8 +2472,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_112
       rect:
         serializedVersion: 2
-        x: 192
-        y: 338
+        x: 32
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2493,8 +2493,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_113
       rect:
         serializedVersion: 2
-        x: 208
-        y: 338
+        x: 80
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2514,8 +2514,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_114
       rect:
         serializedVersion: 2
-        x: 256
-        y: 338
+        x: 128
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2535,8 +2535,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_115
       rect:
         serializedVersion: 2
-        x: 272
-        y: 338
+        x: 176
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2556,8 +2556,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_116
       rect:
         serializedVersion: 2
-        x: 288
-        y: 338
+        x: 240
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2577,8 +2577,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_117
       rect:
         serializedVersion: 2
-        x: 336
-        y: 338
+        x: 256
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2598,8 +2598,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_118
       rect:
         serializedVersion: 2
-        x: 352
-        y: 338
+        x: 320
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2619,8 +2619,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_119
       rect:
         serializedVersion: 2
-        x: 384
-        y: 338
+        x: 368
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2640,8 +2640,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_120
       rect:
         serializedVersion: 2
-        x: 400
-        y: 338
+        x: 416
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2661,8 +2661,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_121
       rect:
         serializedVersion: 2
-        x: 432
-        y: 338
+        x: 464
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -2682,8 +2682,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_122
       rect:
         serializedVersion: 2
-        x: 448
-        y: 338
+        x: 32
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -2703,8 +2703,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_123
       rect:
         serializedVersion: 2
-        x: 480
-        y: 338
+        x: 240
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -2724,8 +2724,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_124
       rect:
         serializedVersion: 2
-        x: 496
-        y: 338
+        x: 256
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -2745,8 +2745,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_125
       rect:
         serializedVersion: 2
-        x: 48
-        y: 322
+        x: 464
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -2766,8 +2766,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_126
       rect:
         serializedVersion: 2
-        x: 64
-        y: 322
+        x: 32
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -2787,8 +2787,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_127
       rect:
         serializedVersion: 2
-        x: 256
-        y: 322
+        x: 240
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -2808,8 +2808,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_128
       rect:
         serializedVersion: 2
-        x: 272
-        y: 322
+        x: 256
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -2829,8 +2829,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_129
       rect:
         serializedVersion: 2
-        x: 288
-        y: 322
+        x: 464
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -2850,8 +2850,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_130
       rect:
         serializedVersion: 2
-        x: 480
-        y: 322
+        x: 32
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -2871,8 +2871,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_131
       rect:
         serializedVersion: 2
-        x: 496
-        y: 322
+        x: 80
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -2892,8 +2892,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_132
       rect:
         serializedVersion: 2
-        x: 48
-        y: 306
+        x: 128
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -2913,8 +2913,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_133
       rect:
         serializedVersion: 2
-        x: 64
-        y: 306
+        x: 176
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -2934,8 +2934,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_134
       rect:
         serializedVersion: 2
-        x: 256
-        y: 306
+        x: 240
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -2955,8 +2955,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_135
       rect:
         serializedVersion: 2
-        x: 272
-        y: 306
+        x: 256
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -2976,8 +2976,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_136
       rect:
         serializedVersion: 2
-        x: 288
-        y: 306
+        x: 320
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -2997,8 +2997,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_137
       rect:
         serializedVersion: 2
-        x: 480
-        y: 306
+        x: 368
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -3018,8 +3018,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_138
       rect:
         serializedVersion: 2
-        x: 496
-        y: 306
+        x: 416
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -3039,8 +3039,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_139
       rect:
         serializedVersion: 2
-        x: 48
-        y: 290
+        x: 464
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -3060,8 +3060,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_140
       rect:
         serializedVersion: 2
-        x: 96
-        y: 290
+        x: 16
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3081,8 +3081,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_141
       rect:
         serializedVersion: 2
-        x: 112
-        y: 290
+        x: 32
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3102,8 +3102,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_142
       rect:
         serializedVersion: 2
-        x: 144
-        y: 290
+        x: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3123,8 +3123,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_143
       rect:
         serializedVersion: 2
-        x: 160
-        y: 290
+        x: 192
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3144,8 +3144,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_144
       rect:
         serializedVersion: 2
-        x: 192
-        y: 290
+        x: 208
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3165,8 +3165,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_145
       rect:
         serializedVersion: 2
-        x: 208
-        y: 290
+        x: 224
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3186,8 +3186,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_146
       rect:
         serializedVersion: 2
-        x: 256
-        y: 290
+        x: 240
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3207,8 +3207,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_147
       rect:
         serializedVersion: 2
-        x: 272
-        y: 290
+        x: 256
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3228,8 +3228,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_148
       rect:
         serializedVersion: 2
-        x: 288
-        y: 290
+        x: 272
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3249,8 +3249,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_149
       rect:
         serializedVersion: 2
-        x: 336
-        y: 290
+        x: 288
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3270,8 +3270,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_150
       rect:
         serializedVersion: 2
-        x: 352
-        y: 290
+        x: 304
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3291,8 +3291,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_151
       rect:
         serializedVersion: 2
-        x: 384
-        y: 290
+        x: 448
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3312,8 +3312,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_152
       rect:
         serializedVersion: 2
-        x: 400
-        y: 290
+        x: 464
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3333,8 +3333,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_153
       rect:
         serializedVersion: 2
-        x: 432
-        y: 290
+        x: 480
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -3354,8 +3354,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_154
       rect:
         serializedVersion: 2
-        x: 448
-        y: 290
+        x: 32
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3375,8 +3375,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_155
       rect:
         serializedVersion: 2
-        x: 480
-        y: 290
+        x: 48
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3396,8 +3396,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_156
       rect:
         serializedVersion: 2
-        x: 48
-        y: 274
+        x: 64
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3417,8 +3417,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_157
       rect:
         serializedVersion: 2
-        x: 256
-        y: 274
+        x: 80
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3438,8 +3438,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_158
       rect:
         serializedVersion: 2
-        x: 272
-        y: 274
+        x: 96
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3459,8 +3459,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_159
       rect:
         serializedVersion: 2
-        x: 288
-        y: 274
+        x: 112
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3480,8 +3480,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_160
       rect:
         serializedVersion: 2
-        x: 480
-        y: 274
+        x: 128
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3501,8 +3501,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_161
       rect:
         serializedVersion: 2
-        x: 48
-        y: 258
+        x: 144
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3522,8 +3522,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_162
       rect:
         serializedVersion: 2
-        x: 256
-        y: 258
+        x: 160
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3543,8 +3543,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_163
       rect:
         serializedVersion: 2
-        x: 272
-        y: 258
+        x: 176
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3564,8 +3564,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_164
       rect:
         serializedVersion: 2
-        x: 288
-        y: 258
+        x: 192
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3585,8 +3585,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_165
       rect:
         serializedVersion: 2
-        x: 480
-        y: 258
+        x: 208
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3606,8 +3606,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_166
       rect:
         serializedVersion: 2
-        x: 48
-        y: 242
+        x: 240
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3627,8 +3627,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_167
       rect:
         serializedVersion: 2
-        x: 96
-        y: 242
+        x: 256
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3648,8 +3648,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_168
       rect:
         serializedVersion: 2
-        x: 112
-        y: 242
+        x: 288
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3669,8 +3669,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_169
       rect:
         serializedVersion: 2
-        x: 144
-        y: 242
+        x: 304
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3690,8 +3690,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_170
       rect:
         serializedVersion: 2
-        x: 160
-        y: 242
+        x: 320
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3711,8 +3711,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_171
       rect:
         serializedVersion: 2
-        x: 192
-        y: 242
+        x: 336
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3732,8 +3732,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_172
       rect:
         serializedVersion: 2
-        x: 208
-        y: 242
+        x: 352
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3753,8 +3753,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_173
       rect:
         serializedVersion: 2
-        x: 256
-        y: 242
+        x: 368
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3774,8 +3774,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_174
       rect:
         serializedVersion: 2
-        x: 272
-        y: 242
+        x: 384
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3795,8 +3795,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_175
       rect:
         serializedVersion: 2
-        x: 288
-        y: 242
+        x: 400
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3816,8 +3816,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_176
       rect:
         serializedVersion: 2
-        x: 336
-        y: 242
+        x: 416
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3837,8 +3837,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_177
       rect:
         serializedVersion: 2
-        x: 352
-        y: 242
+        x: 432
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3858,8 +3858,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_178
       rect:
         serializedVersion: 2
-        x: 384
-        y: 242
+        x: 448
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3879,8 +3879,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_179
       rect:
         serializedVersion: 2
-        x: 400
-        y: 242
+        x: 464
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -3900,8 +3900,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_180
       rect:
         serializedVersion: 2
-        x: 432
-        y: 242
+        x: 32
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -3921,8 +3921,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_181
       rect:
         serializedVersion: 2
-        x: 448
-        y: 242
+        x: 48
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -3942,8 +3942,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_182
       rect:
         serializedVersion: 2
-        x: 480
-        y: 242
+        x: 64
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -3963,8 +3963,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_183
       rect:
         serializedVersion: 2
-        x: 48
-        y: 226
+        x: 80
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -3984,8 +3984,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_184
       rect:
         serializedVersion: 2
-        x: 64
-        y: 226
+        x: 96
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4005,8 +4005,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_185
       rect:
         serializedVersion: 2
-        x: 224
-        y: 226
+        x: 112
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4026,8 +4026,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_186
       rect:
         serializedVersion: 2
-        x: 240
-        y: 226
+        x: 128
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4047,8 +4047,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_187
       rect:
         serializedVersion: 2
-        x: 256
-        y: 226
+        x: 144
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4068,8 +4068,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_188
       rect:
         serializedVersion: 2
-        x: 272
-        y: 226
+        x: 160
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4089,8 +4089,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_189
       rect:
         serializedVersion: 2
-        x: 288
-        y: 226
+        x: 176
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4110,8 +4110,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_190
       rect:
         serializedVersion: 2
-        x: 304
-        y: 226
+        x: 192
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4131,8 +4131,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_191
       rect:
         serializedVersion: 2
-        x: 320
-        y: 226
+        x: 208
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4152,8 +4152,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_192
       rect:
         serializedVersion: 2
-        x: 480
-        y: 226
+        x: 288
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4173,8 +4173,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_193
       rect:
         serializedVersion: 2
-        x: 496
-        y: 226
+        x: 304
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4194,8 +4194,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_194
       rect:
         serializedVersion: 2
-        x: 48
-        y: 210
+        x: 320
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4215,8 +4215,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_195
       rect:
         serializedVersion: 2
-        x: 64
-        y: 210
+        x: 336
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4236,8 +4236,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_196
       rect:
         serializedVersion: 2
-        x: 80
-        y: 210
+        x: 352
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4257,8 +4257,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_197
       rect:
         serializedVersion: 2
-        x: 96
-        y: 210
+        x: 368
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4278,8 +4278,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_198
       rect:
         serializedVersion: 2
-        x: 112
-        y: 210
+        x: 384
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4299,8 +4299,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_199
       rect:
         serializedVersion: 2
-        x: 128
-        y: 210
+        x: 400
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4320,8 +4320,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_200
       rect:
         serializedVersion: 2
-        x: 144
-        y: 210
+        x: 416
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4341,8 +4341,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_201
       rect:
         serializedVersion: 2
-        x: 160
-        y: 210
+        x: 432
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4362,8 +4362,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_202
       rect:
         serializedVersion: 2
-        x: 176
-        y: 210
+        x: 448
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4383,8 +4383,8 @@ TextureImporter:
       name: Cemetery Barrier tiles_203
       rect:
         serializedVersion: 2
-        x: 192
-        y: 210
+        x: 464
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -4396,1329 +4396,6 @@ TextureImporter:
       bones: []
       spriteID: 24d88f40d075d9941b2e4143195ea108
       internalID: 1261900291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_204
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dcdc28f54a0c8424f8e08e2a9dcca0a7
-      internalID: 1223483255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_205
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4915b3bda98fdc469895c2d4168c0f4
-      internalID: 1592903995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_206
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 693456328b011fc4d97e96570458cd31
-      internalID: 773198103
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_207
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9486655fbc237ad47bea3d172f54576a
-      internalID: -910033297
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_208
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38c2cdd2a2098af48b04a6ee70978968
-      internalID: -1910592806
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_209
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aed48ce54e380b84ea3874b77eedcfa5
-      internalID: -989596793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_210
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89655c350b1543540b72ca75188a7092
-      internalID: -1561494151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_211
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2e7cf7987dd64e4aaf813fd8043e021
-      internalID: 942839801
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_212
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b6a5a8c330a7e94790ae31f3a418a80
-      internalID: 430482949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_213
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1178afc75efeac74695a8988238f1a49
-      internalID: 564263236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_214
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4b490521fa933d42bbb57a525c3b29a
-      internalID: 1132827373
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_215
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8540983a22920fa4ca5de06df2002618
-      internalID: -2132044535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_216
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3417b5c0e45e06b41a92c196b9232dde
-      internalID: 1194195903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_217
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8493d4851c3015949a5d0c5ebf5aad55
-      internalID: -1748034121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_218
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afc71cf7d695d40438a7bce67c4f1616
-      internalID: 450613719
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_219
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dee1f61cab0c98e40ad2f73a40a9a273
-      internalID: -1050018097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_220
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9cf7bc1e36cf7ee4ebe3b17510ab408f
-      internalID: 633636321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_221
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bcb45b2b306f92746afcd1d21fef721a
-      internalID: 205987139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_222
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 210
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff71b5a82ffe17949aa0fadeae200264
-      internalID: 605559742
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_223
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47599be5df21ce04d9cc96c715f541af
-      internalID: 140767017
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_224
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52d41db37b49dca4aa472b6375f4c09a
-      internalID: -1266236493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_225
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ceee8284126227f4db29a42aa42c5f1b
-      internalID: 867378558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_226
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a5d3f99222097b458695072f1e70e50
-      internalID: -873289115
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_227
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 608a7f3c848affb40833e61a3965df58
-      internalID: -943575323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_228
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96ae27262f4c4fb4baba504eddb2c512
-      internalID: -1834777011
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_229
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d4ff8d94a0c2074589f19a98b83d7c7
-      internalID: 494019120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_230
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de74521ecbd56bb4590a56b4dbae35e0
-      internalID: 1004543465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_231
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37d3d80c85d165542868471e51326690
-      internalID: -1052040872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_232
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3e4fd132a48ec74982c26d500607029
-      internalID: -17765008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_233
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 565374b334287ec48bc736d8890613f1
-      internalID: -95697598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_234
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5bfbf44cf2fb45d4fa681b91e91fc320
-      internalID: 1604855947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_235
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0fa8fd89c9d39544488375ec25e64964
-      internalID: -1444827766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_236
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ce4b95f8e30c2949b9f0360a349a86e
-      internalID: -549068243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_237
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7aa3509077440f04cb59f4297b0ad781
-      internalID: 1575945367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_238
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2d8e23b0a26b384f87165eb9d1129e2
-      internalID: -1657763195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_239
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d93ce6dd724009a458206a57a6857782
-      internalID: -1116577651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_240
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bafd21910c86ca2459091f05d340f773
-      internalID: 622437763
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_241
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3f0dcd3fdb10634397a2a26db95e2b5
-      internalID: -2018754769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_242
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26b14ab9b8292034fb33c23fd306ec4a
-      internalID: 1250302375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_243
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c4517cf6247b3946af60412f6df4dd5
-      internalID: 791413596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_244
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5fff24a755d44d043b897637c1ed3739
-      internalID: -394116825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_245
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02d59fe5cca36804f9483cde1e7f0b22
-      internalID: 751861990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_246
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 499b2fc9ef4cd5c499f29cf30e5225f6
-      internalID: 45387983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_247
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4a4b5552fd6a054994abf4fe9099ba9
-      internalID: 1760057034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_248
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 194
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7f843691f5c89a448af4254a5a3fc41
-      internalID: -669117917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_249
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 66
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa1811ed8264b9c40a0b5794cf6e48de
-      internalID: -2021061178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_250
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 66
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 455d6d23e2bd595468b908b8138f7da3
-      internalID: 210662565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_251
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 50
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ce2ef52c8efb4243b732e7ccad8025a
-      internalID: -326578033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_252
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 50
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a922448fc9369d458de8854cf77899c
-      internalID: -25244428
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_253
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 50
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2dc1304bf96b7f9448f0d96e9dace4e6
-      internalID: -1363077016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_254
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 50
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44b483c452e19f04eb74345ad9b0e83c
-      internalID: 71956954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_255
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 34
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4248ced92236e140a9fd0874f9ebeb5
-      internalID: -1137853548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_256
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 34
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7b5b34635d3d4e43b2776302b0fa7fa
-      internalID: -1984084952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_257
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 34
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35c663844dacc004288672d00ff6207f
-      internalID: 655742257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_258
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 34
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b774bc401d5c35648bf2814fa0848c49
-      internalID: -1247615908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_259
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d7d5605ba104c04db1c9b907cdfbb7c
-      internalID: -67403593
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_260
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36ad2e4af8645084193dcb162b3f4edb
-      internalID: 214098839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_261
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53c071c87127998459a8bf0b393e3ff3
-      internalID: -1990747860
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_262
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6ccc162c9834de418b38fac5268de30
-      internalID: -1771437573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_263
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 2
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1bd54706f48d314f8a7d4be01b76478
-      internalID: -593301950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_264
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 2
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41e4de91998b0804e912eda340580d84
-      internalID: 252479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_265
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 2
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2908bb8da850595458604dd95d6b41d8
-      internalID: -2094889484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cemetery Barrier tiles_266
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 2
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d8a74af6e0bb544bbd12da13c9bcff7
-      internalID: 2116505422
       vertices: []
       indices: 
       edges: []
@@ -5852,75 +4529,12 @@ TextureImporter:
       Cemetery Barrier tiles_201: 927826932
       Cemetery Barrier tiles_202: 823032505
       Cemetery Barrier tiles_203: 1261900291
-      Cemetery Barrier tiles_204: 1223483255
-      Cemetery Barrier tiles_205: 1592903995
-      Cemetery Barrier tiles_206: 773198103
-      Cemetery Barrier tiles_207: -910033297
-      Cemetery Barrier tiles_208: -1910592806
-      Cemetery Barrier tiles_209: -989596793
       Cemetery Barrier tiles_21: -2067847376
-      Cemetery Barrier tiles_210: -1561494151
-      Cemetery Barrier tiles_211: 942839801
-      Cemetery Barrier tiles_212: 430482949
-      Cemetery Barrier tiles_213: 564263236
-      Cemetery Barrier tiles_214: 1132827373
-      Cemetery Barrier tiles_215: -2132044535
-      Cemetery Barrier tiles_216: 1194195903
-      Cemetery Barrier tiles_217: -1748034121
-      Cemetery Barrier tiles_218: 450613719
-      Cemetery Barrier tiles_219: -1050018097
       Cemetery Barrier tiles_22: -343643839
-      Cemetery Barrier tiles_220: 633636321
-      Cemetery Barrier tiles_221: 205987139
-      Cemetery Barrier tiles_222: 605559742
-      Cemetery Barrier tiles_223: 140767017
-      Cemetery Barrier tiles_224: -1266236493
-      Cemetery Barrier tiles_225: 867378558
-      Cemetery Barrier tiles_226: -873289115
-      Cemetery Barrier tiles_227: -943575323
-      Cemetery Barrier tiles_228: -1834777011
-      Cemetery Barrier tiles_229: 494019120
       Cemetery Barrier tiles_23: 1855524481
-      Cemetery Barrier tiles_230: 1004543465
-      Cemetery Barrier tiles_231: -1052040872
-      Cemetery Barrier tiles_232: -17765008
-      Cemetery Barrier tiles_233: -95697598
-      Cemetery Barrier tiles_234: 1604855947
-      Cemetery Barrier tiles_235: -1444827766
-      Cemetery Barrier tiles_236: -549068243
-      Cemetery Barrier tiles_237: 1575945367
-      Cemetery Barrier tiles_238: -1657763195
-      Cemetery Barrier tiles_239: -1116577651
       Cemetery Barrier tiles_24: 644644657
-      Cemetery Barrier tiles_240: 622437763
-      Cemetery Barrier tiles_241: -2018754769
-      Cemetery Barrier tiles_242: 1250302375
-      Cemetery Barrier tiles_243: 791413596
-      Cemetery Barrier tiles_244: -394116825
-      Cemetery Barrier tiles_245: 751861990
-      Cemetery Barrier tiles_246: 45387983
-      Cemetery Barrier tiles_247: 1760057034
-      Cemetery Barrier tiles_248: -669117917
-      Cemetery Barrier tiles_249: -2021061178
       Cemetery Barrier tiles_25: -1483300278
-      Cemetery Barrier tiles_250: 210662565
-      Cemetery Barrier tiles_251: -326578033
-      Cemetery Barrier tiles_252: -25244428
-      Cemetery Barrier tiles_253: -1363077016
-      Cemetery Barrier tiles_254: 71956954
-      Cemetery Barrier tiles_255: -1137853548
-      Cemetery Barrier tiles_256: -1984084952
-      Cemetery Barrier tiles_257: 655742257
-      Cemetery Barrier tiles_258: -1247615908
-      Cemetery Barrier tiles_259: -67403593
       Cemetery Barrier tiles_26: 1516256726
-      Cemetery Barrier tiles_260: 214098839
-      Cemetery Barrier tiles_261: -1990747860
-      Cemetery Barrier tiles_262: -1771437573
-      Cemetery Barrier tiles_263: -593301950
-      Cemetery Barrier tiles_264: 252479
-      Cemetery Barrier tiles_265: -2094889484
-      Cemetery Barrier tiles_266: 2116505422
       Cemetery Barrier tiles_27: 484202314
       Cemetery Barrier tiles_28: -1809740640
       Cemetery Barrier tiles_29: -37565332
