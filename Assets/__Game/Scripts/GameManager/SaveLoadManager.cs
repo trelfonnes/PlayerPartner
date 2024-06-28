@@ -290,7 +290,7 @@ public class SaveLoadManager : DataReferenceInheritor
     {
         if (player)
         {
-            savedLocations = player.transform.position;
+            savedLocations = player.sceneLoadPosition.position;
 
             ES3.Save("playerPartnerLocation", savedLocations);
         }

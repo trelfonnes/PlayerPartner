@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     public Vector2 lastDirection;
     Weapon primaryWeapon;
     Weapon secondaryWeapon;
-
+    public Transform sceneLoadPosition;
     public event Action onFallOver;
     public event Action onFallStarted;
 
