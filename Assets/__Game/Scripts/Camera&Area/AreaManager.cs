@@ -57,6 +57,7 @@ public class AreaManager : MonoBehaviour
                 {
                     for (int i = 0; i < difference; i++)
                     {
+                        
                         float rand = UnityEngine.Random.value * 100; // Random value between 0 and 100
 
                         EnemyType enemyType = EnemyType.RatOne; //shouldn't be called but is set to a default because the compiler complains

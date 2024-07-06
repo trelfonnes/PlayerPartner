@@ -114,38 +114,47 @@ public class EnemyObjectPool : MonoBehaviour
     public GameObject GetPooledEnemyWithArea(EnemyType enemyType, Transform spawnLocation, AreaType area)
     {
         GameObject prefab = GetPrefabFromType(enemyType);
-        if(prefab !=null && pooledEnemyObjectsDictionary.ContainsKey(prefab))
+        if (prefab == null)
         {
-            List<GameObject> pooledObjects = pooledEnemyObjectsDictionary[prefab];
+            Debug.LogError("Prefab is null for enemy type: " + enemyType);
+            return null;
+        }
 
-            for (int i = 0; i < pooledObjects.Count; i++)
+        if (!pooledEnemyObjectsDictionary.ContainsKey(prefab))
+        {
+            pooledEnemyObjectsDictionary[prefab] = new List<GameObject>();
+        }
+
+        List<GameObject> pooledObjects = pooledEnemyObjectsDictionary[prefab];
+
+        // Look for an inactive pooled object
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (!pooledObjects[i].activeInHierarchy)
             {
-                if (!pooledObjects[i].activeInHierarchy)
+                pooledObjects[i].SetActive(true);
+                SetEnemyPosition(pooledObjects[i], spawnLocation.position, spawnLocation.rotation);
+                Enemy enemy = pooledObjects[i].GetComponent<Enemy>();
+                if (enemy != null)
                 {
-                    pooledObjects[i].SetActive(true);
-                    SetEnemyPosition(pooledObjects[i], spawnLocation.position, spawnLocation.rotation);
-                    Enemy enemy = pooledObjects[i].GetComponent<Enemy>();
-                    if(enemy != null)
-                    {
-                        enemy.InitializeAreaType(area);
-                    }
-                    return pooledObjects[i];
+                    enemy.InitializeAreaType(area);
                 }
+                return pooledObjects[i];
+            }
+        }
 
-            }
-        }
-        else//make a new one then add it to the dictionary
+        // If no inactive object is found, instantiate a new one
+        GameObject newObj = Instantiate(prefab);
+        SetEnemyPosition(newObj, spawnLocation.position, spawnLocation.rotation);
+        pooledEnemyObjectsDictionary[prefab].Add(newObj);
+
+        Enemy newEnemy = newObj.GetComponent<Enemy>();
+        if (newEnemy != null)
         {
-            GameObject newObj = Instantiate(prefab);
-            SetEnemyPosition(newObj, spawnLocation.position, spawnLocation.rotation);
-            if (!pooledEnemyObjectsDictionary.ContainsKey(prefab))
-            {
-                pooledEnemyObjectsDictionary.Add(prefab, new List<GameObject>());
-            }
-            pooledEnemyObjectsDictionary[prefab].Add(newObj);
-            return newObj;
+            newEnemy.InitializeAreaType(area);
         }
-        return null;
+
+        return newObj;
     }
     private void SetEnemyPosition(GameObject enemy, Vector3 position, Quaternion rotation)
     {
