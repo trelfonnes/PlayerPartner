@@ -47,7 +47,7 @@ public class AreaManager : MonoBehaviour
         {
             if (!collision.isTrigger && (collision.CompareTag("Player") || !collision.isTrigger && collision.CompareTag("Partner")))
             {
-
+                WeatherCamSwitcher.Instance.SetWeather(thisAreaType);
                 if (hourAllEnemiesDefeated <= TimeOfDayManager.Instance.HoursPassed)
                 {
                     totalEnemiesDefeated = 0;
