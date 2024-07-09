@@ -10,6 +10,7 @@ public class WeatherCamSwitcher : MonoBehaviour
     public GameObject snowEffectParticles;
     public GameObject ashEffectParticles;
     public GameObject fogEffectParticles;
+    public GameObject sandEffectParticles;
 
     private void Awake()
     {
@@ -26,6 +27,36 @@ public class WeatherCamSwitcher : MonoBehaviour
     public void SetWeather(AreaType areaType)
     {
         //deactivate all potential weather effects
+        TurnAllWeatherOff();
+       
+        switch (areaType)
+        {
+            case AreaType.Swamp:
+                rainEffectParticles.SetActive(true);
+                break;
+            case AreaType.IceCliff:
+                snowEffectParticles.SetActive(true);
+                break;
+            case AreaType.Volcano:
+                ashEffectParticles.SetActive(true);
+                break;
+            case AreaType.Cemetary:
+                fogEffectParticles.SetActive(true);
+                break;
+            case AreaType.Forest:
+                fogEffectParticles.SetActive(true);
+                break;
+            case AreaType.Desert:
+                sandEffectParticles.SetActive(true);
+                break;
+            default:
+                TurnAllWeatherOff();
+                break;
+
+        }
+    }
+    void TurnAllWeatherOff()
+    {
         if (rainEffectParticles)
         {
             rainEffectParticles.SetActive(false);
@@ -42,24 +73,9 @@ public class WeatherCamSwitcher : MonoBehaviour
         {
             fogEffectParticles.SetActive(false);
         }
-        switch (areaType)
+        if (sandEffectParticles)
         {
-            case AreaType.Swamp:
-                rainEffectParticles.SetActive(true);
-                break;
-            case AreaType.IceCliff:
-                snowEffectParticles.SetActive(true);
-                break;
-            case AreaType.Volcano:
-                ashEffectParticles.SetActive(true);
-                break;
-            case AreaType.Cemetary:
-                fogEffectParticles.SetActive(true);
-                break;
-            default:
-                Debug.LogWarning("no weather effect in : " + areaType);
-                break;
-
+            sandEffectParticles.SetActive(false);
         }
     }
 
