@@ -22,19 +22,19 @@ public class SkullDungeon : EventTriggerAbstractClass
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // TODO: Change the condition for the animation to play to more than just a player triggering.
-        {
-            if (!isAnimating)
-            {
-                StartCoroutine(PlayAnimation());
-            }
-        }
+       // if (other.CompareTag("Player")) // TODO: Change the condition for the animation to play to more than just a player triggering.
+      //  {
+         //   if (!isAnimating)
+         //   {
+        //        StartCoroutine(PlayAnimation());
+       //     }
+       // }
     }
     public override void TriggerEvent()
     {
         base.TriggerEvent();
-        PlayAnimation();
-     
+        StartCoroutine(PlayAnimation());
+
     }
 
     void OpenEntrance()

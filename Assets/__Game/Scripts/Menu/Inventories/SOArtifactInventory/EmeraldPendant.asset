@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302a16078bfa8b14fa01bd336dc2d79e, type: 3}
+  m_Name: EmeraldPendant
+  m_EditorClassIdentifier: 
+  artifactName: Emerald Pendant
+  artifactDescription: The 'heart' of the forest. So it is said...
+  artifactImage: {fileID: 21300000, guid: 732b1cc0b742a1d418f6084f45d80e29, type: 3}
+  largeDescriptionImage: {fileID: 21300000, guid: 97b6f1ee01a7e2641b773074c9067ee4, type: 3}
+  isKeyItem: 1
+  isLoreItem: 0
