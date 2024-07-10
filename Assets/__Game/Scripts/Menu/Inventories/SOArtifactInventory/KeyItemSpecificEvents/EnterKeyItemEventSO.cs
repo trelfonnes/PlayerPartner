@@ -8,7 +8,6 @@ public class EnterKeyItemEventSO : ScriptableObject
 {
     [SerializeField] string requiredKeyItemName;
     [SerializeField] string actionMessage;
-    [SerializeField] GameObject ObjectToInfluence; //drag and drop gameObject into inspector here.
     PlayerArtifactInventory inventory;
     public string RequiredKeyItemName => requiredKeyItemName;
     public string ActionMessage => actionMessage;
@@ -19,15 +18,7 @@ public class EnterKeyItemEventSO : ScriptableObject
         return inventory.HasKeyItem(requiredKeyItemName);
     }
 
-    public void Trigger()
-    {
-        Debug.Log(actionMessage);
-       // inventory.ClearInventory();
-        // Implement any additional action to be triggered here, such as opening a door, activating a trigger, etc.
-        // put logic for changing the objectToInfluence or any other thing that can be referenced and changed.
-
     
-    }
 
 
 }

@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class SkullDungeon : MonoBehaviour
+public class SkullDungeon : EventTriggerAbstractClass
 {
     [SerializeField] Sprite[] animationSprites; // Array of sprites for the animation
     public float animationSpeed = 0.2f; // Time between frames
-
+    [SerializeField] BoxCollider2D entranceTriggerCol;
     private SpriteRenderer spriteRenderer;
     private int currentFrame = 0;
     private bool isAnimating = false; 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        entranceTriggerCol.enabled = false;
         if (animationSprites.Length == 0)
         {
             Debug.LogError("No animation sprites assigned.");
@@ -30,6 +30,18 @@ public class SkullDungeon : MonoBehaviour
             }
         }
     }
+    public override void TriggerEvent()
+    {
+        base.TriggerEvent();
+        PlayAnimation();
+     
+    }
+
+    void OpenEntrance()
+    {
+        entranceTriggerCol.enabled = true;
+
+    }
     IEnumerator PlayAnimation()
     {
         isAnimating = true;
@@ -41,6 +53,7 @@ public class SkullDungeon : MonoBehaviour
         }
         spriteRenderer.sprite = animationSprites[animationSprites.Length - 1];
         isAnimating = false;
+        OpenEntrance();
     }
 
     
