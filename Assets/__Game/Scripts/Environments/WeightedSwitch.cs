@@ -8,6 +8,7 @@ public class WeightedSwitch : MonoBehaviour
     [SerializeField] Sprite switchPressed;
     [SerializeField] Sprite switchUnPressed;
     [SerializeField] OpenDoorConditional doorToOpen;
+    [SerializeField] GateForSwitches gateToOpen;
     SpriteRenderer spriteRenderer;
     bool isSwitchPressed;
 
@@ -20,7 +21,7 @@ public class WeightedSwitch : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = switchUnPressed;
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Boulder"))
         {
@@ -49,7 +50,10 @@ public class WeightedSwitch : MonoBehaviour
             {
                 doorToOpen.OpenDoor();
             }
-            //if(somethingelse is referenced)
+            if (gateToOpen)
+            {
+                gateToOpen.GateOnOff();
+            }//if(somethingelse is referenced)
             //{Do that function}
         }
         else if (!isSwitchPressed)
@@ -57,6 +61,10 @@ public class WeightedSwitch : MonoBehaviour
             if (doorToOpen)
             {
                 doorToOpen.CloseDoor();
+            }
+            if (gateToOpen)
+            {
+                gateToOpen.GateOnOff();
             }
         }
     }

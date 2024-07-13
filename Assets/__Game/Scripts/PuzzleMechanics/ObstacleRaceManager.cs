@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PixelCrushers.DialogueSystem;
 using TMPro;
+using System;
 public class ObstacleRaceManager : MonoBehaviour
 {
     [SerializeField] string nameOfThisObstacle; //This unique key must be filled to prevent best reward from respawning.
@@ -17,7 +18,8 @@ public class ObstacleRaceManager : MonoBehaviour
     bool raceActive = false;
     bool largeRewardEarned;
     private List<string> passedObstacles = new List<string>();
-
+    [SerializeField] List<GameObject> obstaclesToReactivate = new List<GameObject>();
+    public event Action onResetObstacles;
     //RaceTiming
 
     void Start()
@@ -107,12 +109,25 @@ public class ObstacleRaceManager : MonoBehaviour
         // Example: return passedObstacles.Count == totalObstacles;
         return true;
     }
+
+    private void ResetObstacleItems() // call this from dialogue when player selects they want to take the challenge
+    {
+        onResetObstacles?.Invoke();
+
+        foreach (GameObject obstacle in obstaclesToReactivate)
+        {
+            obstacle.SetActive(true);
+        }
+    }
+
     private void OnEnable()
     {
         Lua.RegisterFunction("StartRace", this, SymbolExtensions.GetMethodInfo(() => StartRace()));
+        Lua.RegisterFunction("ResetObstacleItems", this, SymbolExtensions.GetMethodInfo(() => ResetObstacleItems()));
     }
     private void OnDisable()
     {
         Lua.UnregisterFunction(nameof(StartRace));
+        Lua.UnregisterFunction(nameof(ResetObstacleItems));
     }
 }

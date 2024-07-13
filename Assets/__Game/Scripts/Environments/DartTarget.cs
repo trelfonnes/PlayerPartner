@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DartTarget : MonoBehaviour, IDartTarget
 {
-   
+    [SerializeField] GateForSwitches gfs;
 
     public void BullsEye()
     {
@@ -13,7 +13,9 @@ public class DartTarget : MonoBehaviour, IDartTarget
 
     void TargetHit()
     {
-        //Implement functionality for hitting the target
-        Debug.Log("Target was hit");
+        if (gfs)
+        {
+            gfs.GateOnOff();
+        }
     }
 }
