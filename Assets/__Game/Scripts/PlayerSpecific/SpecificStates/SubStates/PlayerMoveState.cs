@@ -69,11 +69,18 @@ public class PlayerMoveState : PlayerBasicState
             {
                 if (HitsToCarry )//&& !currentlyCarrying)
                 {
-                    Debug.Log(HitsToCarry.transform.name);
-                    HitsToCarry.collider.GetComponent<ICarry>().Carry(carryPoint);
-                    currentlyCarrying = true;
-                    PSM.ChangeState(player.CarryItemState);
-
+                    if (HitsToCarry.collider.GetComponent<CarryableItem>().isHeavyCarryable && !playerSOData.carryHeavy)
+                    {
+                        Debug.Log("This is too heavy for you!");
+                        return;
+                    }
+                    else
+                    {
+                        Debug.Log(HitsToCarry.transform.name);
+                        HitsToCarry.collider.GetComponent<ICarry>().Carry(carryPoint, playerSOData.carryHeavy);
+                        currentlyCarrying = true;
+                        PSM.ChangeState(player.CarryItemState);
+                    }
                 }
                                  
             }

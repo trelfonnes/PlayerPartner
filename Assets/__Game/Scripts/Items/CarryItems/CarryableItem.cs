@@ -8,6 +8,7 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
     private Rigidbody2D rb;
     private GameObject item;
     private Transform itemTransform;
+    public bool isHeavyCarryable;
     [SerializeField] float throwSpeed;
     [SerializeField] float setDownDistance;
     private BoxCollider2D boxCollider;
@@ -65,17 +66,23 @@ public class CarryableItem : MonoBehaviour, ICarry, IThrow
         // transform.position = initialPosition;
     }
 
-    public void Carry(Transform CarryPoint)
+    public void Carry(Transform CarryPoint, bool canCarryHeavy)
     {
-        
+        if (!canCarryHeavy && isHeavyCarryable)
+        {
+            Debug.Log("ThisItemIsTooHeavyFor you!");
+            return;
+        }
+        else
+        {
             //rb.simulated = true;
             rb.isKinematic = true;
             itemTransform.position = CarryPoint.position;
             itemTransform.parent = CarryPoint;
             Physics2D.IgnoreLayerCollision(7, 10, true);
             Physics2D.IgnoreLayerCollision(7, 19, true);
-        sr.sortingOrder = 1;
-        
+            sr.sortingOrder = 1;
+        }
     }
 
     public void Throw(Vector2 direction)

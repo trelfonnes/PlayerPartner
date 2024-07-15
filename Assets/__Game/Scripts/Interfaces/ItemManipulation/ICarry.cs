@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ICarry
 {
-    public void Carry(Transform carryPoint)
+    public void Carry(Transform carryPoint, bool heavyAllowed)
     {
 
     }
