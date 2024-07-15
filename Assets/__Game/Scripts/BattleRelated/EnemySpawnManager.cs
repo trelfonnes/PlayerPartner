@@ -29,6 +29,7 @@ public class EnemySpawnManager
     }
     public void SpawnEnemy(EnemyType enemyType, Transform spawnLocation, AreaType areaType)
     {
+        
         EnemyPoolManager.Instance.RaiseEnemyTypeLocationAndArea(enemyType, spawnLocation, areaType);
     }
 

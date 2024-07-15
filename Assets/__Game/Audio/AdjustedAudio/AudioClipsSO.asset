@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae22b39ebb159c4da0e87e15e142b55, type: 3}
+  m_Name: AudioClipsSO
+  m_EditorClassIdentifier: 
+  audioClips:
+  - id: Tongue
+    clip: {fileID: 8300000, guid: aa73378f958b8b340833f6589fb85242, type: 3}
+  - id: BellyBump
+    clip: {fileID: 8300000, guid: 0fdc28ee62f2e4d42b503e6aa447eca8, type: 3}
+  - id: BubbleSpray
+    clip: {fileID: 8300000, guid: f0eb48f1de09c0949a6ac90ff7047462, type: 3}
+  - id: IceThrower
+    clip: {fileID: 8300000, guid: 35a474941ea15fb408c6f136a60e6b74, type: 3}
+  - id: Bomb
+    clip: {fileID: 8300000, guid: 22adb38ddfb2e434fa14908a1de3b112, type: 3}
+  - id: Boomerang
+    clip: {fileID: 8300000, guid: 0ed4dcbeee38aa24a971e750b37458d2, type: 3}
+  - id: ReturnBoomerang
+    clip: {fileID: 8300000, guid: 38ebd31afd7e55a4682770c8c3e223e3, type: 3}
+  - id: ThrowBoomerang
+    clip: {fileID: 8300000, guid: 38ebd31afd7e55a4682770c8c3e223e3, type: 3}
+  - id: Dart
+    clip: {fileID: 8300000, guid: 8e6411ce8620e2a43bcd6f82aef02c13, type: 3}
+  - id: Dash
+    clip: {fileID: 8300000, guid: 96799ea736f4ce248a769dc111962d13, type: 3}
+  - id: Flamethrower
+    clip: {fileID: 8300000, guid: 3620307a13ecb7442b8eb5dc338ca707, type: 3}
+  - id: Fuse
+    clip: {fileID: 8300000, guid: 5d637a8322a2d0547956154bc672e41f, type: 3}
+  - id: Headbutt
+    clip: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+  - id: Jump
+    clip: {fileID: 8300000, guid: a20579a2eb2741548a5198220f56f6ee, type: 3}
+  - id: ShootProjectile
+    clip: {fileID: 8300000, guid: c22b7d66b0a0d4945b5e8382a98466ee, type: 3}
+  - id: AngelThunder
+    clip: {fileID: 8300000, guid: 9e38ae912e0a2784bbaf1cef84f43abe, type: 3}
+  - id: Bite
+    clip: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+  - id: Thunderbolt
+    clip: {fileID: 8300000, guid: 960a7591f899d4540879a0eba8026bc0, type: 3}
+  - id: Whip
+    clip: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+  - id: CollectByte
+    clip: {fileID: 8300000, guid: f441d0b390bc67e4bba2b0f0f0bcadbd, type: 3}
+  - id: Damaged
+    clip: {fileID: 8300000, guid: cfccb0e186078e14d825dcfc28fe0898, type: 3}
+  - id: WallBump
+    clip: {fileID: 8300000, guid: 12266a19bca27db428f43516d26117af, type: 3}
+  - id: BackButton
+    clip: {fileID: 8300000, guid: 579d2cd2f3ce1d14e8d9dd68ebe3912a, type: 3}
+  - id: MenuSeek
+    clip: {fileID: 8300000, guid: 577eb8475fde14f408a2b1ba0aa2a7d6, type: 3}
+  - id: OpenMenu
+    clip: {fileID: 8300000, guid: d84e392500aea5e4cbf42767ad299db6, type: 3}
+  - id: MenuSelect
+    clip: {fileID: 8300000, guid: 2f8db2ae27df4f448a8696f1c908249c, type: 3}
+  - id: Falling
+    clip: {fileID: 8300000, guid: a306c1396721d4c45a53fa75be8701dd, type: 3}
+  - id: CollectItem
+    clip: {fileID: 8300000, guid: 78f342875ddfde44c9c2a198b73dc493, type: 3}
+  - id: CollectHeart
+    clip: {fileID: 8300000, guid: cd58f48dd7c60f24c96dead517f44b8a, type: 3}
+  - id: Evolve
+    clip: {fileID: 8300000, guid: bd57105e3616e4a479d6748b9bebd655, type: 3}
+  - id: Devolve
+    clip: {fileID: 8300000, guid: c692d7cc3a9dbae49b0388a9ab4c6552, type: 3}
+  - id: CollectArtifact
+    clip: {fileID: 8300000, guid: b1b9c1f0ea1fcae439ed1a4d44ff05fd, type: 3}
+  - id: CollectEP
+    clip: {fileID: 8300000, guid: 22e90b5f48e80634b8c5e2fd0df4199e, type: 3}
+  - id: CollectAmmo
+    clip: {fileID: 8300000, guid: bace6052e9866cc49b61c1b74d9bf5c7, type: 3}
+  - id: BossKey
+    clip: {fileID: 8300000, guid: 09991952f84c4a34ab128a98500e3e66, type: 3}
+  - id: Key
+    clip: {fileID: 8300000, guid: cf6eb1cb62856a9428afd101a7125751, type: 3}
+  - id: OpenChest
+    clip: {fileID: 8300000, guid: 8dbf1f7b8ef3eb44eb727cd19231de4e, type: 3}
+  - id: Cut
+    clip: {fileID: 8300000, guid: d3738fe02fcbcaf43b4b2968313c1551, type: 3}
+  - id: OpenDoor
+    clip: {fileID: 8300000, guid: 8dbf1f7b8ef3eb44eb727cd19231de4e, type: 3}
+  - id: FullHeal
+    clip: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
+  - id: CampFire
+    clip: {fileID: 8300000, guid: a6ff5d06bf4d937478d2fa4f3446a856, type: 3}
+  - id: CollectStamina
+    clip: {fileID: 8300000, guid: 500aca406434edd4ead47adf5e9f50d2, type: 3}
+  - id: Push
+    clip: {fileID: 8300000, guid: 82827292d5820d4409fd29ee73dc1d0b, type: 3}
+  - id: Hurt
+    clip: {fileID: 8300000, guid: 7476ae51915133b4a88a4ab81c44641f, type: 3}
+  - id: Interact
+    clip: {fileID: 8300000, guid: a6ff5d06bf4d937478d2fa4f3446a856, type: 3}
+  - id: Slash
+    clip: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
+  - id: UseItem
+    clip: {fileID: 8300000, guid: ba39bf8baf6d13046889b2d64822381a, type: 3}
+  - id: Purchase
+    clip: {fileID: 8300000, guid: abdbbfd33a46f4549987385f85c536b5, type: 3}
+  - id: PoisonBreath
+    clip: {fileID: 8300000, guid: 1c1799917c3b5a049aed1fd58967432a, type: 3}
+  - id: Fire
+    clip: {fileID: 8300000, guid: ea13c3f5e0f734d46b4b1a545488c222, type: 3}
+  - id: Charged
+    clip: {fileID: 8300000, guid: d1afd3f4d23c24f418ffc315afb04965, type: 3}
+  - id: Punch
+    clip: {fileID: 8300000, guid: d0461f7f046f1fa47876d732eef23fd6, type: 3}
+  - id: Block
+    clip: {fileID: 8300000, guid: 12266a19bca27db428f43516d26117af, type: 3}

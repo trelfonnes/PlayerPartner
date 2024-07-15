@@ -37,7 +37,11 @@ public class EnemyStats : CoreComponent, IHealthChange, IPoiseDamageable
     }
     public void IncreaseHealth(float amount)
     {
-
+        enemy.enemyData.health += amount;
+        if(enemy.enemyData.health >= enemySOData.maxHealth)
+        {
+            enemy.enemyData.health = enemySOData.maxHealth;
+        }
     }
 
     public void IncreaseMaxHealth(float amount)

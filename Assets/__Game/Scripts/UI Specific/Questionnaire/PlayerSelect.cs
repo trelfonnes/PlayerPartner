@@ -54,7 +54,7 @@ public class PlayerSelect : MonoBehaviour
         Debug.Log(result);
         ES3.Save("chosenPlayer", result);
         SceneLoaderUtility sceneManager = new SceneLoaderUtility();
-        sceneManager.LoadScene("PartnerSelectScene");
+        sceneManager.LoadMenuScene("PartnerSelectScene");
     }
 
 }

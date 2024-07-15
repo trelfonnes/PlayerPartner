@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408f6cbc88b71c245828cba236146250, type: 3}
+  m_Name: BarbacubPunch
+  m_EditorClassIdentifier: 
+  isPlayerWeapon: 0
+  isPartnerWeapon: 0
+  isPrimary: 0
+  isPartnerOne: 0
+  isPartnerTwo: 0
+  isPartnerThree: 0
+  secondaryType: 3
+  primaryType: 0
+  <AnimatorController>k__BackingField: {fileID: 9100000, guid: df96d64878e2a434199da780d0413c78, type: 2}
+  <NumberOfAttacks>k__BackingField: 1
+  <ComponentData>k__BackingField:
+  - rid: 139479916541116416
+  - rid: 139479916541116417
+  - rid: 139479916541116418
+  - rid: 139479916541116419
+  <AttackType>k__BackingField: 5
+  references:
+    version: 2
+    RefIds:
+    - rid: 139479916541116416
+      type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
+      data:
+        name: ActionHitBoxData
+        attackData:
+        - name: punch
+          DebugHitBoxNorth: 1
+          <HitBoxNorth>k__BackingField:
+            serializedVersion: 2
+            x: -0.5
+            y: -0.33
+            width: 1
+            height: 1.5
+          DebugHitBoxSouth: 1
+          <HitBoxSouth>k__BackingField:
+            serializedVersion: 2
+            x: -0.5
+            y: -1.5
+            width: 1
+            height: 1
+          DebugHitBoxEast: 1
+          <HitBoxEast>k__BackingField:
+            serializedVersion: 2
+            x: 0.15
+            y: -0.9
+            width: 1
+            height: 1.3
+          DebugHitBoxWest: 0
+          <HitBoxWest>k__BackingField:
+            serializedVersion: 2
+            x: -0.13
+            y: -0.9
+            width: 2
+            height: 1
+          DebugHitBoxNorthWest: 0
+          <HitBoxNorthWest>k__BackingField:
+            serializedVersion: 2
+            x: -1.1
+            y: -0.4
+            width: 1
+            height: 1
+          DebugHitBoxSouthWest: 0
+          <HitBoxSouthWest>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          DebugHitBoxNorthEast: 1
+          <HitBoxNorthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0.006
+            y: -0.4
+            width: 1
+            height: 1.25
+          DebugHitBoxSouthEast: 1
+          <HitBoxSouthEast>k__BackingField:
+            serializedVersion: 2
+            x: 0.006
+            y: -1.42
+            width: 1
+            height: 1
+        <DetectableLayers>k__BackingField:
+          serializedVersion: 2
+          m_Bits: 65536
+    - rid: 139479916541116417
+      type: {class: DamageData, ns: , asm: Assembly-CSharp}
+      data:
+        name: DamageData
+        attackData:
+        - name: Attack1
+          <Amount>k__BackingField: 1
+          <AttackType>k__BackingField: 5
+    - rid: 139479916541116418
+      type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
+      data:
+        name: KnockBackData
+        attackData:
+        - name: Attack1
+          <Angle>k__BackingField: {x: 0, y: 0}
+          <Strength>k__BackingField: 5
+    - rid: 139479916541116419
+      type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
+      data:
+        name: PoiseDamageData
+        attackData:
+        - name: Attack1
+          <amount>k__BackingField: 1

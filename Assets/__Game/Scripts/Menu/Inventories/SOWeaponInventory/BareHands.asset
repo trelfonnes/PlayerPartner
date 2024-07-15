@@ -16,8 +16,9 @@ MonoBehaviour:
   primaryType: 0
   weaponDescription: Not much for combat...
   weaponName: BareHands
-  weaponImage: {fileID: 21300000, guid: 524dde1c383fb0943905d6ac264dce28, type: 3}
+  weaponImage: {fileID: 906855658, guid: f532efb3da21fe944960a818f2e9b5ab, type: 3}
   isPlayerWeapon: 1
+  isCableCordUpgrade: 0
   isPartnerWeapon: 0
   isPrimary: 1
   isPartnerOne: 0

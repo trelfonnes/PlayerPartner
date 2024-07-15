@@ -44,12 +44,14 @@ public class PlayerCarryItemState : PlayerBasicState
     {
         base.LogicUpdate();
         Movement?.CheckIfShouldFlip(xInput, yInput);
-        Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput, yInput).normalized));
+        Movement?.SetVelocity(new Vector2(xInput, yInput).normalized, playerSOData.moveSpeed);
         if (Movement?.CurrentVelocity != Vector2.zero)
         {
             player.playerDirection = Movement.CurrentVelocity;
             player.anim.SetFloat("moveY", player.playerDirection.y);
             player.anim.SetFloat("moveX", player.playerDirection.x);
+            player.lastDirection = player.playerDirection;
+
         }
 
         if (!isExitingState)
@@ -70,7 +72,7 @@ public class PlayerCarryItemState : PlayerBasicState
             {
                 if (currentlyCarrying)
                 {
-                    HeldItemHit.collider.GetComponent<IThrow>().Throw(player.playerDirection); ;
+                    HeldItemHit.collider.GetComponent<IThrow>().Throw(player.lastDirection); ;
                     currentlyCarrying = false;
                     PSM.ChangeState(player.MoveState);
 
@@ -82,7 +84,7 @@ public class PlayerCarryItemState : PlayerBasicState
     }
     public void StartFalling()
     {
-        HeldItemHit.collider.GetComponent<IThrow>().SetDown(player.playerDirection);
+        HeldItemHit.collider.GetComponent<IThrow>().SetDown(player.lastDirection);
         currentlyCarrying = false;
         PSM.ChangeState(player.FallingState);
     }

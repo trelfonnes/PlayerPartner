@@ -6,6 +6,8 @@ public class LocationTrigger : MonoBehaviour
 {
     public EnterKeyItemEventSO eventToTrigger;
     public PlayerArtifactInventory artifactInventory;
+    [SerializeField] GameObject ObjectToInfluence; //drag and drop gameObject into inspector here.
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -13,7 +15,8 @@ public class LocationTrigger : MonoBehaviour
           
             if (eventToTrigger.CheckCondition(artifactInventory))
             {
-                eventToTrigger.Trigger();
+                Debug.Log(eventToTrigger.ActionMessage);
+                ObjectToInfluence.GetComponent<KeyItemTriggerManager>().TriggerKeyItemEvent();
             }
             else
             {

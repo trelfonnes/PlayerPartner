@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b2ef25359f5948a9971d4d3701a89, type: 3}
+  m_Name: RattlefangData
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+  patrolSpeed: 1.5
+  chargeSpeed: 2
+  lowHealthSpeed: 2.5
+  maxPoise: 12
+  poiseRefillTime: 10
+  intelligence: 3
+  maxIdleTime: 1.5
+  minIdleTime: 0.5
+  maxPatrolTime: 2.5
+  minPatrolTime: 0.5
+  timeBetweenAttacks: 0.75
+  timeInLowHealth: 2
+  selfDestructor: 0
+  expYield: 3
+  offensiveType: 2
+  defensiveType: 3

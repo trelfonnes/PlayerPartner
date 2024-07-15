@@ -7,12 +7,12 @@ using UnityEngine.Rendering.Universal;
 public class TimeOfDayManager : MonoBehaviour
 {
     public static TimeOfDayManager Instance { get; private set; }
-    Light2D globalLight;
-    [SerializeField] float targetIntensity = 1f;
+    [SerializeField] Light2D globalLight;
+    [SerializeField] float targetIntensity;
     [SerializeField] float transitionDuration = 3f;
     float transitionTimer = 0f;
-
-    public bool isIndoors; //access this and change to true when indoors. When back outdoors, switch to false first, then executetimevisuallogic
+    private int currentHour = 2;
+    [SerializeField] bool isIndoors; //access this and change to true when indoors. When back outdoors, switch to false first, then executetimevisuallogic
     public TimeOfDay CurrentTimeOfDay { get; private set; }
     public enum TimeOfDay
     {
@@ -50,25 +50,28 @@ public class TimeOfDayManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         HoursPassed = 2;
-
+        if (globalLight == null)
+        {
+            globalLight = GetComponentInChildren<Light2D>();
+        }
     }
-
 
 
     private void Start()
     {
-        globalLight = GetComponent<Light2D>();
-        //then checked and set. e.g. works with entering and exiting indoors and outdoors.
-       // This script continues to be subscribed to ontick indoors. However, use flag isIndoors
-       // before RunTimeLogic is executed. That way HoursPassed will increment but lighting wont change
-        ExecuteTimeVisualLogic();
-
+            ExecuteTimeVisualLogic();
+        
     }
     private void Update()
     {
-        ChangeLight();
+                
+            ChangeLight();
+        
     }
-
+    public int GetCurrentHour()
+    {
+        return currentHour;
+    }
     private void ChangeLight()
     {
         if (transitionTimer < transitionDuration)
@@ -87,55 +90,70 @@ public class TimeOfDayManager : MonoBehaviour
 
     void HandleTimeTick(object sender, ClockManager.OnTickEventArgs e)
     {
+       
         if (HoursPassed >= 16)
         {
             HoursPassed = 0;
+            currentHour = 0;
         }
         HoursPassed++;
+        currentHour++;
 
-        if (!isIndoors)
+       
+            ExecuteTimeVisualLogic();
+        
+       
+    }
+    public void ChangeGlobalLightIntensity(float targetIntensity)
+    {
+        this.targetIntensity = targetIntensity;
+    }
+    public void ChangeToIndoorLight(bool isIndoors)
+    {
+        this.isIndoors = isIndoors;
+        if (!this.isIndoors)
         {
             ExecuteTimeVisualLogic();
         }
-       
     }
-
     private void ExecuteTimeVisualLogic()
     {
-        
-        if (HoursPassed >= nightHour || HoursPassed < morningHour) // Night condition
-        {//turn dark
-            targetIntensity = .7f;
-            transitionTimer = 0f;
-            // change color to white
-            globalLight.color = new Color(1f, 1f, 1f, 0f);
-            SetTimeOfDay(TimeOfDay.Night);
-        }
-        else if (HoursPassed >= morningHour && HoursPassed < dayHour) // morning condition
+        if (!isIndoors)
         {
-            //change color to sunrise and return to day intensity
-            targetIntensity = 1f;
-            transitionTimer = 0f;
-            globalLight.color = new Color(209f / 255f, 234f / 255f, 1, 0f);
-            SetTimeOfDay(TimeOfDay.Morning);
+            if (HoursPassed >= nightHour || HoursPassed < morningHour) // Night condition
+            {//turn dark
+                targetIntensity = .7f;
+                transitionTimer = 0f;
+                // change color to white
+                globalLight.color = new Color(1f, 1f, 1f, 0f);
+                SetTimeOfDay(TimeOfDay.Night);
+            }
+            else if (HoursPassed >= morningHour && HoursPassed < dayHour) // morning condition
+            {
+                //change color to sunrise and return to day intensity
+                targetIntensity = 1f;
+                transitionTimer = 0f;
+                globalLight.color = new Color(209f / 255f, 234f / 255f, 1, 0f);
+                SetTimeOfDay(TimeOfDay.Morning);
 
-        }
+            }
 
-        else if (HoursPassed >= dayHour && HoursPassed < eveningHour) //daytime condition
-        {
+            else if (HoursPassed >= dayHour && HoursPassed < eveningHour) //daytime condition
+            {
 
-            // change color to white. should already be at correct intensity
-            globalLight.color = new Color(1f, 1f, 1f, 0f);
-            SetTimeOfDay(TimeOfDay.Day);
+                // change color to white. should already be at correct intensity
+                globalLight.color = new Color(1f, 1f, 1f, 0f);
+                SetTimeOfDay(TimeOfDay.Day);
 
-        }
-        else if (HoursPassed >= eveningHour && HoursPassed < nightHour) //evening condition
-        {
-            // change color to sunset, should already be correct intensity
-            globalLight.color = new Color(1f, 224f / 255f, 204f / 255f, 0f);
-            SetTimeOfDay(TimeOfDay.Evening);
+            }
+            else if (HoursPassed >= eveningHour && HoursPassed < nightHour) //evening condition
+            {
+                // change color to sunset, should already be correct intensity
+                globalLight.color = new Color(1f, 224f / 255f, 204f / 255f, 0f);
+                SetTimeOfDay(TimeOfDay.Evening);
 
 
+            }
         }
     }
 
@@ -179,7 +197,20 @@ public class TimeOfDayManager : MonoBehaviour
     {
         SubscribeToTimeTickEvent();
     }
-
+    public void DisableGlobalLight() // call from scene end
+    {
+        if (globalLight != null)
+        {
+            globalLight.enabled = false;
+        }
+    }
+    public void EnableGlobalLight() //call from scene start
+    {
+        if (globalLight)
+        {
+            globalLight.enabled = true;
+        }
+    }
     private void OnDisable()
     {
         UnSubscribeToHourlyTickEvent();

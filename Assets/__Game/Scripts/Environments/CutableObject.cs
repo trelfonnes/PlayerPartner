@@ -12,7 +12,8 @@ public class CutableObject : MonoBehaviour, ICutable
     public void Cut()
     {
         StartCutting();
-        Debug.Log("Chop It Down!");
+        AudioManager.Instance.PlayAudioClip("Cut");
+
     }
 
     void StartCutting()

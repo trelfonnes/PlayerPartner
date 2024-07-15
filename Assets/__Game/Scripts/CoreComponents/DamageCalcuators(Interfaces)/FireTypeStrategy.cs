@@ -11,6 +11,12 @@ public class FireTypeStrategy : IAttackTypeDamageCalculation
             damageAmount = (damageAmount * 2);
             return damageAmount; 
                       
+        } 
+        if(attackerType == AttackType.Poison)
+        {
+            damageAmount = (damageAmount * 2);
+            return damageAmount; 
+                      
         }
         if(attackerType == AttackType.Air)
         {
@@ -18,6 +24,11 @@ public class FireTypeStrategy : IAttackTypeDamageCalculation
             return damageAmount;
         }
         if(attackerType == AttackType.Fire)
+        {
+            damageAmount = (damageAmount / 2);
+            return damageAmount;
+        } 
+        if(attackerType == AttackType.Dragon)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;

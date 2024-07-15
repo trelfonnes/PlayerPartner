@@ -12,7 +12,7 @@ public class TreasureChest : MonoBehaviour, IInteractable
     private GameObject containedItemInstance;
     BoxCollider2D boxCollider2D;
     float yOffset = .7f;
-    private void Start()
+    protected virtual void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = closed;
@@ -30,6 +30,8 @@ public class TreasureChest : MonoBehaviour, IInteractable
         Vector2 colliderPosition = boxCollider2D.offset;
         colliderPosition.y += yOffset;
         boxCollider2D.offset = colliderPosition;
+        AudioManager.Instance.PlayAudioClip("OpenChest");
+
         if (containedItemInstance == null)
         {
           

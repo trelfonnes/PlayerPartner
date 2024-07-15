@@ -11,11 +11,11 @@ public class HeartDisplayUI : DataReferenceInheritor
     protected override void Awake()
     {
         base.Awake();
-        
+       
     }
+     
 
    
-
     public void UpdateHeartDisplay(float currentHealth, float maxHealth)
     {
         int fullHeartsCount = Mathf.CeilToInt(currentHealth);
@@ -50,6 +50,6 @@ public class HeartDisplayUI : DataReferenceInheritor
             }
         }
     }
-   
+    
 
 }

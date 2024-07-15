@@ -12,12 +12,23 @@ public class ElectricTypeStrategy : IAttackTypeDamageCalculation
             return damageAmount;
 
         }
+        if (attackerType == AttackType.Dragon)
+        {
+            damageAmount = (damageAmount * 2);
+            return damageAmount;
+
+        }
         if (attackerType == AttackType.Poison)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;
         } 
         if (attackerType == AttackType.Electric)
+        {
+            damageAmount = (damageAmount / 2);
+            return damageAmount;
+        }
+        if (attackerType == AttackType.Air)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;

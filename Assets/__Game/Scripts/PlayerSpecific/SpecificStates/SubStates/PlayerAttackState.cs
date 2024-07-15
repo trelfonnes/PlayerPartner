@@ -18,7 +18,7 @@ public class PlayerAttackState : PlayerAbilityState
         : base(player, PSM, playerSOData, playerData, animBoolName)
     {
         this.weapon = weapon;
-        weapon.onExit += ExitHandler;  //DO I need to unsub??
+        weapon.onExit += ExitHandler;  //DO I need to unsub?? Try in onDisable
         inputIndex = (int)input;
     }
 
@@ -40,7 +40,11 @@ public class PlayerAttackState : PlayerAbilityState
         base.Exit();
         weapon.Exit();
     }
-
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        weapon.onExit -= ExitHandler;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

@@ -28,7 +28,18 @@ public static class CameraSwitcher
             }
         }
     }
-
+    public static void SwitchArenaCamera(CinemachineVirtualCamera camera)
+    {
+        camera.Priority = 15;
+        ActiveCamera = camera;
+        foreach (CinemachineVirtualCamera c in cameras)
+        {
+            if (c != camera)
+            {
+                c.Priority = 0;
+            }
+        }
+    }
     public static void Register(CinemachineVirtualCamera cameraInUse)
     {
         cameras.Add(cameraInUse);

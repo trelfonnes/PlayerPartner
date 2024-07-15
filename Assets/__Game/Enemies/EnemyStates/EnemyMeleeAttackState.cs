@@ -13,7 +13,7 @@ public class EnemyMeleeAttackState : EnemyAttackState
         this.weapon = weapon;
         this.meleeStrategy = meleeStrategy;
         this.weaponDatas = weaponDatas;
-        weapon.onExit += ExitHandler;
+        weapon.onExit += ExitHandler; // TODO: Where to I unsub from. this will bite me eventually...
     }
     void ExitHandler()
     {
@@ -57,7 +57,11 @@ public class EnemyMeleeAttackState : EnemyAttackState
           
         
     }
-
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        weapon.onExit -= ExitHandler;
+    }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

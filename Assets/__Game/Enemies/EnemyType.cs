@@ -6,6 +6,18 @@ public enum EnemyType
 {
     RatOne,
     BubbleOne,
-    FireBallone
+    FireBallone,
+    Barbacub,
+    Nindrake,
+    Whirljay,
+    Rizzagrizz,
+    Dewdog,
+    Rattlefang,
+    Petapincher,
+    Nitebite,
+    Shrubby,
+    Vigilape,
+    Gnutnasher,
+    Verdago
 
 }

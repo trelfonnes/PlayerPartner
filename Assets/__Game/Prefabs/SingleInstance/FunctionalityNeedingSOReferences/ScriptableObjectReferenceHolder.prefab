@@ -48,14 +48,15 @@ MonoBehaviour:
   Dino1SOData: {fileID: 11400000, guid: 6d0821302c6e8b3468a66c3ffa96daee, type: 2}
   Dino2SOData: {fileID: 11400000, guid: 26418ee63d07a1e488a9c06ab6779e66, type: 2}
   Dino3SOData: {fileID: 11400000, guid: b4e10dbe25b4bee4391899e2509f7069, type: 2}
-  Bear1SOData: {fileID: 0}
-  Bear2SOData: {fileID: 0}
-  Bear3SOData: {fileID: 0}
-  Rabbit1SOData: {fileID: 0}
-  Rabbit2SOData: {fileID: 0}
-  Rabbit3SOData: {fileID: 0}
-  Axel1SOData: {fileID: 0}
-  Axel2SOData: {fileID: 0}
-  Axel3SOData: {fileID: 0}
+  Bear1SOData: {fileID: 11400000, guid: f5a2e69a9b5773d4aae3bf67cdd34cb9, type: 2}
+  Bear2SOData: {fileID: 11400000, guid: 848e821c08d5b4d46bc98bb1e47b9ef8, type: 2}
+  Bear3SOData: {fileID: 11400000, guid: aec137ca11bff3243bb10e2b1fac2f8f, type: 2}
+  Rabbit1SOData: {fileID: 11400000, guid: 0fddc1314a9e8054a8951a3c417d21ec, type: 2}
+  Rabbit2SOData: {fileID: 11400000, guid: a8142db7161199a4d92bf67844dccf89, type: 2}
+  Rabbit3SOData: {fileID: 11400000, guid: 57cd271819cafde44b89ea54e6ad1bcc, type: 2}
+  Axel1SOData: {fileID: 11400000, guid: 0c28ce457fdeb6f428db1745b9ea6b84, type: 2}
+  Axel2SOData: {fileID: 11400000, guid: 7677d19e203ee3a4ca135407aa9633e5, type: 2}
+  Axel3SOData: {fileID: 11400000, guid: e7b0308be0841bb44a3683eaee15637e, type: 2}
   statEvents: {fileID: 11400000, guid: 9ed2d52e14a77d149a9382b0c828ed8e, type: 2}
   evolveEvents: {fileID: 11400000, guid: cea042e38e7e2db44bb9d1b3d982c775, type: 2}
+  inventory: {fileID: 11400000, guid: 27ea3b4fe60bafc4ebc2d4441cfa97e4, type: 2}

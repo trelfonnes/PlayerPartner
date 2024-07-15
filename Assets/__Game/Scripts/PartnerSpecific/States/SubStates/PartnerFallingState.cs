@@ -14,9 +14,13 @@ public class PartnerFallingState : PartnerBasicState
     public override void Enter()
     {
         base.Enter();
-        partner.onFallOver += FallIsOver;
+       // partner.onFallOver += FallIsOver;
+        Subscribe((handler) => partner.onFallOver += handler, FallIsOver);
+
+        AudioManager.Instance.PlayAudioClip("Falling");
 
         Debug.Log("partner entered falling state");
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
 
     }
 
@@ -24,9 +28,15 @@ public class PartnerFallingState : PartnerBasicState
     {
         base.Exit();
         partner.onFallOver -= FallIsOver;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
+    }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        partner.onFallOver -= FallIsOver;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
 
     }
-
     public override void LogicUpdate()
     {
         base.LogicUpdate();

@@ -46,6 +46,7 @@ public class ChargedProjectile : MonoBehaviour
         {
             this.damage = damage;
             knockBackDamage = knockback;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             transform.position = component.transform.position;

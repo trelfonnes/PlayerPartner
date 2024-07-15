@@ -6,6 +6,7 @@ public class PushableObject : MonoBehaviour
 {
     public float pushForce = 1f;
     private Rigidbody2D rb;
+    [SerializeField] bool IsLargeObject;
 
     private void Awake()
     {
@@ -19,7 +20,8 @@ public class PushableObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Partner"))
         {
             Partner partner = collision.gameObject.GetComponent<Partner>();
-            if (!partner.stageOne)
+
+            if (!partner.stageOne && IsLargeObject)
             {
                 // Get the contact points of the collision
                 ContactPoint2D[] contacts = new ContactPoint2D[2];
@@ -36,6 +38,26 @@ public class PushableObject : MonoBehaviour
                     rb.bodyType = RigidbodyType2D.Dynamic;
                     // Apply the push force to move the object
                     rb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+                    AudioManager.Instance.PlayAudioClip("Push");
+                }
+            }
+            else if (!IsLargeObject)
+            {
+                ContactPoint2D[] contacts = new ContactPoint2D[2];
+                int contactCount = collision.GetContacts(contacts);
+
+                if (contactCount > 0)
+                {
+                    // Calculate the direction of the collision
+                    Vector2 collisionDirection = contacts[0].normal;
+
+                    // Calculate the opposite direction to move the object
+                    Vector2 pushDirection = -collisionDirection;
+
+                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    // Apply the push force to move the object
+                    rb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+                    AudioManager.Instance.PlayAudioClip("Push");
                 }
             }
         }

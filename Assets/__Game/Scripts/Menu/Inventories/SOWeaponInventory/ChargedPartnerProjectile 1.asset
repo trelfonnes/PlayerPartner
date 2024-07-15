@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondaryType: 2
   primaryType: 2
-  weaponDescription: Cost 5 SP when charged.
-  weaponName: Basic Projectile
-  weaponImage: {fileID: 1813559058, guid: f2eeea435bd8a744f8aa07bcbe455ca6, type: 3}
+  weaponDescription: Hold to charge up a basic projectile. Cost 5 SP when charged.
+  weaponName: Charged
+  weaponImage: {fileID: -1640289310, guid: f532efb3da21fe944960a818f2e9b5ab, type: 3}
   isPlayerWeapon: 0
+  isCableCordUpgrade: 0
   isPartnerWeapon: 1
   isPrimary: 0
   isPartnerOne: 1

@@ -24,6 +24,7 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
         }
     }
     protected PartnerCollisionSenses PartnerCollisionSenses { get => partnerCollisionSenses ?? core.GetCoreComponent(ref partnerCollisionSenses); }
+    protected CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
     protected Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     protected Defeated Defeated { get => defeated ?? core.GetCoreComponent(ref defeated); }
     protected Particles Particles { get => particles ?? core.GetCoreComponent(ref particles); }
@@ -34,6 +35,7 @@ public class CoreComponent : MonoBehaviour, ILogicUpdate
     private Movement movement;
     private PlayerCollisionSenses playerCollisionSenses;
     private PartnerCollisionSenses partnerCollisionSenses;
+    private CollisionSenses collisionSenses;
     private Stats stats;
     private Defeated defeated;
     private Particles particles;

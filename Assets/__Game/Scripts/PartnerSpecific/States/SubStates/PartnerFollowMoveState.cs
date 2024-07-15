@@ -19,11 +19,14 @@ public class PartnerFollowMoveState : PartnerFollowState
     {
         base.Enter();
         canExitState = false;
-        partner.evolutionEvents.OnSwitchToPartner += BackToIdle;
+       // partner.evolutionEvents.OnSwitchToPartner += BackToIdle;
+        Subscribe((handler) => partner.evolutionEvents.OnSwitchToPartner += handler, BackToIdle);
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
 
         if (playerSOData.stage2 || playerSOData.stage3)
         {
-            statEvents.onCurrentEPZero += TimeToDevolve;
+            Subscribe((handler) => statEvents.onCurrentEPZero += handler, TimeToDevolve);
+           // statEvents.onCurrentEPZero += TimeToDevolve;
 
         }
 
@@ -34,7 +37,7 @@ public class PartnerFollowMoveState : PartnerFollowState
     {
         base.Exit();
         partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
-
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
         if (playerSOData.stage2 || playerSOData.stage3)
         {
             statEvents.onCurrentEPZero -= TimeToDevolve;
@@ -82,13 +85,21 @@ public class PartnerFollowMoveState : PartnerFollowState
         
 
     }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        statEvents.onCurrentEPZero -= TimeToDevolve;
+        partner.evolutionEvents.OnSwitchToPartner -= BackToIdle;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
 
+    }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
     private void BackToIdle()
     {
+        Debug.Log("Back to idle");
         PSM.ChangePartnerState(partner.IdleState);
     }
 }

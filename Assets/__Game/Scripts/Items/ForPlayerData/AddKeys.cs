@@ -13,12 +13,16 @@ public class AddKeys : MonoBehaviour
             if (isBossKey)
             {
                 collision.GetComponentInChildren<IKeys>().AddBossKey(numberOfKeys);
+                AudioManager.Instance.PlayAudioClip("BossKey");
+
                 gameObject.SetActive(false);
 
             }
             else
             {
                 collision.GetComponentInChildren<IKeys>().AddKey(numberOfKeys);
+                AudioManager.Instance.PlayAudioClip("Key");
+
                 gameObject.SetActive(false);
 
             }

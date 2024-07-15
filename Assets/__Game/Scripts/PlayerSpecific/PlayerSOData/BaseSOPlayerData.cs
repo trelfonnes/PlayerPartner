@@ -5,12 +5,15 @@ using UnityEngine.Events;
 
 public class BaseSOPlayerData : ScriptableObject
 {
+    public event System.Action<bool> onInjuredChanged; //listened to by displays in status bar
+    public event System.Action<bool> onSickChanged;
     public BoolEvent isSickChanged = new BoolEvent();
     public BoolEvent isInjuredChanged = new BoolEvent();
     
     [SerializeField] bool isSick;
-
-    public event System.Action<float> OnCurrentHealthValueChanged;
+    [SerializeField] bool isPlayerForHealthUI;
+    public event System.Action<float> OnCurrentHealthValueChanged; //listened to by displays bool dictates player vs partner health
+    public event System.Action<float> OnCurrentPlayerHealthValueChanged; //listened to by displays bool dictates player vs partner health
     public event System.Action<float> OnStaminaValueChanged;
 
     // Example health variable
@@ -24,20 +27,30 @@ public class BaseSOPlayerData : ScriptableObject
             if (currentHealth != value)
             {
                 currentHealth = value;
-
                 // Raise the event to notify listeners that the float value has changed
-                OnCurrentHealthValueChanged?.Invoke(currentHealth);
+                if (isPlayerForHealthUI)
+                {
+                    OnCurrentPlayerHealthValueChanged?.Invoke(currentHealth);
+                }
+                else
+                {
+                    OnCurrentHealthValueChanged?.Invoke(currentHealth);
+                }
             }
         }
     }
 
     // Example method that modifies the float value
-    public void SetPartnerHealthFromItem(float value)
+    public void SetPartnerHealthFromItem(float value, bool isPlayerHealth)
     {
+        CurrentHealth = value;
        
+    }  
+    public void SetPlayerHealthFromItem(float value, bool isPlayerHealth)
+    {
             CurrentHealth = value;
        
-    }
+    }  
 
 
     // Example Stamina variable
@@ -75,7 +88,7 @@ public class BaseSOPlayerData : ScriptableObject
             if (isSick != value)
             {
                 isSick = value;
-                isSickChanged.Invoke(isSick);
+                onSickChanged?.Invoke(isSick);
             }
         }
     }
@@ -86,10 +99,12 @@ public class BaseSOPlayerData : ScriptableObject
         get { return isInjured; }
         set
         {
-            if(isInjured != value)
-            {
+           
+            if (isInjured != value)
+           {
                 isInjured = value;
-                isInjuredChanged.Invoke(isInjured);
+                Debug.Log("IsInjured event should be invoking" + isInjured);
+                onInjuredChanged?.Invoke(isInjured);
             }
         }
     }

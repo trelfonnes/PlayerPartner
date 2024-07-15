@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System;
 public class InventoryManager : MonoBehaviour
 {
+   
     [Header("Inventory Information")]
     [SerializeField] PlayerInventory playerInventory;
     [SerializeField] GameObject blankInventorySlot;
@@ -12,16 +15,70 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI descriptionText;
     [SerializeField] GameObject useButton;
     public inventoryItems currentItem;
+    Image equipButtonImage;
+    [SerializeField] GameObject FirstMenuButton;
+    private Dictionary<ItemType, Action> itemUseEvents;
+    private Dictionary<ItemType, Action<float>> floatItemUseEvents;
+    public event Action<float> onHealthPotionUsed = f => { };
+    public event Action<float> onStaminaPotionUsed = f => { };
+    public event Action<float> onPlayerPotionUsed = f => { };
+    public event Action onMedicineUsed = () => { };
+    public event Action onBandaidUsed = () => { };
+    public event Action<float> onElixirUsed = f => { };
+
+    private void Awake()
+    {
+        Debug.Log("Create ItemUseEvents Dictionary within the inventory manager");
+        if (floatItemUseEvents == null)
+        {
+            floatItemUseEvents = new Dictionary<ItemType, Action<float>>
+        {
+            { ItemType.HealthPotion, onHealthPotionUsed },
+            { ItemType.StaminaPotion, onStaminaPotionUsed },
+            { ItemType.PlayerPotion, onPlayerPotionUsed },
+            { ItemType.Elixir, onElixirUsed }
+        };
+        }
+        if(itemUseEvents == null)
+        {
+            itemUseEvents = new Dictionary<ItemType, Action>
+            {  
+                { ItemType.Medicine, onMedicineUsed },
+            
+                { ItemType.Bandaid, onBandaidUsed }
+            };
+        }
+    }
+    private void Start()
+    {
+       
+
+    }
+     void SetInitialMenuButton() //Need to set the selected button manually when Menu opens because event system can't track it itself.
+    {
+        if (FirstMenuButton != null)
+        {
+            EventSystem.current.firstSelectedGameObject = FirstMenuButton;
+            EventSystem.current.SetSelectedGameObject(FirstMenuButton);
+        }
+    }
     public void SetTextAndButton(string description, bool buttonActive)
     {
+        if(equipButtonImage == null)
+        {
+            equipButtonImage = useButton.GetComponent<Image>();
+        }
         descriptionText.text = description;
         if (buttonActive)
         {
-            useButton.SetActive(true);
+            equipButtonImage.color = Color.green;
+
+
         }
         else
         {
-            useButton.SetActive(false);
+            equipButtonImage.color = Color.red;
+
         }
     }
 
@@ -43,6 +100,14 @@ public class InventoryManager : MonoBehaviour
                         newSlot.Setup(playerInventory.myInventory[i], this);
                     }
                 }
+                else
+                {
+                    // Remove items with numberHeld less than or equal to zero
+                    playerInventory.myInventory.RemoveAt(i);
+                    // Since we removed an item, decrement the loop index to properly iterate through the modified list
+                    i--;
+                }
+
             }
 
         }
@@ -53,15 +118,16 @@ public class InventoryManager : MonoBehaviour
         ClearInventorySlots();
         MakeInventorySlots();
         SetTextAndButton("", false);
+        SetInitialMenuButton();
         
     }
-
+ 
 
     public void SetupDescriptionAndButton(string newDescription, bool isButtonActive, inventoryItems newItem)
     {
         currentItem = newItem;
         descriptionText.text = newDescription;
-        useButton.SetActive(isButtonActive);
+        SetTextAndButton(newDescription, isButtonActive);
     }
 
     void ClearInventorySlots()
@@ -74,13 +140,56 @@ public class InventoryManager : MonoBehaviour
     }
     public void UseButtonPressed()
     {
+
         if (currentItem)
         {
             currentItem.Use();
+            UseItem();
             ClearInventorySlots();
             MakeInventorySlots();
             SetTextAndButton("", false);
         }
+        else
+        {
+            return;
+        }
+    }
+    void UseItem()
+    {
+        if (currentItem.statusHealingItem)
+        {
+            ItemType itemType = currentItem.GetItemType();
+            if (itemUseEvents.TryGetValue(itemType, out var action))
+            {
+                action?.Invoke();
+
+            }
+            else
+            {
+                Debug.LogWarning($"Trel Message: No Action defined for item type in Inventory Manager: {itemType}");
+            }
+        }
+        else
+        {
+            ItemType itemType = currentItem.GetItemType();
+            if(floatItemUseEvents.TryGetValue(itemType, out var action))
+            {
+                action?.Invoke(currentItem.amountToHeal);
+            }
+            else
+            {
+                Debug.LogWarning($"Trel Message: No Action defined for item type (potion types) in Inventory Manager: {itemType}");
+            }
+        }
     }
 
+}
+public enum ItemType
+{
+    HealthPotion,
+    StaminaPotion,
+    Medicine,
+    Bandaid,
+    PlayerPotion,
+    Elixir
 }

@@ -15,9 +15,10 @@ MonoBehaviour:
   secondaryType: 3
   primaryType: 0
   weaponDescription: A basic physical attack.
-  weaponName: Melee attack
-  weaponImage: {fileID: -452101086, guid: f2eeea435bd8a744f8aa07bcbe455ca6, type: 3}
+  weaponName: Melee
+  weaponImage: {fileID: 1664937909, guid: f532efb3da21fe944960a818f2e9b5ab, type: 3}
   isPlayerWeapon: 0
+  isCableCordUpgrade: 0
   isPartnerWeapon: 1
   isPrimary: 1
   isPartnerOne: 1

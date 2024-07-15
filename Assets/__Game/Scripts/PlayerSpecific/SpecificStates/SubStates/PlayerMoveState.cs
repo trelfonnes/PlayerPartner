@@ -40,10 +40,10 @@ public class PlayerMoveState : PlayerBasicState
         base.LogicUpdate();
         
         Movement?.CheckIfShouldFlip(xInput, yInput);
-        Movement?.SetVelocity(playerSOData.moveSpeed * (new Vector2(xInput,  yInput).normalized));
-       if(Movement.CurrentVelocity != Vector2.zero)
+        Movement?.SetVelocity(new Vector2(xInput, yInput).normalized, playerSOData.moveSpeed);
+        if (Movement.CurrentVelocity != Vector2.zero)
         {
-            Movement?.CheckCombatHitBoxDirection(xInput, yInput);
+          //  Movement?.CheckCombatHitBoxDirection(xInput, yInput);
             player.playerDirection = Movement.CurrentVelocity;
             player.anim.SetFloat("moveY", player.playerDirection.y);
             player.anim.SetFloat("moveX", player.playerDirection.x);
@@ -69,11 +69,18 @@ public class PlayerMoveState : PlayerBasicState
             {
                 if (HitsToCarry )//&& !currentlyCarrying)
                 {
-                    Debug.Log(HitsToCarry.transform.name);
-                    HitsToCarry.collider.GetComponent<ICarry>().Carry(carryPoint);
-                    currentlyCarrying = true;
-                    PSM.ChangeState(player.CarryItemState);
-
+                    if (HitsToCarry.collider.GetComponent<CarryableItem>().isHeavyCarryable && !playerSOData.carryHeavy)
+                    {
+                        Debug.Log("This is too heavy for you!");
+                        return;
+                    }
+                    else
+                    {
+                        Debug.Log(HitsToCarry.transform.name);
+                        HitsToCarry.collider.GetComponent<ICarry>().Carry(carryPoint, playerSOData.carryHeavy);
+                        currentlyCarrying = true;
+                        PSM.ChangeState(player.CarryItemState);
+                    }
                 }
                                  
             }

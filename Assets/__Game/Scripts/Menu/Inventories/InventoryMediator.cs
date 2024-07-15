@@ -2,86 +2,114 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryMediator: MonoBehaviour
+public class InventoryMediator : MonoBehaviour
 {
-
-    [SerializeField] List<PlayerSOData> Datas = new List<PlayerSOData>();
-
+    [SerializeField] InventoryManager inventoryManager;
     
-    // not sure how to get all partner data referenced other than hard reference.
-    //this system works purely with prefabs, nothing in the actual scene.
 
+    [SerializeField] List<PlayerSOData> PartnerDatas = new List<PlayerSOData>();
+    [SerializeField] List<PlayerSOData> PlayerDatas = new List<PlayerSOData>();
 
+    //holds all datas for communication from inventory to inside systems.
+    
+    private void Start()
+    {
+            if(inventoryManager != null)
+        {
+            inventoryManager.onHealthPotionUsed += IncreasePartnerHealth;
+            inventoryManager.onStaminaPotionUsed += IncreaseStamina;
+            inventoryManager.onPlayerPotionUsed += IncreasePlayerHealth;
+            inventoryManager.onElixirUsed += ElixirUsedHealAll;
+            inventoryManager.onMedicineUsed += HealSick;
+            inventoryManager.onBandaidUsed += HealInjured;
+        }
+    }
     public void IncreaseStamina(float amount)
     {
-        if (Datas != null && !PlayerData.Instance.partnerIsDefeated)
+        if (PartnerDatas != null && !PlayerData.Instance.partnerIsDefeated)
         {
-            foreach (PlayerSOData item in Datas)
+            foreach (PlayerSOData item in PartnerDatas)
             {
                 item.Stamina = Mathf.Clamp(item.Stamina + amount, 0, item.MaxStamina);
             }
             
         }
     }
-    public void IncreasePartnerHealth(float amount)
+    public void ElixirUsedHealAll(float amount)
     {
-        if (Datas != null && !PlayerData.Instance.partnerIsDefeated)
+        IncreasePartnerHealth(amount);
+        IncreaseStamina(amount);
+        HealSick();
+        HealInjured();
+        IncreasePlayerHealth(amount);
+       
+    }
+    public void IncreasePlayerHealth(float amount)
+    {
+        if (PlayerDatas != null)
         {
 
-            for (int i = 0; i < Datas.Count; i++)
+            for (int i = 0; i < PlayerDatas.Count; i++)
             {
-                if (i != 0) // 0 is the first slot in the list which will always be for the player
-                {
-                    Datas[i].CurrentHealth = Mathf.Clamp(Datas[i].CurrentHealth + amount, 0, Datas[i].MaxHealth);
-                }
+                
+                    float adjustedAmount = Mathf.Clamp(PlayerDatas[i].CurrentHealth + amount, 0, PlayerDatas[i].MaxHealth);
+                    PlayerDatas[i].SetPlayerHealthFromItem(adjustedAmount, true);
+                
 
             }
         }    
         
     }
-    public void IncreasePlayerHealth(float amount)
+    public void IncreasePartnerHealth(float amount)
     {
-        Debug.Log("Health UP");
-        if (Datas != null)
+ 
+        if (PartnerDatas != null && !PlayerData.Instance.partnerIsDefeated)
         {
-            for (int i = 0; i < Datas.Count; i++)
+            for (int i = 0; i < PartnerDatas.Count; i++)
             {
-                if (i == 0)
-                {
-                    float adjustedAmount = Mathf.Clamp(Datas[i].CurrentHealth + amount, 0, Datas[i].MaxHealth);
-                    Datas[i].SetPartnerHealthFromItem(adjustedAmount);
-                }
+                    float adjustedAmount = Mathf.Clamp(PartnerDatas[i].CurrentHealth + amount, 0, PartnerDatas[i].MaxHealth);
+                    PartnerDatas[i].SetPartnerHealthFromItem(adjustedAmount, false);
+              
             }
         }
     }
-    public void HealSick( bool sick)
+    public void HealSick()
     {
-        if (Datas != null && !PlayerData.Instance.partnerIsDefeated)
+        if (PartnerDatas != null && !PlayerData.Instance.partnerIsDefeated)
         {
 
-            foreach (PlayerSOData item in Datas)
+            foreach (PlayerSOData item in PartnerDatas)
             {
                 if (item != null)
                 {
-                    item.IsSick = sick;
+                    item.IsSick = false;
                 }
             }
         }
     }
-    public void HealInjured(bool injured)
+    public void HealInjured()
     {
-        if (Datas != null && !PlayerData.Instance.partnerIsDefeated)
+        if (PartnerDatas != null && !PlayerData.Instance.partnerIsDefeated)
         {
-            foreach (PlayerSOData item in Datas)
+            foreach (PlayerSOData item in PartnerDatas)
             {
                 if (item != null)
                 {
-                    item.IsInjured = injured;
+                    item.IsInjured = false;
                 }
             }
 
         }
     }
-   
-   
+
+    private void OnDisable()
+    {
+        inventoryManager.onHealthPotionUsed -= IncreasePartnerHealth;
+        inventoryManager.onStaminaPotionUsed -= IncreaseStamina;
+        inventoryManager.onPlayerPotionUsed -= IncreasePlayerHealth;
+        inventoryManager.onElixirUsed -= ElixirUsedHealAll;
+        inventoryManager.onMedicineUsed -= HealSick;
+        inventoryManager.onBandaidUsed -= HealInjured;
+    }
+
 }

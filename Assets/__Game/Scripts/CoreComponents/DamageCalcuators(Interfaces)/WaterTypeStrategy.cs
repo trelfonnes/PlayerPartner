@@ -11,6 +11,12 @@ public class WaterTypeStrategy : IAttackTypeDamageCalculation
             damageAmount = (damageAmount * 2);
             return damageAmount;
 
+        } 
+        if (attackerType == AttackType.Electric)
+        {
+            damageAmount = (damageAmount * 2);
+            return damageAmount;
+
         }
         if (attackerType == AttackType.Fire)
         {
@@ -18,6 +24,11 @@ public class WaterTypeStrategy : IAttackTypeDamageCalculation
             return damageAmount;
         }  
         if (attackerType == AttackType.Water)
+        {
+            damageAmount = (damageAmount / 2);
+            return damageAmount;
+        }
+        if (attackerType == AttackType.Ground)
         {
             damageAmount = (damageAmount / 2);
             return damageAmount;

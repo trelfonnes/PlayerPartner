@@ -15,21 +15,26 @@ public class GameManager : DataReferenceInheritor
    // public GameObject[] playablePlayerPrefabs; // male and female
    // int chosenPartnerCharacterIndex = 0;
     //int chosenPlayerCharacterIndex = 0;
-   public PartnerType partnerFirstStageType;// this variable will be passed in by questionairre and set before passed to PartnerManager
+  // public PartnerType partnerFirstStageType;// this variable will be passed in by questionairre and set before passed to PartnerManager
     public PlayerType chosenPlayer;// this variable will be passed in by questionairre and set before passed to PartnerManager
-                                                        // only needs to be the first stage of whatever partner.
+    [SerializeField] Vector2 savedLocations;    // only needs to be the first stage of whatever partner.
     public ItemsObjectPool objectPool;
-    public static GameManager Instance { get; private set; }
     IItemSpawnStrategy extraRareStrategy;
     IItemSpawnStrategy rareStrategy;
     IItemSpawnStrategy regularStrategy;
     PartnerManager partnerManager;
     PlayerManager playerManager;
     public BattleArenaDataSO currentNPCToBattle;
-    public GameState CurrentGameState { get; private set; }
+   // public GameState CurrentGameState { get; private set; }
     GameData gameData = new GameData();
+    public static GameManager Instance { get; private set; }
+
+    public Player CurrentPlayer;
+    GameObject CurrentPartner;
+    ProgressMarker currentGameProgress;
+
     protected override void Awake()
-    {
+    { 
         base.Awake();
 
         if (Instance == null)
@@ -44,47 +49,131 @@ public class GameManager : DataReferenceInheritor
         playerManager = GetComponentInChildren<PlayerManager>();
 
         partnerManager = GetComponentInChildren<PartnerManager>();
-        
-    }
 
+    }
+    private void OnEnable()
+    {
+        SaveLoadManager.onGlobalLoad += GlobalLoadListener;
+        SaveLoadManager.onGlobalSave += GlobalSaveListener;
+    }
+    private void OnDisable()
+    {
+        if (TimeOfDayManager.Instance)
+        {
+            TimeOfDayManager.Instance.DisableGlobalLight();
+
+            if (GameStateTracker.Instance.CurrentGameState == GameState.overworld)
+            {
+                //SaveLoadManager.Instance.SaveGlobalData();  SAVE CAN"T BE CALLED ONDISABLE. MUST BE DONE FROM SCENE SWITCH INVOKING OBJECT
+                // SaveLoadManager.Instance.SaveLastPlayerPosition();
+            }
+            SaveLoadManager.onGlobalLoad -= GlobalLoadListener;
+            SaveLoadManager.onGlobalSave -= GlobalSaveListener;
+        }
+    }
+    void GlobalLoadListener()
+    {
+        if (ES3.KeyExists("currentGameProgress"))
+        {
+          currentGameProgress = ES3.Load<ProgressMarker>("currentGameProgress");
+        }
+    }
+    void GlobalSaveListener()
+    {
+        ES3.Save<ProgressMarker>("currentGameProgress", currentGameProgress);
+    }
 
 
     private void Start()
     {
+        
+        if (GameStateTracker.Instance.CurrentGameState != GameState.Arena)
+        {
+            Debug.Log(GameStateTracker.Instance.CurrentGameState + " is the game state currently");
+            InitializeChosenPlayer();
+            InitializeChosenPartner();
+           // SaveLoadManager.Instance.LoadBattleArenaData();
+            SaveLoadManager.Instance.SaveCurrentScene();
+
+        } 
+        if (GameStateTracker.Instance.CurrentGameState == GameState.Arena)
+        {
+           // InitializeChosenPartner();
+            SaveLoadManager.Instance.LoadBattleArenaData();
+          //  SaveLoadManager.Instance.SaveCurrentScene();
+
+        }
+
+        if (GameStateTracker.Instance.CurrentGameState == GameState.overworld)
+        {
+            LoadPlayerPartnerLocation();
+            SaveLoadManager.Instance.LoadGlobalData();
+        }
         regularStrategy = new RegularItemSpawnStrategy(objectPool);
         rareStrategy = new RareItemSpawnStrategy(objectPool);
         extraRareStrategy = new ExtraRareItemSpawnStrategy(objectPool);
-        InitializeChosenPartnerAndPlayer();
-      
-
+   
         // Set the desired strategy in the ItemSpawnSystem (you can do this based on game logic).
         // For example, based on the category of defeated enemy or broken object, you can set the strategy.
         ItemSpawnSystem.Instance.SetInitialItemSpawnStrategy(regularStrategy);
+        TimeOfDayManager.Instance.EnableGlobalLight();
+       
     }
 
-    public void SetGameState(GameState newState)
+  
+    void InitializeChosenPlayer() 
     {
-        CurrentGameState = newState;
-
-    }
-    void InitializeChosenPartnerAndPlayer() //This is assuming Start will be called again between each scene, if not,
-                                            //Delete the gameStateCheck and save load manager will do it.
-    {
-        if (CurrentGameState != GameState.Arena)
+        if (GameStateTracker.Instance.CurrentGameState != GameState.Arena || GameStateTracker.Instance.CurrentGameState != GameState.gameOver)
         {
-            if (ES3.KeyExists("chosenPartner"))
-            {
-                partnerFirstStageType = ES3.Load<PartnerType>("chosenPartner");
-            }
+           
             if (ES3.KeyExists("chosenPlayer"))
             {
                 chosenPlayer = ES3.Load<PlayerType>("chosenPlayer");
             }
-            playerManager.SetPlayerType(chosenPlayer); //this will be passed in via the questionairre
+            Debug.Log(GameStateTracker.Instance.CurrentGameState + " is Current game state");
+            playerManager.SetPlayerType(chosenPlayer); 
+        }
+    } 
+    void InitializeChosenPartner() 
+    {
+       
+           if (ES3.KeyExists("chosenPartner"))
+            {
+                partnerFirstStageType = ES3.Load<PartnerType>("chosenPartner");
+            }
+       
             partnerManager.SetPartners(partnerFirstStageType);
+        
+    }
+    
+   public void SavePlayerPartnerLocation()
+    {
+        Debug.Log(CurrentPlayer + "This is the player");
+        SaveLoadManager.Instance.SaveLastPlayerPosition();
+
+    }
+    void LoadPlayerPartnerLocation() // call this after things have been initialized.
+    {
+        if (ES3.KeyExists("playerPartnerLocation"))
+        {
+            savedLocations = SaveLoadManager.Instance.LoadLastPlayerPosition();
+            playerManager.MoveThePlayer(savedLocations);
+            partnerManager.MoveCurrentPartner(savedLocations);//pass in saved locations to both
+        }
+        else
+        {
+            Debug.LogWarning("Key 'playerPartnerLocation' does not exist or data is not loaded.");
+
         }
     }
-
+    public ProgressMarker ReturnCurrentGameProgress()
+    {
+        return currentGameProgress;
+    }
+    public void ChangeCurrentGameProgress(ProgressMarker progressMarker)
+    {
+        currentGameProgress = progressMarker;
+    }
     public void SwitchToRegularStrategy()
     {
         ItemSpawnSystem.Instance.ChangeItemSpawnStrategy(regularStrategy);
@@ -103,12 +192,16 @@ public class GameManager : DataReferenceInheritor
         chosenPlayer = player;
         partnerFirstStageType = partner;
     }
-    public void SetPlayer(Player player)
+    public void SetPlayerInSaveManager(Player player)
     {
+        CurrentPlayer = player;
+
         SaveLoadManager.Instance.SetPlayer(player);
     }
-    public void SetPartner(GameObject currentPartner)
+    public void SetPartnerInSaveManager(PartnerType currentPartner)
     {
+      
+
         SaveLoadManager.Instance.SetPartner(currentPartner);
     }
    
@@ -170,4 +263,11 @@ public class GameManager : DataReferenceInheritor
         set { gameData = value; }
     }
 
+}
+public enum ProgressMarker
+{
+    act1,
+    act2,
+    act3,
+    act4
 }

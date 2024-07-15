@@ -131,6 +131,7 @@ public class Partner : MonoBehaviour
     private void OnDisable()
     {
         StateMachine.CurrentPartnerState.OnDisable();
+
     }
 
     #region PartnerEvolutionEventsForAnimEvents

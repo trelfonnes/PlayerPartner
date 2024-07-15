@@ -37,7 +37,7 @@ public class PlayerArtifactInventory : ScriptableObject
 
     public bool HasKeyItem(string itemName)
     {
-
+        Debug.Log(itemName);
         return keyItems.ContainsKey(itemName);
     }
     public void ClearInventory()

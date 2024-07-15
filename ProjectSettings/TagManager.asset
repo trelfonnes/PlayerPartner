@@ -12,11 +12,18 @@ TagManager:
   - Bomb
   - Pitfall
   - Carryable
+  - IceTile
+  - SnowTile
+  - SandTile
+  - NormalTile
+  - Boss
+  - Button
+  - Target
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - TrainingPad
   - Water
   - UI
   - Wall
@@ -33,10 +40,10 @@ TagManager:
   - Cutable
   - Enemy
   - Pitfall
-  - 
-  - 
-  - 
-  - 
+  - BossMovePoint
+  - Boss
+  - Linkable
+  - Barrier
   - 
   - 
   - 

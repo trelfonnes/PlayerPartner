@@ -49,8 +49,52 @@ MonoBehaviour:
     enemyPrefab: {fileID: 440854609981045044, guid: ad4f6fa16ccb0654a841304648891d7c, type: 3}
   - enemyType: 2
     enemyPrefab: {fileID: 3125218280273546427, guid: fe3825942f9d4c145b2f707415d64852, type: 3}
+  - enemyType: 3
+    enemyPrefab: {fileID: 2601709914650125391, guid: 64f71365409eb574dbdca62667c787db, type: 3}
+  - enemyType: 4
+    enemyPrefab: {fileID: 3741856983404825376, guid: ce6d18637955f644bab49612abc1ef19, type: 3}
+  - enemyType: 5
+    enemyPrefab: {fileID: 8898886697411197900, guid: 8ed93bc3351b59e4b9e30e77db47c50f, type: 3}
+  - enemyType: 6
+    enemyPrefab: {fileID: 5681153906170266165, guid: 9ccceeaa0def8d14b8e7f9fc9c174c34, type: 3}
+  - enemyType: 7
+    enemyPrefab: {fileID: 8316360333051151323, guid: 8f11299804034564890fd294dffe3f1f, type: 3}
+  - enemyType: 8
+    enemyPrefab: {fileID: 6943562827658477004, guid: c59c7b501aa6a6846bbfd68ee010351b, type: 3}
+  - enemyType: 9
+    enemyPrefab: {fileID: 7205783588251922092, guid: ba6d7700d8c43704cbc7c54359518b3b, type: 3}
+  - enemyType: 10
+    enemyPrefab: {fileID: 4628197177231359041, guid: 4d4dcaaecc7eba44eb4a36dce52b1f0a, type: 3}
+  - enemyType: 11
+    enemyPrefab: {fileID: 460119275183202491, guid: c4adb73b1f1a0ed47b90d69a3145af49, type: 3}
+  - enemyType: 12
+    enemyPrefab: {fileID: 4809399833906247549, guid: e8bae9c8230556f47bc84a41d9f822ef, type: 3}
+  - enemyType: 13
+    enemyPrefab: {fileID: 2714874774510793827, guid: 667bfc6bf301c9a448e92f69d9162ee5, type: 3}
   poolSizes:
   - enemyType: 0
-    poolSize: 3
+    poolSize: 1
   - enemyType: 2
+    poolSize: 1
+  - enemyType: 3
+    poolSize: 1
+  - enemyType: 4
+    poolSize: 1
+  - enemyType: 5
+    poolSize: 1
+  - enemyType: 6
+    poolSize: 1
+  - enemyType: 7
+    poolSize: 1
+  - enemyType: 8
+    poolSize: 1
+  - enemyType: 9
+    poolSize: 1
+  - enemyType: 10
+    poolSize: 1
+  - enemyType: 11
+    poolSize: 1
+  - enemyType: 12
+    poolSize: 1
+  - enemyType: 13
     poolSize: 1

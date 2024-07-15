@@ -48,6 +48,7 @@ public class PlayerSOData : BaseSOPlayerData
     public int MaxBytes = 50;
     public int Keys;
     public int BossKeys;
+    public bool carryHeavy;
 
 
 

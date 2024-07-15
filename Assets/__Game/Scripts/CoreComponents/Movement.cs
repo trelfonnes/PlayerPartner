@@ -10,6 +10,7 @@ public class Movement : CoreComponent
     public int facingCombatDirectionX { get; private set; }
     public int facingCombatDirectionY { get; private set; }
     public int facingDirectionY { get; private set; }
+    Vector2 lastFacingCombatDirection;
     public Vector2 CurrentVelocity { get; private set; }
     public Vector2 latestMovingVelocity { get; private set; }
     public bool CanSetVelocity { get; set; }
@@ -17,6 +18,15 @@ public class Movement : CoreComponent
     bool isKnockedback = false;
     float knockbackEndTime;
     protected bool canReceiveInput = true;
+    [SerializeField] private float iceAccelerationMultiplier = 1.2f;
+    [SerializeField] private float sandAccelerationMultiplier = 0.70f;
+    [SerializeField] private float snowAccelerationMultiplier = 0.50f;
+    [SerializeField] private float iceAccelerationLerpFactor = 0.5f;
+    [SerializeField] private float sandAccelerationLerpFactor = 0.9f;
+    [SerializeField] private float snowAccelerationLerpFactor = 1f;
+    float decelerationRate;
+    private Vector2 maxVelocity = Vector2.zero;
+
 
     protected override void Awake()
     {
@@ -32,6 +42,40 @@ public class Movement : CoreComponent
     public override void LogicUpdate()
     {
         CurrentVelocity = rb.velocity;
+        // if(noInputDetected) 
+        if (player)
+        {
+            if (!player.InputHandler.HasMoveInput)
+            {
+                workspace = Vector2.Lerp(workspace, Vector2.zero, Time.deltaTime * decelerationRate);
+                SetFinalVelocity();
+            }
+
+            if (rb.velocity != Vector2.zero)
+            {
+                player.playerDirection = rb.velocity;
+              
+                CheckCombatHitBoxDirection(player.playerDirection.x, player.playerDirection.y);
+
+            }
+        }
+        if (partner)
+        {
+            if (!partner.InputHandler.HasMoveInput)
+            {
+                workspace = Vector2.Lerp(workspace, Vector2.zero, Time.deltaTime * decelerationRate);
+                SetFinalVelocity();
+            }
+
+            if (rb.velocity != Vector2.zero)
+            {
+                partner.playerDirection = rb.velocity;
+              
+                CheckCombatHitBoxDirection(partner.playerDirection.x, partner.playerDirection.y);
+
+            }
+        }
+        
     }
     public void FlipX()
     {
@@ -53,35 +97,47 @@ public class Movement : CoreComponent
         }
     }
 
-    public void CheckCombatHitBoxDirection(int xInput, int yInput) 
+    public void CheckCombatHitBoxDirection(float xInput, float yInput) 
         {
-        if (xInput > 0)
+        if (xInput > .06f)
         {
             facingCombatDirectionX = 1;
         }
-        else if (xInput < 0)
+        else if (xInput < -.06f)
         {
             facingCombatDirectionX = -1;
         }
-        else if (xInput == 0)
+        else 
         {
             facingCombatDirectionX = 0;
         }
 
 
-        if (yInput > 0)
+        if (yInput > .06f)
         {
             facingCombatDirectionY = 1;
         }
-        else if (yInput < 0)
+        else if (yInput < -.06f)
         {
             facingCombatDirectionY = -1;
         }
-        else if( yInput == 0)
+        else
         {
             facingCombatDirectionY = 0;
         }
+        if (!enemy)
+        {
+            if (facingCombatDirectionX == 0 && facingCombatDirectionY == 0)
+            {
+                facingCombatDirectionX = (int)lastFacingCombatDirection.x;
+                facingCombatDirectionY = (int)lastFacingCombatDirection.y;
+            }
+            else
+            {
+                lastFacingCombatDirection = new Vector2(facingCombatDirectionX, facingCombatDirectionY);
 
+            }
+        }
     }
     public void CheckIfShouldFlipFollowing(Vector2 vector2)
     {
@@ -109,8 +165,67 @@ public class Movement : CoreComponent
         workspace.Set(CurrentVelocity.x, velocity);
         SetFinalVelocity();
     }
-    public void SetVelocity(Vector2 velocity)
+
+
+    public void SetVelocity(Vector2 direction, float speed) // for regular movement interactions on tiles
     {  
+        if (canReceiveInput)
+        {
+            (float adjustedSpeed, float accelerationLerpFactor) = CalculateTileSpecificSpeed(speed);
+
+            UpdateMaxVelocity(direction, adjustedSpeed);
+
+            //float accelerationFactor = Mathf.Pow(1 - accelerationLerpFactor, Time.deltaTime * 60f);
+           // Debug.Log(accelerationFactor);
+
+
+            workspace = Vector2.Lerp(workspace, maxVelocity, Time.deltaTime * accelerationLerpFactor);
+            SetFinalVelocity();
+        }
+    }
+    private void UpdateMaxVelocity(Vector2 direction, float adjustedSpeed)
+    {
+        // Check if maxVelocity needs to be updated based on your conditions
+        // For example, only update if adjustedSpeed or direction changes
+        if (adjustedSpeed != maxVelocity.magnitude || direction != maxVelocity.normalized)
+        {
+            maxVelocity = direction * adjustedSpeed;
+        }
+    }
+    private (float adjustedSpeed, float accelerationLerpFactor) CalculateTileSpecificSpeed(float baseSpeed)
+    {
+        float adjustedSpeed = baseSpeed;  //default speed will be returned if no conditions are met
+        float accelerationLerpFactor = 100f; // Default value returned if no condition is met
+        decelerationRate = accelerationLerpFactor;
+        // decelerationRate = 1.0f;
+        // Check for tile-specific conditions and adjust speed and lerpFactor accordingly
+        if (CollisionSenses.isIceTile)
+        {
+            adjustedSpeed *= iceAccelerationMultiplier;
+            accelerationLerpFactor = iceAccelerationLerpFactor;
+            decelerationRate = iceAccelerationLerpFactor;
+
+        }
+        else if (CollisionSenses.isSandTile)
+        {
+            adjustedSpeed *= sandAccelerationMultiplier;
+            accelerationLerpFactor = sandAccelerationLerpFactor;
+            decelerationRate = sandAccelerationLerpFactor;
+
+        }
+        else if (CollisionSenses.isSnowTile)
+        {
+            adjustedSpeed *= snowAccelerationMultiplier;
+            accelerationLerpFactor = snowAccelerationLerpFactor;
+            decelerationRate = snowAccelerationLerpFactor;
+        }
+        // Add more conditions for other tile types if needed
+
+        return (adjustedSpeed, accelerationLerpFactor);
+    }
+
+    public void SetVelocity(Vector2 velocity) //for attacks, abilities, special case movements don't interact with tiles.
+    {
         if (canReceiveInput)
         {
             //workspace = direction * velocity;
@@ -151,7 +266,6 @@ public class Movement : CoreComponent
         {
             rb.velocity = workspace;
             CurrentVelocity = workspace;
-            
         }
         else
         {

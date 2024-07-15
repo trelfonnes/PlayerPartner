@@ -24,6 +24,7 @@ public class PlayerProjectile : MonoBehaviour
     {
         if (!hasBeenShot)
         {
+            AudioManager.Instance.PlayAudioClip("Dart");
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             rb.transform.position = component.transform.position;
@@ -59,6 +60,16 @@ public class PlayerProjectile : MonoBehaviour
             if (collision.TryGetComponent(out IPoiseDamageable poise))
             {
                 poise.DamagePoise(poiseDamage);
+            }
+           
+            hasBeenShot = false;
+            gameObject.SetActive(false);
+        }
+        if (collision.CompareTag("Target"))
+        {
+            if (collision.TryGetComponent(out IDartTarget target))
+            {
+                target.BullsEye();
             }
             hasBeenShot = false;
             gameObject.SetActive(false);

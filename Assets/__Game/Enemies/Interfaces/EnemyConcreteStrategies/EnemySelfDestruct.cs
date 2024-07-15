@@ -6,7 +6,7 @@ public class EnemySelfDestruct : IEnemyLowHealth
 {
     
    
-    public void StartLowHealthStrategy(EnemySOData data, EnemyMovement movement)
+    public void StartLowHealthStrategy(EnemySOData data, EnemyMovement movement, EnemyCollisionSenses collisionSenses, EnemyStats stats)
     {
         Vector3 location = movement.transform.position;
         float size = 2.5f;

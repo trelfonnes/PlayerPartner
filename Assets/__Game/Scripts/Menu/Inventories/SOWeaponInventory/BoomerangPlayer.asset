@@ -16,8 +16,9 @@ MonoBehaviour:
   primaryType: 2
   weaponDescription: A useful Boomerang.
   weaponName: Boomerang
-  weaponImage: {fileID: -2051281047, guid: 6226c1473dec6864ebbebd9d3df1536f, type: 3}
+  weaponImage: {fileID: -129647796, guid: f532efb3da21fe944960a818f2e9b5ab, type: 3}
   isPlayerWeapon: 1
+  isCableCordUpgrade: 0
   isPartnerWeapon: 0
   isPrimary: 0
   isPartnerOne: 0

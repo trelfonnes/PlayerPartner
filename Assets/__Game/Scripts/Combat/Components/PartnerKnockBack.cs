@@ -15,12 +15,13 @@ public class PartnerKnockBack : WeaponComponent<KnockBackData, AttackKnockBack>
             {
                 if (!item.CompareTag("Partner") && !item.CompareTag("Player"))
                 {
+
+
                     knockBackable.KnockBack(currentAttackDataPartner.Angle, currentAttackDataPartner.Strength, movement.facingCombatDirectionX, movement.facingCombatDirectionY);
                 }
             }
         }
     }
-
     protected override void Start()
     {
         base.Start();

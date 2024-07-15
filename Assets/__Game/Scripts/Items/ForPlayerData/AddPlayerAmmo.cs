@@ -12,6 +12,8 @@ public class AddPlayerAmmo : MonoBehaviour
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
             collision.GetComponentInChildren<ISpecialPower>().IncreaseSP(amount);
+            AudioManager.Instance.PlayAudioClip("CollectAmmo");
+
             gameObject.SetActive(false);
         }
 

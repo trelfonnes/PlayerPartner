@@ -11,6 +11,8 @@ public class AddBytes : MonoBehaviour
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
             collision.GetComponentInChildren<IBytes>().IncreaseBytes(amount);
+            AudioManager.Instance.PlayAudioClip("CollectByte");
+
             gameObject.SetActive(false);
 
         }

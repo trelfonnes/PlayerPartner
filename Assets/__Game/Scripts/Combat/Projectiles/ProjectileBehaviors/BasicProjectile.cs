@@ -20,6 +20,7 @@ public class BasicProjectile : MonoBehaviour
     [SerializeField] AttackType attackType;
     private ISpecialAbility specialAbility;
     Vector2 normalizedDirection;
+    [SerializeField] bool isWhirlWind;
 
     private void Awake()
     {
@@ -33,6 +34,8 @@ public class BasicProjectile : MonoBehaviour
         {
             this.damage = damage;
             this.knockBackDamage = knockBackDamage;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
+
             enemyProjectile = false;
             partnerProjectile = true;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
@@ -56,11 +59,41 @@ public class BasicProjectile : MonoBehaviour
         {
             this.damage = damage;
             this.knockBackDamage = knockBackDamage;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
+
             enemyProjectile = true;
             partnerProjectile = false;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+
+            if (!isWhirlWind) 
+            {
+                transform.rotation = rotation;
+
+            }
+
             rb.transform.position = component.transform.position;
+            normalizedDirection = direction.normalized;
+
+            rb.velocity = normalizedDirection * velocity;
+            hasBeenShot = true;
+            StartCoroutine(SwitchSpriteRoutine());
+            StartCoroutine(DeactivateAfterTime());
+        }
+    }
+    void BossShoot(Vector2 position, Vector2 direction, float damage, float knockback)
+    {
+        if (!hasBeenShot)
+        {
+            this.damage = damage;
+          knockBackDamage = knockback;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
+
+            enemyProjectile = true;
+            partnerProjectile = false;
+            float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+            rb.transform.position = position;
             transform.rotation = rotation;
             normalizedDirection = direction.normalized;
 
@@ -68,6 +101,7 @@ public class BasicProjectile : MonoBehaviour
             hasBeenShot = true;
             StartCoroutine(SwitchSpriteRoutine());
             StartCoroutine(DeactivateAfterTime());
+
         }
     }
     IEnumerator SwitchSpriteRoutine()
@@ -113,7 +147,7 @@ public class BasicProjectile : MonoBehaviour
         ApplyDamage(collision);
         ApplyKnockback(collision);
         ApplyPoiseDamage(collision);
-
+        Debug.Log(collision.name + " collided with projectile");
         hasBeenShot = false;
         gameObject.SetActive(false);
     }
@@ -170,6 +204,8 @@ public class BasicProjectile : MonoBehaviour
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet += Shoot;
         ProjectileEventSystem.Instance.OnEnemyDirectionSet += EnemyShoot;
+        ProjectileEventSystem.Instance.OnBossDirectionSet += BossShoot;
+
     }
 
 
@@ -177,6 +213,8 @@ public class BasicProjectile : MonoBehaviour
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet -= Shoot;
         ProjectileEventSystem.Instance.OnEnemyDirectionSet -= EnemyShoot;
+        ProjectileEventSystem.Instance.OnBossDirectionSet -= BossShoot;
+
 
     }
 

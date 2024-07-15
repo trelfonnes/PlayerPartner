@@ -23,11 +23,11 @@ MonoBehaviour:
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: f2db4695aa8bded44b8cdfe9e40a099b, type: 2}
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
-  - rid: 7917043528491597828
   - rid: 7917043543650074624
   - rid: 7917043640045142016
   - rid: 7917043661478035457
   - rid: 7917043703839719424
+  - rid: 7917043528491597828
   - rid: 447581737425043456
   <AttackType>k__BackingField: 5
   references:
@@ -72,24 +72,24 @@ MonoBehaviour:
           DebugHitBoxNorth: 1
           <HitBoxNorth>k__BackingField:
             serializedVersion: 2
-            x: -0.5
+            x: -0.65
             y: -0.33
-            width: 1
+            width: 1.25
             height: 1
           DebugHitBoxSouth: 1
           <HitBoxSouth>k__BackingField:
             serializedVersion: 2
-            x: -0.5
-            y: -1.5
-            width: 1
+            x: -0.65
+            y: -1.64
+            width: 1.25
             height: 1
           DebugHitBoxEast: 1
           <HitBoxEast>k__BackingField:
             serializedVersion: 2
             x: 0.15
-            y: -0.9
-            width: 1
-            height: 1
+            y: -1.2
+            width: 1.06
+            height: 1.32
           DebugHitBoxWest: 0
           <HitBoxWest>k__BackingField:
             serializedVersion: 2
@@ -111,18 +111,18 @@ MonoBehaviour:
             y: -1.42
             width: 1
             height: 1
-          DebugHitBoxNorthEast: 0
+          DebugHitBoxNorthEast: 1
           <HitBoxNorthEast>k__BackingField:
             serializedVersion: 2
             x: 0.06
             y: -0.4
             width: 1
             height: 1
-          DebugHitBoxSouthEast: 0
+          DebugHitBoxSouthEast: 1
           <HitBoxSouthEast>k__BackingField:
             serializedVersion: 2
             x: 0.06
-            y: -1.42
+            y: -1.54
             width: 1
             height: 1
         <DetectableLayers>k__BackingField:
@@ -134,7 +134,7 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: Scratch
-          <Amount>k__BackingField: 1
+          <Amount>k__BackingField: 2
           <AttackType>k__BackingField: 5
     - rid: 7917043661478035457
       type: {class: KnockBackData, ns: , asm: Assembly-CSharp}
@@ -143,11 +143,11 @@ MonoBehaviour:
         attackData:
         - name: Scratch
           <Angle>k__BackingField: {x: 0, y: 0}
-          <Strength>k__BackingField: 5
+          <Strength>k__BackingField: 3
     - rid: 7917043703839719424
       type: {class: PoiseDamageData, ns: , asm: Assembly-CSharp}
       data:
         name: PoiseDamageData
         attackData:
         - name: Scratch
-          <amount>k__BackingField: 1
+          <amount>k__BackingField: 2

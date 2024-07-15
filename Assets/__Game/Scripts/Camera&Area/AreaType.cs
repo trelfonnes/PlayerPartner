@@ -9,5 +9,11 @@ public enum AreaType
     Volcano,
     Desert,
     Lake,
-    IceCliff
+    IceCliff,
+    Plains,
+    Cliffs,
+    Cemetary,
+    Swamp,
+    Powerplant,
+    Dungeon
 }

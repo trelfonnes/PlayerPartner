@@ -620,6 +620,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spr_Rabbit1New_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458ce4201d19aac4eb150cfa28cd4ded
+      internalID: -118716703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -648,6 +669,7 @@ TextureImporter:
       spr_Rabbit1New_21: -615243760
       spr_Rabbit1New_22: -1159398003
       spr_Rabbit1New_23: -869952456
+      spr_Rabbit1New_24: -118716703
       spr_Rabbit1New_3: -613859870
       spr_Rabbit1New_4: 1327935700
       spr_Rabbit1New_5: -1207707465

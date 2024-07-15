@@ -9,7 +9,7 @@ public class Cut : WeaponComponent<CutData, AttackCut>
 
     void HandleDetectCollider2D(Collider2D[] colliders)
     {
-        Debug.Log("cut");
+        
 
         foreach (var item in colliders)
         {

@@ -16,8 +16,9 @@ MonoBehaviour:
   primaryType: 2
   weaponDescription: A dart used to stun enemies.
   weaponName: Dart
-  weaponImage: {fileID: -212579137, guid: 20049704b85812349841e0f9f0dea5ba, type: 3}
+  weaponImage: {fileID: -282399205, guid: f532efb3da21fe944960a818f2e9b5ab, type: 3}
   isPlayerWeapon: 1
+  isCableCordUpgrade: 0
   isPartnerWeapon: 0
   isPrimary: 0
   isPartnerOne: 0

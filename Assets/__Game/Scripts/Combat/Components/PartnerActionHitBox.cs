@@ -24,6 +24,7 @@ public class PartnerActionHitBox : WeaponComponent<ActionHitBoxData, AttackActio
        else if (movement.Comp.facingCombatDirectionX > 0 && movement.Comp.facingCombatDirectionY == 0)
         {
             //East
+            
             offset.Set(transform.position.x + (currentAttackDataPartner.HitBoxEast.center.x * movement.Comp.facingCombatDirectionX),
             transform.position.y + currentAttackDataPartner.HitBoxEast.center.y);
             detected = Physics2D.OverlapBoxAll(offset, currentAttackDataPartner.HitBoxEast.size, 0f, dataPartner.DetectableLayers);

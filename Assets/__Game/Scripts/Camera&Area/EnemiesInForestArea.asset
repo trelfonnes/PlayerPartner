@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf22139a2a19724e8b3d547de914b94, type: 3}
   m_Name: EnemiesInForestArea
   m_EditorClassIdentifier: 
-  commonAreaEnemies: 00000000
-  uncommonAreaEnemies: 02000000
-  rareAreaEnemies: 
+  commonAreaEnemies: 00000000060000000a0000000b000000
+  uncommonAreaEnemies: 0400000005000000
+  rareAreaEnemies: 030000000d000000

@@ -15,9 +15,43 @@ public class PlayerCollisionSenses : CollisionSenses
     protected override void Start()
     {
         base.Start();
+        Collider2D tileCollider = GetTileColliderAtPlayerPosition();
+
+        if (tileCollider != null)
+        {
+            Debug.Log("PlayerCollisionSenses: Initialized inside tile: " + tileCollider.name);
+
+            if (tileCollider.CompareTag("IceTile"))
+            {
+                isIceTile = true;
+                isSandTile = false;
+                isSnowTile = false;
+            }
+            else if (tileCollider.CompareTag("SnowTile"))
+            {
+                isSnowTile = true;
+                isIceTile = false;
+                isSandTile = false;
+            }
+            else if (tileCollider.CompareTag("SandTile"))
+            {
+                isSandTile = true;
+                isIceTile = false;
+                isSnowTile = false;
+            }
+            // ... (repeat for other tile types)
+        }
+    }
+    private Collider2D GetTileColliderAtPlayerPosition()
+    {
+        
+            Vector2 playerPosition = player.transform.position;
+            Collider2D tileCollider = Physics2D.OverlapPoint(playerPosition, whatIsGround, 2f);
+
+            return tileCollider;
+        
 
     }
-
     public RaycastHit2D HitsToCarry
     {
         get
@@ -80,12 +114,62 @@ public class PlayerCollisionSenses : CollisionSenses
     {
         if (collision.CompareTag("Pitfall"))
         {
-            Debug.Log("Fell in hole");
 
             player.OnStartFallEvent();
         }
-    }
- 
+        if (GroundCheck)
+        {
+           
+            if (collision.CompareTag("IceTile"))
+            {
 
+                isIceTile = true;
+                isSandTile = false;
+                isSnowTile = false;
+            }
+            else if (collision.CompareTag("SnowTile"))
+            {
+
+                isSnowTile = true;
+                isSandTile = false;
+                isIceTile = false;
+            }
+            else if (collision.CompareTag("SandTile"))
+            {
+
+                isSandTile = true;
+                isSnowTile = false;
+                isIceTile = false;
+            }
+            
+        }
+    }
+
+
+   
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (GroundCheck) // this means on trigger exit wont run unless ground is detected while collider is exited.
+        {
+            if (collision.CompareTag("IceTile"))
+            {
+                Debug.Log("IceTile Detected Exiting");
+
+                isIceTile = false;
+                
+            }
+            else if (collision.CompareTag("SnowTile"))
+            {
+                isSnowTile = false;
+              
+            }
+            else if (collision.CompareTag("SandTile"))
+            {
+                isSandTile = false;
+              
+            }
+          
+        }
+    }
 
 }

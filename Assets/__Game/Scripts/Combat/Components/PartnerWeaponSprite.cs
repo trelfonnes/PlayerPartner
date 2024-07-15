@@ -20,9 +20,11 @@ public class PartnerWeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprit
     private void HandleEnterAttackPhase(AttackPhases phase)
     {
         currentWeaponSpriteIndex = 0;
+       
+
         //  currentPhaseSprites = currentAttackDataPartner.PhaseSprites.FirstOrDefault(dataPartner => dataPartner.Phase == phase).Sprites;
         PhaseSprites[] filteredPhaseSprites = new PhaseSprites[currentAttackDataPartner.PhaseSprites.Length]; //default
-        if (movement.facingCombatDirectionX != 0)
+        if (movement.facingCombatDirectionX != 0 || movement.facingCombatDirectionX == 0 && movement.facingCombatDirectionY == 0)
         {
             filteredPhaseSprites = currentAttackDataPartner.PhaseSprites
                      .Where(dataPartner => dataPartner.Phase == phase && dataPartner.PhaseDirection == AttackPhases.EastFace)//checking to match the correct sprites with the partner.

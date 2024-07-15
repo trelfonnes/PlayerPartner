@@ -15,9 +15,10 @@ MonoBehaviour:
   secondaryType: 3
   primaryType: 1
   weaponDescription: Unleash a powerful blast of energy.
-  weaponName: Elemental Blast
-  weaponImage: {fileID: -397211858, guid: f2eeea435bd8a744f8aa07bcbe455ca6, type: 3}
+  weaponName: Elemental
+  weaponImage: {fileID: -349877989, guid: f532efb3da21fe944960a818f2e9b5ab, type: 3}
   isPlayerWeapon: 0
+  isCableCordUpgrade: 0
   isPartnerWeapon: 1
   isPrimary: 1
   isPartnerOne: 1

@@ -44,6 +44,12 @@ public class PlayerState
 
     public virtual void Enter()
     {
+        if (player == null)
+        {
+            statEvents.onCurrentHealthZero -= PlayerIsDefeated;
+            Debug.Log("Unsub because player was found to be null");
+            return;
+        }
         statEvents.onPlayerHealthZero += PlayerIsDefeated;
         startTime = Time.time; //might need changed
                 player.anim.SetBool(animBoolName, true);
@@ -54,6 +60,12 @@ public class PlayerState
 
     public virtual void Exit()
     {
+        if (player == null)
+        {
+            statEvents.onCurrentHealthZero -= PlayerIsDefeated;
+            Debug.Log("Unsub because player was found to be null");
+            return;
+        }
         player.anim.SetBool(animBoolName, false);
         isExitingState = true;
         statEvents.onPlayerHealthZero -= PlayerIsDefeated;

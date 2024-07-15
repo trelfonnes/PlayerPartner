@@ -25,6 +25,8 @@ public class PlayerFallingState : PlayerBasicState
     {
         base.Enter();
         player.onFallOver += FallIsOver;
+        AudioManager.Instance.PlayAudioClip("Falling");
+
         Debug.Log("Entered falling state");
     }
 
@@ -34,7 +36,11 @@ public class PlayerFallingState : PlayerBasicState
         player.onFallOver -= FallIsOver;
 
     }
-
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        player.onFallOver -= FallIsOver;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();

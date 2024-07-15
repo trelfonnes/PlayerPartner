@@ -11,11 +11,16 @@ public class inventoryItems : ScriptableObject
     public int numberHeld;
     public bool usable;
     public bool unique;
-    public UnityEvent thisEvent;
-
+    public ItemType itemType;
+    public bool statusHealingItem;
+    public float amountToHeal;
     public void Use()
     {
-        thisEvent.Invoke();
+        
+        if (usable)
+        {
+            DecreaseAmount(1);
+        }
     }
     public void DecreaseAmount(int amountToDecrease)
     {
@@ -24,5 +29,13 @@ public class inventoryItems : ScriptableObject
         {
             numberHeld = 0;
         }
+    }
+    public ItemType GetItemType()
+    {
+        return itemType;
+    }
+    public int ReturnAmount()
+    {
+        return numberHeld;
     }
 }

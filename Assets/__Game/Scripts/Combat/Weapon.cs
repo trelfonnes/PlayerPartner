@@ -5,6 +5,7 @@ using System;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] bool isPrimaryWeapon;
     [SerializeField] WeaponAutoGenerator thisWeaponsAutoGenerator;
     [SerializeField] WeaponInventoryManager weaponInventoryManager;
 
@@ -13,12 +14,12 @@ public class Weapon : MonoBehaviour
     [SerializeField] WeaponDataSO CableCord;
     [SerializeField] WeaponDataSO CableCord2;
     [SerializeField] WeaponDataSO CableCord3;
-    [SerializeField] WeaponDataSO Scythe;
+    [SerializeField] WeaponDataSO Shield;
     [SerializeField] WeaponDataSO Dart;
     [SerializeField] WeaponDataSO Boomerang;
     [SerializeField] WeaponDataSO Bomb;
 
-
+   
 
     public WeaponDataSO Data { get; private set; }
 
@@ -40,9 +41,17 @@ public class Weapon : MonoBehaviour
     public AnimationEventHandler EventHandler { get; private set; }
     public CoreHandler Core { get; private set; }
 
+    Movement playerCoreMovement;
+    Movement PlayerCoreMovement
+    {
+        get => playerCoreMovement ??= Core.GetCoreComponent<Movement>();
+
+    }
+
     int currentAttackCounter;
      private Timer attackCounterResetTimer;
     private bool currentInput;
+    private Vector2 lastFacingCombatDirection;
 
     public bool CurrentInput
     {
@@ -62,8 +71,8 @@ public class Weapon : MonoBehaviour
     {
         print($"{transform.name} enter");
         anim.SetBool("active", true);
-        anim.SetFloat("moveX", player.lastDirection.x);
-        anim.SetFloat("moveY", player.lastDirection.y);
+        anim.SetFloat("moveX", PlayerCoreMovement.facingCombatDirectionX);
+        anim.SetFloat("moveY", PlayerCoreMovement.facingCombatDirectionY);
          anim.SetInteger("counter", CurrentAttackCounter);
         attackCounterResetTimer.StopTimer();
         onEnter?.Invoke();
@@ -96,6 +105,51 @@ public class Weapon : MonoBehaviour
     void ResetAttackCounter()
     {
         CurrentAttackCounter = 0;
+    }
+    private void Start()
+    {
+        SetWeaponAfterLoad();
+    }
+    void SwapWeaponToLastEquipped(string weapon)
+    {
+        if (weapon == "Boomerang")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(Boomerang);
+        }
+         if (weapon == "BareHands")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(BareHands);
+        }
+         if (weapon == "CableCord")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(CableCord);
+        }
+         if (weapon == "CableCord2")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(CableCord2);
+        }
+
+          if (weapon == "CableCord3")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(CableCord3);
+        }
+        
+        if (weapon == "Shield")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(Shield);
+        }
+           
+        if (weapon == "Bomb")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(Bomb);
+        }
+          
+        if (weapon == "Dart")
+        {
+            thisWeaponsAutoGenerator.GenerateWeapon(Dart);
+        }
+
+        
     }
     private void SwapWeapons()
     {
@@ -134,14 +188,15 @@ public class Weapon : MonoBehaviour
         {
             if (weaponInventoryManager.currentWeapon.weaponName == "CableCord3")
             {
+
                 thisWeaponsAutoGenerator.GenerateWeapon(CableCord3);
             }
         }
-        if (Scythe != null)
+        if (Shield != null)
         {
-            if (weaponInventoryManager.currentWeapon.weaponName == "Scythe")
+            if (weaponInventoryManager.currentWeapon.weaponName == "Shield")
             {
-                thisWeaponsAutoGenerator.GenerateWeapon(Scythe);
+                thisWeaponsAutoGenerator.GenerateWeapon(Shield);
 
             }
         }
@@ -170,6 +225,9 @@ public class Weapon : MonoBehaviour
         weaponInventoryManager.onPlayerWeaponSwapped += SwapWeapons;
         EventHandler.OnFinish += Exit;
          attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
+        weaponInventoryManager.LoadCurrentEquippedWeapon();
+        
+
     }
     private void OnDisable()
     {
@@ -179,7 +237,20 @@ public class Weapon : MonoBehaviour
 
     }
 
-   
+    void SetWeaponAfterLoad()
+    {
+        WeaponInventoryItemSO primaryWeapon = weaponInventoryManager.GetPrimarySavedEquippedWeapon();
+        WeaponInventoryItemSO secondaryWeapon = weaponInventoryManager.GetSecondarySavedEquippedWeapon();
+
+        if (isPrimaryWeapon && primaryWeapon)
+        {
+            SwapWeaponToLastEquipped(primaryWeapon.weaponName);
+        }
+        if (!isPrimaryWeapon && secondaryWeapon)
+        {
+            SwapWeaponToLastEquipped(secondaryWeapon.weaponName);
+        }
+    }
 
     public void SetCore(CoreHandler core)
     {
@@ -189,4 +260,5 @@ public class Weapon : MonoBehaviour
     {
         Data = data;
     }
+ 
 }

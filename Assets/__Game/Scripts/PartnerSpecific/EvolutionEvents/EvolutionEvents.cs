@@ -64,6 +64,7 @@ public class EvolutionEvents : ScriptableObject
     }
     public void ReturnFromEvolution()
     {
+        Debug.Log("OnReturn from evolution invoked");
         OnReturnFromEvolution?.Invoke();
     }
     public void Devolve()
@@ -77,6 +78,12 @@ public class EvolutionEvents : ScriptableObject
             ReturnPooledEvent(e);
            
         }
+    }
+    public void UnSubscribeAllEvents()
+    {
+        OnSwitchToPartner = null;
+        OnSwitchToPlayer = null;
+       
     }
     private static readonly Queue<EvolutionEventData> eventPool = new Queue<EvolutionEventData>();
 

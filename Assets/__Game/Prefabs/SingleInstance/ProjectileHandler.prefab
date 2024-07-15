@@ -60,6 +60,40 @@ MonoBehaviour:
     projectilePrefab: {fileID: 7286626852500903003, guid: d44583cd39e76b1478e8cf81752168a7, type: 3}
   - projectileType: 6
     projectilePrefab: {fileID: 4194652619202764880, guid: b7033f0b2a3d8a142a7ebf39791006d2, type: 3}
+  - projectileType: 8
+    projectilePrefab: {fileID: 4194652619202764880, guid: 974bccca1db1d59418dcc48e4c4b8307, type: 3}
+  - projectileType: 9
+    projectilePrefab: {fileID: 4194652619202764880, guid: 53a0df0cc334d124f89a89219c54ac0b, type: 3}
+  - projectileType: 10
+    projectilePrefab: {fileID: 8796831687964888355, guid: c1ddecf56c1e0574d93c2236d18e0b45, type: 3}
+  - projectileType: 11
+    projectilePrefab: {fileID: 4194652619202764880, guid: 52925ef258e2a1443902d7ad6bfbf3c8, type: 3}
+  - projectileType: 12
+    projectilePrefab: {fileID: 4194652619202764880, guid: 8fabacf45933cca48b6f57dd23a04dda, type: 3}
+  - projectileType: 13
+    projectilePrefab: {fileID: 8796831687964888355, guid: a19bc8ecd72b07a40945e2663aa771b8, type: 3}
+  - projectileType: 14
+    projectilePrefab: {fileID: 4194652619202764880, guid: 195dd58bf114c134cb27de68a706171e, type: 3}
+  - projectileType: 15
+    projectilePrefab: {fileID: 4194652619202764880, guid: 60b70b02d33c6774f97dc8a43092881b, type: 3}
+  - projectileType: 16
+    projectilePrefab: {fileID: 8796831687964888355, guid: 2ca13d50dafdd6f46b6206669314e7b7, type: 3}
+  - projectileType: 17
+    projectilePrefab: {fileID: 4194652619202764880, guid: b44a42e21c886f144b5ae8786c9c50b6, type: 3}
+  - projectileType: 18
+    projectilePrefab: {fileID: 4194652619202764880, guid: 274fe1345bf87844fbf75360a781b7d9, type: 3}
+  - projectileType: 19
+    projectilePrefab: {fileID: 8796831687964888355, guid: 707ec4060bd2d5f4b947ba34c0dedf14, type: 3}
+  - projectileType: 20
+    projectilePrefab: {fileID: 4194652619202764880, guid: ee5c10f550d8ba64db5a9413d8ff6058, type: 3}
+  - projectileType: 21
+    projectilePrefab: {fileID: 4194652619202764880, guid: 60974a7ccbcd4df448a8cf7c165c3028, type: 3}
+  - projectileType: 22
+    projectilePrefab: {fileID: 4194652619202764880, guid: fbf73135464642343863a47a8e1831b2, type: 3}
+  - projectileType: 23
+    projectilePrefab: {fileID: 4194652619202764880, guid: c06c9a6d579eb9c4c8472add302160d0, type: 3}
+  - projectileType: 24
+    projectilePrefab: {fileID: 4194652619202764880, guid: 49001fa46cf5cc147ba48f979ce2b335, type: 3}
   poolSizes:
   - projectileType: 0
     poolSize: 5
@@ -75,6 +109,40 @@ MonoBehaviour:
     poolSize: 1
   - projectileType: 6
     poolSize: 5
+  - projectileType: 8
+    poolSize: 5
+  - projectileType: 9
+    poolSize: 5
+  - projectileType: 10
+    poolSize: 5
+  - projectileType: 11
+    poolSize: 5
+  - projectileType: 12
+    poolSize: 5
+  - projectileType: 13
+    poolSize: 5
+  - projectileType: 14
+    poolSize: 5
+  - projectileType: 15
+    poolSize: 5
+  - projectileType: 16
+    poolSize: 5
+  - projectileType: 17
+    poolSize: 1
+  - projectileType: 18
+    poolSize: 1
+  - projectileType: 19
+    poolSize: 1
+  - projectileType: 20
+    poolSize: 1
+  - projectileType: 21
+    poolSize: 1
+  - projectileType: 22
+    poolSize: 1
+  - projectileType: 23
+    poolSize: 1
+  - projectileType: 24
+    poolSize: 1
 --- !u!114 &1734242481786781561
 MonoBehaviour:
   m_ObjectHideFlags: 0

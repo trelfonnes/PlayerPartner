@@ -27,6 +27,9 @@ public class SpreadProjectile : MonoBehaviour
     [SerializeField] float maxSeparation = 5f; // Adjust this value based on your preference
 
     public Vector2 normalizedDirection;
+    private bool partnerProjectile;
+    private bool enemyProjectile;
+    [SerializeField]private bool isWhirlWind;
 
     private void Awake()
     {
@@ -68,14 +71,20 @@ public class SpreadProjectile : MonoBehaviour
     {
         
             SetSpecialAbility(attackType, collision);
-            if (collision.CompareTag("Enemy"))
+        
+            if (partnerProjectile && collision.CompareTag("Enemy"))
             {
                 TakeCareOfCollision(collision);
             }
 
-
-           
+        if (enemyProjectile && collision.CompareTag("Partner") || enemyProjectile && collision.CompareTag("Player"))
+        {
+            TakeCareOfCollision(collision);
         }
+
+
+
+    }
       
             //TODO: add logic for damage and knockback and poise. 
        
@@ -137,16 +146,20 @@ public class SpreadProjectile : MonoBehaviour
             specialAbility.ExecuteSpecialAbility(collider);
 
         }
+        else return;
     }
     private void OnEnable()
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet += Shoot;
+        ProjectileEventSystem.Instance.OnEnemyDirectionSet += EnemyShoot;
     }
 
 
     private void OnDisable()
     {
         ProjectileEventSystem.Instance.OnPartnerDirectionSet -= Shoot;
+        ProjectileEventSystem.Instance.OnEnemyDirectionSet -= EnemyShoot;
+
         isActive = false;
     }
 
@@ -157,6 +170,9 @@ public class SpreadProjectile : MonoBehaviour
         {
             this.damage = damage;
             knockBackDamage = knockBack;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
+            partnerProjectile = true;
+            enemyProjectile = false;
             float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             transform.rotation = rotation;
@@ -198,11 +214,72 @@ public class SpreadProjectile : MonoBehaviour
             hasBeenShot = true;
             StartCoroutine(SwitchSpriteRoutine());
             StartCoroutine(DeactivateAfterTime());
-            rightProj.Shoot(normalizedDirection);
-            leftProj.Shoot(normalizedDirection);
+            rightProj.Shoot(normalizedDirection, enemyProjectile);
+            leftProj.Shoot(normalizedDirection, enemyProjectile);
 
 
         
+        }
+    }
+    void EnemyShoot(EnemyProjectile component, Vector2 direction, float damage, float knockbackDamage)
+    {
+               
+        if (!hasBeenShot)
+        {
+            this.damage = damage;
+            this.knockBackDamage = knockbackDamage;
+            AudioManager.Instance.PlayAudioClip("ShootProjectile");
+            partnerProjectile = false;
+            enemyProjectile = true;
+            float angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+            if (!isWhirlWind)
+            {
+                transform.rotation = rotation;
+
+            }
+            transform.position = component.transform.position;
+            rightProj.transform.position = component.transform.position;
+            leftProj.transform.position = component.transform.position;
+
+            normalizedDirection = direction.normalized;
+            rb.velocity = normalizedDirection * velocity;
+            Debug.Log("SHOOTING WITH THE ENEMY" + leftProj);
+            rightProj.gameObject.SetActive(true);
+            leftProj.gameObject.SetActive(true);
+            float offset = 1.50f; // Adjust this value to control the initial separation
+
+            // Calculate the perpendicular vector to the normalized direction
+            Vector2 perpendicularVector = new Vector2(-direction.y, direction.x).normalized;
+
+            // Calculate the target positions for left and right projectiles
+            Vector3 leftTargetPos = transform.position - (Vector3)perpendicularVector * offset;
+            Vector3 rightTargetPos = transform.position + (Vector3)perpendicularVector * offset;
+
+            // Set the initial positions of the child objects
+            leftProj.transform.position = transform.position;
+            rightProj.transform.position = transform.position;
+
+            // Move the child objects toward their target positions
+            StartCoroutine(MoveToTarget(leftProj.transform, leftTargetPos, separationSpeed));
+            StartCoroutine(MoveToTarget(rightProj.transform, rightTargetPos, separationSpeed));
+
+            isActive = true;
+            normalizedDirection = direction.normalized;
+
+            rb.velocity = normalizedDirection * velocity;
+
+            leftProj.gameObject.SetActive(true);
+            rightProj.gameObject.SetActive(true);
+
+            hasBeenShot = true;
+            StartCoroutine(SwitchSpriteRoutine());
+            StartCoroutine(DeactivateAfterTime());
+            rightProj.Shoot(normalizedDirection, enemyProjectile);
+            leftProj.Shoot(normalizedDirection, enemyProjectile);
+
+
+
         }
     }
 

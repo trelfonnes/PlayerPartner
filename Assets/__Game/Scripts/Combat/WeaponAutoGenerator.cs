@@ -10,7 +10,7 @@ public class WeaponAutoGenerator : MonoBehaviour
     [SerializeField] Weapon weapon;
     [SerializeField] PartnerWeapon partnerWeapon;  //drag references in inspector
     [SerializeField] EnemyWeapon enemyWeapon;  //drag references in inspector
-    
+    [SerializeField] BossWeapon bossWeapon;
     [SerializeField] WeaponDataSO data; // drag data desired for weapon here for now
                                         // eventually it will be passed by inventory
     private List<WeaponComponent> componentAlreadyOnWeapon = new List<WeaponComponent>();
@@ -18,6 +18,11 @@ public class WeaponAutoGenerator : MonoBehaviour
     private List<Type> componentDependencies = new List<Type>();
     int character; // used to differentiate player or partner components should be added
     Animator anim;
+
+    private void Awake()
+    {
+        
+    }
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -41,7 +46,7 @@ public class WeaponAutoGenerator : MonoBehaviour
         }
        else if (partnerWeapon != null)
         {
-            this.data = data;
+            //this.data = data;
             partnerWeapon.SetData(data);
             character = 0;
         }
@@ -50,13 +55,21 @@ public class WeaponAutoGenerator : MonoBehaviour
             enemyWeapon.SetInitialEnemyData(data);
            character = 2;
         }
+        else if(bossWeapon != null)
+        {
+            bossWeapon.SetInitialWeaponData(data);
+            character = 3;
+        }
         componentAlreadyOnWeapon.Clear();
         componentAddedToWeapon.Clear();
         componentDependencies.Clear();
 
         componentAlreadyOnWeapon = GetComponents<WeaponComponent>().ToList();
-
+        Debug.Log(componentDependencies + "ComponentDependencies null check");
+        Debug.Log(data + "data null check");
+        Debug.Log(character + "character null check");
         componentDependencies = data.GetAllDependencies(character);
+        
 
         foreach (var dependency in componentDependencies) // check if same type item in list has been added, if so go to next
         {

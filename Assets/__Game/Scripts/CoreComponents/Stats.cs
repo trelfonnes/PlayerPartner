@@ -6,7 +6,6 @@ using System;
 public class Stats : CoreComponent, IInventory
 {
     List<int> conditionIndices = new List<int>();
-    protected PlayerData playerData;
     [SerializeField]
     protected ConditionDisplayUI conditionDisplay;
     [SerializeField]
@@ -18,8 +17,12 @@ public class Stats : CoreComponent, IInventory
 
     protected override void Awake()
     {
-        playerData = PlayerData.Instance;
         UpdateConditionUI();
+    }
+    protected override void Start()
+    {
+        base.Start();
+
     }
     public override void LogicUpdate()
     {

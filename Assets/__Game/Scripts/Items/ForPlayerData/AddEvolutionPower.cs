@@ -8,6 +8,8 @@ public class AddEvolutionPower : MonoBehaviour
         if (collision.CompareTag("Partner") && !collision.isTrigger)
         {
             collision.GetComponentInChildren<IEvolutionPower>().IncreaseEP(amount);
+            AudioManager.Instance.PlayAudioClip("CollectEP");
+
             gameObject.SetActive(false);
 
         }

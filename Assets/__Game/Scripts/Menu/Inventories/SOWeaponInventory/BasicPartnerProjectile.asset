@@ -15,9 +15,10 @@ MonoBehaviour:
   secondaryType: 0
   primaryType: 2
   weaponDescription: Cost 1 SP.
-  weaponName: Basic Projectile
-  weaponImage: {fileID: -2073985583, guid: f2eeea435bd8a744f8aa07bcbe455ca6, type: 3}
+  weaponName: Basic
+  weaponImage: {fileID: -2072353990, guid: f532efb3da21fe944960a818f2e9b5ab, type: 3}
   isPlayerWeapon: 0
+  isCableCordUpgrade: 0
   isPartnerWeapon: 1
   isPrimary: 0
   isPartnerOne: 1

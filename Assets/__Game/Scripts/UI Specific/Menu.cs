@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
     string gameToLoad;
    public void NewGame()
     {
-        sceneLoader.LoadScene("PlayerSelectScene");
+        sceneLoader.LoadMenuScene("PlayerSelectScene");
     }
 
     public void Continue()

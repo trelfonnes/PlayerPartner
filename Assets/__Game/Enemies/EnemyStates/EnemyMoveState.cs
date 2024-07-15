@@ -42,6 +42,7 @@ public class EnemyMoveState : EnemyBasicState
     public override void Exit()
     {
         base.Exit();
+        enemy.rb.velocity = Vector2.zero;
     }
 
     public override void LogicUpdate()

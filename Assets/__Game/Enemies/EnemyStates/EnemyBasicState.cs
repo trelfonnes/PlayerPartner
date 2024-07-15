@@ -80,7 +80,7 @@ public class EnemyBasicState : EnemyState
     }
     void PoiseZero()
     {
-        if (data.poise <= 0 && !data.isStunned)
+        if (data.poise <= 0 && !data.isStunned && data.health > 0)
         {
             ESM.ChangeState(enemy.StunnedState);
         }

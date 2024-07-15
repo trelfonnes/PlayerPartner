@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
     public EnemySOData enemySOData;
     public EnemyData enemyData;
     public EnemyStatEvents statEvents;
-
+    public Rigidbody2D rb { get; private set; }
     public Dictionary<string, object> blackboard = new Dictionary<string, object>();
     public Vector2 enemyDirection;
 
@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour
         StateMachine = new EnemyStateMachine();
         core = GetComponentInChildren<CoreHandler>();
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         itemSpawnPoint = GetComponent<Transform>();
         enemyData = new EnemyData(enemySOData);
         blackboard["EnemyData"] = enemySOData;

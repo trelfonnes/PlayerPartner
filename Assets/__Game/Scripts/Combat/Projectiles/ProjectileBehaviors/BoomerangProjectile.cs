@@ -38,6 +38,8 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
     {
         if (!shot)
         {
+            AudioManager.Instance.PlayAudioClip("ThrowBoomerang");
+
             transform.position = component.transform.position;
             initialPosition = component.transform.position;
             // set shoot to true so it can start finding player transform while active for 
@@ -57,6 +59,7 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
     {
         if (shot)
         {
+
             if (isReturning)
             {
                 Vector2 returnDirection = (returnPoint - transform.position).normalized;
@@ -79,6 +82,7 @@ public class BoomerangProjectile : MonoBehaviour, IInteractable
                 // Check if the boomerang has reached the maximum distance
                 if (Vector3.Distance(transform.position, returnPoint) >= maxDistance)
                 {
+
                     // Change the flag to start returning the boomerang
                     isReturning = true;
                 }

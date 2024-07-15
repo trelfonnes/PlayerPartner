@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     public Vector2 lastDirection;
     Weapon primaryWeapon;
     Weapon secondaryWeapon;
-
+    public Transform sceneLoadPosition;
     public event Action onFallOver;
     public event Action onFallStarted;
 
@@ -50,7 +50,8 @@ public class Player : MonoBehaviour
 
     protected virtual void Awake()
     {
-        
+        Debug.Log("Creating a Player in awake" + gameObject.name);
+
         playerDirection = Vector2.down;
         core = GetComponentInChildren<CoreHandler>();
         primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<Weapon>();
@@ -97,6 +98,7 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         StateMachine.CurrentState.OnDisable();
+
     }
     public void PlayerIsDefeated()
     {
@@ -110,6 +112,7 @@ public class Player : MonoBehaviour
     public void OnStartFallEvent()
     {
         onFallStarted?.Invoke();
+        Debug.Log("Start falling Player");
     }
     void UnsubscribeToEvolutionEvents()
     {

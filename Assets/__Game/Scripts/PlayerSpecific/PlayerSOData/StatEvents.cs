@@ -18,7 +18,7 @@ public class StatEvents : ScriptableObject
     public event Action onPlayerFullyRestored;
     public event Action onPlayerHealthZero;
     public event Action onLevelUp;
-   
+  
     public void LeveledUp()
     {
         if(onLevelUp != null)
@@ -26,6 +26,7 @@ public class StatEvents : ScriptableObject
             onLevelUp?.Invoke();
         }
     }
+   
      public void CurrentHealthZero()
     {
         if (onCurrentHealthZero != null)

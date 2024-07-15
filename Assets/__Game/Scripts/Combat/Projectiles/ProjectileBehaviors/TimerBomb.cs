@@ -40,6 +40,7 @@ public class TimerBomb : MonoBehaviour, IKnockBackable
             Debug.Log(offset + "This is the bombs offset");
 
             transform.position = (Vector2)component.transform.position + offset;
+            AudioManager.Instance.PlayAudioClip("Fuse");
 
             StartCoroutine(ExplodeCoroutine(direction));
             StartCoroutine(SwitchSpriteRoutine());
@@ -55,6 +56,8 @@ public class TimerBomb : MonoBehaviour, IKnockBackable
     {
         yield return new WaitForSeconds(setTime);
         Explode(direction);
+        AudioManager.Instance.PlayAudioClip("Bomb");
+
     }
     IEnumerator SwitchSpriteRoutine()
     {

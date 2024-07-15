@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using PixelCrushers.DialogueSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
@@ -29,14 +30,38 @@ public class PlayerInputHandler : MonoBehaviour
     private float lastTapTime;
     private bool isResettingDash = false;
     private float resetDelay = .01f;
+    public bool HasMoveInput => RawMovementInput != Vector2.zero;
 
+    private void OnEnable()
+    {
+        if (gameObject.activeSelf)
+        {
+            DialogueManager.Instance.conversationStarted += MuteInputForDialogue;
+            DialogueManager.Instance.conversationEnded += ReturnInputFromDialogue;
+        }
+    }
+    
     private void Awake()
     {
         PauseManager.OnPauseStateChanged += HandlePausedStateChanged;
         CutsceneManager.OnCutscenePlaying += HandlePausedStateChanged;
         _playerInput = GetComponent<PlayerInput>();
-        
+       
 
+    }
+    void MuteInputForDialogue(Transform actor)
+    {
+        if (_playerInput)
+        {
+            _playerInput.DeactivateInput();
+        }
+    }
+    void ReturnInputFromDialogue(Transform actor)
+    {
+        if (_playerInput)
+        {
+            _playerInput.ActivateInput();
+        }
     }
     void HandlePausedStateChanged(bool isPaused)
     {
@@ -226,7 +251,16 @@ public class PlayerInputHandler : MonoBehaviour
     {
         PauseManager.OnPauseStateChanged -= HandlePausedStateChanged;
         CutsceneManager.OnCutscenePlaying -= HandlePausedStateChanged;
+  
 
+    }
+    private void OnApplicationQuit()
+    {
+        if (DialogueManager.Instance != null && gameObject.activeSelf)
+        {
+            DialogueManager.Instance.conversationStarted -= MuteInputForDialogue;
+            DialogueManager.Instance.conversationEnded -= ReturnInputFromDialogue;
+        }
     }
 }
 

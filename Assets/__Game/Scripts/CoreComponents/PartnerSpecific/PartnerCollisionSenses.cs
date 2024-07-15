@@ -67,11 +67,57 @@ public class PartnerCollisionSenses : CollisionSenses
     {
         if (collision.CompareTag("Pitfall"))
         {
-            if (!isJumping)
+
+            partner.OnStartFallEvent();
+        }
+        if (GroundCheck)
+        {
+          
+            if (collision.CompareTag("IceTile"))
             {
-                partner.OnStartFallEvent();
+                isIceTile = true;
+                isSandTile = false;
+                isSnowTile = false;
             }
+            else if (collision.CompareTag("SnowTile"))
+            {
+                isSnowTile = true;
+                isSandTile = false;
+                isIceTile = false;
+            }
+            else if (collision.CompareTag("SandTile"))
+            {
+                isSandTile = true;
+                isSnowTile = false;
+                isIceTile = false;
+            }
+         
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (GroundCheck)
+        {
+            if (collision.CompareTag("IceTile"))
+            {
+                Debug.Log("IceTile Detected Exiting");
+
+                isIceTile = false;
+
+            }
+            else if (collision.CompareTag("SnowTile"))
+            {
+                isSnowTile = false;
+
+            }
+            else if (collision.CompareTag("SandTile"))
+            {
+                isSandTile = false;
+
+            }
+
+        }
+    }
+
 
 }

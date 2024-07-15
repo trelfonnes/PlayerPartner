@@ -45,9 +45,13 @@ public class WeaponDataSO : ScriptableObject
             return ComponentData.Select(component => component.EnemyComponentDependency).ToList();
 
         }
+        if(character == 3)
+        {
+            return ComponentData.Select(component => component.BossComponentDependency).ToList();
+        }
         else
         {
-            Debug.LogError("Player or Partner componentDependency not set");
+            Debug.LogError("Player or Partner or enemy or boss componentDependency not set");
             return new List<Type>();
 
         }

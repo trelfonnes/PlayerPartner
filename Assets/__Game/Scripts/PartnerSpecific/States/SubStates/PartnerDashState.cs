@@ -20,8 +20,13 @@ public class PartnerDashState : PartnerAbilityState
         playerSOData.Stamina -= 5f;
         timer = 0f;
         Movement?.SetVelocity(Movement.latestMovingVelocity * playerSOData.dashForce);
+        AudioManager.Instance.PlayAudioClip("Dash");
+
         isTouchingPitfall = false;
-        partner.onFallStarted += StartFalling;
+        //partner.onFallStarted += StartFalling;
+        Subscribe((handler) => partner.onFallStarted += handler, StartFalling);
+        Subscribe((handler) => statEvents.onCurrentHealthZero += handler, Partner1Defeated);
+
 
     }
 
@@ -29,12 +34,17 @@ public class PartnerDashState : PartnerAbilityState
     {
         base.Exit();
         partner.onFallStarted -= StartFalling;
-
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
         ResetAmountOfDashesLeft();
     }
-
-         //   partner.AbilityCooldownTimer.Reset();
-       // && partner.AbilityCooldownTimer.IsFinished()
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        partner.onFallStarted -= StartFalling;
+        statEvents.onCurrentHealthZero -= Partner1Defeated;
+    }
+    //   partner.AbilityCooldownTimer.Reset();
+    // && partner.AbilityCooldownTimer.IsFinished()
 
     public bool CanDash()
     {
@@ -60,7 +70,7 @@ public class PartnerDashState : PartnerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        Movement?.SetVelocity(partner.playerDirection * playerSOData.dashForce);
+        Movement?.SetVelocity(partner.lastDirection * playerSOData.dashForce);
         timer += Time.deltaTime;
        
         if (timer >= playerSOData.dashTime)
@@ -69,7 +79,6 @@ public class PartnerDashState : PartnerAbilityState
             PSM.ChangePartnerState(partner.IdleState);
             partner.DashCooldownTimer.Reset();
         }
-        Debug.Log(isTouchingPitfall + "Frombasic state");
         
 
 

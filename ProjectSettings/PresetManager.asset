@@ -22,3 +22,6 @@ PresetManager:
     - m_Preset: {fileID: 2655988077585873504, guid: 0bccc14136690e649890a9dccb936f3d, type: 2}
       m_Filter: obj_
       m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 0e907ba003038064597bce1a009aecdd, type: 2}
+      m_Filter: _npc
+      m_Disabled: 0

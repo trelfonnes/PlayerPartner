@@ -9,7 +9,9 @@ using System;
         Stunned,
         LevelUp,
         Teleport,
-        BombExplode
+        BombExplode,
+        Restore,
+        Heal
         // Add more particle types as needed
     }
 

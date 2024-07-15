@@ -12,13 +12,17 @@ public class ClockHandUI : MonoBehaviour
     private void Awake()
     {
         clockHandTransform = transform;
-        InitializeClock();
+        
        
+    }
+    private void Start()
+    {
+        InitializeClock();
     }
 
     private void InitializeClock()
     {
-        totalRotation = -45f; // start at morning on clock
+        CheckTimeOfDayManager();
         clockHandTransform.eulerAngles = new Vector3(0, 0, totalRotation);
         foreach (Image image in DayCycles) //set all to false
         {
@@ -27,7 +31,14 @@ public class ClockHandUI : MonoBehaviour
         DayCycles[0].gameObject.SetActive(true); //set morning to active
         currentImageIndex = 0; //set image index to morning.
     }
+    void CheckTimeOfDayManager()
+    {
+        int currentHour = TimeOfDayManager.Instance.GetCurrentHour();
+        totalRotation = -22.5f * currentHour;
+        clockHandTransform.eulerAngles = new Vector3(0, 0, totalRotation);
 
+
+    }
     void HandleHourlyTick(object sender, ClockManager.OnTickEventArgs e)
     {
         // move clockHandTransform to next point + -22.5 degrees
