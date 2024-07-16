@@ -18,6 +18,10 @@ public enum EnemyType
     Shrubby,
     Vigilape,
     Gnutnasher,
-    Verdago
+    Verdago,
+    VigilapeWave,
+    BarbacubWave,
+    RizzagrizzWave,
+    GrizzironWave
 
 }

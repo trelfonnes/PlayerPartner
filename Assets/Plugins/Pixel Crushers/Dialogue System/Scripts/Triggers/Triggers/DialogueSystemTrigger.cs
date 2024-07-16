@@ -595,6 +595,7 @@ namespace PixelCrushers.DialogueSystem
 
         public void OnTriggerEnter(Collider other)
         {
+          
             if (enabled && (trigger == DialogueSystemTriggerEvent.OnTriggerEnter)) TryStart(other.transform);
         }
 

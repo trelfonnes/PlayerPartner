@@ -32,8 +32,10 @@ public class BasicNPC : MonoBehaviour, IInteractable
 
     protected virtual void Start()
     {
-        DST = GetComponentInChildren<DialogueSystemTrigger>();
-        conversationActorSetter = GetComponentInChildren<CoversationActorSet>();
+        
+            DST = GetComponentInChildren<DialogueSystemTrigger>();
+        
+            conversationActorSetter = GetComponentInChildren<CoversationActorSet>();
         GetNPCData();
         GetConversation();
         rb = GetComponent<Rigidbody2D>();

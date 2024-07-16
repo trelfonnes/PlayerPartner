@@ -45,14 +45,18 @@ public class Area : MonoBehaviour
         {
             var player = collider.GetComponent<Player>();
             player.PlayerCamera = playerVC;
+           // playerCamera.transform.position = player.transform.position;
             playerCamera.SetActive(true);
 
             partnerCameraSwitched = false;
         }
-        if(collider.CompareTag("Partner") && !collider.isTrigger && partnerCameraActive)
+        if(collider.CompareTag("Partner") && !collider.isTrigger)// && partnerCameraActive)
         {
+            Debug.Log("Partner has entered the cameras collider and should be set");
             var partner = collider.GetComponent<Partner>();
             partner.PartnerCamera = partnerVC;
+            //partnerCamera.transform.position = partner.transform.position;
+
             partnerCamera.SetActive(true);
         }
     }
